@@ -1,22 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'assets/css/bootstrap-grid.min.css';
+
+
 $color-primary: rgb(46,41,87);
 $roman-font: 'Avenir_Roman';
 $color-secondary:rgb(65,201,142);
 $box-shadow-color: rgb(226, 226, 226);
 
-
-.margin-top{
-margin-top:10%;
-}
-
-.margin-top-5{
-  margin-top:5%;
-}
-
-
-.margin-bottom-5{
-  margin-bottom:5%;
+html,body {
+  height:100%;
 }
 
 .introduction-title {
@@ -40,7 +32,7 @@ margin-top:10%;
 }
 
 
-.text-primary {
+.text-givt {
   color: $color-primary	;
 }
 
@@ -153,8 +145,10 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   //border: 1px solid green;
- // -webkit-text-fill-color: green;
+  -webkit-text-fill-color: $color-primary;
  // -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+ color:$color-primary;
+
   transition: background-color 5000s ease-in-out 0s, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -180,10 +174,6 @@ select:-webkit-autofill:focus {
 
 .givt-button-secondary {
   color:#fff;
-  width:100%;
-  background-color: $color-secondary
+    background-color: $color-secondary
 }
 
-.pull-to-bottom {
-  bottom:0;
-}
