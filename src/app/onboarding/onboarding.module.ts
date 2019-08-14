@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { OnboardingWelcomeComponent } from './onboarding-welcome/onboarding-welcome.component';
 import { OnboardingRoutingModule } from './onboarding-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -10,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [OnboardingWelcomeComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     SharedModule,
     OnboardingRoutingModule
   ]

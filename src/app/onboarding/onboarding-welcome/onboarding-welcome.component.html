@@ -1,31 +1,38 @@
 <div class="container mt-5">
-  <div class="row mt-5 justify-content-center">
-    <div class="col-5">
-      <app-header-image></app-header-image>
+    <div class="row mt-5 justify-content-center">
+        <div class="col-5">
+            <app-header-image></app-header-image>
+        </div>
     </div>
-  </div>
-<div class="row">
-  <div class="col-12">
-  <p class="introduction-title text-givt text-roman-font">
-      Welkom bij het persoonlijke dashboard van Faith-church. Registreer eenmalig
-      om toegang te krijgen.
-    </p>
-  
-    <input type="email" placeholder="E-mailadres" class="my-3 givt-control text-givt" />
-  
-    <app-password-input></app-password-input>
-</div>
-</div>
+    <form [formGroup]="form">
+        <div class="row">
+            <div class="col-12">
+                <p class="introduction-title text-givt text-roman-font">
+                    Welkom bij het persoonlijke dashboard van Faith-church.
+                    Registreer eenmalig om toegang te krijgen.
+                </p>
 
+                <input formControlName="email"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="E-mailadres"
+                    class="my-3 givt-control text-givt"
+                />
 
-  <div class="row">
-    <div class="col-4"></div>
-    <div class="col-8">
-      
-      <button type="submit" class="givt-button large-button mt-5 w-100 givt-button-secondary text-heavy-font">
-        Registreren
-      </button>
-    
-    </div>
-  </div>
+                <app-password-input></app-password-input>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-8">
+                <button
+                    type="submit"
+                    class="givt-button large-button mt-5 w-100 givt-button-secondary text-heavy-font"
+                >
+                    Registreren
+                </button>
+            </div>
+        </div>
+    </form>
 </div>
