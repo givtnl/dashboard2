@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { OnboardingWelcomeComponent } from './onboarding-welcome/onboarding-welcome.component';
 
 const routes: Routes = [
   {
-    path: 'welcome',
-    component: OnboardingWelcomeComponent
+    path: 'onboarding',
+    loadChildren:() => import('./onboarding/onboarding.module').then(mod => mod.OnboardingModule)
   },
   {
-    path: '',
-    redirectTo: '/welcome',
+    path:'',
+    redirectTo:'onboarding',
     pathMatch:'full'
   }
 ];

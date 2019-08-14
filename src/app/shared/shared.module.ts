@@ -1,0 +1,15 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HeaderImageComponent } from './components/header-image/header-image.component';
+import { PasswordInputComponent } from './components/password-input/password-input.component';
+
+
+
+@NgModule({
+  declarations: [HeaderImageComponent, PasswordInputComponent],
+  imports: [
+    CommonModule
+  ],
+  exports:[HeaderImageComponent, PasswordInputComponent]
+})
+export class SharedModule { }
