@@ -5,6 +5,7 @@
 $color-primary: rgb(46,41,87);
 $roman-font: 'Avenir_Roman';
 $color-secondary:rgb(65,201,142);
+
 $box-shadow-color: rgb(226, 226, 226);
 
 html,body {
@@ -168,12 +169,31 @@ select:-webkit-autofill:focus {
   padding: .375rem .75rem;
   font-size: 1rem;
   line-height: 1.5;
-  border-radius: .25rem;
+  border-radius: .45rem;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.large-button {
+  padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    }
+
 .givt-button-secondary {
   color:#fff;
-    background-color: $color-secondary
+  background-color: $color-secondary;
+  box-shadow: 0 0.2rem 0.4rem 0.2rem rgba($color-secondary,.25);
+}
+
+
+.givt-button-secondary:not(:disabled):not(.disabled):active,
+.givt-button-secondary:not(:disabled):not(.disabled):hover {
+  color: #fff;
+  background-color: rgb(54, 163, 116);;
+  border-color: rgb(54, 163, 116);;
+}
+
+.givt-button:focus{
+  outline:0;
 }
 
