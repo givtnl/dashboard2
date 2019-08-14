@@ -4,7 +4,7 @@
             <app-header-image></app-header-image>
         </div>
     </div>
-    <form [formGroup]="form">
+    <form autocomplete="off" [formGroup]="form">
         <div class="row">
             <div class="col-12">
                 <p class="introduction-title text-givt text-roman-font">
@@ -12,17 +12,20 @@
                     Registreer eenmalig om toegang te krijgen.
                 </p>
 
-                <input formControlName="email"
+                <input
+                    formControlName="email"
                     type="email"
-                    autocomplete="email"
+                    name=""
+                    autocomplete="new-password"
                     placeholder="E-mailadres"
                     class="my-3 givt-control text-givt"
                 />
 
-                <app-password-input></app-password-input>
+                <app-password-input
+                    formControlName="password"
+                ></app-password-input>
             </div>
         </div>
-
         <div class="row">
             <div class="col-4"></div>
             <div class="col-8">

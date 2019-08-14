@@ -16,7 +16,7 @@ export class OnboardingWelcomeComponent implements OnInit {
       // todo retrieve email and companyname from route
       this.form = this.formBuilder.group({
         email:[this.route.snapshot.queryParams.email,[Validators.required, Validators.email]],
-        password:[null]
+        password:[null,[Validators.required, Validators.minLength(7)]]
       })
     }
 }
