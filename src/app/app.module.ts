@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OnboardingWelcomeComponent } from './onboarding-welcome/onboarding-welcome.component';
 import { HeaderImageComponent } from './components/header-image/header-image.component';
 import { PasswordInputComponent } from './components/password-input/password-input.component';
+import { BackendService } from './services/backend.service'
 
 @NgModule({
   declarations: [
@@ -16,9 +18,12 @@ import { PasswordInputComponent } from './components/password-input/password-inp
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    BackendService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
