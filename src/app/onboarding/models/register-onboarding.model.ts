@@ -1,6 +1,5 @@
-export interface RegisterOnboardingModel {
-    organisationId: string;
-    email:string;
+export interface RegisterOnboardingModel {Ò
+        email:string;
     password:string;
     firstName:string;
     lastName:string;
