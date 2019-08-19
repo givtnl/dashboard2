@@ -7,9 +7,9 @@
     <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
         <div class="row mt-4">
             <div class="col-12">
-                <p class="introduction-title text-primary  text-light-font">
-                    Welkom bij het persoonlijke dashboard van {{request.companyName}}.
-                    Registreer eenmalig om toegang te krijgen.
+                <p [translate]="'onboardingWelcomeComponent.title'" 
+                [translateParams]="{name: request.companyName}" class="introduction-title text-primary  text-light-font">
+                    
                 </p>
 
                 <input
@@ -17,7 +17,7 @@
                     type="email"
                     name=""
                     autocomplete="new-password"
-                    placeholder="E-mailadres"
+                    placeholder="{{'placeholders.email' | translate}}"
                     class="my-3 form-control form-control-lg show-validation text-primary"
                 />
 
@@ -29,9 +29,13 @@
         <div class="row fixed-bottom mb-5 mr-1 mr-lg-5">
             <div class="col-4"></div>
             <div class="col-8">
-                <button type="submit"                                    class="btn btn-lg btn-success btn-block text-white  text-heavy-font" >
-                    Registreren
-            </button>
+                <button
+                    type="submit"
+                   [translate]
+                    class="btn btn-lg btn-success btn-block text-white  text-heavy-font"
+                >
+                onboardingWelcomeComponent.registerButtonText
+                </button>
             </div>
         </div>
     </form>

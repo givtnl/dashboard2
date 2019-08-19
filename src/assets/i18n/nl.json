@@ -1,0 +1,9 @@
+{
+    "placeholders":{
+        "email":"E-m"
+    },
+
+    "onboardingWelcomeComponent":{
+        "title":"Welkom bij het persoonlijke dashboard van {{ name }}. Registreer eenmalig om toegang te krijgen."
+    }
+}

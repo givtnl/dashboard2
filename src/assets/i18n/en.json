@@ -1,0 +1,13 @@
+{
+    "placeholders":{
+        "email":"E-mail",
+        "password":"Password"
+    },
+"passwordInputComponent":{
+"help-text":"The password should atleast contain 7 characters and contain 1 uppercased letter and 1 number"
+},
+    "onboardingWelcomeComponent":{
+        "title":"Welcome to the personal dashboard of {{name}}. Register once to gain access.",
+        "registerButtonText":"Register"
+            }
+}

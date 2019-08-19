@@ -8,29 +8,30 @@ import { OnboardingRegisterGuard } from './guards/onboarding-register.guard';
 
 const routes: Routes = [
     {
-      path: 'welcome',
-      component: OnboardingWelcomeComponent
+        path: 'welcome',
+        component: OnboardingWelcomeComponent
     },
     {
-      path:'register',
-      component:OnboardingPersonalDetailsComponent,
-      canActivate: [OnboardingRegisterGuard]
+        path: 'register',
+        component: OnboardingPersonalDetailsComponent,
+        canActivate: [OnboardingRegisterGuard]
     },
     {
-      path:'completed',
-      component:OnboardingCompletedComponent
+        path: 'completed',
+        component: OnboardingCompletedComponent
     },
     {
-      path:'',
-      redirectTo:'welcome',
-      pathMatch:'full'
+        path: '',
+        redirectTo: 'welcome',
+        pathMatch: 'full'
     }
-  ];
-  
-  @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
-  })
-export class OnboardingRoutingModule {
+];
 
-}
+@NgModule({
+    imports: [
+        RouterModule.forChild(routes)
+       
+    ],
+    exports: [RouterModule]
+})
+export class OnboardingRoutingModule {}
