@@ -3,6 +3,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { OnboardingStateService } from '../services/onboarding-state.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { OnboardingService } from '../services/onboarding.service';
 
 @Component({
 	selector: 'app-onboarding-personal-details',
@@ -16,6 +17,7 @@ export class OnboardingPersonalDetailsComponent implements OnInit {
 		private formBuilder: FormBuilder,
 		private stateService: OnboardingStateService,
 		private router: Router,
+		private onboardingService: OnboardingService,
 		private toastr: ToastrService
 	) {}
 
@@ -34,11 +36,15 @@ export class OnboardingPersonalDetailsComponent implements OnInit {
 		const currentRegisterModel = this.stateService.currentRegisterModel;
 		currentRegisterModel.firstName = this.form.value.firstName;
 		currentRegisterModel.lastName = this.form.value.lastName;
-
 		this.stateService.currentRegisterModel = currentRegisterModel;
-		this.router.navigate([ '/', 'onboarding', 'completed' ], {
-			queryParamsHandling: 'merge'
-		});
+
+		this.onboardingService.complete(currentRegisterModel).subscribe(
+			(x) =>
+				this.router.navigate([ '/', 'onboarding', 'completed' ], {
+					queryParamsHandling: 'merge'
+				}),
+			(error) => this.toastr.error('Er ging iets mis to translate', 'OOOoopsssss..')
+		);
 	}
 
 	handleInvalidForm() {
