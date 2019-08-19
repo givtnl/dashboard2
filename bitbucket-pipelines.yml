@@ -6,6 +6,8 @@ pipelines:
       - step:
           name: build the angular
           script:
+            - npm install
+            - npm install -g @angular/cli
             - ng build --prod
       - step:
           name: Login with docker
