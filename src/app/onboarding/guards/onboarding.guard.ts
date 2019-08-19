@@ -24,5 +24,4 @@ export class OnboardingGuard implements CanActivate {
         } else 
             return true
     }
-
 }
