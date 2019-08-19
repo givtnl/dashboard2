@@ -47,7 +47,7 @@ export class OnboardingWelcomeComponent implements OnInit {
 
 		this.stateService.currentRegisterModel = currentRegisterModel;
 		this.router.navigate([ '/', 'onboarding', 'register' ], {
-			preserveQueryParams: true
+			queryParamsHandling: 'merge'
 		});
 	}
 
@@ -58,7 +58,6 @@ export class OnboardingWelcomeComponent implements OnInit {
 		const passwordErrors = this.form.get('password').errors;
 
 		if (emailErrors) {
-			const emailErrors = this.form.get('email').errors;
 			if (emailErrors.required) {
 				errorMessages.push('todo translate Email is verplicht');
 			}
