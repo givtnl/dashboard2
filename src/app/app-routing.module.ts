@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { OnboardingRequestResolver } from './onboarding/resolvers/onboarding-request.resolver';
+
 
 const routes: Routes = [
 	{
 		path: 'onboarding',
+		resolve:{request: OnboardingRequestResolver},
 		loadChildren: () => import('./onboarding/onboarding.module').then((mod) => mod.OnboardingModule)
 	},
 	{

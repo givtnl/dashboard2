@@ -9,5 +9,9 @@ export class OnboardingStateService {
 		const key = 'OnboardingStateService.CurrentOnBoardingRequest';
 		const serializedRequest = JSON.parse(localStorage.getItem(key));
 		return serializedRequest;
-	}
+    }
+    public set currentOnboardingRequest(value: OnboardingRequestModel){
+        const key = 'OnboardingStateService.CurrentOnBoardingRequest';
+        localStorage.setItem(key, JSON.stringify(value));
+    }
 }
