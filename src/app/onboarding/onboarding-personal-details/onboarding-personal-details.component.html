@@ -4,7 +4,7 @@
             <app-header-image></app-header-image>
         </div>
     </div>
-    <form class="mt-5" autocomplete="off" [formGroup]="form">
+    <form class="mt-5" autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
         <div class="row mt-5">
             <div class="col-12">
                 <p class="introduction-title text-primary  text-light-font">
@@ -31,11 +31,10 @@
         <div class="row fixed-bottom mb-5 mr-1 mr-lg-5">
             <div class="col-4"></div>
             <div class="col-8">
-                <a
-                [routerLink]="['/', 'onboarding','completed']"
-                    class="btn btn-lg btn-primary btn-block text-white  text-heavy-font" >
+                <button type="submit"
+                                   class="btn btn-lg btn-primary btn-block text-white  text-heavy-font" >
                     Volgende
-            </a>
+            </button>
             </div>
         </div>
     </form>

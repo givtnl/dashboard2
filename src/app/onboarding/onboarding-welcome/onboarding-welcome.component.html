@@ -4,7 +4,7 @@
             <app-header-image></app-header-image>
         </div>
     </div>
-    <form autocomplete="off" [formGroup]="form">
+    <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
         <div class="row mt-4">
             <div class="col-12">
                 <p class="introduction-title text-primary  text-light-font">
@@ -29,11 +29,9 @@
         <div class="row fixed-bottom mb-5 mr-1 mr-lg-5">
             <div class="col-4"></div>
             <div class="col-8">
-                <a 
-                [routerLink]="['/', 'onboarding','register']"
-                    class="btn btn-lg btn-success btn-block text-white  text-heavy-font" >
+                <button type="submit"                                    class="btn btn-lg btn-success btn-block text-white  text-heavy-font" >
                     Registreren
-            </a>
+            </button>
             </div>
         </div>
     </form>
