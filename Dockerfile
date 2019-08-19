@@ -35,6 +35,7 @@ COPY docker/nginx.conf /etc/nginx/nginx.conf
 RUN chmod 755 /usr/local/bin/init_container.sh
 
 WORKDIR /home/site/wwwroot
+RUN ls
 COPY ./dist ./
 
 ENTRYPOINT ["/usr/local/bin/init_container.sh"]
