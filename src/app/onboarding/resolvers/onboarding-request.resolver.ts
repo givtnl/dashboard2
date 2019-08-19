@@ -17,10 +17,12 @@ export class OnboardingRequestResolver implements Resolve<OnboardingRequestModel
 	): OnboardingRequestModel | Observable<OnboardingRequestModel> | Promise<OnboardingRequestModel> {
 		const token = route.queryParams.token as string;
 		const companyName = route.queryParams.cgname as string;
+		const collectGroupId = route.queryParams.collectGroupId as string;
 
 		return {
 			token,
-			companyName
+			companyName,
+			collectGroupId
 		};
 	}
 }

@@ -10,6 +10,6 @@ export class OnboardingService {
 	constructor(private backendService: BackendService) {}
 
 	complete(onboardingModel: RegisterOnboardingModel): Observable<object> {
-		return this.backendService.post(`collectgroups/`, onboardingModel);
+		return this.backendService.post(`collectgroups/${onboardingModel.collectGroupId}/users`, onboardingModel);
 	}
 }
