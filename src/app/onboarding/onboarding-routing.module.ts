@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { OnboardingWelcomeComponent } from './onboarding-welcome/onboarding-welcome.component';
 import { OnboardingPersonalDetailsComponent } from './onboarding-personal-details/onboarding-personal-details.component';
 import { OnboardingCompletedComponent } from './onboarding-completed/onboarding-completed.component';
+import { OnboardingRegisterGuard } from './guards/onboarding-register.guard';
 
 const routes: Routes = [
     {
@@ -12,7 +13,8 @@ const routes: Routes = [
     },
     {
       path:'register',
-      component:OnboardingPersonalDetailsComponent
+      component:OnboardingPersonalDetailsComponent,
+      canActivate: [OnboardingRegisterGuard]
     },
     {
       path:'completed',
