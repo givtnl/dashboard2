@@ -12,6 +12,8 @@ $theme-colors: (
 
 @import "~bootstrap/scss/bootstrap";
 
+@import "~ngx-toastr/toastr.css";
+
 $roman-font: 'Avenir_Roman';
 $color-secondary:rgb(65,201,142);
 $box-shadow-color: rgb(226, 226, 226);

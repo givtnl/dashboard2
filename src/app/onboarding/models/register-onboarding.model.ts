@@ -1,6 +1,6 @@
-export interface RegisterOnboardingModel {Ò
-        email:string;
-    password:string;
-    firstName:string;
-    lastName:string;
+export interface RegisterOnboardingModel {
+	email: string;
+	password: string;
+	firstName: string;
+	lastName: string;
 }
