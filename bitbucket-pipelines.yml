@@ -21,11 +21,6 @@ pipelines:
           name: Build the docker image
           script: # Modify the commands below to build your repository.
             - docker build -t givt/givtdashboard2 .
-          services:
-            - docker
-      - step:
-          name: Push the docker image
-          script:
             - docker push givt/givtdashboard2
           services:
             - docker
