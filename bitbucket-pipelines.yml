@@ -1,6 +1,12 @@
+image: node:6.9.4
+
 pipelines:
   branches:
     master:
+       - step:
+          name: build the angular
+          script:
+            - ng build --prod
       - step:
           name: Login with docker
           script:
