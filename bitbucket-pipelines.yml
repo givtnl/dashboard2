@@ -7,7 +7,6 @@ pipelines:
           name: build the angular
           script:
             - npm install
-            - npm install -g @angular/cli
             - ng build --prod
           artifacts:
             - dist/**
