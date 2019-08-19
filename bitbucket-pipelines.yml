@@ -4,6 +4,8 @@ pipelines:
   branches:
     master:
       - step:
+          caches:
+            - node
           name: build the angular
           script:
             - npm install
