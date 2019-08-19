@@ -16,7 +16,7 @@ pipelines:
           name: Login and build the docker image
           script: # Modify the commands below to build your repository.
             - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
-            - docker build -t givt/givtdashboard2 .
-            - docker push givt/givtdashboard2
+            - docker build -t givt/givtdashboard2:master .
+            - docker push givt/givtdashboard2:master
           services:
             - docker
