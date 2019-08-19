@@ -4,11 +4,13 @@ import { OnboardingWelcomeComponent } from './onboarding-welcome/onboarding-welc
 import { OnboardingRoutingModule } from './onboarding-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule} from '@angular/forms';
+import { OnboardingPersonalDetailsComponent } from './onboarding-personal-details/onboarding-personal-details.component';
+import { OnboardingCompletedComponent } from './onboarding-completed/onboarding-completed.component';
 
 
 
 @NgModule({
-  declarations: [OnboardingWelcomeComponent],
+  declarations: [OnboardingWelcomeComponent, OnboardingPersonalDetailsComponent, OnboardingCompletedComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

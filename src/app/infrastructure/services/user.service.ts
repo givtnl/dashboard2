@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BackendService } from './backend.service';
 
 import { Observable } from 'rxjs';
-import { CollectGroupAdmin } from '../../onboarding/models/collectGroupAdmin';
+import { CollectGroupAdmin } from '../../onboarding/models/register-onboarding.model';
 
 @Injectable({
     providedIn: 'root'

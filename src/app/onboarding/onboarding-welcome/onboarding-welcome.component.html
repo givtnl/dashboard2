@@ -5,9 +5,9 @@
         </div>
     </div>
     <form autocomplete="off" [formGroup]="form">
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-12">
-                <p class="introduction-title text-givt text-roman-font">
+                <p class="introduction-title text-primary  text-light-font">
                     Welkom bij het persoonlijke dashboard van Faith-church.
                     Registreer eenmalig om toegang te krijgen.
                 </p>
@@ -18,7 +18,7 @@
                     name=""
                     autocomplete="new-password"
                     placeholder="E-mailadres"
-                    class="my-3 givt-control text-givt"
+                    class="my-3 form-control form-control-lg show-validation text-primary"
                 />
 
                 <app-password-input
@@ -26,15 +26,14 @@
                 ></app-password-input>
             </div>
         </div>
-        <div class="row">
+        <div class="row fixed-bottom mb-5 mr-1 mr-lg-5">
             <div class="col-4"></div>
             <div class="col-8">
-                <button
-                    type="submit"
-                    class="givt-button large-button mt-5 w-100 givt-button-secondary text-heavy-font"
-                >
+                <a 
+                [routerLink]="['/', 'onboarding','register']"
+                    class="btn btn-lg btn-success btn-block text-white  text-heavy-font" >
                     Registreren
-                </button>
+            </a>
             </div>
         </div>
     </form>

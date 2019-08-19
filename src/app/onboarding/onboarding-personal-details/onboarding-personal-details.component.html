@@ -1,0 +1,42 @@
+<div class="container mt-5  mb-5">
+    <div class="row mt-5 justify-content-center">
+        <div class="col-5 ">
+            <app-header-image></app-header-image>
+        </div>
+    </div>
+    <form class="mt-5" autocomplete="off" [formGroup]="form">
+        <div class="row mt-5">
+            <div class="col-12">
+                <p class="introduction-title text-primary  text-light-font">
+                    Wat is uw naam?
+                </p>
+
+                <input
+                    formControlName="firstName"
+                    type="text"
+                    autocomplete="given-name"
+                    placeholder="Voornaam"
+                    class="my-3 form-control form-control-lg show-validation text-primary"
+                />
+
+                <input
+                formControlName="lastName"
+                type="text"
+                                autocomplete="family-name"
+                placeholder="Achternaam"
+                class="my-3 form-control form-control-lg show-validation text-primary"
+            />
+            </div>
+        </div>
+        <div class="row fixed-bottom mb-5 mr-1 mr-lg-5">
+            <div class="col-4"></div>
+            <div class="col-8">
+                <a
+                [routerLink]="['/', 'onboarding','completed']"
+                    class="btn btn-lg btn-primary btn-block text-white  text-heavy-font" >
+                    Volgende
+            </a>
+            </div>
+        </div>
+    </form>
+</div>
