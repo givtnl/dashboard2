@@ -23,8 +23,8 @@ export class OnboardingPersonalDetailsComponent implements OnInit {
 
 	ngOnInit() {
 		this.form = this.formBuilder.group({
-			firstName: [ null, [ Validators.required, Validators.minLength(2), Validators.maxLength(15) ] ],
-			lastName: [ null, [ Validators.required, Validators.minLength(2), Validators.maxLength(30) ] ]
+			firstName: [ this.stateService.currentRegisterModel ? this.stateService.currentRegisterModel.firstName : null, [ Validators.required, Validators.minLength(2), Validators.maxLength(15) ] ],
+			lastName: [ this.stateService.currentRegisterModel ? this.stateService.currentRegisterModel.lastName : null, [ Validators.required, Validators.minLength(2), Validators.maxLength(30) ] ]
 		});
 	}
 
@@ -36,6 +36,7 @@ export class OnboardingPersonalDetailsComponent implements OnInit {
 		const currentRegisterModel = this.stateService.currentRegisterModel;
 		currentRegisterModel.firstName = this.form.value.firstName;
 		currentRegisterModel.lastName = this.form.value.lastName;
+		currentRegisterModel.collectGroupId = this.stateService.currentOnboardingRequest.collectGroupId;
 		this.stateService.currentRegisterModel = currentRegisterModel;
 
 		this.onboardingService.complete(currentRegisterModel).subscribe(

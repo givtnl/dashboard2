@@ -6,10 +6,19 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { OnboardingInterceptor } from './onboarding/interceptors/onboarding.interceptor';
 @NgModule({
 	declarations: [ AppComponent ],
 	imports: [ BrowserModule, BrowserAnimationsModule, AppRoutingModule,HttpClientModule, ToastrModule.forRoot(), SharedModule ],
-	bootstrap: [ AppComponent ]
+	bootstrap: [ AppComponent ],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: OnboardingInterceptor,
+            multi: true
+        }
+    ]
+	
 })
 export class AppModule {}
