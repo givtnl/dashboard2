@@ -7,15 +7,15 @@
     <form class="mt-5" autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
         <div class="row mt-5">
             <div class="col-12">
-                <p class="introduction-title text-primary  text-light-font">
-                    Wat is uw naam?
+                <p translate class="introduction-title text-primary  text-light-font">
+                    onboardingPersonalDetailsComponent.title
                 </p>
 
                 <input
                     formControlName="firstName"
                     type="text"
                     autocomplete="given-name"
-                    placeholder="Voornaam"
+                    placeholder="{{'placeholders.firstName' | translate}}"
                     class="my-3 form-control form-control-lg show-validation text-primary"
                 />
 
@@ -23,7 +23,7 @@
                 formControlName="lastName"
                 type="text"
                                 autocomplete="family-name"
-                placeholder="Achternaam"
+                                placeholder="{{'placeholders.lastName' | translate}}"
                 class="my-3 form-control form-control-lg show-validation text-primary"
             />
             </div>
@@ -31,9 +31,10 @@
         <div class="row fixed-bottom mb-5 mr-1 mr-lg-5">
             <div class="col-4"></div>
             <div class="col-8">
-                <button type="submit"
+                <button type="submit" [disabled]="loading"
+                [translate]
                                    class="btn btn-lg btn-primary btn-block text-white  text-heavy-font" >
-                    Volgende
+                 <i class="fas fa-spinner fa-spin" *ngIf="loading"></i>&nbsp;              onboardingPersonalDetailsComponent.nextButtonText
             </button>
             </div>
         </div>

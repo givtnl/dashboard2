@@ -1,13 +1,37 @@
 {
-    "placeholders":{
-        "email":"E-mail",
-        "password":"Password"
+    "errorMessages":{
+		"generic-server-error":"Something went wrong",
+        "validation-errors":"Invalid input",
+        "email-required":"E-mail is mandatory",
+        "email-not-an-email":"E-mail is invalid",
+        "password-required":"Password is mandatory",
+		"password-min-length":"Password should atleast contain 7 characters, 1 uppercase character and 1 letter",
+		"first-name-required":"First name is mandatory",
+		"first-name-min-length":"First name should atleast contain 2 characters",
+		"first-name-max-length":"First name should should not contain more than 15 characters",
+		"last-name-required":"Last name is mandatory",
+		"last-name-min-length":"Last name should atleast contain 2 characters",
+		"last-name-max-length":"Last name should should not contain more than 30 characters"
     },
-"passwordInputComponent":{
-"help-text":"The password should atleast contain 7 characters and contain 1 uppercased letter and 1 number"
-},
-    "onboardingWelcomeComponent":{
-        "title":"Welcome to the personal dashboard of {{name}}. Register once to gain access.",
-        "registerButtonText":"Register"
-            }
+	"placeholders": {
+		"email": "E-mail",
+		"password": "Password",
+		"firstName":"First name",
+		"lastName":"Last name"
+	},
+	"passwordInputComponent": {
+		"help-text": "The password should atleast contain 7 characters and contain 1 uppercased letter and 1 number."
+	},
+	"onboardingCompletedComponent":{
+		"title":"You have been registered!",
+		"description":"You now have access to the dashboard where you can create collectgroups and add more users."
+	},
+	"onboardingWelcomeComponent": {
+		"title": "Welcome to the personal dashboard of {{name}}. Register once to gain access.",
+		"registerButtonText": "Register"
+	},
+	"onboardingPersonalDetailsComponent":{
+		"title": "What is your first and lastname?",
+		"nextButtonText":"Next"
+	}
 }

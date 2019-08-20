@@ -19,7 +19,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
         BrowserAnimationsModule,
         AppRoutingModule,
         HttpClientModule,
-        ToastrModule.forRoot(),
+        ToastrModule.forRoot({
+            preventDuplicates:true
+        }),
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
