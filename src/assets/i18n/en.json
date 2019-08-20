@@ -26,6 +26,10 @@
 		"title":"You have been registered!",
 		"description":"You now have access to the dashboard where you can create collectgroups and add more users."
 	},
+	"notFoundComponent": {
+		"title": "Something went wrong",
+		"description": "This page was not found, check the input or contact our helpdesk if you require assistance"
+	},
 	"onboardingWelcomeComponent": {
 		"title": "Welcome to the personal dashboard of {{name}}. Register once to gain access.",
 		"registerButtonText": "Register"

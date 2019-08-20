@@ -16,6 +16,11 @@ const routes: Routes = [
 		loadChildren: () => import('./system/system.module').then((mod) => mod.SystemModule)
 	},
 	{
+		path: '**',
+		redirectTo: 'system/not-found',
+		pathMatch: 'full'
+	},
+	{
 		path: '',
 		redirectTo: 'onboarding',
 		pathMatch: 'full'
