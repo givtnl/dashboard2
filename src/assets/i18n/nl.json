@@ -32,7 +32,8 @@
 	},
 	"onboardingWelcomeComponent": {
 		"title": "Welkom bij het dashboard van {{name}}. Registreer je eenmalig om toegang te verkrijgen.",
-		"registerButtonText": "Registreren"
+		"registerButtonText": "Registreren",
+		"sendEmailButtonText": "Bevestig je nieuw email adres."
 	},
 	"onboardingPersonalDetailsComponent": {
 		"title": "Wat je is naam?",
