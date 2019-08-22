@@ -17,6 +17,8 @@ export class OnboardingWelcomeComponent implements OnInit {
 	public form: FormGroup;
 	public request: OnboardingRequestModel;
 
+	public isEmailNew = true
+
 	constructor(
 		private translationService: TranslateService,
 		private formBuilder: FormBuilder,
@@ -38,6 +40,10 @@ export class OnboardingWelcomeComponent implements OnInit {
 			email: [ this.route.snapshot.queryParams.email, [ Validators.required, Validators.email ] ],
 			password: [ this.route.snapshot.queryParams.password, [ Validators.required, Validators.minLength(7)] ]
 		});
+	}
+
+	checkEmail() {
+		this.isEmailNew = this.form.value.email == this.route.snapshot.queryParams.email
 	}
 
 	submit() {

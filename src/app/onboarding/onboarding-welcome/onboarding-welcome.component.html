@@ -16,6 +16,7 @@
                     formControlName="email"
                     type="email"
                     name=""
+                    (blur)="checkEmail()"
                     autocomplete="new-password"
                     placeholder="{{'placeholders.email' | translate}}"
                     class="my-3 form-control form-control-lg show-validation text-primary"
@@ -29,14 +30,14 @@
         <div class="row fixed-bottom mb-5 mr-1 mr-lg-5">
             <div class="col-4"></div>
             <div class="col-8">
-                <button *ngIf="this.form.value.email == this.route.snapshot.queryParams.email;"
+                <button *ngIf="this.isEmailNew"
                     type="submit"
                    [translate]
                     class="btn btn-lg btn-success btn-block text-white  text-heavy-font"
                 >
                 onboardingWelcomeComponent.registerButtonText
                 </button>
-                <button *ngIf="this.form.value.email != this.route.snapshot.queryParams.email;"
+                <button *ngIf="!this.isEmailNew"
                     type="submit"
                    [translate]
                     class="btn btn-lg btn-success btn-block text-white  text-heavy-font"
