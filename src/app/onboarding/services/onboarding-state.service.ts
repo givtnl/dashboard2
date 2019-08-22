@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { OnboardingRequestModel } from '../models/onboarding-request.model';
-import { RegisterOnboardingModel } from '../models/register-onboarding.model';
+import { CompleteRegisterOnboardingModel } from '../models/complete-register-onboarding.model';
+
 
 @Injectable({
 	providedIn: 'root'
@@ -16,13 +17,13 @@ export class OnboardingStateService {
 		localStorage.setItem(key, JSON.stringify(value));
 	}
 
-	public get currentRegisterModel(): RegisterOnboardingModel {
+	public get currentRegisterModel(): CompleteRegisterOnboardingModel {
 		const key = 'OnboardingStateService.RegisterOnboardingModel';
 		const serializedRequest = JSON.parse(localStorage.getItem(key));
 		return serializedRequest;
 	}
 
-	public set currentRegisterModel(value: RegisterOnboardingModel) {
+	public set currentRegisterModel(value: CompleteRegisterOnboardingModel) {
 		const key = 'OnboardingStateService.RegisterOnboardingModel';
 		localStorage.setItem(key, JSON.stringify(value));
 	}
