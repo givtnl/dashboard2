@@ -20,3 +20,21 @@ pipelines:
             - docker push givt/givtdashboard2:master
           services:
             - docker
+    pre-master:
+      - step:
+          caches:
+            - node
+          name: build the angular
+          script:
+            - npm install
+            - ng build
+          artifacts:
+            - dist/**
+      - step:
+          name: Login and build the docker image
+          script: # Modify the commands below to build your repository.
+            - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+            - docker build -t givt/givtdashboard2:pre .
+            - docker push givt/givtdashboard2:pre
+          services:
+            - docker
