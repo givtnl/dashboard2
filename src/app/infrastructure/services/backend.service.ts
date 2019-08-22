@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
@@ -13,8 +13,10 @@ export class BackendService {
 		this.baseUrl = environment.apiUrl + '/api/';
     }
     
-    public get<T>(path: string): Observable<T>{
-        return this.http.get<T>(`${this.baseUrl}${path}`);
+    public get<T>(path: string, params: HttpParams): Observable<T>{
+        return this.http.get<T>(`${this.baseUrl}${path}`, {
+			params
+		});
     }
 
 	public post<T>(path: string, body: Object): Observable<T> {
