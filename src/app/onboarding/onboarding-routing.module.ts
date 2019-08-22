@@ -5,6 +5,7 @@ import { OnboardingWelcomeComponent } from './onboarding-welcome/onboarding-welc
 import { OnboardingPersonalDetailsComponent } from './onboarding-personal-details/onboarding-personal-details.component';
 import { OnboardingCompletedComponent } from './onboarding-completed/onboarding-completed.component';
 import { OnboardingRegisterGuard } from './guards/onboarding-register.guard';
+import { OnboardingChangeEmailComponent } from './onboarding-change-email/onboarding-change-email.component';
 
 const routes: Routes = [
     {
@@ -21,10 +22,15 @@ const routes: Routes = [
         component: OnboardingCompletedComponent
     },
     {
+        path: 'change-email',
+        component: OnboardingChangeEmailComponent
+    },
+    {
         path: '',
         redirectTo: 'welcome',
         pathMatch: 'full'
     }
+    
 ];
 
 @NgModule({
