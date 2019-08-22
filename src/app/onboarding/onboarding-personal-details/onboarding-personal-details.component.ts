@@ -50,7 +50,7 @@ export class OnboardingPersonalDetailsComponent implements OnInit {
 		this.stateService.currentRegisterModel = currentRegisterModel;
 
 		this.onboardingService
-			.complete(currentRegisterModel)
+			.createUser(currentRegisterModel)
 			.pipe(catchError((error) => throwError(this.translationService.get('errorMessages.generic-server-error'))))
 			.subscribe(
 				(x) =>

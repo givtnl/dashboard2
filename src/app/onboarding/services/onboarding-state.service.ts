@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { OnboardingRequestModel } from '../models/onboarding-request.model';
-import { CompleteRegisterOnboardingModel } from '../models/complete-register-onboarding.model';
+import { CreateUserForCollectGroupCommand } from '../models/commands/create-user-for-collect-group.command';
+
 
 
 @Injectable({
@@ -17,13 +18,13 @@ export class OnboardingStateService {
 		localStorage.setItem(key, JSON.stringify(value));
 	}
 
-	public get currentRegisterModel(): CompleteRegisterOnboardingModel {
+	public get currentRegisterModel(): CreateUserForCollectGroupCommand {
 		const key = 'OnboardingStateService.RegisterOnboardingModel';
 		const serializedRequest = JSON.parse(localStorage.getItem(key));
 		return serializedRequest;
 	}
 
-	public set currentRegisterModel(value: CompleteRegisterOnboardingModel) {
+	public set currentRegisterModel(value: CreateUserForCollectGroupCommand) {
 		const key = 'OnboardingStateService.RegisterOnboardingModel';
 		localStorage.setItem(key, JSON.stringify(value));
 	}

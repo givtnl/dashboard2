@@ -1,4 +1,4 @@
-export interface RegisterOnboardingModel {
+export interface UserRegistrationResponse {
     email:string;
     status: number;
     statusDescription:string;

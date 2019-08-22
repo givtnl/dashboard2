@@ -1,4 +1,4 @@
-export interface CompleteRegisterOnboardingModel {
+export interface CreateUserForCollectGroupCommand {
 	collectGroupId?: string;
 	email?: string;
 	password?: string;

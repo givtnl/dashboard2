@@ -33,6 +33,7 @@
 	"onboardingWelcomeComponent": {
 		"title": "Welcome to the personal dashboard of {{name}}. Register once to gain access.",
 		"registerButtonText": "Register",
+		"differentEmailAddress":"Click here to use a different e-mail address",
 		"sendEmailButtonText": "Confirm your new e-mail address"
 	},
 	"onboardingPersonalDetailsComponent":{

@@ -7,13 +7,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { OnboardingPersonalDetailsComponent } from './onboarding-personal-details/onboarding-personal-details.component';
 import { OnboardingCompletedComponent } from './onboarding-completed/onboarding-completed.component';
 import { OnboardingChangeEmailComponent } from './onboarding-change-email/onboarding-change-email.component';
+import { OnboardingCheckInboxComponent } from './onboarding-check-inbox/onboarding-check-inbox.component';
 
 @NgModule({
     declarations: [
         OnboardingWelcomeComponent,
         OnboardingPersonalDetailsComponent,
         OnboardingCompletedComponent,
-        OnboardingChangeEmailComponent
+        OnboardingChangeEmailComponent,
+        OnboardingCheckInboxComponent
     ],
     imports: [
         CommonModule,

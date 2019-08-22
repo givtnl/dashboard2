@@ -7,35 +7,29 @@
     <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
         <div class="row mt-4">
             <div class="col-12">
-                <p [translate]="'onboardingWelcomeComponent.title'" 
-                [translateParams]="{name: request.companyName}" class="introduction-title text-primary  text-light-font">
-                    
-                </p>
+                <p [translate]="'onboardingWelcomeComponent.title'" [translateParams]="{ name: request.companyName }" class="introduction-title text-primary  text-light-font"></p>
 
                 <input
                     formControlName="email"
                     type="email"
                     name=""
+                    readonly
                     autocomplete="new-password"
-                    placeholder="{{'placeholders.email' | translate}}"
-                    class="my-3 form-control form-control-lg show-validation text-primary"
+                    placeholder="{{ 'placeholders.email' | translate }}"
+                    class="form-control-lg pt-3 form-control-plaintext text-primary"
                 />
-                <a href="#">Change the e-mail address</a>
+                <small class="form-text pb-3 text-muted">
+                    <a translate class="text-primary text-light-font" [routerLink]="['/', 'onboarding', 'change-email']" queryParamsHandling="merge"> onboardingWelcomeComponent.differentEmailAddress</a>
+                </small>
 
-                <app-password-input
-                    formControlName="password"
-                ></app-password-input>
+                <app-password-input formControlName="password"></app-password-input>
             </div>
         </div>
         <div class="row fixed-bottom mb-5 mr-1 mr-lg-5">
             <div class="col-4"></div>
             <div class="col-8">
-                <button
-                    type="submit"
-                   [translate]
-                    class="btn btn-lg btn-success btn-block text-white  text-heavy-font"
-                >
-                onboardingWelcomeComponent.registerButtonText
+                <button type="submit" [translate] class="btn btn-lg btn-success btn-block text-white  text-heavy-font">
+                    onboardingWelcomeComponent.registerButtonText
                 </button>
             </div>
         </div>

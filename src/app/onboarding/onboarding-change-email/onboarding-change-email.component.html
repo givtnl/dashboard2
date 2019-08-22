@@ -1,0 +1,26 @@
+<div class="container mt-5">
+    <div class="row mt-5 justify-content-center">
+        <div class="col-5">
+            <app-header-image></app-header-image>
+        </div>
+    </div>
+    <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
+        <div class="row mt-4">
+            <div class="col-12">
+                <p [translate]="'onboardingWelcomeComponent.title'" [translateParams]="{ name: request.companyName }" class="introduction-title text-primary  text-light-font"></p>
+
+                <input  formControlName="email" type="email" name="" autocomplete="new-password"
+                 placeholder="{{ 'placeholders.email' | translate }}" class="form-control-lg my-3 show-validation form-control text-primary" />
+                <app-password-input formControlName="password"></app-password-input>
+            </div>
+        </div>
+        <div class="row fixed-bottom mb-5 mr-1 mr-lg-5">
+            <div class="col-4"></div>
+            <div class="col-8">
+                <button type="submit" [disabled]="loading" [translate] class="btn btn-lg btn-success btn-block text-white  text-heavy-font">
+                    <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>&nbsp; onboardingWelcomeComponent.registerButtonText
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
