@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { forkJoin, Observable } from 'rxjs';
-import { tap, switchMap } from 'rxjs/operators';
+import { tap, switchMap, catchError } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { OnboardingRequestModel } from '../models/onboarding-request.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OnboardingStateService } from '../services/onboarding-state.service';
 import { OnboardingService } from '../services/onboarding.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
     selector: 'app-onboarding-change-email',
@@ -15,8 +16,8 @@ import { OnboardingService } from '../services/onboarding.service';
     styleUrls: ['onboarding-change-email.component.scss']
 })
 export class OnboardingChangeEmailComponent implements OnInit {
-	public form: FormGroup;
-	public loading = false;
+    public form: FormGroup;
+    public loading = false;
     public request: OnboardingRequestModel;
 
     constructor(
@@ -46,8 +47,8 @@ export class OnboardingChangeEmailComponent implements OnInit {
         if (this.form.invalid) {
             this.handleInvalidForm();
             return;
-		}
-		this.loading  = true;
+        }
+        this.loading = true;
         this.service
             .sendRegistrationMail(this.request.collectGroupId, {
                 collectGroupId: this.request.collectGroupId,
@@ -55,8 +56,8 @@ export class OnboardingChangeEmailComponent implements OnInit {
                 password: this.form.value.password,
                 language: this.translationService.currentLang
             })
-			.subscribe(x => this.router.navigate(['/', 'onboarding', 'check-inbox']))
-			.add(() => this.loading = false);
+            .subscribe(x => this.router.navigate(['/', 'onboarding', 'check-inbox']))
+            .add(() => (this.loading = false));
     }
 
     handleInvalidForm() {

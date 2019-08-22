@@ -30,6 +30,10 @@
 		"title": "Er ging iets mis",
 		"description": "Deze pagina werd niet gevonden, controleer de ingave of neem contact op met onze helpdesk"
 	},
+	"onboardingCheckInboxComponent": {
+        "title": "Gelieve je mailbox te controleren",
+        "description": "We hebben je een mail gestuurd die een nieuwe link bevat om je te registreren met het emailadres dat je net hebt opgegeven. Email niet ontvangen? Controleer zeker je SPAM."
+    },
 	"onboardingWelcomeComponent": {
 		"title": "Welkom bij het dashboard van {{name}}. Registreer je eenmalig om toegang te verkrijgen.",
 		"differentEmailAddress":"Klik hier om een ander emailadres te gebruiken",
