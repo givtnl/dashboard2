@@ -4,8 +4,6 @@ export default class CustomUrlSerializer implements UrlSerializer {
     private _defaultUrlSerializer: DefaultUrlSerializer = new DefaultUrlSerializer();
 
     parse(url: string): UrlTree {
-        // Encode "+" to "%2B"
-        url = url.replace('+', '%2B');
         // Use the default serializer.
         return this._defaultUrlSerializer.parse(url);
     }
