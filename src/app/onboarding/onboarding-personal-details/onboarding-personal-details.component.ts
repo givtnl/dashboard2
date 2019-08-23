@@ -4,9 +4,9 @@ import { OnboardingStateService } from '../services/onboarding-state.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { OnboardingService } from '../services/onboarding.service';
-import { Observable, forkJoin, throwError } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
-import { tap, switchMap, catchError } from 'rxjs/operators';
+import { tap, switchMap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-onboarding-personal-details',
@@ -21,7 +21,6 @@ export class OnboardingPersonalDetailsComponent implements OnInit {
         private formBuilder: FormBuilder,
         private stateService: OnboardingStateService,
         private router: Router,
-        private onboardingService: OnboardingService,
         private toastr: ToastrService
     ) {}
 
@@ -82,7 +81,7 @@ export class OnboardingPersonalDetailsComponent implements OnInit {
         forkJoin(errorMessages)
             .pipe(tap(results => (resolvedErrorMessages = results)))
             .pipe(tap(results => console.log(results)))
-            .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+            .pipe(switchMap(() => this.translationService.get('errorMessages.validation-errors')))
             .subscribe(title =>
                 this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
                     enableHtml: true
