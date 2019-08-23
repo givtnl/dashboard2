@@ -13,7 +13,7 @@ export class BackendService {
 		this.baseUrl = environment.apiUrl + '/api/';
     }
     
-    public get<T>(path: string, params: HttpParams): Observable<T>{
+    public get<T>(path: string, params: HttpParams = null): Observable<T>{
         return this.http.get<T>(`${this.baseUrl}${path}`, {
 			params
 		});
