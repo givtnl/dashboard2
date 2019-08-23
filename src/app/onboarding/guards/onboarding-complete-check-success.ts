@@ -13,19 +13,18 @@ export class OnboardingCompleteCheckSuccessGuard implements CanActivate {
     async canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
         const registration = this.onboardingStateService.currentRegisterModel;
         const onboardingRequest = this.onboardingStateService.currentOnboardingRequest;
-
         // manually assign these values everytime as they might get wiped out
         registration.collectGroupId = onboardingRequest.collectGroupId;
         // using a promise here for readability in the beginningngnging
         try {
             await this.onboardingService.createUser(registration).toPromise();
-            return true;
+            this.onboardingStateService.clear();
         } catch (error) {
             if (error instanceof HttpErrorResponse) {
                 switch (error.status) {
                     // claim or user already exists
                     case 409:
-                        return true;
+                        break;
                     default:
                         return this.HandleFailure(next);
                 }
@@ -33,6 +32,9 @@ export class OnboardingCompleteCheckSuccessGuard implements CanActivate {
                 return this.HandleFailure(next);
             }
         }
+
+        this.onboardingStateService.clear();
+        return true;
     }
 
     private HandleFailure(next: ActivatedRouteSnapshot): boolean {
