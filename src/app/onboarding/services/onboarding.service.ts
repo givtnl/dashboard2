@@ -2,7 +2,6 @@ import { BackendService } from 'src/app/infrastructure/services/backend.service'
 import { Injectable } from '@angular/core';
 import { CreateUserForCollectGroupCommand } from '../models/commands/create-user-for-collect-group.command';
 import { Observable } from 'rxjs';
-import { HttpParams } from '@angular/common/http';
 import { SendUserRegistrationEmailOnboardingCommand } from '../models/commands/send-user-registration-email-onboarding.command';
 import { UserRegistrationResponseModel } from '../models/user-registration-response.model';
 
@@ -13,10 +12,7 @@ export class OnboardingService {
     constructor(private backendService: BackendService) {}
 
     prepareUser(collectGroupId: string, email: string): Observable<UserRegistrationResponseModel> {
-        var httpParams = new HttpParams();
-        httpParams = httpParams.set('email', email);
-
-        return this.backendService.get<UserRegistrationResponseModel>(`collectgroups/${collectGroupId}/users/register`, httpParams);
+        return this.backendService.get<UserRegistrationResponseModel>(`collectgroups/${collectGroupId}/users/register/${email}`);
     }
 
     sendRegistrationMail(collectGroupId: string, command: SendUserRegistrationEmailOnboardingCommand): Observable<object> {
