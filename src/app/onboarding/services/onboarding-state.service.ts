@@ -9,36 +9,39 @@ import { UserRegistrationResponseModel } from '../models/user-registration-respo
 	providedIn: 'root'
 })
 export class OnboardingStateService {
+
+	private storage = sessionStorage;
+
 	public get currentPreparationModel(): UserRegistrationResponseModel {
 		const key = 'OnboardingStateService.CurrentPreparationModel';
-		const serializedRequest = JSON.parse(localStorage.getItem(key));
+		const serializedRequest = JSON.parse(this.storage.getItem(key));
 		return serializedRequest;
 	}
 
 	public set currentPreparationModel(value: UserRegistrationResponseModel) {
 		const key = 'OnboardingStateService.CurrentPreparationModel';
-		localStorage.setItem(key, JSON.stringify(value));
+		this.storage.setItem(key, JSON.stringify(value));
 	}
 
 
 	public get currentOnboardingRequest(): OnboardingRequestModel {
 		const key = 'OnboardingStateService.CurrentOnBoardingRequest';
-		const serializedRequest = JSON.parse(localStorage.getItem(key));
+		const serializedRequest = JSON.parse(this.storage.getItem(key));
 		return serializedRequest;
 	}
 	public set currentOnboardingRequest(value: OnboardingRequestModel) {
 		const key = 'OnboardingStateService.CurrentOnBoardingRequest';
-		localStorage.setItem(key, JSON.stringify(value));
+		this.storage.setItem(key, JSON.stringify(value));
 	}
 
 	public get currentRegisterModel(): CreateUserForCollectGroupCommand {
 		const key = 'OnboardingStateService.RegisterOnboardingModel';
-		const serializedRequest = JSON.parse(localStorage.getItem(key));
+		const serializedRequest = JSON.parse(this.storage.getItem(key));
 		return serializedRequest;
 	}
 
 	public set currentRegisterModel(value: CreateUserForCollectGroupCommand) {
 		const key = 'OnboardingStateService.RegisterOnboardingModel';
-		localStorage.setItem(key, JSON.stringify(value));
+		this.storage.setItem(key, JSON.stringify(value));
 	}
 }
