@@ -12,6 +12,9 @@ import {
 import { OnboardingInterceptor } from './onboarding/interceptors/onboarding.interceptor';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { UrlSerializer } from '@angular/router';
+import CustomUrlSerializer from './shared/serializers/custom-url.serializer';
+
 @NgModule({
     declarations: [AppComponent],
     imports: [
@@ -37,6 +40,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
             provide: HTTP_INTERCEPTORS,
             useClass: OnboardingInterceptor,
             multi: true
+        },{
+            provide: UrlSerializer,
+            useClass: CustomUrlSerializer
         }
     ]
 })
