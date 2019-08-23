@@ -2,17 +2,17 @@ import { Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/r
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { OnboardingService } from '../services/onboarding.service';
-import { UserRegistrationResponse } from '../models/user-registration-response.model';
+import { UserRegistrationResponseModel } from '../models/user-registration-response.model';
 
 @Injectable({
     providedIn: 'root'
 })
-export class OnboardingRequestResolver implements Resolve<UserRegistrationResponse> {
+export class OnboardingUserRegistrationPreparationResolver implements Resolve<UserRegistrationResponseModel> {
     /**
      *
      */
     constructor(private service: OnboardingService) {}
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): UserRegistrationResponse | Observable<UserRegistrationResponse> | Promise<UserRegistrationResponse> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): UserRegistrationResponseModel | Observable<UserRegistrationResponseModel> | Promise<UserRegistrationResponseModel> {
         const collectGroupId = route.queryParams.collectGroupId as string;
         const emailAddress = route.queryParams.emailAddress as string;
         return this.service.prepareUser(collectGroupId, emailAddress);

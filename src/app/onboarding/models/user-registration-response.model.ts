@@ -1,6 +1,6 @@
-export interface UserRegistrationResponse {
-    email:string;
-    status: number;
-    statusDescription:string;
-    requiredInputs: Array<string>;
+export interface UserRegistrationResponseModel {
+    Email:string;
+    Status: number;
+    StatusDescription:string;
+    RequiredInputs: Array<string>;
 }

@@ -7,7 +7,7 @@
     <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
         <div class="row mt-4">
             <div class="col-12">
-                <p [translate]="'onboardingWelcomeComponent.title'" [translateParams]="{ name: request.companyName }" class="introduction-title text-primary  text-light-font"></p>
+                <p [translate]="'onboardingWelcomeComponent.title'" [translateParams]="{ name: stateService.currentOnboardingRequest.companyName }" class="introduction-title text-primary  text-light-font"></p>
 
                 <input
                     formControlName="email"
@@ -22,7 +22,7 @@
                     <a translate class="text-primary text-light-font" [routerLink]="['/', 'onboarding', 'change-email']" queryParamsHandling="merge"> onboardingWelcomeComponent.differentEmailAddress</a>
                 </small>
 
-                <app-password-input formControlName="password"></app-password-input>
+                <app-password-input *ngIf="showPassword" formControlName="password"></app-password-input>
             </div>
         </div>
         <div class="row fixed-bottom mb-5 mr-1 mr-lg-5">

@@ -7,6 +7,9 @@ import { OnboardingCompletedComponent } from './onboarding-completed/onboarding-
 import { OnboardingRegisterGuard } from './guards/onboarding-register.guard';
 import { OnboardingChangeEmailComponent } from './onboarding-change-email/onboarding-change-email.component';
 import { OnboardingCheckInboxComponent } from './onboarding-check-inbox/onboarding-check-inbox.component';
+import { OnboardingRegisterCheckPasswordGuard } from './guards/onboarding-register-check-password.guard';
+import { OnboardingRegisterCheckPersonalDetailsRequiredGuard } from './guards/onboarding-register-check-personal-details-required.guard';
+import { OnboardingCompleteCheckSuccessGuard } from './guards/onboarding-complete-check-success';
 
 const routes: Routes = [
     {
@@ -20,11 +23,12 @@ const routes: Routes = [
     {
         path: 'register',
         component: OnboardingPersonalDetailsComponent,
-        canActivate: [OnboardingRegisterGuard]
+        canActivate: [OnboardingRegisterGuard, OnboardingRegisterCheckPasswordGuard, OnboardingRegisterCheckPersonalDetailsRequiredGuard]
     },
     {
         path: 'completed',
-        component: OnboardingCompletedComponent
+        component: OnboardingCompletedComponent,
+        canActivate:[OnboardingCompleteCheckSuccessGuard]
     },
     {
         path: 'change-email',

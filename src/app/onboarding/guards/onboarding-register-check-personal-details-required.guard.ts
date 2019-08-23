@@ -5,16 +5,19 @@ import { OnboardingStateService } from '../services/onboarding-state.service';
 @Injectable({
     providedIn: 'root'
 })
-export class OnboardingRegisterGuard implements CanActivate {
+export class OnboardingRegisterCheckPersonalDetailsRequiredGuard implements CanActivate {
     constructor(private router: Router, private onboardingStateService: OnboardingStateService) {}
 
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        const registration = this.onboardingStateService.currentRegisterModel;
+        
+        const preparationModel = this.onboardingStateService.currentPreparationModel;
 
-        if (registration && registration.email) {
+        const personalDetailsRequired = preparationModel.RequiredInputs.some(x => x === 'LastName' || x === 'FirstName');
+
+        if (personalDetailsRequired) {
             return true;
         } else {
-            this.router.navigate(['/onboarding/welcome'], {
+            this.router.navigate(['/','onboarding','completed'], {
                 queryParams: next.queryParams
             });
             return false;
