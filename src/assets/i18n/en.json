@@ -35,7 +35,7 @@
         "description": "We've sent you a new email that contains a link to signup with the e-mail you've provided. If you did not receive the e-mail please check your SPAM inbox."
     },
     "onboardingWelcomeComponent": {
-        "title": "Welcome to the personal dashboard of {{name}}. Register once to gain access.",
+        "title": "Welcome to the personal dashboard of {{name}}. Register with Givt to gain access to the dashboard of Givt where you can see the collections for {{name}}.",
         "registerButtonText": "Register",
         "differentEmailAddress": "Click here to use a different e-mail address",
         "sendEmailButtonText": "Confirm your new e-mail address"
