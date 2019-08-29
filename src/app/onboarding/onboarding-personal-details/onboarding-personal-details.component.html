@@ -1,42 +1,40 @@
 <div class="container mt-5  mb-5">
-    <div class="row mt-5 justify-content-center">
-        <div class="col-5 ">
-            <app-header-image></app-header-image>
-        </div>
+  <div class="row mt-5 justify-content-center">
+    <div class="col-5 ">
+      <app-header-image></app-header-image>
     </div>
-    <form class="mt-5" autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
-        <div class="row mt-5">
-            <div class="col-12">
-                <p translate class="introduction-title text-primary  text-light-font">
-                    onboardingPersonalDetailsComponent.title
-                </p>
+  </div>
+  <form class="mt-5" autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="row mt-5">
+      <div class="col-12">
+        <p translate class="introduction-title text-primary  text-light-font">
+          onboardingPersonalDetailsComponent.title
+        </p>
 
-                <input
-                    formControlName="firstName"
-                    type="text"
-                    autocomplete="given-name"
-                    placeholder="{{'placeholders.firstName' | translate}}"
-                    class="my-3 form-control form-control-lg show-validation text-primary"
-                />
+        <input
+          formControlName="firstName"
+          type="text"
+          autocomplete="given-name"
+          placeholder="{{ 'placeholders.firstName' | translate }}"
+          class="my-3 form-control form-control-lg show-validation text-primary"
+        />
 
-                <input
-                formControlName="lastName"
-                type="text"
-                                autocomplete="family-name"
-                                placeholder="{{'placeholders.lastName' | translate}}"
-                class="my-3 form-control form-control-lg show-validation text-primary"
-            />
-            </div>
-        </div>
-        <div class="row fixed-bottom mb-5 mr-1 mr-lg-5">
-            <div class="col-4"></div>
-            <div class="col-8">
-                <button type="submit" [disabled]="loading"
-                [translate]
-                                   class="btn btn-lg btn-primary btn-block text-white  text-heavy-font" >
-                 <i class="fas fa-spinner fa-spin" *ngIf="loading"></i>&nbsp;              onboardingPersonalDetailsComponent.nextButtonText
-            </button>
-            </div>
-        </div>
-    </form>
+        <input
+          formControlName="lastName"
+          type="text"
+          autocomplete="family-name"
+          placeholder="{{ 'placeholders.lastName' | translate }}"
+          class="my-3 form-control form-control-lg show-validation text-primary"
+        />
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-4"></div>
+      <div class="col-8">
+        <button type="submit" [disabled]="loading" [translate] class="btn btn-lg btn-primary btn-block text-white  text-heavy-font">
+          <i class="fas fa-spinner fa-spin" *ngIf="loading"></i>&nbsp; onboardingPersonalDetailsComponent.nextButtonText
+        </button>
+      </div>
+    </div>
+  </form>
 </div>
