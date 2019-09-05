@@ -9,7 +9,7 @@ import { OnboardingChangeEmailComponent } from './onboarding-change-email/onboar
 import { OnboardingCheckInboxComponent } from './onboarding-check-inbox/onboarding-check-inbox.component';
 import { OnboardingRegisterCheckPasswordGuard } from './guards/onboarding-register-check-password.guard';
 import { OnboardingRegisterCheckPersonalDetailsRequiredGuard } from './guards/onboarding-register-check-personal-details-required.guard';
-import { OnboardingCompleteCheckSuccessGuard } from './guards/onboarding-complete-check-success';
+import { OnboardingCompleteCheckSuccessGuard } from './guards/onboarding-complete-check-success.guard';
 
 const routes: Routes = [
     {

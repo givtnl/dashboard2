@@ -6,11 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
+import { HeaderImagePartyComponent } from './components/header-image-party/header-image-party.component';
 
 
 
 @NgModule({
-  declarations: [HeaderImageComponent, PasswordInputComponent],
+  declarations: [HeaderImageComponent,HeaderImagePartyComponent, PasswordInputComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -22,6 +23,6 @@ import { HttpClient } from '@angular/common/http';
       }
   })
       ],
-  exports:[HeaderImageComponent, PasswordInputComponent, TranslateModule]
+  exports:[HeaderImageComponent, PasswordInputComponent, HeaderImagePartyComponent, TranslateModule]
 })
 export class SharedModule { }

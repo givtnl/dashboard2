@@ -7,3 +7,15 @@
     display:flex;
     align-items:center;
 }
+
+.no-underline {
+    text-decoration: none;
+}
+
+.confetti {
+    position: absolute;
+    z-index: -50;
+    margin-top: -10%;
+    padding-right: 0;
+    padding-left: 0;
+}

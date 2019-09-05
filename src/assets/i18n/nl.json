@@ -38,7 +38,8 @@
 		"title": "Welkom bij het dashboard van {{name}}. Registreer je bij Givt om toegang te verkrijgen tot het dashboard waar je de collectes kunt zien van {{name}}.",
 		"differentEmailAddress":"Klik hier om een ander emailadres te gebruiken",
 		"registerButtonText": "Registreren",
-		"sendEmailButtonText": "Bevestig je nieuw email adres."
+		"sendEmailButtonText": "Bevestig je nieuw email adres.",
+        "goToDashboardText": "Klik hier om naar het dashboard te gaan"
 	},
 	"onboardingPersonalDetailsComponent": {
 		"title": "Wat je is naam?",

@@ -38,7 +38,8 @@
         "title": "Welcome to the personal dashboard of {{name}}. Register with Givt to gain access to the dashboard of Givt where you can see the collections for {{name}}.",
         "registerButtonText": "Register",
         "differentEmailAddress": "Click here to use a different e-mail address",
-        "sendEmailButtonText": "Confirm your new e-mail address"
+        "sendEmailButtonText": "Confirm your new e-mail address",
+        "goToDashboardText": "Click here to go to the dashboard"
     },
     "onboardingPersonalDetailsComponent": {
         "title": "What is your first and lastname?",
