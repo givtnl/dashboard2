@@ -9,6 +9,10 @@
 .flex-column .active {
   border-left: 5px solid theme-color('success');
 }
+.flex-column .active i,img {
+   margin-left: -5px;
+  }
+
 .sidebar-sticky {
   height: 100%;
 }
