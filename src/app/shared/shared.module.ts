@@ -7,11 +7,12 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { HeaderImagePartyComponent } from './components/header-image-party/header-image-party.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
 
 
 
 @NgModule({
-  declarations: [HeaderImageComponent,HeaderImagePartyComponent, PasswordInputComponent],
+  declarations: [HeaderImageComponent,HeaderImagePartyComponent,SideBarComponent, PasswordInputComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -23,6 +24,6 @@ import { HeaderImagePartyComponent } from './components/header-image-party/heade
       }
   })
       ],
-  exports:[HeaderImageComponent, PasswordInputComponent, HeaderImagePartyComponent, TranslateModule]
+  exports:[HeaderImageComponent, PasswordInputComponent, HeaderImagePartyComponent,SideBarComponent, TranslateModule]
 })
 export class SharedModule { }

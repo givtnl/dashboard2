@@ -1,0 +1,23 @@
+// Required
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+.sidebar-sticky {
+  border-top-right-radius: 35%;
+}
+.flex-column .active {
+  border-left: 5px solid theme-color('success');
+}
+.sidebar-sticky {
+  height: 100%;
+}
+.image-holder img {
+  height: 65px;
+}
+// Example usage:
+@include media-breakpoint-up(md) {
+  .image-holder svg {
+    height: 65px;
+  }
+}
