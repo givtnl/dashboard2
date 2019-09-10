@@ -17,11 +17,6 @@
   height: 100%;
 }
 .image-holder img {
-  height: 65px;
+  height: 50px;
 }
-// Example usage:
-@include media-breakpoint-up(md) {
-  .image-holder svg {
-    height: 65px;
-  }
-}
+
