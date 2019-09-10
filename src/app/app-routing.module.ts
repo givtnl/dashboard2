@@ -16,6 +16,10 @@ const routes: Routes = [
         loadChildren: () => import('./system/system.module').then(mod => mod.SystemModule)
     },
     {
+        path: 'dashboard',
+        loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule)
+    },
+    {
         path: '**',
         redirectTo: 'system/not-found',
         pathMatch: 'full'
