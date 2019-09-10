@@ -8,11 +8,13 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { HeaderImagePartyComponent } from './components/header-image-party/header-image-party.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { BootstrapSizeIndicatorComponent } from './components/bootstrap-size-indicator/bootstrap-size-indicator.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 
 
 @NgModule({
-  declarations: [HeaderImageComponent,HeaderImagePartyComponent,SideBarComponent, PasswordInputComponent],
+  declarations: [HeaderImageComponent,HeaderImagePartyComponent,SideBarComponent, PasswordInputComponent, BootstrapSizeIndicatorComponent, NavBarComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -24,6 +26,6 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
       }
   })
       ],
-  exports:[HeaderImageComponent, PasswordInputComponent, HeaderImagePartyComponent,SideBarComponent, TranslateModule]
+  exports:[HeaderImageComponent,NavBarComponent, PasswordInputComponent,BootstrapSizeIndicatorComponent, HeaderImagePartyComponent,SideBarComponent, TranslateModule]
 })
 export class SharedModule { }
