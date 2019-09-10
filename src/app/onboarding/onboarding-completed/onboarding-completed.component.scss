@@ -1,21 +1,106 @@
 .success-circle {
-    
+
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: #41c98e; /* Old browsers */
-    display:flex;
-    align-items:center;
+
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#41c98e+87,f4bf63+100 */
+    background: #41c98e;
+    /* Old browsers */
+    background: -moz-linear-gradient(45deg, #41c98e 30%, #f4bf63 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #41c98e 30%, #f4bf63 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #41c98e 30%, #f4bf63 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#41c98e', endColorstr='#f4bf63', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+
+    display: flex;
+    align-items: center;
 }
+
 
 .no-underline {
     text-decoration: none;
 }
 
-.confetti {
-    position: absolute;
-    z-index: -50;
-    margin-top: -10%;
-    padding-right: 0;
-    padding-left: 0;
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+$givt-purple-color: rgb(46, 41, 87);
+$givt-green-color:rgb(28, 169, 108);
+
+$theme-colors: (
+    "primary": $givt-purple-color,
+    "success": $givt-green-color);
+
+p {
+    color: theme-color('primary');
+}
+.onboarding-container {
+    height: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+
+    .onboarding-wrapper {
+        .onboarding-header {
+            text-align: center;
+            .confetti {
+                position: absolute;
+                top: 0;
+                left: 25%;
+                z-index: -1;
+            }
+        }
+        .onboarding-body {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            .success-circle {
+                align-self: center;
+                margin: 40px 0;
+            }
+            p:nth-of-type(1) {
+                font-family: 'Avenir_Heavy';
+            }
+        }
+    }
+}
+@include media-breakpoint-up(md) {
+    .onboarding-container {
+        max-width: 720px;
+        max-height: 400px;
+
+        .onboarding-wrapper {
+            .onboarding-header {
+                margin-top: 0 !important;
+                .confetti {
+                    position: absolute;
+                    z-index: -1;
+                    top: 20%; 
+                    left: 38%;
+                    width: 20%;
+                }
+            }
+        }
+
+        .onboarding-footer {
+            margin-top: 40px;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .onboarding-container {
+        margin-bottom: 80px;
+    }
+}
+@include media-breakpoint-up(xl) {
+    .onboarding-container {
+        margin-bottom: 100px;
+    }
 }
