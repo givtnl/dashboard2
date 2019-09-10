@@ -5,7 +5,7 @@ import { DashboardRootComponent } from './dashboard-root/dashboard-root.componen
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'root',
     component: DashboardRootComponent,
     children: [
       {
