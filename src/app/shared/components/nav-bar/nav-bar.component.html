@@ -1,0 +1,22 @@
+<nav class="text-medium-font d-lg-none navbar navbar-expand-lg navbar-light bg-light">
+  <button
+  (click)="showSideBar = !showSideBar"
+  class="navbar-toggler border-0"
+    type="button"
+      aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <span *ngIf="!showSideBar" class="ml-1 align-center">Menu</span>
+  <a class="mx-auto" href="#">
+    <img src="/assets/images/givt-logo.svg" height="30" class="d-inline-block align-top" alt="" />
+  </a>
+</nav>
+<div class="row h-100 side-bar-host" *ngIf="showSideBar">
+  <div class="pl-3">
+    <div class=" h-100" id="navbarSupportedContent">
+      <app-side-bar (closeButtonClicked)="showSideBar = !showSideBar" showCloseButton="true"></app-side-bar>
+    </div>
+  </div>
+</div>
