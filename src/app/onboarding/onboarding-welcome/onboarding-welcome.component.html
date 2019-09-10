@@ -1,43 +1,36 @@
-<div class="container mt-5">
-  <div class="row mt-5 justify-content-center">
-    <div class="col-5">
-      <app-header-image></app-header-image>
+<div class="component">
+  <div class="card container bg-transparent border-light shadow pl-0 pr-0 mt-auto mb-auto">
+    <div class="card-header bg-transparent row justify-content-center ml-0 mr-0">
+      <div class="col-5 col-md-4 col-lg-2 mt-1 mb-4">
+        <app-header-image></app-header-image>
+      </div>
     </div>
+    <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
+      <div class="card-body">
+        <div class="row mt-4 mb-4 ml-2 mr-2">
+          <div class="col-12">
+            <p [translate]="'onboardingWelcomeComponent.title'"
+              [translateParams]="{ name: stateService.currentOnboardingRequest.companyName }"
+              class="introduction-title text-primary text-center text-light-font"></p>
+            <input type="email" name="" readonly autocomplete="new-password"
+              placeholder="{{ 'placeholders.email' | translate }}"
+              class="form-control-lg pt-3 form-control-plaintext text-primary" />
+            <small class="form-text pb-3 text-muted">
+              <a translate class="text-primary text-light-font" [routerLink]="['/', 'onboarding', 'change-email']"
+                queryParamsHandling="merge">
+                onboardingWelcomeComponent.differentEmailAddress</a>
+            </small>
+            <app-password-input></app-password-input>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer bg-transparent">
+        <div class="row ml-2 mr-2 footer">
+          <button type="submit" [translate] class="btn btn-lg btn-success text-white text-heavy-font pl-5 pr-5">
+            onboardingWelcomeComponent.registerButtonText
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
-  <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
-    <div class="row mt-4">
-      <div class="col-12">
-        <p
-          [translate]="'onboardingWelcomeComponent.title'"
-          [translateParams]="{ name: stateService.currentOnboardingRequest.companyName }"
-          class="introduction-title text-primary  text-light-font"
-        ></p>
-
-        <input
-          formControlName="email"
-          type="email"
-          name=""
-          readonly
-          autocomplete="new-password"
-          placeholder="{{ 'placeholders.email' | translate }}"
-          class="form-control-lg pt-3 form-control-plaintext text-primary"
-        />
-        <small class="form-text pb-3 text-muted">
-          <a translate class="text-primary text-light-font" [routerLink]="['/', 'onboarding', 'change-email']" queryParamsHandling="merge">
-            onboardingWelcomeComponent.differentEmailAddress</a
-          >
-        </small>
-
-        <app-password-input *ngIf="showPassword" formControlName="password"></app-password-input>
-      </div>
-    </div>
-    <div class="row mt-5">
-      <div class="col-4"></div>
-      <div class="col-8">
-        <button type="submit" [translate] class="btn btn-lg btn-success btn-block text-white  text-heavy-font">
-          onboardingWelcomeComponent.registerButtonText
-        </button>
-      </div>
-    </div>
-  </form>
 </div>

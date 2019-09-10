@@ -1,3 +1,21 @@
 .form-control-plaintext {
-    padding-left:inherit;
+    padding-left:inherit;}
+
+.component {
+    display: flex;
+    height: 100vh;
+}
+
+.card-header {
+    border-bottom: none;
+}
+
+.card-footer {
+    border-top: none;
+}
+
+.footer {
+    justify-content: flex-end;
+    padding-right: 15px;
+    padding-left: 15px;
 }
