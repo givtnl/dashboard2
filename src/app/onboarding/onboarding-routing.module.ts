@@ -11,48 +11,56 @@ import { OnboardingRegisterCheckPasswordGuard } from './guards/onboarding-regist
 import { OnboardingRegisterCheckPersonalDetailsRequiredGuard } from './guards/onboarding-register-check-personal-details-required.guard';
 import { OnboardingCompleteCheckSuccessGuard } from './guards/onboarding-complete-check-success.guard';
 import { OnboardingRootComponent } from './onboarding-root/onboarding-root.component';
-import { BankAccountIntroComponent } from './bank-account/bank-account-intro/bank-account-intro.component';
+import { OnboardingGuard } from './guards/onboarding.guard';
+import { OnboardingRequestResolver } from './resolvers/onboarding-request.resolver';
+import { OnboardingUserRegistrationPreparationResolver } from './resolvers/onboarding-user-registration-preparation.resolver';
 
 const routes: Routes = [
   {
-    path: 'root',
-    component: OnboardingRootComponent,
+    path: 'welcome',
     children: [
       {
-        path: 'bank-account-intro',
-        component: BankAccountIntroComponent,
-        outlet: 'onboarding-outlet'
-      },
-      {
-        path: 'welcome',
-        component: OnboardingWelcomeComponent,
-        outlet: 'onboarding-outlet'
-      },
-      {
-        path: 'check-inbox',
-        component: OnboardingCheckInboxComponent,
-        outlet: 'onboarding-outlet'
-      },
-      {
-        path: 'register',
-        component: OnboardingPersonalDetailsComponent,
-        canActivate: [OnboardingRegisterGuard, OnboardingRegisterCheckPasswordGuard, OnboardingRegisterCheckPersonalDetailsRequiredGuard]
-      },
-      {
-        path: 'completed',
-        component: OnboardingCompletedComponent,
-        outlet: 'onboarding-outlet',
-        canActivate: [OnboardingCompleteCheckSuccessGuard]
-      },
-      {
-        path: 'change-email',
-        outlet: 'onboarding-outlet',
-        component: OnboardingChangeEmailComponent
-      },
-      {
         path: '',
-        redirectTo: 'welcome',
-        pathMatch: 'full'
+        redirectTo: 'new-users'
+      },
+      {
+        path: 'new-users',
+        component: OnboardingRootComponent,
+        resolve: { request: OnboardingRequestResolver, preparation: OnboardingUserRegistrationPreparationResolver },
+        canActivate: [OnboardingGuard],
+        children: [
+          {
+            path: '',
+            component: OnboardingWelcomeComponent,
+            outlet: 'onboarding-outlet'
+          },
+          {
+            path: 'check-inbox',
+            component: OnboardingCheckInboxComponent,
+            outlet: 'onboarding-outlet'
+          },
+          {
+            path: 'register',
+            outlet: 'onboarding-outlet',
+            component: OnboardingPersonalDetailsComponent,
+            canActivate: [
+              OnboardingRegisterGuard,
+              OnboardingRegisterCheckPasswordGuard,
+              OnboardingRegisterCheckPersonalDetailsRequiredGuard
+            ]
+          },
+          {
+            path: 'completed',
+            component: OnboardingCompletedComponent,
+            outlet: 'onboarding-outlet',
+            canActivate: [OnboardingCompleteCheckSuccessGuard]
+          },
+          {
+            path: 'change-email',
+            outlet: 'onboarding-outlet',
+            component: OnboardingChangeEmailComponent
+          }
+        ]
       }
     ]
   }
