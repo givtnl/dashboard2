@@ -4,6 +4,7 @@ import { DashboardHomeComponent } from './dashboard-home/dashboard-home.componen
 import { SharedModule } from '../shared/shared.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardRootComponent } from './dashboard-root/dashboard-root.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,6 +13,7 @@ import { DashboardRootComponent } from './dashboard-root/dashboard-root.componen
   imports: [
     DashboardRoutingModule,
     CommonModule,
+    ReactiveFormsModule,
     SharedModule
   ]
 })

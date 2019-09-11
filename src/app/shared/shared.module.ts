@@ -10,11 +10,12 @@ import { HeaderImagePartyComponent } from './components/header-image-party/heade
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { BootstrapSizeIndicatorComponent } from './components/bootstrap-size-indicator/bootstrap-size-indicator.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { CheckBoxInputComponent } from './components/check-box-input/check-box-input.component';
 
 
 
 @NgModule({
-  declarations: [HeaderImageComponent,HeaderImagePartyComponent,SideBarComponent, PasswordInputComponent, BootstrapSizeIndicatorComponent, NavBarComponent],
+  declarations: [HeaderImageComponent,HeaderImagePartyComponent,SideBarComponent, PasswordInputComponent, BootstrapSizeIndicatorComponent, NavBarComponent, CheckBoxInputComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -26,6 +27,6 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
       }
   })
       ],
-  exports:[HeaderImageComponent,NavBarComponent, PasswordInputComponent,BootstrapSizeIndicatorComponent, HeaderImagePartyComponent,SideBarComponent, TranslateModule]
+  exports:[HeaderImageComponent,NavBarComponent,CheckBoxInputComponent, PasswordInputComponent,BootstrapSizeIndicatorComponent, HeaderImagePartyComponent,SideBarComponent, TranslateModule]
 })
 export class SharedModule { }

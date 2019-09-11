@@ -4,12 +4,12 @@
         <app-header-image></app-header-image>
         <p [translate]="'onboardingWelcomeComponent.title'"
             [translateParams]="{ name: request.companyName }"
-            class="introduction-title text-center text-light-font"></p>
+            class="introduction-title text-center text-light-font  mt-3"></p>
       </div>
-      <div class="onboarding-body">
+      <div class="onboarding-body mt-3">
         <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
-            <input  formControlName="email" type="email" name="" autocomplete="new-password"
-            placeholder="{{ 'placeholders.email' | translate }}" class="form-control-lg my-3 show-validation form-control text-primary" />
+            <input  formControlNhjkhkame="email" type="email" name="" autocomplete="new-password"
+            placeholder="{{ 'placeholders.email' | translate }}" class="form-control-lg text-give-purple my-3 show-validation form-control" />
           <app-password-input formControlName="password"></app-password-input>
         </form>
       </div>

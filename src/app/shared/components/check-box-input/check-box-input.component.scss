@@ -1,0 +1,15 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import 'src/styles.scss';
+
+.btn-givt {
+  background: white;
+  border: 1px solid rgba(206, 212, 218, 0.3);
+  @extend .shadow !optional;
+}
+
+.btn-givt:hover,
+.btn-givt.active {
+  @extend .bg-givt-purple !optional;
+  color: white;
+}

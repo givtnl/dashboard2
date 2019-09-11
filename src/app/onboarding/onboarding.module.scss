@@ -51,10 +51,6 @@ body {
         background-color: theme-color('success');
         border: none;
     }
-    p, a {
-        font-family: 'Avenir_Light';
-        color: theme-color('primary') !important;
-    }
 }
 
 .email-circle, .success-circle {
@@ -88,10 +84,6 @@ body {
             .onboarding-header {
                 margin-top: 0 !important;
             }
-        }
-
-        .onboarding-footer {
-            margin-top: 40px;
         }
     }
 }

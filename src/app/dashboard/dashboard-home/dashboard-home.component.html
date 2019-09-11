@@ -1,2 +1,6 @@
 
 <p>dashboard-home works!</p>
+<form [formGroup]="form">
+    <app-check-box-input formControlName="someInput"></app-check-box-input>
+    {{form.value | json}}
+</form>

@@ -4,15 +4,15 @@
       <app-header-image></app-header-image>
       <p [translate]="'onboardingWelcomeComponent.title'"
           [translateParams]="{ name: stateService.currentOnboardingRequest.companyName }"
-          class="introduction-title text-center text-light-font"></p>
+          class="introduction-title text-center mt-3 text-light-font"></p>
     </div>
-    <div class="onboarding-body">
+    <div class="onboarding-body mt-3">
       <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
         <input type="email" disabled autocomplete="new-password"
           placeholder="{{ 'placeholders.email' | translate }}"
-          class="form-control-lg pt-3 form-control-plaintext" />
-        <small class="form-text pb-3">
-          <a translate [routerLink]="['/', 'onboarding', 'change-email']"
+          class="form-control-lg pt-3 form-control" />
+        <small class="text-left form-text pb-3">
+          <a class="text-givt-purple text-light-font" translate [routerLink]="['/', 'onboarding', 'change-email']"
             queryParamsHandling="merge">
             onboardingWelcomeComponent.differentEmailAddress</a>
         </small>
@@ -20,8 +20,8 @@
       </form>
     </div>
   </div>
-  <div class="onboarding-footer">
-    <button type="submit" [translate] class="btn btn-lg btn-success text-white text-heavy-font mb-3">
+  <div class="mt-3">
+    <button type="submit" [translate] class="btn float-right btn-lg btn-success text-white text-heavy-font">
       onboardingWelcomeComponent.registerButtonText
     </button>
   </div>

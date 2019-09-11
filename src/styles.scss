@@ -10,10 +10,7 @@ $theme-colors: (
   "success": $givt-green-color
 );
 
-//#41c99e start
-//#f4bf63 eind
 
-$roman-font: 'Avenir_Roman';
 $color-secondary:rgb(65,201,142);
 $box-shadow-color: rgb(226, 226, 226);
 
@@ -28,8 +25,15 @@ $box-shadow-color: rgb(226, 226, 226);
   justify-content: center;
 }
 
+.text-givt-purple {
+  color: theme-color('primary') !important;
+}
 .introduction-title {
   font-size:large;
+}
+
+.bg-givt-purple {
+  background-color: theme-color('primary') !important;
 }
 
 .text-heavy-font {
@@ -42,10 +46,6 @@ $box-shadow-color: rgb(226, 226, 226);
 
 .text-medium-font {
   font-family:'Avenir_Medium';
-}
-
-.text-roman-font {
-  font-family: $roman-font;
 }
 
 @font-face {

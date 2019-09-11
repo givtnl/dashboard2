@@ -42,7 +42,7 @@
         "goToDashboardText": "Klik hier om naar het dashboard te gaan"
 	},
 	"onboardingPersonalDetailsComponent": {
-		"title": "Wat je is naam?",
+		"title": "Wat is je naam?",
 		"nextButtonText": "Volgende"
 	}
 }
