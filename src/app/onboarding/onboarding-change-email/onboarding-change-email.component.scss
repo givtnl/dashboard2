@@ -1,53 +1,13 @@
-.form-control-plaintext {
-    padding-left: inherit;
-}
-
-body {
-    height: 100% !important;
-}
-
-@import "~bootstrap/scss/bootstrap";
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-
-$givt-purple-color: rgb(46,41,87);
-$givt-green-color:rgb(28,169,108);
-
-$theme-colors: (
-  "primary": $givt-purple-color ,
-  "success": $givt-green-color
-);
 .onboarding-container {
-    height: -webkit-fill-available;
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
-
     .onboarding-wrapper {
         .onboarding-header {
             :nth-child(1) {
                 max-width: 30px;
             }
-
-            text-align: center;
-
             p {
                 margin-top: 40px;
             }
         }
-    }
-
-    .onboarding-footer {
-        display: flex;
-        justify-content: flex-end;
-    }
-    button {
-        background-color: theme-color('success');
-        border: none;
-    }
-    p, a {
-        font-family: 'Avenir_Light';
-        color: theme-color('primary') !important;
     }
 }
