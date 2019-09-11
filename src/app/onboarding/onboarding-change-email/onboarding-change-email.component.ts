@@ -56,7 +56,7 @@ export class OnboardingChangeEmailComponent implements OnInit {
                 password: this.form.value.password,
                 language: this.translationService.currentLang
             })
-            .subscribe(x => this.router.navigate(['/', 'onboarding', 'check-inbox']))
+            .subscribe(x => this.router.navigate(['/', 'onboarding', 'welcome', 'new-users', { outlets: { 'onboarding-outlet': ['check-inbox'] } }]))
             .add(() => (this.loading = false));
     }
 
