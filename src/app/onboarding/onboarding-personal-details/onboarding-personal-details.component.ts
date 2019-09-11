@@ -19,7 +19,7 @@ export class OnboardingPersonalDetailsComponent implements OnInit {
   constructor(
     private translationService: TranslateService,
     private formBuilder: FormBuilder,
-    private stateService: OnboardingStateService,
+    public stateService: OnboardingStateService,
     private router: Router,
     private toastr: ToastrService
   ) {}
