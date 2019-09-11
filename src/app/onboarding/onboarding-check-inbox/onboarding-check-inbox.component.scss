@@ -57,31 +57,3 @@ p {
         }
     }
 }
-
-@include media-breakpoint-up(md) {
-    .onboarding-container {
-        max-width: 720px;
-        max-height: 400px;
-
-        .onboarding-wrapper {
-            .onboarding-header {
-                margin-top: 0 !important;
-            }
-        }
-
-        .onboarding-footer {
-            margin-top: 40px;
-        }
-    }
-}
-
-@include media-breakpoint-up(lg) {
-    .onboarding-container {
-        margin-bottom: 80px;
-    }
-}
-@include media-breakpoint-up(xl) {
-    .onboarding-container {
-        margin-bottom: 100px;
-    }
-}

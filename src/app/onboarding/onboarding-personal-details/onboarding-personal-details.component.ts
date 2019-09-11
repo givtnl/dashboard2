@@ -11,7 +11,7 @@ import { tap, switchMap } from 'rxjs/operators';
 @Component({
     selector: 'app-onboarding-personal-details',
     templateUrl: './onboarding-personal-details.component.html',
-    styleUrls: ['./onboarding-personal-details.component.scss']
+    styleUrls: ['../onboarding.module.scss', './onboarding-personal-details.component.scss']
 })
 export class OnboardingPersonalDetailsComponent implements OnInit {
     public form: FormGroup;

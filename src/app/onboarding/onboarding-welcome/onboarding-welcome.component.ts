@@ -12,7 +12,7 @@ import { UserRegistrationResponseModel } from '../models/user-registration-respo
 @Component({
     selector: 'app-onboarding-welcome',
     templateUrl: './onboarding-welcome.component.html',
-    styleUrls: ['./onboarding-welcome.component.scss']
+    styleUrls: ['../onboarding.module.scss', './onboarding-welcome.component.scss']
 })
 export class OnboardingWelcomeComponent implements OnInit {
     public form: FormGroup;
