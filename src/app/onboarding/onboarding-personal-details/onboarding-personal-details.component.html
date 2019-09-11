@@ -1,19 +1,20 @@
-
-<div class="container onboarding-container align-self-center">
-  <div class="onboarding-wrapper">
-    <div class="onboarding-header mt-5">
-      <app-header-image></app-header-image>
-      <p [translate]="'onboardingWelcomeComponent.title'"
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="container onboarding-container align-self-center">
+    <div class="onboarding-wrapper">
+      <div class="onboarding-header mt-5">
+        <app-header-image></app-header-image>
+        <p
+          [translate]="'onboardingWelcomeComponent.title'"
           [translateParams]="{ name: stateService.currentOnboardingRequest.companyName }"
-          class="introduction-title text-center mt-3 text-light-font"></p>
-    </div>
-    <div class="onboarding-body mt-3">
-      <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
+          class="introduction-title text-center mt-3 text-light-font"
+        ></p>
+      </div>
+      <div class="onboarding-body mt-3">
         <div class="col-12">
           <p translate class="introduction-title text-givt-purple  text-light-font">
             onboardingPersonalDetailsComponent.title
           </p>
-  
+
           <input
             formControlName="firstName"
             type="text"
@@ -21,7 +22,7 @@
             placeholder="{{ 'placeholders.firstName' | translate }}"
             class="my-3 form-control form-control-lg show-validation text-primary"
           />
-  
+
           <input
             formControlName="lastName"
             type="text"
@@ -30,12 +31,12 @@
             class="my-3 form-control form-control-lg show-validation text-primary"
           />
         </div>
-      </form>
+      </div>
+    </div>
+    <div class="col-12 mt-3">
+      <button type="submit" [disabled]="loading" [translate] class=" float-right btn btn-lg bg-givt-purple text-white text-heavy-font">
+        <i class="fas fa-spinner fa-spin mr-2" *ngIf="loading"></i>onboardingPersonalDetailsComponent.nextButtonText
+      </button>
     </div>
   </div>
-  <div class="col-12 mt-3">
-    <button type="submit" [disabled]="loading" [translate] class=" float-right btn btn-lg bg-givt-purple text-white text-heavy-font">
-      <i class="fas fa-spinner fa-spin mr-2" *ngIf="loading"></i>onboardingPersonalDetailsComponent.nextButtonText
-    </button>
-  </div>
-</div>
+</form>
