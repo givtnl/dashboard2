@@ -10,6 +10,7 @@
       <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
         <input type="email" disabled autocomplete="new-password"
           placeholder="{{ 'placeholders.email' | translate }}"
+          formControlName="email"
           class="form-control-lg pt-3 form-control-plaintext" />
         <small class="form-text pb-3">
           <a translate [routerLink]="['/', 'onboarding', 'change-email']"
