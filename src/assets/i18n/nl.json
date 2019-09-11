@@ -24,15 +24,15 @@
 	},
 	"onboardingCompletedComponent": {
 		"title": "Je bent geregistreerd!",
-		"description": "Je hebt nu toegang tot het dashboard waar je onder andere collectegroepen kunt aanvullen en meer gebruikers kunt toevoegen."
+		"description": "Je hebt nu toegang tot het dashboard. Klik op de knop om er naartoe te gaan."
 	},
 	"notFoundComponent": {
 		"title": "Er ging iets mis",
-		"description": "Deze pagina werd niet gevonden, controleer de ingave of neem contact op met onze helpdesk"
+		"description": "Deze pagina werd niet gevonden, controleer de invoer of neem contact op met onze helpdesk."
 	},
 	"onboardingCheckInboxComponent": {
         "title": "Gelieve je mailbox te controleren",
-        "description": "We hebben je een mail gestuurd die een nieuwe link bevat om je te registreren met het emailadres dat je net hebt opgegeven. Email niet ontvangen? Controleer zeker je SPAM."
+        "description": "We hebben je een mail gestuurd die een nieuwe link bevat om je te registreren met het e-mailadres dat je zonet hebt opgegeven. Email niet ontvangen? Controleer zeker je SPAM."
     },
 	"onboardingWelcomeComponent": {
 		"title": "Welkom bij het dashboard van {{name}}. Registreer je bij Givt om toegang te verkrijgen tot het dashboard waar je de collectes kunt zien van {{name}}.",
@@ -42,7 +42,7 @@
         "goToDashboardText": "Klik hier om naar het dashboard te gaan"
 	},
 	"onboardingPersonalDetailsComponent": {
-		"title": "Wat je is naam?",
+		"title": "Hoe heet je?",
 		"nextButtonText": "Volgende"
 	}
 }

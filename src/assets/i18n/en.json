@@ -20,11 +20,11 @@
         "lastName": "Last name"
     },
     "passwordInputComponent": {
-        "help-text": "The password should atleast contain 7 characters and contain 1 uppercased letter and 1 number."
+        "help-text": "The password should at least contain 7 characters and contain 1 uppercased letter and 1 number."
     },
     "onboardingCompletedComponent": {
         "title": "You have been registered!",
-        "description": "You now have access to the dashboard where you can create collectgroups and add more users."
+        "description": "You now have access to the dashboard. Click on the button to go there."
     },
     "notFoundComponent": {
         "title": "Something went wrong",
@@ -32,17 +32,17 @@
     },
     "onboardingCheckInboxComponent": {
         "title": "Please check your inbox",
-        "description": "We've sent you a new email that contains a link to signup with the e-mail you've provided. If you did not receive the e-mail please check your SPAM inbox."
+        "description": "We've sent you a new email that contains a link to signup with the email address you provided. If you did not receive the email please check your SPAM."
     },
     "onboardingWelcomeComponent": {
         "title": "Welcome to the personal dashboard of {{name}}. Register with Givt to gain access to the dashboard of Givt where you can see the collections for {{name}}.",
         "registerButtonText": "Register",
-        "differentEmailAddress": "Click here to use a different e-mail address",
-        "sendEmailButtonText": "Confirm your new e-mail address",
+        "differentEmailAddress": "Click here to use a different email address",
+        "sendEmailButtonText": "Confirm your new email address",
         "goToDashboardText": "Click here to go to the dashboard"
     },
     "onboardingPersonalDetailsComponent": {
-        "title": "What is your first and lastname?",
+        "title": "What is your name?",
         "nextButtonText": "Next"
     }
 }
