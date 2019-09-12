@@ -17,7 +17,9 @@
         "email": "E-mail",
         "password": "Password",
         "firstName": "First name",
-        "lastName": "Last name"
+        "lastName": "Last name",
+		"bankAccountNumberIBAN": "IBAN bank-account number",
+		"bankAccountName": "Name bank-account"
     },
     "passwordInputComponent": {
         "help-text": "The password should atleast contain 7 characters and contain 1 uppercased letter and 1 number."
@@ -49,5 +51,10 @@
         "title": "Add bankaccount",
         "description": "Add a bankaccount to your Givt-account where you want to receive your gifts",
         "startButtonText": "Start"
+    },
+    "onboardingBankAccountAddComponent": {
+        "title": "Add bankaccount",
+        "description": "Bankaccount of {0}",
+        "buttonText": "Next"
     }
 }
