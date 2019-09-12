@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
   // for testing purposes
-  apiUrl: 'https://givtapicorewindbg.azurewebsites.net'
+  apiUrl: 'https://givtapicorewindbg.azurewebsites.net',
+  oldDashboardUrl:'https://cloud.givtapp.net'
 };
