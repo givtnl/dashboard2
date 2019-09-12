@@ -3,7 +3,9 @@
 @import '~bootstrap/scss/mixins';
 
 .side-bar-host {
-    position: absolute;
-    top:0px;
-    z-index:$zindex-modal
+  position: absolute;
+  top: 0px;
+  z-index: $zindex-modal;
+  margin-left: -1px;
+  border-top-right-radius: 50px;
 }
