@@ -28,7 +28,8 @@ const routes: Routes = [
       {
         path: 'new-users',
         component: OnboardingRootComponent,
-        resolve: { request: OnboardingRequestResolver},
+        resolve: { request: OnboardingRequestResolver, preparation: OnboardingUserRegistrationPreparationResolver },
+        canActivate: [OnboardingGuard],
         children: [
           {
             path: '',
@@ -54,6 +55,7 @@ const routes: Routes = [
             path: 'completed',
             component: OnboardingCompletedComponent,
             outlet: 'onboarding-outlet',
+            canActivate: [OnboardingCompleteCheckSuccessGuard]
           },
           {
             path: 'change-email',
