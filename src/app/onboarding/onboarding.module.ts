@@ -10,6 +10,7 @@ import { OnboardingChangeEmailComponent } from './onboarding-change-email/onboar
 import { OnboardingCheckInboxComponent } from './onboarding-check-inbox/onboarding-check-inbox.component';
 import { OnboardingRootComponent } from './onboarding-root/onboarding-root.component';
 import { BankAccountIntroComponent } from './bank-account/bank-account-intro/bank-account-intro.component';
+import { BankAccountAddComponent } from './bank-account/bank-account-add/bank-account-add.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { BankAccountIntroComponent } from './bank-account/bank-account-intro/ban
         OnboardingChangeEmailComponent,
         OnboardingCheckInboxComponent,
         OnboardingRootComponent,
-        BankAccountIntroComponent
+        BankAccountIntroComponent,
+        BankAccountAddComponent
     ],
     imports: [
         CommonModule,

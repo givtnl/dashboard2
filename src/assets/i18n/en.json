@@ -44,5 +44,10 @@
     "onboardingPersonalDetailsComponent": {
         "title": "What is your first and lastname?",
         "nextButtonText": "Next"
+    },
+    "onboardingBankAccountIntroComponent": {
+        "title": "Add bankaccount",
+        "description": "Add a bankaccount to your Givt-account where you want to receive your gifts",
+        "startButtonText": "Start"
     }
 }

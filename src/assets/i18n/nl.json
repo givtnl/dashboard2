@@ -44,5 +44,10 @@
 	"onboardingPersonalDetailsComponent": {
 		"title": "Wat is je naam?",
 		"nextButtonText": "Volgende"
-	}
+	},
+    "onboardingBankAccountIntroComponent": {
+        "title": "Bankrekening toevoegen",
+        "description": "Voeg een bankrekening toe aan uw Givt-account om daar giften op te kunnen ontvangen.",
+        "startButtonText": "Start"
+    }
 }

@@ -14,6 +14,8 @@ import { OnboardingRootComponent } from './onboarding-root/onboarding-root.compo
 import { OnboardingGuard } from './guards/onboarding.guard';
 import { OnboardingRequestResolver } from './resolvers/onboarding-request.resolver';
 import { OnboardingUserRegistrationPreparationResolver } from './resolvers/onboarding-user-registration-preparation.resolver';
+import { BankAccountIntroComponent } from './bank-account/bank-account-intro/bank-account-intro.component';
+import { BankAccountAddComponent } from './bank-account/bank-account-add/bank-account-add.component';
 
 const routes: Routes = [
   {
@@ -26,8 +28,7 @@ const routes: Routes = [
       {
         path: 'new-users',
         component: OnboardingRootComponent,
-        resolve: { request: OnboardingRequestResolver, preparation: OnboardingUserRegistrationPreparationResolver },
-        canActivate: [OnboardingGuard],
+        resolve: { request: OnboardingRequestResolver},
         children: [
           {
             path: '',
@@ -53,7 +54,6 @@ const routes: Routes = [
             path: 'completed',
             component: OnboardingCompletedComponent,
             outlet: 'onboarding-outlet',
-            canActivate: [OnboardingCompleteCheckSuccessGuard]
           },
           {
             path: 'change-email',
@@ -61,6 +61,17 @@ const routes: Routes = [
             component: OnboardingChangeEmailComponent
           }
         ]
+      }
+    ]
+  },
+  {
+    path: 'bank-account',
+    component: OnboardingRootComponent,
+    children: [
+      {
+        path: '',
+        outlet: 'onboarding-outlet',
+        component: BankAccountAddComponent
       }
     ]
   }
