@@ -8,8 +8,13 @@
   @extend .shadow !optional;
 }
 
-.btn-givt:hover,
+.btn-givt:hover:not(:disabled),
 .btn-givt.active {
   @extend .bg-givt-purple !optional;
-  color: white;
+  color: white !important;
+}
+
+
+.btn-givt:disabled{
+  cursor: not-allowed;
 }
