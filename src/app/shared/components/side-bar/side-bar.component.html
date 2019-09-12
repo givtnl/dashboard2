@@ -1,4 +1,4 @@
-<ul class="nav  flex-column text-medium-font sidebar-sticky bg-white border-1">
+<ul [class.h-100]="showCloseButton"  class="nav  flex-column text-medium-font sidebar-sticky bg-white border-1">
       <li *ngIf="showCloseButton" class="mr-2 my-2 nav-item">
           <a href="javascript:void(0)" (click)="closeMenu()" class="nav-link">
               <i class="fas fa-arrow-left mr-2"></i>
