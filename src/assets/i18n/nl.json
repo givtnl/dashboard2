@@ -41,7 +41,7 @@
 		"differentEmailAddress":"Klik hier om een ander emailadres te gebruiken",
 		"registerButtonText": "Registreren",
 		"sendEmailButtonText": "Bevestig je nieuw email adres.",
-        "goToDashboardText": "Klik hier om naar het dashboard te gaan"
+        "goToDashboardText": "Ga naar het dashboard"
 	},
 	"onboardingPersonalDetailsComponent": {
 		"title": "Wat is je naam?",
