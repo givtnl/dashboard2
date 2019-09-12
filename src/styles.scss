@@ -18,18 +18,18 @@ $box-shadow-color: rgb(226, 226, 226);
    height:100%;
  }
 
- body {
-  height:  100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 
 .text-givt-purple {
   color: theme-color('primary') !important;
 }
 .introduction-title {
   font-size:large;
+}
+.btn-givt {
+  background: white;
+  border: 1px solid rgba(206, 212, 218, 0.3);
+  @extend .shadow !optional;
 }
 
 .bg-givt-purple {
