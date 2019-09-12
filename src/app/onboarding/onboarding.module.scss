@@ -131,10 +131,10 @@ $theme-colors: (
 
 // Bank account
 
-@include media-breakpoint-up(sm) {
+  @include media-breakpoint-up(sm) {
     .CONTAINER {
-        max-height: 667px;
-        max-width: 375PX;
+        height: 631px !important;
+        width: 554px !important;
         border-radius: 2rem !important
     }
 }

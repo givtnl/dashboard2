@@ -17,7 +17,9 @@
 		"email": "E-mail",
 		"password": "Wachtwoord",
 		"firstName": "Voornaam",
-		"lastName": "Achternaam"
+		"lastName": "Achternaam",
+		"bankAccountNumberIBAN": "IBAN-rekeningnummer",
+		"bankAccountName": "Naam van de rekeninghouder"
 	},
 	"passwordInputComponent": {
 		"help-text": "Wachtwoord moet uit 7 tekens bestaan waarvan 1 hoofdletter en 1 cijfer."
@@ -49,5 +51,10 @@
         "title": "Bankrekening toevoegen",
         "description": "Voeg een bankrekening toe aan uw Givt-account om daar giften op te kunnen ontvangen.",
         "startButtonText": "Start"
+	},
+	"onboardingBankAccountAddComponent": {
+        "title": "Bankrekening toevoegen",
+        "description": "Bankrekening van {0}",
+        "buttonText": "Volgende"
     }
 }
