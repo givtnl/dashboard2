@@ -17,6 +17,7 @@ export class OnboardingRegisterCheckPasswordGuard implements CanActivate {
         if ((passwordIsRequired && registration.password && registration.password.length > 1) || !passwordIsRequired) {
             return true;
         } else {
+            console.error('Failed to satisfy the onboardingcheckpassword guard');
             this.router.navigate(['/onboarding/welcome'], {
                 queryParams: next.queryParams
             });

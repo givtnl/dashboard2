@@ -16,9 +16,11 @@ export class OnboardingRegisterCheckPersonalDetailsRequiredGuard implements CanA
     if (personalDetailsRequired) {
       return true;
     } else {
+      console.error('Failed to satisfy the onboardingregistercheckpersonaldetails guard');
       this.router.navigate(['/', 'onboarding', 'welcome', 'new-users', { outlets: { 'onboarding-outlet': ['completed'] } }], {
         queryParams: next.queryParams
       });
+
       return false;
     }
   }

@@ -17,6 +17,7 @@ export class OnboardingRegisterGuard implements CanActivate {
             this.router.navigate(['/onboarding/welcome'], {
                 queryParams: next.queryParams
             });
+            console.error('Failed to satisfy the onboardingregister guard');
             return false;
         }
     }

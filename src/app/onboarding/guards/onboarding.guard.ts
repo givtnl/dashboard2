@@ -13,6 +13,7 @@ export class OnboardingGuard implements CanActivate {
     const companyName = next.queryParams.cgname as string;
 
     if (!token || !companyName) {
+      console.error('Failed to satisfy the onboarding guard');
       this.router.navigate(['/', 'system', 'not-found']);
       return false;
     } else return true;
