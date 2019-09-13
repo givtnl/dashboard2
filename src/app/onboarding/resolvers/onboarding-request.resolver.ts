@@ -25,6 +25,8 @@ export class OnboardingRequestResolver implements Resolve<OnboardingRequestModel
             collectGroupId
         };
 
+        this.stateService.currentOnboardingRequest = onboardingRequestModel;
+
         return onboardingRequestModel;
     }
 }
