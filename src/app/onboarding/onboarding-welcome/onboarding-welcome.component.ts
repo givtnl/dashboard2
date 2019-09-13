@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { OnboardingRequestModel } from '../models/onboarding-request.model';
 import { OnboardingStateService } from '../services/onboarding-state.service';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
-import { UserRegistrationResponseModel } from '../models/user-registration-response.model';
 
 @Component({
   selector: 'app-onboarding-welcome',

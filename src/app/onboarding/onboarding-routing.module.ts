@@ -14,7 +14,6 @@ import { OnboardingRootComponent } from './onboarding-root/onboarding-root.compo
 import { OnboardingGuard } from './guards/onboarding.guard';
 import { OnboardingRequestResolver } from './resolvers/onboarding-request.resolver';
 import { OnboardingUserRegistrationPreparationResolver } from './resolvers/onboarding-user-registration-preparation.resolver';
-import { BankAccountIntroComponent } from './bank-account/bank-account-intro/bank-account-intro.component';
 import { BankAccountAddComponent } from './bank-account/bank-account-add/bank-account-add.component';
 
 const routes: Routes = [
