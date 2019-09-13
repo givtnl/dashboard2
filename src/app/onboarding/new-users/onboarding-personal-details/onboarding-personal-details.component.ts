@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { OnboardingStateService } from '../services/onboarding-state.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { OnboardingService } from '../services/onboarding.service';
 import { Observable, forkJoin } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { tap, switchMap } from 'rxjs/operators';
+import { OnboardingStateService } from '../services/onboarding-state.service';
 
 @Component({
   selector: 'app-onboarding-personal-details',
   templateUrl: './onboarding-personal-details.component.html',
-  styleUrls: ['../onboarding.module.scss', './onboarding-personal-details.component.scss']
+  styleUrls: ['../../onboarding.module.scss', './onboarding-personal-details.component.scss']
 })
 export class OnboardingPersonalDetailsComponent implements OnInit {
   public form: FormGroup;

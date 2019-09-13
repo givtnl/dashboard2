@@ -1,20 +1,19 @@
 import { Routes, RouterModule } from '@angular/router';
-
 import { NgModule } from '@angular/core';
-import { OnboardingWelcomeComponent } from './onboarding-welcome/onboarding-welcome.component';
-import { OnboardingPersonalDetailsComponent } from './onboarding-personal-details/onboarding-personal-details.component';
-import { OnboardingCompletedComponent } from './onboarding-completed/onboarding-completed.component';
-import { OnboardingRegisterGuard } from './guards/onboarding-register.guard';
-import { OnboardingChangeEmailComponent } from './onboarding-change-email/onboarding-change-email.component';
-import { OnboardingCheckInboxComponent } from './onboarding-check-inbox/onboarding-check-inbox.component';
-import { OnboardingRegisterCheckPasswordGuard } from './guards/onboarding-register-check-password.guard';
-import { OnboardingRegisterCheckPersonalDetailsRequiredGuard } from './guards/onboarding-register-check-personal-details-required.guard';
-import { OnboardingCompleteCheckSuccessGuard } from './guards/onboarding-complete-check-success.guard';
-import { OnboardingRootComponent } from './onboarding-root/onboarding-root.component';
-import { OnboardingGuard } from './guards/onboarding.guard';
-import { OnboardingRequestResolver } from './resolvers/onboarding-request.resolver';
-import { OnboardingUserRegistrationPreparationResolver } from './resolvers/onboarding-user-registration-preparation.resolver';
 import { BankAccountAddComponent } from './bank-account/bank-account-add/bank-account-add.component';
+import { OnboardingRootComponent } from './onboarding-root/onboarding-root.component';
+import { OnboardingRequestResolver } from './new-users/resolvers/onboarding-request.resolver';
+import { OnboardingUserRegistrationPreparationResolver } from './new-users/resolvers/onboarding-user-registration-preparation.resolver';
+import { OnboardingGuard } from './new-users/guards/onboarding.guard';
+import { OnboardingWelcomeComponent } from './new-users/onboarding-welcome/onboarding-welcome.component';
+import { OnboardingCheckInboxComponent } from './new-users/onboarding-check-inbox/onboarding-check-inbox.component';
+import { OnboardingPersonalDetailsComponent } from './new-users/onboarding-personal-details/onboarding-personal-details.component';
+import { OnboardingRegisterGuard } from './new-users/guards/onboarding-register.guard';
+import { OnboardingRegisterCheckPasswordGuard } from './new-users/guards/onboarding-register-check-password.guard';
+import { OnboardingRegisterCheckPersonalDetailsRequiredGuard } from './new-users/guards/onboarding-register-check-personal-details-required.guard';
+import { OnboardingCompletedComponent } from './new-users/onboarding-completed/onboarding-completed.component';
+import { OnboardingCompleteCheckSuccessGuard } from './new-users/guards/onboarding-complete-check-success.guard';
+import { OnboardingChangeEmailComponent } from './new-users/onboarding-change-email/onboarding-change-email.component';
 
 const routes: Routes = [
   {

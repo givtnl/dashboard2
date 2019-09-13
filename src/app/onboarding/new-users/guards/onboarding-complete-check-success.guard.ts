@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { OnboardingStateService } from '../services/onboarding-state.service';
-import { OnboardingService } from '../services/onboarding.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { OnboardingService } from '../services/onboarding.service';
+import { OnboardingStateService } from '../services/onboarding-state.service';
 
 @Injectable({
   providedIn: 'root'
