@@ -59,5 +59,9 @@
 	},
     "errorPageComponent": {
         "title": "Er ging iets mis"
+	},
+	"underConstructionComponent": {
+        "title": "Oops",
+        "description": "We werken eraan"
     }
 }

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { SystemRootComponent } from './system-root/system-root.component';
+import { UnderConstructionComponent } from './under-construction/under-construction.component';
 
 const routes: Routes = [
 	{
@@ -18,6 +19,11 @@ const routes: Routes = [
 			{
 				path: 'not-found',
 				component: NotFoundComponent,
+				outlet: 'system-outlet'
+			},
+			{
+				path: 'under-construction',
+				component: UnderConstructionComponent,
 				outlet: 'system-outlet'
 			}
 		]
