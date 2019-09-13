@@ -56,5 +56,8 @@
         "title": "Bankrekening toevoegen",
         "description": "Bankrekening van {0}",
         "buttonText": "Volgende"
+	},
+    "errorPageComponent": {
+        "title": "Er ging iets mis"
     }
 }

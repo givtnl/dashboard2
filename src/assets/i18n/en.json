@@ -56,5 +56,8 @@
         "title": "Add bankaccount",
         "description": "Bankaccount of {0}",
         "buttonText": "Next"
+    },
+    "errorPageComponent": {
+        "title":"Something went wrong"
     }
 }
