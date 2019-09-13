@@ -63,5 +63,9 @@
     "underConstructionComponent": {
         "title": "Oops",
         "description": "We are working on it"
-    }
+    },
+    "dashboardCompleteAccountWidgetComponent": {
+        "CreateAccount": "Create an account for the admin",
+        "AddBankAccount":"Add the bank account details"
+      }
 }

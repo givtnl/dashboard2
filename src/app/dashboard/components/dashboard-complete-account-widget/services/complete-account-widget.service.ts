@@ -10,6 +10,6 @@ export class CompleteAccountWidgetService {
     constructor(private backendService: BackendService) {}
 
     get(organisationId: string): Observable<CompleteAccountWidgetModel[]> {
-        return this.backendService.get<CompleteAccountWidgetModel[]>(`v2/organisations/${organisationId}`);
+        return this.backendService.get<CompleteAccountWidgetModel[]>(`v2/organisations/${organisationId}/registration`);
     }
 }
