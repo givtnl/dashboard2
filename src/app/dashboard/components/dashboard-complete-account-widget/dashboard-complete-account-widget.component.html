@@ -1,4 +1,11 @@
-<ul class="list-group text-givt-purple  text-light-font list-group-flush">
+
+<div *ngIf="loading" class="d-flex mt-5 text-givt-purple justify-content-center">
+    <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+<ul *ngIf="!loading" class="list-group text-givt-purple  text-light-font list-group-flush">
   <li class="list-group-item bg-transparent d-flex pl-0 justify-content-start">
     <div class="align-items-center">
       <div class="progress">
@@ -51,6 +58,6 @@
       <i class="far fa-square mr-2"></i>
       De eerste bankrekening toevoegen
     </div>
-    <span class="badge"><i class="fas fa-arrow-right"></i></span>
+    <a [routerLink]="getRouterLinks(record)" *ngIf="!record.Finished" class="text-givt-purple badge"><i class="fas fa-arrow-right"></i></a>
   </li>
 </ul>
