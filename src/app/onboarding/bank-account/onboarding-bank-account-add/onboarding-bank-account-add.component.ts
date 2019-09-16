@@ -55,16 +55,24 @@ export class OnboardingBankAccountAddComponent implements OnInit {
     this.service
       .addBankAccount({
         name: this.form.get('name').value,
-        sortCode: this.form.get('sortCode').value ? this.form.get('sortCode').value : null,
-        accountNumber: this.form.get('accountNumber').value ? this.form.get('accountNumber').value : null,
-        IBAN: this.form.get('iban').value ? this.form.get('iban').value : null
+        sortCode: this.sortCode ? this.sortCode.value : null,
+        accountNumber: this.accountNumber ? this.accountNumber.value : null,
+        IBAN: this.iban ? this.iban.value : null
       })
       .subscribe(x =>
         this.router.navigate(['/', 'onboarding', 'bank-account', { outlets: { 'onboarding-outlet': ['authorized'] } }])
       )
       .add(() => (this.loading = false));
   }
-
+  get iban() {
+    return this.form.get('iban')
+  }
+  get sortCode() {
+    return this.form.get('sortCode')
+  }
+  get accountNumber() {
+    return this.form.get('accountNumber')
+  }
   handleInvalidForm() {
     let errorMessages = new Array<Observable<string>>();
     let resolvedErrorMessages = new Array<string>();
