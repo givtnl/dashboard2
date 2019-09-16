@@ -78,6 +78,10 @@
     "questionAuthorizedPersonSmallText": "We vragen degene per e-mail om de bankrekening te verifiëren.",
     "okButtonText": "Afronden"
   },
+  "onboardingBankAccountCompletedComponent": {
+    "title": "We zijn goed op weg",
+    "description": "Zodra de bankrekening is geverifieerd, voegen we deze toe aan uw dashboard en kunt u daar de giften ontvangen."
+  },
   "errorPageComponent": {
     "title": "Er ging iets mis"
   },
