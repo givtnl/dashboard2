@@ -22,8 +22,4 @@ export class OnboardingNewUsersService {
     createUser(onboardingModel: CreateUserForCollectGroupCommand): Observable<object> {
         return this.backendService.post(`collectgroups/${onboardingModel.collectGroupId}/users`, onboardingModel);
     }
-
-    addBankAccount(onboardingModel: AddBankAccountToOrganisationCommand): Observable<object> {
-        return of({});
-    }
 }
