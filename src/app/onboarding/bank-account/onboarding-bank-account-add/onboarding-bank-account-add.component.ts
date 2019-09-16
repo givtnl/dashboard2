@@ -21,13 +21,11 @@ export class OnboardingBankAccountAddComponent implements OnInit {
 
   public form: FormGroup;
   public loading = false;
-  public request: OnboardingRequestModel;
 
   constructor(private translationService: TranslateService,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private service: OnboardingService,
-    private route: ActivatedRoute,
     private router: Router,
     public stateService: OnboardingStateService) { }
 
@@ -78,42 +76,49 @@ export class OnboardingBankAccountAddComponent implements OnInit {
     let resolvedErrorMessages = new Array<string>();
 
     const nameErrors = this.form.get('name').errors;
-    if(this.orgCountry != "GB") {
+    if (this.orgCountry != "GB") {
       const ibanErrors = this.form.get('iban').errors;
       if (ibanErrors) {
         if (ibanErrors.required) {
           errorMessages.push(this.translationService.get('errorMessages.iban-required'));
         }
-        if (ibanErrors.minLength) {
+        if (ibanErrors.minlength) {
           errorMessages.push(this.translationService.get('errorMessages.iban-min-length'));
         }
-        if (ibanErrors.maxLength) {
+        if (ibanErrors.maxlength) {
           errorMessages.push(this.translationService.get('errorMessages.iban-max-length'))
         }
       }
-  
+
     } else {
       const sortCodeErrors = this.form.get('sortCode').errors;
       const accountNumberErrors = this.form.get('accountNumber').errors;
+      console.log(this.form.get('sortCode'), '\n', this.form.get('accountNumber'))
       if (sortCodeErrors) {
         if (sortCodeErrors.required) {
           errorMessages.push(this.translationService.get('errorMessages.sortcode-required'));
         }
-        if (sortCodeErrors.minLength || sortCodeErrors.maxLength) {
-          if (!errorMessages.contains(this.translationService.get('errorMessages.sortcode-length'))) {
-            errorMessages.push(this.translationService.get('errorMessages.sortcode-length'));
-          }
+        if (sortCodeErrors.minlength || sortCodeErrors.maxlength) {
+          this.translationService.get('errorMessages.sortcode-length')
+            .subscribe(x => {
+              if (!errorMessages.some(x)) {
+                errorMessages.push(x);
+              }
+            })
         }
       }
-  
+
       if (accountNumberErrors) {
         if (accountNumberErrors.required) {
           errorMessages.push(this.translationService.get('errorMessages.accountnumber-required'));
         }
-        if (accountNumberErrors.minLength || accountNumberErrors.maxLength) {
-          if (!errorMessages.contains(this.translationService.get('errorMessages.accountnumber-length'))) {
-            errorMessages.push(this.translationService.get('errorMessages.accountnumber-length'));
-          }
+        if (accountNumberErrors.minlength || accountNumberErrors.maxlength) {
+          this.translationService.get('errorMessages.accountnumber-length')
+            .subscribe(x => {
+              if (!errorMessages.some(x)) {
+                errorMessages.push(x);
+              }
+            })
         }
       }
     }
