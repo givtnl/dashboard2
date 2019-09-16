@@ -16,6 +16,7 @@ import { OnboardingChangeEmailComponent } from './new-users/onboarding-change-em
 import { OnboardingBankAccountIntroComponent } from './bank-account/onboarding-bank-account-intro/onboarding-bank-account-intro.component';
 import { OnboardingBankAccountAddComponent } from './bank-account/onboarding-bank-account-add/onboarding-bank-account-add.component';
 import { OnboardingBankAccountAuthorizedComponent } from './bank-account/onboarding-bank-account-authorized/onboarding-bank-account-authorized.component';
+import { OnboardingBankAccountCompletedComponent } from './bank-account/onboarding-bank-account-completed/onboarding-bank-account-completed.component';
 
 
 const routes: Routes = [
@@ -85,7 +86,12 @@ const routes: Routes = [
         path: 'authorized',
         outlet: 'onboarding-outlet',
         component: OnboardingBankAccountAuthorizedComponent
-      }
+      },
+      {
+        path:'completed',
+        outlet: 'onboarding-outlet',
+        component:OnboardingBankAccountCompletedComponent
+             }
     ]
   }
 ];
