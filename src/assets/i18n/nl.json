@@ -61,7 +61,8 @@
     "title": "Bankrekening toevoegen",
     "description": "Bent u gemachtigd om de bankrekening van {0} te verifiëren?",
     "buttonYes": "Ja",
-    "buttonNo": "Nee"
+    "buttonNo": "Nee",
+    "questionPhoneNumber": "Wat is uw mobiel nummer?"
   },
   "errorPageComponent": {
     "title": "Er ging iets mis"
