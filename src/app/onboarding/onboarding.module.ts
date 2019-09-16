@@ -12,6 +12,7 @@ import { OnboardingRoutingModule } from './onboarding-routing.module';
 import { OnboardingBankAccountIntroComponent } from './bank-account/onboarding-bank-account-intro/onboarding-bank-account-intro.component';
 import { OnboardingBankAccountAddComponent } from './bank-account/onboarding-bank-account-add/onboarding-bank-account-add.component';
 import { OnboardingBankAccountAuthorizedComponent } from './bank-account/onboarding-bank-account-authorized/onboarding-bank-account-authorized.component';
+import { OnboardingBankAccountCompletedComponent } from './bank-account/onboarding-bank-account-completed/onboarding-bank-account-completed.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import { OnboardingBankAccountAuthorizedComponent } from './bank-account/onboard
         OnboardingRootComponent,
         OnboardingBankAccountIntroComponent,
         OnboardingBankAccountAddComponent,
-        OnboardingBankAccountAuthorizedComponent
+        OnboardingBankAccountAuthorizedComponent,
+        OnboardingBankAccountCompletedComponent
     ],
     imports: [
         CommonModule,
