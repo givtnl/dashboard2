@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OnboardingRootComponent } from './onboarding-root/onboarding-root.component';
-import { BankAccountIntroComponent } from './bank-account/bank-account-intro/bank-account-intro.component';
-import { BankAccountAddComponent } from './bank-account/bank-account-add/bank-account-add.component';
 import { OnboardingWelcomeComponent } from './new-users/onboarding-welcome/onboarding-welcome.component';
 import { OnboardingPersonalDetailsComponent } from './new-users/onboarding-personal-details/onboarding-personal-details.component';
 import { OnboardingCompletedComponent } from './new-users/onboarding-completed/onboarding-completed.component';
@@ -11,7 +9,9 @@ import { OnboardingCheckInboxComponent } from './new-users/onboarding-check-inbo
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { OnboardingRoutingModule } from './onboarding-routing.module';
-import { BankAccountAuthorizedComponent } from './bank-account/bank-account-authorized/bank-account-authorized.component';
+import { OnboardingBankAccountIntroComponent } from './bank-account/onboarding-bank-account-intro/onboarding-bank-account-intro.component';
+import { OnboardingBankAccountAddComponent } from './bank-account/onboarding-bank-account-add/onboarding-bank-account-add.component';
+import { OnboardingBankAccountAuthorizedComponent } from './bank-account/onboardingbank-account-authorized/onboarding-bank-account-authorized.component';
 
 @NgModule({
     declarations: [
@@ -21,9 +21,9 @@ import { BankAccountAuthorizedComponent } from './bank-account/bank-account-auth
         OnboardingChangeEmailComponent,
         OnboardingCheckInboxComponent,
         OnboardingRootComponent,
-        BankAccountIntroComponent,
-        BankAccountAddComponent,
-        BankAccountAuthorizedComponent
+        OnboardingBankAccountIntroComponent,
+        OnboardingBankAccountAddComponent,
+        OnboardingBankAccountAuthorizedComponent
     ],
     imports: [
         CommonModule,

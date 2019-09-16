@@ -1,6 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { BankAccountAddComponent } from './bank-account/bank-account-add/bank-account-add.component';
 import { OnboardingRootComponent } from './onboarding-root/onboarding-root.component';
 import { OnboardingRequestResolver } from './new-users/resolvers/onboarding-request.resolver';
 import { OnboardingUserRegistrationPreparationResolver } from './new-users/resolvers/onboarding-user-registration-preparation.resolver';
@@ -14,8 +13,9 @@ import { OnboardingRegisterCheckPersonalDetailsRequiredGuard } from './new-users
 import { OnboardingCompletedComponent } from './new-users/onboarding-completed/onboarding-completed.component';
 import { OnboardingCompleteCheckSuccessGuard } from './new-users/guards/onboarding-complete-check-success.guard';
 import { OnboardingChangeEmailComponent } from './new-users/onboarding-change-email/onboarding-change-email.component';
-import { BankAccountAuthorizedComponent } from './bank-account/bank-account-authorized/bank-account-authorized.component';
-import { BankAccountIntroComponent } from './bank-account/bank-account-intro/bank-account-intro.component';
+import { OnboardingBankAccountIntroComponent } from './bank-account/onboarding-bank-account-intro/onboarding-bank-account-intro.component';
+import { OnboardingBankAccountAddComponent } from './bank-account/onboarding-bank-account-add/onboarding-bank-account-add.component';
+import { OnboardingBankAccountAuthorizedComponent } from './bank-account/onboardingbank-account-authorized/onboarding-bank-account-authorized.component';
 
 const routes: Routes = [
   {
@@ -67,32 +67,23 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'infra',
+    path: 'bank-account',
+    component: OnboardingRootComponent,
     children: [
       {
         path: '',
-        redirectTo: 'bank-account'
+        outlet: 'onboarding-outlet',
+        component: OnboardingBankAccountIntroComponent
       },
       {
-        path: 'bank-account',
-        component: OnboardingRootComponent,
-        children: [
-          {
-            path: '',
-            outlet: 'onboarding-outlet',
-            component: BankAccountIntroComponent
-          },
-          {
-            path: 'add',
-            outlet: 'onboarding-outlet',
-            component: BankAccountAddComponent
-          },
-          {
-            path: 'authorized',
-            outlet: 'onboarding-outlet',
-            component: BankAccountAuthorizedComponent
-          }
-        ]
+        path: 'add',
+        outlet: 'onboarding-outlet',
+        component: OnboardingBankAccountAddComponent
+      },
+      {
+        path: 'authorized',
+        outlet: 'onboarding-outlet',
+        component: OnboardingBankAccountAuthorizedComponent
       }
     ]
   }
@@ -102,4 +93,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class OnboardingRoutingModule { }
+export class OnboardingRoutingModule {}

@@ -11,11 +11,11 @@ import { OnboardingRequestModel } from '../../new-users/models/onboarding-reques
 
 
 @Component({
-  selector: 'app-bank-account-add',
-  templateUrl: './bank-account-add.component.html',
-  styleUrls: ['../../onboarding.module.scss', './bank-account-add.component.scss']
+  selector: 'app-onboarding-bank-account-add',
+  templateUrl: './onboarding-bank-account-add.component.html',
+  styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-add.component.scss']
 })
-export class BankAccountAddComponent implements OnInit {
+export class OnboardingBankAccountAddComponent implements OnInit {
 
   private orgCountry: string = 'GB';
 
@@ -60,7 +60,7 @@ export class BankAccountAddComponent implements OnInit {
         IBAN: this.form.get('iban').value ? this.form.get('iban').value : null
       })
       .subscribe(x =>
-        this.router.navigate(['/', 'onboarding', 'infra', 'bank-account', { outlets: { 'onboarding-outlet': ['authorized'] } }])
+        this.router.navigate(['/', 'onboarding', 'bank-account', { outlets: { 'onboarding-outlet': ['authorized'] } }])
       )
       .add(() => (this.loading = false));
   }
