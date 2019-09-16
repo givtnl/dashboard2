@@ -11,8 +11,8 @@
                 <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
                     <p class="introduction-title text-primary text-light-font text-givt-purple" translate>
                         onboardingBankAccountAddComponent.description</p>
-                    <input *ngIf="orgCountry != 'GB'" type="text"  placeholder="{{ 'placeholders.bankAccountNumberIBAN' | translate }}"
-                        class="form-control-lg form-control mb-3 shadow text-givt-purple" formControlName="iban" />
+                    <!-- <input *ngIf="orgCountry != 'GB'" type="text"  placeholder="{{ 'placeholders.bankAccountNumberIBAN' | translate }}"
+                        class="form-control-lg form-control mb-3 shadow text-givt-purple" formControlName="iban" /> -->
                     <input *ngIf="orgCountry == 'GB'" type="text" placeholder="{{ 'placeholders.sortCode' | translate }}" class="form-control form-control-lg mb-3 shadow text-givt-purple" formControlName="sortCode" />
                     <input *ngIf="orgCountry == 'GB'" type="text" placeholder="{{ 'placeholders.accountNumber' | translate }}" class="form-control form-control-lg mb-3 shadow text-givt-purple" formControlName="accountNumber" />
                     <input type="text" placeholder="{{ 'placeholders.bankAccountName' | translate }}"
