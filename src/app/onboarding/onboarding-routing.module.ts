@@ -18,7 +18,6 @@ import { OnboardingBankAccountAddComponent } from './bank-account/onboarding-ban
 import { OnboardingBankAccountAuthorizedComponent } from './bank-account/onboarding-bank-account-authorized/onboarding-bank-account-authorized.component';
 import { OnboardingBankAccountCompletedComponent } from './bank-account/onboarding-bank-account-completed/onboarding-bank-account-completed.component';
 
-
 const routes: Routes = [
   {
     path: 'welcome',
@@ -88,10 +87,10 @@ const routes: Routes = [
         component: OnboardingBankAccountAuthorizedComponent
       },
       {
-        path:'completed',
+        path: 'completed',
         outlet: 'onboarding-outlet',
-        component:OnboardingBankAccountCompletedComponent
-             }
+        component: OnboardingBankAccountCompletedComponent
+      }
     ]
   }
 ];
