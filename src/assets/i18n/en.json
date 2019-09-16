@@ -72,7 +72,11 @@
         "description": "Are you authorized to verify the bank-account of {0}?",
         "buttonYes": "Yes",
         "buttonNo": "No",
-        "questionPhoneNumber": "What is your mobile number?"
+        "questionPhoneNumber": "What is your mobile number?",
+        "questionPhoneNumberSmallText": "We send a SMS-code to this number so we can verify your bank-account.",
+        "questionAuthorizedPerson": "Who is authorized?",
+        "questionAuthorizedPersonSmallText": "We gonna ask the person by mail to verify the bank account.",
+        "okButtonText": "Complete"
       },
     "errorPageComponent": {
         "title":"Something went wrong"
