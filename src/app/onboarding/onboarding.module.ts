@@ -11,7 +11,7 @@ import { SharedModule } from '../shared/shared.module';
 import { OnboardingRoutingModule } from './onboarding-routing.module';
 import { OnboardingBankAccountIntroComponent } from './bank-account/onboarding-bank-account-intro/onboarding-bank-account-intro.component';
 import { OnboardingBankAccountAddComponent } from './bank-account/onboarding-bank-account-add/onboarding-bank-account-add.component';
-import { OnboardingBankAccountAuthorizedComponent } from './bank-account/onboardingbank-account-authorized/onboarding-bank-account-authorized.component';
+import { OnboardingBankAccountAuthorizedComponent } from './bank-account/onboarding-bank-account-authorized/onboarding-bank-account-authorized.component';
 
 @NgModule({
     declarations: [
