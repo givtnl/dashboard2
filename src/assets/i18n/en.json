@@ -57,6 +57,12 @@
         "description": "Bankaccount of {0}",
         "buttonText": "Next"
     },
+    "onboardingBankAccountAuthorizedComponent": {
+        "title": "Add bankaccount",
+        "description": "Are you authorized to verify the bank-account of {0}?",
+        "buttonYes": "Yes",
+        "buttonNo": "No"
+      },
     "errorPageComponent": {
         "title":"Something went wrong"
     },

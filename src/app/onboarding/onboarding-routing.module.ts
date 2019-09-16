@@ -14,6 +14,7 @@ import { OnboardingRegisterCheckPersonalDetailsRequiredGuard } from './new-users
 import { OnboardingCompletedComponent } from './new-users/onboarding-completed/onboarding-completed.component';
 import { OnboardingCompleteCheckSuccessGuard } from './new-users/guards/onboarding-complete-check-success.guard';
 import { OnboardingChangeEmailComponent } from './new-users/onboarding-change-email/onboarding-change-email.component';
+import { BankAccountAuthorizedComponent } from './bank-account/bank-account-authorized/bank-account-authorized.component';
 
 const routes: Routes = [
   {

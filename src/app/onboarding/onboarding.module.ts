@@ -11,6 +11,7 @@ import { OnboardingCheckInboxComponent } from './new-users/onboarding-check-inbo
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { OnboardingRoutingModule } from './onboarding-routing.module';
+import { BankAccountAuthorizedComponent } from './bank-account/bank-account-authorized/bank-account-authorized.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { OnboardingRoutingModule } from './onboarding-routing.module';
         OnboardingCheckInboxComponent,
         OnboardingRootComponent,
         BankAccountIntroComponent,
-        BankAccountAddComponent
+        BankAccountAddComponent,
+        BankAccountAuthorizedComponent
     ],
     imports: [
         CommonModule,

@@ -57,6 +57,12 @@
     "description": "Bankrekening van {0}",
     "buttonText": "Volgende"
   },
+  "onboardingBankAccountAuthorizedComponent": {
+    "title": "Bankrekening toevoegen",
+    "description": "Bent u gemachtigd om de bankrekening van {0} te verifiëren?",
+    "buttonYes": "Ja",
+    "buttonNo": "Nee"
+  },
   "errorPageComponent": {
     "title": "Er ging iets mis"
   },
