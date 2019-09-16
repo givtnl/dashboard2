@@ -72,7 +72,15 @@
     "description": "Bent u gemachtigd om de bankrekening van {0} te verifiëren?",
     "buttonYes": "Ja",
     "buttonNo": "Nee",
-    "questionPhoneNumber": "Wat is uw mobiel nummer?"
+    "questionPhoneNumber": "Wat is uw mobiel nummer?",
+    "questionPhoneNumberSmallText": "We sturen een SMS-code naar dit nummer om de bankrekening veilig te verifiëren.",
+    "questionAuthorizedPerson": "Wie is er gemachtigd?",
+    "questionAuthorizedPersonSmallText": "We vragen degene per e-mail om de bankrekening te verifiëren.",
+    "okButtonText": "Afronden"
+  },
+  "onboardingBankAccountCompletedComponent": {
+    "title": "We zijn goed op weg",
+    "description": "Zodra de bankrekening is geverifieerd, voegen we deze toe aan uw dashboard en kunt u daar de giften ontvangen."
   },
   "errorPageComponent": {
     "title": "Er ging iets mis"

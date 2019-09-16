@@ -26,7 +26,7 @@
         "password": "Password",
         "firstName": "First name",
         "lastName": "Last name",
-		"bankAccountNumberIBAN": "IBAN bank-account number",
+        "bankAccountNumberIBAN": "IBAN bank-account number",
         "bankAccountName": "Name bank-account",
         "sortCode": "Sort code",
         "accountNumber": "Account number"
@@ -72,10 +72,18 @@
         "description": "Are you authorized to verify the bank-account of {0}?",
         "buttonYes": "Yes",
         "buttonNo": "No",
-        "questionPhoneNumber": "What is your mobile number?"
-      },
+        "questionPhoneNumber": "What is your mobile number?",
+        "questionPhoneNumberSmallText": "We send a SMS-code to this number so we can verify your bank-account.",
+        "questionAuthorizedPerson": "Who is authorized?",
+        "questionAuthorizedPersonSmallText": "We gonna ask the person by mail to verify the bank account.",
+        "okButtonText": "Complete"
+    },
+    "onboardingBankAccountCompletedComponent": {
+        "title": "We zijn goed op weg",
+        "description": "Zodra de bankrekening is geverifieerd, voegen we deze toe aan uw dashboard en kunt u daar de giften ontvangen."
+    },
     "errorPageComponent": {
-        "title":"Something went wrong"
+        "title": "Something went wrong"
     },
     "underConstructionComponent": {
         "title": "Oops",
@@ -83,6 +91,6 @@
     },
     "dashboardCompleteAccountWidgetComponent": {
         "CreateAccount": "Create an account for the admin",
-        "AddBankAccount":"Add the bank account details"
-      }
+        "AddBankAccount": "Add the bank account details"
+    }
 }

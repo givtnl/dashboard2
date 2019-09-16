@@ -11,23 +11,37 @@
                 <p class="introduction-title text-primary text-light-font text-givt-purple" translate>
                     onboardingBankAccountAuthorizedComponent.description</p>
                 <app-check-box-input></app-check-box-input>
-                <p [translate]="'onboardingBankAccountAuthorizedComponent.questionPhoneNumber'"
-                    class="introduction-title text-primary text-light-font text-givt-purple mt-5"></p>
-                <input type="email" autocomplete="new-password"
-                    formControlName="email" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
-                <small class="text-left form-text pb-3">
-                    <a class="text-givt-purple text-light-font" translate
-                        [routerLink]="['/', 'onboarding', 'welcome', 'new-users', { outlets: { 'onboarding-outlet': ['change-email'] } }]"
-                        queryParamsHandling="merge">
-                        onboardingBankAccountAuthorizedComponent.description</a>
-                </small>
+                <div>
+                    <p [translate]="'onboardingBankAccountAuthorizedComponent.questionPhoneNumber'"
+                        class="introduction-title text-primary text-light-font text-givt-purple mt-5"></p>
+                    <input type="tel" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+                    <small class="text-left form-text pb-3">
+                        <a class="text-givt-purple text-light-font" translate queryParamsHandling="merge">
+                            onboardingBankAccountAuthorizedComponent.questionPhoneNumberSmallText</a>
+                    </small>
+                </div>
+
+                <div>
+                    <p [translate]="'onboardingBankAccountAuthorizedComponent.questionAuthorizedPerson'"
+                        class="introduction-title text-primary text-light-font text-givt-purple mt-5"></p>
+                    <input formControlName="firstName" type="text" autocomplete="given-name"
+                        placeholder="{{ 'placeholders.firstName' | translate }}"
+                        class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
+                    <input type="email" autocomplete="new-password" placeholder="{{ 'placeholders.email' | translate }}"
+                        formControlName="email" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+                    <small class="text-left form-text pb-3">
+                        <a class="text-givt-purple text-light-font" translate queryParamsHandling="merge">
+                            onboardingBankAccountAuthorizedComponent.questionAuthorizedPersonSmallText</a>
+                    </small>
+                </div>
+
             </div>
         </div>
         <div class="FOOTER row pb-4">
             <div class="mr-0 ml-auto col-8 px-0">
                 <button type="submit" [translate]
                     class="btn float-right btn-lg bg-givt-green text-white text-heavy-font w-100 m-0">
-                    onboardingWelcomeComponent.registerButtonText
+                    onboardingBankAccountAuthorizedComponent.okButtonText
                 </button>
             </div>
         </div>
