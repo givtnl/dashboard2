@@ -3,7 +3,8 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { UserRegistrationResponseModel } from '../models/user-registration-response.model';
 import { catchErrorStatus } from 'src/app/shared/extensions/observable-extensions';
-import { OnboardingService } from '../services/onboarding.service';
+import { OnboardingNewUsersService } from '../services/onboarding-new-users.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class OnboardingUserRegistrationPreparationResolver implements Resolve<Us
   /**
    *
    */
-  constructor(private service: OnboardingService, private router: Router) {}
+  constructor(private service: OnboardingNewUsersService, private router: Router) {}
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

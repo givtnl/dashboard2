@@ -8,7 +8,7 @@ import { UserRegistrationResponseModel } from '../models/user-registration-respo
 @Injectable({
     providedIn: 'root'
 })
-export class OnboardingService {
+export class OnboardingNewUsersService {
     constructor(private backendService: BackendService) {}
 
     prepareUser(collectGroupId: string, email: string): Observable<UserRegistrationResponseModel> {

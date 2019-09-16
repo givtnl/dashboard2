@@ -2,7 +2,8 @@ import { Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/r
 import { OnboardingRequestModel } from '../models/onboarding-request.model';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { OnboardingStateService } from '../services/onboarding-state.service';
+import { OnboardingNewUsersStateService } from '../services/onboarding-new-users-state.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class OnboardingRequestResolver implements Resolve<OnboardingRequestModel
   /**
    *
    */
-  constructor(private stateService: OnboardingStateService) {}
+  constructor(private stateService: OnboardingNewUsersStateService) {}
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

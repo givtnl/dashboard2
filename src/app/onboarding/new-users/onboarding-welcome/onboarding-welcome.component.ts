@@ -5,7 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
-import { OnboardingStateService } from '../services/onboarding-state.service';
+import { OnboardingNewUsersStateService } from '../services/onboarding-new-users-state.service';
+
 
 @Component({
   selector: 'app-onboarding-welcome',
@@ -29,7 +30,7 @@ export class OnboardingWelcomeComponent implements OnInit {
     private route: ActivatedRoute,
     private toastr: ToastrService,
     private router: Router,
-    public stateService: OnboardingStateService
+    public stateService: OnboardingNewUsersStateService
   ) {}
 
   ngOnInit() {

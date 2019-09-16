@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { OnboardingStateService } from '../services/onboarding-state.service';
+import { OnboardingNewUsersStateService } from '../services/onboarding-new-users-state.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class OnboardingRegisterCheckPersonalDetailsRequiredGuard implements CanActivate {
-  constructor(private router: Router, private onboardingStateService: OnboardingStateService) {}
+  constructor(private router: Router, private onboardingStateService: OnboardingNewUsersStateService) {}
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const preparationModel = this.onboardingStateService.currentPreparationModel;

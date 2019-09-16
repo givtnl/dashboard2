@@ -6,8 +6,9 @@ import { tap, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { OnboardingRequestModel } from '../models/onboarding-request.model';
 import { Router, ActivatedRoute } from '@angular/router';
-import { OnboardingService } from '../services/onboarding.service';
-import { OnboardingStateService } from '../services/onboarding-state.service';
+import { OnboardingNewUsersService } from '../services/onboarding-new-users.service';
+import { OnboardingNewUsersStateService } from '../services/onboarding-new-users-state.service';
+
 
 @Component({
   selector: 'app-onboarding-change-email',
@@ -23,10 +24,10 @@ export class OnboardingChangeEmailComponent implements OnInit {
     private translationService: TranslateService,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
-    private service: OnboardingService,
+    private service: OnboardingNewUsersService,
     private router: Router,
     private route: ActivatedRoute,
-    private stateService: OnboardingStateService
+    private stateService: OnboardingNewUsersStateService
   ) {}
 
   ngOnInit(): void {

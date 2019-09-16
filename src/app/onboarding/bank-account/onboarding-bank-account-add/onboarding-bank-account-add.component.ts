@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
-import { OnboardingStateService } from '../../new-users/services/onboarding-state.service';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
-import { OnboardingService } from '../../new-users/services/onboarding.service';
 import { fixedLengthValidator } from '../../../shared/validators/fixed-length.validator';
 
 @Component({
@@ -24,9 +22,8 @@ export class OnboardingBankAccountAddComponent implements OnInit {
     private translationService: TranslateService,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
-    private service: OnboardingService,
     private router: Router,
-    public stateService: OnboardingStateService
+
   ) {}
 
   ngOnInit() {
@@ -44,10 +41,10 @@ export class OnboardingBankAccountAddComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.service
-      .addBankAccount(this.form.value)
-      .subscribe(x => this.router.navigate(['/', 'onboarding', 'bank-account', { outlets: { 'onboarding-outlet': ['authorized'] } }]))
-      .add(() => (this.loading = false));
+    // this.service
+    //   .addBankAccount(this.form.value)
+    //   .subscribe(x => this.router.navigate(['/', 'onboarding', 'bank-account', { outlets: { 'onboarding-outlet': ['authorized'] } }]))
+    //   .add(() => (this.loading = false));
   }
 
   handleInvalidForm() {

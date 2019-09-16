@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { OnboardingService } from '../services/onboarding.service';
-import { OnboardingStateService } from '../services/onboarding-state.service';
+import { OnboardingNewUsersService } from '../services/onboarding-new-users.service';
+import { OnboardingNewUsersStateService } from '../services/onboarding-new-users-state.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,8 @@ import { OnboardingStateService } from '../services/onboarding-state.service';
 export class OnboardingCompleteCheckSuccessGuard implements CanActivate {
   constructor(
     private router: Router,
-    private onboardingService: OnboardingService,
-    private onboardingStateService: OnboardingStateService
+    private onboardingService: OnboardingNewUsersService,
+    private onboardingStateService: OnboardingNewUsersStateService
   ) {}
 
   async canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {

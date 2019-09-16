@@ -6,7 +6,7 @@ import { UserRegistrationResponseModel } from '../models/user-registration-respo
 @Injectable({
     providedIn: 'root'
 })
-export class OnboardingStateService {
+export class OnboardingNewUsersStateService {
     private storage = sessionStorage;
 
     public clear(): void {
