@@ -12,8 +12,6 @@ import { BootstrapSizeIndicatorComponent } from './components/bootstrap-size-ind
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CheckBoxInputComponent } from './components/check-box-input/check-box-input.component';
 
-
-
 @NgModule({
   declarations: [HeaderImageComponent,HeaderImagePartyComponent,SideBarComponent, PasswordInputComponent, BootstrapSizeIndicatorComponent, NavBarComponent, CheckBoxInputComponent],
   imports: [
