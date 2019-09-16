@@ -8,17 +8,21 @@
         </div>
         <div class="BODY row d-flex flex-grow-1">
             <div class="w-100">
-                <p class="introduction-title text-primary text-light-font text-givt-purple" translate>
-                    onboardingBankAccountAddComponent.description</p>
-                <input type="text" placeholder="{{ 'placeholders.bankAccountNumberIBAN' | translate }}"
-                    class="form-control-lg form-control mb-3 shadow text-givt-purple" />
-                <input type="text" placeholder="{{ 'placeholders.bankAccountName' | translate }}"
-                    class="form-control-lg form-control mb-3 shadow text-givt-purple" />
+                <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
+                    <p class="introduction-title text-primary text-light-font text-givt-purple" translate>
+                        onboardingBankAccountAddComponent.description</p>
+                    <input *ngIf="orgCountry != 'GB'" type="text"  placeholder="{{ 'placeholders.bankAccountNumberIBAN' | translate }}"
+                        class="form-control-lg form-control mb-3 shadow text-givt-purple" formControlName="iban" />
+                    <input *ngIf="orgCountry == 'GB'" type="text" placeholder="{{ 'placeholders.sortCode' | translate }}" class="form-control form-control-lg mb-3 shadow text-givt-purple" formControlName="sortCode" />
+                    <input *ngIf="orgCountry == 'GB'" type="text" placeholder="{{ 'placeholders.accountNumber' | translate }}" class="form-control form-control-lg mb-3 shadow text-givt-purple" formControlName="accountNumber" />
+                    <input type="text" placeholder="{{ 'placeholders.bankAccountName' | translate }}"
+                        class="form-control-lg form-control mb-3 shadow text-givt-purple" formControlName="name" />
+                </form>
             </div>
         </div>
         <div class="FOOTER row pb-4">
             <div class="mr-0 ml-auto col-8 px-0">
-                <button type="submit" [translate]
+                <button (click)="submit()" [translate]
                     class="btn float-right btn-lg bg-givt-purple text-white text-heavy-font w-100 m-0 row d-flex align-items-center">
                     <div class="col-2"></div>
                     <p class="text-white text-heavy-font p-0 m-0 text-center flex-grow-1" translate>

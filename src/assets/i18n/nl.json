@@ -11,7 +11,15 @@
     "first-name-max-length": "Voornaam mag maximum 15 tekens bevatten",
     "last-name-required": "Achternaam is verplicht",
     "last-name-min-length": "Achternaam moet minstens 2 tekens lang zijn",
-    "last-name-max-length": "Achternaam mag maximum 30 tekens bevatten"
+    "last-name-max-length": "Achternaam mag maximum 30 tekens bevatten",
+    "iban-required": "IBAN is verplicht",
+    "iban-min-length": "Het IBAN moet minstens 12 tekens bevatten",
+    "iban-max-length": "Het IBAN mag maximum 34 tekens bevatten",
+    "sortcode-required": "Sort code is verplicht",
+    "sortcode-length": "De sort code moet 6 tekens lang zijn",
+    "accountnumber-required": "Het account nummer is verplicht",
+    "accountnumber-length": "Het account nummer moet 8 tekens lang zijn",
+    "account-name-required": "The account name is verplicht"
   },
   "placeholders": {
     "email": "E-mail",
@@ -19,7 +27,9 @@
     "firstName": "Voornaam",
     "lastName": "Achternaam",
     "bankAccountNumberIBAN": "IBAN-rekeningnummer",
-    "bankAccountName": "Naam van de rekeninghouder"
+    "bankAccountName": "Naam van de rekeninghouder",
+    "sortCode": "Sort code",
+    "accountNumber": "Account number"
   },
   "passwordInputComponent": {
     "help-text": "Wachtwoord moet uit 7 tekens bestaan waarvan 1 hoofdletter en 1 cijfer."

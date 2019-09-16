@@ -15,6 +15,7 @@ import { OnboardingCompletedComponent } from './new-users/onboarding-completed/o
 import { OnboardingCompleteCheckSuccessGuard } from './new-users/guards/onboarding-complete-check-success.guard';
 import { OnboardingChangeEmailComponent } from './new-users/onboarding-change-email/onboarding-change-email.component';
 import { BankAccountAuthorizedComponent } from './bank-account/bank-account-authorized/bank-account-authorized.component';
+import { BankAccountIntroComponent } from './bank-account/bank-account-intro/bank-account-intro.component';
 
 const routes: Routes = [
   {
@@ -66,13 +67,32 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'bank-account',
-    component: OnboardingRootComponent,
+    path: 'infra',
     children: [
       {
         path: '',
-        outlet: 'onboarding-outlet',
-        component: BankAccountAddComponent
+        redirectTo: 'bank-account'
+      },
+      {
+        path: 'bank-account',
+        component: OnboardingRootComponent,
+        children: [
+          {
+            path: '',
+            outlet: 'onboarding-outlet',
+            component: BankAccountIntroComponent
+          },
+          {
+            path: 'add',
+            outlet: 'onboarding-outlet',
+            component: BankAccountAddComponent
+          },
+          {
+            path: 'authorized',
+            outlet: 'onboarding-outlet',
+            component: BankAccountAuthorizedComponent
+          }
+        ]
       }
     ]
   }
@@ -82,4 +102,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class OnboardingRoutingModule {}
+export class OnboardingRoutingModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bank-account-intro',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BankAccountIntroComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
+
   }
 
+  startBankAccount() {
+    this.router.navigate(['/', 'onboarding', 'infra', 'bank-account', { outlets: { 'onboarding-outlet': ['add'] } }], {
+      queryParamsHandling: 'merge'
+    });
+  }
 }

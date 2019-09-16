@@ -1,7 +1,7 @@
 import { BackendService } from 'src/app/infrastructure/services/backend.service';
 import { Injectable } from '@angular/core';
 import { CreateUserForCollectGroupCommand } from '../models/commands/create-user-for-collect-group.command';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { SendUserRegistrationEmailOnboardingCommand } from '../models/commands/send-user-registration-email-onboarding.command';
 import { UserRegistrationResponseModel } from '../models/user-registration-response.model';
 
@@ -21,5 +21,9 @@ export class OnboardingService {
 
     createUser(onboardingModel: CreateUserForCollectGroupCommand): Observable<object> {
         return this.backendService.post(`collectgroups/${onboardingModel.collectGroupId}/users`, onboardingModel);
+    }
+
+    addBankAccount(onboardingModel: AddBankAccountToOrganisationCommand): Observable<object> {
+        return of({});
     }
 }
