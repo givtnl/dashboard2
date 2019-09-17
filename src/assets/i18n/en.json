@@ -1,48 +1,32 @@
 {
-    "errorMessages": {
-        "generic-server-error": "Something went wrong",
-        "validation-errors": "Invalid input",
-        "email-required": "E-mail is mandatory",
-        "email-not-an-email": "E-mail is invalid",
-        "password-required": "Password is mandatory",
-        "password-min-length": "Password should atleast contain 7 characters, 1 uppercase character and 1 letter",
-        "first-name-required": "First name is mandatory",
-        "first-name-min-length": "First name should atleast contain 2 characters",
-        "first-name-max-length": "First name should should not contain more than 15 characters",
-        "last-name-required": "Last name is mandatory",
-        "last-name-min-length": "Last name should atleast contain 2 characters",
-        "last-name-max-length": "Last name should should not contain more than 30 characters"
-    },
-    "placeholders": {
-        "email": "E-mail",
-        "password": "Password",
-        "firstName": "First name",
-        "lastName": "Last name"
-    },
-    "passwordInputComponent": {
-        "help-text": "The password should atleast contain 7 characters and contain 1 uppercased letter and 1 number."
-    },
-    "onboardingCompletedComponent": {
-        "title": "You have been registered!",
-        "description": "You now have access to the dashboard where you can create collectgroups and add more users."
-    },
-    "notFoundComponent": {
-        "title": "Something went wrong",
-        "description": "This page was not found, check the input or contact our helpdesk if you require assistance"
-    },
-    "onboardingCheckInboxComponent": {
-        "title": "Please check your inbox",
-        "description": "We've sent you a new email that contains a link to signup with the e-mail you've provided. If you did not receive the e-mail please check your SPAM inbox."
-    },
-    "onboardingWelcomeComponent": {
-        "title": "Welcome to the personal dashboard of {{name}}. Register with Givt to gain access to the dashboard of Givt where you can see the collections for {{name}}.",
-        "registerButtonText": "Register",
-        "differentEmailAddress": "Click here to use a different e-mail address",
-        "sendEmailButtonText": "Confirm your new e-mail address",
-        "goToDashboardText": "Click here to go to the dashboard"
-    },
-    "onboardingPersonalDetailsComponent": {
-        "title": "What is your first and lastname?",
-        "nextButtonText": "Next"
-    }
+    "errorMessages.generic-server-error": "Something went wrong",
+    "errorMessages.validation-errors": "Invalid input",
+    "errorMessages.email-required": "E-mail is mandatory",
+    "errorMessages.email-not-an-email": "E-mail is invalid",
+    "errorMessages.password-required": "Password is mandatory",
+    "errorMessages.password-min-length": "Password should atleast contain 7 characters, 1 uppercase character and 1 letter",
+    "errorMessages.first-name-required": "First name is mandatory",
+    "errorMessages.first-name-min-length": "First name should atleast contain 2 characters",
+    "errorMessages.first-name-max-length": "First name should should not contain more than 15 characters",
+    "errorMessages.last-name-required": "Last name is mandatory",
+    "errorMessages.last-name-min-length": "Last name should atleast contain 2 characters",
+    "errorMessages.last-name-max-length": "Last name should should not contain more than 30 characters",
+    "placeholders.email": "E-mail",
+    "placeholders.password": "Password",
+    "placeholders.firstName": "First name",
+    "placeholders.lastName": "Last name",
+    "passwordInputComponent.help-text": "The password should atleast contain 7 characters and contain 1 uppercased letter and 1 number.",
+    "onboardingCompletedComponent.title": "You have been registered!",
+    "onboardingCompletedComponent.description": "You now have access to the dashboard where you can create collectgroups and add more users.",
+    "notFoundComponent.title": "Something went wrong",
+    "notFoundComponent.description": "This page was not found, check the input or contact our helpdesk if you require assistance",
+    "onboardingCheckInboxComponent.title": "Please check your inbox",
+    "onboardingCheckInboxComponent.description": "We've sent you a new email that contains a link to signup with the e-mail you've provided. If you did not receive the e-mail please check your SPAM inbox.",
+    "onboardingWelcomeComponent.title": "Welcome to the personal dashboard of {{name}}. Register with Givt to gain access to the dashboard of Givt where you can see the collections for {{name}}.",
+    "onboardingWelcomeComponent.differentEmailAddress": "Click here to use a different e-mail address",
+    "onboardingWelcomeComponent.registerButtonText": "Register",
+    "onboardingWelcomeComponent.sendEmailButtonText": "Confirm your new e-mail address",
+    "onboardingWelcomeComponent.goToDashboardText": "Click here to go to the dashboard",
+    "onboardingPersonalDetailsComponent.title": "What is your first and lastname?",
+    "onboardingPersonalDetailsComponent.nextButtonText": "Next"
 }
