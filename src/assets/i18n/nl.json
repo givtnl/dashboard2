@@ -62,7 +62,7 @@
     "underConstructionComponent.description": "We werken eraan",
     "dashboardCompleteAccountWidgetComponent.createAccount": "Account registreren voor de hoofdgebruiker",
     "dashboardCompleteAccountWidgetComponent.addBankAccount": "De eerste bankrekening toevoegen",     
-    "loginComponent": "Hallo.",
-    "loginComponent": "Welkom bij het Givt dashboard. Log in om toegang te krijgen",
-    "loginComponent": "Login"
+    "loginComponent.headerTitle": "Hallo.",
+    "loginComponent.title": "Welkom bij het Givt dashboard. Log in om toegang te krijgen",
+    "loginComponent.loginButtonText": "Login"
 }
