@@ -61,5 +61,9 @@
     "underConstructionComponent.title": "Oops",
     "underConstructionComponent.description": "We are working on it",
     "dashboardCompleteAccountWidgetComponent.createAccount": "Create an account for the admin",
-    "dashboardCompleteAccountWidgetComponent.addBankAccount": "Add the bank account details"
+    "dashboardCompleteAccountWidgetComponent.addBankAccount": "Add the bank account details",     
+    "loginComponent": "Hello.",
+    "loginComponent": "Welcome to the Givt Dashboard. Log in to get access",
+    "loginComponent": "Login"
+    
 }
