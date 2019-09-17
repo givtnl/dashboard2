@@ -2,7 +2,7 @@
   <div class="row mt-5">
     <div class="col-12">
       <h2 class="text-font-light text-givt-purple">
-        Goedemorgen
+        Goedemorgen {{applicationStateService.currentUserModel.userName}}
       </h2>
     </div>
   </div>
@@ -13,7 +13,7 @@
         icon="fas fa-church fa-3x"
         image="assets/images/widget-background-1.svg"
         footer="€ 0 Laatste collecte"
-        title="Faith Church"
+        [title]="applicationStateService.currentUserModel.organisationName"
       ></app-dashboard-tile-widget>
     </div>
   </div>
