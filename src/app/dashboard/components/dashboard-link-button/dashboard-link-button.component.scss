@@ -1,0 +1,21 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import 'src/styles.scss';
+
+.border-radius-10 {
+  border-radius: 10px;
+}
+
+.btn {
+  font-size: 60%;
+}
+
+.btn-givt:hover:not(:disabled),
+.btn-givt.active {
+  @extend .bg-givt-purple;
+  color: white !important;
+}
+
+.disabled {
+    cursor: not-allowed;
+}

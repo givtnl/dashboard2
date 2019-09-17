@@ -1,0 +1,44 @@
+
+<div *ngIf="loading" class="d-flex mt-5 text-givt-purple justify-content-center">
+    <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+<ul *ngIf="!loading" class="list-group text-givt-purple  text-light-font list-group-flush">
+  <li class="list-group-item bg-transparent d-flex pl-0 justify-content-start">
+    <div class="align-items-center">
+      <div class="progress">
+        <span class="progress-left">
+          <span
+            class="progress-bar border-primary"
+            [style.transform]="percentageComplete() > 50 ? 'rotate(' + percentageDegrees(percentageComplete() - 50) + 'deg)' : ''"
+          ></span>
+        </span>
+        <span class="progress-right">
+          <span
+            class="progress-bar border-primary"
+            [style.transform]="percentageComplete() < 51 ? 'rotate(' + percentageDegrees(percentageComplete()) + 'deg)' : 'rotate(180deg)'"
+          ></span>
+        </span>
+        <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+          <div class="h5 m-0 text-givt-purple text-heavy-font ">{{ percentageComplete() }}%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ml-2 align-items-top">
+      <h5 class=" text-heavy-font">Maak uw account compleet</h5>
+      <p class="mb-1">Om de giften over te kunnen maken, hebben we nog wat informatie nodig.</p>
+    </div>
+  </li>
+  <li *ngFor="let record of records" class="list-group-item bg-transparent d-flex justify-content-between align-items-center">
+    <div [class.text-muted]="record.Finished" class="justify-content-start">
+      <i [class.text-success]="record.Finished" [class.fa-check-square]="record.Finished"
+      [class.fa-square]="!record.Finished"
+       class="far fa-check-square  mr-2 text-success"></i>
+      <span [class.line-through]="record.Finished">{{'dashboardCompleteAccountWidgetComponent.' + record.OrganisationRegistrationStatusDescription | translate}}</span>
+    </div>
+    <a [routerLink]="getRouterLinks(record)" *ngIf="!record.Finished" class="text-givt-purple badge"><i class="fas fa-arrow-right"></i></a>
+  </li>
+</ul>

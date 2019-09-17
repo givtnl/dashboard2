@@ -1,6 +1,23 @@
-
-<p>dashboard-home works!</p>
-<form [formGroup]="form">
-    <app-check-box-input formControlName="someInput"></app-check-box-input>
-    {{form.value | json}}
-</form>
+<div class="container-fluid">
+  <div class="row mt-5">
+    <div class="col-12">
+      <h2 class="text-font-light text-givt-purple">
+        Goedemorgen
+      </h2>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-xl-4 col-sm-8 col-lg-5 col-md-6">
+      <app-dashboard-tile-widget
+        class="text-white"
+        icon="fas fa-church fa-3x"
+        image="assets/images/widget-background-1.svg"
+        footer="€ 0 Laatste collecte"
+        title="Faith Church"
+      ></app-dashboard-tile-widget>
+    </div>
+  </div>
+  <div class="col-xl-4 col-lg-7 col-md-7">
+    <app-dashboard-complete-account-widget></app-dashboard-complete-account-widget>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
 	selector: 'app-root',
@@ -7,6 +8,9 @@ import { TranslateService } from '@ngx-translate/core';
 	styles: []
 })
 export class AppComponent {
+
+	public isProduction = environment.production;
+
 	constructor(languageService: TranslateService) {
 		languageService.addLangs([ 'en', 'nl' ]);
 		languageService.setDefaultLang('en');

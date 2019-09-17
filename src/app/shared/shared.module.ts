@@ -12,21 +12,36 @@ import { BootstrapSizeIndicatorComponent } from './components/bootstrap-size-ind
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CheckBoxInputComponent } from './components/check-box-input/check-box-input.component';
 
-
-
 @NgModule({
-  declarations: [HeaderImageComponent,HeaderImagePartyComponent,SideBarComponent, PasswordInputComponent, BootstrapSizeIndicatorComponent, NavBarComponent, CheckBoxInputComponent],
+  declarations: [
+    HeaderImageComponent,
+    HeaderImagePartyComponent,
+    SideBarComponent,
+    PasswordInputComponent,
+    BootstrapSizeIndicatorComponent,
+    NavBarComponent,
+    CheckBoxInputComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
     TranslateModule.forChild({
       loader: {
-          provide: TranslateLoader,
-          useFactory: httpClient => new TranslateHttpLoader(httpClient),
-          deps: [HttpClient]
+        provide: TranslateLoader,
+        useFactory: httpClient => new TranslateHttpLoader(httpClient),
+        deps: [HttpClient]
       }
-  })
-      ],
-  exports:[HeaderImageComponent,NavBarComponent,CheckBoxInputComponent, PasswordInputComponent,BootstrapSizeIndicatorComponent, HeaderImagePartyComponent,SideBarComponent, TranslateModule]
+    })
+  ],
+  exports: [
+    HeaderImageComponent,
+    NavBarComponent,
+    CheckBoxInputComponent,
+    PasswordInputComponent,
+    BootstrapSizeIndicatorComponent,
+    HeaderImagePartyComponent,
+    SideBarComponent,
+    TranslateModule
+  ]
 })
-export class SharedModule { }
+export class SharedModule {}

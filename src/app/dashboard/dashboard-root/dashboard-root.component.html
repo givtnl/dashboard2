@@ -1,14 +1,14 @@
-<div class="container-fluid p-0 m-0 h-100">
+<div class="container-fluid bg-light p-0 m-0 h-100">
   <app-nav-bar #navbar></app-nav-bar>
-  <div class="row no-gutters h-100">
-    <div class="col-lg-3 d-none d-lg-block col-xl-2 h-100 col-sm-12 col-md-12">
-      <app-side-bar ></app-side-bar>
-    </div>
+  <div class="row no-gutters">
+    <nav class="col-lg-3 pt-0 d-none d-lg-block col-xl-2  col-sm-12 col-md-12 bg-white sidebar">
+      <app-side-bar class="sidebar-sticky" ></app-side-bar>
+    </nav>
     <div 
     [class.fade]="navbar.showSideBar"
     [class.show]="navbar.showSideBar"
      [class.modal-backdrop]="navbar.showSideBar"
-      class="col-lg-12 col-md-12 col-xl-10 ">
+      class="col-lg-9 ml-sm-auto col-md-12 col-xl-10">
       <router-outlet name="dashboard-outlet"></router-outlet>
     </div>
   </div>

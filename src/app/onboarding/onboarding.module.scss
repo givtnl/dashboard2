@@ -2,59 +2,45 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-.form-control-plaintext {
-    padding-left: inherit;
-}
-
-body {
-    height: 100% !important;
-}
-
-.no-underline {
-    text-decoration: none;
-}
-
-.onboarding-container {
-    height: -webkit-fill-available;
-    display: flex;
-    flex-direction: column;
-
-    .onboarding-wrapper {
-        .onboarding-header {
-            text-align: center;
-            .confetti {
-                position: absolute;
-                top: 0;
-                left: 25%;
-                z-index: -1;
-            }
-        }
-        .onboarding-body {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            text-align: center;
-            .success-circle {
-                align-self: center;
-                margin: 40px 0;
-            }
-            p:nth-of-type(1) {
-                font-family: 'Avenir_Heavy';
-            }
-        }
-    }
-    .onboarding-footer {
-        display: flex;
-        justify-content: flex-end;
-    }
-    button {
-        background-color: theme-color('success');
-        border: none;
+@include media-breakpoint-up(sm) {
+    .CONTAINER {
+        height: 631px !important;
+        width: 554px !important;
+        border-radius: 2rem !important
     }
 }
 
-.email-circle, .success-circle {
+.HEADER {
+    padding-top: 5rem !important;
+}
 
+.BODY {
+    padding: 1.25rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.FOOTER {
+    padding: 0 2rem 0 2rem;
+}
+
+.CONFETTI {
+    background-image: url('../../assets/images/confetti.svg');
+}
+
+.CONTAINER {
+    // background: #f5f5f5;
+    // background-image: linear-gradient(to bottom right,#f5f5f5  , white);
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f5f5f5+0,f5f5f5+50,ffffff+51,ffffff+100 */
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f5f5f5+0,f5f5f5+50,ffffff+51,ffffff+100 */
+    background: #f5f5f5; /* Old browsers */
+    background: -moz-linear-gradient(-180deg,  #f5f5f5 0%, #f5f5f5 25%, #ffffff 26%, #ffffff 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-180deg,  #f5f5f5 0%,#f5f5f5 25%,#ffffff 26%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(177deg,  #f5f5f5 0%,#f5f5f5 25%,#ffffff 26%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.circle-green {
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -75,34 +61,23 @@ body {
     align-items: center;
 }
 
-@include media-breakpoint-up(md) {
-    .onboarding-container {
-        max-width: 720px;
-        max-height: 400px;
+.circle-purple {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
 
-        .onboarding-wrapper {
-            .onboarding-header {
-                margin-top: 0 !important;
-            }
-        }
-    }
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#724D7C+87,BD3F56+100 */
+    background: #724D7C;
+    /* Old browsers */
+    background: -moz-linear-gradient(45deg, #724D7C 30%, #BD3F56 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #724D7C 30%, #BD3F56 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #724D7C 30%, #BD3F56 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#724D7C', endColorstr='#BD3F56', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+
+    display: flex;
+    align-items: center;
 }
-
-@include media-breakpoint-up(lg) {
-    .onboarding-container {
-        margin-bottom: 80px;
-    }
-}
-@include media-breakpoint-up(xl) {
-    .onboarding-container {
-        margin-bottom: 100px;
-    }
-}
-
-$givt-purple-color: rgb(46,41,87);
-$givt-green-color:rgb(28,169,108);
-
-$theme-colors: (
-  "primary": $givt-purple-color ,
-  "success": $givt-green-color
-);

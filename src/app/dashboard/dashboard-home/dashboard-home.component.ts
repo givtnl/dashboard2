@@ -8,16 +8,10 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class DashboardHomeComponent implements OnInit {
 
-  public form: FormGroup;
-  constructor(private fb: FormBuilder) { }
+
 
   ngOnInit() {
-    this.form = this.fb.group({
-         someInput:[{
-           value: true,
-           disabled:true
-         }]
-    });
+
   }
 
 }
