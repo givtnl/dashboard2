@@ -20,7 +20,7 @@ const routes: Routes = [
     },
      {
          path: '**',
-         redirectTo: 'system/not-found'
+         redirectTo: 'system/root'
      }
 ];
 
