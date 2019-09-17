@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CompleteAccountWidgetService } from './services/complete-account-widget.service';
 import { CompleteAccountWidgetModel } from './models/complete-account-widget.model';
+import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 
 @Component({
   selector: 'app-dashboard-complete-account-widget',
@@ -10,12 +11,12 @@ import { CompleteAccountWidgetModel } from './models/complete-account-widget.mod
 export class DashboardCompleteAccountWidgetComponent implements OnInit {
   public loading = false;
   public records = new Array<CompleteAccountWidgetModel>();
-  constructor(private service: CompleteAccountWidgetService) {}
+  constructor(private service: CompleteAccountWidgetService, private applicationStateService: ApplicationStateService) {}
 
   ngOnInit(): void {
     this.loading = true;
     this.service
-      .get('c800dd5e-f3a3-48c9-9eab-986e68b1dcb2')
+      .get(this.applicationStateService.currentUserModel.organisationId)
       .subscribe(x => (this.records = x))
       .add(() => (this.loading = false));
   }
