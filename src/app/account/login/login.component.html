@@ -19,8 +19,10 @@
             </div>
             <div class="FOOTER row pb-4">
                 <div class="mr-auto ml-auto col-8 px-0">
-                    <button type="submit" [translate]
+                    <button [disabled]="loading" type="submit" [translate]
                         class="btn btn-lg bg-givt-green text-white text-heavy-font w-100 m-0">
+                        <i class="fas fa-rocket mr-1" *ngIf="!loading"></i>
+                        <i class="fas fa-spinner fa-spin mr-1" *ngIf="loading"></i>
                         loginComponent.loginButtonText
                     </button>
                 </div>
