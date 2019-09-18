@@ -1,25 +1,30 @@
-<div class="d-flex flex-column h-100">
-    <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
-        <div class="HEADER row pt-1 pb-1 justify-content-center">
-            <app-header-image class="text-center w-100 pb-4"></app-header-image>
-        </div>
-        <div class="BODY row d-flex flex-grow-1">
-            <div class="w-100">
-                <h1 [translate]="'loginComponent.headerTitle'"
-                    class="text-primary text-light-font text-givt-purple text-center"></h1>
-                <p [translate]="'loginComponent.title'"
-                    class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></p>
-                <input type="email" autocomplete="new-password" placeholder="{{ 'placeholders.email' | translate }}"
-                    formControlName="email" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
-                <app-password-input formControlName="password" [showPasswordHint]='false'></app-password-input>
+
+                <form [formGroup]="form" (ngSubmit)="submit()" class="h-100">
+    <div class="d-flex flex-column h-100">
+
+        <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
+            <div class="HEADER row pt-1 pb-1 justify-content-center">
+                <app-header-image class="text-center w-100 pb-4"></app-header-image>
             </div>
-        </div>
-        <div class="FOOTER row pb-4">
-            <div class="mr-auto ml-auto col-8 px-0">
-                <button type="submit" [translate] class="btn btn-lg bg-givt-green text-white text-heavy-font w-100 m-0">
-                    loginComponent.loginButtonText
-                </button>
+            <div class="BODY row d-flex flex-grow-1">
+                <div class="w-100">
+                    <h1 [translate]="'loginComponent.headerTitle'"
+                        class="text-primary text-light-font text-givt-purple text-center"></h1>
+                    <p [translate]="'loginComponent.title'"
+                        class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></p>
+                    <input type="email" autocomplete="new-password" placeholder="{{ 'placeholders.email' | translate }}"
+                        formControlName="email" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+                    <app-password-input formControlName="password" [showPasswordHint]='false'></app-password-input>
+                </div>
+            </div>
+            <div class="FOOTER row pb-4">
+                <div class="mr-auto ml-auto col-8 px-0">
+                    <button type="submit" [translate]
+                        class="btn btn-lg bg-givt-green text-white text-heavy-font w-100 m-0">
+                        loginComponent.loginButtonText
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</form>
