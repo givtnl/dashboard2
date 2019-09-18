@@ -1,6 +1,8 @@
 interface AddBankAccountToOrganisationCommand {
-    name: string;
+    iban?: string;
+    accountHolderFirstName:string;
+    accountHolderLastName:string;
     sortCode?: string;
     accountNumber?: string;
-    organisationId: string;
+
 }
