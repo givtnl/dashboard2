@@ -13,6 +13,7 @@ import { CustomUrlSerializer } from './shared/serializers/custom-url.serializer'
 import { OnboardingInterceptor } from './onboarding/new-users/interceptors/onboarding.interceptor';
 import { ApplicationLoadService } from './infrastructure/services/application-load.service';
 import { MissingFileTranslationsHandler } from './infrastructure/services/missing-file-translations.service';
+import { CurrentUserTokenInterceptor } from './infrastructure/interceptors/current-user-token.interceptor';
 
 export function init_app(appLoadService: ApplicationLoadService) {
   return () => appLoadService.initializeApp();
@@ -44,6 +45,11 @@ export function init_app(appLoadService: ApplicationLoadService) {
       provide: APP_INITIALIZER,
       useFactory: init_app,
       deps: [ApplicationLoadService],
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CurrentUserTokenInterceptor,
       multi: true
     },
     {
