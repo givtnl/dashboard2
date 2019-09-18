@@ -11,7 +11,7 @@ export class ApplicationLoadService {
   public initializeApp() {
     if (!environment.production) {
       this.applicationStateService.currentUserModel = {
-        organisationId: 'E7DE469C-D527-43D2-8FBF-79D36EC0CDBB',
+        organisationId: '0A5114B3-D21E-4615-BC1E-0853240EFBEE',
         organisationName: 'Dorcas',
         userName: 'Debug gebruiker',
         userEmail: 'Debugemail@debug.debug'
