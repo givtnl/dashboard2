@@ -40,7 +40,7 @@ export class OnboardingBankAccountAddComponent implements OnInit {
       return;
     }
     this.stateService.currentBankAccountModel = this.form.value;
-    this.router.navigate(['/', 'onboarding', 'bank-account', { outlets: { 'onboarding-outlet': ['authorized'] } }]);
+    this.router.navigate(['/', 'onboarding', 'bank-account', { outlets: { 'onboarding-outlet': ['completed'] } }]);
   }
 
   handleInvalidForm() {
