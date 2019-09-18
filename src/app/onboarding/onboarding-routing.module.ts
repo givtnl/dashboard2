@@ -18,6 +18,7 @@ import { OnboardingBankAccountAddComponent } from './bank-account/onboarding-ban
 import { OnboardingBankAccountAuthorizedComponent } from './bank-account/onboarding-bank-account-authorized/onboarding-bank-account-authorized.component';
 import { OnboardingBankAccountCompletedComponent } from './bank-account/onboarding-bank-account-completed/onboarding-bank-account-completed.component';
 import { OnboardingBankAccountRegistrationResolver } from './bank-account/resolvers/onboarding-bank-account-registration-response.model';
+import { OnboardingBankAccountCompleteCheckSuccessGuard } from './bank-account/guards/onboarding-bank-account-complete-check-success.guard';
 
 const routes: Routes = [
   {
@@ -91,7 +92,8 @@ const routes: Routes = [
       {
         path: 'completed',
         outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountCompletedComponent
+        component: OnboardingBankAccountCompletedComponent,
+        canActivate:[OnboardingBankAccountCompleteCheckSuccessGuard]
       }
     ]
   }
