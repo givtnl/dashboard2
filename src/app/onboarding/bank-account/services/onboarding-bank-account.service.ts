@@ -13,7 +13,7 @@ export class OnboardingBankAccountService {
         return this.backendService.get(`v2/organisations/${organisationId}/registration/account`);
     }
 
-    create(command: AddBankAccountToOrganisationCommand): Observable<object>{
-        return this.backendService.post(`organisations/${command.organisationId}/accounts`, command);
+    create(organisationId: string, command: AddBankAccountToOrganisationCommand): Observable<object>{
+        return this.backendService.post(`organisations/${organisationId}/accounts`, command);
     }
 }
