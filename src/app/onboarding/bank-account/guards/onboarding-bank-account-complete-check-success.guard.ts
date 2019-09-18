@@ -20,9 +20,9 @@ export class OnboardingBankAccountCompleteCheckSuccessGuard implements CanActiva
   async canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     try {
       const registration = this.onboardingBankAccountStateService.currentBankAccountModel;
-      const currentUser = this.applicationStateService.currentUserModel;
+      const currentToken = this.applicationStateService.currentTokenModel;
 
-      await this.onboardingBankAccountService.create(currentUser.organisationId, registration).toPromise();
+      await this.onboardingBankAccountService.create(currentToken.OrganisationAdmin, registration).toPromise();
       this.onboardingBankAccountStateService.clear();
     } catch (error) {
       if (error instanceof HttpErrorResponse) {

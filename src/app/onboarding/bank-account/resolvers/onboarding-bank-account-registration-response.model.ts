@@ -21,6 +21,6 @@ export class OnboardingBankAccountRegistrationResolver implements Resolve<Onboar
     | OnboardingBankAccountRegistrationResponseModel
     | Observable<OnboardingBankAccountRegistrationResponseModel>
     | Promise<OnboardingBankAccountRegistrationResponseModel> {
-    return this.service.getRegistrationStatus(this.applicationStateService.currentUserModel.organisationId);
+    return this.service.getRegistrationStatus(this.applicationStateService.currentTokenModel.OrganisationAdmin);
   }
 }
