@@ -14,7 +14,7 @@ import { CurrentUserExtensionModel } from 'src/app/infrastructure/models/current
 export class AccountService {
   constructor(private backendService: BackendService, private applicationStateService: ApplicationStateService) {}
 
-  me(): Observable<CurrentUserModel> {
+  private me(): Observable<CurrentUserModel> {
     return this.backendService
       .get<CurrentUserModel>(`v2/users`)
       .pipe(tap(currentUser => (this.applicationStateService.currentUserModel = currentUser)))
@@ -22,13 +22,13 @@ export class AccountService {
         switchMap(answer =>
           this.backendService
             .get<CurrentUserExtensionModel>(`v2/usersextension`)
-            .pipe(tap(extensionModel => (this.applicationStateService.currentUserExtensionTokenModel = extensionModel)))
+            .pipe(tap(extensionModel => (this.applicationStateService.currentUserExtensionModel = extensionModel)))
             .pipe(switchMap(extensionModel => of(answer)))
         )
       );
   }
 
-  login(username: string, password: string): Observable<CurrentUserModel> {
+  public login(username: string, password: string): Observable<CurrentUserModel> {
     let form = new FormData();
     form.append('grant_type', 'password');
     form.append('userName', username);

@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { AccountService } from '../services/account.service';
 import { Observable } from 'rxjs';
 import { catchErrorStatus } from 'src/app/shared/extensions/observable-extensions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   public form: FormGroup;
   public loading = false;
 
-  constructor(private fb: FormBuilder, private translationService: TranslateService, private accountService: AccountService) {}
+  constructor(private fb: FormBuilder,private router: Router, private translationService: TranslateService, private accountService: AccountService) {}
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -32,9 +33,7 @@ export class LoginComponent implements OnInit {
       this.accountService
         .login(this.form.value.email, this.form.value.password)
         .pipe(catchErrorStatus(400, this.handleInvalidLogin))
-        .subscribe(resp => {
-          console.log(resp);
-        })
+        .subscribe(resp => this.router.navigate(['/','dashboard','root', {outlets:{'dashboard-outlet':['home']}}]))
         .add(() => (this.loading = false));
     }
   }
