@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { fixedLengthValidator } from '../../../shared/validators/fixed-length.validator';
 import { OnboardingBankAccountStateService } from '../services/onboarding-bank-account-state.service';
+import { OnboardingBankAccountRegistrationResponseModel } from '../models/onboarding-bank-account-registration-response.model';
 
 @Component({
   selector: 'app-onboarding-bank-account-add',
@@ -23,14 +24,18 @@ export class OnboardingBankAccountAddComponent implements OnInit {
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private router: Router,
+    private route: ActivatedRoute,
     private stateService: OnboardingBankAccountStateService
   ) {}
 
   ngOnInit() {
+    const currentBankDetails = this.route.parent.snapshot.data.bankaccount as OnboardingBankAccountRegistrationResponseModel;
+
     this.form = this.formBuilder.group({
-      sortCode: [null, [Validators.required, fixedLengthValidator(6)]],
-      accountNumber: [null, [Validators.required, fixedLengthValidator(8)]],
-      name: [null, [Validators.required]]
+      sortCode: [currentBankDetails.SortCode, [Validators.required, fixedLengthValidator(6)]],
+      accountNumber: [currentBankDetails.AccountNumber, [Validators.required, fixedLengthValidator(8)]],
+      accountHolderFirstName: [currentBankDetails.AccountHolderFirstName, [Validators.required]],
+      accountHolderLastName: [currentBankDetails.AccountHolderLastName, [Validators.required]]
     });
   }
 
