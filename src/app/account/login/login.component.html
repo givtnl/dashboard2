@@ -1,5 +1,4 @@
-
-                <form [formGroup]="form" (ngSubmit)="submit()" class="h-100">
+<form [formGroup]="form" (ngSubmit)="submit()" class="h-100">
     <div class="d-flex flex-column h-100">
 
         <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
@@ -12,9 +11,16 @@
                         class="text-primary text-light-font text-givt-purple text-center"></h1>
                     <p [translate]="'loginComponent.title'"
                         class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></p>
-                    <input type="email" autocomplete="new-password" placeholder="{{ 'placeholders.email' | translate }}"
-                        formControlName="email" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
-                    <app-password-input formControlName="password" [showPasswordHint]='false'></app-password-input>
+                    <input [class.submitted]="submitted && !isValidEmail" type="email" autocomplete="new-password"
+                        placeholder="{{ 'placeholders.email' | translate }}" formControlName="email"
+                        class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+                    <app-password-input [class.submitted]="submitted && !isValidPassword" formControlName="password"
+                        [showPasswordHint]='false'></app-password-input>
+                    <div *ngIf="errorMessages" class="mt-2">
+                            <small *ngFor="let message of errorMessages" class="form-text text-red">
+                                {{message.value}}
+                            </small>
+                    </div>
                 </div>
             </div>
             <div class="FOOTER row pb-4">
