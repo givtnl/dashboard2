@@ -13,10 +13,13 @@
                         onboardingBankAccountAddComponent.description</p>
                     <!-- <input *ngIf="orgCountry != 'GB'" type="text"  placeholder="{{ 'placeholders.bankAccountNumberIBAN' | translate }}"
                         class="form-control-lg form-control mb-3 shadow text-givt-purple" formControlName="iban" /> -->
-                    <input *ngIf="orgCountry == 'GB'" type="text" placeholder="{{ 'placeholders.sortCode' | translate }}" class="form-control form-control-lg mb-3 shadow text-givt-purple" formControlName="sortCode" />
-                    <input *ngIf="orgCountry == 'GB'" type="text" placeholder="{{ 'placeholders.accountNumber' | translate }}" class="form-control form-control-lg mb-3 shadow text-givt-purple" formControlName="accountNumber" />
+                    <input type="text" placeholder="{{ 'placeholders.sortCode' | translate }}" class="form-control form-control-lg mb-3 shadow text-givt-purple" formControlName="sortCode" />
+                    <input type="text" placeholder="{{ 'placeholders.accountNumber' | translate }}" class="form-control form-control-lg mb-3 shadow text-givt-purple" formControlName="accountNumber" />
                     <input type="text" placeholder="{{ 'placeholders.bankAccountName' | translate }}"
-                        class="form-control-lg form-control mb-3 shadow text-givt-purple" formControlName="name" />
+                        class="form-control-lg form-control mb-3 shadow text-givt-purple" formControlName="accountHolderLastName" />
+                        <input type="text" placeholder="{{ 'placeholders.bankAccountName' | translate }}"
+                        class="form-control-lg form-control mb-3 shadow text-givt-purple" formControlName="accountHolderFirstName" />
+
                 </form>
             </div>
         </div>
