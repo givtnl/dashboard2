@@ -33,13 +33,13 @@ export class ApplicationStateService {
 
   
   public get currentUserExtensionModel(): CurrentUserExtensionModel {
-    const key = 'ApplicationStateService.currentUserExtensionModel';
+    const key = 'ApplicationStateService.CurrentUserExtensionModel';
     const serializedRequest = JSON.parse(this.storage.getItem(key));
     return serializedRequest;
   }
 
   public set currentUserExtensionModel(value: CurrentUserExtensionModel) {
-    const key = 'ApplicationStateService.currentUserExtensionModel';
+    const key = 'ApplicationStateService.CurrentUserExtensionModel';
     this.storage.setItem(key, JSON.stringify(value));
   }
 }

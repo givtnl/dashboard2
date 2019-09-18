@@ -16,7 +16,7 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
   ngOnInit(): void {
     this.loading = true;
     this.service
-      .get(this.applicationStateService.currentUserModel.organisationId)
+      .get(this.applicationStateService.currentTokenModel.OrganisationAdmin)
       .subscribe(x => (this.records = x))
       .add(() => (this.loading = false));
   }

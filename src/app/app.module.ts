@@ -11,13 +11,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { UrlSerializer } from '@angular/router';
 import { CustomUrlSerializer } from './shared/serializers/custom-url.serializer';
 import { OnboardingInterceptor } from './onboarding/new-users/interceptors/onboarding.interceptor';
-import { ApplicationLoadService } from './infrastructure/services/application-load.service';
 import { MissingFileTranslationsHandler } from './infrastructure/services/missing-file-translations.service';
 import { CurrentUserTokenInterceptor } from './infrastructure/interceptors/current-user-token.interceptor';
 
-export function init_app(appLoadService: ApplicationLoadService) {
-  return () => appLoadService.initializeApp();
-}
 
 @NgModule({
   declarations: [AppComponent],
@@ -41,12 +37,6 @@ export function init_app(appLoadService: ApplicationLoadService) {
   ],
   bootstrap: [AppComponent],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: init_app,
-      deps: [ApplicationLoadService],
-      multi: true
-    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CurrentUserTokenInterceptor,
