@@ -34,7 +34,7 @@
     "errorMessages.sortcode-required": "Sort code is required",
     "errorMessages.sortcode-length": "The sort code should be 6 characters in length",
     "errorMessages.accountnumber-required": "The account nummer is required",
-    "errorMessages.accountnumber-length": "The account nummer should be 8 characters in length",
+    "errorMessages.accountnumber-length": "The account number should be 8 characters in length",
     "errorMessages.account-name-required": "The account name is required",
     "placeholders.bankAccountNumberIBAN": "IBAN bank-account number",
     "placeholders.bankAccountName": "Name bank-account",
@@ -44,7 +44,7 @@
     "onboardingBankAccountIntroComponent.description": "Add a bankaccount to your Givt-account where you want to receive your gifts",
     "onboardingBankAccountIntroComponent.startButtonText": "Start",
     "onboardingBankAccountAddComponent.title": "Add bankaccount",
-    "onboardingBankAccountAddComponent.description": "Bankaccount of {0}",
+    "onboardingBankAccountAddComponent.description": "Your bankaccount",
     "onboardingBankAccountAddComponent.buttonText": "Next",
     "onboardingBankAccountAuthorizedComponent.title": "Add bankaccount",
     "onboardingBankAccountAuthorizedComponent.description": "Are you authorized to verify the bank-account of {0}?",
@@ -68,8 +68,11 @@
     "errorMessages.lockedOut": "There have been too many attempts at logging in. Due to security reasons your account has been temporarily blocked. Please try again later.",
     "errorMessages.wrongEmailOrPassword": "Wrong e-mail address or password, please try again.",
     "errorMessages.accountDisabled": "Your account has been disabled. Please contact our support service for more information.",
-    "errorMessages.oneAttemptLeft": "You have only 1 attempt left to log in.",
-    "errorMessages.twoAttemptLeft": "You have only 2 attempts left to log in.",
+    "errorMessages.oneAttemptLeft": "You only have 1 attempt left to log in.",
+    "errorMessages.twoAttemptLeft": "You only have 2 attempts left to log in.",
     "errorMessages.generic-error-message": "Something went wrong while processing your request",
-    "errorMessages.generic-error-title": "Oops"
+    "errorMessages.generic-error-title": "Oops",
+    "onboardingBankAccountIntroComponent.description-part-one": "",
+    "errorMessages.account-firstname-required": "Please fill in your first name.\nA complete account name is required!",
+    "errorMessages.account-lastname-required": "Please fill in your last name.\nA complete account name is required!"
 }
