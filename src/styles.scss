@@ -52,6 +52,10 @@ $box-shadow-color: rgb(226, 226, 226);
   color: theme-color('primary') !important;
 }
 
+.text-red {
+  color: red;
+}
+
 .introduction-title {
   font-size:large;
 }
@@ -117,8 +121,4 @@ input.show-validation.ng-invalid.ng-touched{
 
 .form-control {
   border:1px solid rgba(206,212,218,0.3);
-}
-
-.input-invalid {
-  border-color: red;
 }
