@@ -5,7 +5,7 @@
             <div class="HEADER row pt-1 pb-1 justify-content-center">
                 <app-header-image class="text-center w-100 pb-4"></app-header-image>
             </div>
-            <div class="BODY row d-flex flex-grow-1">
+            <div class="BODY row d-flex flex-grow-1 overflow-auto">
                 <div class="w-100">
                     <h1 [translate]="'loginComponent.headerTitle'"
                         class="text-primary text-light-font text-givt-purple text-center"></h1>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </div>
-            <div class="FOOTER row pb-4">
+            <div class="FOOTER row pb-4 pt-2">
                 <div class="mr-auto ml-auto col-8 px-0">
                     <button [disabled]="loading" type="submit" [translate]
                         class="btn btn-lg bg-givt-green text-white text-heavy-font w-100 m-0">
