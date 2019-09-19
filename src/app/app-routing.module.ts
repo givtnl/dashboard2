@@ -18,6 +18,11 @@ const routes: Routes = [
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule)
     },
+    {
+        path:'',
+        redirectTo:'account/login',
+        pathMatch:'full'
+    },
      {
          path: '**',
          redirectTo: 'system/root'
