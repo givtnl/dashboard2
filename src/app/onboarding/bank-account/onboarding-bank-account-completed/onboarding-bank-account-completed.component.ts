@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-onboarding-bank-account-completed',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OnboardingBankAccountCompletedComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  redirectToDashboard() {
+    this.router.navigate(['/', 'dashboard', 'root', { outlets: { 'dashboard-outlet': ['home'] } }])
+  }
 }
