@@ -64,5 +64,10 @@
     "dashboardCompleteAccountWidgetComponent.addBankAccount": "De eerste bankrekening toevoegen",
     "loginComponent.headerTitle": "Hallo.",
     "loginComponent.title": "Welkom bij het Givt dashboard. Log in om toegang te krijgen.",
-    "loginComponent.loginButtonText": "Login"
+    "loginComponent.loginButtonText": "Login",
+    "errorMessages.lockedOut": "Er is meerdere malen geprobeerd in te loggen met verkeerde inloggegevens. Wegens veiligheidsredenen is het account tijdelijk geblokkeerd. Probeer het later nog een keer.",
+    "errorMessages.wrongEmailOrPassword": "Helaas, er is een verkeerd wachtwoord en/of verkeerde gebruikersnaam ingevoerd. Probeer het nog eens.",
+    "errorMessages.accountDisabled": "Uw account is geblokkeerd. Voor meer informatie, neem contact op met de support dienst.",
+    "errorMessages.oneAttemptLeft": "U hebt nog 1 poging om in te loggen.",
+    "errorMessages.twoAttemptLeft": "U hebt nog 2 pogingen om in te loggen."
 }
