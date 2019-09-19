@@ -1,5 +1,6 @@
 export interface CurrentUserModel {
-    Id: string;
-    UserName:string;
-    Email:string;
+    organisationId: string;
+    organisationName: string;
+    userName:string;
+    userEmail:string;
 }
