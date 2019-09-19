@@ -4,6 +4,9 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 import { Observable } from 'rxjs';
 import {OnboardingBankAccountRegistrationResponseModel} from '../models/onboarding-bank-account-registration-response.model';
 import { Injectable } from '@angular/core';
+import { catchErrorStatus } from 'src/app/shared/extensions/observable-extensions';
+import { ToastrService } from 'ngx-toastr';
+import { TranslatableToastrService } from 'src/app/shared/services/translate-able-toastr.service';
 
 @Injectable({
     providedIn:'root'
@@ -12,7 +15,7 @@ export class OnboardingBankAccountRegistrationResolver implements Resolve<Onboar
   /**
    *
    */
-  constructor(private service: OnboardingBankAccountService, private applicationStateService: ApplicationStateService) {}
+  constructor(private service: OnboardingBankAccountService,private toastr: TranslatableToastrService, private applicationStateService: ApplicationStateService) {}
 
   resolve(
     route: ActivatedRouteSnapshot,
@@ -21,6 +24,7 @@ export class OnboardingBankAccountRegistrationResolver implements Resolve<Onboar
     | OnboardingBankAccountRegistrationResponseModel
     | Observable<OnboardingBankAccountRegistrationResponseModel>
     | Promise<OnboardingBankAccountRegistrationResponseModel> {
-    return this.service.getRegistrationStatus(this.applicationStateService.currentTokenModel.OrganisationAdmin);
+    return this.service.getRegistrationStatus(this.applicationStateService.currentTokenModel.OrganisationAdmin)
+    .pipe(catchErrorStatus(404, (error) => this.toastr.warning('errorMessages.generic-error-title','errorMessages.generic-error-message')));
   }
 }
