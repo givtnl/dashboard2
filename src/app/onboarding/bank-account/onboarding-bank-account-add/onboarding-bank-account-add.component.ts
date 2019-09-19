@@ -52,7 +52,8 @@ export class OnboardingBankAccountAddComponent implements OnInit {
     let errorMessages = new Array<Observable<string>>();
     let resolvedErrorMessages = new Array<string>();
 
-    const nameErrors = this.form.get('name').errors;
+    const firstNameErrors = this.form.get('accountHolderFirstName').errors;
+    const lastNameErrors = this.form.get('accountHolderLastName').errors;
     const sortCodeErrors = this.form.get('sortCode').errors;
     const accountNumberErrors = this.form.get('accountNumber').errors;
 
@@ -74,9 +75,15 @@ export class OnboardingBankAccountAddComponent implements OnInit {
       }
     }
 
-    if (nameErrors) {
-      if (nameErrors.required) {
-        errorMessages.push(this.translationService.get('errorMessages.account-name-required'));
+    if (firstNameErrors) {
+      if (firstNameErrors.required) {
+        errorMessages.push(this.translationService.get('errorMessages.account-firstname-required'));
+      }
+    }
+
+    if (lastNameErrors) {
+      if (lastNameErrors.required) {
+        errorMessages.push(this.translationService.get('errorMessages.account-lastname-required'));
       }
     }
 

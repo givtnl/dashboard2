@@ -2,8 +2,9 @@
     <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
         <div class="HEADER row d-flex align-items-center pb-5">
             <div class="col-2"></div>
-            <p class="text-givt-purple text-heavy-font p-0 m-0 text-center flex-grow-1" translate>
-                onboardingBankAccountAddComponent.title</p>
+            <p [translate]="'onboardingBankAccountAddComponent.title'"
+            class="text-givt-purple text-heavy-font p-0 m-0 text-center flex-grow-1">
+                </p>
             <div class="col-2 text-center"><i class="fas text-givt-purple fa-times"></i> </div>
         </div>
         <div class="BODY row d-flex flex-grow-1 overflow-auto">
@@ -13,13 +14,17 @@
                         onboardingBankAccountAddComponent.description</p>
                     <!-- <input *ngIf="orgCountry != 'GB'" type="text"  placeholder="{{ 'placeholders.bankAccountNumberIBAN' | translate }}"
                         class="form-control-lg form-control mb-3 shadow text-givt-purple" formControlName="iban" /> -->
-                    <input type="text" placeholder="{{ 'placeholders.sortCode' | translate }}" class="form-control form-control-lg mb-3 shadow text-givt-purple" formControlName="sortCode" />
-                    <input type="text" placeholder="{{ 'placeholders.accountNumber' | translate }}" class="form-control form-control-lg mb-3 shadow text-givt-purple" formControlName="accountNumber" />
-                    <input type="text" placeholder="{{ 'placeholders.bankAccountName' | translate }}"
-                        class="form-control-lg form-control mb-3 shadow text-givt-purple" formControlName="accountHolderLastName" />
-                        <input type="text" placeholder="{{ 'placeholders.bankAccountName' | translate }}"
-                        class="form-control-lg form-control mb-3 shadow text-givt-purple" formControlName="accountHolderFirstName" />
-
+                    <input type="text" placeholder="{{ 'placeholders.sortCode' | translate }}"
+                        class="form-control form-control-lg mb-3 shadow text-givt-purple" formControlName="sortCode" />
+                    <input type="text" placeholder="{{ 'placeholders.accountNumber' | translate }}"
+                        class="form-control form-control-lg mb-3 shadow text-givt-purple"
+                        formControlName="accountNumber" />
+                    <input type="text" placeholder="{{ 'placeholders.firstName' | translate }}"
+                        class="form-control-lg form-control mb-3 shadow text-givt-purple"
+                        formControlName="accountHolderFirstName" />
+                    <input type="text" placeholder="{{ 'placeholders.lastName' | translate }}"
+                        class="form-control-lg form-control mb-3 shadow text-givt-purple"
+                        formControlName="accountHolderLastName" />
                 </form>
             </div>
         </div>
