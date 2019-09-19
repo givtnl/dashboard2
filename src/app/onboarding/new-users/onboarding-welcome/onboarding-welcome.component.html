@@ -1,11 +1,12 @@
 <div class="d-flex flex-column h-100">
     <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
+        <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
       <div class="HEADER row pt-1 pb-1">
         <app-header-image class="text-center w-100"></app-header-image>
       </div>
       <div class="BODY row d-flex flex-grow-1">
         <div class="w-100">
-            <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
+     
           <p [translate]="'onboardingWelcomeComponent.title'"
             [translateParams]="{ name: stateService.currentOnboardingRequest.companyName }"
             class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></p>
@@ -18,7 +19,7 @@
               onboardingWelcomeComponent.differentEmailAddress</a>
           </small>
           <app-password-input formControlName="password"></app-password-input>
-        </form>
+     
         </div>
       </div>
       <div class="FOOTER row pb-4">
@@ -29,6 +30,7 @@
           </button>
         </div>
       </div>
+    </form>
     </div>
   </div>
   
