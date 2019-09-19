@@ -64,5 +64,10 @@
     "dashboardCompleteAccountWidgetComponent.addBankAccount": "Add the bank account details",
     "loginComponent.headerTitle": "Hello.",
     "loginComponent.title": "Welcome to the Givt Dashboard. Log in to get access.",
-    "loginComponent.loginButtonText": "Login"
+    "loginComponent.loginButtonText": "Login",
+    "errorMessages.lockedOut": "There have been too many attempts at logging in. Due to security reasons your account has been temporarily blocked. Please try again later.",
+    "errorMessages.wrongEmailOrPassword": "Wrong e-mail address or password, please try again.",
+    "errorMessages.accountDisabled": "Your account has been disabled. Please contact our support service for more information.",
+    "errorMessages.oneAttemptLeft": "You have only 1 attempt left to log in.",
+    "errorMessages.twoAttemptLeft": "You have only 2 attempts left to log in."
 }
