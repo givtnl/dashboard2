@@ -1,19 +1,24 @@
 <div class="container-fluid">
   <div class="row mt-5">
     <div class="col-12">
-      <h2 class="text-font-light text-givt-purple">
-        Hallo {{applicationStateService.currentUserExtensionModel.FirstName}}
-      </h2>
+      <h2 class="text-font-light text-givt-purple">Hallo {{ applicationStateService.currentUserExtensionModel.FirstName }}</h2>
     </div>
   </div>
-  <div class="row mt-5">
-    <div class="col-xl-4 col-sm-8 col-lg-5 col-md-6">
+  <div class="row mt-5" *ngIf="loading">
+    <div class="d-flex mt-5 text-givt-purple justify-content-center">
+      <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5" *ngIf="!loading">
+    <div *ngFor="let record of collectGroups" class="col-xl-4 col-sm-8 col-lg-5 col-md-6 mb-3">
       <app-dashboard-tile-widget
         class="text-white"
-        icon="fas fa-church fa-3x"
+        icon="fas {{getIconForCollectGroupType(record.CollectGroupType)}} fa-3x"
         image="assets/images/widget-background-1.svg"
         footer="€ 0 Laatste collecte"
-        [title]="applicationStateService.currentUserModel.organisationName"
+        [title]="record.Name"
       ></app-dashboard-tile-widget>
     </div>
   </div>
