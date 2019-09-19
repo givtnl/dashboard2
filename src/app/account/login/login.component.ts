@@ -59,6 +59,9 @@ export class LoginComponent implements OnInit {
     switch (error.error.error_status) {
       case ErrorMessages.AccountDisabled:
         {
+          this.errorMessages.push(
+            this.translationService.get("errorMessages.email-required")
+          );
         }
         break;
       case ErrorMessages.LockedOut:
@@ -101,16 +104,9 @@ export class LoginComponent implements OnInit {
     }
 
     if (passwordErrors) {
- 
       if (passwordErrors.required) {
-        console.log("hoi");
         this.errorMessages.push(
           this.translationService.get("errorMessages.password-required")
-        );
-      }
-      if (passwordErrors.minlength) {
-        this.errorMessages.push(
-          this.translationService.get("errorMessages.password-min-length")
         );
       }
     }
