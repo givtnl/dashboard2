@@ -28,8 +28,8 @@
     </div>
 
     <div class="ml-2 align-items-top">
-      <h5 class=" text-heavy-font">Maak uw account compleet</h5>
-      <p class="mb-1">Om de giften over te kunnen maken, hebben we nog wat informatie nodig.</p>
+      <h5 class=" text-heavy-font">{{'dashboardCompleteAccountWidgetComponent.completeAccount'| translate}}</h5>
+      <p class="mb-1">{{'dashboardCompleteAccountWidgetComponent.moreInformation'| translate}}</p>
     </div>
   </li>
   <li  [routerLink]="getRouterLinks(record)" [class.disabled]="record.Finished" *ngFor="let record of records" class="list-group-item bg-transparent d-flex justify-content-between align-items-center cursor-pointer">
