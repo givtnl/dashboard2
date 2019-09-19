@@ -1,5 +1,5 @@
-<div class="container-fluid">
-  <div class="row mt-5">
+<div class="container-fluid h-100 d-flex flex-column">
+  <div class="row pt-5">
     <div class="col-12">
       <h2 class="text-font-light text-givt-purple">Hallo {{ applicationStateService.currentUserExtensionModel.FirstName }}</h2>
     </div>
@@ -24,7 +24,11 @@
       ></app-dashboard-tile-widget>
     </div>
   </div>
-  <div class="col-xl-4 col-lg-7 col-md-7">
-    <app-dashboard-complete-account-widget></app-dashboard-complete-account-widget>
+  <div class="row d-flex flex-grow-1"></div>
+  <div class="row">
+      <div class="col-xl-4 col-lg-7 col-md-7">
+          <app-dashboard-complete-account-widget></app-dashboard-complete-account-widget>
+        </div>
   </div>
+  
 </div>
