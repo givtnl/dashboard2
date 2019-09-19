@@ -69,5 +69,7 @@
     "errorMessages.wrongEmailOrPassword": "Helaas, er is een verkeerd wachtwoord en/of verkeerde gebruikersnaam ingevoerd. Probeer het nog eens.",
     "errorMessages.accountDisabled": "Uw account is geblokkeerd. Voor meer informatie, neem contact op met de support dienst.",
     "errorMessages.oneAttemptLeft": "U hebt nog 1 poging om in te loggen.",
-    "errorMessages.twoAttemptLeft": "U hebt nog 2 pogingen om in te loggen."
+    "errorMessages.twoAttemptLeft": "U hebt nog 2 pogingen om in te loggen.",
+    "errorMessages.generic-error-message": "Er ging iets verkeerd tijdens de verwerking van je aanvraag",
+    "errorMessages.generic-error-title": "Oops"
 }
