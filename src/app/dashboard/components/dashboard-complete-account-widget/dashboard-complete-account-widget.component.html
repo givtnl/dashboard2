@@ -32,13 +32,13 @@
       <p class="mb-1">Om de giften over te kunnen maken, hebben we nog wat informatie nodig.</p>
     </div>
   </li>
-  <li *ngFor="let record of records" class="list-group-item bg-transparent d-flex justify-content-between align-items-center">
+  <li  [routerLink]="getRouterLinks(record)" [class.disabled]="record.Finished" *ngFor="let record of records" class="list-group-item bg-transparent d-flex justify-content-between align-items-center cursor-pointer">
     <div [class.text-muted]="record.Finished" class="justify-content-start">
       <i [class.text-success]="record.Finished" [class.fa-check-square]="record.Finished"
       [class.fa-square]="!record.Finished"
        class="far fa-check-square  mr-2 text-success"></i>
       <span [class.line-through]="record.Finished">{{'dashboardCompleteAccountWidgetComponent.' + record.OrganisationRegistrationStatusDescription | translate}}</span>
     </div>
-    <a [routerLink]="getRouterLinks(record)" *ngIf="!record.Finished" class="text-givt-purple badge"><i class="fas fa-arrow-right"></i></a>
+    <a *ngIf="!record.Finished" class="text-givt-purple badge"><i class="fas fa-arrow-right"></i></a>
   </li>
 </ul>
