@@ -60,25 +60,36 @@ export class LoginComponent implements OnInit {
       case ErrorMessages.AccountDisabled:
         {
           this.errorMessages.push(
-            this.translationService.get("errorMessages.email-required")
+            this.translationService.get("errorMessages.accountDisabled")
           );
         }
         break;
       case ErrorMessages.LockedOut:
         {
+          this.errorMessages.push(
+            this.translationService.get("errorMessages.lockedOut")
+          );
         }
         break;
       case ErrorMessages.OneAttemptLeft:
         {
+          this.errorMessages.push(
+            this.translationService.get("errorMessages.oneAttemptLeft")
+          );
         }
         break;
       case ErrorMessages.TwoAttemptsLeft:
         {
+          this.errorMessages.push(
+            this.translationService.get("errorMessages.twoAttemptLeft")
+          );
         }
         break;
       case ErrorMessages.WrongPassOrUser:
         {
-          this.form.get("password");
+          this.errorMessages.push(
+            this.translationService.get("errorMessages.wrongEmailOrPassword")
+          );
         }
         break;
       default:
