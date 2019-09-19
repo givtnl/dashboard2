@@ -9,6 +9,12 @@ import { CurrentUserExtensionModel } from '../models/current-user-extension.mode
 export class ApplicationStateService {
   private storage = sessionStorage;
 
+  public clear():void{
+    this.storage.removeItem('ApplicationStateService.CurrentUserModel');
+    this.storage.removeItem('ApplicationStateService.CurrentTokenModel');
+    this.storage.removeItem('ApplicationStateService.CurrentUserExtensionModel');
+  }
+
   public get currentUserModel(): CurrentUserModel {
     const key = 'ApplicationStateService.CurrentUserModel';
     const serializedRequest = JSON.parse(this.storage.getItem(key));
