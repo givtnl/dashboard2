@@ -38,4 +38,7 @@ export class AccountService {
       .pipe(tap(token => (this.applicationStateService.currentTokenModel = token)))
       .pipe(switchMap(x => this.me()));
   }
+  public logOut(): void {
+    this.applicationStateService.clear();
+  }
 }
