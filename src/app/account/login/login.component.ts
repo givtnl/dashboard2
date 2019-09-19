@@ -6,6 +6,7 @@ import { Observable } from "rxjs";
 import { catchErrorStatus } from "src/app/shared/extensions/observable-extensions";
 import { HttpErrorResponse } from "@angular/common/http";
 import { ErrorMessages } from "src/app/infrastructure/enums/error-messages.enum";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-login",
@@ -15,7 +16,7 @@ import { ErrorMessages } from "src/app/infrastructure/enums/error-messages.enum"
 export class LoginComponent implements OnInit {
   public form: FormGroup;
   public submitted = false;
-  
+  public loading = false;  
   public isValidEmail = false;
   public isValidPassword = false;
 
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private translationService: TranslateService,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -46,13 +48,16 @@ export class LoginComponent implements OnInit {
       this.handleInvalidForm();
       return;
     } else {
+      this.loading = true;
       this.submitted = false;
+      console.log("Submitted:\n", this.errorMessages);
+
       this.accountService
         .login(this.form.value.email, this.form.value.password)
-        .pipe(catchErrorStatus(400, this.handleInvalidLogin))
-        .subscribe(resp => {
-          console.log(resp);
-        });
+        .pipe(catchErrorStatus(400, (x) => this.handleInvalidLogin(x)))
+        .subscribe(resp => this.router.navigate(['/','dashboard','root', {outlets:{'dashboard-outlet':['home']}}]))
+        .add(() => (this.loading = false));
+
     }
   }
   handleInvalidLogin(error: HttpErrorResponse) {
@@ -74,6 +79,9 @@ export class LoginComponent implements OnInit {
       case ErrorMessages.OneAttemptLeft:
         {
           this.errorMessages.push(
+            this.translationService.get("errorMessages.wrongEmailOrPassword")
+          );
+          this.errorMessages.push(
             this.translationService.get("errorMessages.oneAttemptLeft")
           );
         }
@@ -81,18 +89,17 @@ export class LoginComponent implements OnInit {
       case ErrorMessages.TwoAttemptsLeft:
         {
           this.errorMessages.push(
+            this.translationService.get("errorMessages.wrongEmailOrPassword")
+          );
+          this.errorMessages.push(
             this.translationService.get("errorMessages.twoAttemptLeft")
           );
         }
         break;
-      case ErrorMessages.WrongPassOrUser:
-        {
+      default:
           this.errorMessages.push(
             this.translationService.get("errorMessages.wrongEmailOrPassword")
           );
-        }
-        break;
-      default:
         return;
     }
   }
@@ -101,7 +108,6 @@ export class LoginComponent implements OnInit {
     const passwordErrors = this.form.get("password").errors;
 
     if (emailErrors) {
-     
       if (emailErrors.required) {
         this.errorMessages.push(
           this.translationService.get("errorMessages.email-required")
