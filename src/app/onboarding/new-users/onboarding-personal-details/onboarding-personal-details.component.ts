@@ -28,11 +28,11 @@ export class OnboardingPersonalDetailsComponent implements OnInit {
     this.form = this.formBuilder.group({
       firstName: [
         this.stateService.currentRegisterModel ? this.stateService.currentRegisterModel.firstName : null,
-        [Validators.required, Validators.minLength(2), Validators.maxLength(15)]
+        [Validators.required, Validators.minLength(2), Validators.maxLength(150)]
       ],
       lastName: [
         this.stateService.currentRegisterModel ? this.stateService.currentRegisterModel.lastName : null,
-        [Validators.required, Validators.minLength(2), Validators.maxLength(30)]
+        [Validators.required, Validators.minLength(2), Validators.maxLength(150)]
       ]
     });
   }
