@@ -3,7 +3,6 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { HttpErrorResponse } from '@angular/common/http';
 import { OnboardingBankAccountService } from '../services/onboarding-bank-account.service';
 import { OnboardingBankAccountStateService } from '../services/onboarding-bank-account-state.service';
-import { ApplicationLoadService } from 'src/app/infrastructure/services/application-load.service';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 
 @Injectable({
@@ -22,7 +21,9 @@ export class OnboardingBankAccountCompleteCheckSuccessGuard implements CanActiva
       const registration = this.onboardingBankAccountStateService.currentBankAccountModel;
       const currentToken = this.applicationStateService.currentTokenModel;
 
-      await this.onboardingBankAccountService.create(currentToken.OrganisationAdmin, registration).toPromise();
+     const createdAccountResponse = await this.onboardingBankAccountService.create(currentToken.OrganisationAdmin, registration).toPromise();
+      await this.onboardingBankAccountService.createMandate(currentToken.OrganisationAdmin, createdAccountResponse.Result, this.applicationStateService.currentUserModel.Email).toPromise();
+
       this.onboardingBankAccountStateService.clear();
     } catch (error) {
       if (error instanceof HttpErrorResponse) {

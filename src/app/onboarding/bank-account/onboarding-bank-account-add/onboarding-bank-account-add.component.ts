@@ -16,7 +16,7 @@ import { OnboardingBankAccountRegistrationResponseModel } from '../models/onboar
 })
 export class OnboardingBankAccountAddComponent implements OnInit {
   public orgCountry: string = 'GB';
-
+  public loading = false;
   public form: FormGroup;
 
   constructor(
@@ -45,7 +45,10 @@ export class OnboardingBankAccountAddComponent implements OnInit {
       return;
     }
     this.stateService.currentBankAccountModel = this.form.value;
-    this.router.navigate(['/', 'onboarding', 'bank-account', { outlets: { 'onboarding-outlet': ['completed'] } }]);
+    this.loading = true;
+    this.router
+      .navigate(['/', 'onboarding', 'bank-account', { outlets: { 'onboarding-outlet': ['completed'] } }])
+      .finally(() => (this.loading = false));
   }
 
   handleInvalidForm() {
@@ -98,6 +101,6 @@ export class OnboardingBankAccountAddComponent implements OnInit {
   }
 
   redirectToDashboard() {
-    this.router.navigate(['/', 'dashboard', 'root', { outlets: { 'dashboard-outlet': ['home'] } }])
+    this.router.navigate(['/', 'dashboard', 'root', { outlets: { 'dashboard-outlet': ['home'] } }]);
   }
 }

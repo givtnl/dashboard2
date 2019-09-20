@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BackendService } from 'src/app/infrastructure/services/backend.service';
 import { Observable } from 'rxjs';
 import { OnboardingBankAccountRegistrationResponseModel } from '../models/onboarding-bank-account-registration-response.model';
+import { CreatedResponseModel } from 'src/app/infrastructure/models/response.model';
 
 @Injectable({
     providedIn:'root'
@@ -13,7 +14,14 @@ export class OnboardingBankAccountService {
         return this.backendService.get(`v2/organisations/${organisationId}/registration/account`);
     }
 
-    create(organisationId: string, command: AddBankAccountToOrganisationCommand): Observable<object>{
-        return this.backendService.post(`organisations/${organisationId}/accounts`, command);
+    create(organisationId: string, command: AddBankAccountToOrganisationCommand): Observable<CreatedResponseModel<number>>{
+        return this.backendService.post<CreatedResponseModel<number>>(`organisations/${organisationId}/accounts`, command);
+    }
+
+    createMandate(organisationId: string, accountId: number, email: string): Observable<object> {
+        return this.backendService.post(`organisations/${organisationId}/mandate`, {
+            accountId,
+            email
+        });
     }
 }
