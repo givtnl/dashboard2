@@ -56,7 +56,7 @@
     "onboardingBankAccountAuthorizedComponent.questionAuthorizedPersonSmallText": "We gonna ask the person by mail to verify the bank account.",
     "onboardingBankAccountAuthorizedComponent.okButtonText": "Complete",
     "onboardingBankAccountCompletedComponent.title": "We are well on our way",
-    "onboardingBankAccountCompletedComponent.description": "We add your bank account to your bank account when it is fully verified",
+    "onboardingBankAccountCompletedComponent.description": "We add your bank account to your dashboard when it is fully verified",
     "errorPageComponent.title": "Whoops, something went wrong. Please try again or contact our helpdesk if you require assistance.",
     "underConstructionComponent.title": "Whoops",
     "underConstructionComponent.description": "We are working on this page to make the Givt dashboard even better for you!",
