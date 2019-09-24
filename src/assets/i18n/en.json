@@ -75,5 +75,8 @@
     "errorMessages.account-firstname-required": "Please fill in your first name.\nWe need your full account name.",
     "errorMessages.account-lastname-required": "Please fill in your last name.\nWe need your full account name.",
     "dashboardCompleteAccountWidgetComponent.completeAccount": "Make your account complete",
-    "dashboardCompleteAccountWidgetComponent.moreInformation": "To be able to transfer donations, we need some more information."
+    "dashboardCompleteAccountWidgetComponent.moreInformation": "To be able to transfer donations, we need some more information.",
+    "onboardingBankAccountHolderInfoComponent.title": "Account holder titel",
+    "onboardingBankAccountHolderInfoComponent.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id porta felis, vel maximus neque. Curabitur ante quam, laoreet eu lacinia quis, vestibulum non odio. Nam et justo vitae felis sagittis interdum et in ligula.",
+    "onboardingBankAccountHolderInfoComponent.startButtonText": "Start"
 }
