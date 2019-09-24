@@ -78,5 +78,13 @@
     "dashboardCompleteAccountWidgetComponent.moreInformation": "Om donaties over te zetten hebben we meer informatie nodig",
     "onboardingBankAccountHolderInfoComponent.title": "Rekening houder titel",
     "onboardingBankAccountHolderInfoComponent.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id porta felis, vel maximus neque. Curabitur ante quam, laoreet eu lacinia quis, vestibulum non odio. Nam et justo vitae felis sagittis interdum et in ligula.",
-    "onboardingBankAccountHolderInfoComponent.startButtonText": "Start"
+    "onboardingBankAccountHolderInfoComponent.startButtonText": "Start",
+    "onboardingBankAccountHolderWhoComponent.title": "Rekening houder wie ?",
+    "onboardingBankAccountHolderWhoComponent.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id porta felis, vel maximus neque. Curabitur ante quam, laoreet eu lacinia quis, vestibulum non odio. Nam et justo vitae felis sagittis interdum et in ligula.",
+    "onboardingBankAccountHolderWhoComponent.nextButtonText": "Volgende",
+    "onboardingBankAccountHolderEmailComponent.title": "Een email titel",
+    "onboardingBankAccountHolderEmailComponent.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id porta felis, vel maximus neque. Curabitur ante quam, laoreet eu lacinia quis, vestibulum non odio. Nam et justo vitae felis sagittis interdum et in ligula.",
+    "onboardingBankAccountHolderEmailComponent.sendButtonText": "Verstuur",
+    "onboardingBankAccountHolderCompletedComponent.title": "Vervolledigd titel",
+    "onboardingBankAccountHolderCompletedComponent.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id porta felis, vel maximus neque. Curabitur ante quam, laoreet eu lacinia quis, vestibulum non odio. Nam et justo vitae felis sagittis interdum et in ligula."
 }
