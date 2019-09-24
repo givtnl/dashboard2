@@ -20,6 +20,10 @@ import { OnboardingBankAccountCompletedComponent } from './bank-account/onboardi
 import { OnboardingBankAccountRegistrationResolver } from './bank-account/resolvers/onboarding-bank-account-registration-response.model';
 import { OnboardingBankAccountCompleteCheckSuccessGuard } from './bank-account/guards/onboarding-bank-account-complete-check-success.guard';
 import { AuthenticationGuard } from '../infrastructure/guards/authentication.guard';
+import { OnboardingBankAccountHolderIntroComponent } from './bank-account-holder/onboarding-bank-account-holder-intro/onboarding-bank-account-holder-intro.component';
+import { OnboardingBankAccountHolderWhoComponent } from './bank-account-holder/onboarding-bank-account-holder-who/onboarding-bank-account-holder-who.component';
+import { OnboardingBankAccountHolderEmailComponent } from './bank-account-holder/onboarding-bank-account-holder-email/onboarding-bank-account-holder-email.component';
+import { OnboardingBankAccountHolderCompletedComponent } from './bank-account-holder/onboarding-bank-account-holder-completed/onboarding-bank-account-holder-completed.component';
 
 const routes: Routes = [
   {
@@ -96,6 +100,32 @@ const routes: Routes = [
         outlet: 'onboarding-outlet',
         component: OnboardingBankAccountCompletedComponent,
         canActivate:[OnboardingBankAccountCompleteCheckSuccessGuard]
+      }
+    ]
+  },
+  {
+    path: 'bank-account-holder',
+    component: OnboardingRootComponent,
+    children: [
+      {
+        path: '',
+        outlet: 'onboarding-outlet',
+        component: OnboardingBankAccountHolderIntroComponent
+      },
+      {
+        path: 'who',
+        outlet: 'onboarding-outlet',
+        component: OnboardingBankAccountHolderWhoComponent
+      },
+      {
+        path: 'email',
+        outlet: 'onboarding-outlet',
+        component: OnboardingBankAccountHolderEmailComponent
+      },
+      {
+        path: 'completed',
+        outlet: 'onboarding-outlet',
+        component: OnboardingBankAccountHolderCompletedComponent
       }
     ]
   }
