@@ -75,5 +75,8 @@
     "errorMessages.account-firstname-required": "Gelieve je voornaam op te geven.\nWe hebben je volledige account naam nodig.",
     "errorMessages.account-lastname-required": "Gelieve je achternaam op te geven.\nWe hebben je volledige account naam nodig.",
     "dashboardCompleteAccountWidgetComponent.completeAccount": "Maak je account compleet",
-    "dashboardCompleteAccountWidgetComponent.moreInformation": "Om donaties over te zetten hebben we meer informatie nodig"
+    "dashboardCompleteAccountWidgetComponent.moreInformation": "Om donaties over te zetten hebben we meer informatie nodig",
+    "onboardingBankAccountHolderInfoComponent.title": "Rekening houder titel",
+    "onboardingBankAccountHolderInfoComponent.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id porta felis, vel maximus neque. Curabitur ante quam, laoreet eu lacinia quis, vestibulum non odio. Nam et justo vitae felis sagittis interdum et in ligula.",
+    "onboardingBankAccountHolderInfoComponent.startButtonText": "Start"
 }
