@@ -78,5 +78,13 @@
     "dashboardCompleteAccountWidgetComponent.moreInformation": "To be able to transfer donations, we need some more information.",
     "onboardingBankAccountHolderInfoComponent.title": "Account holder titel",
     "onboardingBankAccountHolderInfoComponent.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id porta felis, vel maximus neque. Curabitur ante quam, laoreet eu lacinia quis, vestibulum non odio. Nam et justo vitae felis sagittis interdum et in ligula.",
-    "onboardingBankAccountHolderInfoComponent.startButtonText": "Start"
+    "onboardingBankAccountHolderInfoComponent.startButtonText": "Start",
+    "onboardingBankAccountHolderWhoComponent.title": "Account holder who ?",
+    "onboardingBankAccountHolderWhoComponent.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id porta felis, vel maximus neque. Curabitur ante quam, laoreet eu lacinia quis, vestibulum non odio. Nam et justo vitae felis sagittis interdum et in ligula.",
+    "onboardingBankAccountHolderWhoComponent.nextButtonText": "Next",
+    "onboardingBankAccountHolderEmailComponent.title": "An email title",
+    "onboardingBankAccountHolderEmailComponent.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id porta felis, vel maximus neque. Curabitur ante quam, laoreet eu lacinia quis, vestibulum non odio. Nam et justo vitae felis sagittis interdum et in ligula.",
+    "onboardingBankAccountHolderEmailComponent.sendButtonText": "Send",
+    "onboardingBankAccountHolderCompletedComponent.title": "Completed title",
+    "onboardingBankAccountHolderCompletedComponent.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id porta felis, vel maximus neque. Curabitur ante quam, laoreet eu lacinia quis, vestibulum non odio. Nam et justo vitae felis sagittis interdum et in ligula."
 }
