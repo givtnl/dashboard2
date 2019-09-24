@@ -13,8 +13,6 @@ import { OnboardingBankAccountIntroComponent } from './bank-account/onboarding-b
 import { OnboardingBankAccountAddComponent } from './bank-account/onboarding-bank-account-add/onboarding-bank-account-add.component';
 import { OnboardingBankAccountAuthorizedComponent } from './bank-account/onboarding-bank-account-authorized/onboarding-bank-account-authorized.component';
 import { OnboardingBankAccountCompletedComponent } from './bank-account/onboarding-bank-account-completed/onboarding-bank-account-completed.component';
-import { BankAccountHolderInfoComponent } from './bank-account-holder-info/bank-account-holder-info.component';
-import { OnboardingBankAccountHolderInfoComponent } from './bank-account-holder/onboarding-bank-account-holder-info/onboarding-bank-account-holder-info.component';
 import { OnboardingBankAccountHolderWhoComponent } from './bank-account-holder/onboarding-bank-account-holder-who/onboarding-bank-account-holder-who.component';
 import { OnboardingBankAccountHolderEmailComponent } from './bank-account-holder/onboarding-bank-account-holder-email/onboarding-bank-account-holder-email.component';
 import { OnboardingBankAccountHolderCompletedComponent } from './bank-account-holder/onboarding-bank-account-holder-completed/onboarding-bank-account-holder-completed.component';
@@ -32,8 +30,6 @@ import { OnboardingBankAccountHolderIntroComponent } from './bank-account-holder
         OnboardingBankAccountAddComponent,
         OnboardingBankAccountAuthorizedComponent,
         OnboardingBankAccountCompletedComponent,
-        BankAccountHolderInfoComponent,
-        OnboardingBankAccountHolderInfoComponent,
         OnboardingBankAccountHolderWhoComponent,
         OnboardingBankAccountHolderEmailComponent,
         OnboardingBankAccountHolderCompletedComponent,
