@@ -86,5 +86,9 @@
     "onboardingBankAccountHolderEmailComponent.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id porta felis, vel maximus neque. Curabitur ante quam, laoreet eu lacinia quis, vestibulum non odio. Nam et justo vitae felis sagittis interdum et in ligula.",
     "onboardingBankAccountHolderEmailComponent.sendButtonText": "Send",
     "onboardingBankAccountHolderCompletedComponent.title": "Completed title",
-    "onboardingBankAccountHolderCompletedComponent.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id porta felis, vel maximus neque. Curabitur ante quam, laoreet eu lacinia quis, vestibulum non odio. Nam et justo vitae felis sagittis interdum et in ligula."
+    "onboardingBankAccountHolderCompletedComponent.description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id porta felis, vel maximus neque. Curabitur ante quam, laoreet eu lacinia quis, vestibulum non odio. Nam et justo vitae felis sagittis interdum et in ligula.",
+    "onboardingBankAccountIntroComponent.what1": "You’re about to fill in the bank account details: the name of the account, the account number and the sort code.",
+    "onboardingBankAccountIntroComponent.what2": "Next, you will be asked to fill in the first name, last name and the e-mail address of the person who will verify the bank account. This is the person who is authorized by the organisation to sign the mandate on the bank account. We will send an e-mail with an invitation to sign the mandate to the specified e-mail address.",
+    "onboardingBankAccountIntroComponent.what3": "Finally, this person will check the organisation details and the bank account details and the bank account will be verified. We will send a confirmation e-mail to you as soon as this is done. \nIn case of any inaccuracies, the person verifying the bank account will be able to notify you (an e-mail will be sent stating that there are still some inaccuracies). ",
+    "onboardingBankAccountIntroComponent.what4": ""
 }
