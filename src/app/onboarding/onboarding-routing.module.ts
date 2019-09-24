@@ -24,6 +24,11 @@ import { OnboardingBankAccountHolderIntroComponent } from './bank-account-holder
 import { OnboardingBankAccountHolderWhoComponent } from './bank-account-holder/onboarding-bank-account-holder-who/onboarding-bank-account-holder-who.component';
 import { OnboardingBankAccountHolderEmailComponent } from './bank-account-holder/onboarding-bank-account-holder-email/onboarding-bank-account-holder-email.component';
 import { OnboardingBankAccountHolderCompletedComponent } from './bank-account-holder/onboarding-bank-account-holder-completed/onboarding-bank-account-holder-completed.component';
+import { OnboardingBankAccountSigningIntroComponent } from './bank-account-siging/onboarding-bank-account-signing-intro/onboarding-bank-account-signing-intro.component';
+import { OnboardingBankAccountSigningVerifyDetailsComponent } from './bank-account-siging/onboarding-bank-account-signing-verify-details/onboarding-bank-account-signing-verify-details.component';
+import { OnboardingBankAccountSigningDetailsIncorrectComponent } from './bank-account-siging/onboarding-bank-account-signing-details-incorrect/onboarding-bank-account-signing-details-incorrect.component';
+import { OnboardingBankAccountSigningDirectDebitGuaranteeComponent } from './bank-account-siging/onboarding-bank-account-signing-direct-debit-guarantee/onboarding-bank-account-signing-direct-debit-guarantee.component';
+import { OnboardingBankAccountSigningCompleteComponent } from './bank-account-siging/onboarding-bank-account-signing-complete/onboarding-bank-account-signing-complete.component';
 
 const routes: Routes = [
   {
@@ -126,6 +131,37 @@ const routes: Routes = [
         path: 'completed',
         outlet: 'onboarding-outlet',
         component: OnboardingBankAccountHolderCompletedComponent
+      }
+    ]
+  },
+  {
+    path: 'bank-account-signing',
+    component: OnboardingRootComponent,
+    children: [
+      {
+        path: '',
+        outlet: 'onboarding-outlet',
+        component: OnboardingBankAccountSigningIntroComponent
+      },
+      {
+        path: 'verify-details',
+        outlet: 'onboarding-outlet',
+        component: OnboardingBankAccountSigningVerifyDetailsComponent
+      },
+      {
+        path: 'details-incorrect',
+        outlet: 'onboarding-outlet',
+        component: OnboardingBankAccountSigningDetailsIncorrectComponent
+      },
+      {
+        path: 'direct-debit-guarantee',
+        outlet: 'onboarding-outlet',
+        component: OnboardingBankAccountSigningDirectDebitGuaranteeComponent
+      },
+      {
+        path: 'complete',
+        outlet: 'onboarding-outlet',
+        component: OnboardingBankAccountSigningCompleteComponent
       }
     ]
   }
