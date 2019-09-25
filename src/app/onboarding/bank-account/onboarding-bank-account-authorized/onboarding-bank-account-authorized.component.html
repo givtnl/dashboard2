@@ -1,4 +1,4 @@
-<div class="d-flex flex-column h-100">
+<form [formGroup]="form" (ngSubmit)="submit()" class="d-flex flex-column h-100">
     <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
         <div class="HEADER row d-flex align-items-center pb-5">
             <div class="col-2"></div>
@@ -14,9 +14,7 @@
                 <div>
                     <p [translate]="'onboardingBankAccountAuthorizedComponent.questionPhoneNumber'"
                         class="introduction-title text-primary text-light-font text-givt-purple mt-5"></p>
-                    <form [formGroup]="form">
                         <input type="tel" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
-                    </form>
                     <small class="text-left form-text pb-3">
                         <a class="text-givt-purple text-light-font" translate queryParamsHandling="merge">
                             onboardingBankAccountAuthorizedComponent.questionPhoneNumberSmallText</a>
@@ -48,4 +46,4 @@
             </div>
         </div>
     </div>
-</div>
+</form>
