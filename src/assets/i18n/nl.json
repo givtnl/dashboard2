@@ -109,5 +109,6 @@
     "onboardingBankAccountHolderWhoComponent.emailAddress": "E-mailadres",
     "onboardingBankAccountSigningVerifyDetails.orgDetails": "Gegevens van de organisatie",
     "onboardingBankAccountSigningVerifyDetails.bankDetails": "Gegevens van de bank",
-    "onboardingBankAccountSigningVerifyDetails.nameAuthorized": "Naam van de gemachtigde"
+    "onboardingBankAccountSigningVerifyDetails.nameAuthorized": "Naam van de gemachtigde",
+    "dashboardCompleteAccountWidgetComponent.AddBankAccountHolders": "Toevoegen van gemachtigden"
 }
