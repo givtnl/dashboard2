@@ -22,7 +22,7 @@
           ></span>
         </span>
         <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-          <div class="h5 m-0 text-givt-purple text-heavy-font ">{{ percentageComplete() }}%</div>
+          <div class="h5 m-0 text-givt-purple text-heavy-font ">{{ percentageComplete() | number: '1.0-0' }}%</div>
         </div>
       </div>
     </div>
