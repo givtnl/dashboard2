@@ -11,12 +11,12 @@ export class MissingFileTranslationsHandler implements MissingTranslationHandler
     // we dont care if uppercase or lowercase
     var currentLanguageTranslations = params.translateService.translations[params.translateService.currentLang];
     if (!currentLanguageTranslations) {
-      return of('no_translation');
+      return of(params.key);
     }
 
     var matchedKey = Object.keys(currentLanguageTranslations).find(key => key.toLowerCase() === params.key.toLowerCase());
     if (!matchedKey) {
-      return of('no_translation');
+      return of(params.key);
     }
 
     return of(currentLanguageTranslations[matchedKey]);
