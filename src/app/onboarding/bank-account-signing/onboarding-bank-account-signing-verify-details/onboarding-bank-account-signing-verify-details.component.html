@@ -56,12 +56,12 @@
 
         </div>
         <div class="FOOTER row pb-4 pt-2">
-            <div class="w-100">
+            <div class="w-100" [formGroup]="form">
 
                 <p [translate] class="text-fgivt-purple text-heavy-font m-0 text-center">
                     onboardingBankAccountSigningVerifyDetailsComponent.yesNoQuestion
                 </p>
-                <app-check-box-input></app-check-box-input>
+                <app-check-box-input formControlName="detailsCorrect"></app-check-box-input>
             </div>
         </div>
     </div>
