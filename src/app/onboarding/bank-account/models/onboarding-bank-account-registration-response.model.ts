@@ -2,7 +2,6 @@ export interface OnboardingBankAccountRegistrationResponseModel {
     Iban:string;
     SortCode:string;
     AccountNumber:string
-    AccountHolderFirstName: string;
-    AccountHolderLastName:string;
+    AccountName;
     RequiredInputs: Array<string>;
 }

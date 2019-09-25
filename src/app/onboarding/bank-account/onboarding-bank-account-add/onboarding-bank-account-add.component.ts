@@ -34,8 +34,7 @@ export class OnboardingBankAccountAddComponent implements OnInit {
     this.form = this.formBuilder.group({
       sortCode: [currentBankDetails.SortCode, [Validators.required, fixedLengthValidator(6)]],
       accountNumber: [currentBankDetails.AccountNumber, [Validators.required, fixedLengthValidator(8)]],
-      accountHolderFirstName: [currentBankDetails.AccountHolderFirstName, [Validators.required]],
-      accountHolderLastName: [currentBankDetails.AccountHolderLastName, [Validators.required]]
+      accountName: [currentBankDetails.AccountName, [Validators.required]],
     });
   }
 
@@ -55,8 +54,7 @@ export class OnboardingBankAccountAddComponent implements OnInit {
     let errorMessages = new Array<Observable<string>>();
     let resolvedErrorMessages = new Array<string>();
 
-    const firstNameErrors = this.form.get('accountHolderFirstName').errors;
-    const lastNameErrors = this.form.get('accountHolderLastName').errors;
+    const accountNameErrors = this.form.get('accountName').errors;
     const sortCodeErrors = this.form.get('sortCode').errors;
     const accountNumberErrors = this.form.get('accountNumber').errors;
 
@@ -78,15 +76,9 @@ export class OnboardingBankAccountAddComponent implements OnInit {
       }
     }
 
-    if (firstNameErrors) {
-      if (firstNameErrors.required) {
-        errorMessages.push(this.translationService.get('errorMessages.account-firstname-required'));
-      }
-    }
-
-    if (lastNameErrors) {
-      if (lastNameErrors.required) {
-        errorMessages.push(this.translationService.get('errorMessages.account-lastname-required'));
+    if (accountNameErrors) {
+      if (accountNameErrors.required) {
+        errorMessages.push(this.translationService.get('errorMessages.accountname-required'));
       }
     }
 

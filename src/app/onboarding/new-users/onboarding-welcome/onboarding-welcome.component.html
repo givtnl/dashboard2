@@ -18,7 +18,7 @@
               queryParamsHandling="merge">
               onboardingWelcomeComponent.differentEmailAddress</a>
           </small>
-          <app-password-input formControlName="password"></app-password-input>
+          <app-password-input *ngIf="showPassword" formControlName="password"></app-password-input>
      
         </div>
       </div>
