@@ -9,6 +9,8 @@ export class OnboardingBankAccountStateService {
     public clear():void{
         this.storage.removeItem('OnboardingBankAccountStateService.currentBankAccountModel');
     }
+
+    
     public get currentBankAccountModel(): AddBankAccountToOrganisationCommand {
         const key = 'OnboardingBankAccountStateService.currentBankAccountModel';
         const serializedRequest = JSON.parse(this.storage.getItem(key));

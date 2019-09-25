@@ -15,13 +15,6 @@ export class OnboardingBankAccountService {
     }
 
     create(organisationId: string, command: AddBankAccountToOrganisationCommand): Observable<CreatedResponseModel<number>>{
-        return this.backendService.post<CreatedResponseModel<number>>(`organisations/${organisationId}/accounts`, command);
-    }
-
-    createMandate(organisationId: string, accountId: number, email: string): Observable<object> {
-        return this.backendService.post(`organisations/${organisationId}/mandate`, {
-            accountId,
-            email
-        });
+        return this.backendService.post<CreatedResponseModel<number>>(`v2/organisations/${organisationId}/accounts`, command);
     }
 }

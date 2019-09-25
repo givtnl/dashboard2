@@ -28,6 +28,9 @@ import { OnboardingBankAccountSigningDetailsIncorrectComponent } from './bank-ac
 import { OnboardingBankAccountSigningDirectDebitGuaranteeComponent } from './bank-account-signing/onboarding-bank-account-signing-direct-debit-guarantee/onboarding-bank-account-signing-direct-debit-guarantee.component';
 import { OnboardingBankAccountSigningCompleteComponent } from './bank-account-signing/onboarding-bank-account-signing-complete/onboarding-bank-account-signing-complete.component';
 import { OnboardingBankAccountRegistrationResolver } from './bank-account/resolvers/onboarding-bank-account-registration.resolver';
+import { OnlyOneActiveBankAccountGuard } from './bank-account-holder/guards/only-one-active-bank-account.guard';
+import { OnboardingBankAccountHolderAccountResolver } from './bank-account-holder/resolvers/onboarding-bank-account-holder-account.resolver';
+import { InviteBankAccountHolderCompleteCheckSuccessGuard } from './bank-account-holder/guards/invite-bank-account-holder-complete-check-success.guard';
 
 const routes: Routes = [
   {
@@ -103,13 +106,15 @@ const routes: Routes = [
         path: 'completed',
         outlet: 'onboarding-outlet',
         component: OnboardingBankAccountCompletedComponent,
-        canActivate:[OnboardingBankAccountCompleteCheckSuccessGuard]
+        canActivate: [OnboardingBankAccountCompleteCheckSuccessGuard]
       }
     ]
   },
   {
     path: 'bank-account-holder',
     component: OnboardingRootComponent,
+    canActivate: [OnlyOneActiveBankAccountGuard],
+    resolve: { bankAccount: OnboardingBankAccountHolderAccountResolver },
     children: [
       {
         path: '',
@@ -124,7 +129,8 @@ const routes: Routes = [
       {
         path: 'completed',
         outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountHolderCompletedComponent
+        component: OnboardingBankAccountHolderCompletedComponent,
+        canActivate:[InviteBankAccountHolderCompleteCheckSuccessGuard]
       }
     ]
   },
