@@ -19,10 +19,11 @@ export class OnboardingBankAccountSigningDirectDebitGuaranteeComponent implement
     this.form.valueChanges.subscribe(x => x.acceptedDirectDebitGuarantee ? this.disableSignButton = false : this.disableSignButton = true)
   }
   submit() {
-    if (this.form.invalid) {
+    if (!this.form.invalid) {
       console.log("je moe nog beslisn")
-    } else {
-      console.log("voer mo de call uit")
+      this.router.navigate(['/', 'onboarding', 'bank-account-signing', { outlets: { 'onboarding-outlet': ['complete'] } }], {
+        queryParamsHandling: 'merge'
+      });
     }
   }
 }
