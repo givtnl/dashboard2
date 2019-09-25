@@ -12,7 +12,11 @@ import { Router } from '@angular/router';
 export class DashboardCompleteAccountWidgetComponent implements OnInit {
   public loading = false;
   public records = new Array<CompleteAccountWidgetModel>();
-  constructor(private service: CompleteAccountWidgetService, private router: Router, private applicationStateService: ApplicationStateService) {}
+  constructor(
+    private service: CompleteAccountWidgetService,
+    private router: Router,
+    private applicationStateService: ApplicationStateService
+  ) {}
 
   ngOnInit(): void {
     this.loading = true;
@@ -30,14 +34,13 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
     return 0;
   }
 
-
-  public percentageDegrees(toCalculatePercentage: number):number{
-    return toCalculatePercentage / 100 * 360;
+  public percentageDegrees(toCalculatePercentage: number): number {
+    return (toCalculatePercentage / 100) * 360;
   }
 
-  public navigate(record: CompleteAccountWidgetModel):void{
+  public navigate(record: CompleteAccountWidgetModel): void {
     this.loading = true;
-    this.router.navigate(this.getRouterLinks(record)).finally(() => this.loading = false);
+    this.router.navigate(this.getRouterLinks(record)).finally(() => (this.loading = false));
   }
 
   public getRouterLinks(record: CompleteAccountWidgetModel): Array<string> {
@@ -45,6 +48,8 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
       // bank accounts
       case 3:
         return ['/', 'onboarding', 'bank-account'];
+      case 4:
+        return ['/', 'onboarding', 'bank-account-holder'];
     }
   }
 }
