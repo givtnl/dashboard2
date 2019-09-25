@@ -31,6 +31,8 @@ import { OnboardingBankAccountRegistrationResolver } from './bank-account/resolv
 import { OnlyOneActiveBankAccountGuard } from './bank-account-holder/guards/only-one-active-bank-account.guard';
 import { OnboardingBankAccountHolderAccountResolver } from './bank-account-holder/resolvers/onboarding-bank-account-holder-account.resolver';
 import { InviteBankAccountHolderCompleteCheckSuccessGuard } from './bank-account-holder/guards/invite-bank-account-holder-complete-check-success.guard';
+import { BankAccountSignInvitationIdRequiredGuard } from './bank-account-signing/guards/bank-account-sign-invitation-id-required.guard';
+import { OnboardingBankAccountHolderDetailResolver } from './bank-account-signing/resolvers/onboarding-bank-account-holder-detail.resolver';
 
 const routes: Routes = [
   {
@@ -137,6 +139,8 @@ const routes: Routes = [
   {
     path: 'bank-account-signing',
     component: OnboardingRootComponent,
+    canActivate:[BankAccountSignInvitationIdRequiredGuard],
+    resolve:{bankAccountHolder: OnboardingBankAccountHolderDetailResolver},
     children: [
       {
         path: '',
