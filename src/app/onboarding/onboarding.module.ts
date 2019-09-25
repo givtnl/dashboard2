@@ -14,7 +14,6 @@ import { OnboardingBankAccountAddComponent } from './bank-account/onboarding-ban
 import { OnboardingBankAccountAuthorizedComponent } from './bank-account/onboarding-bank-account-authorized/onboarding-bank-account-authorized.component';
 import { OnboardingBankAccountCompletedComponent } from './bank-account/onboarding-bank-account-completed/onboarding-bank-account-completed.component';
 import { OnboardingBankAccountHolderWhoComponent } from './bank-account-holder/onboarding-bank-account-holder-who/onboarding-bank-account-holder-who.component';
-import { OnboardingBankAccountHolderEmailComponent } from './bank-account-holder/onboarding-bank-account-holder-email/onboarding-bank-account-holder-email.component';
 import { OnboardingBankAccountHolderCompletedComponent } from './bank-account-holder/onboarding-bank-account-holder-completed/onboarding-bank-account-holder-completed.component';
 import { OnboardingBankAccountHolderIntroComponent } from './bank-account-holder/onboarding-bank-account-holder-intro/onboarding-bank-account-holder-intro.component';
 import { OnboardingBankAccountSigningIntroComponent } from './bank-account-signing/onboarding-bank-account-signing-intro/onboarding-bank-account-signing-intro.component';
@@ -37,7 +36,6 @@ import { OnboardingBankAccountSigningCompleteComponent } from './bank-account-si
         OnboardingBankAccountCompletedComponent,
         OnboardingBankAccountHolderIntroComponent,
         OnboardingBankAccountHolderWhoComponent,
-        OnboardingBankAccountHolderEmailComponent,
         OnboardingBankAccountHolderCompletedComponent,
         OnboardingBankAccountSigningIntroComponent,
         OnboardingBankAccountSigningVerifyDetailsComponent,

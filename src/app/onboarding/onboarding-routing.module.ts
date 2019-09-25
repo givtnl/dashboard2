@@ -22,7 +22,6 @@ import { OnboardingBankAccountCompleteCheckSuccessGuard } from './bank-account/g
 import { AuthenticationGuard } from '../infrastructure/guards/authentication.guard';
 import { OnboardingBankAccountHolderIntroComponent } from './bank-account-holder/onboarding-bank-account-holder-intro/onboarding-bank-account-holder-intro.component';
 import { OnboardingBankAccountHolderWhoComponent } from './bank-account-holder/onboarding-bank-account-holder-who/onboarding-bank-account-holder-who.component';
-import { OnboardingBankAccountHolderEmailComponent } from './bank-account-holder/onboarding-bank-account-holder-email/onboarding-bank-account-holder-email.component';
 import { OnboardingBankAccountHolderCompletedComponent } from './bank-account-holder/onboarding-bank-account-holder-completed/onboarding-bank-account-holder-completed.component';
 import { OnboardingBankAccountSigningIntroComponent } from './bank-account-signing/onboarding-bank-account-signing-intro/onboarding-bank-account-signing-intro.component';
 import { OnboardingBankAccountSigningVerifyDetailsComponent } from './bank-account-signing/onboarding-bank-account-signing-verify-details/onboarding-bank-account-signing-verify-details.component';
@@ -121,11 +120,6 @@ const routes: Routes = [
         path: 'who',
         outlet: 'onboarding-outlet',
         component: OnboardingBankAccountHolderWhoComponent
-      },
-      {
-        path: 'email',
-        outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountHolderEmailComponent
       },
       {
         path: 'completed',
