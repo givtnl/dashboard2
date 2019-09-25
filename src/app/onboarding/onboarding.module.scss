@@ -29,15 +29,15 @@
 }
 
 .CONTAINER {
-    // background: #f5f5f5;
-    // background-image: linear-gradient(to bottom right,#f5f5f5  , white);
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f5f5f5+0,f5f5f5+50,ffffff+51,ffffff+100 */
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f5f5f5+0,f5f5f5+50,ffffff+51,ffffff+100 */
-    background: #f5f5f5; /* Old browsers */
-    background: -moz-linear-gradient(-180deg,  #f5f5f5 0%, #f5f5f5 25%, #ffffff 26%, #ffffff 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-180deg,  #f5f5f5 0%,#f5f5f5 25%,#ffffff 26%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(177deg,  #f5f5f5 0%,#f5f5f5 25%,#ffffff 26%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    // background: var(--background-grey);
+    // background-image: linear-gradient(to bottom right,var(--background-grey)  , white);
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/var(--background-grey)+0,f5f5f5+50,ffffff+51,ffffff+100 */
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/var(--background-grey)+0,f5f5f5+50,ffffff+51,ffffff+100 */
+    background: var(--background-grey); /* Old browsers */
+    background: -moz-linear-gradient(-180deg,  var(--background-grey) 0%, var(--background-grey) 25%, #ffffff 26%, #ffffff 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-180deg,  var(--background-grey) 0%,var(--background-grey) 25%,#ffffff 26%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(177deg,  var(--background-grey) 0%,var(--background-grey) 25%,#ffffff 26%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--background-grey)', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 .circle-green {
@@ -80,4 +80,9 @@
 
     display: flex;
     align-items: center;
+}
+
+.information-card {
+    background-color: var(--background-grey);
+    border-radius: 0.3rem;
 }
