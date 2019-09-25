@@ -1,4 +1,4 @@
-<form [formGroup]="form" class="d-flex flex-column h-100">
+<form [formGroup]="form" (ngSubmit)="submit()" class="d-flex flex-column h-100">
     <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
         <div class="HEADER row d-flex align-items-center header-navigation-bar pt-5 pb-3">
             <div class="col-2"></div>
@@ -20,7 +20,7 @@
         <div class="FOOTER row pb-4 pt-2">
             <div class="mr-0 ml-auto col-8 px-0">
 
-                <button [translate] [disabled]="loading"
+                <button type="submit" [class.disabled]="disableSignButton" [translate] [disabled]="loading || disableSignButton"
                     class="btn float-right btn-lg bg-givt-purple text-white text-heavy-font w-100 m-0 row d-flex align-items-center">
                     <div class="col-2"></div>
                     <p class="text-white text-heavy-font p-0 m-0 text-center flex-grow-1" translate>
