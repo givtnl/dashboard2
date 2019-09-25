@@ -37,7 +37,7 @@
     "errorMessages.accountnumber-length": "You have filled in an invalid account number.\nAn account number contains 8 characters.",
     "errorMessages.account-name-required": "Please enter your account name",
     "placeholders.bankAccountNumberIBAN": "IBAN account number",
-    "placeholders.bankAccountName": "Name bank-account",
+    "placeholders.bankAccountName": "Name bank account",
     "placeholders.sortCode": "Sort code",
     "placeholders.accountNumber": "Account number",
     "onboardingBankAccountIntroComponent.title": "Add bankaccount",
@@ -110,5 +110,7 @@
     "onboardingBankAccountSigningVerifyDetails.orgDetails": "Organisation details",
     "onboardingBankAccountSigningVerifyDetails.bankDetails": "Bank details of the organisation",
     "onboardingBankAccountSigningVerifyDetails.nameAuthorized": "Name of the authorized signer",
-    "dashboardCompleteAccountWidgetComponent.AddBankAccountHolders": "Add authorized persons"
+    "dashboardCompleteAccountWidgetComponent.AddBankAccountHolders": "Add authorized persons",
+    "errorMessages.too-many-bank-accounts-to-add-holder-to": "There are too many active bank accounts",
+    "errorMessages.no-bank-accounts-to-add-holder-to": "There are no active bank accounts "
 }
