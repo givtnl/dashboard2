@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { OnboardingBankAccountStateService } from '../services/onboarding-bank-account-state.service';
 
@@ -7,7 +7,8 @@ import { OnboardingBankAccountStateService } from '../services/onboarding-bank-a
   templateUrl: './onboarding-bank-account-completed.component.html',
   styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-completed.component.scss']
 })
-export class OnboardingBankAccountCompletedComponent implements OnInit {
+export class OnboardingBankAccountCompletedComponent implements OnInit, OnDestroy {
+
 
   constructor(private router: Router, private stateService: OnboardingBankAccountStateService) { }
 
@@ -15,14 +16,16 @@ export class OnboardingBankAccountCompletedComponent implements OnInit {
   sortCode: string;
   accountNumber: string;
 
-  myHero: string;
-
+ 
   ngOnInit() {
     const currentBankDetails = this.stateService.currentBankAccountModel as AddBankAccountToOrganisationCommand;
     this.accountName = currentBankDetails.accountName ? currentBankDetails.accountName:'';
     this.sortCode = currentBankDetails.sortCode ? currentBankDetails.sortCode:'';
-    this.accountNumber = currentBankDetails.accountNumber ? currentBankDetails.accountNumber:'';
+    this.accountNumber = currentBankDetails.accountNumber ? currentBankDetails.accountNumber:''; 
+  }
 
+  ngOnDestroy(): void {
+    this.stateService.clear();
   }
 
   redirectToDashboard() {

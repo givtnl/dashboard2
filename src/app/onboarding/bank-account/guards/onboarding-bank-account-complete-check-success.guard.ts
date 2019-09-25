@@ -21,18 +21,12 @@ export class OnboardingBankAccountCompleteCheckSuccessGuard implements CanActiva
       const registration = this.onboardingBankAccountStateService.currentBankAccountModel;
       const currentToken = this.applicationStateService.currentTokenModel;
 
-      const createdAccountResponse = await this.onboardingBankAccountService
-        .create(currentToken.OrganisationAdmin, registration)
-        .toPromise();
-
-      this.onboardingBankAccountStateService.clear();
+      await this.onboardingBankAccountService.create(currentToken.OrganisationAdmin, registration).toPromise();
     } catch (error) {
       if (error instanceof HttpErrorResponse) {
         return this.HandleFailure(next);
       }
     }
-
-    this.onboardingBankAccountStateService.clear();
     return true;
   }
 
