@@ -109,5 +109,6 @@
     "onboardingBankAccountHolderWhoComponent.emailAddress": "E-mail address",
     "onboardingBankAccountSigningVerifyDetails.orgDetails": "Organisation details",
     "onboardingBankAccountSigningVerifyDetails.bankDetails": "Bank details of the organisation",
-    "onboardingBankAccountSigningVerifyDetails.nameAuthorized": "Name of the authorized signer"
+    "onboardingBankAccountSigningVerifyDetails.nameAuthorized": "Name of the authorized signer",
+    "dashboardCompleteAccountWidgetComponent.AddBankAccountHolders": "Add authorized persons"
 }
