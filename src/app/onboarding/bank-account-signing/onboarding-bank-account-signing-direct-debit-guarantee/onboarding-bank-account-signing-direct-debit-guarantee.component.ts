@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-onboarding-bank-account-signing-direct-debit-guarantee',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-signing-direct-debit-guarantee.component.scss']
 })
 export class OnboardingBankAccountSigningDirectDebitGuaranteeComponent implements OnInit {
+  public form: FormGroup
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.form = this.formBuilder.group({
+      acceptedDirectDebitGuarantee: [null, [Validators.required]]
+    })
   }
-
+  submit() {
+    
+  }
 }
