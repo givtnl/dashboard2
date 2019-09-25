@@ -1,18 +1,18 @@
 <div class="d-flex flex-column h-100">
-    <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
-        <div class="HEADER row d-flex align-items-center pb-5 header-navigation-bar">
-            <div class="col-2"></div>
-            <p [translate]="'onboardingBankAccountAddComponent.title'"
-                class="text-givt-purple text-heavy-font p-0 m-0 text-center flex-grow-1">
-            </p>
-            <a class='cursor-pointer' (click)="redirectToDashboard()" [translate]>
-                <div class="col-2 text-center"><i class="fas text-givt-purple fa-times"></i></div>
-            </a>
+    <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="d-flex flex-column h-100">
+        <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
+            <div class="HEADER row d-flex align-items-center pb-5 header-navigation-bar">
+                <div class="col-2"></div>
+                <p [translate]="'onboardingBankAccountAddComponent.title'"
+                    class="text-givt-purple text-heavy-font p-0 m-0 text-center flex-grow-1">
+                </p>
+                <a class='cursor-pointer' (click)="redirectToDashboard()" [translate]>
+                    <div class="col-2 text-center"><i class="fas text-givt-purple fa-times"></i></div>
+                </a>
+            </div>
+            <div class="BODY row d-flex flex-grow-1 overflow-auto">
+                <div class="w-100">
 
-        </div>
-        <div class="BODY row d-flex flex-grow-1 overflow-auto">
-            <div class="w-100">
-                <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
                     <p class="introduction-title text-primary text-light-font text-givt-purple" translate>
                         onboardingBankAccountAddComponent.description</p>
                     <!-- <input *ngIf="orgCountry != 'GB'" type="text"  placeholder="{{ 'placeholders.bankAccountNumberIBAN' | translate }}"
@@ -26,20 +26,21 @@
                     <input type="text" placeholder="{{ 'placeholders.accountNumber' | translate }}"
                         class="form-control form-control-lg mb-3 shadow text-givt-purple"
                         formControlName="accountNumber" />
-                </form>
+
+                </div>
+            </div>
+            <div class="FOOTER row pb-4  pt-2">
+                <div class="mr-0 ml-auto col-8 px-0">
+                    <button (click)="submit()" [translate] [disabled]="loading"
+                        class="btn float-right btn-lg bg-givt-purple text-white text-heavy-font w-100 m-0 row d-flex align-items-center">
+                        <div class="col-2"></div>
+                        <p class="text-white text-heavy-font p-0 m-0 text-center flex-grow-1" translate>
+                            <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
+                            onboardingBankAccountAddComponent.buttonText</p>
+                        <div class="col-2 text-center"><i class="fas text-white fa-arrow-right"></i> </div>
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="FOOTER row pb-4  pt-2">
-            <div class="mr-0 ml-auto col-8 px-0">
-                <button (click)="submit()" [translate] [disabled]="loading"
-                    class="btn float-right btn-lg bg-givt-purple text-white text-heavy-font w-100 m-0 row d-flex align-items-center">
-                    <div class="col-2"></div>
-                    <p class="text-white text-heavy-font p-0 m-0 text-center flex-grow-1" translate>
-                        <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
-                        onboardingBankAccountAddComponent.buttonText</p>
-                    <div class="col-2 text-center"><i class="fas text-white fa-arrow-right"></i> </div>
-                </button>
-            </div>
-        </div>
-    </div>
+    </form>
 </div>
