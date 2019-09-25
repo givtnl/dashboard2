@@ -46,6 +46,10 @@ $theme-colors: (
 $color-secondary:rgb(65,201,142);
 $box-shadow-color: rgb(226, 226, 226);
 
+:root{
+  --background-grey: #f5f5f5;
+}
+
 /* ----------------------------------- ------------- ---------------------------------------- */
 
 .text-givt-purple {

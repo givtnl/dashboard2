@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CompleteAccountWidgetService } from './services/complete-account-widget.service';
 import { CompleteAccountWidgetModel } from './models/complete-account-widget.model';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-complete-account-widget',
@@ -11,7 +12,7 @@ import { ApplicationStateService } from 'src/app/infrastructure/services/applica
 export class DashboardCompleteAccountWidgetComponent implements OnInit {
   public loading = false;
   public records = new Array<CompleteAccountWidgetModel>();
-  constructor(private service: CompleteAccountWidgetService, private applicationStateService: ApplicationStateService) {}
+  constructor(private service: CompleteAccountWidgetService, private router: Router, private applicationStateService: ApplicationStateService) {}
 
   ngOnInit(): void {
     this.loading = true;
@@ -32,6 +33,11 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
 
   public percentageDegrees(toCalculatePercentage: number):number{
     return toCalculatePercentage / 100 * 360;
+  }
+
+  public navigate(record: CompleteAccountWidgetModel):void{
+    this.loading = true;
+    this.router.navigate(this.getRouterLinks(record)).finally(() => this.loading = false);
   }
 
   public getRouterLinks(record: CompleteAccountWidgetModel): Array<string> {
