@@ -1,24 +1,22 @@
-<div class="d-flex flex-column h-100">
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="d-flex flex-column h-100">
   <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
     <div class="HEADER row pt-1 pb-1">
       <app-header-image class="text-center w-100"></app-header-image>
     </div>
     <div class="BODY row d-flex flex-grow-1 overflow-auto">
       <div class="w-100">
-        <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
-          <p [translate]="'onboardingWelcomeComponent.title'"
-            [translateParams]="{ name: stateService.currentOnboardingRequest.companyName }"
-            class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></p>
-            <p translate class="text-givt-purple text-heavy-font text-center">
-                onboardingPersonalDetailsComponent.title
-              </p>
-          <input formControlName="firstName" type="text" autocomplete="given-name"
-            placeholder="{{ 'placeholders.firstName' | translate }}"
-            class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
-          <input formControlName="lastName" type="text" autocomplete="family-name"
-            placeholder="{{ 'placeholders.lastName' | translate }}"
-            class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
-        </form>
+        <p [translate]="'onboardingWelcomeComponent.title'"
+          [translateParams]="{ name: stateService.currentOnboardingRequest.companyName }"
+          class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></p>
+        <p translate class="text-givt-purple text-heavy-font text-center">
+          onboardingPersonalDetailsComponent.title
+        </p>
+        <input formControlName="firstName" type="text" autocomplete="given-name"
+          placeholder="{{ 'placeholders.firstName' | translate }}"
+          class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
+        <input formControlName="lastName" type="text" autocomplete="family-name"
+          placeholder="{{ 'placeholders.lastName' | translate }}"
+          class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
       </div>
     </div>
     <div class="FOOTER row pb-4 pt-2">
@@ -30,4 +28,4 @@
       </div>
     </div>
   </div>
-</div>
+</form>
