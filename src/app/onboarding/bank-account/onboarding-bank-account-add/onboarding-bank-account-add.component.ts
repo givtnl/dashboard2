@@ -32,9 +32,9 @@ export class OnboardingBankAccountAddComponent implements OnInit {
     const currentBankDetails = this.route.parent.snapshot.data.bankaccount as OnboardingBankAccountRegistrationResponseModel;
 
     this.form = this.formBuilder.group({
-      sortCode: [currentBankDetails.SortCode, [Validators.required, fixedLengthValidator(6)]],
-      accountNumber: [currentBankDetails.AccountNumber, [Validators.required, fixedLengthValidator(8)]],
-      accountName: [currentBankDetails.AccountName, [Validators.required]],
+      sortCode: [currentBankDetails == null ? null : currentBankDetails.SortCode, [Validators.required, fixedLengthValidator(6)]],
+      accountNumber: [currentBankDetails == null ? null : currentBankDetails.AccountNumber, [Validators.required, fixedLengthValidator(8)]],
+      accountName: [currentBankDetails == null ? null : currentBankDetails.AccountName, [Validators.required]],
     });
   }
 
