@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-holder-intro.component.scss']
 })
 export class OnboardingBankAccountHolderIntroComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit() {
