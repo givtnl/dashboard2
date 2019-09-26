@@ -112,5 +112,6 @@
     "onboardingBankAccountSigningVerifyDetails.nameAuthorized": "Naam van de gemachtigde",
     "dashboardCompleteAccountWidgetComponent.AddBankAccountHolders": "Toevoegen van gemachtigden",
     "errorMessages.too-many-bank-accounts-to-add-holder-to": "Er zijn teveel rekeningen om een rekeninghouder aan toe te voegen",
-    "errorMessages.no-bank-accounts-to-add-holder-to": "Er zijn geen rekeningen gevonden om een rekeninghouder aan toe te voegen"
+    "errorMessages.no-bank-accounts-to-add-holder-to": "Er zijn geen rekeningen gevonden om een rekeninghouder aan toe te voegen",
+    "errorMessages.field-validation-errors": "Oeps, er ging iets fout. Kan je de volgende zaken controleren? ({0})"
 }
