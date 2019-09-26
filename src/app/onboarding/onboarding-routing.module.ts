@@ -34,6 +34,7 @@ import { InviteBankAccountHolderCompleteCheckSuccessGuard } from './bank-account
 import { BankAccountSignInvitationIdRequiredGuard } from './bank-account-signing/guards/bank-account-sign-invitation-id-required.guard';
 import { OnboardingBankAccountHolderDetailResolver } from './bank-account-signing/resolvers/onboarding-bank-account-holder-detail.resolver';
 import { BankAccountSignInvitationRejectedGuard } from './bank-account-signing/guards/bank-account-sign-invitation-rejected.guard';
+import { BankAccountSignInvitationAcceptedGuard } from './bank-account-signing/guards/bank-account-sign-invitation-accepted.guard';
 
 const routes: Routes = [
   {
@@ -167,7 +168,8 @@ const routes: Routes = [
       {
         path: 'completed',
         outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountSigningCompleteComponent
+        component: OnboardingBankAccountSigningCompleteComponent,
+        canActivate:[BankAccountSignInvitationAcceptedGuard]
       }
     ]
   }
