@@ -5,7 +5,7 @@
             <p [translate]="'onboardingBankAccountAddComponent.title'"
                 class="text-givt-purple text-heavy-font p-0 m-0 text-center flex-grow-1">
             </p>
-            <a class='cursor-pointer' (click)="redirectToDashboard()" [translate]>
+            <a class='cursor-pointer' [routerLink]="['/', 'dashboard']">
                 <div class="col-2 text-center"><i class="fas text-givt-purple fa-times"></i></div>
             </a>
         </div>

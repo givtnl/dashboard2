@@ -91,8 +91,4 @@ export class OnboardingBankAccountAddComponent implements OnInit {
         })
       );
   }
-
-  redirectToDashboard() {
-    this.router.navigate(['/', 'dashboard', 'root', { outlets: { 'dashboard-outlet': ['home'] } }]);
-  }
 }
