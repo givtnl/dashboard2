@@ -27,8 +27,4 @@ export class OnboardingBankAccountCompletedComponent implements OnInit, OnDestro
   ngOnDestroy(): void {
     this.stateService.clear();
   }
-
-  redirectToDashboard() {
-    this.router.navigate(['/', 'dashboard', 'root', { outlets: { 'dashboard-outlet': ['home'] } }])
-  }
 }
