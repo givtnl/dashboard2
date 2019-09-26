@@ -54,56 +54,39 @@ export class LoginComponent implements OnInit {
         .login(this.form.value.email, this.form.value.password)
         .pipe(catchErrorStatus(400, x => this.handleInvalidLogin(x)))
         .subscribe(resp =>
-          this.router.navigate([
-            '/',
-            'dashboard',
-            'root',
-            { outlets: { 'dashboard-outlet': ['home'] } }
-          ])
-        )
-        .add(() => (this.loading = false));
+          this.router
+            .navigate(['/', 'dashboard', 'root', { outlets: { 'dashboard-outlet': ['home'] } }])
+            .finally(() => (this.loading = false))
+        );
     }
   }
   handleInvalidLogin(error: HttpErrorResponse) {
+    this.loading = false;
     switch (error.error.error_status) {
       case ErrorMessages.AccountDisabled:
         {
-          this.errorMessages.push(
-            this.translationService.get('errorMessages.accountDisabled')
-          );
+          this.errorMessages.push(this.translationService.get('errorMessages.accountDisabled'));
         }
         break;
       case ErrorMessages.LockedOut:
         {
-          this.errorMessages.push(
-            this.translationService.get('errorMessages.lockedOut')
-          );
+          this.errorMessages.push(this.translationService.get('errorMessages.lockedOut'));
         }
         break;
       case ErrorMessages.OneAttemptLeft:
         {
-          this.errorMessages.push(
-            this.translationService.get('errorMessages.wrongEmailOrPassword')
-          );
-          this.errorMessages.push(
-            this.translationService.get('errorMessages.oneAttemptLeft')
-          );
+          this.errorMessages.push(this.translationService.get('errorMessages.wrongEmailOrPassword'));
+          this.errorMessages.push(this.translationService.get('errorMessages.oneAttemptLeft'));
         }
         break;
       case ErrorMessages.TwoAttemptsLeft:
         {
-          this.errorMessages.push(
-            this.translationService.get('errorMessages.wrongEmailOrPassword')
-          );
-          this.errorMessages.push(
-            this.translationService.get('errorMessages.twoAttemptLeft')
-          );
+          this.errorMessages.push(this.translationService.get('errorMessages.wrongEmailOrPassword'));
+          this.errorMessages.push(this.translationService.get('errorMessages.twoAttemptLeft'));
         }
         break;
       default:
-        this.errorMessages.push(
-          this.translationService.get('errorMessages.wrongEmailOrPassword')
-        );
+        this.errorMessages.push(this.translationService.get('errorMessages.wrongEmailOrPassword'));
         return;
     }
   }
@@ -113,22 +96,16 @@ export class LoginComponent implements OnInit {
 
     if (emailErrors) {
       if (emailErrors.required) {
-        this.errorMessages.push(
-          this.translationService.get('errorMessages.email-required')
-        );
+        this.errorMessages.push(this.translationService.get('errorMessages.email-required'));
       }
       if (emailErrors.email) {
-        this.errorMessages.push(
-          this.translationService.get('errorMessages.email-not-an-email')
-        );
+        this.errorMessages.push(this.translationService.get('errorMessages.email-not-an-email'));
       }
     }
 
     if (passwordErrors) {
       if (passwordErrors.required) {
-        this.errorMessages.push(
-          this.translationService.get('errorMessages.password-required')
-        );
+        this.errorMessages.push(this.translationService.get('errorMessages.password-required'));
       }
     }
   }
