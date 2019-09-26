@@ -163,7 +163,7 @@ const routes: Routes = [
         component: OnboardingBankAccountSigningDirectDebitGuaranteeComponent
       },
       {
-        path: 'complete',
+        path: 'completed',
         outlet: 'onboarding-outlet',
         component: OnboardingBankAccountSigningCompleteComponent
       }

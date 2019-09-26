@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="submit()" class="d-flex flex-column h-100">
+<form [formGroup]="form" class="d-flex flex-column h-100">
     <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
         <div class="HEADER row d-flex align-items-center header-navigation-bar pt-5 pb-3">
             <div class="col-2"></div>
@@ -12,15 +12,20 @@
         <div class="BODY row d-flex flex-grow-1 overflow-auto">
             <p class="text-givt-purple text-light-font" translate>
                 onboardingBankAccountSigningDirectDebitGuaranteeComponent.description</p>
-            <div class="form-check">
-                <input formControlName="acceptedDirectDebitGuarantee" type="checkbox" class="form-check-input">
-                <label class="form-check-label">I have read and agreed</label>
-            </div>
+
+
+                    <div class="custom-control custom-switch">
+                            <input type="checkbox" formControlName="acceptedDirectDebitGuarantee" class="custom-control-input" id="acceptedDirectDebitGuarantee">
+                            <label class="custom-control-label" for="acceptedDirectDebitGuarantee">I have read and agreed</label>
+                          </div>
+
+
         </div>
         <div class="FOOTER row pb-4 pt-2">
             <div class="mr-0 ml-auto col-8 px-0">
 
-                <button type="submit" [class.disabled]="disableSignButton" [translate] [disabled]="loading || disableSignButton"
+                <a [class.disabled]="!form.value.acceptedDirectDebitGuarantee" [translate]
+                [routerLink]="['/', 'onboarding', 'bank-account-signing', { outlets: { 'onboarding-outlet': ['completed'] } }]"
                     class="btn float-right btn-lg bg-givt-purple text-white text-heavy-font w-100 m-0 row d-flex align-items-center">
                     <div class="col-2"></div>
                     <p class="text-white text-heavy-font p-0 m-0 text-center flex-grow-1" translate>
@@ -28,7 +33,7 @@
                         onboardingBankAccountSigningDirectDebitGuaranteeComponent.signText
                     </p>
                     <div class="col-2 text-center"><i class="fas text-white fa-arrow-right"></i> </div>
-                </button>
+                </a>
             </div>
         </div>
     </div>
