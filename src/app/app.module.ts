@@ -13,6 +13,7 @@ import { CustomUrlSerializer } from './shared/serializers/custom-url.serializer'
 import { OnboardingInterceptor } from './onboarding/new-users/interceptors/onboarding.interceptor';
 import { MissingFileTranslationsHandler } from './infrastructure/services/missing-file-translations.service';
 import { CurrentUserTokenInterceptor } from './infrastructure/interceptors/current-user-token.interceptor';
+import { ValidationErrorInterceptor } from './infrastructure/interceptors/validation-error.interceptor';
 
 
 @NgModule({
@@ -37,6 +38,11 @@ import { CurrentUserTokenInterceptor } from './infrastructure/interceptors/curre
   ],
   bootstrap: [AppComponent],
   providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:ValidationErrorInterceptor,
+      multi:true
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CurrentUserTokenInterceptor,
