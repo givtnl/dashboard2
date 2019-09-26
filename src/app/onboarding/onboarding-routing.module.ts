@@ -33,6 +33,7 @@ import { OnboardingBankAccountHolderAccountResolver } from './bank-account-holde
 import { InviteBankAccountHolderCompleteCheckSuccessGuard } from './bank-account-holder/guards/invite-bank-account-holder-complete-check-success.guard';
 import { BankAccountSignInvitationIdRequiredGuard } from './bank-account-signing/guards/bank-account-sign-invitation-id-required.guard';
 import { OnboardingBankAccountHolderDetailResolver } from './bank-account-signing/resolvers/onboarding-bank-account-holder-detail.resolver';
+import { BankAccountSignInvitationRejectedGuard } from './bank-account-signing/guards/bank-account-sign-invitation-rejected.guard';
 
 const routes: Routes = [
   {
@@ -155,7 +156,8 @@ const routes: Routes = [
       {
         path: 'details-incorrect',
         outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountSigningDetailsIncorrectComponent
+        component: OnboardingBankAccountSigningDetailsIncorrectComponent,
+        canActivate:[BankAccountSignInvitationRejectedGuard]
       },
       {
         path: 'direct-debit-guarantee',

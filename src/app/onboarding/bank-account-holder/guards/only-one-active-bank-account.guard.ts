@@ -1,13 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
-import { OnboardingBankAccountHolderStateService } from '../services/onboarding-bank-account-holder-state.service';
-import { OnboardingBankAccountService } from '../../bank-account/services/onboarding-bank-account.service';
-import { ToastrService } from 'ngx-toastr';
-import { Observable, of } from 'rxjs';
 import { OnboardingBankAccountHolderService } from '../services/onboarding-bank-account-holder.service';
-import { switchMap, map } from 'rxjs/operators';
 import { TranslatableToastrService } from 'src/app/shared/services/translate-able-toastr.service';
 
 @Injectable({
@@ -15,7 +9,6 @@ import { TranslatableToastrService } from 'src/app/shared/services/translate-abl
 })
 export class OnlyOneActiveBankAccountGuard implements CanActivate {
   constructor(
-    private router: Router,
     private toastr: TranslatableToastrService,
     private applicationStateService: ApplicationStateService,
     private onboardingBankAccountHolderService: OnboardingBankAccountHolderService

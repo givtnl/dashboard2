@@ -25,4 +25,8 @@ export class BackendService {
 	public post<T>(path: string, body: Object): Observable<T> {
 		return this.http.post<T>(`${this.baseUrl}${path}`, body);
 	}
+
+	public patch<T>(path:string, body: Object = null): Observable<T>{
+		return this.http.patch<T>(`${this.baseUrl}${path}`, body);
+	}
 }

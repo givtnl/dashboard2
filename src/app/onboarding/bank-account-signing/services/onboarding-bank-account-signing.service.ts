@@ -14,5 +14,8 @@ export class OnboardingBankAccountSigningService {
         return this.backendService.get<BankAccountHolderDetailModel>(`v2/organisations/${organisationId}/accounts/${accountId}/holders/${invitationId}`);
     }
 
+    reject(organisationId: string, accountId: number, invitationId: string):Observable<object>{
+        return this.backendService.patch<object>(`v2/organisations/${organisationId}/accounts/${accountId}/holders/${invitationId}/reject`)
+    }
    
 }
