@@ -14,7 +14,7 @@ export class CollectGroupsService {
     }
 
     addAccountToCollectGroup(organisationId: string, accountId: number, collectGroupId: string): Observable<object>{
-        return this.backendService.post(`v2/organisations/${organisationId}/collectgroups/${collectGroupId}`,{
+        return this.backendService.post(`v2/organisations/${organisationId}/collectgroups/${collectGroupId}/accounts`,{
             accountId,
             collectGroupId
         });

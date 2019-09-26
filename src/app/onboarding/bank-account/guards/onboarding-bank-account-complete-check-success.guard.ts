@@ -35,7 +35,7 @@ export class OnboardingBankAccountCompleteCheckSuccessGuard implements CanActiva
           currentToken.OrganisationAdmin,
           createdResponse.Result,
           collectGroups[0].Id
-        );
+        ).toPromise();
       }
     } catch (error) {
       if (error instanceof HttpErrorResponse && error.status !== 422) {
