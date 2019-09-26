@@ -10,6 +10,7 @@ export interface BankAccountHolderDetailModel {
     OrganisationId: string;
     OrganisationName:string;
     OrganisationStreet:string;
+    OrganisationLocality:string;
     OrganisationCity:string;
     OrganisationZipCode:string;
 }
