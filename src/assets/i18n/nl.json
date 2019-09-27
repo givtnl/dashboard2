@@ -73,7 +73,7 @@
     "errorMessages.generic-error-message": "Er ging iets verkeerd tijdens de verwerking van je aanvraag",
     "errorMessages.generic-error-title": "Oeps",
     "errorMessages.account-firstname-required": "Gelieve je voornaam op te geven.\nWe hebben je volledige account naam nodig.",
-    "errorMessages.account-lastname-required": "Gelieve je achternaam op te geven.\nWe hebben je volledige account naam nodig.",
+    "errorMessages.account-lastname-required": "Gelieve je achternaam op te geven.\nWe hebben je volledige accountnaam nodig.",
     "dashboardCompleteAccountWidgetComponent.completeAccount": "Maak je account compleet",
     "dashboardCompleteAccountWidgetComponent.moreInformation": "Om giften te ontvangen, hebben we wat informatie nodig.",
     "onboardingBankAccountHolderInfoComponent.title": "Wie gaat tekenen?",
