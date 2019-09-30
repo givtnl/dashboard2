@@ -1,0 +1,55 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+@include media-breakpoint-up(sm) {
+    .CONTAINER {
+        height: 631px !important;
+        width: 554px !important;
+        border-radius: 2rem !important
+    }
+}
+
+.HEADER {
+    padding-top: 5rem !important;
+}
+
+.BODY {
+    padding: 1.25rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.FOOTER {
+    padding: 0 2rem 0 2rem;
+}
+
+
+.CONTAINER {
+    // background: var(--background-grey);
+    // background-image: linear-gradient(to bottom right,var(--background-grey)  , white);
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/var(--background-grey)+0,f5f5f5+50,ffffff+51,ffffff+100 */
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/var(--background-grey)+0,f5f5f5+50,ffffff+51,ffffff+100 */
+    background: var(--background-grey); /* Old browsers */
+    background: -moz-linear-gradient(-180deg,  var(--background-grey) 0%, var(--background-grey) 25%, #ffffff 26%, #ffffff 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-180deg,  var(--background-grey) 0%,var(--background-grey) 25%,#ffffff 26%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(177deg,  var(--background-grey) 0%,var(--background-grey) 25%,#ffffff 26%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--background-grey)', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+
+.circle-red { 
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#41c98e+87,f4bf63+100 */
+    background: #41c98e; /* Old browsers */
+    background: -moz-linear-gradient(45deg, red 30%, #f4bf63 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, red 30%,#f4bf63 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, red 30%,#f4bf63 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#41c98e', endColorstr='#f4bf63',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    display:flex;
+    align-items:center;
+}

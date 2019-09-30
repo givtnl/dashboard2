@@ -4,12 +4,12 @@ import { Observable } from 'rxjs';
 import { CompleteAccountWidgetModel } from '../models/complete-account-widget.model';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class CompleteAccountWidgetService {
-  constructor(private backendService: BackendService) {}
+    constructor(private backendService: BackendService) {}
 
-  get(organisationId: string): Observable<CompleteAccountWidgetModel[]> {
-    return this.backendService.get<CompleteAccountWidgetModel[]>(`v2/organisations/${organisationId}/registration`);
-  }
+    get(organisationId: string): Observable<CompleteAccountWidgetModel[]> {
+        return this.backendService.get<CompleteAccountWidgetModel[]>(`v2/organisations/${organisationId}/registration`);
+    }
 }

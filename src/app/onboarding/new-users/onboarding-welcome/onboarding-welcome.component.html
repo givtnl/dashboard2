@@ -1,0 +1,31 @@
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="d-flex flex-column h-100">
+  <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
+    <div class="HEADER row pt-1 pb-1">
+      <app-header-image class="text-center w-100"></app-header-image>
+    </div>
+    <div class="BODY row d-flex flex-grow-1 overflow-auto">
+      <div class="w-100">
+        <p [translate]="'onboardingWelcomeComponent.title'"
+          [translateParams]="{ name: stateService.currentOnboardingRequest.companyName }"
+          class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></p>
+        <input type="email" autocomplete="new-password" placeholder="{{ 'placeholders.email' | translate }}"
+          formControlName="email" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+        <small class="text-left form-text pb-3">
+          <a class="text-givt-purple text-light-font" translate
+            [routerLink]="['/', 'onboarding', 'welcome', 'new-users', { outlets: { 'onboarding-outlet': ['change-email'] } }]"
+            queryParamsHandling="merge">
+            onboardingWelcomeComponent.differentEmailAddress</a>
+        </small>
+        <app-password-input *ngIf="showPassword" formControlName="password"></app-password-input>
+      </div>
+    </div>
+    <div class="FOOTER row pb-4 pt-2">
+      <div class="mr-0 ml-auto col-8 px-0">
+        <button type="submit" [translate]
+          class="btn float-right btn-lg bg-givt-green text-white text-heavy-font w-100 m-0">
+          onboardingWelcomeComponent.registerButtonText
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

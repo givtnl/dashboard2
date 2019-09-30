@@ -1,7 +1,7 @@
 export interface CompleteAccountWidgetModel {
-    displayOrder: number;
-    finished: boolean;
-    inProgress: boolean;
-    organisationRegistrationStatus: number;
-    organisationRegistrationStatusDescription:string;
+    DisplayOrder:number;
+    Finished:boolean;
+    InProgress:boolean;
+    OrganisationRegistrationStatus:number;
+    OrganisationRegistrationStatusDescription:string;
 }

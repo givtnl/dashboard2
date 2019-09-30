@@ -5,9 +5,19 @@ import { DashboardRootComponent } from './dashboard-root/dashboard-root.componen
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo:'root'
+  },
+  {
     path: 'root',
     component: DashboardRootComponent,
     children: [
+      {
+        path: '',
+        redirectTo: 'home',
+        outlet: 'dashboard-outlet'
+
+      },
       {
         path: 'home',
         component: DashboardHomeComponent,

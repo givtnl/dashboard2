@@ -46,10 +46,18 @@ $theme-colors: (
 $color-secondary:rgb(65,201,142);
 $box-shadow-color: rgb(226, 226, 226);
 
+:root{
+  --background-grey: #f5f5f5;
+}
+
 /* ----------------------------------- ------------- ---------------------------------------- */
 
 .text-givt-purple {
   color: theme-color('primary') !important;
+}
+
+.text-red {
+  color: red;
 }
 
 .introduction-title {
@@ -117,4 +125,8 @@ input.show-validation.ng-invalid.ng-touched{
 
 .form-control {
   border:1px solid rgba(206,212,218,0.3);
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

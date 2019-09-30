@@ -1,16 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
-import { OnboardingInterceptor } from './onboarding/interceptors/onboarding.interceptor';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader, MissingTranslationHandler } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { UrlSerializer } from '@angular/router';
 import { CustomUrlSerializer } from './shared/serializers/custom-url.serializer';
+import { OnboardingInterceptor } from './onboarding/new-users/interceptors/onboarding.interceptor';
+import { MissingFileTranslationsHandler } from './infrastructure/services/missing-file-translations.service';
+import { CurrentUserTokenInterceptor } from './infrastructure/interceptors/current-user-token.interceptor';
+import { ValidationErrorInterceptor } from './infrastructure/interceptors/validation-error.interceptor';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +27,7 @@ import { CustomUrlSerializer } from './shared/serializers/custom-url.serializer'
       preventDuplicates: true
     }),
     TranslateModule.forRoot({
+      missingTranslationHandler: { provide: MissingTranslationHandler, useClass: MissingFileTranslationsHandler },
       loader: {
         provide: TranslateLoader,
         useFactory: httpClient => new TranslateHttpLoader(httpClient),
@@ -33,6 +38,16 @@ import { CustomUrlSerializer } from './shared/serializers/custom-url.serializer'
   ],
   bootstrap: [AppComponent],
   providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:ValidationErrorInterceptor,
+      multi:true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CurrentUserTokenInterceptor,
+      multi: true
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: OnboardingInterceptor,
