@@ -113,5 +113,7 @@
     "dashboardCompleteAccountWidgetComponent.AddBankAccountHolders": "Add authorised persons",
     "errorMessages.too-many-bank-accounts-to-add-holder-to": "There are too many active bank accounts",
     "errorMessages.no-bank-accounts-to-add-holder-to": "There are no active bank accounts",
-    "errorMessages.field-validation-errors": "Whoops, something went wrong. Could you please check the following input?"
+    "errorMessages.field-validation-errors": "Whoops, something went wrong. Could you please check the following input?",
+    "buttonYes": "Yes",
+    "buttonNo": "No"
 }
