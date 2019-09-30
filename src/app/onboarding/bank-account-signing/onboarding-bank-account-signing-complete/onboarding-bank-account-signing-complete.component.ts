@@ -12,4 +12,8 @@ export class OnboardingBankAccountSigningCompleteComponent implements OnInit {
   ngOnInit() {
   }
 
+  close() {
+    window.close();
+  }
+
 }
