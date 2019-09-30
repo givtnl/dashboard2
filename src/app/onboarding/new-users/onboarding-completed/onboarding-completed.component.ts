@@ -7,5 +7,5 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['../../onboarding.module.scss', './onboarding-completed.component.scss']
 })
 export class OnboardingCompletedComponent {
-  public redirectUrl = environment.oldDashboardUrl;
+  public redirectUrl = '/';
 }
