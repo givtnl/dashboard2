@@ -21,6 +21,9 @@ export class BackendService {
 			params
 		});
     }
+	public put<T>(path: string, body: Object): Observable<T> {
+		return this.http.put<T>(`${this.baseUrl}${path}`, body);
+	}
 
 	public post<T>(path: string, body: Object): Observable<T> {
 		return this.http.post<T>(`${this.baseUrl}${path}`, body);

@@ -22,6 +22,7 @@ import { OnboardingBankAccountSigningDirectDebitGuaranteeComponent } from './ban
 import { OnboardingBankAccountSigningDetailsIncorrectComponent } from './bank-account-signing/onboarding-bank-account-signing-details-incorrect/onboarding-bank-account-signing-details-incorrect.component';
 import { OnboardingBankAccountSigningCompleteComponent } from './bank-account-signing/onboarding-bank-account-signing-complete/onboarding-bank-account-signing-complete.component';
 import { OnboardingBankAccountInvitedHoldersComponent } from './bank-account/onboarding-bank-account-invited-holders/onboarding-bank-account-invited-holders.component';
+import { OnboardingBankAccountSigningVerifyPersonalDetailsComponent } from './bank-account-signing/onboarding-bank-account-signing-verify-personal-details/onboarding-bank-account-signing-verify-personal-details.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { OnboardingBankAccountInvitedHoldersComponent } from './bank-account/onb
     OnboardingBankAccountSigningDirectDebitGuaranteeComponent,
     OnboardingBankAccountSigningDetailsIncorrectComponent,
     OnboardingBankAccountSigningCompleteComponent,
-    OnboardingBankAccountInvitedHoldersComponent
+    OnboardingBankAccountInvitedHoldersComponent,
+    OnboardingBankAccountSigningVerifyPersonalDetailsComponent
   ],
   imports: [CommonModule, ReactiveFormsModule, SharedModule, OnboardingRoutingModule]
 })

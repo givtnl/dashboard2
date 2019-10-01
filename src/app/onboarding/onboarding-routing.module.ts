@@ -37,6 +37,7 @@ import { BankAccountSignInvitationRejectedGuard } from './bank-account-signing/g
 import { BankAccountSignInvitationAcceptedGuard } from './bank-account-signing/guards/bank-account-sign-invitation-accepted.guard';
 import { OnboardingBankAccountInvitedHoldersComponent } from './bank-account/onboarding-bank-account-invited-holders/onboarding-bank-account-invited-holders.component';
 import { OnboardingBankAccountInvitedHoldersResolver } from './bank-account/resolvers/onboarding-bank-account-invited-holders.resolver';
+import { OnboardingBankAccountSigningVerifyPersonalDetailsComponent } from './bank-account-signing/onboarding-bank-account-signing-verify-personal-details/onboarding-bank-account-signing-verify-personal-details.component';
 
 const routes: Routes = [
   {
@@ -156,6 +157,11 @@ const routes: Routes = [
         path: '',
         outlet: 'onboarding-outlet',
         component: OnboardingBankAccountSigningIntroComponent
+      },
+      {
+        path: 'verify-personal-details',
+        outlet: 'onboarding-outlet',
+        component: OnboardingBankAccountSigningVerifyPersonalDetailsComponent
       },
       {
         path: 'verify-details',
