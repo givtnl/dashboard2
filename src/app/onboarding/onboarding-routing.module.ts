@@ -35,6 +35,8 @@ import { BankAccountSignInvitationIdRequiredGuard } from './bank-account-signing
 import { OnboardingBankAccountHolderDetailResolver } from './bank-account-signing/resolvers/onboarding-bank-account-holder-detail.resolver';
 import { BankAccountSignInvitationRejectedGuard } from './bank-account-signing/guards/bank-account-sign-invitation-rejected.guard';
 import { BankAccountSignInvitationAcceptedGuard } from './bank-account-signing/guards/bank-account-sign-invitation-accepted.guard';
+import { OnboardingBankAccountInvitedHoldersComponent } from './bank-account/onboarding-bank-account-invited-holders/onboarding-bank-account-invited-holders.component';
+import { OnboardingBankAccountInvitedHoldersResolver } from './bank-account/resolvers/onboarding-bank-account-invited-holders.resolver';
 
 const routes: Routes = [
   {
@@ -111,6 +113,12 @@ const routes: Routes = [
         outlet: 'onboarding-outlet',
         component: OnboardingBankAccountCompletedComponent,
         canActivate: [OnboardingBankAccountCompleteCheckSuccessGuard]
+      },
+      {
+        path: 'already-invited',
+        outlet: 'onboarding-outlet',
+        component: OnboardingBankAccountInvitedHoldersComponent,
+        resolve: { accountHolders: OnboardingBankAccountInvitedHoldersResolver }
       }
     ]
   },
@@ -134,15 +142,15 @@ const routes: Routes = [
         path: 'completed',
         outlet: 'onboarding-outlet',
         component: OnboardingBankAccountHolderCompletedComponent,
-        canActivate:[InviteBankAccountHolderCompleteCheckSuccessGuard]
+        canActivate: [InviteBankAccountHolderCompleteCheckSuccessGuard]
       }
     ]
   },
   {
     path: 'bank-account-signing',
     component: OnboardingRootComponent,
-    canActivate:[BankAccountSignInvitationIdRequiredGuard],
-    resolve:{bankAccountHolder: OnboardingBankAccountHolderDetailResolver},
+    canActivate: [BankAccountSignInvitationIdRequiredGuard],
+    resolve: { bankAccountHolder: OnboardingBankAccountHolderDetailResolver },
     children: [
       {
         path: '',
@@ -158,7 +166,7 @@ const routes: Routes = [
         path: 'details-incorrect',
         outlet: 'onboarding-outlet',
         component: OnboardingBankAccountSigningDetailsIncorrectComponent,
-        canActivate:[BankAccountSignInvitationRejectedGuard]
+        canActivate: [BankAccountSignInvitationRejectedGuard]
       },
       {
         path: 'direct-debit-guarantee',
@@ -169,7 +177,7 @@ const routes: Routes = [
         path: 'completed',
         outlet: 'onboarding-outlet',
         component: OnboardingBankAccountSigningCompleteComponent,
-        canActivate:[BankAccountSignInvitationAcceptedGuard]
+        canActivate: [BankAccountSignInvitationAcceptedGuard]
       }
     ]
   }
