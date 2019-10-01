@@ -43,13 +43,19 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
     this.router.navigate(this.getRouterLinks(record)).finally(() => (this.loading = false));
   }
 
-  public getRouterLinks(record: CompleteAccountWidgetModel): Array<string> {
+  public getRouterLinks(record: CompleteAccountWidgetModel): Array<any> {
+    console.log(record);
     switch (record.OrganisationRegistrationStatus) {
       // bank accounts
       case 3:
         return ['/', 'onboarding', 'bank-account'];
       case 4:
-        return ['/', 'onboarding', 'bank-account-holder'];
+        return record.InProgress
+          ? ['/', 'onboarding', 'bank-account', { outlets: { 'onboarding-outlet': ['already-invited'] } }]
+          : ['/', 'onboarding', 'bank-account-holder'];
+
+      default:
+        break;
     }
   }
 }
