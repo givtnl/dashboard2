@@ -9,7 +9,7 @@ import { CurrentUserExtensionModel } from '../models/current-user-extension.mode
 export class ApplicationStateService {
   private storage = sessionStorage;
 
-  public clear():void{
+  public clear(): void {
     this.storage.removeItem('ApplicationStateService.CurrentUserModel');
     this.storage.removeItem('ApplicationStateService.CurrentTokenModel');
     this.storage.removeItem('ApplicationStateService.CurrentUserExtensionModel');
@@ -28,8 +28,12 @@ export class ApplicationStateService {
 
   public get currentTokenModel(): CurrentTokenModel {
     const key = 'ApplicationStateService.CurrentTokenModel';
-    const serializedRequest = JSON.parse(this.storage.getItem(key));
-    return serializedRequest;
+    try {
+      const serializedRequest = JSON.parse(this.storage.getItem(key));
+      return serializedRequest;
+    } catch (error) {
+      return null;
+    }
   }
 
   public set currentTokenModel(value: CurrentTokenModel) {
@@ -37,7 +41,7 @@ export class ApplicationStateService {
     this.storage.setItem(key, JSON.stringify(value));
   }
 
-  
+
   public get currentUserExtensionModel(): CurrentUserExtensionModel {
     const key = 'ApplicationStateService.CurrentUserExtensionModel';
     const serializedRequest = JSON.parse(this.storage.getItem(key));
