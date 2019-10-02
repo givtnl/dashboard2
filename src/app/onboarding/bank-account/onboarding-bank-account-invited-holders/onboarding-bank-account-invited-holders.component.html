@@ -19,27 +19,26 @@
         </div>
         <div class="BODY row d-flex flex-grow-1 overflow-auto">
             <div class="d-flex flex-column h-100 w-100">
-                <div class="d-flex flex-column information-card information-card-big p-3 shadow w-100 mb-3"
-                    *ngFor="let accountHolder of accountHolders">
-                    <div class="text-center information-card-left">
+                <div class="d-flex flex-column information-card information-card-big p-3 shadow w-100 mb-3">
+                    <div class="text-center information-card-left px-4 pb-4 my-auto">
                         <i class="far text-givt-purple fa-user-circle fa-5x mx-4 my-auto"></i>
-                        <p class="text-primary text-center text-heavy-font text-givt-purple mb-0 my-3">
-                            {{ 'onboardingBankAccountInvitedHoldersComponent.State' | translate }}: {{ 'onboardingBankAccountInvitedHoldersComponent.StateDescription.' + accountHolder.StatusDescription | translate}}
+                        <p class="text-primary text-center text-heavy-font text-givt-purple mt-3 mb-0">
+                            {{ 'onboardingBankAccountInvitedHoldersComponent.State' | translate }}: signedandgoedgekeurd
                         </p>
                     </div>
-                    <div class="d-flex flex-column pl-4 information-card-right">
+                    <div class="d-flex flex-column information-card-right pt-4 my-auto">
                         <p class="text-primary text-heavy-font text-givt-purple mb-0">
-                            {{ accountHolder.FirstName }} {{ accountHolder.LastName }}
+                            Jonas Brabant
                         </p>
                         <p class="text-primary text-light-font text-givt-purple mb-0">
-                                {{ accountHolder.EmailAddress }}
+                               brabantjonas@hotmail.com
                         </p>
-                        <br />
+                        <br/>
                         <p class="text-primary text-light-font text-givt-purple mb-0">
-                            {{ 'onboardingBankAccountInvitedHoldersComponent.InvitationDate' | translate }}: {{ accountHolder.InvitationDate | date:'longDate'}}
+                            {{ 'onboardingBankAccountInvitedHoldersComponent.InvitationDate' | translate }}: 10 januari, 2019
                         </p>
                         <p class="text-primary text-light-font text-givt-purple mb-0">
-                                {{ 'onboardingBankAccountInvitedHoldersComponent.ExpirationDate' | translate }}: {{ accountHolder.InvitationExpirationDate | date:'longDate'}}
+                                {{ 'onboardingBankAccountInvitedHoldersComponent.ExpirationDate' | translate }}:  15 september, 2019
                         </p>
                     </div>
                 </div>
