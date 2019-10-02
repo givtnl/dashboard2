@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BankAccountListModel } from '../models/bank-account-list.model';
+import { BankAccountListModel } from 'src/app/bank-accounts/models/bank-account-list.model';
+
 
 @Injectable({
     providedIn: 'root'

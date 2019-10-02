@@ -8,6 +8,7 @@ import { OnboardingRequestModel } from '../models/onboarding-request.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OnboardingNewUsersService } from '../services/onboarding-new-users.service';
 import { OnboardingNewUsersStateService } from '../services/onboarding-new-users-state.service';
+import { forbiddenValueValidator } from 'src/app/shared/validators/forbidden-value-validator';
 
 
 @Component({
@@ -27,8 +28,8 @@ export class OnboardingChangeEmailComponent implements OnInit {
     private service: OnboardingNewUsersService,
     private router: Router,
     private route: ActivatedRoute,
-    private stateService: OnboardingNewUsersStateService
-  ) {}
+    public stateService: OnboardingNewUsersStateService
+  ) { }
 
   ngOnInit(): void {
     const currentRequest = this.route.parent.snapshot.data.request;
@@ -38,12 +39,13 @@ export class OnboardingChangeEmailComponent implements OnInit {
 
     // todo retrieve email and companyname from route
     this.form = this.formBuilder.group({
-      email: [null, [Validators.required, Validators.email]],
+      email: [null, [Validators.required, Validators.email, forbiddenValueValidator(this.request.emailAddress)]],
       password: [null, [Validators.required, Validators.minLength(7)]]
     });
   }
 
   submit() {
+
     if (this.form.invalid) {
       this.handleInvalidForm();
       return;
@@ -70,6 +72,9 @@ export class OnboardingChangeEmailComponent implements OnInit {
     const passwordErrors = this.form.get('password').errors;
 
     if (emailErrors) {
+      if (emailErrors.forbiddenValue) {
+        errorMessages.push(this.translationService.get('errorMessages.email-not-duplicate'));
+      }
       if (emailErrors.required) {
         errorMessages.push(this.translationService.get('errorMessages.email-required'));
       }

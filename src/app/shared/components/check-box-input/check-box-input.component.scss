@@ -8,6 +8,11 @@
   color: white !important;
 }
 
+.btn-givt-green:hover:not(:disabled),
+.btn-givt-green.active {
+  @extend .bg-givt-green !optional;
+}
+
 .btn-givt:disabled {
   cursor: not-allowed;
 }

@@ -21,33 +21,32 @@ import { OnboardingBankAccountSigningVerifyDetailsComponent } from './bank-accou
 import { OnboardingBankAccountSigningDirectDebitGuaranteeComponent } from './bank-account-signing/onboarding-bank-account-signing-direct-debit-guarantee/onboarding-bank-account-signing-direct-debit-guarantee.component';
 import { OnboardingBankAccountSigningDetailsIncorrectComponent } from './bank-account-signing/onboarding-bank-account-signing-details-incorrect/onboarding-bank-account-signing-details-incorrect.component';
 import { OnboardingBankAccountSigningCompleteComponent } from './bank-account-signing/onboarding-bank-account-signing-complete/onboarding-bank-account-signing-complete.component';
+import { OnboardingBankAccountInvitedHoldersComponent } from './bank-account/onboarding-bank-account-invited-holders/onboarding-bank-account-invited-holders.component';
+import { OnboardingBankAccountSigningVerifyPersonalDetailsComponent } from './bank-account-signing/onboarding-bank-account-signing-verify-personal-details/onboarding-bank-account-signing-verify-personal-details.component';
 
 @NgModule({
-    declarations: [
-        OnboardingWelcomeComponent,
-        OnboardingPersonalDetailsComponent,
-        OnboardingCompletedComponent,
-        OnboardingChangeEmailComponent,
-        OnboardingCheckInboxComponent,
-        OnboardingRootComponent,
-        OnboardingBankAccountIntroComponent,
-        OnboardingBankAccountAddComponent,
-        OnboardingBankAccountAuthorizedComponent,
-        OnboardingBankAccountCompletedComponent,
-        OnboardingBankAccountHolderIntroComponent,
-        OnboardingBankAccountHolderWhoComponent,
-        OnboardingBankAccountHolderCompletedComponent,
-        OnboardingBankAccountSigningIntroComponent,
-        OnboardingBankAccountSigningVerifyDetailsComponent,
-        OnboardingBankAccountSigningDirectDebitGuaranteeComponent,
-        OnboardingBankAccountSigningDetailsIncorrectComponent,
-        OnboardingBankAccountSigningCompleteComponent
-    ],
-    imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        SharedModule,
-        OnboardingRoutingModule
-    ]
+  declarations: [
+    OnboardingWelcomeComponent,
+    OnboardingPersonalDetailsComponent,
+    OnboardingCompletedComponent,
+    OnboardingChangeEmailComponent,
+    OnboardingCheckInboxComponent,
+    OnboardingRootComponent,
+    OnboardingBankAccountIntroComponent,
+    OnboardingBankAccountAddComponent,
+    OnboardingBankAccountAuthorizedComponent,
+    OnboardingBankAccountCompletedComponent,
+    OnboardingBankAccountHolderIntroComponent,
+    OnboardingBankAccountHolderWhoComponent,
+    OnboardingBankAccountHolderCompletedComponent,
+    OnboardingBankAccountSigningIntroComponent,
+    OnboardingBankAccountSigningVerifyDetailsComponent,
+    OnboardingBankAccountSigningDirectDebitGuaranteeComponent,
+    OnboardingBankAccountSigningDetailsIncorrectComponent,
+    OnboardingBankAccountSigningCompleteComponent,
+    OnboardingBankAccountInvitedHoldersComponent,
+    OnboardingBankAccountSigningVerifyPersonalDetailsComponent
+  ],
+  imports: [CommonModule, ReactiveFormsModule, SharedModule, OnboardingRoutingModule]
 })
 export class OnboardingModule {}

@@ -12,6 +12,7 @@ import { BootstrapSizeIndicatorComponent } from './components/bootstrap-size-ind
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CheckBoxInputComponent } from './components/check-box-input/check-box-input.component';
 import { MissingFileTranslationsHandler } from '../infrastructure/services/missing-file-translations.service';
+import { QuestionmarkComponent } from './components/questionmark/questionmark.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MissingFileTranslationsHandler } from '../infrastructure/services/missi
     PasswordInputComponent,
     BootstrapSizeIndicatorComponent,
     NavBarComponent,
-    CheckBoxInputComponent
+    CheckBoxInputComponent,
+    QuestionmarkComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,8 @@ import { MissingFileTranslationsHandler } from '../infrastructure/services/missi
     BootstrapSizeIndicatorComponent,
     HeaderImagePartyComponent,
     SideBarComponent,
-    TranslateModule
+    TranslateModule,
+    QuestionmarkComponent
   ]
 })
 export class SharedModule {}

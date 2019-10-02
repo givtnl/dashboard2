@@ -11,8 +11,8 @@ export class OnboardingNewUsersStateService {
 
     public clear(): void {
         this.storage.removeItem('OnboardingStateService.CurrentPreparationModel');
-		this.storage.removeItem('OnboardingStateService.CurrentOnBoardingRequest');
-		this.storage.removeItem('OnboardingStateService.RegisterOnboardingModel');
+        this.storage.removeItem('OnboardingStateService.CurrentOnBoardingRequest');
+        this.storage.removeItem('OnboardingStateService.RegisterOnboardingModel');
     }
 
     public get currentPreparationModel(): UserRegistrationResponseModel {
@@ -28,8 +28,13 @@ export class OnboardingNewUsersStateService {
 
     public get currentOnboardingRequest(): OnboardingRequestModel {
         const key = 'OnboardingStateService.CurrentOnBoardingRequest';
-        const serializedRequest = JSON.parse(this.storage.getItem(key));
-        return serializedRequest;
+        try {
+            const serializedRequest = JSON.parse(this.storage.getItem(key));
+            return serializedRequest;
+        } catch (error) {
+            return null;
+        }
+
     }
     public set currentOnboardingRequest(value: OnboardingRequestModel) {
         const key = 'OnboardingStateService.CurrentOnBoardingRequest';

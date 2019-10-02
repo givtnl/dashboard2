@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-tile-widget',
@@ -6,6 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./dashboard-tile-widget.component.scss']
 })
 export class DashboardTileWidgetComponent {
+  @Output()
+  public tileClicked = new EventEmitter<Event>();
+
   @Input()
   public title: string;
 
@@ -17,4 +20,8 @@ export class DashboardTileWidgetComponent {
 
   @Input()
   public icon: string;
+
+  tileClick(event: Event) {
+    this.tileClicked.emit(event);
+  }
 }
