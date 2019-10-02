@@ -84,8 +84,8 @@
     "onboardingBankAccountHolderWhoComponent.nextButtonText": "Verstuur",
     "onboardingBankAccountHolderCompletedComponent.title": "De e-mail is onderweg!",
     "onboardingBankAccountHolderCompletedComponent.description": "Van zodra de machtiging getekend is, kan de rekening gebruikt worden om giften op te ontvangen.",
-    "onboardingBankAccountIntroComponent.what1": "Je staat op het punt om de bankgegevens in te vullen: de naam van de rekeninghouder en het IBAN-nummer.",
-    "onboardingBankAccountIntroComponent.what2": "Vervolgens nodig je de persoon uit die gemachtigd is om de bankrekening te verifiëren. Deze persoon is gemachtigd door de organisatie om een digitale machtiging op de bankrekening te tekenen.",
+    "onboardingBankAccountIntroComponent.what1": "U staat op het punt om de bankgegevens in te vullen: de naam van de rekeninghouder en het IBAN-nummer.",
+    "onboardingBankAccountIntroComponent.what2": "Vervolgens nodigt u de persoon uit die gemachtigd is om de bankrekening te verifiëren. Deze persoon is gemachtigd door de organisatie om een digitale machtiging op de bankrekening te tekenen.",
     "onboardingBankAccountIntroComponent.what3": "Ten slotte zal deze persoon alle gegevens nakijken en de bankrekening verifiëren door het tekenen van de digitale machtiging. Als dat achter de rug is, sturen we hiervan nog een bevestiging via e-mail.",
     "onboardingBankAccountSigningIntroComponent.title": "Teken de machtiging",
     "onboardingBankAccountSigningIntroComponent.description": "In de volgende schermen wordt u gevraagd om de gegevens van de organisatie te verifiëren en de machtiging te tekenen. Indien er incorrecte gegevens zijn, kan u dit aangeven.",
@@ -117,7 +117,7 @@
     "buttonYes": "Ja",
     "buttonNo": "Nee",
     "onboardingBankAccountIntroComponent.questionmarkTitle": "Meer info",
-    "onboardingBankAccountIntroComponent.questionmarkText": "Je staat op het punt om de bankgegevens in te vullen: de naam van de rekeninghouder en het IBAN-nummer.<br/><br/>Vervolgens vragen we de voornaam, achternaam en het e-mailadres van de persoon die de rekening zal verifiëren. Dit is de persoon die gemachtigd is om de rekening te beheren in naam van de organisatie. We sturen een e-mail met een uitnodiging om het mandaat te tekenen naar het ingevulde e-mailadres.<br/><br/>Ten slotte zal deze persoon de gegevens van de organisatie controleren om de bankrekening te kunnen verifiëren. We sturen opnieuw een bevestiging via e-mail wanneer de bankrekening geverifieerd is. <br/>Mocht er onverhoopt toch een onjuistheid in de gegevens zijn, zal de persoon die de rekening verifieert dit kunnen aangeven. We brengen u hiervan op de hoogte via e-mail, zodat u eventueel de gegevens kunt aanpassen.",
+    "onboardingBankAccountIntroComponent.questionmarkText": "U staat op het punt om de bankgegevens in te vullen: de naam van de rekeninghouder en het IBAN-nummer.<br/><br/>Vervolgens vragen we de voornaam, achternaam en het e-mailadres van de persoon die de rekening zal verifiëren. Dit is de persoon die gemachtigd is om de rekening te beheren in naam van de organisatie. We sturen een e-mail met een uitnodiging om het mandaat te tekenen naar het ingevulde e-mailadres.<br/><br/>Ten slotte controleert deze persoon alle ingevulde gegevens om de bankrekening te kunnen verifiëren. We sturen opnieuw een bevestiging via e-mail wanneer de bankrekening geverifieerd is. <br/>Mocht er onverhoopt toch een onjuistheid in de gegevens zijn, zal de persoon die de rekening verifieert dit kunnen aangeven. We brengen u hiervan op de hoogte via e-mail, zodat u eventueel de gegevens kunt aanpassen.",
     "dashboardCompleteAccountWidgetComponent.AddBankAccountHolders.InProgress": "In afwachting van de gemachtigden",
     "errorMessages.email-not-duplicate": "Dit e-mailadres werd al ingevuld voor het aanmaken van een Givt account. Controleer je nog even?"
 }
