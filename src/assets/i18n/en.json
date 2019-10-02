@@ -127,5 +127,7 @@
     "onboardingBankAccountInvitedHoldersComponent.StateDescription.Invited": "Invited",
     "onboardingBankAccountInvitedHoldersComponent.StateDescription.ExpiredByOrganisationAdmin": "Cancelled",
     "onboardingBankAccountInvitedHoldersComponent.StateDescription.Rejected": "Rejected",
-    "onboardingBankAccountInvitedHoldersComponent.StateDescription.Accepted": "Completed"
+    "onboardingBankAccountInvitedHoldersComponent.StateDescription.Accepted": "Completed",
+    "onboardingBankAccountHolderWhoComponent.iCanAuthorize": "Authorize yourself",
+    "hello": "Hello"
 }
