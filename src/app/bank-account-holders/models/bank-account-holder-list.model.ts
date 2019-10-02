@@ -1,3 +1,5 @@
+import { BankAccountholderRegistrationStatus } from './bank-account-holder-registration-status.model';
+
 export interface BankAccountHolderListModel {
   Id: string;
   FirstName: string;
@@ -6,5 +8,7 @@ export interface BankAccountHolderListModel {
   InvitationDate: Date;
   InvitationExpirationDate: Date;
   Accepted: boolean | null;
-  Status: number;
+  Status: BankAccountholderRegistrationStatus;
+  StatusDescription: string;
+  EmailAddress: string;
 }

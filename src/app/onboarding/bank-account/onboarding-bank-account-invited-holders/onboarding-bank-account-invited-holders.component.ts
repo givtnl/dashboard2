@@ -5,7 +5,7 @@ import { BankAccountHolderListModel } from 'src/app/bank-account-holders/models/
 @Component({
   selector: 'app-onboarding-bank-account-invited-holders',
   templateUrl: './onboarding-bank-account-invited-holders.component.html',
-  styleUrls: ['./onboarding-bank-account-invited-holders.component.scss']
+  styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-invited-holders.component.scss']
 })
 export class OnboardingBankAccountInvitedHoldersComponent implements OnInit {
 
@@ -16,5 +16,4 @@ export class OnboardingBankAccountInvitedHoldersComponent implements OnInit {
   ngOnInit() {
     this.accountHolders = this.activatedRoute.snapshot.data.accountHolders;
   }
-
 }

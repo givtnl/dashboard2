@@ -8,6 +8,14 @@
         width: 554px !important;
         border-radius: 2rem !important
     }
+
+    .information-card-big {
+        flex-direction: row !important;
+    }
+
+    .information-card-right {
+        border-left: #ffffff 2px solid;
+    }
 }
 
 .HEADER {
@@ -19,6 +27,7 @@
 
 .header-navigation-bar-buttons {
     right: 0;
+    top: 0;
 }
 
 .header-navigation-bar-buttons-withimage {
