@@ -28,7 +28,7 @@ export class OnboardingChangeEmailComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private stateService: OnboardingNewUsersStateService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const currentRequest = this.route.parent.snapshot.data.request;
@@ -44,6 +44,9 @@ export class OnboardingChangeEmailComponent implements OnInit {
   }
 
   submit() {
+    if (this.form.value.email === this.request.emailAddress) {
+      return;
+    }
     if (this.form.invalid) {
       this.handleInvalidForm();
       return;
