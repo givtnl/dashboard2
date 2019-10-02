@@ -118,5 +118,6 @@
     "buttonNo": "Nee",
     "onboardingBankAccountIntroComponent.questionmarkTitle": "Meer info",
     "onboardingBankAccountIntroComponent.questionmarkText": "Je staat op het punt om de bankgegevens in te vullen: de naam van de rekeninghouder en het IBAN-nummer.<br/><br/>Vervolgens vragen we de voornaam, achternaam en het e-mailadres van de persoon die de rekening zal verifiëren. Dit is de persoon die gemachtigd is om de rekening te beheren in naam van de organisatie. We sturen een e-mail met een uitnodiging om het mandaat te tekenen naar het ingevulde e-mailadres.<br/><br/>Ten slotte zal deze persoon de gegevens van de organisatie controleren om de bankrekening te kunnen verifiëren. We sturen opnieuw een bevestiging via e-mail wanneer de bankrekening geverifieerd is. <br/>Mocht er onverhoopt toch een onjuistheid in de gegevens zijn, zal de persoon die de rekening verifieert dit kunnen aangeven. We brengen u hiervan op de hoogte via e-mail, zodat u eventueel de gegevens kunt aanpassen.",
-    "dashboardCompleteAccountWidgetComponent.AddBankAccountHolders.InProgress": "In afwachting van de gemachtigden"
+    "dashboardCompleteAccountWidgetComponent.AddBankAccountHolders.InProgress": "In afwachting van de gemachtigden",
+    "errorMessages.email-not-duplicate": "Dit e-mailadres werd al ingevuld voor het aanmaken van een Givt account. Controleer je nog even?"
 }
