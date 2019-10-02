@@ -28,7 +28,7 @@ export class OnboardingChangeEmailComponent implements OnInit {
     private service: OnboardingNewUsersService,
     private router: Router,
     private route: ActivatedRoute,
-    private stateService: OnboardingNewUsersStateService
+    public stateService: OnboardingNewUsersStateService
   ) { }
 
   ngOnInit(): void {
