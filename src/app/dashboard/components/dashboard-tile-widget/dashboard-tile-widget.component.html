@@ -1,4 +1,4 @@
-<div class="card border-radius-40 widget-background-1">
+<div class="card border-radius-40 widget-background-1" (click)="tileClick($event)">
   <div class="row no-gutters">
     <div class="col-8">
       <div class="card-body">
@@ -9,8 +9,8 @@
         </div>
       </div>
     </div>
-    <div class="col-4 align-self-end" *ngIf="image" >
-      <img class="card-img " [src]="image"/>
+    <div class="col-4 align-self-end" *ngIf="image">
+      <img class="card-img " [src]="image" />
     </div>
   </div>
 </div>

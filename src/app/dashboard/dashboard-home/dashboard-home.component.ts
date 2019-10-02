@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { CollectGroupDashboardListModel } from './models/collect-group-side-bar-list.model';
 import { DashboardService } from './services/dashboard.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-dashboard-home',
@@ -11,7 +12,8 @@ import { DashboardService } from './services/dashboard.service';
 export class DashboardHomeComponent implements OnInit {
   public loading = false;
   public collectGroups = new Array<CollectGroupDashboardListModel>();
-  constructor(public applicationStateService: ApplicationStateService, private dashboardService: DashboardService) {}
+
+  constructor(public applicationStateService: ApplicationStateService, private dashboardService: DashboardService) { }
 
   ngOnInit(): void {
     this.loading = true;
@@ -34,5 +36,9 @@ export class DashboardHomeComponent implements OnInit {
       default:
         return 'fa-heart';
     }
+  }
+
+  tileClicked(event: Event) {
+    window.location.href = environment.oldDashboardUrl;
   }
 }
