@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://givtapicorewindbg.azurewebsites.net',
+  apiUrl: 'http://localhost:5000',
   oldDashboardUrl:'https://cloud.givtapp.net'
 };
 
