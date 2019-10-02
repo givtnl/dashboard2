@@ -44,7 +44,6 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
   }
 
   public getRouterLinks(record: CompleteAccountWidgetModel): Array<any> {
-    console.log(record);
     switch (record.OrganisationRegistrationStatus) {
       // bank accounts
       case 3:
