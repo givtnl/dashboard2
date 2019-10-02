@@ -128,5 +128,6 @@
     "onboardingBankAccountInvitedHoldersComponent.StateDescription.ExpiredByOrganisationAdmin": "Geannuleerd",
     "onboardingBankAccountInvitedHoldersComponent.StateDescription.Rejected": "Geweigerd",
     "onboardingBankAccountInvitedHoldersComponent.StateDescription.Accepted": "Compleet",
-    "onboardingBankAccountHolderWhoComponent.iCanAuthorize": ""
+    "onboardingBankAccountHolderWhoComponent.iCanAuthorize": "Authoriseer zelf",
+    "hello": "Hallo"
 }
