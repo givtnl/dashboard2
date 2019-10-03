@@ -1,7 +1,8 @@
 <div class="container-fluid h-100 d-flex flex-column">
   <div class="row pt-5">
     <div class="col-12">
-      <h2 class="text-font-light text-givt-purple">Hallo
+      <h2 class="text-font-light text-givt-purple">
+        {{ hello | translate }}
         {{ applicationStateService.currentUserExtensionModel.FirstName }}</h2>
     </div>
   </div>

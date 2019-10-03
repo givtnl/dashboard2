@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { OnboardingBankAccountHolderStateService } from '../services/onboarding-bank-account-holder-state.service';
+import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 
 @Component({
   selector: 'app-onboarding-bank-account-holder-who',
@@ -23,19 +24,19 @@ export class OnboardingBankAccountHolderWhoComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
+    private applicationStateService: ApplicationStateService,
     private onboardingBankAccountHolderStateService: OnboardingBankAccountHolderStateService,
     private translationService: TranslateService,
     private toastr: ToastrService
   ) {}
   ngOnInit() {
-
     this.onboardingBankAccountHolderStateService.currentBankAccountListModel = this.route.parent.snapshot.data.bankAccount;
 
     this.form = this.formBuilder.group({
       firstName: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
       lastName: [null, [Validators.required, Validators.maxLength(50)]],
       emailAddress: [null, [Validators.required, Validators.email, Validators.maxLength(70)]],
-      sendInvitationEmail:[true] // need this placeholder, this is a perfect place to decide to send an email
+      sendInvitationEmail: [true] // need this placeholder, this is a perfect place to decide to send an email
       // since this takes place in onboarding, on re-usage we can decide to opt-out this boooolieen
     });
   }
@@ -50,6 +51,14 @@ export class OnboardingBankAccountHolderWhoComponent implements OnInit {
     this.router
       .navigate(['/', 'onboarding', 'bank-account-holder', { outlets: { 'onboarding-outlet': ['completed'] } }])
       .finally(() => (this.loading = false));
+  }
+
+  preFillWithCurrentUser(): void {
+    this.form.patchValue({
+      firstName: this.applicationStateService.currentUserExtensionModel.FirstName,
+      lastName: this.applicationStateService.currentUserExtensionModel.LastName,
+      emailAddress: this.applicationStateService.currentUserExtensionModel.Email
+    });
   }
 
   handleInvalidForm() {

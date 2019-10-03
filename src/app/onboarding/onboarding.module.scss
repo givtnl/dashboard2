@@ -8,6 +8,21 @@
         width: 554px !important;
         border-radius: 2rem !important
     }
+
+    .information-card-big {
+        flex-direction: row !important;
+    }
+
+    .information-card-left {
+        padding-bottom: unset !important;
+    }
+
+    .information-card-right {
+        border-left: #ffffff 2px solid;
+        padding-left: 1.5rem !important;
+        border-top: unset !important;
+        padding-top: unset !important;
+    }
 }
 
 .HEADER {
@@ -19,6 +34,7 @@
 
 .header-navigation-bar-buttons {
     right: 0;
+    top: 0;
 }
 
 .header-navigation-bar-buttons-withimage {
@@ -29,6 +45,10 @@
     padding: 1.25rem;
     padding-left: 2rem;
     padding-right: 2rem;
+}
+
+.information-card-right {
+    border-top: #ffffff 2px solid;
 }
 
 .FOOTER {

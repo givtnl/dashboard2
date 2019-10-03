@@ -3,4 +3,6 @@ export interface CurrentUserExtensionModel {
     userName: string;
     email: string;
     FirstName: string;
+    LastName:string;
+    Email: string;
 }
