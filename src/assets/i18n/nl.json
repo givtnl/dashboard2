@@ -129,5 +129,7 @@
     "onboardingBankAccountInvitedHoldersComponent.StateDescription.Rejected": "Geweigerd",
     "onboardingBankAccountInvitedHoldersComponent.StateDescription.Accepted": "Compleet",
     "onboardingBankAccountHolderWhoComponent.iCanAuthorize": "Authoriseer zelf",
-    "hello": "Hallo"
+    "hello": "Hallo",
+    "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.Title": "Controleer en pas zo nodig aan",
+    "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.NameAuthorized": "Dit is de naam van de rekeninghouder"
 }
