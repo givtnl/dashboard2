@@ -15,18 +15,14 @@ export class OnboardingBankAccountSigningDirectDebitGuaranteeComponent implement
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      acceptedDirectDebitGuarantee: [null, [Validators.required]]
+      acceptedDirectDebitGuarantee: [null, [Validators.requiredTrue]]
     });
 
-    this.form.valueChanges.subscribe(x => this.handleAcceptOrRefusal());
+    
   }
   handleAcceptOrRefusal(): void {
     if (this.form.value.acceptedDirectDebitGuarantee){
       this.router.navigate(['/','onboarding','bank-account-signing',{outlets:{'onboarding-outlet':['completed']}}],{
-        queryParamsHandling:'merge'
-      }).finally(() => this.loading =false);
-    }else{
-      this.router.navigate(['/','onboarding','bank-account-signing',{outlets:{'onboarding-outlet':['details-incorrect']}}],{
         queryParamsHandling:'merge'
       }).finally(() => this.loading =false);
     }

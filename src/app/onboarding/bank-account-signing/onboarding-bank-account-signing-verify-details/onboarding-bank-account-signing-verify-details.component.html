@@ -1,13 +1,14 @@
 <div class="d-flex flex-column h-100">
   <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
-    <div class="HEADER row justify-content-center pt-5 header-navigation-bar">
-      <div class="col-2"></div>
-      <p translate class="text-givt-purple text-heavy-font p-0 m-0 text-center flex-grow-1">
-        onboardingBankAccountSigningVerifyDetailsComponent.title
+    <div class="HEADER row d-flex align-items-center header-navigation-bar position-relative">
+      <p [translate]="'onboardingBankAccountSigningVerifyDetailsComponent.title'"
+        class="text-givt-purple text-heavy-font p-0 m-0 text-center w-100">
       </p>
-      <a class='cursor-pointer' [routerLink]="['/', 'dashboard']">
-        <div class="col-2 text-center"><i class="fas text-givt-purple fa-times"></i></div>
-      </a>
+      <div class="position-absolute mr-4 float-right header-navigation-bar-buttons">
+        <a class="cursor-pointer" [routerLink]="['/', 'dashboard']">
+          <i class="fas text-givt-purple fa-times"></i>
+        </a>
+      </div>
     </div>
     <div class="BODY row d-flex flex-grow-1 overflow-auto">
       <div class="d-flex flex-column h-100 w-100">
@@ -35,9 +36,12 @@
           <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
             onboardingBankAccountSigningVerifyDetails.bankDetails
           </p>
-          <p class="text-primary text-light-font text-givt-purple mb-0">Account name {{ accountHolderDetails.AccountName }}</p>
-          <p class="text-primary text-light-font text-givt-purple mb-0">Sort code {{ accountHolderDetails.SortCode }}</p>
-          <p class="text-primary text-light-font text-givt-purple mb-0">Account number {{ accountHolderDetails.AccountNumber }}</p>
+          <p class="text-primary text-light-font text-givt-purple mb-0">Account name
+            {{ accountHolderDetails.AccountName }}</p>
+          <p class="text-primary text-light-font text-givt-purple mb-0">Sort code {{ accountHolderDetails.SortCode }}
+          </p>
+          <p class="text-primary text-light-font text-givt-purple mb-0">Account number
+            {{ accountHolderDetails.AccountNumber }}</p>
         </div>
         <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">
           <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
