@@ -129,5 +129,8 @@
     "onboardingBankAccountInvitedHoldersComponent.StateDescription.Rejected": "Rejected",
     "onboardingBankAccountInvitedHoldersComponent.StateDescription.Accepted": "Completed",
     "onboardingBankAccountHolderWhoComponent.iCanAuthorize": "Authorize yourself",
-    "hello": "Hello"
+    "hello": "Hello",
+    "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.Title": "Check and adjust if necessary",
+    "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.NameAuthorized": "This is the name of the bank account holder",
+    "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.buttonNext": "Checked"
 }
