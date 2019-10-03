@@ -38,8 +38,10 @@ export class OnboardingPersonalDetailsComponent implements OnInit {
   }
 
   submit() {
+    this.loading = true;
     if (this.form.invalid) {
       this.handleInvalidForm();
+      this.loading = false;
       return;
     }
     const currentRegisterModel = this.stateService.currentRegisterModel;
@@ -48,9 +50,11 @@ export class OnboardingPersonalDetailsComponent implements OnInit {
     currentRegisterModel.collectGroupId = this.stateService.currentOnboardingRequest.collectGroupId;
     this.stateService.currentRegisterModel = currentRegisterModel;
 
-    this.router.navigate(['/', 'onboarding', 'welcome', 'new-users', { outlets: { 'onboarding-outlet': ['completed'] } }], {
+    this.router.navigate(['/', 'onboarding', 'welcome', 'new-users', {outlets: {'onboarding-outlet': ['completed']}}], {
       queryParamsHandling: 'merge'
-    });
+    }).finally( () => {
+      this.loading = false;
+    })
   }
 
   handleInvalidForm() {
