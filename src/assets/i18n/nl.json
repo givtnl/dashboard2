@@ -20,7 +20,7 @@
     "notFoundComponent.title": "Oeps, er gaat iets mis.",
     "notFoundComponent.description": "Oeps, deze pagina werd niet gevonden.\nControleer de ingevulde gegevens of neem contact op met onze helpdesk.",
     "onboardingCheckInboxComponent.title": "Gelukt! Check je mailbox.",
-    "onboardingCheckInboxComponent.description": "Je krijgt een e-mail met daarin een nieuwe link om je te registreren met het e-mailadres dat je hebt opgegeven.\nHeb je na 5 minuten nog steeds de e-mail niet ontvangen? Kijk dan even in je spam. <br/><br/>\nJe mag dit venster nu sluiten.",
+    "onboardingCheckInboxComponent.description": "Je krijgt een e-mail met daarin een nieuwe link om je te registreren met het e-mailadres dat je hebt opgegeven.\nHeb je na 5 minuten nog steeds de e-mail niet ontvangen? Kijk dan even in je spam.\n\nJe mag dit venster nu sluiten.",
     "onboardingWelcomeComponent.title": "Welkom bij het dashboard van {{name}}. Registreer je bij Givt om toegang te krijgen tot dit dashboard.",
     "onboardingWelcomeComponent.differentEmailAddress": "Klik hier om een ander e-mailadres te gebruiken",
     "onboardingWelcomeComponent.registerButtonText": "Registreren",
