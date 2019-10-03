@@ -97,7 +97,7 @@
     "onboardingBankAccountSigningDirectDebitGuaranteeComponent.description": "- The Guarantee is offered by all banks and building societies that accept instructions to pay Direct Debits.<br /><br />\n- If there are any changes to the way this incidental Direct Debit Instruction is used, the organisation will notify you (normally 10 working days) in advance of your account being debited or as otherwise agreed. <br /><br />\n- If an error is made in the payment of your Direct Debit, by the organisation, or your bank or building society, you are entitled to a full and immediate refund of the amount paid from your bank or building society.<br /><br />\n- If you receive a refund you are not entitled to, you must pay it back when the organisation asks you to.<br /><br />\n- You can cancel a Direct Debit at any time by simply contacting your bank or building society. Written confirmation may be required. Please also notify the organisation.",
     "onboardingBankAccountSigningDirectDebitGuaranteeComponent.signText": "Teken",
     "onboardingBankAccountSigningDetailsIncorrectComponent.title": "Details incorrect",
-    "onboardingBankAccountSigningDetailsIncorrectComponent.description": "U gaf aan dat er nog enkele gegevens niet correct waren. We sturen een e-mail naar de hoofdgebruiker om deze op de hoogte te brengen. \nJe mag dit venster nu sluiten.",
+    "onboardingBankAccountSigningDetailsIncorrectComponent.description": "U gaf aan dat er nog enkele gegevens niet correct waren. We sturen een e-mail naar de hoofdgebruiker om deze op de hoogte te brengen.",
     "onboardingBankAccountSigningDetailsIncorrectComponent.finalActionText": "Sluiten",
     "onboardingBankAccountSigningCompleteComponent.title": "Machtiging succesvol",
     "onboardingBankAccountSigningCompleteComponent.description": "Nu de machtiging getekend is, kunnen we de opstartkosten incasseren en de giften uitbetalen op deze rekening. We hebben een e-mail gestuurd met de machtiging in de bijlage..<br/><br/>\n\nJe mag dit venster nu sluiten.",
@@ -132,5 +132,6 @@
     "hello": "Hallo",
     "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.Title": "Controleer en pas zo nodig aan",
     "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.NameAuthorized": "Dit is de naam van de rekeninghouder",
-    "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.buttonNext": "Gecontroleerd"
+    "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.buttonNext": "Gecontroleerd",
+    "onboardingBankAccountSigningDetailsIncorrectComponent.description2": "Je mag dit venster nu sluiten."
 }
