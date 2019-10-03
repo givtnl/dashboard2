@@ -20,7 +20,7 @@
     "notFoundComponent.title": "Whoops, something went wrong.",
     "notFoundComponent.description": "Whoops, this page was not found.\nPlease check your input or contact our helpdesk if you require assistance.",
     "onboardingCheckInboxComponent.title": "Success! Check your inbox.",
-    "onboardingCheckInboxComponent.description": "You should have received an e-mail with a link to reset your password. \nIn case you do not see the e-mail right away, please check your spam.",
+    "onboardingCheckInboxComponent.description": "You should have received an e-mail with a link to reset your password. \nIn case you do not see the e-mail right away, please check your spam. <br/><br/>\nYou can now close this window.",
     "onboardingWelcomeComponent.title": "Welcome to the personal dashboard of {{name}}. Register at Givt to gain access to this dashboard.",
     "onboardingWelcomeComponent.differentEmailAddress": "Click here to use a different e-mail address",
     "onboardingWelcomeComponent.registerButtonText": "Register",

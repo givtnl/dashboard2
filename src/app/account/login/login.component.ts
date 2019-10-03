@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { catchErrorStatus } from 'src/app/shared/extensions/observable-extensions';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorMessages } from 'src/app/infrastructure/enums/error-messages.enum';
+import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -26,10 +27,14 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private translationService: TranslateService,
     private accountService: AccountService,
-    private router: Router
+    private router: Router,
+    private applicationStateService: ApplicationStateService
   ) {}
 
   ngOnInit() {
+
+    this.applicationStateService.clear();
+
     this.form = this.fb.group({
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]]
