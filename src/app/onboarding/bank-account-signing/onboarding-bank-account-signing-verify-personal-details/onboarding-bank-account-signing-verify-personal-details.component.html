@@ -1,13 +1,14 @@
 <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="d-flex flex-column h-100">
     <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
-      <div class="HEADER row d-flex align-items-center pb-5 header-navigation-bar">
-        <div class="col-2"></div>
-        <p translate class="text-givt-purple text-heavy-font p-0 m-0 text-center flex-grow-1">
-            OnboardingBankAccountSigningVerifyPersonalDetailsComponent.title
-        </p>
-        <a class="cursor-pointer" [routerLink]="['/', 'dashboard']">
-          <div class="col-2 text-center"><i class="fas text-givt-purple fa-times"></i></div>
-        </a>
+      <div class="HEADER row d-flex align-items-center pb-5 header-navigation-bar position-relative">
+          <p [translate]="'OnboardingBankAccountSigningVerifyPersonalDetailsComponent.title'"
+            class="text-givt-purple text-heavy-font p-0 m-0 text-center w-100">
+          </p>
+          <div class="position-absolute mr-4 float-right header-navigation-bar-buttons">
+            <a class="cursor-pointer" [routerLink]="['/', 'dashboard']">
+              <i class="fas text-givt-purple fa-times"></i>
+            </a>
+          </div>
       </div>
       <div class="BODY row d-flex flex-grow-1 overflow-auto">
         <div class="w-100">

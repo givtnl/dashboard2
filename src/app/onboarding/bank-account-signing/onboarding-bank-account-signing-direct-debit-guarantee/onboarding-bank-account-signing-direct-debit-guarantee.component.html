@@ -1,39 +1,39 @@
 <form [formGroup]="form" class="d-flex flex-column h-100">
     <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
-        <div class="HEADER row d-flex align-items-center header-navigation-bar pt-5 pb-3">
-            <div class="col-2"></div>
-            <p translate class="text-givt-purple text-heavy-font p-0 m-0 text-center flex-grow-1">
-                onboardingBankAccountSigningDirectDebitGuaranteeComponent.title
+
+        <div class="HEADER row d-flex align-items-center pb-5 header-navigation-bar position-relative">
+            <p [translate]="'onboardingBankAccountSigningDirectDebitGuaranteeComponent.title'"
+                class="text-givt-purple text-heavy-font p-0 m-0 text-center w-100">
             </p>
-            <a class='cursor-pointer' [routerLink]="['/', 'dashboard']">
-                <div class="col-2 text-center"><i class="fas text-givt-purple fa-times"></i></div>
-            </a>
+            <div class="position-absolute mr-4 float-right header-navigation-bar-buttons">
+                <a class="cursor-pointer" [routerLink]="['/', 'dashboard']">
+                    <i class="fas text-givt-purple fa-times"></i>
+                </a>
+            </div>
         </div>
         <div class="BODY row d-flex flex-grow-1 overflow-auto">
-            <p class="text-givt-purple text-light-font" innerHTML="{{'onboardingBankAccountSigningDirectDebitGuaranteeComponent.description' | translate}}">
-                </p>
-
-
-                    <div class="custom-control custom-switch">
-                            <input type="checkbox" formControlName="acceptedDirectDebitGuarantee" class="custom-control-input" id="acceptedDirectDebitGuarantee">
-                            <label class="custom-control-label" for="acceptedDirectDebitGuarantee">I have read and agreed</label>
-                          </div>
-
-
+            <p class="text-givt-purple text-light-font"
+                innerHTML="{{'onboardingBankAccountSigningDirectDebitGuaranteeComponent.description' | translate}}">
+            </p>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" formControlName="acceptedDirectDebitGuarantee" class="custom-control-input"
+                    id="acceptedDirectDebitGuarantee">
+                <label class="custom-control-label" for="acceptedDirectDebitGuarantee">I have read and agreed</label>
+            </div>
         </div>
         <div class="FOOTER row pb-4 pt-2">
             <div class="mr-0 ml-auto col-8 px-0">
-
-                <a [class.disabled]="!form.value.acceptedDirectDebitGuarantee" [translate]
-              
-                    class="btn float-right btn-lg bg-givt-purple text-white text-heavy-font w-100 m-0 row d-flex align-items-center">
-                    <div class="col-2"></div>
-                    <p class="text-white text-heavy-font p-0 m-0 text-center flex-grow-1" translate>
+                <button (click)="handleAcceptOrRefusal()" [class.disabled]="!form.value.acceptedDirectDebitGuarantee"
+                    [translate]
+                    class="btn float-right btn-lg bg-givt-purple text-white text-heavy-font w-100 m-0 row d-flex align-items-center position-relative">
+                    <p class="text-white text-heavy-font p-0 m-0 text-center w-100" translate>
                         <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
                         onboardingBankAccountSigningDirectDebitGuaranteeComponent.signText
                     </p>
-                    <div class="col-2 text-center"><i class="fas text-white fa-arrow-right"></i> </div>
-                </a>
+                    <div class="position-absolute mr-4 float-right header-navigation-bar-buttons">
+                        <i class="fas text-white fa-arrow-right"></i>
+                    </div>
+                </button>
             </div>
         </div>
     </div>
