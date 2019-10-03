@@ -1,10 +1,9 @@
-<div class="d-flex flex-column h-100">
-  <form [formGroup]="form" class="d-flex h-100" (ngSubmit)="submit()">
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="d-flex flex-column h-100">
     <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
-      <div class="HEADER row justify-content-center pt-5 header-navigation-bar">
+      <div class="HEADER row d-flex align-items-center pb-5 header-navigation-bar">
         <div class="col-2"></div>
         <p translate class="text-givt-purple text-heavy-font p-0 m-0 text-center flex-grow-1">
-          OnboardingBankAccountSigningVerifyPersonalDetailsComponent.title
+            OnboardingBankAccountSigningVerifyPersonalDetailsComponent.title
         </p>
         <a class="cursor-pointer" [routerLink]="['/', 'dashboard']">
           <div class="col-2 text-center"><i class="fas text-givt-purple fa-times"></i></div>
@@ -13,35 +12,28 @@
       <div class="BODY row d-flex flex-grow-1 overflow-auto">
         <div class="w-100">
           <p translate class="text-primary text-light-font text-givt-purple">
-                OnboardingBankAccountSigningVerifyPersonalDetailsComponent.nameAuthorized
+              OnboardingBankAccountSigningVerifyPersonalDetailsComponent.nameAuthorized
           </p>
-          <input
-            formControlName="firstName"
-            type="text"
-            autocomplete="given-name"
+          <input formControlName="firstName" type="text" autocomplete="given-name"
             placeholder="{{ 'placeholders.firstName' | translate }}"
-            class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple"
-          />
-          <input
-            formControlName="lastName"
-            type="text"
-            autocomplete="family-name"
+            class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
+          <input formControlName="lastName" type="text" autocomplete="family-name"
             placeholder="{{ 'placeholders.lastName' | translate }}"
-            class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple"
-          />
-          <p translate class="text-primary text-light-font text-givt-purple">
-                OnboardingBankAccountSigningVerifyPersonalDetailsComponent.description
-          </p>
-          <button type="submit">Ti juste</button>
+            class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
         </div>
       </div>
       <div class="FOOTER row pb-4 pt-2">
-        <div class="w-100" >
-          <p [translate] class="text-fgivt-purple text-heavy-font m-0 text-center">
-            OnboardingBankAccountSigningVerifyPersonalDetailsComponent.yesNoQuestion
-          </p>
+        <div class="mr-0 ml-auto col-8 px-0">
+          <button type="submit" [translate] [disabled]="loading"
+            class="btn float-right btn-lg bg-givt-purple text-white text-heavy-font w-100 m-0 row d-flex align-items-center">
+            <div class="col-2"></div>
+            <p class="text-white text-heavy-font p-0 m-0 text-center flex-grow-1" translate>
+              <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
+              OnboardingBankAccountSigningVerifyPersonalDetailsComponent.buttonNext
+            </p>
+            <div class="col-2 text-center"><i class="fas text-white fa-arrow-right"></i></div>
+          </button>
         </div>
       </div>
     </div>
   </form>
-</div>
