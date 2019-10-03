@@ -131,5 +131,6 @@
     "onboardingBankAccountHolderWhoComponent.iCanAuthorize": "Authoriseer zelf",
     "hello": "Hallo",
     "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.Title": "Controleer en pas zo nodig aan",
-    "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.NameAuthorized": "Dit is de naam van de rekeninghouder"
+    "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.NameAuthorized": "Dit is de naam van de rekeninghouder",
+    "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.buttonNext": "gecontroleerd"
 }
