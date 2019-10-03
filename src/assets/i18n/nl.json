@@ -128,7 +128,7 @@
     "onboardingBankAccountInvitedHoldersComponent.StateDescription.ExpiredByOrganisationAdmin": "Geannuleerd",
     "onboardingBankAccountInvitedHoldersComponent.StateDescription.Rejected": "Geweigerd",
     "onboardingBankAccountInvitedHoldersComponent.StateDescription.Accepted": "Compleet",
-    "onboardingBankAccountHolderWhoComponent.iCanAuthorize": "Authoriseer zelf",
+    "onboardingBankAccountHolderWhoComponent.iCanAuthorize": "Ik ben gemachtigd",
     "hello": "Hallo",
     "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.Title": "Controleer en pas zo nodig aan",
     "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.NameAuthorized": "Dit is de naam van de rekeninghouder",
