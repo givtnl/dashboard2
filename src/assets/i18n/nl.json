@@ -100,7 +100,7 @@
     "onboardingBankAccountSigningDetailsIncorrectComponent.description": "U gaf aan dat er nog enkele gegevens niet correct waren. We sturen een e-mail naar de hoofdgebruiker om deze op de hoogte te brengen.",
     "onboardingBankAccountSigningDetailsIncorrectComponent.finalActionText": "Sluiten",
     "onboardingBankAccountSigningCompleteComponent.title": "Machtiging succesvol",
-    "onboardingBankAccountSigningCompleteComponent.description": "Nu de machtiging getekend is, kunnen we de opstartkosten incasseren en de giften uitbetalen op deze rekening. We hebben een e-mail gestuurd met de machtiging in de bijlage..<br/><br/>\n\nJe mag dit venster nu sluiten.",
+    "onboardingBankAccountSigningCompleteComponent.description": "Nu de machtiging getekend is, kunnen we de opstartkosten incasseren en de giften uitbetalen op deze rekening. We hebben een e-mail gestuurd met de machtiging in de bijlage.",
     "onboardingBankAccountSigningCompleteComponent.finalActionText": "Sluiten",
     "onboardingBankAccountHolderWhoComponent.nameAuthorized": "Naam van de gemachtigde",
     "onboardingBankAccountHolderWhoComponent.emailAuthorized": "E-mailadres van de gemachtigde",
@@ -133,5 +133,9 @@
     "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.Title": "Controleer en pas zo nodig aan",
     "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.NameAuthorized": "Dit is de naam van de rekeninghouder",
     "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.buttonNext": "Gecontroleerd",
-    "onboardingBankAccountSigningDetailsIncorrectComponent.description2": "Je mag dit venster nu sluiten."
+    "onboardingBankAccountSigningDetailsIncorrectComponent.description2": "Je mag dit venster nu sluiten.",
+    "onboardingBankAccountSigningCompleteComponent.description2": "Je mag dit venster nu sluiten.",
+    "action.close": "Sluiten",
+    "action.goToDashboard": "Dashboard",
+    "action.signout": "Uitloggen"
 }
