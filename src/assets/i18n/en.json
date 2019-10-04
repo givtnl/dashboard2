@@ -20,7 +20,7 @@
     "notFoundComponent.title": "Whoops, something went wrong.",
     "notFoundComponent.description": "Whoops, this page was not found.\nPlease check your input or contact our helpdesk if you require assistance.",
     "onboardingCheckInboxComponent.title": "Success! Check your inbox.",
-    "onboardingCheckInboxComponent.description": "You should have received an e-mail with a link to reset your password. \nIn case you do not see the e-mail right away, please check your spam. <br/><br/>\nYou can now close this window.",
+    "onboardingCheckInboxComponent.description": "You should have received an e-mail with a link to register.\nIn case you do not see the e-mail right away, please check your spam.\n\nYou can now close this window.",
     "onboardingWelcomeComponent.title": "Welcome to the personal dashboard of {{name}}. Register at Givt to gain access to this dashboard.",
     "onboardingWelcomeComponent.differentEmailAddress": "Click here to use a different e-mail address",
     "onboardingWelcomeComponent.registerButtonText": "Register",
@@ -97,10 +97,10 @@
     "onboardingBankAccountSigningDirectDebitGuaranteeComponent.description": "- The Guarantee is offered by all banks and building societies that accept instructions to pay Direct Debits. <br /><br />\n- If there are any changes to the way this incidental Direct Debit Instruction is used, the organisation will notify you (normally 10 working days) in advance of your account being debited or as otherwise agreed. <br /><br />\n- If an error is made in the payment of your Direct Debit, by the organisation, or your bank or building society, you are entitled to a full and immediate refund of the amount paid from your bank or building society. <br /><br />\n- If you receive a refund you are not entitled to, you must pay it back when the organisation asks you to. <br /><br />\n- You can cancel a Direct Debit at any time by simply contacting your bank or building society. Written confirmation may be required. Please also notify the organisation.",
     "onboardingBankAccountSigningDirectDebitGuaranteeComponent.signText": "Sign",
     "onboardingBankAccountSigningDetailsIncorrectComponent.title": "Details incorrect",
-    "onboardingBankAccountSigningDetailsIncorrectComponent.description": "You have indicated that there were some incorrect details. An e-mail has been sent to notify the organisation admin.<br/><br/>You can now close this window.",
+    "onboardingBankAccountSigningDetailsIncorrectComponent.description": "You have indicated that there were some incorrect details. An e-mail has been sent to notify the organisation admin.",
     "onboardingBankAccountSigningDetailsIncorrectComponent.finalActionText": "Close",
     "onboardingBankAccountSigningCompleteComponent.title": "Succesfully signed",
-    "onboardingBankAccountSigningCompleteComponent.description": "Now that the Direct Debit Instruction is signed, we can debit any outstanding fees and pay out the money which is donated to the organisation. We have sent you an e-mail with the signed DDI as attachment.<br/><br/>You can now close this window.",
+    "onboardingBankAccountSigningCompleteComponent.description": "Now that the Direct Debit Instruction is signed, we can debit any outstanding fees and pay out the money which is donated to the organisation. We have sent you an e-mail with the signed DDI as attachment.",
     "onboardingBankAccountSigningCompleteComponent.finalActionText": "Close",
     "onboardingBankAccountHolderWhoComponent.nameAuthorized": "Name of the authorised person",
     "onboardingBankAccountHolderWhoComponent.emailAuthorized": "E-mail address of the authorised person",
@@ -132,5 +132,10 @@
     "hello": "Hello",
     "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.Title": "Check and adjust if necessary",
     "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.NameAuthorized": "This is the name of the bank account holder",
-    "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.buttonNext": "Checked"
+    "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.buttonNext": "Checked",
+    "onboardingBankAccountSigningDetailsIncorrectComponent.description2": "You can now close this window.",
+    "onboardingBankAccountSigningCompleteComponent.description2": "You can now close this window.",
+    "action.close": "Close",
+    "action.goToDashboard": "Dashboard",
+    "action.signout": "Sign out"
 }
