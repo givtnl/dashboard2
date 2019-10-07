@@ -10,7 +10,6 @@ import { OnboardingPersonalDetailsComponent } from './new-users/onboarding-perso
 import { OnboardingRegisterGuard } from './new-users/guards/onboarding-register.guard';
 import { OnboardingRegisterCheckPasswordGuard } from './new-users/guards/onboarding-register-check-password.guard';
 import { OnboardingRegisterCheckPersonalDetailsRequiredGuard } from './new-users/guards/onboarding-register-check-personal-details-required.guard';
-import { OnboardingCompletedComponent } from './new-users/onboarding-completed/onboarding-completed.component';
 import { OnboardingCompleteCheckSuccessGuard } from './new-users/guards/onboarding-complete-check-success.guard';
 import { OnboardingChangeEmailComponent } from './new-users/onboarding-change-email/onboarding-change-email.component';
 import { OnboardingBankAccountIntroComponent } from './bank-account/onboarding-bank-account-intro/onboarding-bank-account-intro.component';
@@ -38,6 +37,8 @@ import { BankAccountSignInvitationAcceptedGuard } from './bank-account-signing/g
 import { OnboardingBankAccountInvitedHoldersComponent } from './bank-account/onboarding-bank-account-invited-holders/onboarding-bank-account-invited-holders.component';
 import { OnboardingBankAccountInvitedHoldersResolver } from './bank-account/resolvers/onboarding-bank-account-invited-holders.resolver';
 import { OnboardingBankAccountSigningVerifyPersonalDetailsComponent } from './bank-account-signing/onboarding-bank-account-signing-verify-personal-details/onboarding-bank-account-signing-verify-personal-details.component';
+import { OnboardingCompletedComponent } from './new-users/onboarding-completed/onboarding-completed.component';
+import { OnboardingUserRegistrationOrganisationResolver } from './new-users/resolvers/onboarding-user-registration-organisation.resolver';
 
 const routes: Routes = [
   {
@@ -77,7 +78,9 @@ const routes: Routes = [
             path: 'completed',
             component: OnboardingCompletedComponent,
             outlet: 'onboarding-outlet',
-            canActivate: [OnboardingCompleteCheckSuccessGuard]
+            canActivate: [OnboardingCompleteCheckSuccessGuard],
+            resolve:{organisation: OnboardingUserRegistrationOrganisationResolver}
+            
           },
           {
             path: 'change-email',
