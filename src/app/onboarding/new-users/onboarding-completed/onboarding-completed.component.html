@@ -15,10 +15,15 @@
         </div>
         <div class="FOOTER row pb-4 pt-2">
             <div class="mr-0 ml-auto col-8 px-0">
-                <a [href]="redirectUrl" [translate] class="btn btn-lg bg-givt-green float-right text-white text-heavy-font w-100">
-                  onboardingWelcomeComponent.goToDashboardText
+                <a *ngIf="" [translate] class="btn btn-lg bg-givt-green float-right text-white text-heavy-font w-100"
+                    href="oldDashboardLink">
+                    onboardingWelcomeComponent.goToDashboardText
                 </a>
-              </div>
+                <a *ngIf="" [translate] class="btn btn-lg bg-givt-green float-right text-white text-heavy-font w-100"
+                    [href]="redirectUrl">
+                    onboardingWelcomeComponent.goToDashboardText
+                </a>
+            </div>
         </div>
     </div>
 </div>
