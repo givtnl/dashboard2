@@ -138,5 +138,6 @@
     "action.close": "Close",
     "action.goToDashboard": "Dashboard",
     "action.signout": "Sign out",
-    "onboardingBankAccountInvitedHoldersComponent.closeButton": "Close"
+    "onboardingBankAccountInvitedHoldersComponent.closeButton": "Close",
+    "onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch": "I have read the Direct Debit Guarantee and agree"
 }
