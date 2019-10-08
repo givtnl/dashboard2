@@ -21,6 +21,7 @@ export class OnboardingBankAccountSigningDirectDebitGuaranteeComponent implement
     
   }
   handleAcceptOrRefusal(): void {
+    this.loading = true;
     if (this.form.value.acceptedDirectDebitGuarantee){
       this.router.navigate(['/','onboarding','bank-account-signing',{outlets:{'onboarding-outlet':['completed']}}],{
         queryParamsHandling:'merge'
