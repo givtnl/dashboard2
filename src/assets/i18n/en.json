@@ -137,5 +137,6 @@
     "onboardingBankAccountSigningCompleteComponent.description2": "You can now close this window.",
     "action.close": "Close",
     "action.goToDashboard": "Dashboard",
-    "action.signout": "Sign out"
+    "action.signout": "Sign out",
+    "onboardingBankAccountInvitedHoldersComponent.closeButton": "Close"
 }
