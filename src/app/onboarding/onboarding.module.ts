@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { OnboardingRootComponent } from './onboarding-root/onboarding-root.component';
 import { OnboardingWelcomeComponent } from './new-users/onboarding-welcome/onboarding-welcome.component';
 import { OnboardingPersonalDetailsComponent } from './new-users/onboarding-personal-details/onboarding-personal-details.component';
-import { OnboardingCompletedComponent } from './new-users/onboarding-completed/onboarding-completed.component';
 import { OnboardingChangeEmailComponent } from './new-users/onboarding-change-email/onboarding-change-email.component';
 import { OnboardingCheckInboxComponent } from './new-users/onboarding-check-inbox/onboarding-check-inbox.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -23,6 +22,7 @@ import { OnboardingBankAccountSigningDetailsIncorrectComponent } from './bank-ac
 import { OnboardingBankAccountSigningCompleteComponent } from './bank-account-signing/onboarding-bank-account-signing-complete/onboarding-bank-account-signing-complete.component';
 import { OnboardingBankAccountInvitedHoldersComponent } from './bank-account/onboarding-bank-account-invited-holders/onboarding-bank-account-invited-holders.component';
 import { OnboardingBankAccountSigningVerifyPersonalDetailsComponent } from './bank-account-signing/onboarding-bank-account-signing-verify-personal-details/onboarding-bank-account-signing-verify-personal-details.component';
+import { OnboardingCompletedComponent } from './new-users/onboarding-completed/onboarding-completed.component';
 
 @NgModule({
   declarations: [
