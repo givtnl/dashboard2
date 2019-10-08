@@ -20,10 +20,10 @@
         <div class="BODY row d-flex flex-grow-1 overflow-auto">
             <div class="d-flex flex-column h-100 w-100">
                 <div class="d-flex flex-column information-card information-card-big p-3 shadow w-100 mb-3"
-                        *ngFor="let accountHolder of accountHolders">
+                    *ngFor="let accountHolder of accountHolders">
                     <div class="text-center information-card-left px-4 pb-4 my-auto">
                         <i class="far text-givt-purple fa-user-circle fa-5x mx-4 my-auto"></i>
-                        <p class="text-primary text-center text-heavy-font text-givt-purple mb-0 my-3">
+                        <p class="text-primary text-center text-heavy-font text-givt-purple mt-3 mb-0 lh-1">
                             {{ 'onboardingBankAccountInvitedHoldersComponent.State' | translate }}:
                             {{ 'onboardingBankAccountInvitedHoldersComponent.StateDescription.' + accountHolder.StatusDescription | translate}}
                         </p>
@@ -50,7 +50,12 @@
             </div>
         </div>
         <div class="FOOTER row pb-4 pt-2">
-
+            <div class="mx-auto col-8 px-0">
+                <a [translate] class="btn btn-lg bg-givt-green float-right text-white text-heavy-font w-100"
+                    [routerLink]="['/', 'dashboard']">
+                    onboardingBankAccountInvitedHoldersComponent.closeButton
+                </a>
+            </div>
         </div>
     </div>
 </div>

@@ -137,5 +137,6 @@
     "onboardingBankAccountSigningCompleteComponent.description2": "Je mag dit venster nu sluiten.",
     "action.close": "Sluiten",
     "action.goToDashboard": "Dashboard",
-    "action.signout": "Uitloggen"
+    "action.signout": "Uitloggen",
+    "onboardingBankAccountInvitedHoldersComponent.closeButton": "Sluiten"
 }

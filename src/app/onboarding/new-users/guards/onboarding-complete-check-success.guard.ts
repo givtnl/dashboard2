@@ -4,7 +4,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { OnboardingNewUsersService } from '../services/onboarding-new-users.service';
 import { OnboardingNewUsersStateService } from '../services/onboarding-new-users-state.service';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -24,13 +23,12 @@ export class OnboardingCompleteCheckSuccessGuard implements CanActivate {
       // using a promise here for readability in the beginningngnging
 
       await this.onboardingService.createUser(registration).toPromise();
-      this.onboardingStateService.clear();
     } catch (error) {
       if (error instanceof HttpErrorResponse) {
         switch (error.status) {
           // claim or user already exists
           case 409:
-            break;
+            return true;
           default:
             return this.HandleFailure(next);
         }
@@ -38,8 +36,6 @@ export class OnboardingCompleteCheckSuccessGuard implements CanActivate {
         return this.HandleFailure(next);
       }
     }
-
-    this.onboardingStateService.clear();
     return true;
   }
 

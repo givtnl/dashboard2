@@ -1,6 +1,6 @@
 <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="d-flex flex-column h-100">
     <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
-      <div class="HEADER row d-flex align-items-center pb-5 header-navigation-bar position-relative">
+      <div class="HEADER row d-flex align-items-center header-navigation-bar position-relative">
           <p [translate]="'OnboardingBankAccountSigningVerifyPersonalDetailsComponent.title'"
             class="text-givt-purple text-heavy-font p-0 m-0 text-center w-100">
           </p>
@@ -8,6 +8,11 @@
             <a class="cursor-pointer" [routerLink]="['/', 'dashboard']">
               <i class="fas text-givt-purple fa-times"></i>
             </a>
+          </div>
+      </div>
+      <div class="row justify-content-center pt-5 pb-3">
+          <div class="circle-purple justify-content-center shadow">
+              <i class="fas text-white fa-file-signature fa-5x"></i>
           </div>
       </div>
       <div class="BODY row d-flex flex-grow-1 overflow-auto">

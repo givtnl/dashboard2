@@ -3,4 +3,5 @@ export interface UserRegistrationResponseModel {
     Status: number;
     StatusDescription:string;
     RequiredInputs: Array<string>;
+    OrganisationId: string;
 }
