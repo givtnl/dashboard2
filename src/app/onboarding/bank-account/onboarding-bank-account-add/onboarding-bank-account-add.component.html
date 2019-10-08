@@ -1,13 +1,20 @@
 <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="d-flex flex-column h-100">
     <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
-        <div class="HEADER row d-flex align-items-center pb-5 header-navigation-bar position-relative">
-            <p [translate]="'onboardingBankAccountAddComponent.title'"
-                class="text-givt-purple text-heavy-font p-0 m-0 text-center w-100">
-            </p>
-            <div class="position-absolute mr-4 float-right right-0 h5">
-                <a class="cursor-pointer" [routerLink]="['/', 'dashboard']">
-                    <i class="fas text-givt-purple fa-times"></i>
-                </a>
+        <div class="HEADER row justify-content-center pt-5 pb-3 position-relative">
+            <div class="circle-purple justify-content-center shadow">
+                <i class="fas text-white fa-wallet fa-5x"></i>
+            </div>
+            <div class="pb-5 header-navigation-bar position-absolute w-100 top-0">
+                <div class="position-relative w-100">
+                    <p [translate]="'onboardingBankAccountAddComponent.Title'"
+                        class="text-givt-purple text-heavy-font p-0 m-0 text-center w-100">
+                    </p>
+                    <div class="position-absolute mr-4 float-right right-0 top-0 h5">
+                        <a class="cursor-pointer" [routerLink]="['/', 'dashboard']">
+                            <i class="fas text-givt-purple fa-times"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="BODY row d-flex flex-grow-1 overflow-auto">
