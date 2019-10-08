@@ -51,13 +51,10 @@
         </div>
         <div class="FOOTER row pb-4 pt-2">
             <div class="mx-auto col-8 px-0">
-                <button type="submit" [translate] [disabled]="loading"
-                    class="btn float-center btn-lg bg-givt-purple text-white text-heavy-font w-100 m-0 row d-flex align-items-center">
-                    <p class="text-white text-heavy-font p-0 m-0 text-center flex-grow-1" translate>
-                        <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
-                        onboardingBankAccountInvitedHoldersComponent.closeButton
-                    </p> 
-                </button>
+                <a [translate] class="btn btn-lg bg-givt-green float-right text-white text-heavy-font w-100"
+                    [routerLink]="['/', 'dashboard']">
+                    onboardingBankAccountInvitedHoldersComponent.closeButton
+                </a>
             </div>
         </div>
     </div>
