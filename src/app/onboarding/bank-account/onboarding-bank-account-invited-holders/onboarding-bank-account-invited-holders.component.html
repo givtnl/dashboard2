@@ -20,7 +20,7 @@
         <div class="BODY row d-flex flex-grow-1 overflow-auto">
             <div class="d-flex flex-column h-100 w-100">
                 <div class="d-flex flex-column information-card information-card-big p-3 shadow w-100 mb-3"
-                        *ngFor="let accountHolder of accountHolders">
+                    *ngFor="let accountHolder of accountHolders">
                     <div class="text-center information-card-left px-4 pb-4 my-auto">
                         <i class="far text-givt-purple fa-user-circle fa-5x mx-4 my-auto"></i>
                         <p class="text-primary text-center text-heavy-font text-givt-purple mb-0 my-3">
@@ -50,7 +50,15 @@
             </div>
         </div>
         <div class="FOOTER row pb-4 pt-2">
-
+            <div class="mx-auto col-8 px-0">
+                <button type="submit" [translate] [disabled]="loading"
+                    class="btn float-center btn-lg bg-givt-purple text-white text-heavy-font w-100 m-0 row d-flex align-items-center">
+                    <p class="text-white text-heavy-font p-0 m-0 text-center flex-grow-1" translate>
+                        <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
+                        onboardingBankAccountInvitedHoldersComponent.closeButton
+                    </p> 
+                </button>
+            </div>
         </div>
     </div>
 </div>
