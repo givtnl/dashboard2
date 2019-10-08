@@ -12,9 +12,18 @@
     </div>
     <div class="BODY row d-flex flex-grow-1 overflow-auto">
       <div class="w-100">
-        <p translate class="text-primary text-light-font text-givt-purple">
-          onboardingBankAccountHolderWhoComponent.nameAuthorized
-        </p>
+        <div class="w-100 d-flex justify-content-between">
+          <p class="text-primary text-light-font text-givt-purple">
+            {{ 'onboardingBankAccountHolderWhoComponent.nameAuthorized' | translate }}
+          </p>
+          <p class="mb-0 text-right">
+            <a href="javascript:void(0)" (click)="preFillWithCurrentUser($event)"
+              class="text-primary text-light-font text-givt-purple cursor-pointer">
+              <i class="fas text-givt-purple fa-magic mr-2"></i>
+              <em><u translate>onboardingBankAccountHolderWhoComponent.iCanAuthorize</u></em>
+            </a>
+          </p>
+        </div>
         <input formControlName="firstName" type="text" autocomplete="given-name"
           placeholder="{{ 'placeholders.firstName' | translate }}"
           class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
@@ -30,13 +39,7 @@
         <p translate class="text-primary text-light-font text-givt-purple">
           onboardingBankAccountHolderWhoComponent.description
         </p>
-        <p class="mb-0 text-right">
-          <a href="javascript:void(0)" (click)="preFillWithCurrentUser($event)"
-            class="text-primary text-light-font text-givt-purple cursor-pointer">
-            <i class="fas text-givt-purple fa-magic mr-2"></i>
-            <em><u translate>onboardingBankAccountHolderWhoComponent.iCanAuthorize</u></em>
-          </a>
-        </p>
+
       </div>
     </div>
     <div class="FOOTER row pb-4 pt-2">
