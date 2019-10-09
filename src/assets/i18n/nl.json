@@ -139,5 +139,6 @@
     "action.goToDashboard": "Dashboard",
     "action.signout": "Uitloggen",
     "onboardingBankAccountInvitedHoldersComponent.closeButton": "Sluiten",
-    "onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch": "I have read the Direct Debit Guarantee and agree"
+    "onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch": "I have read the Direct Debit Guarantee and I agree",
+    "onboardingBankAccountSigningDirectDebitGuaranteeComponent.signLoading": "Even wachten, dit kan even duren..."
 }
