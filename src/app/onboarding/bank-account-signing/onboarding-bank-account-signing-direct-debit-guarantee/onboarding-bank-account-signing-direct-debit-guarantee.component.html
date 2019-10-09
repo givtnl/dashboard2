@@ -1,39 +1,43 @@
-<form [formGroup]="form" class="d-flex flex-column h-100">
-    <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
-
-        <div class="HEADER row d-flex align-items-center pb-5 header-navigation-bar position-relative">
-            <p [translate]="'onboardingBankAccountSigningDirectDebitGuaranteeComponent.title'"
-                class="text-givt-purple text-heavy-font p-0 m-0 text-center w-100">
-            </p>
-            <div class="position-absolute mr-4 float-right right-0 h5">
-                <a class="cursor-pointer" [routerLink]="['/', 'dashboard']">
-                    <i class="fas text-givt-purple fa-times"></i>
-                </a>
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="d-flex flex-column h-100">
+    <div class="component-container">
+        <div class="custom-card shadow">
+            <div class="card-titlebar">
+                <p [translate]="'onboardingBankAccountSigningDirectDebitGuaranteeComponent.title'"
+                    class="text-givt-purple text-heavy-font p-0 m-0 text-center w-100">
+                </p>
+                <div class="position-absolute mr-4 float-right right-0 top-0 h5">
+                    <a class="cursor-pointer" [routerLink]="['/', 'dashboard']">
+                        <i class="fas text-givt-purple fa-times"></i>
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="BODY row d-flex flex-grow-1 overflow-auto">
-            <p class="text-givt-purple text-light-font"
-                innerHTML="{{'onboardingBankAccountSigningDirectDebitGuaranteeComponent.description' | translate}}">
-            </p>
-            <div class="custom-control custom-switch">
-                <input type="checkbox" formControlName="acceptedDirectDebitGuarantee" class="custom-control-input"
-                    id="acceptedDirectDebitGuarantee">
-                <label class="custom-control-label" for="acceptedDirectDebitGuarantee">{{'onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch' | translate}}</label>
-            </div>
-        </div>
-        <div class="FOOTER row pb-4 pt-2">
-            <div class="mr-0 ml-auto col-8 px-0">
-                <button (click)="handleAcceptOrRefusal()" [class.disabled]="!form.value.acceptedDirectDebitGuarantee"
-                    [translate]
-                    class="btn float-right btn-lg bg-givt-purple text-white text-heavy-font w-100 m-0 row d-flex align-items-center position-relative">
-                    <p class="text-white text-heavy-font p-0 m-0 text-center w-100" translate>
-                        <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
-                        onboardingBankAccountSigningDirectDebitGuaranteeComponent.signText
+            <div class="card-content">
+                <div class="card-content-body d-flex flex-grow-1 mt-5">
+                    <p class="text-givt-purple text-light-font"
+                        innerHTML="{{'onboardingBankAccountSigningDirectDebitGuaranteeComponent.description' | translate}}">
                     </p>
-                    <div class="position-absolute mr-4 float-right right-0">
-                        <i class="fas text-white fa-arrow-right"></i>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" formControlName="acceptedDirectDebitGuarantee"
+                            class="custom-control-input" id="acceptedDirectDebitGuarantee">
+                        <label class="custom-control-label"
+                            for="acceptedDirectDebitGuarantee">{{'onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch' | translate}}</label>
                     </div>
-                </button>
+                </div>
+                <div class="card-content-footer">
+                    <div class="mr-0 ml-auto w-75 px-0">
+                        <button (click)="handleAcceptOrRefusal()"
+                            [class.disabled]="!form.value.acceptedDirectDebitGuarantee" [translate]
+                            class="btn float-right btn-lg bg-givt-purple text-white text-heavy-font w-100 m-0 row d-flex align-items-center position-relative">
+                            <p class="text-white text-heavy-font p-0 m-0 text-center w-100" translate>
+                                <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
+                                onboardingBankAccountSigningDirectDebitGuaranteeComponent.signText
+                            </p>
+                            <div class="position-absolute mr-4 float-right right-0">
+                                <i class="fas text-white fa-arrow-right"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
