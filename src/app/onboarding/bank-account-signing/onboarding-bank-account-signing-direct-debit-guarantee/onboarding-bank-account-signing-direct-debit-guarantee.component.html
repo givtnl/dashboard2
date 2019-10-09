@@ -26,7 +26,7 @@
                 <div class="card-content-footer">
                     <div class="mr-0 ml-auto w-75 px-0">
                         <button (click)="handleAcceptOrRefusal()"
-                            [class.disabled]="!form.value.acceptedDirectDebitGuarantee" [translate]
+                            [disabled]="!form.value.acceptedDirectDebitGuarantee || loading" [translate]
                             class="btn float-right btn-lg bg-givt-purple text-white text-heavy-font w-100 m-0 row d-flex align-items-center position-relative">
                             <p class="text-white text-heavy-font p-0 m-0 text-center w-100" translate>
                                 <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
