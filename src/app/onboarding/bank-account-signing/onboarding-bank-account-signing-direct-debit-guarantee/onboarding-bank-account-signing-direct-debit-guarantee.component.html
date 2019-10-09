@@ -2,14 +2,23 @@
     <div class="component-container">
         <div class="custom-card shadow">
             <div class="card-titlebar">
-                <p [translate]="'onboardingBankAccountSigningDirectDebitGuaranteeComponent.title'"
-                    class="text-givt-purple text-heavy-font p-0 m-0 text-center w-100">
-                </p>
-                <div class="position-absolute mr-4 float-right right-0 top-0 h5">
+                <div class="left-col">
+
+                </div>
+                <div class="middle-col">
+                    <p [translate]="'onboardingBankAccountSigningDirectDebitGuaranteeComponent.title'"
+                        class="text-givt-purple text-heavy-font p-0 m-0 text-center w-100">
+                    </p>
+                </div>
+                <div class="right-col">
+                    <a class="cursor-pointer" [routerLink]="['/', 'dashboard']">
+                        <i class="fas text-givt-purple fa-question"></i>
+                    </a>
                     <a class="cursor-pointer" [routerLink]="['/', 'dashboard']">
                         <i class="fas text-givt-purple fa-times"></i>
                     </a>
                 </div>
+
             </div>
             <div class="card-content">
                 <div class="card-content-body d-flex flex-grow-1 mt-5">

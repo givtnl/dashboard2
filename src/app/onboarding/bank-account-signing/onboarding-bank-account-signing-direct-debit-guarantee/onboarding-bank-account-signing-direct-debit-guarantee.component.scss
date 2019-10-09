@@ -1,3 +1,16 @@
-.disabled { 
-    opacity: 0.65;
+.disabled {
+	opacity: 0.65;
+}
+
+.card-titlebar {
+	justify-content: space-between;
+}
+.card-titlebar {
+	.left-col,
+	.right-col {
+		width: 80px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
 }
