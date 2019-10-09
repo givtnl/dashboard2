@@ -56,7 +56,7 @@
     "onboardingBankAccountAuthorizedComponent.questionAuthorizedPersonSmallText": "We will invite the person by e-mail to verify the bank account.",
     "onboardingBankAccountAuthorizedComponent.okButtonText": "Complete",
     "onboardingBankAccountCompletedComponent.title": "We are well on our way",
-    "onboardingBankAccountCompletedComponent.description": "We add your bank account to your dashboard when it is fully verified.",
+    "onboardingBankAccountCompletedComponent.description": "We add the bank account of the organisation to your dashboard when it is fully verified.",
     "errorPageComponent.title": "Whoops, something went wrong. Please try again or contact our helpdesk if you require assistance.",
     "underConstructionComponent.title": "Whoops",
     "underConstructionComponent.description": "We are working on this page to make the Givt dashboard even better for you!",
@@ -139,5 +139,6 @@
     "action.goToDashboard": "Dashboard",
     "action.signout": "Sign out",
     "onboardingBankAccountInvitedHoldersComponent.closeButton": "Close",
-    "onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch": "I have read the Direct Debit Guarantee and agree"
+    "onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch": "I have read the Direct Debit Guarantee and I agree",
+    "onboardingBankAccountSigningDirectDebitGuaranteeComponent.signLoading": "Please wait, this might take a while..."
 }
