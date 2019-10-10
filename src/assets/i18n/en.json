@@ -35,7 +35,7 @@
     "errorMessages.sortcode-length": "You have filled in an invalid sort code.\nA sort code contains 6 characters.",
     "errorMessages.accountnumber-required": "Please enter your account number",
     "errorMessages.accountnumber-length": "You have filled in an invalid account number.\nAn account number contains 8 characters.",
-    "errorMessages.account-name-required": "Please enter your account name",
+    "errorMessages.accountname-required": "Please enter your account name",
     "placeholders.bankAccountNumberIBAN": "IBAN account number",
     "placeholders.bankAccountName": "Name bank account",
     "placeholders.sortCode": "Sort code",
