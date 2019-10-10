@@ -14,7 +14,6 @@ import { OnboardingCompleteCheckSuccessGuard } from './new-users/guards/onboardi
 import { OnboardingChangeEmailComponent } from './new-users/onboarding-change-email/onboarding-change-email.component';
 import { OnboardingBankAccountIntroComponent } from './bank-account/onboarding-bank-account-intro/onboarding-bank-account-intro.component';
 import { OnboardingBankAccountAddComponent } from './bank-account/onboarding-bank-account-add/onboarding-bank-account-add.component';
-import { OnboardingBankAccountAuthorizedComponent } from './bank-account/onboarding-bank-account-authorized/onboarding-bank-account-authorized.component';
 import { OnboardingBankAccountCompletedComponent } from './bank-account/onboarding-bank-account-completed/onboarding-bank-account-completed.component';
 import { OnboardingBankAccountCompleteCheckSuccessGuard } from './bank-account/guards/onboarding-bank-account-complete-check-success.guard';
 import { AuthenticationGuard } from '../infrastructure/guards/authentication.guard';
@@ -106,11 +105,6 @@ const routes: Routes = [
         path: 'add',
         outlet: 'onboarding-outlet',
         component: OnboardingBankAccountAddComponent
-      },
-      {
-        path: 'authorized',
-        outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountAuthorizedComponent
       },
       {
         path: 'completed',
