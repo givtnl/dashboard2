@@ -10,7 +10,6 @@ import { SharedModule } from '../shared/shared.module';
 import { OnboardingRoutingModule } from './onboarding-routing.module';
 import { OnboardingBankAccountIntroComponent } from './bank-account/onboarding-bank-account-intro/onboarding-bank-account-intro.component';
 import { OnboardingBankAccountAddComponent } from './bank-account/onboarding-bank-account-add/onboarding-bank-account-add.component';
-import { OnboardingBankAccountAuthorizedComponent } from './bank-account/onboarding-bank-account-authorized/onboarding-bank-account-authorized.component';
 import { OnboardingBankAccountCompletedComponent } from './bank-account/onboarding-bank-account-completed/onboarding-bank-account-completed.component';
 import { OnboardingBankAccountHolderWhoComponent } from './bank-account-holder/onboarding-bank-account-holder-who/onboarding-bank-account-holder-who.component';
 import { OnboardingBankAccountHolderCompletedComponent } from './bank-account-holder/onboarding-bank-account-holder-completed/onboarding-bank-account-holder-completed.component';
@@ -34,7 +33,6 @@ import { OnboardingCompletedComponent } from './new-users/onboarding-completed/o
     OnboardingRootComponent,
     OnboardingBankAccountIntroComponent,
     OnboardingBankAccountAddComponent,
-    OnboardingBankAccountAuthorizedComponent,
     OnboardingBankAccountCompletedComponent,
     OnboardingBankAccountHolderIntroComponent,
     OnboardingBankAccountHolderWhoComponent,
