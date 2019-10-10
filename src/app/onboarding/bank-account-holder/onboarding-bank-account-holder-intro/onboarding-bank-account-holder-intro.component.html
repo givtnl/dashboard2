@@ -1,30 +1,15 @@
-<div class="component-container">
-    <div class="custom-card shadow">
-        <div class="card-titlebar">
-            
-        </div>
-        <div class="card-content">
-            <div class="card-content-header center-xy">
-                <div class="circle-orange shadow w-150px h-150px center-xy">
-                    <i class="fas text-white fa-file-signature fa-4x"></i>
-                </div>
-            </div>
-            <div class="card-content-body d-flex flex-grow-1">
-                <div class="text-center">
-                    <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
-                        onboardingBankAccountHolderInfoComponent.title</p>
-                    <p class="text-givt-purple text-light-font" translate>
-                        onboardingBankAccountHolderInfoComponent.description</p>
-                </div>
-            </div>
-            <div class="card-content-footer">
-                <div class="mr-0 ml-auto w-75 px-0">
-                    <a [translate] class="btn float-right btn-lg bg-givt-green text-white text-heavy-font w-100 m-0"
-                        [routerLink]="['/', 'onboarding', 'bank-account-holder', { outlets: { 'onboarding-outlet': ['who'] } }]">
-                        onboardingBankAccountHolderInfoComponent.startButtonText
-                    </a>
-                </div>
-            </div>
-        </div>
+<app-custom-card titleTranslationKey="" [showCloseButton]="true" iconBackgroundClass="circle-orange"
+    icon="fas fa-file-signature fa-4x">
+
+    <div body>
+        <p class="introduction-title text-primary text-center text-heavy-font text-givt-purple" translate>
+            onboardingBankAccountHolderInfoComponent.title</p>
+        <p class="text-givt-purple text-center text-light-font" translate>
+            onboardingBankAccountHolderInfoComponent.description</p>
     </div>
-</div>
+
+    <a bottom [translate] class="btn btn-lg align-self-end bg-givt-green text-white text-heavy-font bottom-button w-75"
+        [routerLink]="['/', 'onboarding', 'bank-account-holder', { outlets: { 'onboarding-outlet': ['who'] } }]">
+        onboardingBankAccountHolderInfoComponent.startButtonText
+    </a>
+</app-custom-card>
