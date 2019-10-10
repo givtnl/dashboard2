@@ -17,11 +17,20 @@
     </div>
     <div class="card-content">
         <div class="card-content-inner">
-            <div class="{{iconBackgroundClass}} w-150px h-150px d-flex justify-content-center align-items-center shadow" *ngIf="icon">
+            <div class="{{iconBackgroundClass}} w-150px h-150px d-flex justify-content-center align-items-center shadow"
+                *ngIf="icon">
                 <i class="{{icon}} text-white"></i>
             </div>
-            <ng-content>
+
+            <div class="card-content-inner-header">
+                <ng-content select="[body]">
+                </ng-content>
+            </div>
+
+            <ng-content select="[bottom]">
             </ng-content>
         </div>
     </div>
+
+
 </div>
