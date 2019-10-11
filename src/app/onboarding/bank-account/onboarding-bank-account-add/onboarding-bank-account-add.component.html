@@ -1,24 +1,26 @@
-<app-custom-card titleTranslationKey="onboardingBankAccountAddComponent.Title" [showCloseButton]="true"
-    iconBackgroundClass="circle-purple" icon="fas fa-wallet fa-5x">
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="justify-content-center h-100 w-100">
+    <app-custom-card titleTranslationKey="onboardingBankAccountAddComponent.Title" [showCloseButton]="true"
+        iconBackgroundClass="circle-purple" icon="fas fa-wallet fa-5x">
 
-    <div body class="d-flex flex-column align-self-stretch">
-        <p class="introduction-title text-primary text-light-font text-givt-purple" translate>
-            onboardingBankAccountAddComponent.description</p>
+        <div body class="d-flex flex-column align-self-stretch">
+            <p class="introduction-title text-primary text-light-font text-givt-purple" translate>
+                onboardingBankAccountAddComponent.description</p>
 
-        <input type="text" placeholder="{{ 'placeholders.bankAccountName' | translate }}"
-            class="form-control-lg form-control mb-3 shadow text-givt-purple" formControlName="accountName" />
-        <input type="text" placeholder="{{ 'placeholders.sortCode' | translate }}"
-            class="form-control form-control-lg mb-3 shadow text-givt-purple" formControlName="sortCode" />
-        <input type="text" placeholder="{{ 'placeholders.accountNumber' | translate }}"
-            class="form-control form-control-lg mb-3 shadow text-givt-purple" formControlName="accountNumber" />
-    </div>
+            <input type="text" placeholder="{{ 'placeholders.bankAccountName' | translate }}"
+                class="form-control-lg form-control mb-3 shadow text-givt-purple" formControlName="accountName" />
+            <input type="text" placeholder="{{ 'placeholders.sortCode' | translate }}"
+                class="form-control form-control-lg mb-3 shadow text-givt-purple" formControlName="sortCode" />
+            <input type="text" placeholder="{{ 'placeholders.accountNumber' | translate }}"
+                class="form-control form-control-lg mb-3 shadow text-givt-purple" formControlName="accountNumber" />
+        </div>
 
-    <button bottom (click)="submit()" [translate] [disabled]="loading" [translate]
-        class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
-        <span class="text-white text-heavy-font" translate>
-            <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
-            onboardingBankAccountSigningDirectDebitGuaranteeComponent.signText
-        </span>
-    </button>
+        <button bottom type="submit" [translate] [disabled]="loading" [translate]
+            class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
+            <span class="text-white text-heavy-font" translate>
+                <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
+                onboardingBankAccountSigningDirectDebitGuaranteeComponent.signText
+            </span>
+        </button>
 
-</app-custom-card>
+    </app-custom-card>
+</form>

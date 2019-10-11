@@ -1,24 +1,23 @@
-<app-custom-card titleTranslationKey="onboardingBankAccountAddComponent.Title" [showCloseButton]="true"
-  iconBackgroundClass="circle-purple" icon="fas fa-file-signature fa-4x">
-
-  <form body autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="justify-content-center h-100 w-100">
+  <app-custom-card titleTranslationKey="onboardingBankAccountAddComponent.Title" [showCloseButton]="true"
+    iconBackgroundClass="circle-purple" icon="fas fa-file-signature fa-4x">
+    <div body>
       <p translate class="text-primary text-light-font text-givt-purple">
-          OnboardingBankAccountSigningVerifyPersonalDetailsComponent.nameAuthorized
-        </p>
-        <input formControlName="firstName" type="text" autocomplete="given-name"
-          placeholder="{{ 'placeholders.firstName' | translate }}"
-          class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
-        <input formControlName="lastName" type="text" autocomplete="family-name"
-          placeholder="{{ 'placeholders.lastName' | translate }}"
-          class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
-    </form>
-  
+        OnboardingBankAccountSigningVerifyPersonalDetailsComponent.nameAuthorized
+      </p>
+      <input formControlName="firstName" type="text" autocomplete="given-name"
+        placeholder="{{ 'placeholders.firstName' | translate }}"
+        class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
+      <input formControlName="lastName" type="text" autocomplete="family-name"
+        placeholder="{{ 'placeholders.lastName' | translate }}"
+        class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
+    </div>
     <button bottom type="submit" [translate] [disabled]="loading"
-    class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
-    <span class="text-white text-heavy-font" translate>
-      <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
-      OnboardingBankAccountSigningVerifyPersonalDetailsComponent.buttonNext
-    </span>
-  </button>
-  
-</app-custom-card>
+      class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
+      <span class="text-white text-heavy-font" translate>
+        <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
+        OnboardingBankAccountSigningVerifyPersonalDetailsComponent.buttonNext
+      </span>
+    </button>
+  </app-custom-card>
+</form>
