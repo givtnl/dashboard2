@@ -50,8 +50,8 @@ const routes: Routes = [
       {
         path: 'new-users',
         component: OnboardingRootComponent,
-        // resolve: { request: OnboardingRequestResolver, preparation: OnboardingUserRegistrationPreparationResolver },
-        // canActivate: [OnboardingGuard],
+        resolve: { request: OnboardingRequestResolver, preparation: OnboardingUserRegistrationPreparationResolver },
+        canActivate: [OnboardingGuard],
         children: [
           {
             path: '',
