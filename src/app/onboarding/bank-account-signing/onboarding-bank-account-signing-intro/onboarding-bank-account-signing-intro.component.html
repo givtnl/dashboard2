@@ -1,34 +1,16 @@
-<div class="component-container">
-    <div class="custom-card shadow">
-        <div class="card-titlebar">
+<app-custom-card titleTranslationKey="" [showCloseButton]="true" iconBackgroundClass="circle-purple"
+    icon="fas fa-file-signature fa-4x">
 
-        </div>
-        <div class="card-content">
-            <div class="card-content-header center-xy">
-                <div class="circle-purple shadow w-150px h-150px center-xy">
-                    <i class="fas text-white fa-file-signature fa-4x"></i>
-                </div>
-            </div>
-            <div class="card-content-body d-flex flex-grow-1">
-                <div class="text-center">
-                    <div class="text-center">
-                        <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
-                            onboardingBankAccountSigningIntroComponent.title</p>
-                        <p class="text-givt-purple text-light-font" translate>
-                            onboardingBankAccountSigningIntroComponent.description</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card-content-footer">
-                <div class="mr-0 ml-auto w-75 px-0">
-                    <a [translate]
-                        [routerLink]="['/', 'onboarding', 'bank-account-signing', { outlets: { 'onboarding-outlet': ['verify-personal-details'] } }]"
-                        queryParamsHandling="merge"
-                        class="btn float-right btn-lg bg-givt-green text-white text-heavy-font w-100 m-0">
-                        onboardingBankAccountSigningIntroComponent.nextButtonText
-                    </a>
-                </div>
-            </div>
-        </div>
+    <div body>
+        <p class="introduction-title text-primary text-center text-heavy-font text-givt-purple" translate>
+            onboardingBankAccountSigningIntroComponent.title</p>
+        <p class="text-givt-purple text-light-font" translate>
+            onboardingBankAccountSigningIntroComponent.description</p>
     </div>
-</div>
+
+    <a bottom [translate]
+        class="btn btn-lg align-self-end bg-givt-green text-center text-white text-heavy-font bottom-button w-75"
+        [routerLink]="['/', 'onboarding', 'bank-account-signing', { outlets: { 'onboarding-outlet': ['verify-personal-details'] } }]">
+        onboardingBankAccountSigningIntroComponent.nextButtonText
+    </a>
+</app-custom-card>

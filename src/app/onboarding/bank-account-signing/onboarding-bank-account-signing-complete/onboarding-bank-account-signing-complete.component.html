@@ -1,31 +1,18 @@
-<div class="component-container">
-    <div class="custom-card shadow">
-        <div class="card-titlebar">
-        </div>
-        <div class="card-content">
-            <div class="card-content-header center-xy">
-                <div class="circle-purple shadow w-150px h-150px center-xy">
-                    <i class="fas text-white fa-wallet fa-5x"></i>
-                </div>
-            </div>
-            <div class="card-content-body d-flex flex-grow-1">
-                <div class="text-center">
-                    <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
-                        onboardingBankAccountSigningCompleteComponent.title</p>
-                    <p class="text-givt-purple text-light-font" translate>
-                        onboardingBankAccountSigningCompleteComponent.description</p>
-                    <p class="text-givt-purple text-light-font" translate>
-                        onboardingBankAccountSigningCompleteComponent.description2</p>
-                </div>
-            </div>
-            <div class="card-content-footer">
-                <div class="mr-0 ml-auto w-75 px-0">
-                    <button [translate] (click)="close()"
-                        class="btn float-right btn-lg bg-givt-green text-white text-heavy-font w-100 m-0">
-                        onboardingBankAccountSigningCompleteComponent.finalActionText
-                    </button>
-                </div>
-            </div>
-        </div>
+<app-custom-card titleTranslationKey="" [showCloseButton]="false" iconBackgroundClass="circle-purple"
+    icon="fas fa-wallet fa-5x">
+
+    <div body class="text-center">
+        <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
+            onboardingBankAccountSigningCompleteComponent.title</p>
+        <p class="text-givt-purple text-light-font" translate>
+            onboardingBankAccountSigningCompleteComponent.description</p>
+        <p class="text-givt-purple text-light-font" translate>
+            onboardingBankAccountSigningCompleteComponent.description2</p>
     </div>
-</div>
+
+    <button bottom [translate] (click)="close()"
+        class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
+        onboardingBankAccountSigningCompleteComponent.finalActionText
+    </button>
+
+</app-custom-card>
