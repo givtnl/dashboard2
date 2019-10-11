@@ -127,10 +127,14 @@ input.show-validation.ng-invalid.ng-touched{
   cursor: pointer;
 }
 
-.main-form {
+app-custom-card {
   align-items: center;
   display: flex;
   justify-content: center;
   height: 100%;
   flex-direction: column;
+}
+
+.mt-2rem {
+  margin-top: 2rem;
 }
