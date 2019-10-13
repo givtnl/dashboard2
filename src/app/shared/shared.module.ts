@@ -13,6 +13,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CheckBoxInputComponent } from './components/check-box-input/check-box-input.component';
 import { MissingFileTranslationsHandler } from '../infrastructure/services/missing-file-translations.service';
 import { QuestionmarkComponent } from './components/questionmark/questionmark.component';
+import { CustomCardComponent } from './components/custom-card/custom-card.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,12 @@ import { QuestionmarkComponent } from './components/questionmark/questionmark.co
     BootstrapSizeIndicatorComponent,
     NavBarComponent,
     CheckBoxInputComponent,
-    QuestionmarkComponent
+    QuestionmarkComponent,
+    CustomCardComponent
   ],
   imports: [
     CommonModule,
+    RouterModule,
     FormsModule,
     TranslateModule.forChild({
       missingTranslationHandler: { provide: MissingTranslationHandler, useClass: MissingFileTranslationsHandler },
@@ -46,7 +50,8 @@ import { QuestionmarkComponent } from './components/questionmark/questionmark.co
     HeaderImagePartyComponent,
     SideBarComponent,
     TranslateModule,
-    QuestionmarkComponent
+    QuestionmarkComponent,
+    CustomCardComponent
   ]
 })
 export class SharedModule {}

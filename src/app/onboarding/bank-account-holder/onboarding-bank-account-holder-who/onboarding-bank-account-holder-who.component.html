@@ -1,67 +1,44 @@
-<form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="d-flex flex-column h-100">
-  <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="justify-content-center h-100 w-100">
+  <app-custom-card titleTranslationKey="onboardingBankAccountHolderWhoComponent.title" [showCloseButton]="true"
+    iconBackgroundClass="circle-orange" icon="fas fa-file-signature fa-4x">
 
-    <div class="HEADER row justify-content-center pt-5 pb-3 position-relative">
-      <div class="circle-purple justify-content-center shadow">
-        <i class="fas text-white fa-file-signature fa-4x"></i>
+    <div body>
+      <div class="w-100 d-flex justify-content-between">
+        <p class="text-primary text-light-font text-givt-purple">
+          {{ 'onboardingBankAccountHolderWhoComponent.nameAuthorized' | translate }}
+        </p>
+        <p class="mb-0 text-right">
+          <a href="javascript:void(0)" (click)="preFillWithCurrentUser($event)"
+            class="text-primary text-light-font text-givt-purple cursor-pointer">
+            <i class="fas text-givt-purple fa-magic mr-2"></i>
+            <em><u translate>onboardingBankAccountHolderWhoComponent.iCanAuthorize</u></em>
+          </a>
+        </p>
       </div>
-      <div class="pb-5 header-navigation-bar position-absolute w-100 top-0">
-        <div class="position-relative w-100">
-          <p [translate]="'onboardingBankAccountHolderWhoComponent.title'"
-            class="text-givt-purple text-heavy-font p-0 m-0 text-center w-100">
-          </p>
-          <div class="position-absolute mr-4 float-right right-0 top-0 h5">
-            <a class="cursor-pointer" [routerLink]="['/', 'dashboard']">
-              <i class="fas text-givt-purple fa-times"></i>
-            </a>
-          </div>
-        </div>
-      </div>
+      <input formControlName="firstName" type="text" autocomplete="given-name"
+        placeholder="{{ 'placeholders.firstName' | translate }}"
+        class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
+      <input formControlName="lastName" type="text" autocomplete="family-name"
+        placeholder="{{ 'placeholders.lastName' | translate }}"
+        class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
+      <p translate class="text-primary text-light-font text-givt-purple">
+        onboardingBankAccountHolderWhoComponent.emailAuthorized
+      </p>
+      <input formControlName="emailAddress" type="email" autocomplete="email"
+        placeholder="{{ 'onboardingBankAccountHolderWhoComponent.emailAddress' | translate }}"
+        class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
+      <p translate class="text-primary text-light-font text-givt-purple">
+        onboardingBankAccountHolderWhoComponent.description
+      </p>
     </div>
-    <div class="BODY row d-flex flex-grow-1 overflow-auto">
-      <div class="w-100">
-        <div class="w-100 d-flex justify-content-between">
-          <p class="text-primary text-light-font text-givt-purple">
-            {{ 'onboardingBankAccountHolderWhoComponent.nameAuthorized' | translate }}
-          </p>
-          <p class="mb-0 text-right">
-            <a href="javascript:void(0)" (click)="preFillWithCurrentUser($event)"
-              class="text-primary text-light-font text-givt-purple cursor-pointer">
-              <i class="fas text-givt-purple fa-magic mr-2"></i>
-              <em><u translate>onboardingBankAccountHolderWhoComponent.iCanAuthorize</u></em>
-            </a>
-          </p>
-        </div>
-        <input formControlName="firstName" type="text" autocomplete="given-name"
-          placeholder="{{ 'placeholders.firstName' | translate }}"
-          class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
-        <input formControlName="lastName" type="text" autocomplete="family-name"
-          placeholder="{{ 'placeholders.lastName' | translate }}"
-          class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
-        <p translate class="text-primary text-light-font text-givt-purple">
-          onboardingBankAccountHolderWhoComponent.emailAuthorized
-        </p>
-        <input formControlName="emailAddress" type="email" autocomplete="email"
-          placeholder="{{ 'onboardingBankAccountHolderWhoComponent.emailAddress' | translate }}"
-          class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
-        <p translate class="text-primary text-light-font text-givt-purple">
-          onboardingBankAccountHolderWhoComponent.description
-        </p>
+    
+    <button bottom type="submit" [translate] [disabled]="loading"
+      class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
+      <span class="text-white text-heavy-font" translate>
+        <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
+        onboardingBankAccountHolderWhoComponent.nextButtonText
+      </span>
+    </button>
 
-      </div>
-    </div>
-    <div class="FOOTER row pb-4 pt-2">
-      <div class="mr-0 ml-auto col-8 px-0">
-        <button type="submit" [translate] [disabled]="loading"
-          class="btn float-right btn-lg bg-givt-purple text-white text-heavy-font w-100 m-0 row d-flex align-items-center">
-          <div class="col-2"></div>
-          <p class="text-white text-heavy-font p-0 m-0 text-center flex-grow-1" translate>
-            <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
-            onboardingBankAccountHolderWhoComponent.nextButtonText
-          </p>
-          <div class="col-2 text-center"><i class="fas text-white fa-arrow-right"></i></div>
-        </button>
-      </div>
-    </div>
-  </div>
+  </app-custom-card>
 </form>

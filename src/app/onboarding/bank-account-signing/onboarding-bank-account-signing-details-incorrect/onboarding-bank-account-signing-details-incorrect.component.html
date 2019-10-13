@@ -1,26 +1,16 @@
-<div class="d-flex flex-column h-100">
-    <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
-        <div class="HEADER row justify-content-center pt-5 pb-3">
-            <div class="circle-purple justify-content-center shadow">
-                <i class="fas text-white  fa-file-signature fa-5x"></i>
-            </div>
-        </div>
-        <div class="BODY row d-flex flex-grow-1 overflow-auto">
-            <div class="text-center">
-                <p class="introduction-title text-primary text-heavy-font text-givt-purple">
-                    {{ 'onboardingBankAccountSigningDetailsIncorrectComponent.title' | translate }}
-                </p>
-                <p class="text-givt-purple text-light-font">
-                    {{ 'onboardingBankAccountSigningDetailsIncorrectComponent.description' | translate }}
-                </p>
-                <p class="text-givt-purple text-light-font">
-                    {{ 'onboardingBankAccountSigningDetailsIncorrectComponent.description2' | translate }}
-                </p>
-            </div>
-        </div>
-        <div class="FOOTER row pb-4 pt-2">
-            <div class="mr-0 ml-auto col-8 px-0">
-            </div>
-        </div>
+<app-custom-card titleTranslationKey="" [showCloseButton]="true" iconBackgroundClass="circle-purple"
+    icon="fas fa-file-signature fa-5x">
+
+    <div body class="text-center">
+        <p class="introduction-title text-primary text-heavy-font text-givt-purple">
+            {{ 'onboardingBankAccountSigningDetailsIncorrectComponent.title' | translate }}
+        </p>
+        <p class="text-givt-purple text-light-font">
+            {{ 'onboardingBankAccountSigningDetailsIncorrectComponent.description' | translate }}
+        </p>
+        <p class="text-givt-purple text-light-font">
+            {{ 'onboardingBankAccountSigningDetailsIncorrectComponent.description2' | translate }}
+        </p>
     </div>
-</div>
+
+</app-custom-card>

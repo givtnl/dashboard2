@@ -1,68 +1,56 @@
-<div class="d-flex flex-column h-100">
-  <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
-    <div class="HEADER row d-flex align-items-center header-navigation-bar position-relative">
-      <p [translate]="'onboardingBankAccountSigningVerifyDetailsComponent.title'"
-        class="text-givt-purple text-heavy-font p-0 m-0 text-center w-100">
-      </p>
-      <div class="position-absolute mr-4 float-right right-0 h5">
-        <a class="cursor-pointer" [routerLink]="['/', 'dashboard']">
-          <i class="fas text-givt-purple fa-times"></i>
-        </a>
-      </div>
+<app-custom-card titleTranslationKey="" [showCloseButton]="false"
+    iconBackgroundClass="circle-purple" icon="fas fa-file-signature fa-4x">
+
+    <div body>
+        <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">
+            <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
+              onboardingBankAccountSigningVerifyDetails.orgDetails
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+              {{ accountHolderDetails.OrganisationName }}
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+              {{ accountHolderDetails.OrganisationStreet }}
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+              {{ accountHolderDetails.OrganisationLocality }}
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+              {{ accountHolderDetails.OrganisationCity }}
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+              {{ accountHolderDetails.OrganisationZipCode }}
+            </p>
+          </div>
+          <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">
+            <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
+              onboardingBankAccountSigningVerifyDetails.bankDetails
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">Account name
+              {{ accountHolderDetails.AccountName }}</p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">Sort code {{ accountHolderDetails.SortCode }}
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">Account number
+              {{ accountHolderDetails.AccountNumber }}</p>
+          </div>
+          <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">
+            <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
+              onboardingBankAccountSigningVerifyDetails.nameAuthorized
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+              {{ accountHolderDetails.FirstName }}
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+              {{ accountHolderDetails.LastName }}
+            </p>
+          </div>
     </div>
-    <div class="BODY row d-flex flex-grow-1 overflow-auto">
-      <div class="d-flex flex-column h-100 w-100">
-        <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">
-          <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
-            onboardingBankAccountSigningVerifyDetails.orgDetails
-          </p>
-          <p class="text-primary text-light-font text-givt-purple mb-0">
-            {{ accountHolderDetails.OrganisationName }}
-          </p>
-          <p class="text-primary text-light-font text-givt-purple mb-0">
-            {{ accountHolderDetails.OrganisationStreet }}
-          </p>
-          <p class="text-primary text-light-font text-givt-purple mb-0">
-            {{ accountHolderDetails.OrganisationLocality }}
-          </p>
-          <p class="text-primary text-light-font text-givt-purple mb-0">
-            {{ accountHolderDetails.OrganisationCity }}
-          </p>
-          <p class="text-primary text-light-font text-givt-purple mb-0">
-            {{ accountHolderDetails.OrganisationZipCode }}
-          </p>
-        </div>
-        <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">
-          <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
-            onboardingBankAccountSigningVerifyDetails.bankDetails
-          </p>
-          <p class="text-primary text-light-font text-givt-purple mb-0">Account name
-            {{ accountHolderDetails.AccountName }}</p>
-          <p class="text-primary text-light-font text-givt-purple mb-0">Sort code {{ accountHolderDetails.SortCode }}
-          </p>
-          <p class="text-primary text-light-font text-givt-purple mb-0">Account number
-            {{ accountHolderDetails.AccountNumber }}</p>
-        </div>
-        <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">
-          <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
-            onboardingBankAccountSigningVerifyDetails.nameAuthorized
-          </p>
-          <p class="text-primary text-light-font text-givt-purple mb-0">
-            {{ accountHolderDetails.FirstName }}
-          </p>
-          <p class="text-primary text-light-font text-givt-purple mb-0">
-            {{ accountHolderDetails.LastName }}
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="FOOTER row pb-4 pt-2">
-      <div class="w-100" [formGroup]="form">
+
+    <div bottom class="w-100" [formGroup]="form">
         <p [translate] class="text-fgivt-purple text-heavy-font m-0 text-center">
           onboardingBankAccountSigningVerifyDetailsComponent.yesNoQuestion
         </p>
         <app-check-box-input formControlName="detailsCorrect" [(loading)]="isLoading"></app-check-box-input>
       </div>
-    </div>
-  </div>
-</div>
+
+</app-custom-card>

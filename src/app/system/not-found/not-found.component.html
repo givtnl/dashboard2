@@ -1,20 +1,11 @@
-<div class="d-flex flex-column h-100">
-  <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
-    <div class="HEADER row pt-1 pb-1 justify-content-center">
-      <app-header-image class="text-center w-100 pb-4"></app-header-image>
-      <div class="circle-red justify-content-center shadow">
-        <i class="fas text-white fa-times fa-5x"></i>
-      </div>
+<app-custom-card>
+  <div body class="d-flex flex-column align-items-center">
+    <app-header-image class="text-center w-100 pb-4 mt-1"></app-header-image>
+    <div class="circle-red justify-content-center shadow mt-5">
+      <i class="fas text-white fa-times fa-5x"></i>
     </div>
-    <div class="BODY row d-flex flex-grow-1 overflow-auto">
-      <div class="text-center w-100">
-        <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
-            notFoundComponent.title</p>
-        <p class="text-givt-purple text-light-font" translate>notFoundComponent.description</p>
-      </div>
-    </div>
-    <div class="FOOTER row pb-4  pt-2 justify-content-center">
-     
-    </div>
+    <p class="introduction-title text-center text-primary text-heavy-font text-givt-purple mt-2rem" translate>
+      notFoundComponent.title</p>
+    <p class="text-center text-givt-purple text-light-font" translate>notFoundComponent.description</p>
   </div>
-</div>
+</app-custom-card>

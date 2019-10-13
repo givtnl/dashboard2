@@ -1,40 +1,26 @@
-<div class="d-flex flex-column h-100">
-    <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
-        <div class="HEADER row justify-content-center pt-5 pb-3 position-relative">
-            <div class="circle-purple justify-content-center shadow">
-                <i class="fas text-white fa-wallet fa-5x"></i>
-            </div>
-            <div class="pb-5 header-navigation-bar position-absolute w-100 top-0">
-                <div class="mr-4 float-right right-0 ml-auto">
-                    <app-questionmark 
-                    title="onboardingBankAccountIntroComponent.questionmarkTitle"
-                    text="onboardingBankAccountIntroComponent.questionmarkText"></app-questionmark>
-                </div>
-            </div>
-        </div>
-        <div class="BODY row d-flex flex-grow-1 overflow-auto">
-            <div class="text-center w-100">
-                <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
-                    onboardingBankAccountIntroComponent.title</p>
-                <p class="text-givt-purple text-light-font" translate>onboardingBankAccountIntroComponent.description
-                </p>
-            </div>
-            <ul class="w-100">
-                <li class="mb-2 text-light-font">
-                    {{'onboardingBankAccountIntroComponent.what1' | translate}}
-                </li>
-                <li class="mb-2 text-light-font">
-                    {{'onboardingBankAccountIntroComponent.what2' | translate}}
-                </li>
-            </ul>
-        </div>
-        <div class="FOOTER row pb-4 pt-2">
-            <div class="mr-0 ml-auto col-8 px-0">
-                <button [translate] (click)="startBankAccount()"
-                    class="btn float-right btn-lg bg-givt-green text-white text-heavy-font w-100 m-0">
-                    onboardingBankAccountIntroComponent.startButtonText
-                </button>
-            </div>
-        </div>
+<app-custom-card titleTranslationKey="onboardingBankAccountAddComponent.Title" [showCloseButton]="true"
+    questionMarkTitle="onboardingBankAccountIntroComponent.questionmarkTitle"
+    questionMarkText="onboardingBankAccountIntroComponent.questionmarkText" iconBackgroundClass="circle-purple"
+    icon="fas fa-wallet fa-5x">
+
+    <div body>
+        <p class="introduction-title text-primary text-heavy-font text-givt-purple text-center" translate>
+            onboardingBankAccountIntroComponent.title</p>
+        <p class="text-givt-purple text-light-font text-center" translate>
+            onboardingBankAccountIntroComponent.description
+        </p>
+        <ul class="mt-4">
+            <li class="mb-2 text-light-font">
+                {{'onboardingBankAccountIntroComponent.what1' | translate}}
+            </li>
+            <li class="mb-2 text-light-font">
+                {{'onboardingBankAccountIntroComponent.what2' | translate}}
+            </li>
+        </ul>
     </div>
-</div>
+
+    <button bottom [translate] (click)="startBankAccount()"
+        class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
+        onboardingBankAccountIntroComponent.startButtonText
+    </button>
+</app-custom-card>

@@ -35,7 +35,7 @@
     "errorMessages.sortcode-length": "Je hebt een ongeldige sort code ingevuld.\nEen sort code bestaat uit 6 tekens.",
     "errorMessages.accountnumber-required": "Gelieve je account nummer op te geven",
     "errorMessages.accountnumber-length": "Je hebt een ongeldig accountnummer ingevuld.\nEen accountnummer bestaat uit 8 tekens.",
-    "errorMessages.account-name-required": "Gelieve de naam van de rekeninghouder op te geven",
+    "errorMessages.accountname-required": "Gelieve de naam van de rekening op te geven",
     "placeholders.bankAccountNumberIBAN": "IBAN-rekeningnummer",
     "placeholders.bankAccountName": "Naam van de rekeninghouder",
     "placeholders.sortCode": "Sort code",
@@ -131,13 +131,14 @@
     "onboardingBankAccountHolderWhoComponent.iCanAuthorize": "Ik ben gemachtigd",
     "hello": "Hallo",
     "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.Title": "Controleer en pas zo nodig aan",
-    "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.NameAuthorized": "Dit is de naam van de rekeninghouder",
-    "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.buttonNext": "Gecontroleerd",
+    "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.NameAuthorized": "Hallo! Controleer je even jouw naam?",
+    "OnboardingBankAccountSigningVerifyPersonalDetailsComponent.buttonNext": "Klopt",
     "onboardingBankAccountSigningDetailsIncorrectComponent.description2": "Je mag dit venster nu sluiten.",
     "onboardingBankAccountSigningCompleteComponent.description2": "Je mag dit venster nu sluiten.",
     "action.close": "Sluiten",
     "action.goToDashboard": "Dashboard",
     "action.signout": "Uitloggen",
     "onboardingBankAccountInvitedHoldersComponent.closeButton": "Sluiten",
-    "onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch": "I have read the Direct Debit Guarantee and agree"
+    "onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch": "I have read the Direct Debit Guarantee and I agree",
+    "onboardingBankAccountSigningDirectDebitGuaranteeComponent.signLoading": "Even wachten, dit kan even duren..."
 }

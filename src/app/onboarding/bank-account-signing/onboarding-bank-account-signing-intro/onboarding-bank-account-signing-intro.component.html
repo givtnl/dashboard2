@@ -1,27 +1,16 @@
-<div class="d-flex flex-column h-100">
-    <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
-        <div class="HEADER row justify-content-center pt-5 pb-3">
-            <div class="circle-purple justify-content-center shadow">
-                <i class="fas text-white fa-file-signature fa-5x"></i>
-            </div>
-        </div>
-        <div class="BODY row d-flex flex-grow-1 overflow-auto">
-            <div class="text-center">
-                <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
-                    onboardingBankAccountSigningIntroComponent.title</p>
-                <p class="text-givt-purple text-light-font" translate>
-                    onboardingBankAccountSigningIntroComponent.description</p>
-            </div>
-        </div>
-        <div class="FOOTER row pb-4 pt-2">
-            <div class="mr-0 ml-auto col-8 px-0">
-                <a [translate]
-                    [routerLink]="['/', 'onboarding', 'bank-account-signing', { outlets: { 'onboarding-outlet': ['verify-personal-details'] } }]"
-                    queryParamsHandling="merge"
-                    class="btn float-right btn-lg bg-givt-green text-white text-heavy-font w-100 m-0">
-                    onboardingBankAccountSigningIntroComponent.nextButtonText
-                </a>
-            </div>
-        </div>
+<app-custom-card titleTranslationKey="" [showCloseButton]="true" iconBackgroundClass="circle-purple"
+    icon="fas fa-file-signature fa-4x">
+
+    <div body>
+        <p class="introduction-title text-primary text-center text-heavy-font text-givt-purple" translate>
+            onboardingBankAccountSigningIntroComponent.title</p>
+        <p class="text-givt-purple text-light-font" translate>
+            onboardingBankAccountSigningIntroComponent.description</p>
     </div>
-</div>
+
+    <a bottom [translate]
+        class="btn btn-lg align-self-end bg-givt-green text-center text-white text-heavy-font bottom-button w-75"
+        [routerLink]="['/', 'onboarding', 'bank-account-signing', { outlets: { 'onboarding-outlet': ['verify-personal-details'] } }]">
+        onboardingBankAccountSigningIntroComponent.nextButtonText
+    </a>
+</app-custom-card>

@@ -123,10 +123,18 @@ input.show-validation.ng-invalid.ng-touched{
   @extend .is-invalid;
 }
 
-.form-control {
-  border:1px solid rgba(206,212,218,0.3);
-}
-
 .cursor-pointer {
   cursor: pointer;
+}
+
+app-custom-card {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.mt-2rem {
+  margin-top: 2rem;
 }

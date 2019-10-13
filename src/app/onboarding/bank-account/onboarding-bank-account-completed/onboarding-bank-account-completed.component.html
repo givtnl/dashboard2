@@ -1,46 +1,30 @@
-<div class="d-flex flex-column h-100">
-    <div class="d-flex flex-column CONTAINER container my-auto shadow h-100 w-100">
-        <div class="HEADER row justify-content-center pt-5 pb-3">
-            <div class="circle-purple justify-content-center shadow">
-                <i class="fas text-white fa-check fa-5x"></i>
-            </div>
-        </div>
-        <div class="BODY row d-flex flex-grow-1 overflow-auto">
-            <div class="d-flex flex-column h-100 w-100">
-                <div class="text-center">
-                    <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
-                        onboardingBankAccountCompletedComponent.title</p>
-                    <p class="text-givt-purple text-light-font" translate>
-                        onboardingBankAccountCompletedComponent.description</p>
-                </div>
+<app-custom-card titleTranslationKey="onboardingBankAccountAddComponent.Title" [showCloseButton]="true"
+    iconBackgroundClass="circle-purple" icon="fas fa-check fa-5x">
 
-                <div class="d-flex flex-column information-card p-3 shadow w-100">
-                    <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
-                        onboardingBankAccountCompletedComponent.title</p>
-                    <p class="introduction-title text-primary text-light-font text-givt-purple mb-0">
-                        {{'placeholders.bankAccountName' | translate}}:
-                        {{accountName}}
-                    </p>
-                    <p class="introduction-title text-primary text-light-font text-givt-purple mb-0">
-                        {{'placeholders.sortCode' | translate}}:
-                        {{sortCode}}
-                    </p>
-                    <p class="introduction-title text-primary text-light-font text-givt-purple mb-0">
-                        {{'placeholders.accountNumber' | translate}}:
-                        {{accountNumber}}
-                    </p>
-                </div>
-
-            </div>
-        </div>
-        <div class="FOOTER row pb-4 pt-2">
-            <div class="mr-0 ml-auto col-8 px-0">
-                <a [translate]
-                    class="btn btn-lg bg-givt-green float-right text-white text-heavy-font w-100" 
-                    [routerLink]="['/', 'dashboard']">
-                    onboardingWelcomeComponent.goToDashboardText
-                </a>
-            </div>
+    <div body>
+        <p class="introduction-title text-center text-primary text-heavy-font text-givt-purple" translate>
+            onboardingBankAccountCompletedComponent.title</p>
+        <p class="text-givt-purple text-center text-light-font" translate>
+            onboardingBankAccountCompletedComponent.description</p>
+        <div class="d-flex flex-column information-card p-3 shadow w-100">
+            <p class="introduction-title text-primary text-light-font text-givt-purple mb-0">
+                {{'placeholders.bankAccountName' | translate}}:
+                {{accountName}}
+            </p>
+            <p class="introduction-title text-primary text-light-font text-givt-purple mb-0">
+                {{'placeholders.sortCode' | translate}}:
+                {{sortCode}}
+            </p>
+            <p class="introduction-title text-primary text-light-font text-givt-purple mb-0">
+                {{'placeholders.accountNumber' | translate}}:
+                {{accountNumber}}
+            </p>
         </div>
     </div>
-</div>
+
+    <a bottom [translate] class="btn btn-lg align-self-end bg-givt-green text-white text-heavy-font bottom-button w-75"
+        [routerLink]="['/', 'dashboard']">
+        onboardingWelcomeComponent.goToDashboardText
+    </a>
+
+</app-custom-card>
