@@ -1,6 +1,7 @@
-<app-custom-card titleTranslationKey="onboardingWelcomeComponent.title" [showCloseButton]="false">
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="justify-content-center w-100 h-100">
+<app-custom-card [showCloseButton]="false">
 
-  <form body autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
+  <div body>
     <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
     <p [translate]="'onboardingWelcomeComponent.title'"
       [translateParams]="{ name: stateService.currentOnboardingRequest.companyName }"
@@ -14,7 +15,7 @@
     <input formControlName="lastName" type="text" autocomplete="family-name"
       placeholder="{{ 'placeholders.lastName' | translate }}"
       class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
-  </form>
+  </div>
 
   <button bottom type="submit" [translate] [disabled]="loading"
     class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
@@ -23,6 +24,5 @@
       onboardingPersonalDetailsComponent.nextButtonText
     </span>
   </button>
-
-
 </app-custom-card>
+</form>

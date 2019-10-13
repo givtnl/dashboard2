@@ -138,3 +138,8 @@ app-custom-card {
 .mt-2rem {
   margin-top: 2rem;
 }
+
+app-header-image {
+  @extend .pt-4;
+  @extend .pb-4;
+}
