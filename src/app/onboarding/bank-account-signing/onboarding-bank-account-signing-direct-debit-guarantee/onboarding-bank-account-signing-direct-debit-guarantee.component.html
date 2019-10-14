@@ -1,25 +1,23 @@
-<form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="justify-content-center w-100 h-100">
-    <app-custom-card titleTranslationKey="onboardingBankAccountSigningDirectDebitGuaranteeComponent.title"
-        questionMarkTitle="onboardingBankAccountIntroComponent.questionmarkTitle"
-        questionMarkText="onboardingBankAccountIntroComponent.questionmarkText" [showCloseButton]="true">
-        <div body>
-            <p class="text-givt-purple text-light-font"
-                innerHTML="{{'onboardingBankAccountSigningDirectDebitGuaranteeComponent.description' | translate}}">
-            </p>
-            <div class="custom-control custom-switch">
-                <input type="checkbox" formControlName="acceptedDirectDebitGuarantee" class="custom-control-input"
-                    id="acceptedDirectDebitGuarantee" style="height:50px; width:50px;">
-                <label class="custom-control-label"
-                    for="acceptedDirectDebitGuarantee">{{'onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch' | translate}}</label>
-            </div>
+<app-custom-card titleTranslationKey="onboardingBankAccountSigningDirectDebitGuaranteeComponent.title"
+    questionMarkTitle="onboardingBankAccountIntroComponent.questionmarkTitle"
+    questionMarkText="onboardingBankAccountIntroComponent.questionmarkText" [showCloseButton]="true">
+    <div body>
+        
+        <p class="text-givt-purple text-light-font"
+            innerHTML="{{'onboardingBankAccountSigningDirectDebitGuaranteeComponent.description' | translate}}">
+        </p>
+        <div class="custom-control custom-switch">
+            <input type="checkbox" formControlName="acceptedDirectDebitGuarantee" class="custom-control-input"
+                id="acceptedDirectDebitGuarantee" style="height:50px; width:50px;">
+            <label class="custom-control-label"
+                for="acceptedDirectDebitGuarantee">{{'onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch' | translate}}</label>
         </div>
-        <button bottom (click)="handleAcceptOrRefusal()"
-            [disabled]="!form.value.acceptedDirectDebitGuarantee || loading" [translate]
-            class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
-            <span class="text-white text-heavy-font" translate>
-                <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
-                onboardingBankAccountSigningDirectDebitGuaranteeComponent.signText
-            </span>
-        </button>
-    </app-custom-card>
-</form>
+    </div>
+    <button bottom (click)="handleAcceptOrRefusal()" [disabled]="!form.value.acceptedDirectDebitGuarantee || loading"
+        [translate] class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+        <span class="text-white text-heavy-font" translate>
+            <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
+            onboardingBankAccountSigningDirectDebitGuaranteeComponent.signText
+        </span>
+    </button>
+</app-custom-card>

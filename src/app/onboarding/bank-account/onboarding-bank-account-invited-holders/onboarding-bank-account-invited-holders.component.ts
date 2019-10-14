@@ -9,7 +9,7 @@ import { BankAccountHolderListModel } from 'src/app/bank-account-holders/models/
 })
 export class OnboardingBankAccountInvitedHoldersComponent implements OnInit {
 
-  public accountHolders = new Array<BankAccountHolderListModel[]>();
+  public accountHolders = new Array<BankAccountHolderListModel>();
 
   constructor(private activatedRoute: ActivatedRoute) { }
 

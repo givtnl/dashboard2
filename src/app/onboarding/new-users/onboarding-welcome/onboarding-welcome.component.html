@@ -1,5 +1,5 @@
 <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="justify-content-center h-100 w-100">
-  <app-custom-card titleTranslationKey="onboardingWelcomeComponent.title" [showCloseButton]="false">
+  <app-custom-card [showCloseButton]="false">
 
     <div body>
       <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
@@ -17,7 +17,7 @@
       <app-password-input *ngIf="showPassword" formControlName="password"></app-password-input>
     </div>
 
-    <button bottom type="submit" [translate] class="btn btn-lg bg-givt-green text-white text-heavy-font bottom-button">
+    <button bottom type="submit" [translate] class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
       onboardingWelcomeComponent.registerButtonText
     </button>
 
