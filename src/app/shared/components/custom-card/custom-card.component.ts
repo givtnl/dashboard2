@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-custom-card',
@@ -12,17 +13,31 @@ export class CustomCardComponent {
   @Input() public showCloseButton = false;
   @Input() public icon: string;
   @Input() public iconBackgroundClass: string;
+  @Input() public showPreviousButton = false;
+
+  /**
+   *
+   */
+  constructor(private location:Location) {
+
+  }
 
   public getHeaderButtonsWidth(): number {
     let pixelSize = 0;
 
-    if (this.showCloseButton) {
+    if (this.showCloseButton || this.showPreviousButton) {
       pixelSize += 50;
     }
 
     if (this.questionMarkTitle && this.questionMarkTitle.length > 0) {
       pixelSize += 50;
     }
+
+
     return pixelSize;
+  }
+
+  public onClickPrevious():void {
+    this.location.back();
   }
 }

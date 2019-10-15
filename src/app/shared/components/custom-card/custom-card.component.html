@@ -1,6 +1,9 @@
 <div class="custom-card shadow">
     <div class="card-titlebar">
         <div class="side-col w-{{getHeaderButtonsWidth()}}px">
+            <a class="card-titlebar-button" *ngIf="showPreviousButton" (click)="onClickPrevious()">
+                <i class="fas text-givt-purple fa-arrow-left"></i>
+            </a>
         </div>
         <div class="middle-col">
             <p [translate]="titleTranslationKey" class="text-givt-purple text-center text-heavy-font p-0 m-0">
