@@ -1,0 +1,34 @@
+<div class="custom-card shadow">
+    <div class="card-titlebar">
+        <div class="side-col w-{{getHeaderButtonsWidth()}}px">
+        </div>
+        <div class="middle-col">
+            <p [translate]="titleTranslationKey" class="text-givt-purple text-center text-heavy-font p-0 m-0">
+            </p>
+        </div>
+        <div class="side-col w-{{getHeaderButtonsWidth()}}px">
+            <app-questionmark [title]="questionMarkTitle" *ngIf="questionMarkTitle" [text]="questionMarkText"
+                class="card-titlebar-button">
+            </app-questionmark>
+            <a class="card-titlebar-button" [routerLink]="['/', 'dashboard']" *ngIf="showCloseButton">
+                <i class="fas text-givt-purple fa-times"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-content">
+        <div class="card-content-inner">
+            <div class="{{iconBackgroundClass}} w-150px h-150px d-flex justify-content-center align-items-center shadow mb-5"
+                *ngIf="icon">
+                <i class="{{icon}} text-white"></i>
+            </div>
+
+            <div class="card-content-inner-content">
+                <ng-content select="[body]">
+                </ng-content>
+            </div>
+
+            <ng-content select="[bottom]">
+            </ng-content>
+        </div>
+    </div>
+</div>

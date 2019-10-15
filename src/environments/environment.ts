@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://givtapicorewindbg.azurewebsites.net'
+  apiUrl: 'https://givt-debug-api.azurewebsites.net',
+  oldDashboardUrl:'https://givtdashboarddebug.azurewebsites.net'
 };
 
 /*

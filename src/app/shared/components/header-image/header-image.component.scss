@@ -1,11 +1,11 @@
 @import "~bootstrap/scss/bootstrap";
 
 svg {
-    width: 33%;
+    width: 40%;
 }
 
 @include media-breakpoint-up(sm) {
     svg {
-        width: 33%;
+        width: 40%;
     }
 }

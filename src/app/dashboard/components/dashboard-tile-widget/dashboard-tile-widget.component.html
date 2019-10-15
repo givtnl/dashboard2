@@ -1,0 +1,16 @@
+<div class="card border-radius-40 widget-background-1" (click)="tileClick($event)">
+  <div class="row no-gutters">
+    <div class="col-8">
+      <div class="card-body">
+        <div class="card-title text-white-50" *ngIf="icon"><i [class]="icon"></i></div>
+        <h5 class="card-title" *ngIf="title">{{ title }}</h5>
+        <div *ngIf="footer" class="card-footer border-0 bg-transparent px-0">
+          {{ footer }}
+        </div>
+      </div>
+    </div>
+    <div class="col-4 align-self-end" *ngIf="image">
+      <img class="card-img " [src]="image" />
+    </div>
+  </div>
+</div>

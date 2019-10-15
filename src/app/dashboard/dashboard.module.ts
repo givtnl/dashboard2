@@ -4,14 +4,19 @@ import { DashboardHomeComponent } from './dashboard-home/dashboard-home.componen
 import { SharedModule } from '../shared/shared.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardRootComponent } from './dashboard-root/dashboard-root.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardCompleteAccountWidgetComponent } from './components/dashboard-complete-account-widget/dashboard-complete-account-widget.component';
+import { DashboardTileWidgetComponent } from './components/dashboard-tile-widget/dashboard-tile-widget.component';
+import { DashboardLinkButtonComponent } from './components/dashboard-link-button/dashboard-link-button.component';
 
 
 
 @NgModule({
-  declarations: [ DashboardHomeComponent, DashboardRootComponent],
+  declarations: [ DashboardHomeComponent, DashboardRootComponent, DashboardCompleteAccountWidgetComponent,  DashboardTileWidgetComponent, DashboardLinkButtonComponent],
   imports: [
     DashboardRoutingModule,
     CommonModule,
+    ReactiveFormsModule,
     SharedModule
   ]
 })

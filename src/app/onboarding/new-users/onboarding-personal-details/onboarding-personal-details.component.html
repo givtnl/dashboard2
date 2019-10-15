@@ -1,0 +1,28 @@
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="justify-content-center w-100 h-100">
+<app-custom-card [showCloseButton]="false">
+
+  <div body>
+    <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
+    <p [translate]="'onboardingWelcomeComponent.title'"
+      [translateParams]="{ name: stateService.currentOnboardingRequest.companyName }"
+      class="introduction-title text-primary text-light-font text-givt-purple text-center mt-4"></p>
+    <p translate class="text-givt-purple text-heavy-font text-center">
+      onboardingPersonalDetailsComponent.title
+    </p>
+    <input formControlName="firstName" type="text" autocomplete="given-name"
+      placeholder="{{ 'placeholders.firstName' | translate }}"
+      class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
+    <input formControlName="lastName" type="text" autocomplete="family-name"
+      placeholder="{{ 'placeholders.lastName' | translate }}"
+      class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
+  </div>
+
+  <button bottom type="submit" [translate] [disabled]="loading"
+    class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
+    <span class="text-white text-heavy-font" translate>
+      <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
+      onboardingPersonalDetailsComponent.nextButtonText
+    </span>
+  </button>
+</app-custom-card>
+</form>

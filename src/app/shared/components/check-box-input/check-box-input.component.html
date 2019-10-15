@@ -1,0 +1,9 @@
+<div class="btn text-heavy-font btn-block btn-group p-0 mb-3">
+    <div class="loader-overlay" *ngIf="loading">
+        <i class="fas fa-spinner fa-spin fa-2x"></i>
+    </div>
+    <button [disabled]="disabled" type="button" (click)="setValue(false)" [class.active]="isFalseValue()"
+        class="btn text-givt-purple btn-lg btn-givt" translate>buttonNo</button>
+    <button [disabled]="disabled" type="button" (click)="setValue(true)" [class.active]="isTrueValue()"
+        class="btn text-givt-purple ml-2 btn-lg btn-givt btn-givt-green" translate>buttonYes</button>
+</div>

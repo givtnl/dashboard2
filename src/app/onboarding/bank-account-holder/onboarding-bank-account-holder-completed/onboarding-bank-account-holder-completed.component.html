@@ -1,0 +1,16 @@
+<app-custom-card titleTranslationKey="" [showCloseButton]="false"
+    iconBackgroundClass="circle-orange" icon="fas fa-check fa-5x">
+
+    <div body>
+        <p class="introduction-title text-primary text-heavy-font text-center text-givt-purple" translate>
+            onboardingBankAccountHolderCompletedComponent.title</p>
+        <p class="text-givt-purple text-light-font text-center" translate>
+            onboardingBankAccountHolderCompletedComponent.description</p>
+    </div>
+
+    <a bottom [translate] class="btn btn-lg align-self-end bg-givt-green text-white text-heavy-font bottom-button w-75"
+        [routerLink]="['/', 'dashboard']">
+        onboardingWelcomeComponent.goToDashboardText
+    </a>
+
+</app-custom-card>

@@ -3,9 +3,6 @@
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins';
 
-.sidebar-sticky {
-  border-top-right-radius: 35%;
-}
 .flex-column .active {
   border-left: 5px solid theme-color('success');
 }
@@ -14,12 +11,9 @@ img {
   margin-left: -5px;
 }
 
-.sidebar-sticky {
-  height: 100%;
-  //fix when using in mobile, for our backdrop
-  margin-left: -1px;
-  border-top-right-radius: 50px;
-}
+
+
+
 .image-holder img {
   height: 50px;
 }

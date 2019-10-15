@@ -1,0 +1,133 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+@include media-breakpoint-up(sm) {
+  .custom-card {
+    height: 631px !important;
+    width: 554px !important;
+    border-radius: 2rem !important;
+  }
+
+  .information-card-big {
+    flex-direction: row !important;
+  }
+
+  .information-card-left {
+    padding-bottom: unset !important;
+  }
+
+  .information-card-right {
+    border-left: #ffffff 2px solid;
+    padding-left: 1.5rem !important;
+    border-top: unset !important;
+    padding-top: unset !important;
+  }
+}
+
+.component-container {
+  height: 100%;
+  @extend .center-xy;
+}
+
+.custom-card {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  height: 100%;
+  width: 100%;
+
+  // background: var(--background-grey);
+  // background-image: linear-gradient(to bottom right,var(--background-grey)  , white);
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/var(--background-grey)+0,f5f5f5+50,ffffff+51,ffffff+100 */
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/var(--background-grey)+0,f5f5f5+50,ffffff+51,ffffff+100 */
+  background: var(--background-grey); /* Old browsers */
+  background: -moz-linear-gradient(
+    -180deg,
+    var(--background-grey) 0%,
+    var(--background-grey) 25%,
+    #ffffff 26%,
+    #ffffff 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    -180deg,
+    var(--background-grey) 0%,
+    var(--background-grey) 25%,
+    #ffffff 26%,
+    #ffffff 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    177deg,
+    var(--background-grey) 0%,
+    var(--background-grey) 25%,
+    #ffffff 26%,
+    #ffffff 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--background-grey)', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.card-titlebar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+
+  margin-bottom: 0.5rem;
+}
+
+.card-content {
+  overflow-y: auto;
+  height: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content-header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+.card-content-body {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column
+}
+
+.card-content-footer {
+  margin-top: 0.5rem;
+}
+
+.submitted {
+  border-color: red;
+}
+
+.scrollable-area {
+  overflow-y: auto
+}
+
+.center-xy {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.circle-red { 
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#41c98e+87,f4bf63+100 */
+    background: red; /* Old browsers */
+    background: -moz-linear-gradient(45deg, red 30%, #f4bf63 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, red 30%,#f4bf63 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, red 30%,#f4bf63 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='red', endColorstr='#f4bf63',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    display:flex;
+    align-items:center;
+}

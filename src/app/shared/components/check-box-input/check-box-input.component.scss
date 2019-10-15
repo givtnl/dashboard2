@@ -1,0 +1,31 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "src/styles.scss";
+
+.btn-givt:hover:not(:disabled),
+.btn-givt.active {
+  @extend .bg-givt-purple !optional;
+  color: white !important;
+}
+
+.btn-givt-green:hover:not(:disabled),
+.btn-givt-green.active {
+  @extend .bg-givt-green !optional;
+}
+
+.btn-givt:disabled {
+  cursor: not-allowed;
+}
+
+.loader-overlay {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: rgba(255, 255, 255, 0.65);
+  justify-content: center;
+  i {
+    align-self: center;
+  }
+}

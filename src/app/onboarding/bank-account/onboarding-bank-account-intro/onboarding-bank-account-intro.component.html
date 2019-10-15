@@ -1,0 +1,26 @@
+<app-custom-card titleTranslationKey="onboardingBankAccountAddComponent.Title" [showCloseButton]="true"
+    questionMarkTitle="onboardingBankAccountIntroComponent.questionmarkTitle"
+    questionMarkText="onboardingBankAccountIntroComponent.questionmarkText" iconBackgroundClass="circle-purple"
+    icon="fas fa-wallet fa-5x">
+
+    <div body>
+        <p class="introduction-title text-primary text-heavy-font text-givt-purple text-center" translate>
+            onboardingBankAccountIntroComponent.title</p>
+        <p class="text-givt-purple text-light-font text-center" translate>
+            onboardingBankAccountIntroComponent.description
+        </p>
+        <ul class="mt-4">
+            <li class="mb-2 text-light-font">
+                {{'onboardingBankAccountIntroComponent.what1' | translate}}
+            </li>
+            <li class="mb-2 text-light-font">
+                {{'onboardingBankAccountIntroComponent.what2' | translate}}
+            </li>
+        </ul>
+    </div>
+
+    <button bottom [translate] (click)="startBankAccount()"
+        class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
+        onboardingBankAccountIntroComponent.startButtonText
+    </button>
+</app-custom-card>

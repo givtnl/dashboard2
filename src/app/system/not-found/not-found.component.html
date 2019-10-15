@@ -1,20 +1,11 @@
-
-
-<div class="container onboarding-container align-self-center">
-        <div class="onboarding-wrapper">
-          <div class="onboarding-header mt-5">
-            <app-header-image></app-header-image>
-          </div>
-          <div class="onboarding-body">
-                <div class="error-circle justify-content-center">
-                        <i class="fas text-white   fa-times fa-7x"></i>
-                    </div>
-                    <p translate>notFoundComponent.title</p>
-                    <p translate>notFoundComponent.description</p>
-          </div>
-        </div>
-        <div class="onboarding-footer">
-          
-        </div>
-      </div>
-    
+<app-custom-card>
+  <div body class="d-flex flex-column align-items-center">
+    <app-header-image class="text-center w-100 pb-4 mt-1"></app-header-image>
+    <div class="circle-red justify-content-center shadow mt-5">
+      <i class="fas text-white fa-times fa-5x"></i>
+    </div>
+    <p class="introduction-title text-center text-primary text-heavy-font text-givt-purple mt-2rem" translate>
+      notFoundComponent.title</p>
+    <p class="text-center text-givt-purple text-light-font" translate>notFoundComponent.description</p>
+  </div>
+</app-custom-card>

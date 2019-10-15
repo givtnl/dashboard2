@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
+import { ApplicationStateService } from './application-state.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -9,7 +10,9 @@ import { Observable } from 'rxjs';
 export class BackendService {
 	protected baseUrl: String;
 
-	constructor(private http: HttpClient) {
+	public currentUser = this.applicationStateService.currentUserModel;
+
+	constructor(private http: HttpClient, private applicationStateService: ApplicationStateService) {
 		this.baseUrl = environment.apiUrl + '/api/';
     }
     
@@ -18,8 +21,15 @@ export class BackendService {
 			params
 		});
     }
+	public put<T>(path: string, body: Object): Observable<T> {
+		return this.http.put<T>(`${this.baseUrl}${path}`, body);
+	}
 
 	public post<T>(path: string, body: Object): Observable<T> {
 		return this.http.post<T>(`${this.baseUrl}${path}`, body);
+	}
+
+	public patch<T>(path:string, body: Object = null): Observable<T>{
+		return this.http.patch<T>(`${this.baseUrl}${path}`, body);
 	}
 }

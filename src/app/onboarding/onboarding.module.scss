@@ -1,0 +1,74 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+@include media-breakpoint-up(sm) {
+  .information-card-big {
+    flex-direction: row !important;
+  }
+
+  .information-card-left {
+    padding-bottom: unset !important;
+  }
+
+  .information-card-right {
+    border-left: #ffffff 2px solid;
+    padding-left: 1.5rem !important;
+    border-top: unset !important;
+    padding-top: unset !important;
+  }
+}
+
+app-custom-card {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.information-card {
+  background-color: var(--background-grey);
+  border-radius: 0.3rem;
+}
+
+.information-card-right {
+  border-top: #ffffff 2px solid;
+}
+
+.bottom-button {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.confetti {
+  background-image: url('../../assets/images/confetti.svg');
+}
+
+
+.top-0 {
+  top: 0;
+}
+
+.lh-1 {
+  line-height: 1rem;
+}
+
+.circle-green { 
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#41c98e+87,f4bf63+100 */
+  background: #41C98E; /* Old browsers */
+  background: -moz-linear-gradient(45deg, #41C98E 30%, #f4bf63 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #41C98E 30%,#f4bf63 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #41C98E 30%,#f4bf63 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#41c98e', endColorstr='#f4bf63',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  display:flex;
+  align-items:center;
+}
