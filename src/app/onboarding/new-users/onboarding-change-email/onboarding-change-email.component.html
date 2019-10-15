@@ -1,5 +1,5 @@
 <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="justify-content-center w-100 h-100">
-  <app-custom-card [showCloseButton]="false">
+  <app-custom-card [showCloseButton]="false" [showPreviousButton]="true">
     <div body>
       <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
       <p [translate]="'onboardingWelcomeComponent.title'"
