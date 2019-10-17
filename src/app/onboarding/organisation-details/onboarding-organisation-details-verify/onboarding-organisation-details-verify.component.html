@@ -36,12 +36,15 @@
             <br>
             <p class="text-primary text-light-font text-givt-purple mb-0">
                 {{ 'onboardingOrganisationDetailsVerifyComponent.Trustee' | translate }}
-                {{ organisationDetails.trustee.trusteeName }} - {{ organisationDetails.trustee.trusteeNumber }}
+            </p>
+            <p *ngFor="let trustee of organisationDetails.trustees"
+                class="text-primary text-light-font text-givt-purple mb-0">
+                {{ trustee.trusteeName }} - {{ trustee.trusteeNumber }}
             </p>
         </div>
     </div>
 
-    <div bottom class="w-100" [formGroup]="form">
+    <div bottom class=" w-100" [formGroup]="form">
         <p [translate] class="text-fgivt-purple text-heavy-font m-0 text-center">
             onboardingBankAccountSigningVerifyDetailsComponent.yesNoQuestion
         </p>

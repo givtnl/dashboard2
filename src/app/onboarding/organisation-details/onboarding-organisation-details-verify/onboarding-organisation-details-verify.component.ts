@@ -32,10 +32,10 @@ export class OnboardingOrganisationDetailsVerifyComponent implements OnInit {
       },
       phoneNumber: "123123123123",
       email: "info@givtapp.net",
-      trustee: {
+      trustees: [{
         trusteeName: "JOnas",
         trusteeNumber: 1337
-      }
+      }]
     }
     this.form = this.formBuilder.group({
       detailsCorrect: [null, [Validators.required]]
@@ -66,7 +66,7 @@ export interface CharityCommissionDetailModel {
   address: CharityCommissionAddress
   phoneNumber: string
   email: string
-  trustee: CharityCommissionTrustee
+  trustees: CharityCommissionTrustee[]
   isSuspended?: boolean
 }
 
