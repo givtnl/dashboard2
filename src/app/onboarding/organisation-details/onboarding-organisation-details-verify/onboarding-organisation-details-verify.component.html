@@ -1,1 +1,44 @@
-<p>onboarding-organisation-details-verify works!</p>
+<app-custom-card titleTranslationKey="onboardingOrganisationDetailsVerifyComponent.title" [showCloseButton]="true"
+    iconBackgroundClass="circle-purple" icon="fas fa-newspaper fa-5x">
+
+    <div body>
+        <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">
+            <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
+                onboardingOrganisationDetailsVerifyComponent.orgDetails
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                {{ organisationDetails.CharityNumber }}
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                {{ organisationDetails.CharityName }}
+            </p>
+            <br />
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                {{ organisationDetails.Address }}
+            </p>
+            <br />
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                {{ organisationDetails.PhoneNumber }}
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                {{ organisationDetails.Email }}
+            </p>
+            <br>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                {{ organisationDetails.TrusteeName }}
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                {{ organisationDetails.TrusteeNumber }}
+            </p>
+
+        </div>
+    </div>
+
+    <div bottom class="w-100" [formGroup]="form">
+        <p [translate] class="text-fgivt-purple text-heavy-font m-0 text-center">
+            onboardingBankAccountSigningVerifyDetailsComponent.yesNoQuestion
+        </p>
+        <app-check-box-input formControlName="detailsCorrect" [(loading)]="loading"></app-check-box-input>
+    </div>
+
+</app-custom-card>
