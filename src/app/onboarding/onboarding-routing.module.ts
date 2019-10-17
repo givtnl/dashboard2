@@ -38,6 +38,11 @@ import { OnboardingBankAccountInvitedHoldersResolver } from './bank-account/reso
 import { OnboardingBankAccountSigningVerifyPersonalDetailsComponent } from './bank-account-signing/onboarding-bank-account-signing-verify-personal-details/onboarding-bank-account-signing-verify-personal-details.component';
 import { OnboardingCompletedComponent } from './new-users/onboarding-completed/onboarding-completed.component';
 import { OnboardingUserRegistrationOrganisationResolver } from './new-users/resolvers/onboarding-user-registration-organisation.resolver';
+import { OnboardingOrganisationDetailsIntroComponent } from './organisation-details/onboarding-organisation-details-intro/onboarding-organisation-details-intro.component';
+import { OnboardingOrganisationDetailsCharityNumberComponent } from './organisation-details/onboarding-organisation-details-charity-number/onboarding-organisation-details-charity-number.component';
+import { OnboardingOrganisationDetailsVerifyComponent } from './organisation-details/onboarding-organisation-details-verify/onboarding-organisation-details-verify.component';
+import { OnboardingOrganisationDetailsCompleteComponent } from './organisation-details/onboarding-organisation-details-complete/onboarding-organisation-details-complete.component';
+import { OnboardingOrganisationDetailsIncorrectComponent } from './organisation-details/onboarding-organisation-details-incorrect/onboarding-organisation-details-incorrect.component';
 
 const routes: Routes = [
   {
@@ -50,7 +55,10 @@ const routes: Routes = [
       {
         path: 'new-users',
         component: OnboardingRootComponent,
-        resolve: { request: OnboardingRequestResolver, preparation: OnboardingUserRegistrationPreparationResolver },
+        resolve: {
+          request: OnboardingRequestResolver,
+          preparation: OnboardingUserRegistrationPreparationResolver
+        },
         canActivate: [OnboardingGuard],
         children: [
           {
@@ -78,8 +86,9 @@ const routes: Routes = [
             component: OnboardingCompletedComponent,
             outlet: 'onboarding-outlet',
             canActivate: [OnboardingCompleteCheckSuccessGuard],
-            resolve:{organisation: OnboardingUserRegistrationOrganisationResolver}
-            
+            resolve: {
+              organisation: OnboardingUserRegistrationOrganisationResolver
+            }
           },
           {
             path: 'change-email',
@@ -88,6 +97,37 @@ const routes: Routes = [
           }
         ]
       }
+    ]
+  },
+  {
+    path: 'organisation-details',
+    component: OnboardingRootComponent,
+    children: [
+      {
+        path: '',
+        outlet: 'onboarding-outlet',
+        component: OnboardingOrganisationDetailsIntroComponent
+      },
+      {
+        path: 'charity-number',
+        outlet: 'onboarding-outlet',
+        component: OnboardingOrganisationDetailsCharityNumberComponent
+      },
+      {
+        path: 'check-details',
+        outlet: 'onboarding-outlet',
+        component: OnboardingOrganisationDetailsVerifyComponent
+      },
+      {
+        path: 'complete',
+        outlet: 'onboarding-outlet',
+        component: OnboardingOrganisationDetailsCompleteComponent
+      },
+      {
+        path: 'incorrect',
+        outlet: 'onboarding-outlet',
+        component: OnboardingOrganisationDetailsIncorrectComponent
+      },
     ]
   },
   {
