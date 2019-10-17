@@ -17,7 +17,12 @@
             <br />
             <p class="text-primary text-light-font text-givt-purple mb-0">
                 {{ 'onboardingOrganisationDetailsVerifyComponent.Address' | translate }}
-                {{ organisationDetails.address }}
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                {{ organisationDetails.address.street }} <br />
+                {{ organisationDetails.address.locality }} <br />
+                {{ organisationDetails.address.locality2 }} <br />
+                {{ organisationDetails.address.postCode }} <br />
             </p>
             <br />
             <p class="text-primary text-light-font text-givt-purple mb-0">
@@ -31,12 +36,8 @@
             <br>
             <p class="text-primary text-light-font text-givt-purple mb-0">
                 {{ 'onboardingOrganisationDetailsVerifyComponent.Trustee' | translate }}
-                {{ organisationDetails.trustee.trusteeName }}
+                {{ organisationDetails.trustee.trusteeName }} - {{ organisationDetails.trustee.trusteeNumber }}
             </p>
-            <p class="text-primary text-light-font text-givt-purple mb-0">
-                {{ organisationDetails.trustee.trusteeNumber }}
-            </p>
-
         </div>
     </div>
 
