@@ -5,13 +5,13 @@
         iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
         <div body>
             <p [translate]="'onboardingOrganisationDetailsCharityNumberComponent.requestCharityNumber'"
-                class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></p>
+                class="introduction-title text-primary text-light-font text-givt-purple mt-3"></p>
 
             <input type="text" placeholder="{{ 'placeholders.charityNumber' | translate }}"
                 formControlName="charityNumber" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
             <p [translate]="'onboardingOrganisationDetailsCharityNumberComponent.explanation'"
-                class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></p>
+                class="text-primary text-light-font text-givt-purple text-center mt-3"></p>
         </div>
         <button bottom type="submit" [translate] [disabled]="loading"
             class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
