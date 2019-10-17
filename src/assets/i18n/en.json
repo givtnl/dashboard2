@@ -160,5 +160,11 @@
     "onboardingOrganisationDetailsCharityNumberComponent.explanation": "We will request your public organisation information",
     "onboardingOrganisationDetailsCharityNumberComponent.nextButtonText": "Next",
     "errorMessages.charity-number-required": "Please enter your charity number",
-    "placeholders.charityNumber": "Charity Number"
+    "placeholders.charityNumber": "Charity Number",
+    "onboardingOrganisationDetailsVerifyComponent.CharityNumber": "Charity Number:",
+    "onboardingOrganisationDetailsVerifyComponent.CharityName": "Charity Name:",
+    "onboardingOrganisationDetailsVerifyComponent.Address": "Address:",
+    "onboardingOrganisationDetailsVerifyComponent.PhoneNumber": "Phone number:",
+    "onboardingOrganisationDetailsVerifyComponent.Email": "E-mail:",
+    "onboardingOrganisationDetailsVerifyComponent.Trustee": "Trustee:"
 }
