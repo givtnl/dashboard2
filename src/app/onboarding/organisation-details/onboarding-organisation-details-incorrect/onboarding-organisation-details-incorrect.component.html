@@ -1,1 +1,16 @@
-<p>onboarding-organisation-details-incorrect works!</p>
+<app-custom-card titleTranslationKey="" [showCloseButton]="false" iconBackgroundClass="circle-purple"
+    icon="fas fa-times fa-5x">
+
+    <div body class="text-center">
+        <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
+            onboardingOrganisationDetailsIncorrectComponent.title</p>
+        <p class="text-givt-purple text-light-font" translate>
+                onboardingOrganisationDetailsIncorrectComponent.description</p>
+    </div>
+
+    <button bottom [translate] (click)="close()"
+        class="btn btn-lg bg-givt-green text-white text-heavy-font bottom-button w-100">
+        onboardingOrganisationDetailsIncorrectComponent.finalActionText
+    </button>
+
+</app-custom-card>

@@ -12,4 +12,8 @@ export class OnboardingOrganisationDetailsIncorrectComponent implements OnInit {
   ngOnInit() {
   }
 
+  close() {
+    
+  }
+
 }
