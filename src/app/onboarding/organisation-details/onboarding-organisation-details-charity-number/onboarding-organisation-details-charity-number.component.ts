@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-onboarding-organisation-details-charity-number',
@@ -9,11 +9,14 @@ import { FormGroup } from '@angular/forms';
 export class OnboardingOrganisationDetailsCharityNumberComponent implements OnInit {
   public form: FormGroup
   public loading: false
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.form = this.formBuilder.group({
+      charityNumber: [null, [Validators.required]]
+    });
   }
   submit() {
-    
+
   }
 }
