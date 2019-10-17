@@ -102,6 +102,7 @@ const routes: Routes = [
   {
     path: 'organisation-details',
     component: OnboardingRootComponent,
+    canActivate: [AuthenticationGuard],
     children: [
       {
         path: '',
