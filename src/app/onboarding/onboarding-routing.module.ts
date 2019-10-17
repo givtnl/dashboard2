@@ -102,7 +102,6 @@ const routes: Routes = [
   {
     path: 'organisation-details',
     component: OnboardingRootComponent,
-        resolve: { bankaccount: OnboardingBankAccountRegistrationResolver },
     children: [
       {
         path: '',
