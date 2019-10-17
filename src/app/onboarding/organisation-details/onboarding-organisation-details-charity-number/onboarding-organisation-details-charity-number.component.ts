@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Observable, forkJoin } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import { tap, switchMap } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-onboarding-organisation-details-charity-number',
@@ -9,7 +14,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class OnboardingOrganisationDetailsCharityNumberComponent implements OnInit {
   public form: FormGroup
   public loading: false
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService,
+    private translationService: TranslateService,
+    private router: Router) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -17,6 +26,32 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
     });
   }
   submit() {
+    if (this.form.invalid) {
+      this.handleInvalidForm();
+      return;
+    }
+    this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['check-details'] } }])
+  }
+  handleInvalidForm() {
+    let errorMessages = new Array<Observable<string>>();
+    let resolvedErrorMessages = new Array<string>();
 
+    const charityNumberErrors = this.form.get('charityNumber').errors;
+
+    if (charityNumberErrors) {
+      if (charityNumberErrors.required) {
+        errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+      }
+    }
+
+    forkJoin(errorMessages)
+      .pipe(tap(results => (resolvedErrorMessages = results)))
+      .pipe(tap(results => console.log(results)))
+      .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+      .subscribe(title =>
+        this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
+          enableHtml: true
+        })
+      );
   }
 }
