@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
-import { GetCharityDetailsFromCommisionResponseModel } from '../models/GetCharityDetailsFromCommisionResponseModel';
+import { GetCharityDetailsFromCommisionResponseModel } from '../models/onboarding-organisation-details-charity-response-model';
 
 @Component({
   selector: 'app-onboarding-organisation-details-verify',
@@ -48,27 +48,4 @@ export class OnboardingOrganisationDetailsVerifyComponent implements OnInit {
     });
   }
 
-}
-
-
-export interface CharityCommissionDetailModel {
-  charityNumber: number
-  charityName: string
-  address: CharityCommissionAddress
-  phoneNumber: string
-  email: string
-  trustees: CharityCommissionTrustee[]
-  isSuspended?: boolean
-}
-
-export interface CharityCommissionAddress {
-  locality: string
-  street: string
-  locality2: string
-  postCode: string
-}
-
-export interface CharityCommissionTrustee {
-  trusteeNumber: number
-  trusteeName: string
 }

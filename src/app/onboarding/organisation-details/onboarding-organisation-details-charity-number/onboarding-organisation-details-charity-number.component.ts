@@ -32,7 +32,7 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
       this.handleInvalidForm();
       return;
     }
-    this.stateService.currentCharityNumber = this.form.get('charityNumber').value
+    this.stateService.currentCharityNumber = this.form.value.charityNumber;
 
     this.loading = true;
     this.router

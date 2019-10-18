@@ -23,10 +23,8 @@ export class OnboardingOrganisationDetailsFetchdataGuard implements CanActivate 
       var charityNumber = this.onboardingOrganisationDetailsStateService.currentCharityNumber
       if (!isNullOrUndefined(charityNumber)) {
         const createdResponse = await this.onboardingOrganisationDetailsService.get(charityNumber).toPromise();
-        if (!isNullOrUndefined(createdResponse)) {
-          this.onboardingOrganisationDetailsStateService.currentOrganisationCharityCommisionModel = createdResponse
-          retVal = true
-        }
+        this.onboardingOrganisationDetailsStateService.currentOrganisationCharityCommisionModel = createdResponse
+        retVal = true
       }
     } catch (error) {
       console.log(error)

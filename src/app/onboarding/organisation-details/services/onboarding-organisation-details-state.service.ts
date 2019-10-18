@@ -1,8 +1,8 @@
-import { GetCharityDetailsFromCommisionResponseModel } from '../models/GetCharityDetailsFromCommisionResponseModel';
+import { GetCharityDetailsFromCommisionResponseModel } from '../models/onboarding-organisation-details-charity-response-model';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class OnboardingOrganisationDetailsStateService {
   private storage = sessionStorage;
@@ -18,7 +18,7 @@ export class OnboardingOrganisationDetailsStateService {
   }
 
   public get currentCharityNumber(): number {
-    return Number(this.storage.getItem("currentCharityNumber"));
+    return +this.storage.getItem("currentCharityNumber");
   }
   public set currentCharityNumber(charityNumber: number) {
     this.storage.setItem("currentCharityNumber", charityNumber.toString());
