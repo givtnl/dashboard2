@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { tap, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
 
 @Component({
   selector: 'app-onboarding-organisation-details-charity-number',
@@ -13,12 +14,13 @@ import { Router } from '@angular/router';
 })
 export class OnboardingOrganisationDetailsCharityNumberComponent implements OnInit {
   public form: FormGroup
-  public loading: false
+  public loading = false
   constructor(
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private translationService: TranslateService,
-    private router: Router) { }
+    private router: Router,
+    private stateService: OnboardingOrganisationDetailsStateService) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -30,7 +32,12 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
       this.handleInvalidForm();
       return;
     }
-    this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['check-details'] } }])
+    this.stateService.currentCharityNumber = this.form.get('charityNumber').value
+
+    this.loading = true;
+    this.router
+      .navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['check-details'] } }])
+      .finally(() => (this.loading = false));
   }
   handleInvalidForm() {
     let errorMessages = new Array<Observable<string>>();
