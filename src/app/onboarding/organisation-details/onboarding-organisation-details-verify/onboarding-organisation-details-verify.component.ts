@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
+import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
+import { GetCharityDetailsFromCommisionResponseModel } from '../models/GetCharityDetailsFromCommisionResponseModel';
 
 @Component({
   selector: 'app-onboarding-organisation-details-verify',
@@ -11,35 +13,24 @@ import { Router } from '@angular/router';
 export class OnboardingOrganisationDetailsVerifyComponent implements OnInit {
   public form: FormGroup
   public loading = false
-  public organisationDetails: CharityCommissionDetailModel
+  public organisationDetails: GetCharityDetailsFromCommisionResponseModel
   constructor(
     private formBuilder: FormBuilder,
     private translateService: TranslateService,
-    private router: Router
+    private router: Router,
+    private stateService: OnboardingOrganisationDetailsStateService
   ) { }
 
 
 
   ngOnInit() {
-    this.organisationDetails = {
-      charityNumber: 123123123,
-      charityName: "Givt Charity",
-      address: {
-        locality: "Givt Baptist Church",
-        street: "123 MILEMEEMESTRT",
-        locality2: "GIVT",
-        postCode: "8501"
-      },
-      phoneNumber: "123123123123",
-      email: "info@givtapp.net",
-      trustees: [{
-        trusteeName: "JOnas",
-        trusteeNumber: 1337
-      }]
-    }
+
     this.form = this.formBuilder.group({
       detailsCorrect: [null, [Validators.required]]
     });
+
+    this.organisationDetails = this.stateService.currentOrganisationCharityCommisionModel
+
     this.form.valueChanges.subscribe(x => {
       if (x.detailsCorrect) {
         this.router.navigate(

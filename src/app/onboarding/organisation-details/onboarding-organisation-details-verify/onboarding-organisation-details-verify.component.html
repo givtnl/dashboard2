@@ -8,38 +8,41 @@
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">
                 {{ 'onboardingOrganisationDetailsVerifyComponent.CharityNumber' | translate}}
-                {{ organisationDetails.charityNumber }}
+                {{ organisationDetails.CharityNumber }}
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">
                 {{ 'onboardingOrganisationDetailsVerifyComponent.CharityName' | translate }}
-                {{ organisationDetails.charityName }}
+                {{ organisationDetails.CharityName }}
             </p>
             <br />
             <p class="text-primary text-light-font text-givt-purple mb-0">
                 {{ 'onboardingOrganisationDetailsVerifyComponent.Address' | translate }}
             </p>
-            <p class="text-primary text-light-font text-givt-purple mb-0">
-                {{ organisationDetails.address.street }} <br />
-                {{ organisationDetails.address.locality }} <br />
-                {{ organisationDetails.address.locality2 }} <br />
-                {{ organisationDetails.address.postCode }} <br />
+            <p class="text-primary text-light-font text-givt-purple mb-0">{{ organisationDetails.Address.Street }}
             </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">{{ organisationDetails.Address.Locality }}
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">{{ organisationDetails.Address.Locality2 }}
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">{{ organisationDetails.Address.PostCode }}
+            </p>
+
             <br />
             <p class="text-primary text-light-font text-givt-purple mb-0">
                 {{ 'onboardingOrganisationDetailsVerifyComponent.PhoneNumber' | translate }}
-                {{ organisationDetails.phoneNumber }}
+                {{ organisationDetails.PhoneNumber }}
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">
                 {{ 'onboardingOrganisationDetailsVerifyComponent.Email' | translate }}
-                {{ organisationDetails.email }}
+                {{ organisationDetails.Email }}
             </p>
             <br>
             <p class="text-primary text-light-font text-givt-purple mb-0">
                 {{ 'onboardingOrganisationDetailsVerifyComponent.Trustee' | translate }}
             </p>
-            <p *ngFor="let trustee of organisationDetails.trustees"
+            <p *ngFor="let trustee of organisationDetails.Trustees"
                 class="text-primary text-light-font text-givt-purple mb-0">
-                {{ trustee.trusteeName }} - {{ trustee.trusteeNumber }}
+                {{ trustee.TrusteeName }} - {{ trustee.TrusteeNumber }}
             </p>
         </div>
     </div>
