@@ -14,14 +14,14 @@ export class OnboardingOrganisationDetailsVerifyComponent implements OnInit {
   public form: FormGroup
   public loading = false
   public organisationDetails: GetCharityDetailsFromCommisionResponseModel
+  public charityNumber: number;
+
   constructor(
     private formBuilder: FormBuilder,
     private translateService: TranslateService,
     private router: Router,
     private stateService: OnboardingOrganisationDetailsStateService
   ) { }
-
-
 
   ngOnInit() {
 
@@ -30,7 +30,7 @@ export class OnboardingOrganisationDetailsVerifyComponent implements OnInit {
     });
 
     this.organisationDetails = this.stateService.currentOrganisationCharityCommisionModel
-
+    this.charityNumber = this.stateService.currentCharityNumber
     this.form.valueChanges.subscribe(x => {
       if (x.detailsCorrect) {
         this.router.navigate(

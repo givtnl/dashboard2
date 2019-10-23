@@ -1,6 +1,7 @@
 export interface CharityAddress {
+    Address: string;
     Locality: string;
-    Street: string;
-    Locality2: string;
-    PostCode: string;
+    City: string;
+    PostalCode: string;
+    Country: string;
 }

@@ -11,4 +11,8 @@ export class OnboardingOrganisationDetailsService {
   get(charityNumber: number): Observable<GetCharityDetailsFromCommisionResponseModel> {
     return this.backendService.get<GetCharityDetailsFromCommisionResponseModel>(`v2/charities/${charityNumber}`);
   }
+  post(charityNumber: number, charityDetails: GetCharityDetailsFromCommisionResponseModel) {
+    //todo: add body to post
+    return this.backendService.get<GetCharityDetailsFromCommisionResponseModel>(`v2/charities/${charityNumber}`)
+  }
 }
