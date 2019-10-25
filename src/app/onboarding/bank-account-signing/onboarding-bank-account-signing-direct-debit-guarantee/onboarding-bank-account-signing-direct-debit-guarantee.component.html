@@ -2,7 +2,7 @@
     questionMarkTitle="onboardingBankAccountIntroComponent.questionmarkTitle"
     questionMarkText="onboardingBankAccountIntroComponent.questionmarkText" [showCloseButton]="true">
     <div body>
-        
+        <form [formGroup]="form">
         <p class="text-givt-purple text-light-font"
             innerHTML="{{'onboardingBankAccountSigningDirectDebitGuaranteeComponent.description' | translate}}">
         </p>
@@ -12,7 +12,9 @@
             <label class="custom-control-label"
                 for="acceptedDirectDebitGuarantee">{{'onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch' | translate}}</label>
         </div>
+    </form>
     </div>
+ 
     <button bottom (click)="handleAcceptOrRefusal()" [disabled]="!form.value.acceptedDirectDebitGuarantee || loading"
         [translate] class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
         <span class="text-white text-heavy-font" translate>
@@ -20,4 +22,5 @@
             onboardingBankAccountSigningDirectDebitGuaranteeComponent.signText
         </span>
     </button>
+
 </app-custom-card>
