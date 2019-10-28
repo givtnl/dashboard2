@@ -12,14 +12,14 @@ export class OnboardingNewUsersService {
     constructor(private backendService: BackendService) {}
 
     prepareUser(collectGroupId: string, email: string): Observable<UserRegistrationResponseModel> {
-        return this.backendService.get<UserRegistrationResponseModel>(`collectgroups/${collectGroupId}/users/register?email=${encodeURI(email)}`);
+        return this.backendService.get<UserRegistrationResponseModel>(`v2/collectgroups/${collectGroupId}/users/register?email=${encodeURI(email)}`);
     }
 
     sendRegistrationMail(collectGroupId: string, command: SendUserRegistrationEmailOnboardingCommand): Observable<object> {
-        return this.backendService.post(`collectgroups/${collectGroupId}/users/register`, command);
+        return this.backendService.post(`v2/collectgroups/${collectGroupId}/users/register`, command);
     }
 
     createUser(onboardingModel: CreateUserForCollectGroupCommand): Observable<object> {
-        return this.backendService.post(`collectgroups/${onboardingModel.collectGroupId}/users`, onboardingModel);
+        return this.backendService.post(`v2/collectgroups/${onboardingModel.collectGroupId}/users`, onboardingModel);
     }
 }
