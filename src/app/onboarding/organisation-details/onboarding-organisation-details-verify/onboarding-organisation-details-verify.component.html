@@ -8,7 +8,7 @@
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">
                 {{ 'onboardingOrganisationDetailsVerifyComponent.CharityNumber' | translate}}
-                {{ organisationDetails.CharityNumber }}
+                {{ charityNumber }}
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">
                 {{ 'onboardingOrganisationDetailsVerifyComponent.CharityName' | translate }}
@@ -20,30 +20,14 @@
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">{{ organisationDetails.Address.Street }}
             </p>
-            <p class="text-primary text-light-font text-givt-purple mb-0">{{ organisationDetails.Address.Locality }}
+            <p class="text-primary text-light-font text-givt-purple mb-0">{{ organisationDetails.Address.City }}
             </p>
-            <p class="text-primary text-light-font text-givt-purple mb-0">{{ organisationDetails.Address.Locality2 }}
+            <p class="text-primary text-light-font text-givt-purple mb-0">{{ organisationDetails.Address.Locality }}
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">{{ organisationDetails.Address.PostCode }}
             </p>
 
-            <br />
-            <p class="text-primary text-light-font text-givt-purple mb-0">
-                {{ 'onboardingOrganisationDetailsVerifyComponent.PhoneNumber' | translate }}
-                {{ organisationDetails.PhoneNumber }}
-            </p>
-            <p class="text-primary text-light-font text-givt-purple mb-0">
-                {{ 'onboardingOrganisationDetailsVerifyComponent.Email' | translate }}
-                {{ organisationDetails.Email }}
-            </p>
-            <br>
-            <p class="text-primary text-light-font text-givt-purple mb-0">
-                {{ 'onboardingOrganisationDetailsVerifyComponent.Trustee' | translate }}
-            </p>
-            <p *ngFor="let trustee of organisationDetails.Trustees"
-                class="text-primary text-light-font text-givt-purple mb-0">
-                {{ trustee.TrusteeName }} - {{ trustee.TrusteeNumber }}
-            </p>
+
         </div>
     </div>
 
