@@ -1,18 +1,20 @@
 import { Injectable } from "@angular/core";
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
 import { OnboardingOrganisationDetailsService } from '../services/onboarding-organisation-details.service';
-import { isNullOrUndefined } from 'util';
 import { TranslatableToastrService } from 'src/app/shared/services/translate-able-toastr.service';
+import { AddCharityDetailsToOrganisationCommand } from '../models/commands/add-charity-details-to-organisation.command';
+import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class OnboardingOrganisationDetailsFetchdataGuard implements CanActivate {
+export class OnboardingOrganisationDetailsSendDataGuard implements CanActivate {
   constructor(
     private toastr: TranslatableToastrService,
     private onboardingOrganisationDetailsStateService: OnboardingOrganisationDetailsStateService,
-    private onboardingOrganisationDetailsService: OnboardingOrganisationDetailsService
+    private onboardingOrganisationDetailsService: OnboardingOrganisationDetailsService,
+    private applicationStateService: ApplicationStateService
   ) {
 
   }
@@ -21,12 +23,16 @@ export class OnboardingOrganisationDetailsFetchdataGuard implements CanActivate 
     try {
 
       var charity = this.onboardingOrganisationDetailsStateService.currentOrganisationCharityCommisionModel
-      var charityNumber = this.onboardingOrganisationDetailsStateService.currentCharityNumber
-      if (!isNullOrUndefined(charity)) {
-        const createdResponse = await this.onboardingOrganisationDetailsService.post(charityNumber, charity).toPromise();
-        this.onboardingOrganisationDetailsStateService.currentOrganisationCharityCommisionModel = createdResponse
-        retVal = true
-      }
+      var command = new AddCharityDetailsToOrganisationCommand();
+      command.address = charity.Address.Street;
+      command.city = charity.Address.City;
+      command.locality = charity.Address.Locality;
+      command.postalCode = charity.Address.PostCode;
+      command.charityCommissionNumber = this.onboardingOrganisationDetailsStateService.currentCharityNumber
+
+      var organisationGUID = this.applicationStateService.currentTokenModel.OrganisationAdmin;
+      await this.onboardingOrganisationDetailsService.put(organisationGUID, command).toPromise();
+      retVal = true
     } catch (error) {
       console.log(error)
       if (error.status === 400) {
