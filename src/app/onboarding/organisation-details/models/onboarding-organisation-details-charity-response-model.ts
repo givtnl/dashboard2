@@ -3,5 +3,4 @@ import { CharityAddress } from './onboarding-organisation-details-charity-addres
 export interface GetCharityDetailsFromCommisionResponseModel {
     CharityName: string;
     Address: CharityAddress;
-    PhoneNumber: string;
 }
