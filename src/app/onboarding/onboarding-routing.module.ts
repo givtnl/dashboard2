@@ -44,6 +44,7 @@ import { OnboardingOrganisationDetailsVerifyComponent } from './organisation-det
 import { OnboardingOrganisationDetailsCompleteComponent } from './organisation-details/onboarding-organisation-details-complete/onboarding-organisation-details-complete.component';
 import { OnboardingOrganisationDetailsIncorrectComponent } from './organisation-details/onboarding-organisation-details-incorrect/onboarding-organisation-details-incorrect.component';
 import { OnboardingOrganisationDetailsFetchdataGuard } from './organisation-details/guards/onboarding-organisation-details-fetchdata.guard';
+import { OnboardingOrganisationDetailsSendDataGuard } from './organisation-details/guards/onboarding-organisation-details-send-data.guard';
 
 const routes: Routes = [
   {
@@ -124,6 +125,7 @@ const routes: Routes = [
       {
         path: 'complete',
         outlet: 'onboarding-outlet',
+        canActivate: [OnboardingOrganisationDetailsSendDataGuard],
         component: OnboardingOrganisationDetailsCompleteComponent
       },
       {
