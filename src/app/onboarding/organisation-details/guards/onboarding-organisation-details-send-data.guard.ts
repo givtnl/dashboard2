@@ -21,16 +21,16 @@ export class OnboardingOrganisationDetailsSendDataGuard implements CanActivate {
   async canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     try {
 
-      var charity = this.onboardingOrganisationDetailsStateService.currentOrganisationCharityCommisionModel
+      var charity = this.onboardingOrganisationDetailsStateService.currentOrganisationCharityCommisionModel;
       var command = new AddCharityDetailsToOrganisationCommand();
-      command.address = charity.Address.Street;
-      command.city = charity.Address.City;
-      command.locality = charity.Address.Locality;
-      command.postalCode = charity.Address.PostCode;
+      command.address = charity.Address;
+      command.city = charity.City;
+      command.locality = charity.Locality;
+      command.postalCode = charity.PostalCode;
       command.charityCommissionNumber = this.onboardingOrganisationDetailsStateService.currentCharityNumber
 
-      var organisationGUID = this.applicationStateService.currentTokenModel.OrganisationAdmin;
-      await this.onboardingOrganisationDetailsService.put(organisationGUID, command).toPromise();
+      var organisationId = this.applicationStateService.currentTokenModel.OrganisationAdmin;
+      await this.onboardingOrganisationDetailsService.put(organisationId, command).toPromise();
       return true;
     } catch (error) {
         await this.toastr.warning('errorMessages.generic-error-title', 'errorMessages.generic-error-message');

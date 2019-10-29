@@ -1,26 +1,26 @@
-import { GetCharityDetailsFromCommisionResponseModel } from '../models/onboarding-organisation-details-charity-response-model';
 import { Injectable } from '@angular/core';
+import { OrganisationDetailModel } from 'src/app/organisations/models/organisation-detail.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OnboardingOrganisationDetailsStateService {
   private storage = sessionStorage;
-  private key = 'OnboardingOrganisationDetails.currentOrganisationCharityCommisionModel';
+
   public clear(): void {
-    this.storage.removeItem(this.key);
+    this.storage.removeItem('OnboardingOrganisationDetailsStateService.CurrentOrganisationCharityCommisionModel');
   }
-  public get currentOrganisationCharityCommisionModel(): GetCharityDetailsFromCommisionResponseModel {
-    return JSON.parse(this.storage.getItem(this.key));
+  public get currentOrganisationCharityCommisionModel(): OrganisationDetailModel {
+    return JSON.parse(this.storage.getItem('OnboardingOrganisationDetailsStateService.CurrentOrganisationCharityCommisionModel'));
   }
-  public set currentOrganisationCharityCommisionModel(value: GetCharityDetailsFromCommisionResponseModel) {
-    this.storage.setItem(this.key, JSON.stringify(value));
+  public set currentOrganisationCharityCommisionModel(value: OrganisationDetailModel) {
+    this.storage.setItem('OnboardingOrganisationDetailsStateService.CurrentOrganisationCharityCommisionModel', JSON.stringify(value));
   }
 
   public get currentCharityNumber(): number {
-    return +this.storage.getItem("currentCharityNumber");
+    return +this.storage.getItem('OnboardingOrganisationDetailsStateService.CurrentCharityNumber');
   }
   public set currentCharityNumber(charityNumber: number) {
-    this.storage.setItem("currentCharityNumber", charityNumber.toString());
+    this.storage.setItem('OnboardingOrganisationDetailsStateService.CurrentCharityNumber', charityNumber.toString());
   }
 }
