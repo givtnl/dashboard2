@@ -29,9 +29,9 @@ export class OnboardingOrganisationDetailsFetchdataGuard implements CanActivate 
     } catch (error) {
       console.log(error)
       if (error.status === 400) {
-        await this.toastr.warning('errorMessages.generic-error-title', 'Couldn\'t find a charity with that number');
+        await this.toastr.warning('errorMessages.generic-error-title', 'errorMessages.charity-number-not-found');
       } else {
-        await this.toastr.warning('errorMessages.generic-error-title', 'Something went wrongk');
+        await this.toastr.warning('errorMessages.generic-error-title', 'errorMessages.generic-error-message');
       }
     }
     return retVal;
