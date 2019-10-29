@@ -167,5 +167,6 @@
     "onboardingOrganisationDetailsVerifyComponent.PhoneNumber": "Phone number:",
     "onboardingOrganisationDetailsVerifyComponent.Email": "E-mail:",
     "onboardingOrganisationDetailsVerifyComponent.Trustee": "Trustee:",
-    "errorMessages.charity-number-not-found": "Couldn't find a charity with that number. Please check again."
+    "errorMessages.charity-number-not-found": "Couldn't find a charity with that number. Please check again.",
+    "dashboardCompleteAccountWidgetComponent.CompleteOrganisationDetails": "Add organisation details"
 }
