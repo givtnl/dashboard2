@@ -1,0 +1,17 @@
+<app-custom-card titleTranslationKey="" iconBackgroundClass="circle-blue"
+    icon="fas fa-newspaper fa-5x">
+
+    <div body>
+        <p class="introduction-title text-primary text-center text-heavy-font text-givt-purple" translate>
+            onboardingOrganisationDetailsIntroComponent.title</p>
+        <p class="text-givt-purple text-light-font text-center" translate>
+            onboardingOrganisationDetailsIntroComponent.description</p>
+    </div>
+
+    <a bottom [translate]
+        class="btn btn-lg align-self-end bg-givt-green text-center text-white text-heavy-font bottom-button w-75"
+        [routerLink]="['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['charity-number'] } }]"
+        queryParamsHandling="merge">
+        onboardingOrganisationDetailsIntroComponent.startButtonText
+    </a>
+</app-custom-card>

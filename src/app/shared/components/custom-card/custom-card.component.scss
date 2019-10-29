@@ -121,6 +121,23 @@
   /* IE6-9 fallback on horizontal gradient */
 }
 
+.circle-blue {
+  border-radius: 50%;
+  align-self: center;
+
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#724D7C+87,BD3F56+100 */
+  background: #5A5387;
+  /* Old browsers */
+  background: -moz-linear-gradient(45deg, #5A5387 30%, #4D98CF 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #5A5387 30%, #4D98CF 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #5A5387 30%, #4D98CF 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5A5387', endColorstr='#4D98CF', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+}
+
 .circle-orange {
   border-radius: 50%;
   align-self: center;

@@ -1,0 +1,18 @@
+"OnboardingBaseHTML": {
+    "prefix": "OnboardingBaseHTML",
+    "body": [
+        "<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'>",
+            "<app-custom-card titleTranslationKey='onboardingBankAccountSigningDirecDebitGuaranteeComponent.title'",
+                "questionMarkTitle='onboardingBankAccountIntroComponent.questionmarkTitle'",
+                "questionMarkText='onboardingBankAccountIntroComponent.questionmarkText' [showCloseButton]='true'>",
+                "<div body>",
+                "</div>",
+                "<button bottom [translate]",
+                    "class='btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75'>",
+                    "<span class='text-white text-heavy-font' translate>",
+                    "</span>",
+                "</button>",
+            "</app-custom-card>",
+        "</form>"
+    ]
+}

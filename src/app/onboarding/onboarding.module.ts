@@ -22,6 +22,11 @@ import { OnboardingBankAccountSigningCompleteComponent } from './bank-account-si
 import { OnboardingBankAccountInvitedHoldersComponent } from './bank-account/onboarding-bank-account-invited-holders/onboarding-bank-account-invited-holders.component';
 import { OnboardingBankAccountSigningVerifyPersonalDetailsComponent } from './bank-account-signing/onboarding-bank-account-signing-verify-personal-details/onboarding-bank-account-signing-verify-personal-details.component';
 import { OnboardingCompletedComponent } from './new-users/onboarding-completed/onboarding-completed.component';
+import { OnboardingOrganisationDetailsIntroComponent } from './organisation-details/onboarding-organisation-details-intro/onboarding-organisation-details-intro.component';
+import { OnboardingOrganisationDetailsCompleteComponent } from './organisation-details/onboarding-organisation-details-complete/onboarding-organisation-details-complete.component';
+import { OnboardingOrganisationDetailsIncorrectComponent } from './organisation-details/onboarding-organisation-details-incorrect/onboarding-organisation-details-incorrect.component';
+import { OnboardingOrganisationDetailsVerifyComponent } from './organisation-details/onboarding-organisation-details-verify/onboarding-organisation-details-verify.component';
+import { OnboardingOrganisationDetailsCharityNumberComponent } from './organisation-details/onboarding-organisation-details-charity-number/onboarding-organisation-details-charity-number.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +48,12 @@ import { OnboardingCompletedComponent } from './new-users/onboarding-completed/o
     OnboardingBankAccountSigningDetailsIncorrectComponent,
     OnboardingBankAccountSigningCompleteComponent,
     OnboardingBankAccountInvitedHoldersComponent,
-    OnboardingBankAccountSigningVerifyPersonalDetailsComponent
+    OnboardingBankAccountSigningVerifyPersonalDetailsComponent,
+    OnboardingOrganisationDetailsIntroComponent,
+    OnboardingOrganisationDetailsCompleteComponent,
+    OnboardingOrganisationDetailsIncorrectComponent,
+    OnboardingOrganisationDetailsVerifyComponent,
+    OnboardingOrganisationDetailsCharityNumberComponent
   ],
   imports: [CommonModule, ReactiveFormsModule, SharedModule, OnboardingRoutingModule]
 })
