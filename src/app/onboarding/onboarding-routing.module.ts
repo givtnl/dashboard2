@@ -43,8 +43,8 @@ import { OnboardingOrganisationDetailsCharityNumberComponent } from './organisat
 import { OnboardingOrganisationDetailsVerifyComponent } from './organisation-details/onboarding-organisation-details-verify/onboarding-organisation-details-verify.component';
 import { OnboardingOrganisationDetailsCompleteComponent } from './organisation-details/onboarding-organisation-details-complete/onboarding-organisation-details-complete.component';
 import { OnboardingOrganisationDetailsIncorrectComponent } from './organisation-details/onboarding-organisation-details-incorrect/onboarding-organisation-details-incorrect.component';
-import { OnboardingOrganisationDetailsFetchdataGuard } from './organisation-details/guards/onboarding-organisation-details-fetchdata.guard';
 import { OnboardingOrganisationDetailsSendDataGuard } from './organisation-details/guards/onboarding-organisation-details-send-data.guard';
+import { OnboardingOrganisationDetailsFetchDataGuard } from './organisation-details/guards/onboarding-organisation-details-fetch-data.guard';
 
 const routes: Routes = [
   {
@@ -104,7 +104,7 @@ const routes: Routes = [
   {
     path: 'organisation-details',
     component: OnboardingRootComponent,
-    // canActivate: [AuthenticationGuard],
+    canActivate: [AuthenticationGuard],
     children: [
       {
         path: '',
@@ -120,7 +120,7 @@ const routes: Routes = [
         path: 'check-details',
         outlet: 'onboarding-outlet',
         component: OnboardingOrganisationDetailsVerifyComponent,
-        canActivate: [OnboardingOrganisationDetailsFetchdataGuard]
+        canActivate: [OnboardingOrganisationDetailsFetchDataGuard]
       },
       {
         path: 'complete',

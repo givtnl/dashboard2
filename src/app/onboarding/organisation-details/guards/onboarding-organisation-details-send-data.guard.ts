@@ -19,7 +19,6 @@ export class OnboardingOrganisationDetailsSendDataGuard implements CanActivate {
 
   }
   async canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
-    var retVal = false;
     try {
 
       var charity = this.onboardingOrganisationDetailsStateService.currentOrganisationCharityCommisionModel
@@ -32,17 +31,12 @@ export class OnboardingOrganisationDetailsSendDataGuard implements CanActivate {
 
       var organisationGUID = this.applicationStateService.currentTokenModel.OrganisationAdmin;
       await this.onboardingOrganisationDetailsService.put(organisationGUID, command).toPromise();
-      retVal = true
+      return true;
     } catch (error) {
-      console.log(error)
-      if (error.status === 400) {
-        await this.toastr.warning('errorMessages.generic-error-title', 'errorMessages.charity-number-not-found');
-      } else {
         await this.toastr.warning('errorMessages.generic-error-title', 'errorMessages.generic-error-message');
+        return false;
       }
     }
-    return retVal;
   }
-}
 
 

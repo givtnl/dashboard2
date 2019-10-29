@@ -5,15 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './onboarding-organisation-details-incorrect.component.html',
   styleUrls: ['../../onboarding.module.scss', './onboarding-organisation-details-incorrect.component.scss']
 })
-export class OnboardingOrganisationDetailsIncorrectComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  close() {
-    
-  }
+export class OnboardingOrganisationDetailsIncorrectComponent  {
 
 }
