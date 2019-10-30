@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 
 @Component({
   selector: 'app-onboarding-organisation-details-intro',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OnboardingOrganisationDetailsIntroComponent implements OnInit {
 
-  constructor() { }
+  public contractUrl: String;
 
-  ngOnInit() {
+  constructor( private applicationStateService: ApplicationStateService) { 
   }
 
+  ngOnInit() {
+    this.contractUrl =`${environment.apiUrl}/contract/organisations/${this.applicationStateService.currentTokenModel.OrganisationAdmin}`;
+  }
 }

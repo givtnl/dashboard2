@@ -1,11 +1,13 @@
-<app-custom-card titleTranslationKey="" iconBackgroundClass="circle-blue"
-    icon="fas fa-newspaper fa-5x">
+<app-custom-card titleTranslationKey="" iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
 
-    <div body>
-        <p class="introduction-title text-primary text-center text-heavy-font text-givt-purple" translate>
+    <div body class="text-center">
+        <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
             onboardingOrganisationDetailsIntroComponent.title</p>
-        <p class="text-givt-purple text-light-font text-center" translate>
+        <p class="text-givt-purple text-light-font" translate>
             onboardingOrganisationDetailsIntroComponent.description</p>
+        <a class="text-givt-purple text-light-font" href="{{contractUrl}}">
+            <u>Dont have a carity number</u>
+            </a>
     </div>
 
     <a bottom [translate]
