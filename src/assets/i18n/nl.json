@@ -168,5 +168,6 @@
     "onboardingOrganisationDetailsVerifyComponent.Email": "E-mail:",
     "onboardingOrganisationDetailsVerifyComponent.Trustee": "Trustee:",
     "errorMessages.charity-number-not-found": "Geen goed doel met dat nummer gevonden. Controleer je even?",
-    "dashboardCompleteAccountWidgetComponent.CompleteOrganisationDetails": "Add organisation details"
+    "dashboardCompleteAccountWidgetComponent.CompleteOrganisationDetails": "Add organisation details",
+    " onboardingOrganisationDetailsIntroComponent.dontHaveCharityNumber": "Klik hier als je geen charity number hebt"
 }
