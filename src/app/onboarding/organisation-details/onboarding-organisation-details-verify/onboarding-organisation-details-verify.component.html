@@ -1,0 +1,41 @@
+<app-custom-card titleTranslationKey="onboardingOrganisationDetailsVerifyComponent.title" [showCloseButton]="true"
+    [showPreviousButton]="true" iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
+
+    <div body>
+        <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">
+            <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
+                onboardingOrganisationDetailsVerifyComponent.orgDetails
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                {{ 'onboardingOrganisationDetailsVerifyComponent.CharityNumber' | translate}}
+                {{ stateService.currentCharityNumber }}
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                {{ 'onboardingOrganisationDetailsVerifyComponent.CharityName' | translate }}
+                {{ organisationDetails.Name }}
+            </p>
+            <br />
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                {{ 'onboardingOrganisationDetailsVerifyComponent.Address' | translate }}
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">{{ organisationDetails.Address }}
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">{{ organisationDetails.City }}
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">{{ organisationDetails.Locality }}
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">{{ organisationDetails.PostalCode }}
+            </p>
+
+
+        </div>
+    </div>
+
+    <div bottom class=" w-100" [formGroup]="form"> 
+        <p [translate] class="text-givt-purple text-heavy-font m-0 text-center">
+            onboardingBankAccountSigningVerifyDetailsComponent.yesNoQuestion
+        </p>
+        <app-check-box-input formControlName="detailsCorrect" [(loading)]="loading"></app-check-box-input>
+    </div>
+
+</app-custom-card>

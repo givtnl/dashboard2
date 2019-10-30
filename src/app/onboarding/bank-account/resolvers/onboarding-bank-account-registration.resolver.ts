@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import {OnboardingBankAccountRegistrationResponseModel} from '../models/onboarding-bank-account-registration-response.model';
 import { Injectable } from '@angular/core';
 import { catchErrorStatus } from 'src/app/shared/extensions/observable-extensions';
-import { ToastrService } from 'ngx-toastr';
 import { TranslatableToastrService } from 'src/app/shared/services/translate-able-toastr.service';
 
 @Injectable({

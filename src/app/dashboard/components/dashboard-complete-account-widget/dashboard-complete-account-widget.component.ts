@@ -45,7 +45,8 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
 
   public getRouterLinks(record: CompleteAccountWidgetModel): Array<any> {
     switch (record.OrganisationRegistrationStatus) {
-      // bank accounts
+      case 1:
+        return ['/', 'onboarding', 'organisation-details'];
       case 3:
         return ['/', 'onboarding', 'bank-account'];
       case 4:

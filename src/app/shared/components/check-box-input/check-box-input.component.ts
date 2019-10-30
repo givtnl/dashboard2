@@ -15,7 +15,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class CheckBoxInputComponent implements ControlValueAccessor {
 
-  @Input() loading: boolean;
+  @Input() 
+  public loading = false;
 
   public disabled = this.loading;
 
@@ -39,7 +40,6 @@ export class CheckBoxInputComponent implements ControlValueAccessor {
   public setValue(newValue: boolean): void {
     this.value = newValue;
     this.onChange(newValue);
-    this.disabled = true
   }
 
   writeValue(obj: any): void {
