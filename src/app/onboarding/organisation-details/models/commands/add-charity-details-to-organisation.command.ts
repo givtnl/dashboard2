@@ -4,4 +4,5 @@ export class AddCharityDetailsToOrganisationCommand {
     city: string;
     locality: string;
     charityCommissionNumber: number;
+    country: string;
 }
