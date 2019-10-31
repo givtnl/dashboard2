@@ -27,8 +27,6 @@ export class OnboardingOrganisationDetailsSendDataGuard implements CanActivate {
       command.city = charity.City;
       command.locality = charity.Locality;
       command.postalCode = charity.PostalCode;
-      command.country = 'GB'
-      
       command.charityCommissionNumber = this.onboardingOrganisationDetailsStateService.currentCharityNumber
 
       var organisationId = this.applicationStateService.currentTokenModel.OrganisationAdmin;
