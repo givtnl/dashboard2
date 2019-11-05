@@ -1,4 +1,5 @@
 export class AddCharityDetailsToOrganisationCommand {
+    name: string;
     address: string
     postalCode: string;
     city: string;
