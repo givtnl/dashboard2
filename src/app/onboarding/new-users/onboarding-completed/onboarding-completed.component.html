@@ -16,7 +16,7 @@
         onboardingWelcomeComponent.goToDashboardText
       </a>
     
-      <a bottom *ngIf="currentOrganisation.Country == 'GB'" [translate]
+      <a bottom *ngIf="currentOrganisation.Country == 'GB' || currentOrganisation.Country == 'GE' || currentOrganisation.Country == 'JE'" [translate]
         class="btn btn-lg align-self-end bg-givt-green text-white text-heavy-font bottom-button w-75"
         [routerLink]="['/', 'dashboard']">
         onboardingWelcomeComponent.goToDashboardText

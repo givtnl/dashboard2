@@ -15,7 +15,6 @@ import { OnboardingBankAccountRegistrationResponseModel } from '../models/onboar
   styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-add.component.scss']
 })
 export class OnboardingBankAccountAddComponent implements OnInit {
-  public orgCountry: string = 'GB';
   public loading = false;
   public form: FormGroup;
 
