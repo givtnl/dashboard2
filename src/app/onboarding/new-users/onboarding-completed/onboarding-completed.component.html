@@ -10,7 +10,7 @@
         <p class="text-givt-purple text-light-font text-center" translate>onboardingCompletedComponent.description</p>
       </div>
     
-      <a bottom *ngIf="currentOrganisation.Country !== 'GB' && currentOrganisation.Country !== 'GG' && currentOrganisation.Country !== 'JE'" [translate]
+      <a bottom *ngIf="!(currentOrganisation.Country == 'GB' || currentOrganisation.Country == 'GG' || currentOrganisation.Country == 'JE')" [translate]
         class="btn btn-lg align-self-end bg-givt-green text-white text-heavy-font bottom-button w-75"
         [href]="redirectUrl">
         onboardingWelcomeComponent.goToDashboardText
