@@ -116,7 +116,7 @@
     "errorMessages.field-validation-errors": "Oeps, er ging iets fout. Kan je de volgende zaken controleren?",
     "buttonYes": "Ja",
     "buttonNo": "Nee",
-    "onboardingBankAccountIntroComponent.questionmarkTitle": "Meer info",
+    "onboardingBankAccountSigningIntroComponent.questionmarkTitle": "Meer info",
     "onboardingBankAccountIntroComponent.questionmarkText": "Je staat op het punt om de bankgegevens in te vullen: de naam van de rekeninghouder en het IBAN-nummer.<br/><br/>Vervolgens vragen we de voornaam, achternaam en het e-mailadres van de persoon die de rekening zal verifiëren. Dit is de persoon die gemachtigd is om de rekening te beheren in naam van de organisatie. We sturen een e-mail met een uitnodiging om het mandaat te tekenen naar het ingevulde e-mailadres.<br/><br/>Ten slotte controleert deze persoon alle ingevulde gegevens om de bankrekening te kunnen verifiëren. We sturen opnieuw een bevestiging via e-mail wanneer de bankrekening geverifieerd is. <br/>Mocht er onverhoopt toch een onjuistheid in de gegevens zijn, zal de persoon die de rekening verifieert dit kunnen aangeven. We brengen je hiervan op de hoogte via e-mail, zodat je eventueel de gegevens kunt aanpassen.",
     "dashboardCompleteAccountWidgetComponent.AddBankAccountHolders.InProgress": "In afwachting van de gemachtigden",
     "errorMessages.email-not-duplicate": "Dit e-mailadres werd al ingevuld voor het aanmaken van een Givt account. Controleer je nog even?",
@@ -171,5 +171,8 @@
     "dashboardCompleteAccountWidgetComponent.CompleteOrganisationDetails": "Add organisation details",
     "onboardingOrganisationDetailsIntroComponent.dontHaveCharityNumber": "Klik hier als je geen charity number hebt",
     "dashboardCompleteAccountWidgetComponent.AddBankAccountStatement": "Verifieer rekening",
-    "dashboardCompleteAccountWidgetComponent.AddBankAccountStatement.InProgress": "In afwachting van verificatie via bank-afschrijving"
+    "dashboardCompleteAccountWidgetComponent.AddBankAccountStatement.InProgress": "In afwachting van verificatie via bank-afschrijving",
+    "onboardingBankAccountSigningDirectDebitGuarantee.questionmarkTitle": "",
+    "onboardingBankAccountSigningIntro.questionmarkText": "The verification happens in 2 parts.\n<br/>\nIn this first part, we ask you to manually check the provided bank account details and digitally sign a Direct Debit Instruction (DD) on the current account.\n<br/><br/>\nThis DDI has multiple functions: <br/>\nfirstly, it acts as a partial verification of the bank account. <br/>\nSecondly, we use the DDI to collect the startup cost. <br/>\nThirdly, it allows us to collect the amount in the unlikely event of a negative balance, if this balance wasn’t cleared following a request by Givt. \n<br/>\nThe letter of agreement agrees to this.\n<br/><br/>\nIn the second part, you will be asked to send a bank statement by e-mail, so we can check that the given details are fully correct. \n<br/>\nWhen this is done, the registration with Givt will be completed!<br/>It is important that this step will be taken with utmost care.",
+    "onboardingBankAccountIntroComponent.questionmarkTitle": "Meer info"
 }
