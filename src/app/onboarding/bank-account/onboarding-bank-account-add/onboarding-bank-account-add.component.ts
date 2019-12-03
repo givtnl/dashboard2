@@ -33,7 +33,7 @@ export class OnboardingBankAccountAddComponent implements OnInit {
     this.form = this.formBuilder.group({
       sortCode: [currentBankDetails == null ? null : currentBankDetails.SortCode, [Validators.required, fixedLengthValidator(6)]],
       accountNumber: [currentBankDetails == null ? null : currentBankDetails.AccountNumber, [Validators.required, fixedLengthValidator(8)]],
-      accountName: [currentBankDetails == null ? null : currentBankDetails.AccountName, [Validators.required]],
+      accountName: [currentBankDetails == null ? null : currentBankDetails.AccountName, [Validators.required, Validators.minLength(3), Validators.maxLength(18)]],
     });
   }
 
@@ -78,6 +78,12 @@ export class OnboardingBankAccountAddComponent implements OnInit {
     if (accountNameErrors) {
       if (accountNameErrors.required) {
         errorMessages.push(this.translationService.get('errorMessages.accountname-required'));
+      }
+      if (accountNameErrors.minlength) {
+        errorMessages.push(this.translationService.get('errorMessages.accountname-min-length'));
+      }
+      if (accountNameErrors.maxlength) {
+        errorMessages.push(this.translationService.get('errorMessages.accountname-max-length'));
       }
     }
 
