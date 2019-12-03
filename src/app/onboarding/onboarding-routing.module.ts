@@ -45,6 +45,7 @@ import { OnboardingOrganisationDetailsCompleteComponent } from './organisation-d
 import { OnboardingOrganisationDetailsIncorrectComponent } from './organisation-details/onboarding-organisation-details-incorrect/onboarding-organisation-details-incorrect.component';
 import { OnboardingOrganisationDetailsSendDataGuard } from './organisation-details/guards/onboarding-organisation-details-send-data.guard';
 import { OnboardingOrganisationDetailsFetchDataGuard } from './organisation-details/guards/onboarding-organisation-details-fetch-data.guard';
+import { BankAccountSignInvitationIdNotExpiredGuard } from './bank-account-signing/guards/bank-account-sign-invitation-id-not-expired.guard';
 
 const routes: Routes = [
   {
@@ -192,7 +193,7 @@ const routes: Routes = [
   {
     path: 'bank-account-signing',
     component: OnboardingRootComponent,
-    canActivate: [BankAccountSignInvitationIdRequiredGuard],
+    canActivate: [BankAccountSignInvitationIdRequiredGuard, BankAccountSignInvitationIdNotExpiredGuard],
     resolve: { bankAccountHolder: OnboardingBankAccountHolderDetailResolver },
     children: [
       {
