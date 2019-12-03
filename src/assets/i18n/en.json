@@ -177,5 +177,5 @@
     "errorMessages.bankAccountHolderInvitationLinkExpired": "The link for the invitation has been expired. Please contact your organisation administrator to request a new link.",
     "errorPageComponent.description": "Something went wrong while processing your request, please try again later.",
     "errorMessages.accountname-min-length": "Accountname should atleast be 3 characters long.",
-    "errorMessages.accountname-max-length\n": "Accountname cannot exceed 18 characters."
+    "errorMessages.accountname-max-length": "Accountname cannot exceed 18 characters."
 }
