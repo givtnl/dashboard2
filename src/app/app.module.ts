@@ -52,10 +52,6 @@ import { ValidationErrorInterceptor } from './infrastructure/interceptors/valida
       provide: HTTP_INTERCEPTORS,
       useClass: OnboardingInterceptor,
       multi: true
-    },
-    {
-      provide: UrlSerializer,
-      useClass: CustomUrlSerializer
     }
   ]
 })
