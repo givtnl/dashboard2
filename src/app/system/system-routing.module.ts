@@ -6,36 +6,36 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { SystemRootComponent } from './system-root/system-root.component';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
 const routes: Routes = [
-	{
-		path: 'root',
-		component: SystemRootComponent,
-		children: [
-					{
-						path: '',
-						component: NotFoundComponent,
-						outlet: 'system-outlet'
-					},
-					{
-						path: 'error',
-						component: ErrorPageComponent,
-						outlet: 'system-outlet'
-					},
-					{
-						path: 'not-found',
-						component: NotFoundComponent,
-						outlet: 'system-outlet'
-					},
-					{
-						path: 'under-construction',
-						component: UnderConstructionComponent,
-						outlet: 'system-outlet'
-					}
-				]
-	}
-]
+  {
+    path: 'root',
+    component: SystemRootComponent,
+    children: [
+      {
+        path: '',
+        component: NotFoundComponent,
+        outlet: 'system-outlet'
+      },
+      {
+        path: 'error',
+        component: ErrorPageComponent,
+        outlet: 'system-outlet'
+      },
+      {
+        path: 'not-found',
+        component: NotFoundComponent,
+        outlet: 'system-outlet'
+      },
+      {
+        path: 'under-construction',
+        component: UnderConstructionComponent,
+        outlet: 'system-outlet'
+      }
+    ]
+  }
+];
 
 @NgModule({
-	imports: [RouterModule.forChild(routes)],
-	exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
-export class SystemRoutingModule { }
+export class SystemRoutingModule {}
