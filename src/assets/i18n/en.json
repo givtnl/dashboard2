@@ -100,7 +100,7 @@
     "onboardingBankAccountSigningDetailsIncorrectComponent.description": "You have indicated that there were some incorrect details. An e-mail has been sent to notify the organisation admin.",
     "onboardingBankAccountSigningDetailsIncorrectComponent.finalActionText": "Close",
     "onboardingBankAccountSigningCompleteComponent.title": "Succesfully signed",
-    "onboardingBankAccountSigningCompleteComponent.description": "Now that the Direct Debit Instruction is signed, we can debit any outstanding fees and pay out the money which is donated to the organisation. We have sent you an e-mail with the signed DD as attachment.",
+    "onboardingBankAccountSigningCompleteComponent.description": "Now that the Direct Debit Instruction is signed, we can debit any outstanding fees and pay out the money which is donated to the organisation. We have sent you an e-mail with the signed DD as attachment. Due to the advance notice period, you can expect the first pay out only on the first Thursday after this period of 10 working days.",
     "onboardingBankAccountSigningCompleteComponent.finalActionText": "Close",
     "onboardingBankAccountHolderWhoComponent.nameAuthorized": "Name of the authorised person",
     "onboardingBankAccountHolderWhoComponent.emailAuthorized": "E-mail address of the authorised person",
