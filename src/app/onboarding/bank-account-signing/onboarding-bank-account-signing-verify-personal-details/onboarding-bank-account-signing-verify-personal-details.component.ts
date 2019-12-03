@@ -28,8 +28,7 @@ export class OnboardingBankAccountSigningVerifyPersonalDetailsComponent implemen
   ) {}
 
   ngOnInit() {
-    console.log(this.route);
-    this.form = this.fb.group({
+        this.form = this.fb.group({
       id: this.stateService.currentBankAccountHolderDetailModel.Id,
       accountId: this.stateService.currentBankAccountHolderDetailModel.AccountId,
       firstName: [
