@@ -11,8 +11,8 @@
       <small class="text-left form-text pb-3">
         <a class="text-givt-purple text-light-font" translate
           [routerLink]="['/', 'onboarding', 'welcome', 'new-users', { outlets: { 'onboarding-outlet': ['change-email'] } }]"
-          queryParamsHandling="merge">
-          onboardingWelcomeComponent.differentEmailAddress</a>
+          queryParamsHandling="merge"><u>
+          onboardingWelcomeComponent.differentEmailAddress</u></a>
       </small>
       <app-password-input *ngIf="showPassword" formControlName="password"></app-password-input>
     </div>
