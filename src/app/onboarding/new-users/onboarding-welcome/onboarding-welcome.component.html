@@ -9,10 +9,13 @@
       <input type="email" autocomplete="new-password" placeholder="{{ 'placeholders.email' | translate }}"
         formControlName="email" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
       <small class="text-left form-text pb-3">
-        <a class="text-givt-purple text-light-font" translate
+        <a class="text-givt-purple text-light-font"
           [routerLink]="['/', 'onboarding', 'welcome', 'new-users', { outlets: { 'onboarding-outlet': ['change-email'] } }]"
-          queryParamsHandling="merge"><u>
-          onboardingWelcomeComponent.differentEmailAddress</u></a>
+          queryParamsHandling="merge">
+          <u translate>
+            onboardingWelcomeComponent.differentEmailAddress
+          </u>
+        </a>
       </small>
       <app-password-input *ngIf="showPassword" formControlName="password"></app-password-input>
     </div>
