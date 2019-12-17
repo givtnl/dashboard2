@@ -5,12 +5,13 @@ import { AccountRoutingModule } from './account-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PasswordForgottenComponent } from './password-forgotten/password-forgotten.component';
-import { PasswordForgottenEmailSentComponent } from './password-forgotten-email-sent/password-forgotten-email-sent.component'
+import { PasswordForgottenEmailSentComponent } from './password-forgotten-email-sent/password-forgotten-email-sent.component';
+import { PasswordForgottenNewPasswordComponent } from './password-forgotten-new-password/password-forgotten-new-password.component'
 
 
 
 @NgModule({
-  declarations: [LoginComponent, PasswordForgottenComponent, PasswordForgottenEmailSentComponent],
+  declarations: [LoginComponent, PasswordForgottenComponent, PasswordForgottenEmailSentComponent, PasswordForgottenNewPasswordComponent],
   imports: [
     CommonModule,
     AccountRoutingModule,

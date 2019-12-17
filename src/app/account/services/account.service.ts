@@ -41,7 +41,7 @@ export class AccountService {
 
 
   public passwordReset(email: string): Observable<object> {
-    return this.backendService.post(`v2/users/forgotpassword?email=${encodeURIComponent(email)}`,{});
+    return this.backendService.post(`v2/users/forgotpassword?email=${encodeURIComponent(email)}&newDashboard=true`,{});
   }
 
   public logOut(): void {
