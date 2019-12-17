@@ -188,5 +188,8 @@
     "passwordForgottenNewPasswordComponent.headerTitle": "Wachtwoord vergeten",
     "passwordForgottenNewPasswordComponent.title": "Geef een nieuw wachtwoord in",
     "passwordForgottenNewPasswordComponent.buttonText": "Bewaren",
-    "errorMessages.password-pattern": "Wachtwoord vereist 1 hoofdletter en 1 cijfer en moet minstens 7 tekens lang zijn"
+    "errorMessages.password-pattern": "Wachtwoord vereist 1 hoofdletter en 1 cijfer en moet minstens 7 tekens lang zijn",
+    "passwordForgottenCompletedComponent.title": "Wachtwoord vergeten",
+    "passwordForgottenCompletedComponent.description": "Je wachtwoord is met success gewijzigd. Klik hieronder om naar het aanmeldingsscherm te gaan.",
+    "passwordForgottenCompletedComponent.finalActionText": "Aanmelden"
 }
