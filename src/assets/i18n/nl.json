@@ -184,5 +184,8 @@
     "passwordForgottenComponent.passwordForgottenButtonText": "Versturen",
     "passwordForgottenEmailSentComponent.title": "Check je mailbox",
     "passwordForgottenEmailSentComponent.description": "Indien er op dit emailadres een account geregistreerd is krijg je een email met daarin een link waarmee je een nieuw wachtwoord kan opgegeven.\nHeb je na 5 minuten nog steeds de e-mail niet ontvangen? Kijk dan even in je spam.",
-    "passwordForgottenEmailSentComponent.finalActionText": "Aanmelden"
+    "passwordForgottenEmailSentComponent.finalActionText": "Aanmelden",
+    "passwordForgottenNewPasswordComponent.headerTitle": "Wachtwoord vergeten",
+    "passwordForgottenNewPasswordComponent.title": "Geef een nieuw wachtwoord in",
+    "passwordForgottenNewPasswordComponent.buttonText": "Bewaren"
 }
