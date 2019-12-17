@@ -49,7 +49,7 @@ export class AccountService {
 
   public passwordResetConfirm(command: PasswordForgottenConfirmPasswordCommand): Observable<any> {
     return this.backendService.http.post(
-      `${this.backendService.baseUrl}/v2/users/resetpassword`,
+      `${this.backendService.baseUrl}v2/users/resetpassword`,
       {
         userID: command.email,
         passwordToken: command.code,

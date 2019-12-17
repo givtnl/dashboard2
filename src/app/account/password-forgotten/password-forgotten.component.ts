@@ -11,7 +11,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./password-forgotten.component.scss']
 })
 export class PasswordForgottenComponent implements OnInit {
-
   public form: FormGroup;
   public submitted = false;
   public loading = false;
@@ -37,7 +36,7 @@ export class PasswordForgottenComponent implements OnInit {
     this.submitted = this.form.invalid;
 
     this.isValidEmail = this.form.get('email').valid;
-  
+
     this.errorMessages = new Array<Observable<string>>();
 
     if (this.form.invalid) {
@@ -48,14 +47,11 @@ export class PasswordForgottenComponent implements OnInit {
       this.submitted = false;
       this.accountService
         .passwordReset(this.form.value.email)
-        .subscribe(() =>
-          this.router
-            .navigate(['/', 'account', 'password-forgotten','mail-sent'])
-            .finally(() => (this.loading = false))
-        );
+        .subscribe()
+        .add(() => this.router.navigate(['/', 'account', 'password-forgotten', 'mail-sent']).finally(() => (this.loading = false)));
     }
   }
- 
+
   handleInvalidForm() {
     const emailErrors = this.form.get('email').errors;
     if (emailErrors) {
@@ -67,5 +63,4 @@ export class PasswordForgottenComponent implements OnInit {
       }
     }
   }
-
 }

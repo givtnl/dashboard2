@@ -54,9 +54,17 @@ export class PasswordForgottenNewPasswordComponent implements OnInit {
     } else {
       this.loading = true;
       this.submitted = false;
-      this.accountService
-        .passwordResetConfirm(this.form.getRawValue())
-        .subscribe(() => this.router.navigate(['/', 'account', 'password-forgotten', 'completed']).finally(() => (this.loading = false)));
+      this.accountService.passwordResetConfirm(this.form.getRawValue()).subscribe(
+        () => this.router.navigate(['/', 'account', 'password-forgotten', 'completed']),
+        error =>
+          this.router
+            .navigate(['system', 'root', { outlets: { 'system-outlet': ['error'] } }], {
+              queryParams: {
+                error: 'errorMessages.passwordResetLinkExpired'
+              }
+            })
+            .finally(() => (this.loading = false))
+      );
     }
   }
 
