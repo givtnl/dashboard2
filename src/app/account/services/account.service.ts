@@ -38,6 +38,12 @@ export class AccountService {
       .pipe(tap(token => (this.applicationStateService.currentTokenModel = token)))
       .pipe(switchMap(x => this.me()));
   }
+
+
+  public passwordReset(email: string): Observable<object> {
+    return this.backendService.post(`v2/users/forgotpassword?email=${encodeURIComponent(email)}`,{});
+  }
+
   public logOut(): void {
     this.applicationStateService.clear();
   }
