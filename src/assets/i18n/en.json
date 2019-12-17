@@ -181,5 +181,7 @@
     "loginComponent.passwordForgotten": "Forgot password",
     "passwordForgottenComponent.headerTitle": "Forgot password",
     "passwordForgottenComponent.title": "Please enter your e-mail address. We will send you an e-mail with the information on how to change your password.",
-    "passwordForgottenComponent.passwordForgottenButtonText": "Send"
+    "passwordForgottenComponent.passwordForgottenButtonText": "Send",
+    "passwordForgottenEmailSentComponent.title": "Check your inbox",
+    "passwordForgottenEmailSentComponent.description": "If the email you've entered matches with an account then you will receive an email where you can reset your current password. If you did not receive the email after 5 minutes then please check your spam folder."
 }
