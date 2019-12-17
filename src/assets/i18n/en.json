@@ -191,5 +191,6 @@
     "errorMessages.password-pattern": "The password requires one capital and one digit and must be atleast 7 characters",
     "passwordForgottenCompletedComponent.title": "Password forgot",
     "passwordForgottenCompletedComponent.description": "You're password has been changed. You can now use your new password to get access to your dashboard.",
-    "passwordForgottenCompletedComponent.finalActionText": "Login"
+    "passwordForgottenCompletedComponent.finalActionText": "Login",
+    "errorMessages.passwordResetLinkExpired": "The link to reset your password has expired"
 }
