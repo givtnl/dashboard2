@@ -187,5 +187,6 @@
     "passwordForgottenEmailSentComponent.finalActionText": "Aanmelden",
     "passwordForgottenNewPasswordComponent.headerTitle": "Wachtwoord vergeten",
     "passwordForgottenNewPasswordComponent.title": "Geef een nieuw wachtwoord in",
-    "passwordForgottenNewPasswordComponent.buttonText": "Bewaren"
+    "passwordForgottenNewPasswordComponent.buttonText": "Bewaren",
+    "errorMessages.password-pattern": "Wachtwoord vereist 1 hoofdletter en 1 cijfer en moet minstens 7 tekens lang zijn"
 }
