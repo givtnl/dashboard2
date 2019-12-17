@@ -177,5 +177,9 @@
     "errorMessages.bankAccountHolderInvitationLinkExpired": "The link for the invitation has been expired. Please contact your organisation administrator to request a new link.",
     "errorPageComponent.description": "Something went wrong while processing your request, please try again later.",
     "errorMessages.accountname-min-length": "Accountname should atleast be 3 characters long.",
-    "errorMessages.accountname-max-length": "Accountname cannot exceed 18 characters."
+    "errorMessages.accountname-max-length": "Accountname cannot exceed 18 characters.",
+    "loginComponent.passwordForgotten": "Forgot password",
+    "passwordForgottenComponent.headerTitle": "Forgot password",
+    "passwordForgottenComponent.title": "Please enter your e-mail address. We will send you an e-mail with the information on how to change your password.",
+    "passwordForgottenComponent.passwordForgottenButtonText": "Send"
 }
