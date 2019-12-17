@@ -188,5 +188,8 @@
     "passwordForgottenNewPasswordComponent.headerTitle": "Forgot password",
     "passwordForgottenNewPasswordComponent.title": "Enter a new password",
     "passwordForgottenNewPasswordComponent.buttonText": "Save",
-    "errorMessages.password-pattern": "The password requires one capital and one digit and must be atleast 7 characters"
+    "errorMessages.password-pattern": "The password requires one capital and one digit and must be atleast 7 characters",
+    "passwordForgottenCompletedComponent.title": "Password forgot",
+    "passwordForgottenCompletedComponent.description": "You're password has been changed. You can now use your new password to get access to your dashboard.",
+    "passwordForgottenCompletedComponent.finalActionText": "Login"
 }
