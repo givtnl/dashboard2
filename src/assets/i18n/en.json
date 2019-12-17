@@ -187,5 +187,6 @@
     "passwordForgottenEmailSentComponent.finalActionText": "Login",
     "passwordForgottenNewPasswordComponent.headerTitle": "Forgot password",
     "passwordForgottenNewPasswordComponent.title": "Enter a new password",
-    "passwordForgottenNewPasswordComponent.buttonText": "Save"
+    "passwordForgottenNewPasswordComponent.buttonText": "Save",
+    "errorMessages.password-pattern": "The password requires one capital and one digit and must be atleast 7 characters"
 }
