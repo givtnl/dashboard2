@@ -14,7 +14,6 @@ export class PasswordForgottenNewPasswordComponent implements OnInit {
   public form: FormGroup;
   public submitted = false;
   public loading = false;
-  public isValidEmail = false;
   public isValidPassword = false;
 
   public errorMessages = null;
@@ -39,14 +38,12 @@ export class PasswordForgottenNewPasswordComponent implements OnInit {
         [Validators.required, Validators.email]
       ],
       code: [currentModel.code],
-      password: [null, [Validators.required, Validators.pattern('(?=.*\d)(?=.*[A-Z])(?=.*\W)')]]
+      password: [null, [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{7,}$')]]
     });
   }
 
   submit() {
     this.submitted = this.form.invalid;
-
-    this.isValidEmail = this.form.get('email').valid;
     this.isValidPassword = this.form.get('password').valid;
 
     this.errorMessages = new Array<Observable<string>>();
@@ -64,17 +61,7 @@ export class PasswordForgottenNewPasswordComponent implements OnInit {
   }
 
   handleInvalidForm() {
-    const emailErrors = this.form.get('email').errors;
     const passwordErrors = this.form.get('password').errors;
-
-    if (emailErrors) {
-      if (emailErrors.required) {
-        this.errorMessages.push(this.translationService.get('errorMessages.email-required'));
-      }
-      if (emailErrors.email) {
-        this.errorMessages.push(this.translationService.get('errorMessages.email-not-an-email'));
-      }
-    }
 
     if (passwordErrors) {
       if (passwordErrors.required) {

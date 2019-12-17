@@ -10,6 +10,7 @@ import { CurrentUserExtensionModel } from 'src/app/infrastructure/models/current
 import { PasswordForgottenNewPasswordComponent } from '../password-forgotten-new-password/password-forgotten-new-password.component';
 import { PasswordForgottenNewPasswordModel } from '../models/password-forgotten-new-password.model';
 import { PasswordForgottenConfirmPasswordCommand } from '../models/password-forgotten-confirm-password.command';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -42,17 +43,20 @@ export class AccountService {
       .pipe(switchMap(x => this.me()));
   }
 
-
   public passwordReset(email: string): Observable<object> {
-    return this.backendService.post(`v2/users/forgotpassword?email=${encodeURIComponent(email)}&newDashboard=true`,{});
+    return this.backendService.post(`v2/users/forgotpassword?email=${encodeURIComponent(email)}&newDashboard=true`, {});
   }
 
-  public passwordResetConfirm(command: PasswordForgottenConfirmPasswordCommand): Observable<object> {
-    return this.backendService.post(`v2/users/resetpassword`, {
-      userID: command.email,
-      passwordToken: command.code,
-      newPassword: command.password
-    })
+  public passwordResetConfirm(command: PasswordForgottenConfirmPasswordCommand): Observable<any> {
+    return this.backendService.http.post(
+      `${this.backendService.baseUrl}/v2/users/resetpassword`,
+      {
+        userID: command.email,
+        passwordToken: command.code,
+        newPassword: command.password
+      },
+      { responseType: 'text' }
+    );
   }
 
   public logOut(): void {

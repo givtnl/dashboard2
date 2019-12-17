@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-password-forgotten-completed',
   templateUrl: './password-forgotten-completed.component.html',
-  styleUrls: ['./password-forgotten-completed.component.scss']
+  styleUrls: ['../../onboarding/onboarding.module.scss', './password-forgotten-completed.component.scss']
 })
-export class PasswordForgottenCompletedComponent implements OnInit {
+export class PasswordForgottenCompletedComponent  {
 
-  constructor() { }
 
-  ngOnInit() {
-  }
 
 }
