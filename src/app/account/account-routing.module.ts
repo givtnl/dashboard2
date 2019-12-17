@@ -7,6 +7,7 @@ import { PasswordForgottenEmailSentComponent } from './password-forgotten-email-
 import { PasswordForgottenNewPasswordComponent } from './password-forgotten-new-password/password-forgotten-new-password.component';
 import { PasswordForgottenNewPasswordRequiredQueryParamsGuard } from './password-forgotten-new-password-required-queryparams.guard';
 import { PasswordForgottenNewPasswordResolver } from './resolvers/password-forgotten-new-password.resolver';
+import { PasswordForgottenCompletedComponent } from './password-forgotten-completed/password-forgotten-completed.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
         component: PasswordForgottenNewPasswordComponent,
         canActivate: [PasswordForgottenNewPasswordRequiredQueryParamsGuard],
         resolve: { model: PasswordForgottenNewPasswordResolver }
+      },
+      {
+        path: 'completed',
+        component: PasswordForgottenCompletedComponent
       }
     ]
   }

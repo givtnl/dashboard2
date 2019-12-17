@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { OnboardingBankAccountSigningService } from '../services/onboarding-bank-account-signing.service';
 
 @Injectable({
   providedIn: 'root'

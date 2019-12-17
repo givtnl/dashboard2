@@ -31,12 +31,15 @@ export class PasswordForgottenNewPasswordComponent implements OnInit {
     const currentModel = this.route.snapshot.data.model;
 
     this.form = this.fb.group({
-      email: [{
-        value: currentModel.email,
-        disabled: true
-      }, [Validators.required, Validators.email]],
+      email: [
+        {
+          value: currentModel.email,
+          disabled: true
+        },
+        [Validators.required, Validators.email]
+      ],
       code: [currentModel.code],
-      password: [null, [Validators.required]]
+      password: [null, [Validators.required, Validators.pattern('(?=.*\d)(?=.*[A-Z])(?=.*\W)')]]
     });
   }
 
@@ -55,12 +58,8 @@ export class PasswordForgottenNewPasswordComponent implements OnInit {
       this.loading = true;
       this.submitted = false;
       this.accountService
-        .login(this.form.value.email, this.form.value.password)
-        .subscribe(() =>
-          this.router
-            .navigate(['/', 'dashboard', 'root', { outlets: { 'dashboard-outlet': ['home'] } }])
-            .finally(() => (this.loading = false))
-        );
+        .passwordResetConfirm(this.form.getRawValue())
+        .subscribe(() => this.router.navigate(['/', 'account', 'password-forgotten', 'completed']).finally(() => (this.loading = false)));
     }
   }
 
@@ -80,6 +79,9 @@ export class PasswordForgottenNewPasswordComponent implements OnInit {
     if (passwordErrors) {
       if (passwordErrors.required) {
         this.errorMessages.push(this.translationService.get('errorMessages.password-required'));
+      }
+      if (passwordErrors.pattern) {
+        this.errorMessages.push(this.translationService.get('errorMessages.password-pattern'));
       }
     }
   }
