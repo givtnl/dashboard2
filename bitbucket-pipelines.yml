@@ -20,7 +20,7 @@ pipelines:
             - docker push givt/givtdashboard2:master
           services:
             - docker
-    pre-master:
+    develop:
       - step:
           caches:
             - node
