@@ -6,22 +6,22 @@
                 class="text-primary text-light-font text-givt-purple text-center mt-5"></h1>
             <p [translate]="'loginComponent.title'"
                 class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></p>
-            <input [class.submitted]="submitted && !isValidEmail" type="email" autocomplete="new-password"
+            <input [class.submitted]="submitted && !isValidEmail" type="email" autocomplete="email"
                 placeholder="{{ 'placeholders.email' | translate }}" formControlName="email"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple mt-1" />
             <app-password-input [class.submitted]="submitted && !isValidPassword" formControlName="password"
                 [showPasswordHint]="false" class="w-100"></app-password-input>
-                <small class="text-left form-text pb-1 w-100">
-                    <a class="text-givt-purple text-light-font"
+                <p class="text-left form-text mt-3">
+                    <a class="text-muted text-light-font"
                       [routerLink]="['/', 'account', 'password-forgotten']"
                       queryParamsHandling="merge">
                       <u translate>
                         loginComponent.passwordForgotten
                       </u>
                     </a>
-                  </small>
-            <div *ngIf="errorMessages" class="mt-2">
-                <small *ngFor="let message of errorMessages" class="form-text text-red">
+                </p>
+            <div *ngIf="errorMessages" class="mt-1">
+                <small *ngFor="let message of errorMessages" class="form-text text-center text-red">
                     {{ message.value }}
                 </small>
             </div>

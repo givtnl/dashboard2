@@ -107,11 +107,5 @@ export class LoginComponent implements OnInit {
         this.errorMessages.push(this.translationService.get('errorMessages.email-not-an-email'));
       }
     }
-
-    if (passwordErrors) {
-      if (passwordErrors.required) {
-        this.errorMessages.push(this.translationService.get('errorMessages.password-required'));
-      }
-    }
   }
 }
