@@ -47,8 +47,10 @@ export class PasswordForgottenComponent implements OnInit {
       this.submitted = false;
       this.accountService
         .passwordReset(this.form.value.email)
-        .subscribe()
-        .add(() => this.router.navigate(['/', 'account', 'password-forgotten', 'mail-sent']).finally(() => (this.loading = false)));
+        .subscribe(() => this.router.navigate(['/', 'account', 'password-forgotten', 'mail-sent']), error => {
+          this.errorMessages.push(this.translationService.get('errorMessages.email-not-known'))
+                  })
+        .add(() => this.loading = false);
     }
   }
 
