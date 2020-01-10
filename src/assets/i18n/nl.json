@@ -178,7 +178,7 @@
     "errorPageComponent.description": "Er ging iets mis tijdens het verwerken van de aanvraag, probeer het later even opnieuw",
     "errorMessages.accountname-min-length": "De naam van de rekeninghouder moet minstens 3 tekens lang zijn.",
     "errorMessages.accountname-max-length": "De naam van de rekeninghouder kan niet langer zijn dan 18 tekens.",
-    "loginComponent.passwordForgotten": "Wachtwoord vergeten",
+    "loginComponent.passwordForgotten": "Wachtwoord vergeten?",
     "passwordForgottenComponent.headerTitle": "Wachtwoord vergeten",
     "passwordForgottenComponent.title": "Vul hier je e-mailadres in, dan sturen wij een e-mail waarmee je een nieuw wachtwoord kunt aanmaken.",
     "passwordForgottenComponent.passwordForgottenButtonText": "Versturen",
