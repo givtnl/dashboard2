@@ -38,7 +38,7 @@ export class OnboardingGiftAidStateService {
     public get currentGiftAidSettings(): CreateGiftAidSettingsCommand {
         const key = 'OnboardingGiftAidStateService.currentGiftAidSettings';
         const serializedRequest = JSON.parse(this.storage.getItem(key));
-        return serializedRequest;
+        return serializedRequest || {};
     }
 
     public set currentGiftAidSettings(value: CreateGiftAidSettingsCommand) {
