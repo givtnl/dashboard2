@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-state.service';
 import { PreparedGiftAidSettings } from '../models/prepared-giftaid-settings.model';
 
@@ -14,6 +14,7 @@ export class GiftaidOrganisationDetailsComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private router: Router,
     private activatedRoute: ActivatedRoute,
     private giftAidStateService: OnboardingGiftAidStateService
   ) {}
@@ -30,8 +31,8 @@ export class GiftaidOrganisationDetailsComponent implements OnInit {
       charityAddressLineTwo: [this.currentSettings ? currentSettings.charityAddressLineTwo : null, [Validators.required, Validators.maxLength(150)]],
       charityAddressLineThree: [this.currentSettings ? currentSettings.charityAddressLineThree : null, [Validators.maxLength(150)]],
       charityAddressLineFour: [null, [Validators.maxLength(150)]],
-      charityAddressLineZipCode: [this.currentSettings ? currentSettings.charityAddressZipCode : null, [Validators.required, Validators.maxLength(15)]],
-      charityAddressLineCountry: [this.currentSettings ? currentSettings.charityAddressCountry : null, [Validators.required, Validators.maxLength(50)]]
+      charityAddressZipCode: [this.currentSettings ? currentSettings.charityAddressZipCode : null, [Validators.required, Validators.maxLength(15)]],
+      charityAddressCountry: [this.currentSettings ? currentSettings.charityAddressCountry : null, [Validators.required, Validators.maxLength(50)]]
     });
   }
 
@@ -43,5 +44,32 @@ export class GiftaidOrganisationDetailsComponent implements OnInit {
     } else {
       return this.giftAidStateService.currentGiftAidSettings;
     }
+  }
+
+  
+  public submit():void{
+    // if validated
+    this.continue();
+  }
+
+  // only call this function when all of the input has been validated
+  private continue(): void {
+    const currentSettings = this.giftAidStateService.currentGiftAidSettings || {};
+    currentSettings.charityCommissionReference = this.form.value.charityCommissionReference;
+    currentSettings.charityId = this.form.value.charityId;
+    currentSettings.charityName = this.form.value.charityName;
+    currentSettings.charityEmailAddress = this.form.value.charityEmailAddress;
+    currentSettings.charityPhoneNumber = this.form.value.charityPhoneNumber;
+    currentSettings.charityAddressLineOne = this.form.value.charityAddressLineOne;
+    currentSettings.charityAddressLineTwo = this.form.value.charityAddressLineTwo;
+    currentSettings.charityAddressLineThree = this.form.value.charityAddressLineThree;
+    currentSettings.charityAddressLineFour = this.form.value.charityAddressLineFour;
+    currentSettings.charityAddressZipCode = this.form.value.charityAddressZipCode;
+    currentSettings.charityAddressCountry = this.form.value.charityAddressCountry;
+
+    this.giftAidStateService.currentGiftAidSettings = currentSettings;
+    this.giftAidStateService.validatedAndCompletedOrganisationDetails = true;
+    // todo implement the route
+    this.router.navigate[''];
   }
 }
