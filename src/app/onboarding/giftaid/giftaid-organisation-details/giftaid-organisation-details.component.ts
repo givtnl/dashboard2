@@ -54,7 +54,7 @@ export class GiftaidOrganisationDetailsComponent implements OnInit {
 
   // only call this function when all of the input has been validated
   private continue(): void {
-    const currentSettings = this.giftAidStateService.currentGiftAidSettings || {};
+    const currentSettings = this.giftAidStateService.currentGiftAidSettings;
     currentSettings.charityCommissionReference = this.form.value.charityCommissionReference;
     currentSettings.charityId = this.form.value.charityId;
     currentSettings.charityName = this.form.value.charityName;
