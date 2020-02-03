@@ -10,6 +10,18 @@ export class OnboardingGiftAidStateService {
     public clear():void{
         this.storage.removeItem('OnboardingGiftAidStateService.currentGiftAidSettings');
         this.storage.removeItem('OnboardingGiftAidStateService.validatedAndCompletedOrganisationDetails');
+        this.storage.removeItem('OnboardingGiftAidStateService.validatedAndCompletedAuthorisedOfficialDetails')
+    }
+    
+    public get validatedAndCompletedAuthorisedOfficialDetails(): boolean {
+        const key = 'OnboardingGiftAidStateService.validatedAndCompletedAuthorisedOfficialDetails';
+        const serializedRequest = JSON.parse(this.storage.getItem(key));
+        return serializedRequest || false;
+    }
+
+    public set validatedAndCompletedAuthorisedOfficialDetails(value: boolean) {
+        const key = 'OnboardingGiftAidStateService.validatedAndCompletedAuthorisedOfficialDetails';
+        this.storage.setItem(key, JSON.stringify(value));
     }
 
     public get validatedAndCompletedOrganisationDetails(): boolean {
