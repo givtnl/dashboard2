@@ -50,6 +50,7 @@ import { GiftaidIntroComponent } from './giftaid/giftaid-intro/giftaid-intro.com
 import { GiftaidCompletedComponent } from './giftaid/giftaid-completed/giftaid-completed.component';
 import { GiftaidOrganisationDetailsComponent } from './giftaid/giftaid-organisation-details/giftaid-organisation-details.component';
 import { GiftaidAuthorisedOfficialDetailsComponent } from './giftaid/giftaid-authorised-official-details/giftaid-authorised-official-details.component';
+import { OnboardingGiftAidPreparationResolver } from './giftaid/resolvers/onboarding-giftaid-preparation.resolver';
 
 const routes: Routes = [
   {
@@ -237,6 +238,7 @@ const routes: Routes = [
   {
     path: 'giftaid',
     component: OnboardingRootComponent,
+    resolve:{giftAidSettings: OnboardingGiftAidPreparationResolver},
     children: [
       {
         path: '',
