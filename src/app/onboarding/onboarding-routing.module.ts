@@ -46,6 +46,10 @@ import { OnboardingOrganisationDetailsIncorrectComponent } from './organisation-
 import { OnboardingOrganisationDetailsSendDataGuard } from './organisation-details/guards/onboarding-organisation-details-send-data.guard';
 import { OnboardingOrganisationDetailsFetchDataGuard } from './organisation-details/guards/onboarding-organisation-details-fetch-data.guard';
 import { BankAccountSignInvitationIdNotExpiredGuard } from './bank-account-signing/guards/bank-account-sign-invitation-id-not-expired.guard';
+import { GiftaidIntroComponent } from './giftaid/giftaid-intro/giftaid-intro.component';
+import { GiftaidCompletedComponent } from './giftaid/giftaid-completed/giftaid-completed.component';
+import { GiftaidOrganisationDetailsComponent } from './giftaid/giftaid-organisation-details/giftaid-organisation-details.component';
+import { GiftaidAuthorisedOfficialDetailsComponent } from './giftaid/giftaid-authorised-official-details/giftaid-authorised-official-details.component';
 
 const routes: Routes = [
   {
@@ -227,6 +231,32 @@ const routes: Routes = [
         outlet: 'onboarding-outlet',
         component: OnboardingBankAccountSigningCompleteComponent,
         canActivate: [BankAccountSignInvitationAcceptedGuard]
+      }
+    ]
+  },
+  {
+    path: 'giftaid',
+    component: OnboardingRootComponent,
+    children: [
+      {
+        path: '',
+        outlet: 'onboarding-outlet',
+        component: GiftaidIntroComponent
+      },
+      {
+        path: 'organisation-details',
+        outlet: 'onboarding-outlet',
+        component: GiftaidOrganisationDetailsComponent
+      },
+      {
+        path: 'authorised-official',
+        outlet: 'onboarding-outlet',
+        component: GiftaidAuthorisedOfficialDetailsComponent
+      },
+      {
+        path: 'completed',
+        outlet: 'onboarding-outlet',
+        component: GiftaidCompletedComponent,
       }
     ]
   }
