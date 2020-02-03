@@ -29,6 +29,8 @@ import { OnboardingOrganisationDetailsVerifyComponent } from './organisation-det
 import { OnboardingOrganisationDetailsCharityNumberComponent } from './organisation-details/onboarding-organisation-details-charity-number/onboarding-organisation-details-charity-number.component';
 import { GiftaidOrganisationDetailsComponent } from './giftaid/giftaid-organisation-details/giftaid-organisation-details.component';
 import { GiftaidAuthorisedOfficalDetailsComponent } from './giftaid/giftaid-authorised-offical-details/giftaid-authorised-offical-details.component';
+import { GiftaidIntroComponent } from './giftaid/giftaid-intro/giftaid-intro.component';
+import { GiftaidCompletedComponent } from './giftaid/giftaid-completed/giftaid-completed.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { GiftaidAuthorisedOfficalDetailsComponent } from './giftaid/giftaid-auth
     OnboardingOrganisationDetailsVerifyComponent,
     OnboardingOrganisationDetailsCharityNumberComponent,
     GiftaidOrganisationDetailsComponent,
-    GiftaidAuthorisedOfficalDetailsComponent
+    GiftaidAuthorisedOfficalDetailsComponent,
+    GiftaidIntroComponent,
+    GiftaidCompletedComponent
   ],
   imports: [CommonModule, ReactiveFormsModule, SharedModule, OnboardingRoutingModule]
 })
