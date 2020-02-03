@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
           this.router
             .navigate(['/', 'dashboard', 'root', { outlets: { 'dashboard-outlet': ['home'] } }])
             .finally(() => (this.loading = false))
-        );
+        ).add(() => this.loading = false);
     }
   }
   handleInvalidLogin(error: HttpErrorResponse) {

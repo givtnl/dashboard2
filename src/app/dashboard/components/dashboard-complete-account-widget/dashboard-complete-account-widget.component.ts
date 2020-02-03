@@ -39,8 +39,11 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
   }
 
   public navigate(record: CompleteAccountWidgetModel): void {
-    this.loading = true;
-    this.router.navigate(this.getRouterLinks(record)).finally(() => (this.loading = false));
+    const toNavigateRouterLinks = this.getRouterLinks(record);
+    if (toNavigateRouterLinks && toNavigateRouterLinks.length > 0) {
+      this.loading = true;
+      this.router.navigate(this.getRouterLinks(record)).finally(() => (this.loading = false));
+    }
   }
 
   public getRouterLinks(record: CompleteAccountWidgetModel): Array<any> {
