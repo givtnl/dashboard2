@@ -1,1 +1,29 @@
-<p>giftaid-intro works!</p>
+<app-custom-card [showCloseButton]="false" [showCloseButton]="true" iconBackgroundClass="circle-purple"
+    icon="fas fa-heart fa-5x">
+
+    <div body>
+        <p class="introduction-title text-primary text-heavy-font text-givt-purple text-center" translate>
+            Voeg Gift Aid Toe</p>
+        <p class="text-givt-purple text-light-font text-center" translate>
+          Ontvang meer geld en schrijf je nu in in Gift Aid
+        </p>
+    </div>
+
+    <div bottom class=" w-100" [formGroup]="form"> 
+        <p [translate] class="text-givt-purple text-heavy-font m-0 text-center">
+            Wil jij aid's?
+        </p>
+        <app-check-box-input formControlName="answer" [(loading)]="loading"></app-check-box-input>
+    </div>
+
+<!-- 
+    <a bottom [translate] class="btn btn-lg align-self-end bg-givt-green text-white text-heavy-font bottom-button w-75"
+    [routerLink]="['/', 'dashboard']">
+    Nee, ik wil geen aid's! Haal mij hier vandaan!
+
+</a>
+    <a bottom [translate] class="btn btn-lg align-self-end bg-givt-green text-white text-heavy-font bottom-button w-75"
+        [routerLink]="['/', 'onboarding', 'giftaid']">
+        Ga verder
+    </a> -->
+</app-custom-card>
