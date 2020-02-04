@@ -8,14 +8,14 @@
             onboardingBankAccountHolderCompletedComponent.description</p>
     </div>
 
-    <a bottom [translate] class="btn btn-lg align-self-end bg-givt-green text-white text-heavy-font bottom-button w-75"
+    <a bottom [translate] [class.bg-givt-purple]="showGiftAidButton" [class.bg-givt-green]="!showGiftAidButton" class="btn btn-lg align-self-end text-white text-heavy-font bottom-button w-75"
     [routerLink]="['/', 'dashboard']">
     onboardingWelcomeComponent.goToDashboardText
 
 </a>
-    <a bottom [translate] class="btn btn-lg align-self-end bg-givt-green text-white text-heavy-font bottom-button w-75"
+    <a *ngIf="showGiftAidButton" bottom [translate] class="btn btn-lg align-self-end bg-givt-green text-white text-heavy-font bottom-button w-75"
         [routerLink]="['/', 'onboarding', 'giftaid']">
-        Ga verder
+        Ga verder ( giftaid term )
     </a>
 
 </app-custom-card>
