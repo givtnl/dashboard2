@@ -24,8 +24,8 @@
     </div>
   </div>
   <div class="row d-flex flex-grow-1">
-    <div class="col-xl-3 col-sm-7 col-lg-4 col-md-5 mb-3 col-8">
-      <app-dashboard-link-button text="Enable giftaid" icon="fas fa-plus"></app-dashboard-link-button>
+    <div class="col-xl-3 col-sm-7 col-lg-4 col-md-5 mb-3 col-8" *ngIf="showGiftAidButton">
+      <app-dashboard-link-button text="Enable giftaid" [route]="['/', 'onboarding', 'giftaid']" icon="fas fa-plus"></app-dashboard-link-button>
     </div>
   </div>
   <div class="row">
