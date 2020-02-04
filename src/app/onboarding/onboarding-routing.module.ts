@@ -51,6 +51,7 @@ import { GiftaidCompletedComponent } from './giftaid/giftaid-completed/giftaid-c
 import { GiftaidOrganisationDetailsComponent } from './giftaid/giftaid-organisation-details/giftaid-organisation-details.component';
 import { GiftaidAuthorisedOfficialDetailsComponent } from './giftaid/giftaid-authorised-official-details/giftaid-authorised-official-details.component';
 import { OnboardingGiftAidPreparationResolver } from './giftaid/resolvers/onboarding-giftaid-preparation.resolver';
+import { GiftaidOrganisationDetailsCharityNumberComponent } from './giftaid/giftaid-organisation-details-charity-number/giftaid-organisation-details-charity-number.component';
 
 const routes: Routes = [
   {
@@ -249,6 +250,11 @@ const routes: Routes = [
         path: 'organisation-details',
         outlet: 'onboarding-outlet',
         component: GiftaidOrganisationDetailsComponent
+      },
+      {
+        path: 'organisation-details-charity-number',
+        outlet: 'onboarding-outlet',
+        component: GiftaidOrganisationDetailsCharityNumberComponent
       },
       {
         path: 'authorised-official',
