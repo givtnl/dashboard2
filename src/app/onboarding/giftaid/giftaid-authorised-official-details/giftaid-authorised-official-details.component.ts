@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CreateGiftAidSettingsCommand } from '../../models/create-giftaid-settings.command';
+import { CreateGiftAidSettingsCommand } from '../models/create-giftaid-settings.command';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { OnboardingGiftAidStateService } from '../../services/onboarding-giftaid-state.service';
+import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-state.service';
 
 @Component({
   selector: 'app-giftaid-authorised-official-details',

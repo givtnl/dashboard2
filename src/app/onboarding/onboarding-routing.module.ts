@@ -48,13 +48,13 @@ import { OnboardingOrganisationDetailsFetchDataGuard } from './organisation-deta
 import { BankAccountSignInvitationIdNotExpiredGuard } from './bank-account-signing/guards/bank-account-sign-invitation-id-not-expired.guard';
 import { GiftaidIntroComponent } from './giftaid/giftaid-intro/giftaid-intro.component';
 import { GiftaidCompletedComponent } from './giftaid/giftaid-completed/giftaid-completed.component';
-import { GiftaidOrganisationDetailsComponent } from './giftaid/Organisation Details/giftaid-organisation-details/giftaid-organisation-details.component';
-import { GiftaidAuthorisedOfficialDetailsComponent } from './giftaid/Authorised Offical Details/giftaid-authorised-official-details/giftaid-authorised-official-details.component';
+import { GiftaidOrganisationDetailsComponent } from './giftaid/giftaid-organisation-details/giftaid-organisation-details.component';
+import { GiftaidAuthorisedOfficialDetailsComponent } from './giftaid/giftaid-authorised-official-details/giftaid-authorised-official-details.component';
 import { OnboardingGiftAidPreparationResolver } from './giftaid/resolvers/onboarding-giftaid-preparation.resolver';
-import { GiftaidOrganisationDetailsCharityNumberComponent } from './giftaid/Organisation Details/giftaid-organisation-details-charity-number/giftaid-organisation-details-charity-number.component';
-import { GiftaidOrganisationAddressDetailsComponent } from './giftaid/Organisation Details/giftaid-organisation-address-details/giftaid-organisation-address-details.component';
-import { GiftaidAuthorisedOfficialAddressDetailsComponent } from './giftaid/Authorised Offical Details/giftaid-authorised-official-address-details/giftaid-authorised-official-address-details.component';
-import { GiftaidAuthorisedOfficialIdentificationDetailsComponent } from './giftaid/Authorised Offical Details/giftaid-authorised-official-identification-details/giftaid-authorised-official-identification-details.component';
+import { GiftaidOrganisationDetailsCharityNumberComponent } from './giftaid/giftaid-organisation-charity-details/giftaid-organisation-charity-details.component';
+import { GiftaidOrganisationAddressDetailsComponent } from './giftaid/giftaid-organisation-address-details/giftaid-organisation-address-details.component';
+import { GiftaidAuthorisedOfficialAddressDetailsComponent } from './giftaid/giftaid-authorised-official-address-details/giftaid-authorised-official-address-details.component';
+import { GiftaidAuthorisedOfficialIdentificationDetailsComponent } from './giftaid/giftaid-authorised-official-identification-details/giftaid-authorised-official-identification-details.component';
 import { GiftaidVerifyOrganisationDetailsComponent } from './giftaid/giftaid-verify-organisation-details/giftaid-verify-organisation-details.component';
 import { GiftaidVerifyPersonalDetailsComponent } from './giftaid/giftaid-verify-personal-details/giftaid-verify-personal-details.component';
 

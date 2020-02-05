@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { OnboardingGiftAidStateService } from '../../services/onboarding-giftaid-state.service';
-import { PreparedGiftAidSettings } from '../../models/prepared-giftaid-settings.model';
+import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-state.service';
+import { PreparedGiftAidSettings } from '../models/prepared-giftaid-settings.model';
 
 @Component({
   selector: 'app-giftaid-organisation-details',

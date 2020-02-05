@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-giftaid-organisation-details-charity-number',
-  templateUrl: './giftaid-organisation-details-charity-number.component.html',
-  styleUrls: ['./giftaid-organisation-details-charity-number.component.scss']
+  selector: 'app-giftaid-organisation-charity-details',
+  templateUrl: './giftaid-organisation-charity-details.component.html',
+  styleUrls: ['./giftaid-organisation-charity-details.component.scss']
 })
 export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit {
 
