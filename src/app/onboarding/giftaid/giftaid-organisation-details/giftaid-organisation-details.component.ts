@@ -22,17 +22,9 @@ export class GiftaidOrganisationDetailsComponent implements OnInit {
   ngOnInit() {
     const currentSettings = this.currentSettings();
     this.form = this.fb.group({
-      charityCommissionReference: [this.currentSettings ? currentSettings.charityCommissionReference : null, [Validators.required, Validators.minLength(6), Validators.maxLength(15)]],
-      charityId: [this.currentSettings ? currentSettings.charityId : null, [Validators.required, Validators.maxLength(20)]],
       charityName: [this.currentSettings ? currentSettings.charityName : null, [Validators.required, Validators.maxLength(100)]],
       charityEmailAddress: [this.currentSettings ? currentSettings.charityEmailAddress : null, [Validators.required, Validators.maxLength(250), Validators.email]],
-      charityPhoneNumber: [this.currentSettings ? currentSettings.charityPhoneNumber : null, [Validators.required, Validators.maxLength(50)]],
-      charityAddressLineOne: [this.currentSettings ? currentSettings.charityAddressLineOne : null, [Validators.required, Validators.maxLength(150)]],
-      charityAddressLineTwo: [this.currentSettings ? currentSettings.charityAddressLineTwo : null, [Validators.required, Validators.maxLength(150)]],
-      charityAddressLineThree: [this.currentSettings ? currentSettings.charityAddressLineThree : null, [Validators.maxLength(150)]],
-      charityAddressLineFour: [null, [Validators.maxLength(150)]],
-      charityAddressZipCode: [this.currentSettings ? currentSettings.charityAddressZipCode : null, [Validators.required, Validators.maxLength(15)]],
-      charityAddressCountry: [this.currentSettings ? currentSettings.charityAddressCountry : null, [Validators.required, Validators.maxLength(50)]]
+      charityPhoneNumber: [this.currentSettings ? currentSettings.charityPhoneNumber : null, [Validators.required, Validators.maxLength(50)]]
     });
   }
 
@@ -55,17 +47,9 @@ export class GiftaidOrganisationDetailsComponent implements OnInit {
   // only call this function when all of the input has been validated
   private continue(): void {
     const currentSettings = this.giftAidStateService.currentGiftAidSettings;
-    currentSettings.charityCommissionReference = this.form.value.charityCommissionReference;
-    currentSettings.charityId = this.form.value.charityId;
     currentSettings.charityName = this.form.value.charityName;
     currentSettings.charityEmailAddress = this.form.value.charityEmailAddress;
     currentSettings.charityPhoneNumber = this.form.value.charityPhoneNumber;
-    currentSettings.charityAddressLineOne = this.form.value.charityAddressLineOne;
-    currentSettings.charityAddressLineTwo = this.form.value.charityAddressLineTwo;
-    currentSettings.charityAddressLineThree = this.form.value.charityAddressLineThree;
-    currentSettings.charityAddressLineFour = this.form.value.charityAddressLineFour;
-    currentSettings.charityAddressZipCode = this.form.value.charityAddressZipCode;
-    currentSettings.charityAddressCountry = this.form.value.charityAddressCountry;
 
     this.giftAidStateService.currentGiftAidSettings = currentSettings;
     this.giftAidStateService.validatedAndCompletedOrganisationDetails = true;
