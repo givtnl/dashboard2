@@ -252,7 +252,7 @@ const routes: Routes = [
         component: GiftaidIntroComponent
       },
       {
-        path: 'organisation-details-charity-number',
+        path: 'organisation-charity-details',
         outlet: 'onboarding-outlet',
         component: GiftaidOrganisationDetailsCharityNumberComponent
       },
