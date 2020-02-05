@@ -1,19 +1,21 @@
 <form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'>
-    <app-custom-card titleTranslationKey='onboardingOrganisationDetailsCharityNumberComponent.title'
-        [showPreviousButton]="true" iconBackgroundClass="circle-blue"
-        icon="fas fa-newspaper fa-5x">
+    <app-custom-card titleTranslationKey='onboardingGiftAidOrganisationDetailsComponent.title'
+        [showPreviousButton]="true" iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
         <div body>
-            <p
-                class="introduction-title text-primary text-light-font text-givt-purple mt-3">Organisation Details</p>
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
+                onboardingGiftAidOrganisationDetailsComponent.description</p>
 
-            <input type="text" placeholder="Charity Name"
-                formControlName="charityName" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+                <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
+                    onboardingGiftAidOrganisationDetailsComponent.subtitleDetails</p>
 
-            <input type="email" placeholder="Email Address" formControlName="charityEmailAddress"
+            <input type="text" placeholder="{{'onboardingGiftAidOrganisationDetailsComponent.placeholderCharityName' | translate}}" formControlName="charityName"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-                <input type="text" placeholder="Phone Number"
-                formControlName="charityPhoneNumber" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+            <input type="email" placeholder="{{'onboardingGiftAidOrganisationDetailsComponent.placeholderEmailAddress' | translate}}" formControlName="charityEmailAddress"
+                class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+            <input type="text" placeholder="{{'onboardingGiftAidOrganisationDetailsComponent.placeholderPhonenumber' | translate}}" formControlName="charityPhoneNumber"
+                class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
         </div>
         <button bottom type="submit" [translate] [disabled]="loading"

@@ -1,26 +1,45 @@
 <form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'>
-    <app-custom-card titleTranslationKey='onboardingOrganisationDetailsCharityNumberComponent.title'
+    <app-custom-card titleTranslationKey='onboardingGiftAidOrganisationAddressDetailsComponent.title'
         [showPreviousButton]="true" iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
         <div body>
-            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3">Organisation Address
-                Details</p>
 
-            <input type="text" placeholder="Address Line 1" formControlName="charityAddressLineOne"
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
+                onboardingGiftAidOrganisationAddressDetailsComponent.description
+            </p>
+
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
+                onboardingGiftAidOrganisationAddressDetailsComponent.subtitleAddress
+            </p>
+
+
+            <input type="text"
+                placeholder="{{'onboardingGiftAidOrganisationAddressDetailsComponent.placeholderAddressLine1' | translate }}"
+                formControlName="charityAddressLineOne"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-            <input type="text" placeholder="Address Line 2" formControlName="charityAddressLineTwo"
+            <input type="text"
+                placeholder="{{'onboardingGiftAidOrganisationAddressDetailsComponent.placeholderAddressLine2' | translate }}"
+                formControlName="charityAddressLineTwo"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-            <input type="text" placeholder="Address Line 3" formControlName="charityAddressLineThree"
+            <input type="text"
+                placeholder="{{'onboardingGiftAidOrganisationAddressDetailsComponent.placeholderAddressLine3' | translate }}"
+                formControlName="charityAddressLineThree"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-            <input type="text" placeholder="Address Line 4" formControlName="charityAddressLineFour"
+            <input type="text"
+                placeholder="{{'onboardingGiftAidOrganisationAddressDetailsComponent.placeholderAddressLine4' | translate }}"
+                formControlName="charityAddressLineFour"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-            <input type="text" placeholder="ZIP Code" formControlName="charityAddressZipCode"
+            <input type="text"
+                placeholder="{{'onboardingGiftAidOrganisationAddressDetailsComponent.placeholderZipcode' | translate }}"
+                formControlName="charityAddressZipCode"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-            <input type="text" placeholder="Country" formControlName="charityAddressCountry"
+            <input type="text"
+                placeholder="{{'onboardingGiftAidOrganisationAddressDetailsComponent.placeholderCountry' | translate }}"
+                formControlName="charityAddressCountry"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
         </div>

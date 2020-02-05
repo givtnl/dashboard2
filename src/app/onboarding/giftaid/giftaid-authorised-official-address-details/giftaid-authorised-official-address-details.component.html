@@ -1,26 +1,39 @@
 <form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'>
-    <app-custom-card titleTranslationKey='onboardingOrganisationDetailsCharityNumberComponent.title'
+    <app-custom-card titleTranslationKey='onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.title'
         [showPreviousButton]="true" iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
         <div body>
-            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3">Authorised Official Address
-                Details</p>
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
+                onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.description
+            </p>
 
-            <input type="text" placeholder="Address Line 1" formControlName="authorisedOfficialHomeAddressLineOne"
+            <input type="text"
+                placeholder="{{'onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderAddressLine1' | translate}}"
+                formControlName="authorisedOfficialHomeAddressLineOne"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-            <input type="text" placeholder="Address Line 2" formControlName="authorisedOfficialHomeAddressLineTwo"
+            <input type="text"
+                placeholder="{{'onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderAddressLine2' | translate}}"
+                formControlName="authorisedOfficialHomeAddressLineTwo"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-            <input type="text" placeholder="Address Line 3" formControlName="authorisedOfficialHomeAddressLineThree"
+            <input type="text"
+                placeholder="{{'onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderAddressLine3' | translate}}"
+                formControlName="authorisedOfficialHomeAddressLineThree"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-            <input type="text" placeholder="Address Line 4" formControlName="authorisedOfficialHomeAddressLineFour"
+            <input type="text"
+                placeholder="{{'onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderAddressLine4' | translate}}"
+                formControlName="authorisedOfficialHomeAddressLineFour"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-            <input type="text" placeholder="ZIP Code" formControlName="authorisedOfficialHomeAddressLineZipCode"
+            <input type="text"
+                placeholder="{{'onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderZipcode' | translate}}"
+                formControlName="authorisedOfficialHomeAddressLineZipCode"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-            <input type="text" placeholder="Country" formControlName="authorisedOfficialHomeAddressLineCountry"
+            <input type="text"
+                placeholder="{{'onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderCountry' | translate}}"
+                formControlName="authorisedOfficialHomeAddressLineCountry"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
         </div>

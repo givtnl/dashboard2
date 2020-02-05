@@ -1,17 +1,20 @@
 <form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'>
-    <app-custom-card titleTranslationKey='onboardingOrganisationDetailsCharityNumberComponent.title'
-        [showPreviousButton]="true" iconBackgroundClass="circle-blue"
-        icon="fas fa-newspaper fa-5x">
+    <app-custom-card titleTranslationKey='onboardingGiftAidOrganisationDetailsCharityNumberComponent.title'
+        [showPreviousButton]="true" iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
         <div body>
-            <p [translate]="'onboardingOrganisationDetailsCharityNumberComponent.requestCharityNumber'"
-                class="introduction-title text-primary text-light-font text-givt-purple mt-3"></p>
+            <p translate class="introduction-title text-primary text-light-font text-givt-purple mt-3">
+                onboardingGiftAidOrganisationDetailsCharityNumberComponent.description</p>
 
-            <input type="number" placeholder="{{ 'placeholders.charityNumber' | translate }}"
+            <p translate class="introduction-title text-primary text-light-font text-givt-purple mt-3">
+                onboardingGiftAidOrganisationDetailsCharityNumberComponent.subtitleCharityNumber</p>
+
+            <input type="number" placeholder="{{ 'onboardingGiftAidOrganisationDetailsCharityNumberComponent.placeholderCharityNumber' | translate }}"
                 formControlName="charityNumber" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3">Charity Id</p>
+                <p translate class="introduction-title text-primary text-light-font text-givt-purple mt-3">
+                    onboardingGiftAidOrganisationDetailsCharityNumberComponent.subtitleCharityId</p>
 
-            <input type="text" placeholder="Charity Id" formControlName="charityId"
+            <input type="text" placeholder="{{'onboardingGiftAidOrganisationDetailsCharityNumberComponent.placeholderCharityId' | translate}}" formControlName="charityId"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
         </div>
         <button bottom type="submit" [translate] [disabled]="loading"

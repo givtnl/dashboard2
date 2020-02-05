@@ -1,14 +1,14 @@
 <form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'>
-    <app-custom-card titleTranslationKey='onboardingOrganisationDetailsCharityNumberComponent.title'
+    <app-custom-card titleTranslationKey='onboardingGiftAidAuthorisedOfficialIdentificationDetailsComponent.title'
         [showPreviousButton]="true" iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
         <div body>
-            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3">Authorised Official Identification
-                Details</p>
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate=>
+                onboardingGiftAidAuthorisedOfficialIdentificationDetailsComponent.description</p>
 
-            <input type="number" placeholder="Insurance number" formControlName="nationalInsuranceNumber"
+            <input type="number" placeholder="{{'onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderInsuranceNumber' | translate}}" formControlName="nationalInsuranceNumber"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-            <input type="number" placeholder="Identity Card number" formControlName="nationalIdentityCardNumber"
+            <input type="number" placeholder="{{'onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderNationalIdentityCardNumber' | translate}}" formControlName="nationalIdentityCardNumber"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
         </div>

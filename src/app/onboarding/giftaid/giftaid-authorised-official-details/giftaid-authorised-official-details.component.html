@@ -1,19 +1,34 @@
 <form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'>
-    <app-custom-card titleTranslationKey='onboardingOrganisationDetailsCharityNumberComponent.title'
+    <app-custom-card titleTranslationKey='onboardingGiftAidAuthorisedOfficialDetailsComponent.title'
         [showPreviousButton]="true" iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
         <div body>
-            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3">Authorised Official Name</p>
-            <input type="text" placeholder="Firstname" formControlName="authorisedOfficialFirstName"
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
+                onboardingGiftAidAuthorisedOfficialDetailsComponent.description</p>
+
+            <p translate>onboardingGiftAidAuthorisedOfficialDetailsComponent.subtitleName</p>
+
+            <input type="text"
+                placeholder="{{'onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderFirstname' | translate }}"
+                formControlName="authorisedOfficialFirstName"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-            <input type="text" placeholder="Middlename" formControlName="authorisedOfficialMiddleName"
+            <input type="text"
+                placeholder="{{'onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderMiddlename' | translate }}"
+                formControlName="authorisedOfficialMiddleName"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-            <input type="text" placeholder="Lastname" formControlName="authorisedOfficialLastName"
+            <input type="text"
+                placeholder="{{'onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderLastname' | translate }}"
+                formControlName="authorisedOfficialLastName"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-                <p class="introduction-title text-primary text-light-font text-givt-purple mt-3">Authorised Official Phonenumber</p>
-            <input type="text" placeholder="Phonenumber" formControlName="authorisedOfficialPhoneNumber"
+
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3">
+                onboardingGiftAidAuthorisedOfficialDetailsComponent.subtitlePhonenumber</p>
+
+            <input type="text"
+                placeholder="{{'onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderPhonenumber' | translate }}"
+                formControlName="authorisedOfficialPhoneNumber"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
         </div>
