@@ -21,7 +21,7 @@ export class GiftaidIntroComponent implements OnInit {
     this.form.valueChanges.subscribe(x => {
       if(x.answer) {
         this.isLoading = true
-        this.router.navigate(['/', 'onboarding', 'giftaid', { outlets: { 'onboarding-outlet': ['organisation-details-charity-number'] } }], {
+        this.router.navigate(['/', 'onboarding', 'giftaid', { outlets: { 'onboarding-outlet': ['organisation-charity-details'] } }], {
           queryParamsHandling: 'merge'
         }).finally(() => this.isLoading = false)
       }
