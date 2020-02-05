@@ -23,23 +23,7 @@ export class GiftaidAuthorisedOfficialDetailsComponent implements OnInit {
       ],
       authorisedOfficialMiddleName: [currentSettings ? currentSettings.authorisedOfficialMiddleName : null, [Validators.maxLength(50)]],
       authorisedOfficialLastName: [currentSettings ? currentSettings.authorisedOfficialLastName : null, [Validators.required, Validators.maxLength(150)]],
-      authorisedOfficialPhoneNumber: [currentSettings ? currentSettings.authorisedOfficialPhoneNumber : null, [Validators.required, Validators.maxLength(50)]],
-      authorisedOfficialHomeAddressLineOne: [
-        currentSettings ? currentSettings.authorisedOfficialHomeAddressLineOne : null,
-        [Validators.required, Validators.maxLength(50)]
-      ],
-      authorisedOfficialHomeAddressLineTwo: [
-        currentSettings ? currentSettings.authorisedOfficialHomeAddressLineTwo : null,
-        [Validators.required, Validators.maxLength(150)]
-      ],
-      authorisedOfficialHomeAddressLineThree: [
-        currentSettings ? currentSettings.authorisedOfficialHomeAddressLineThree : null,
-        [Validators.required, Validators.maxLength(150)]
-      ],
-      authorisedOfficialHomeAddressLineZipCode: [currentSettings ? currentSettings.authorisedOfficialHomeAddressLineZipCode : null, [Validators.maxLength(15)]],
-      authorisedOfficialHomeAddressLineCountry: [currentSettings ? currentSettings.authorisedOfficialHomeAddressLineCountry : null, [Validators.maxLength(50)]],
-      nationalInsuranceNumber: [currentSettings ? currentSettings.nationalInsuranceNumber : null, [Validators.required, Validators.maxLength(10)]],
-      nationalIdentityCardNumber: [currentSettings ? currentSettings.nationalIdentityCardNumber : null, [Validators.required, Validators.maxLength(50)]]
+      authorisedOfficialPhoneNumber: [currentSettings ? currentSettings.authorisedOfficialPhoneNumber : null, [Validators.required, Validators.maxLength(50)]]
     });
   }
 
@@ -62,13 +46,6 @@ export class GiftaidAuthorisedOfficialDetailsComponent implements OnInit {
     currentSettings.authorisedOfficialMiddleName = this.form.value.authorisedOfficialMiddleName;
     currentSettings.authorisedOfficialLastName = this.form.value.authorisedOfficialLastName;
     currentSettings.authorisedOfficialPhoneNumber = this.form.value.authorisedOfficialPhoneNumber;
-    currentSettings.authorisedOfficialHomeAddressLineOne = this.form.value.authorisedOfficialHomeAddressLineOne;
-    currentSettings.authorisedOfficialHomeAddressLineTwo = this.form.value.authorisedOfficialHomeAddressLineTwo;
-    currentSettings.authorisedOfficialHomeAddressLineThree = this.form.value.authorisedOfficialHomeAddressLineThree;
-    currentSettings.authorisedOfficialHomeAddressLineZipCode = this.form.value.authorisedOfficialHomeAddressLineZipCode;
-    currentSettings.authorisedOfficialHomeAddressLineCountry = this.form.value.authorisedOfficialHomeAddressLineCountry;
-    currentSettings.nationalInsuranceNumber = this.form.value.nationalInsuranceNumber;
-    currentSettings.nationalIdentityCardNumber = this.form.value.nationalIdentityCardNumber;
 
     this.giftAidStateService.currentGiftAidSettings = currentSettings;
     this.giftAidStateService.validatedAndCompletedAuthorisedOfficialDetails = true;
