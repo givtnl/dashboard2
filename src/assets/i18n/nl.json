@@ -254,5 +254,8 @@
     "onboardingGiftAidVerifyPersonalDetailsComponent.subtitleAddressDetails": "Adres gegevens",
     "onboardingGiftAidVerifyDetails.question": "Zijn deze gegevens correct?",
     "onboardingBankAccountHolderCompletedComponent.goToGiftaid": "Verder naar Gift Aid",
-    "errorMessages.charityCommisionNumberNotFound": ""
+    "errorMessages.charity-number-minLength": "The charity number should atleast be 6 characters long.",
+    "errorMessages.charity-number-maxLength": "The charity number cannot exceed 15 characters.",
+    "errorMessages.charity-id-required": "Please enter your charity id",
+    "errorMessages.charity-id-maxLength": ""
 }
