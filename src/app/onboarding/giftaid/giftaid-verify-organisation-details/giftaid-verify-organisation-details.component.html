@@ -1,1 +1,62 @@
-<p>giftaid-verify-organisation-details works!</p>
+<app-custom-card titleTranslationKey="onboardingBankAccountSigningVerifyDetailsComponent.title" [showCloseButton]="true"
+    iconBackgroundClass="circle-purple" icon="fas fa-file-signature fa-4x">
+
+    <div body>
+        <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">
+            <p class="introduction-title text-primary text-heavy-font text-givt-purple">
+                Charity details
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                Charity number
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                Charity id
+            </p>
+        </div>
+        <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">
+            <p class="introduction-title text-primary text-heavy-font text-givt-purple">
+                Details
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                Charity Name
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                Email Address
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                Phone number
+            </p>
+        </div>
+        <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">
+            <p class="introduction-title text-primary text-heavy-font text-givt-purple">
+                Address Details
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                Address Line 1
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                Address Line 2
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                Address Line 3
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                Address Line 4
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                Postal code
+            </p>
+            <p class="text-primary text-light-font text-givt-purple mb-0">
+                Country
+            </p>
+        </div>
+    </div>
+
+    <div bottom class="w-100" [formGroup]="form">
+        <p [translate] class="text-fgivt-purple text-heavy-font m-0 text-center">
+            onboardingBankAccountSigningVerifyDetailsComponent.yesNoQuestion
+        </p>
+        <app-check-box-input formControlName="detailsCorrect" [(loading)]="isLoading"></app-check-box-input>
+    </div>
+
+</app-custom-card>
