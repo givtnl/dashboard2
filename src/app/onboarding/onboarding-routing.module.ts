@@ -56,7 +56,7 @@ import { GiftaidOrganisationAddressDetailsComponent } from './giftaid/giftaid-or
 import { GiftaidAuthorisedOfficialAddressDetailsComponent } from './giftaid/giftaid-authorised-official-address-details/giftaid-authorised-official-address-details.component';
 import { GiftaidAuthorisedOfficialIdentificationDetailsComponent } from './giftaid/giftaid-authorised-official-identification-details/giftaid-authorised-official-identification-details.component';
 import { GiftaidVerifyOrganisationDetailsComponent } from './giftaid/giftaid-verify-organisation-details/giftaid-verify-organisation-details.component';
-import { GiftaidVerifyPersonalDetailsComponent } from './giftaid/giftaid-verify-personal-details/giftaid-verify-personal-details.component';
+import { GiftaidVerifyAuthorisedOfficialDetailsComponent } from './giftaid/giftaid-verify-authorised-official-details/giftaid-verify-authorised-official-details.component';
 
 const routes: Routes = [
   {
@@ -289,7 +289,7 @@ const routes: Routes = [
       {
         path: 'verify-personal-details',
         outlet: 'onboarding-outlet',
-        component: GiftaidVerifyPersonalDetailsComponent
+        component: GiftaidVerifyAuthorisedOfficialDetailsComponent
       },
       {
         path: 'completed',

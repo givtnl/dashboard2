@@ -4,11 +4,11 @@ import { PreparedGiftAidSettings } from '../models/prepared-giftaid-settings.mod
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-giftaid-verify-personal-details',
-  templateUrl: './giftaid-verify-personal-details.component.html',
-  styleUrls: ['./giftaid-verify-personal-details.component.scss']
+  selector: 'giftaid-verify-authorised-official-details',
+  templateUrl: './giftaid-verify-authorised-official-details.component.html',
+  styleUrls: ['./giftaid-verify-authorised-official-details.component.scss']
 })
-export class GiftaidVerifyPersonalDetailsComponent implements OnInit {
+export class GiftaidVerifyAuthorisedOfficialDetailsComponent implements OnInit {
   public form: FormGroup;
   public loading = false;
   public giftAidSettings: PreparedGiftAidSettings;
