@@ -213,7 +213,7 @@
     "onboardingGiftAidOrganisationDetailsComponent.placeholderPhonenumber": "Phonenumber",
     "onboardingGiftAidOrganisationAddressDetailsComponent.title": "Gift Aid setup",
     "onboardingGiftAidOrganisationAddressDetailsComponent.description": "Fill in the address details of your organisation below",
-    "onboardingGiftAidOrganisationAddressDetailsComponent.subtitleAddress": "",
+    "onboardingGiftAidOrganisationAddressDetailsComponent.subtitleAddress": "Address details",
     "onboardingGiftAidOrganisationAddressDetailsComponent.placeholderAddressLine1": "Address line 1",
     "onboardingGiftAidOrganisationAddressDetailsComponent.placeholderAddressLine2": "Address line 2",
     "onboardingGiftAidOrganisationAddressDetailsComponent.placeholderAddressLine3": "Address line 3",
