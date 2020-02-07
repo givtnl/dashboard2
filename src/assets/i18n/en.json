@@ -84,7 +84,7 @@
     "onboardingBankAccountHolderWhoComponent.nextButtonText": "Send",
     "onboardingBankAccountHolderCompletedComponent.title": "The e-mail is on its way!",
     "onboardingBankAccountHolderCompletedComponent.description": "As soon as the Direct Debit Instruction is signed, the account can receive payments.",
-    "onboardingBankAccountIntroComponent.what1": "Fill in the bank account details",
+    "onboardingBankAccountIntroComponent.what1": "Fill in the bank account details as on a bank statement",
     "onboardingBankAccountIntroComponent.what2": "Verify the bank account or invite the person who will verify the bank account.",
     "onboardingBankAccountIntroComponent.what3": "Finally, this person will check the organisation details and the bank account details and the bank account will be verified. We will send a confirmation e-mail to you as soon as this is done.",
     "onboardingBankAccountSigningIntroComponent.title": "Verify bank account",
@@ -95,12 +95,12 @@
     "onboardingBankAccountSigningVerifyDetailsComponent.yesNoQuestion": "Are these details correct?",
     "onboardingBankAccountSigningDirectDebitGuaranteeComponent.title": "Direct Debit Guarantee",
     "onboardingBankAccountSigningDirectDebitGuaranteeComponent.description": "- The Guarantee is offered by all banks and building societies that accept instructions to pay Direct Debits. <br /><br />\n- If there are any changes to the way this incidental Direct Debit Instruction is used, the organisation will notify you (normally 10 working days) in advance of your account being debited or as otherwise agreed. <br /><br />\n- If an error is made in the payment of your Direct Debit, by the organisation, or your bank or building society, you are entitled to a full and immediate refund of the amount paid from your bank or building society. <br /><br />\n- If you receive a refund you are not entitled to, you must pay it back when the organisation asks you to. <br /><br />\n- You can cancel a Direct Debit at any time by simply contacting your bank or building society. Written confirmation may be required. Please also notify the organisation.",
-    "onboardingBankAccountSigningDirectDebitGuaranteeComponent.signText": "Sign",
+    "onboardingBankAccountSigningDirectDebitGuaranteeComponent.signText": "Continue",
     "onboardingBankAccountSigningDetailsIncorrectComponent.title": "Details incorrect",
     "onboardingBankAccountSigningDetailsIncorrectComponent.description": "You have indicated that there were some incorrect details. An e-mail has been sent to notify the organisation admin.",
     "onboardingBankAccountSigningDetailsIncorrectComponent.finalActionText": "Close",
     "onboardingBankAccountSigningCompleteComponent.title": "Succesfully signed",
-    "onboardingBankAccountSigningCompleteComponent.description": "Now that the Direct Debit Instruction is signed, we can debit any outstanding fees and pay out the money which is donated to the organisation. We have sent you an e-mail with the signed DD as attachment. Due to the advance notice period, you can expect the first payout only on the first Thursday after this period of 10 working days.",
+    "onboardingBankAccountSigningCompleteComponent.description": "Now that these details are verified, we will ask a bank statement, so we can verify these details. When we verified these details the Direct Debit Instruction will be set up. Once this is set up, we can debit any outstanding fees and pay out the money which is donated to the organisation. We will sent you an e-mail with the signed DD as attachment. Due to the advance notice period, you can expect the first payout only on the first Thursday after this period of 10 working days after we received the bank statement and verified these details.",
     "onboardingBankAccountSigningCompleteComponent.finalActionText": "Close",
     "onboardingBankAccountHolderWhoComponent.nameAuthorized": "Name of the authorised person",
     "onboardingBankAccountHolderWhoComponent.emailAuthorized": "E-mail address of the authorised person",
@@ -257,5 +257,6 @@
     "errorMessages.charity-number-minLength": "The charity number should atleast be 6 characters long.",
     "errorMessages.charity-number-maxLength": "The charity number cannot exceed 15 characters.",
     "errorMessages.charity-id-required": "Please enter your charity id",
-    "errorMessages.charity-id-maxLength": ""
+    "errorMessages.charity-id-maxLength": "",
+    "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderPhonenumber": "Phonenumber"
 }
