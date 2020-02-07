@@ -258,5 +258,7 @@
     "errorMessages.charity-number-maxLength": "The charity number cannot exceed 15 characters.",
     "errorMessages.charity-id-required": "Please enter your charity id",
     "errorMessages.charity-id-maxLength": "",
-    "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderPhonenumber": "Phonenumber"
+    "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderPhonenumber": "Phonenumber",
+    "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderInsuranceNumber": "Insurance number",
+    "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderNationalIdentityCardNumber": "National identity card number"
 }
