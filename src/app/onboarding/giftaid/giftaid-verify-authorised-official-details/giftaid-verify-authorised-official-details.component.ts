@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PreparedGiftAidSettings } from '../models/prepared-giftaid-settings.model';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-state.service';
 
 @Component({
   selector: 'giftaid-verify-authorised-official-details',
@@ -16,7 +17,7 @@ export class GiftaidVerifyAuthorisedOfficialDetailsComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    public stateService: OnboardingGiftAidStateService) { }
 
   ngOnInit() {
     // setup form
@@ -37,6 +38,6 @@ export class GiftaidVerifyAuthorisedOfficialDetailsComponent implements OnInit {
     })
   }
   private get currentSettings(): PreparedGiftAidSettings {
-    return this.activatedRoute.parent.snapshot.data.giftAidSettings;
+    return this.stateService.currentGiftAidSettings
   }
 }

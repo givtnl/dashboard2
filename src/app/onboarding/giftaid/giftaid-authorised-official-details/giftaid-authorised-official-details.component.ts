@@ -50,6 +50,6 @@ export class GiftaidAuthorisedOfficialDetailsComponent implements OnInit {
     this.giftAidStateService.currentGiftAidSettings = currentSettings;
     this.giftAidStateService.validatedAndCompletedAuthorisedOfficialDetails = true;
     // todo implement the route
-    this.router.navigate[''];
+    this.router.navigate(['/', 'onboarding','giftaid', {outlets: {'onboarding-outlet': ['authorised-official-identification-details']}}]);
   }
 }

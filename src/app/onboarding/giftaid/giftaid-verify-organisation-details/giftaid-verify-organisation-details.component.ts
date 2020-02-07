@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { PreparedGiftAidSettings } from '../models/prepared-giftaid-settings.model';
+import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-state.service';
 
 @Component({
   selector: 'app-giftaid-verify-organisation-details',
@@ -16,7 +17,7 @@ export class GiftaidVerifyOrganisationDetailsComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    public stateService: OnboardingGiftAidStateService) { }
 
   ngOnInit() {
     // setup form
@@ -31,12 +32,12 @@ export class GiftaidVerifyOrganisationDetailsComponent implements OnInit {
     this.form.valueChanges.subscribe(value => {
       this.loading = true;
       this.router.navigate(['/', 'onboarding', 'giftaid',
-        { outlets: { 'onboarding-outlet': [value.detailsCorrect ? 'completed' : 'organisation-charity-details'] } }],
+        { outlets: { 'onboarding-outlet': [value.detailsCorrect ? 'verify-personal-details' : 'organisation-charity-details'] } }],
         { queryParamsHandling: 'merge' }
       ).finally(() => this.loading = false)
     })
   }
   private get currentSettings(): PreparedGiftAidSettings {
-    return this.activatedRoute.parent.snapshot.data.giftAidSettings;
+    return this.stateService.currentGiftAidSettings
   }
 }

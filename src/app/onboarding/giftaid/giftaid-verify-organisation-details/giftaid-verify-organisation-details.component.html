@@ -1,5 +1,5 @@
-<app-custom-card titleTranslationKey="onboardingGiftAidVerifyOrganisationDetailsComponent.title" [showCloseButton]="true"
-    iconBackgroundClass="circle-purple" icon="fas fa-file-signature fa-4x">
+<app-custom-card titleTranslationKey="onboardingGiftAidVerifyOrganisationDetailsComponent.title"
+    [showCloseButton]="true" iconBackgroundClass="circle-purple" icon="fas fa-file-signature fa-4x">
 
     <div body>
         <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">
@@ -7,10 +7,10 @@
                 onboardingGiftAidVerifyOrganisationDetailsComponent.subtitleCharityDetails
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">
-                Charity number
+                {{ giftAidSettings.charityCommissionReference }}
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">
-                Charity id
+                {{ giftAidSettings.charityId }}
             </p>
         </div>
         <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">
@@ -18,13 +18,13 @@
                 onboardingGiftAidVerifyOrganisationDetailsComponent.subtitleOrganisationDetails
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">
-                Charity Name
+                {{ giftAidSettings.charityName }}
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">
-                Email Address
+                {{ giftAidSettings.charityEmailAddress }}
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">
-                Phone number
+                {{ giftAidSettings.charityPhoneNumber }}
             </p>
         </div>
         <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">
@@ -32,22 +32,22 @@
                 onboardingGiftAidVerifyOrganisationDetailsComponent.subtitleOrganisationAddressDetails
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">
-                Address Line 1
+                {{ giftAidSettings.charityAddressLineOne }}
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">
-                Address Line 2
+                {{ giftAidSettings.charityAddressLineTwo }}
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">
-                Address Line 3
+                {{ giftAidSettings.charityAddressLineThree }}
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">
-                Address Line 4
+                {{ giftAidSettings.charityAddressLineFour }}
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">
-                Postal code
+                {{ giftAidSettings.charityAddressZipCode }}
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">
-                Country
+                {{ giftAidSettings.charityAddressCountry }}
             </p>
         </div>
     </div>
