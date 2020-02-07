@@ -9,29 +9,53 @@ export class OnboardingGiftAidStateService {
 
     public clear():void{
         this.storage.removeItem('OnboardingGiftAidStateService.currentGiftAidSettings');
-        this.storage.removeItem('OnboardingGiftAidStateService.validatedAndCompletedOrganisationDetails');
-        this.storage.removeItem('OnboardingGiftAidStateService.validatedAndCompletedAuthorisedOfficialDetails')
+        this.storage.removeItem('OnboardingGiftAidStateService.validatedAndCompletedStepOne');
+        this.storage.removeItem('OnboardingGiftAidStateService.validatedAndCompletedStepTwo');
+        this.storage.removeItem('OnboardingGiftAidStateService.validatedAndCompletedStepThree')
+        this.storage.removeItem('OnboardingGiftAidStateService.validatedAndCompletedStepFour')
     }
     
-    public get validatedAndCompletedAuthorisedOfficialDetails(): boolean {
-        const key = 'OnboardingGiftAidStateService.validatedAndCompletedAuthorisedOfficialDetails';
+    public get validatedAndCompletedStepFour(): boolean {
+        const key = 'OnboardingGiftAidStateService.validatedAndCompletedStepFour';
         const serializedRequest = JSON.parse(this.storage.getItem(key));
         return serializedRequest || false;
     }
 
-    public set validatedAndCompletedAuthorisedOfficialDetails(value: boolean) {
-        const key = 'OnboardingGiftAidStateService.validatedAndCompletedAuthorisedOfficialDetails';
+    public set validatedAndCompletedStepFour(value: boolean) {
+        const key = 'OnboardingGiftAidStateService.validatedAndCompletedStepFour';
         this.storage.setItem(key, JSON.stringify(value));
     }
 
-    public get validatedAndCompletedOrganisationDetails(): boolean {
-        const key = 'OnboardingGiftAidStateService.validatedAndCompletedOrganisationDetails';
+    public get validatedAndCompletedStepThree(): boolean {
+        const key = 'OnboardingGiftAidStateService.validatedAndCompletedStepThree';
         const serializedRequest = JSON.parse(this.storage.getItem(key));
         return serializedRequest || false;
     }
 
-    public set validatedAndCompletedOrganisationDetails(value: boolean) {
-        const key = 'OnboardingGiftAidStateService.validatedAndCompletedOrganisationDetails';
+    public set validatedAndCompletedStepThree(value: boolean) {
+        const key = 'OnboardingGiftAidStateService.validatedAndCompletedStepThree';
+        this.storage.setItem(key, JSON.stringify(value));
+    }
+
+    public get validatedAndCompletedStepTwo(): boolean {
+        const key = 'OnboardingGiftAidStateService.validatedAndCompletedStepTwo';
+        const serializedRequest = JSON.parse(this.storage.getItem(key));
+        return serializedRequest || false;
+    }
+
+    public set validatedAndCompletedStepTwo(value: boolean) {
+        const key = 'OnboardingGiftAidStateService.validatedAndCompletedStepTwo';
+        this.storage.setItem(key, JSON.stringify(value));
+    }
+
+    public get validatedAndCompletedStepOne(): boolean {
+        const key = 'OnboardingGiftAidStateService.validatedAndCompletedStepOne';
+        const serializedRequest = JSON.parse(this.storage.getItem(key));
+        return serializedRequest || false;
+    }
+
+    public set validatedAndCompletedStepOne(value: boolean) {
+        const key = 'OnboardingGiftAidStateService.validatedAndCompletedStepOne';
         this.storage.setItem(key, JSON.stringify(value));
     }
     

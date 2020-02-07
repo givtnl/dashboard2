@@ -35,7 +35,7 @@ export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit 
   }
 
   private getCachedValue(): CreateGiftAidSettingsCommand {
-    if (this.giftAidStateService.validatedAndCompletedAuthorisedOfficialDetails) {
+    if (this.giftAidStateService.validatedAndCompletedStepThree) {
       return this.giftAidStateService.currentGiftAidSettings;
     }
     return null;
@@ -57,7 +57,7 @@ export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit 
     currentSettings.authorisedOfficialHomeAddressLineCountry = this.form.value.authorisedOfficialHomeAddressLineCountry;
 
     this.giftAidStateService.currentGiftAidSettings = currentSettings;
-    this.giftAidStateService.validatedAndCompletedAuthorisedOfficialDetails = true;
+    this.giftAidStateService.validatedAndCompletedStepThree = true;
     // todo implement the route
     this.router.navigate(['/', 'onboarding','giftaid', {outlets: {'onboarding-outlet': ['verify-organisation-details']}}]);
   }

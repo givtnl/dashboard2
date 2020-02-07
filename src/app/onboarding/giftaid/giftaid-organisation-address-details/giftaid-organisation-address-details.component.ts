@@ -34,7 +34,7 @@ export class GiftaidOrganisationAddressDetailsComponent implements OnInit {
   private currentSettings(): PreparedGiftAidSettings {
     // if we already did this step and the user returns to this screen, then load the previously entered settings
     // and do not reload them from our prepare endpoint as the user might altered them
-    if (!this.giftAidStateService.validatedAndCompletedOrganisationDetails) {
+    if (!this.giftAidStateService.validatedAndCompletedStepThree) {
       return this.activatedRoute.parent.snapshot.data.giftAidSettings;
     } else {
       return this.giftAidStateService.currentGiftAidSettings;
@@ -58,7 +58,7 @@ export class GiftaidOrganisationAddressDetailsComponent implements OnInit {
     currentSettings.charityAddressCountry = this.form.value.charityAddressCountry;
 
     this.giftAidStateService.currentGiftAidSettings = currentSettings;
-    this.giftAidStateService.validatedAndCompletedOrganisationDetails = true;
+    this.giftAidStateService.validatedAndCompletedStepThree = true;
     // todo implement the route
     this.router.navigate(['/', 'onboarding','giftaid', {outlets: {'onboarding-outlet': ['authorised-official-details']}}]);
   }
