@@ -194,8 +194,8 @@
     "passwordForgottenCompletedComponent.finalActionText": "Aanmelden",
     "errorMessages.passwordResetLinkExpired": "De link voor het wachtwoord herstellen is verlopen.",
     "errorMessages.email-not-known": "Er is geen account gevonden met het ingegeven emailadres",
-    "dashboardCompleteAccountWidgetComponent.AddGiftAidSettings": "te vertalen, gift aid settings",
-    "dashboardCompleteAccountWidgetComponent.AddGiftAidSettings.InProgress": "te vertalen gift aid settings in progress",
+    "dashboardCompleteAccountWidgetComponent.AddGiftAidSettings": "Instellen Gift Aid",
+    "dashboardCompleteAccountWidgetComponent.AddGiftAidSettings.InProgress": "Instellen Gift Aid - In behandeling",
     "onboardingGiftAidIntroComponent.title": "Gift Aid instellen",
     "onboardingGiftAidIntroComponent.description": "In volgende stappen gaan we Gift Aid voor je instellen. Hierbij hebben we enkele gegevens van je nodig.",
     "onboardingGiftAidIntroComponent.question": "Wil je Gift Aid instellen voor je organisatie?",
@@ -260,5 +260,6 @@
     "errorMessages.charity-id-maxLength": "",
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderPhonenumber": "Telefoon nummer",
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderInsuranceNumber": "Verzekerings nummer",
-    "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderNationalIdentityCardNumber": "Nationaal identiteitskaart nummer"
+    "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderNationalIdentityCardNumber": "Nationaal identiteitskaart nummer",
+    "onboardingGiftAidVerifyPersonalDetailsComponent.subtitlePhonenumber": "Telefoon nummer"
 }
