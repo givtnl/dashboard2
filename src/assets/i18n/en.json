@@ -194,8 +194,8 @@
     "passwordForgottenCompletedComponent.finalActionText": "Login",
     "errorMessages.passwordResetLinkExpired": "The link to reset your password has expired",
     "errorMessages.email-not-known": "No account found with the provided email",
-    "dashboardCompleteAccountWidgetComponent.AddGiftAidSettings": "to translate add giftaid settings",
-    "dashboardCompleteAccountWidgetComponent.AddGiftAidSettings.InProgress": "to translate add giftaid settings in progress",
+    "dashboardCompleteAccountWidgetComponent.AddGiftAidSettings": "Setup Gift Aid",
+    "dashboardCompleteAccountWidgetComponent.AddGiftAidSettings.InProgress": "Setup Gift Aid - In progress",
     "onboardingGiftAidIntroComponent.title": "Gift Aid setup",
     "onboardingGiftAidIntroComponent.description": "In the next steps we will setup Gift Aid for you. Hereby we need some information from you.",
     "onboardingGiftAidIntroComponent.question": "Do you want to setup Gift Aid for your organisation?",
@@ -225,7 +225,7 @@
     "onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.subtitleAddress": "Address",
     "onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderAddressLine1": "Address line 1",
     "onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderAddressLine2": "Address line 2",
-    "onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderAddressLine3": "Address line 4",
+    "onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderAddressLine3": "Address line 3",
     "onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderAddressLine4": "Address line 5",
     "onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderZipcode": "Zipcode",
     "onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderCountry": "Country",
@@ -260,5 +260,6 @@
     "errorMessages.charity-id-maxLength": "",
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderPhonenumber": "Phonenumber",
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderInsuranceNumber": "Insurance number",
-    "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderNationalIdentityCardNumber": "National identity card number"
+    "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderNationalIdentityCardNumber": "National identity card number",
+    "onboardingGiftAidVerifyPersonalDetailsComponent.subtitlePhonenumber": "Phonenumber"
 }
