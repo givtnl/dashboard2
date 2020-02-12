@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
@@ -8,12 +8,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader, MissingTranslationHandler } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { UrlSerializer } from '@angular/router';
-import { CustomUrlSerializer } from './shared/serializers/custom-url.serializer';
 import { OnboardingInterceptor } from './onboarding/new-users/interceptors/onboarding.interceptor';
 import { MissingFileTranslationsHandler } from './infrastructure/services/missing-file-translations.service';
 import { CurrentUserTokenInterceptor } from './infrastructure/interceptors/current-user-token.interceptor';
 import { ValidationErrorInterceptor } from './infrastructure/interceptors/validation-error.interceptor';
+import { UnauthorizedTokenInterceptor } from './shared/interceptors/unauthorized-token.interceptor';
 
 
 @NgModule({
@@ -38,6 +37,11 @@ import { ValidationErrorInterceptor } from './infrastructure/interceptors/valida
   ],
   bootstrap: [AppComponent],
   providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:UnauthorizedTokenInterceptor,
+      multi:true
+    },
     {
       provide:HTTP_INTERCEPTORS,
       useClass:ValidationErrorInterceptor,
