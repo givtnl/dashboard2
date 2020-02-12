@@ -3,23 +3,27 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-state.service';
 import { CreateGiftAidSettingsCommand } from '../models/create-giftaid-settings.command';
+import { Observable, forkJoin } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
+import { tap, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-giftaid-authorised-official-identification-details',
   templateUrl: './giftaid-authorised-official-identification-details.component.html',
-  styleUrls: ['./giftaid-authorised-official-identification-details.component.scss']
+  styleUrls: ['../../onboarding.module.scss','./giftaid-authorised-official-identification-details.component.scss']
 })
 export class GiftaidAuthorisedOfficialIdentificationDetailsComponent implements OnInit {
   public form: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private giftAidStateService: OnboardingGiftAidStateService) {}
+  constructor(private fb: FormBuilder,  private translationService:TranslateService, private toastr: ToastrService, private router: Router, private giftAidStateService: OnboardingGiftAidStateService) {}
 
   ngOnInit() {
     const currentSettings = this.getCachedValue();
     this.form = this.fb.group({
-      nationalInsuranceNumber: [currentSettings ? currentSettings.nationalInsuranceNumber : null, [Validators.required, Validators.maxLength(10)]],
-      nationalIdentityCardNumber: [currentSettings ? currentSettings.nationalIdentityCardNumber : null, [Validators.required, Validators.maxLength(50)]]
-    });
+      nationalInsuranceNumber: [currentSettings ? currentSettings.nationalInsuranceNumber : null, [Validators.required]],
+      nationalIdentityCardNumber: [currentSettings ? currentSettings.nationalIdentityCardNumber : null, [Validators.required]]
+    },{updateOn:'submit'});
   }
 
   private getCachedValue(): CreateGiftAidSettingsCommand {
@@ -30,8 +34,37 @@ export class GiftaidAuthorisedOfficialIdentificationDetailsComponent implements 
   }
 
   public submit():void{
-    // if validated
-    this.continue();
+    if (this.form.invalid) {
+      this.handleInvalidForm();
+      return;
+    } else {
+      this.continue();
+    }
+  }
+
+  handleInvalidForm() {
+    let errorMessages = new Array<Observable<string>>();
+    let resolvedErrorMessages = new Array<string>();
+
+    const insuranceNumberErrors = this.form.get('nationalInsuranceNumber').errors;
+    const identityCardNumberErrors = this.form.get('nationalIdentityCardNumber').errors;
+
+    if (insuranceNumberErrors && insuranceNumberErrors.required) {
+      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+    }
+    if (identityCardNumberErrors && identityCardNumberErrors.required) {
+      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+    }
+
+    forkJoin(errorMessages)
+      .pipe(tap(results => (resolvedErrorMessages = results)))
+      .pipe(tap(results => console.log(results)))
+      .pipe(switchMap(() => this.translationService.get('errorMessages.validation-errors')))
+      .subscribe(title =>
+        this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
+          enableHtml: true
+        })
+      );
   }
 
   // only call this function when all of the input has been validated
