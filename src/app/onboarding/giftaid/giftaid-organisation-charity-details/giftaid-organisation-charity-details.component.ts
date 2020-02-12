@@ -5,20 +5,22 @@ import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-st
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
-import { isNullOrUndefined } from 'util';
 import { OnboardingOrganisationDetailsService } from '../../organisation-details/services/onboarding-organisation-details.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { delay, map, catchError, tap, switchMap } from 'rxjs/operators';
-import { of, Observable, forkJoin, observable } from 'rxjs';
+import { map, catchError, tap, switchMap } from 'rxjs/operators';
+import { of, Observable, forkJoin, EMPTY } from 'rxjs';
 
 @Component({
   selector: 'app-giftaid-organisation-charity-details',
   templateUrl: './giftaid-organisation-charity-details.component.html',
-  styleUrls: ['./giftaid-organisation-charity-details.component.scss']
+  styleUrls: ['../../onboarding.module.scss', './giftaid-organisation-charity-details.component.scss']
 })
 export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit {
+
   public form: FormGroup;
   public loading = false;
+  public isInValidCharityCommissionReference = false;
+  public isInValidCharityId = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
@@ -27,20 +29,17 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
     private translationService: TranslateService,
     private router: Router,
     private onboardingOrganisationDetailsService: OnboardingOrganisationDetailsService
-  ) {}
+  ) { }
 
   ngOnInit() {
     const currentSettings = this.currentSettings();
     this.form = this.formBuilder.group({
+
       charityCommissionReference: [
-        {
-          value: this.currentSettings ? currentSettings.charityCommissionReference : null,
-          disabled: currentSettings && currentSettings.charityCommissionReference && currentSettings.charityCommissionReference.length > 0
-        },
-        [Validators.required, Validators.minLength(6), Validators.maxLength(15)],
-        this.charityCommissionNumberValidator.bind(this)
-      ],
-      charityId: [this.currentSettings ? currentSettings.charityId : null, [Validators.required, Validators.maxLength(20)]]
+        { value: this.currentSettings ? currentSettings.charityCommissionReference : null, disabled: currentSettings && currentSettings.charityCommissionReference && currentSettings.charityCommissionReference.length > 0 }, [Validators.required, Validators.minLength(6), Validators.maxLength(15)]],
+      charityId: [this.currentSettings ? currentSettings.charityId : null, [Validators.required, Validators.maxLength(20)]],
+    }, {
+      updateOn: 'submit'
     });
   }
   private currentSettings(): PreparedGiftAidSettings {
@@ -55,12 +54,37 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
 
   public submit(): void {
     this.loading = true;
+
+    // check if we have a valid charity commision number ( length and required )
+    if (this.form.get('charityCommissionReference').valid) {
+      // check our api if such a number exists
+      this.onboardingOrganisationDetailsService.get(this.form.getRawValue().charityCommissionReference)
+        .subscribe(success => {
+          // we got a valid call from the database, the on complete handler will call the validate for us
+          this.validate();
+         }, error => {
+           // we received an error in our api, mark this control as invalid
+          this.form.get('charityCommissionReference').setErrors({
+            invalid: true
+          });
+          // set loading to false as our oncomplete handler is not being called when errored
+          this.loading = false;
+        })
+    }
+    else {
+      // the commision control is invalid, validate it among the rest of the form 
+      this.validate();
+    }
+  }
+
+  private validate(): void {
     if (this.form.invalid) {
       this.handleInvalidForm();
       this.loading = false;
       return;
+    } else {
+      this.continue();
     }
-    this.continue();
   }
 
   // only call this function when all of the input has been validated
@@ -77,14 +101,28 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
     let errorMessages = new Array<Observable<string>>();
     let resolvedErrorMessages = new Array<string>();
 
-    const charityCommissionNumber = this.form.get('charityCommissionReference').errors;
-    const charityId = this.form.get('charityId').errors;
+    const charityCommisionNumberErrors = this.form.get('charityCommissionReference').errors;
+    const charityIdErrors = this.form.get('charityId').errors;
 
-    if (charityCommissionNumber) {
-      if (charityCommissionNumber.invalidCharityNumber) errorMessages.push(this.translationService.get('errorMessages.test'));
+    if (charityCommisionNumberErrors) {
+      if (charityCommisionNumberErrors.invalidCharityNumber)
+        errorMessages.push(this.translationService.get('errorMessages.charity-number-not-found'));
+      if (charityCommisionNumberErrors.required)
+        errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+      if (charityCommisionNumberErrors.minlength)
+        errorMessages.push(this.translationService.get('errorMessages.charity-number-minLength'));
+      if (charityCommisionNumberErrors.maxLength)
+        errorMessages.push(this.translationService.get('errorMessages.charity-number-maxLength'));
     }
 
-    this.loading = true;
+    if (charityIdErrors) {
+      this.isInValidCharityId = charityCommisionNumberErrors && charityCommisionNumberErrors.required
+      if (charityIdErrors.required)
+        errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (charityIdErrors.maxLength)
+        errorMessages.push(this.translationService.get('errorMessages.test'));
+    }
+
     forkJoin(errorMessages)
       .pipe(tap(results => (resolvedErrorMessages = results)))
       .pipe(tap(results => console.log(results)))
@@ -93,20 +131,12 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
         this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
           enableHtml: true
         })
-      )
-      .add(() => (this.loading = false));
+      );
   }
 
   charityCommissionNumberValidator(control: AbstractControl) {
-    return this.onboardingOrganisationDetailsService
-      .get(control.value)
-      .pipe(map(response => null))
-      .pipe(
-        catchError(error =>
-          of({
-            invalidCharityNumber: true
-          })
-        )
-      );
+    return this.onboardingOrganisationDetailsService.get(control.value).pipe(map(response => null)).pipe(catchError(error => of({
+      invalidCharityNumber: true
+    })));
   }
 }

@@ -72,3 +72,8 @@ app-custom-card {
   display:flex;
   align-items:center;
 }
+
+
+.submitted input.ng-invalid {
+  border-color: red;
+}

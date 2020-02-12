@@ -1,4 +1,4 @@
-<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'>
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100' #formDir="ngForm" [class.submitted]="formDir.submitted">
     <app-custom-card titleTranslationKey='onboardingGiftAidOrganisationDetailsCharityNumberComponent.title'
         [showPreviousButton]="true" iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
         <div body>
@@ -8,12 +8,10 @@
             <p translate class="introduction-title text-primary text-light-font text-givt-purple mt-3">
                 onboardingGiftAidOrganisationDetailsCharityNumberComponent.subtitleCharityNumber</p>
 
-            <input type="number" placeholder="{{ 'onboardingGiftAidOrganisationDetailsCharityNumberComponent.placeholderCharityNumber' | translate }}"
+            <input type="text" placeholder="{{ 'onboardingGiftAidOrganisationDetailsCharityNumberComponent.placeholderCharityNumber' | translate }}"
                 formControlName="charityCommissionReference" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
-
                 <p translate class="introduction-title text-primary text-light-font text-givt-purple mt-3">
                     onboardingGiftAidOrganisationDetailsCharityNumberComponent.subtitleCharityId</p>
-
             <input type="text" placeholder="{{'onboardingGiftAidOrganisationDetailsCharityNumberComponent.placeholderCharityId' | translate}}" formControlName="charityId"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />
         </div>
