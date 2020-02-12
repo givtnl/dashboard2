@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { OnboardingOrganisationDetailsService } from '../../organisation-details/services/onboarding-organisation-details.service';
 import { map, catchError, tap, switchMap } from 'rxjs/operators';
-import { of, Observable, forkJoin, EMPTY } from 'rxjs';
+import { of, Observable, forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-giftaid-organisation-charity-details',
