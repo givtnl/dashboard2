@@ -3,11 +3,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-state.service';
 import { PreparedGiftAidSettings } from '../models/prepared-giftaid-settings.model';
+import { Observable, forkJoin } from 'rxjs';
+import { tap, switchMap } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-giftaid-organisation-details',
   templateUrl: './giftaid-organisation-details.component.html',
-  styleUrls: ['./giftaid-organisation-details.component.scss']
+  styleUrls: ['../../onboarding.module.scss', './giftaid-organisation-details.component.scss']
 })
 export class GiftaidOrganisationDetailsComponent implements OnInit {
   public form: FormGroup;
@@ -15,17 +19,19 @@ export class GiftaidOrganisationDetailsComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private toastr: ToastrService,
+    private translationService: TranslateService,
     private activatedRoute: ActivatedRoute,
     private giftAidStateService: OnboardingGiftAidStateService
-  ) {}
+  ) { }
 
   ngOnInit() {
     const currentSettings = this.currentSettings();
     this.form = this.fb.group({
-      charityName: [this.currentSettings ? currentSettings.charityName : null, [Validators.required, Validators.maxLength(100)]],
-      charityEmailAddress: [this.currentSettings ? currentSettings.charityEmailAddress : null, [Validators.required, Validators.maxLength(250), Validators.email]],
-      charityPhoneNumber: [this.currentSettings ? currentSettings.charityPhoneNumber : null, [Validators.required, Validators.maxLength(50)]]
-    });
+      charityName: [this.currentSettings ? currentSettings.charityName : null, [Validators.required]],
+      charityEmailAddress: [this.currentSettings ? currentSettings.charityEmailAddress : null, [Validators.required, Validators.email]],
+      charityPhoneNumber: [this.currentSettings ? currentSettings.charityPhoneNumber : null, [Validators.required]]
+    }, { updateOn: 'submit' });
   }
 
   private currentSettings(): PreparedGiftAidSettings {
@@ -38,10 +44,14 @@ export class GiftaidOrganisationDetailsComponent implements OnInit {
     }
   }
 
-  
-  public submit():void{
-    // if validated
-    this.continue();
+
+  public submit(): void {
+    if (this.form.invalid) {
+        this.handleInvalidForm();
+      return;
+    } else {
+      this.continue();
+    }
   }
 
   // only call this function when all of the input has been validated
@@ -54,6 +64,41 @@ export class GiftaidOrganisationDetailsComponent implements OnInit {
     this.giftAidStateService.currentGiftAidSettings = currentSettings;
     this.giftAidStateService.validatedAndCompletedStepTwo = true;
     // todo implement the route
-  this.router.navigate(['/', 'onboarding','giftaid', {outlets: {'onboarding-outlet': ['organisation-address-details']}}]);
+    this.router.navigate(['/', 'onboarding', 'giftaid', { outlets: { 'onboarding-outlet': ['organisation-address-details'] } }]);
+  }
+
+  handleInvalidForm() {
+    let errorMessages = new Array<Observable<string>>();
+    let resolvedErrorMessages = new Array<string>();
+
+    const charityNameErrors = this.form.get('charityName').errors;
+    const charityEmailErrors = this.form.get('charityEmailAddress').errors;
+    const charityPhoneErrors = this.form.get('charityPhoneNumber').errors;
+
+
+    if (charityNameErrors && charityNameErrors.required) {
+      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+    }
+
+    if (charityEmailErrors) {
+      if (charityEmailErrors.required)
+        errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (charityEmailErrors.email)
+        errorMessages.push(this.translationService.get('errorMessages.test'));
+    }
+
+    if (charityPhoneErrors && charityPhoneErrors.required) {
+      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+    }
+
+    forkJoin(errorMessages)
+      .pipe(tap(results => (resolvedErrorMessages = results)))
+      .pipe(tap(results => console.log(results)))
+      .pipe(switchMap(() => this.translationService.get('errorMessages.validation-errors')))
+      .subscribe(title =>
+        this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
+          enableHtml: true
+        })
+      );
   }
 }
