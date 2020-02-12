@@ -7,6 +7,7 @@ export interface PreparedGiftAidSettings{
     charityAddressLineOne:string;
     charityAddressLineTwo:string;
     charityAddressLineThree: string;
+    charityAddressLineFour?:string;
     charityPhoneNumber:string;
     charityEmailAddress?:string | null;
 }

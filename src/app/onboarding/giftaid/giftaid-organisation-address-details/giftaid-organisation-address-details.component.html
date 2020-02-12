@@ -1,4 +1,4 @@
-<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'>
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'  #formDir="ngForm" [class.submitted]="formDir.submitted">
     <app-custom-card titleTranslationKey='onboardingGiftAidOrganisationAddressDetailsComponent.title'
         [showPreviousButton]="true" iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
         <div body>
