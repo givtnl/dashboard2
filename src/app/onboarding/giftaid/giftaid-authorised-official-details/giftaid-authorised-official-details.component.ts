@@ -3,28 +3,32 @@ import { CreateGiftAidSettingsCommand } from '../models/create-giftaid-settings.
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-state.service';
+import { Observable, forkJoin } from 'rxjs';
+import { tap, switchMap } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-giftaid-authorised-official-details',
   templateUrl: './giftaid-authorised-official-details.component.html',
-  styleUrls: ['./giftaid-authorised-official-details.component.scss']
+  styleUrls: ['../../onboarding.module.scss','./giftaid-authorised-official-details.component.scss']
 })
 export class GiftaidAuthorisedOfficialDetailsComponent implements OnInit {
   public form: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private giftAidStateService: OnboardingGiftAidStateService) {}
+  constructor(private fb: FormBuilder, private router: Router, private giftAidStateService: OnboardingGiftAidStateService, private toastr:ToastrService, private translationService:TranslateService,) { }
 
   ngOnInit() {
     const currentSettings = this.getCachedValue();
     this.form = this.fb.group({
       authorisedOfficialFirstName: [
         currentSettings ? currentSettings.authorisedOfficialFirstName : null,
-        [Validators.required, Validators.minLength(6), Validators.maxLength(150)]
+        [Validators.required]
       ],
-      authorisedOfficialMiddleName: [currentSettings ? currentSettings.authorisedOfficialMiddleName : null, [Validators.maxLength(50)]],
-      authorisedOfficialLastName: [currentSettings ? currentSettings.authorisedOfficialLastName : null, [Validators.required, Validators.maxLength(150)]],
-      authorisedOfficialPhoneNumber: [currentSettings ? currentSettings.authorisedOfficialPhoneNumber : null, [Validators.required, Validators.maxLength(50)]]
-    });
+      authorisedOfficialMiddleName: [currentSettings ? currentSettings.authorisedOfficialMiddleName : null],
+      authorisedOfficialLastName: [currentSettings ? currentSettings.authorisedOfficialLastName : null, [Validators.required]],
+      authorisedOfficialPhoneNumber: [currentSettings ? currentSettings.authorisedOfficialPhoneNumber : null, [Validators.required]]
+    }, { updateOn: 'submit' });
   }
 
   private getCachedValue(): CreateGiftAidSettingsCommand {
@@ -35,8 +39,41 @@ export class GiftaidAuthorisedOfficialDetailsComponent implements OnInit {
   }
 
   public submit():void{
-    // if validated
-    this.continue();
+    if (this.form.invalid) {
+      this.handleInvalidForm();
+      return;
+    } else {
+      this.continue();
+    }
+  }
+
+  handleInvalidForm() {
+    let errorMessages = new Array<Observable<string>>();
+    let resolvedErrorMessages = new Array<string>();
+
+    const firstNameErrors = this.form.get('authorisedOfficialFirstName').errors;
+    const lastNameErrors = this.form.get('authorisedOfficialLastName').errors;
+    const phoneNumberErrors = this.form.get('authorisedOfficialPhoneNumber').errors;
+
+    if (firstNameErrors && firstNameErrors.required) {
+      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+    }
+    if (lastNameErrors && lastNameErrors.required) {
+      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+    }
+    if (phoneNumberErrors && phoneNumberErrors.required) {
+      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+    }
+
+    forkJoin(errorMessages)
+      .pipe(tap(results => (resolvedErrorMessages = results)))
+      .pipe(tap(results => console.log(results)))
+      .pipe(switchMap(() => this.translationService.get('errorMessages.validation-errors')))
+      .subscribe(title =>
+        this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
+          enableHtml: true
+        })
+      );
   }
 
   // only call this function when all of the input has been validated
@@ -49,7 +86,6 @@ export class GiftaidAuthorisedOfficialDetailsComponent implements OnInit {
 
     this.giftAidStateService.currentGiftAidSettings = currentSettings;
     this.giftAidStateService.validatedAndCompletedStepFour = true;
-    // todo implement the route
-    this.router.navigate(['/', 'onboarding','giftaid', {outlets: {'onboarding-outlet': ['authorised-official-identification-details']}}]);
+    this.router.navigate(['/', 'onboarding', 'giftaid', { outlets: { 'onboarding-outlet': ['authorised-official-identification-details'] } }]);
   }
 }
