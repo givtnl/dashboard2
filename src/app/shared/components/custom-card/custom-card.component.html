@@ -6,7 +6,7 @@
             </a>
         </div>
         <div class="middle-col">
-            <p [translate]="titleTranslationKey" class="text-givt-purple text-center text-heavy-font p-0 m-0">
+            <p *ngIf="titleTranslationKey && titleTranslationKey?.length > 0" [translate]="titleTranslationKey" class="text-givt-purple text-center text-heavy-font p-0 m-0">
             </p>
         </div>
         <div class="side-col w-{{getHeaderButtonsWidth()}}px">
