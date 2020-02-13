@@ -197,7 +197,7 @@
     "dashboardCompleteAccountWidgetComponent.AddGiftAidSettings": "Setup Gift Aid",
     "dashboardCompleteAccountWidgetComponent.AddGiftAidSettings.InProgress": "Setup Gift Aid - In progress",
     "onboardingGiftAidIntroComponent.title": "Setup connection to Gift Aid",
-    "onboardingGiftAidIntroComponent.description": "It is possible to Gift Aid automatically the received gifts through Givt.\nThis can be an extra help with the collection of money for your chosen goal.\n<br>\nIs your organisation able to receive Gift Aid? Then click below on yes, provide the necessary details and we will ensure that everything is arranged.",
+    "onboardingGiftAidIntroComponent.description": "It is possible to Gift Aid automatically the received gifts through Givt.\nThis can be an extra help with the collection of money for your chosen goal.\n",
     "onboardingGiftAidIntroComponent.question": "Do you want to automatically Gift Aid the received donations?",
     "onboardingGiftAidOrganisationDetailsCharityNumberComponent.title": "Gift Aid setup",
     "onboardingGiftAidOrganisationDetailsCharityNumberComponent.description": "In order to setup Gift Aid, we need your Charity Commision Reference and the your organization's HMRC reference.",
@@ -261,5 +261,6 @@
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderPhonenumber": "Phonenumber",
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderInsuranceNumber": "Insurance number",
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderNationalIdentityCardNumber": "National identity card number",
-    "onboardingGiftAidVerifyPersonalDetailsComponent.subtitlePhonenumber": "Phonenumber"
+    "onboardingGiftAidVerifyPersonalDetailsComponent.subtitlePhonenumber": "Phonenumber",
+    "onboardingGiftAidIntroComponent.description2": "Is your organisation able to receive Gift Aid? Then click below on yes, provide the necessary details and we will ensure that everything is arranged."
 }
