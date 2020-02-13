@@ -8,6 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { OnboardingOrganisationDetailsService } from '../../organisation-details/services/onboarding-organisation-details.service';
 import { map, catchError, tap, switchMap } from 'rxjs/operators';
 import { of, Observable, forkJoin } from 'rxjs';
+import { trimNotEmptyValidator } from 'src/app/shared/validators/trim-notempty.validator';
 
 @Component({
   selector: 'app-giftaid-organisation-charity-details',
@@ -37,7 +38,7 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
 
       charityCommissionReference: [
         { value: this.currentSettings ? currentSettings.charityCommissionReference : null, disabled: currentSettings && currentSettings.charityCommissionReference && currentSettings.charityCommissionReference.length > 0 }, [Validators.required, Validators.minLength(6), Validators.maxLength(15)]],
-      charityId: [this.currentSettings ? currentSettings.charityId : null, [Validators.required, Validators.maxLength(20)]],
+      charityId: [this.currentSettings ? currentSettings.charityId : null, [Validators.required, trimNotEmptyValidator(), Validators.maxLength(20)]],
     }, {
       updateOn: 'submit'
     });
@@ -119,6 +120,8 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
       this.isInValidCharityId = charityCommisionNumberErrors && charityCommisionNumberErrors.required
       if (charityIdErrors.required)
         errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (charityIdErrors.trimEmptyValue)
+        errorMessages.push(this.translationService.get('errorMessages.test'));
       if (charityIdErrors.maxLength)
         errorMessages.push(this.translationService.get('errorMessages.test'));
     }
@@ -132,11 +135,5 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
           enableHtml: true
         })
       );
-  }
-
-  charityCommissionNumberValidator(control: AbstractControl) {
-    return this.onboardingOrganisationDetailsService.get(control.value).pipe(map(response => null)).pipe(catchError(error => of({
-      invalidCharityNumber: true
-    })));
   }
 }

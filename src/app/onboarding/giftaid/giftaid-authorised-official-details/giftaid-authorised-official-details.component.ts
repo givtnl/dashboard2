@@ -7,6 +7,7 @@ import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
+import { trimNotEmptyValidator } from 'src/app/shared/validators/trim-notempty.validator';
 
 @Component({
   selector: 'app-giftaid-authorised-official-details',
@@ -23,11 +24,11 @@ export class GiftaidAuthorisedOfficialDetailsComponent implements OnInit {
     this.form = this.fb.group({
       authorisedOfficialFirstName: [
         currentSettings ? currentSettings.authorisedOfficialFirstName : null,
-        [Validators.required]
+        [Validators.required, trimNotEmptyValidator()]
       ],
       authorisedOfficialMiddleName: [currentSettings ? currentSettings.authorisedOfficialMiddleName : null],
-      authorisedOfficialLastName: [currentSettings ? currentSettings.authorisedOfficialLastName : null, [Validators.required]],
-      authorisedOfficialPhoneNumber: [currentSettings ? currentSettings.authorisedOfficialPhoneNumber : null, [Validators.required]]
+      authorisedOfficialLastName: [currentSettings ? currentSettings.authorisedOfficialLastName : null, [Validators.required,trimNotEmptyValidator()]],
+      authorisedOfficialPhoneNumber: [currentSettings ? currentSettings.authorisedOfficialPhoneNumber : null, [Validators.required,trimNotEmptyValidator()]]
     }, { updateOn: 'submit' });
   }
 
@@ -55,13 +56,22 @@ export class GiftaidAuthorisedOfficialDetailsComponent implements OnInit {
     const lastNameErrors = this.form.get('authorisedOfficialLastName').errors;
     const phoneNumberErrors = this.form.get('authorisedOfficialPhoneNumber').errors;
 
-    if (firstNameErrors && firstNameErrors.required) {
+    if (firstNameErrors) {
+      if (firstNameErrors.trimEmptyValue)
+      errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (firstNameErrors.required)
       errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
     }
-    if (lastNameErrors && lastNameErrors.required) {
+    if (lastNameErrors) {
+      if (lastNameErrors.trimEmptyValue)
+      errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (lastNameErrors.required)
       errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
     }
-    if (phoneNumberErrors && phoneNumberErrors.required) {
+    if (phoneNumberErrors) {
+      if (phoneNumberErrors.trimEmptyValue)
+      errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (phoneNumberErrors.required)
       errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
     }
 

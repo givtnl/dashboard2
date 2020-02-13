@@ -7,6 +7,7 @@ import { Observable, forkJoin } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { tap, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
+import { trimNotEmptyValidator } from 'src/app/shared/validators/trim-notempty.validator';
 
 @Component({
   selector: 'app-giftaid-organisation-address-details',
@@ -28,15 +29,15 @@ export class GiftaidOrganisationAddressDetailsComponent implements OnInit {
   ngOnInit() {
     const currentSettings = this.currentSettings();
     this.form = this.fb.group({
-      charityAddressLineOne: [this.currentSettings ? currentSettings.charityAddressLineOne : null, [Validators.required]],
-      charityAddressLineTwo: [this.currentSettings ? currentSettings.charityAddressLineTwo : null, [Validators.required]],
+      charityAddressLineOne: [this.currentSettings ? currentSettings.charityAddressLineOne : null, [Validators.required,trimNotEmptyValidator()]],
+      charityAddressLineTwo: [this.currentSettings ? currentSettings.charityAddressLineTwo : null, [Validators.required,trimNotEmptyValidator()]],
       charityAddressLineThree: [this.currentSettings ? currentSettings.charityAddressLineThree : null],
       charityAddressLineFour: [this.currentSettings ? currentSettings.charityAddressLineFour : null],
-      charityAddressZipCode: [this.currentSettings ? currentSettings.charityAddressZipCode : null, [Validators.required]],
+      charityAddressZipCode: [this.currentSettings ? currentSettings.charityAddressZipCode : null, [Validators.required,trimNotEmptyValidator()]],
       charityAddressCountry: [{
        value: this.currentSettings ? currentSettings.charityAddressCountry : null,
        disabled: true
-      }, [Validators.required]]
+      }, [Validators.required,trimNotEmptyValidator()]]
     },{updateOn:'submit'});
   }
 
@@ -69,19 +70,31 @@ export class GiftaidOrganisationAddressDetailsComponent implements OnInit {
     const addressZipCodeErrors = this.form.get('charityAddressZipCode').errors;
     const addressCountryErrors = this.form.get('charityAddressCountry').errors;
 
-    if (addressLine1Errors && addressLine1Errors.required) {
+    if (addressLine1Errors) {
+      if (addressLine1Errors.trimEmptyValue)
+      errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (addressLine1Errors.required)
       errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
     }
-    if (addressLine2Errors && addressLine1Errors.required) {
+    if (addressLine2Errors) {
+      if (addressLine2Errors.trimEmptyValue)
+      errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (addressLine2Errors.required)
       errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
     }
-    if (addressZipCodeErrors && addressZipCodeErrors.required) {
+    if (addressZipCodeErrors) {
+      if (addressZipCodeErrors.trimEmptyValue)
+      errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (addressZipCodeErrors.required)
       errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
     }
-    if (addressCountryErrors && addressCountryErrors.required) {
+    if (addressCountryErrors) {
+      if (addressCountryErrors.trimEmptyValue)
+      errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (addressCountryErrors.required)
       errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
     }
-
+    
     forkJoin(errorMessages)
       .pipe(tap(results => (resolvedErrorMessages = results)))
       .pipe(tap(results => console.log(results)))

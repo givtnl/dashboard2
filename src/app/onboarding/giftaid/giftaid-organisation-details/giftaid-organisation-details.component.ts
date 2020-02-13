@@ -7,6 +7,7 @@ import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
+import { trimNotEmptyValidator } from 'src/app/shared/validators/trim-notempty.validator';
 
 @Component({
   selector: 'app-giftaid-organisation-details',
@@ -28,9 +29,9 @@ export class GiftaidOrganisationDetailsComponent implements OnInit {
   ngOnInit() {
     const currentSettings = this.currentSettings();
     this.form = this.fb.group({
-      charityName: [this.currentSettings ? currentSettings.charityName : null, [Validators.required]],
-      charityEmailAddress: [this.currentSettings ? currentSettings.charityEmailAddress : null, [Validators.required, Validators.email]],
-      charityPhoneNumber: [this.currentSettings ? currentSettings.charityPhoneNumber : null, [Validators.required]]
+      charityName: [this.currentSettings ? currentSettings.charityName : null, [Validators.required,trimNotEmptyValidator()]],
+      charityEmailAddress: [this.currentSettings ? currentSettings.charityEmailAddress : null, [Validators.required, Validators.email,trimNotEmptyValidator()]],
+      charityPhoneNumber: [this.currentSettings ? currentSettings.charityPhoneNumber : null, [Validators.required,trimNotEmptyValidator()]]
     }, { updateOn: 'submit' });
   }
 
@@ -75,19 +76,24 @@ export class GiftaidOrganisationDetailsComponent implements OnInit {
     const charityEmailErrors = this.form.get('charityEmailAddress').errors;
     const charityPhoneErrors = this.form.get('charityPhoneNumber').errors;
 
-
-    if (charityNameErrors && charityNameErrors.required) {
+    if (charityNameErrors) {
+      if (charityNameErrors.trimEmptyValue)
+      errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (charityNameErrors.required)
       errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
     }
-
     if (charityEmailErrors) {
+      if (charityPhoneErrors.trimEmptyValue)
+      errorMessages.push(this.translationService.get('errorMessages.test'));
       if (charityEmailErrors.required)
         errorMessages.push(this.translationService.get('errorMessages.test'));
       if (charityEmailErrors.email)
         errorMessages.push(this.translationService.get('errorMessages.test'));
     }
-
-    if (charityPhoneErrors && charityPhoneErrors.required) {
+    if (charityPhoneErrors) {
+      if (charityPhoneErrors.trimEmptyValue)
+      errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (charityPhoneErrors.required)
       errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
     }
 

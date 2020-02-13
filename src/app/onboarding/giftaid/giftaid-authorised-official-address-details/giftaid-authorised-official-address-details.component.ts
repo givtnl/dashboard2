@@ -7,34 +7,35 @@ import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
+import { trimNotEmptyValidator } from 'src/app/shared/validators/trim-notempty.validator';
 
 @Component({
   selector: 'app-giftaid-authorised-official-address-details',
   templateUrl: './giftaid-authorised-official-address-details.component.html',
-  styleUrls: ['../../onboarding.module.scss','./giftaid-authorised-official-address-details.component.scss']
+  styleUrls: ['../../onboarding.module.scss', './giftaid-authorised-official-address-details.component.scss']
 })
 export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit {
   public form: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private giftAidStateService: OnboardingGiftAidStateService,private translationService:TranslateService, private toastr: ToastrService) {}
+  constructor(private fb: FormBuilder, private router: Router, private giftAidStateService: OnboardingGiftAidStateService, private translationService: TranslateService, private toastr: ToastrService) { }
 
   ngOnInit() {
     const currentSettings = this.getCachedValue();
     this.form = this.fb.group({
       authorisedOfficialHomeAddressLineOne: [
         currentSettings ? currentSettings.authorisedOfficialHomeAddressLineOne : null,
-        [Validators.required]
+        [Validators.required, trimNotEmptyValidator()]
       ],
       authorisedOfficialHomeAddressLineTwo: [
         currentSettings ? currentSettings.authorisedOfficialHomeAddressLineTwo : null,
-        [Validators.required]
+        [Validators.required, trimNotEmptyValidator()]
       ],
       authorisedOfficialHomeAddressLineThree: [
         currentSettings ? currentSettings.authorisedOfficialHomeAddressLineThree : null,
-        [Validators.required]
+        [Validators.required, trimNotEmptyValidator()]
       ],
-      authorisedOfficialHomeAddressLineZipCode: [currentSettings ? currentSettings.authorisedOfficialHomeAddressLineZipCode : null, [Validators.required]],
-      authorisedOfficialHomeAddressLineCountry: [currentSettings ? currentSettings.authorisedOfficialHomeAddressLineCountry : null, [Validators.required]]
+      authorisedOfficialHomeAddressLineZipCode: [currentSettings ? currentSettings.authorisedOfficialHomeAddressLineZipCode : null, [Validators.required, trimNotEmptyValidator()]],
+      authorisedOfficialHomeAddressLineCountry: [currentSettings ? currentSettings.authorisedOfficialHomeAddressLineCountry : null, [Validators.required, trimNotEmptyValidator()]]
     });
   }
 
@@ -45,7 +46,7 @@ export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit 
     return null;
   }
 
-  public submit():void{
+  public submit(): void {
     if (this.form.invalid) {
       this.handleInvalidForm();
       return;
@@ -64,19 +65,35 @@ export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit 
     const addressZipCodeErrors = this.form.get('authorisedOfficialHomeAddressLineZipCode').errors;
     const addressCountryErrors = this.form.get('authorisedOfficialHomeAddressLineCountry').errors;
 
-    if (addressLine1Errors && addressLine1Errors.required) {
+    if (addressLine1Errors) {
+      if (addressLine1Errors.trimEmptyValue)
+        errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (addressLine1Errors.required)
+        errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+    }
+
+    if (addressLine2Errors) {
+      if (addressLine2Errors.trimEmptyValue)
+        errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (addressLine2Errors.required)
+        errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+    }
+    if (addressLine3Errors) {
+      if (addressLine3Errors.trimEmptyValue)
+        errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (addressLine3Errors.required)
+        errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+    }
+    if (addressZipCodeErrors) {
+      if (addressZipCodeErrors.trimEmptyValue)
+      errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (addressZipCodeErrors.required)
       errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
     }
-    if (addressLine2Errors && addressLine1Errors.required) {
-      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
-    }
-    if (addressLine3Errors && addressLine3Errors.required) {
-      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
-    }
-    if (addressZipCodeErrors && addressZipCodeErrors.required) {
-      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
-    }
-    if (addressCountryErrors && addressCountryErrors.required) {
+    if (addressCountryErrors) {
+      if (addressCountryErrors.trimEmptyValue)
+      errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (addressCountryErrors.required)
       errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
     }
 
@@ -94,7 +111,7 @@ export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit 
   // only call this function when all of the input has been validated
   private continue(): void {
     const currentSettings = this.giftAidStateService.currentGiftAidSettings;
-    
+
     currentSettings.authorisedOfficialHomeAddressLineOne = this.form.value.authorisedOfficialHomeAddressLineOne;
     currentSettings.authorisedOfficialHomeAddressLineTwo = this.form.value.authorisedOfficialHomeAddressLineTwo;
     currentSettings.authorisedOfficialHomeAddressLineThree = this.form.value.authorisedOfficialHomeAddressLineThree;
@@ -103,6 +120,6 @@ export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit 
 
     this.giftAidStateService.currentGiftAidSettings = currentSettings;
     this.giftAidStateService.validatedAndCompletedStepThree = true;
-    this.router.navigate(['/', 'onboarding','giftaid', {outlets: {'onboarding-outlet': ['verify-organisation-details']}}]);
+    this.router.navigate(['/', 'onboarding', 'giftaid', { outlets: { 'onboarding-outlet': ['verify-organisation-details'] } }]);
   }
 }

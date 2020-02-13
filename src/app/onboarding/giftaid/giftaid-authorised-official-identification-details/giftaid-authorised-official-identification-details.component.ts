@@ -7,6 +7,7 @@ import { Observable, forkJoin } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { tap, switchMap } from 'rxjs/operators';
+import { trimNotEmptyValidator } from 'src/app/shared/validators/trim-notempty.validator';
 
 @Component({
   selector: 'app-giftaid-authorised-official-identification-details',
@@ -21,8 +22,8 @@ export class GiftaidAuthorisedOfficialIdentificationDetailsComponent implements 
   ngOnInit() {
     const currentSettings = this.getCachedValue();
     this.form = this.fb.group({
-      nationalInsuranceNumber: [currentSettings ? currentSettings.nationalInsuranceNumber : null, [Validators.required]],
-      nationalIdentityCardNumber: [currentSettings ? currentSettings.nationalIdentityCardNumber : null, [Validators.required]]
+      nationalInsuranceNumber: [currentSettings ? currentSettings.nationalInsuranceNumber : null, [Validators.required,trimNotEmptyValidator()]],
+      nationalIdentityCardNumber: [currentSettings ? currentSettings.nationalIdentityCardNumber : null, [Validators.required,trimNotEmptyValidator()]]
     },{updateOn:'submit'});
   }
 
@@ -49,10 +50,16 @@ export class GiftaidAuthorisedOfficialIdentificationDetailsComponent implements 
     const insuranceNumberErrors = this.form.get('nationalInsuranceNumber').errors;
     const identityCardNumberErrors = this.form.get('nationalIdentityCardNumber').errors;
 
-    if (insuranceNumberErrors && insuranceNumberErrors.required) {
+    if (insuranceNumberErrors) {
+      if (insuranceNumberErrors.trimEmptyValue)
+      errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (insuranceNumberErrors.required)
       errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
     }
-    if (identityCardNumberErrors && identityCardNumberErrors.required) {
+    if (identityCardNumberErrors) {
+      if (identityCardNumberErrors.trimEmptyValue)
+      errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (identityCardNumberErrors.required)
       errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
     }
 
