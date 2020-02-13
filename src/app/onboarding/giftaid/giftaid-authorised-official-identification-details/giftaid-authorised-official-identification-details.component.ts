@@ -13,19 +13,19 @@ import { fixedLengthValidator } from 'src/app/shared/validators/fixed-length.val
 @Component({
   selector: 'app-giftaid-authorised-official-identification-details',
   templateUrl: './giftaid-authorised-official-identification-details.component.html',
-  styleUrls: ['../../onboarding.module.scss','./giftaid-authorised-official-identification-details.component.scss']
+  styleUrls: ['../../onboarding.module.scss', './giftaid-authorised-official-identification-details.component.scss']
 })
 export class GiftaidAuthorisedOfficialIdentificationDetailsComponent implements OnInit {
   public form: FormGroup;
 
-  constructor(private fb: FormBuilder,  private translationService:TranslateService, private toastr: ToastrService, private router: Router, private giftAidStateService: OnboardingGiftAidStateService) {}
+  constructor(private fb: FormBuilder, private translationService: TranslateService, private toastr: ToastrService, private router: Router, private giftAidStateService: OnboardingGiftAidStateService) { }
 
   ngOnInit() {
     const currentSettings = this.getCachedValue();
     this.form = this.fb.group({
-      nationalInsuranceNumber: [currentSettings ? currentSettings.nationalInsuranceNumber : null, [Validators.required,notNullOrEmptyValidator(),fixedLengthValidator(9)]],
-      nationalIdentityCardNumber: [currentSettings ? currentSettings.nationalIdentityCardNumber : null, [Validators.required,notNullOrEmptyValidator()]]
-    },{updateOn:'submit'});
+      nationalInsuranceNumber: [currentSettings ? currentSettings.nationalInsuranceNumber : null, [Validators.required, notNullOrEmptyValidator(), fixedLengthValidator(9)]],
+      nationalIdentityCardNumber: [currentSettings ? currentSettings.nationalIdentityCardNumber : null, [Validators.required, notNullOrEmptyValidator()]]
+    }, { updateOn: 'submit' });
   }
 
   private getCachedValue(): CreateGiftAidSettingsCommand {
@@ -35,7 +35,7 @@ export class GiftaidAuthorisedOfficialIdentificationDetailsComponent implements 
     return null;
   }
 
-  public submit():void{
+  public submit(): void {
     if (this.form.invalid) {
       this.handleInvalidForm();
       return;
@@ -53,15 +53,17 @@ export class GiftaidAuthorisedOfficialIdentificationDetailsComponent implements 
 
     if (insuranceNumberErrors) {
       if (insuranceNumberErrors.trimEmptyValue)
-      errorMessages.push(this.translationService.get('errorMessages.test'));
+        errorMessages.push(this.translationService.get('errorMessages.test'));
       if (insuranceNumberErrors.required)
-      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+        errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+      if (insuranceNumberErrors.fixedLength)
+        errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
     }
     if (identityCardNumberErrors) {
       if (identityCardNumberErrors.trimEmptyValue)
-      errorMessages.push(this.translationService.get('errorMessages.test'));
+        errorMessages.push(this.translationService.get('errorMessages.test'));
       if (identityCardNumberErrors.required)
-      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+        errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
     }
 
     forkJoin(errorMessages)
@@ -84,6 +86,6 @@ export class GiftaidAuthorisedOfficialIdentificationDetailsComponent implements 
     this.giftAidStateService.currentGiftAidSettings = currentSettings;
     this.giftAidStateService.validatedAndCompletedStepThree = true;
     // todo implement the route
-    this.router.navigate(['/', 'onboarding','giftaid', {outlets: {'onboarding-outlet': ['authorised-official-address-details']}}]);
+    this.router.navigate(['/', 'onboarding', 'giftaid', { outlets: { 'onboarding-outlet': ['authorised-official-address-details'] } }]);
   }
 }
