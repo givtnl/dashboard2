@@ -7,7 +7,7 @@ import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
-import { trimNotEmptyValidator } from 'src/app/shared/validators/trim-notempty.validator';
+import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
 
 @Component({
   selector: 'app-giftaid-authorised-official-details',
@@ -24,11 +24,11 @@ export class GiftaidAuthorisedOfficialDetailsComponent implements OnInit {
     this.form = this.fb.group({
       authorisedOfficialFirstName: [
         currentSettings ? currentSettings.authorisedOfficialFirstName : null,
-        [Validators.required, trimNotEmptyValidator()]
+        [Validators.required, notNullOrEmptyValidator()]
       ],
       authorisedOfficialMiddleName: [currentSettings ? currentSettings.authorisedOfficialMiddleName : null],
-      authorisedOfficialLastName: [currentSettings ? currentSettings.authorisedOfficialLastName : null, [Validators.required,trimNotEmptyValidator()]],
-      authorisedOfficialPhoneNumber: [currentSettings ? currentSettings.authorisedOfficialPhoneNumber : null, [Validators.required,trimNotEmptyValidator()]]
+      authorisedOfficialLastName: [currentSettings ? currentSettings.authorisedOfficialLastName : null, [Validators.required,notNullOrEmptyValidator()]],
+      authorisedOfficialPhoneNumber: [currentSettings ? currentSettings.authorisedOfficialPhoneNumber : null, [Validators.required,notNullOrEmptyValidator()]]
     }, { updateOn: 'submit' });
   }
 

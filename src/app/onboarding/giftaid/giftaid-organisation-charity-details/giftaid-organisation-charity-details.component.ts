@@ -8,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { OnboardingOrganisationDetailsService } from '../../organisation-details/services/onboarding-organisation-details.service';
 import { map, catchError, tap, switchMap } from 'rxjs/operators';
 import { of, Observable, forkJoin } from 'rxjs';
-import { trimNotEmptyValidator } from 'src/app/shared/validators/trim-notempty.validator';
+import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
 
 @Component({
   selector: 'app-giftaid-organisation-charity-details',
@@ -38,7 +38,7 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
 
       charityCommissionReference: [
         { value: this.currentSettings ? currentSettings.charityCommissionReference : null, disabled: currentSettings && currentSettings.charityCommissionReference && currentSettings.charityCommissionReference.length > 0 }, [Validators.required, Validators.minLength(6), Validators.maxLength(15)]],
-      charityId: [this.currentSettings ? currentSettings.charityId : null, [Validators.required, trimNotEmptyValidator(), Validators.maxLength(20)]],
+      charityId: [this.currentSettings ? currentSettings.charityId : null, [Validators.required, notNullOrEmptyValidator(), Validators.maxLength(20)]],
     }, {
       updateOn: 'submit'
     });

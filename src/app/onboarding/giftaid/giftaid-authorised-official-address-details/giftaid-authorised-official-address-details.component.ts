@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
-import { trimNotEmptyValidator } from 'src/app/shared/validators/trim-notempty.validator';
+import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
 
 @Component({
   selector: 'app-giftaid-authorised-official-address-details',
@@ -24,18 +24,18 @@ export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit 
     this.form = this.fb.group({
       authorisedOfficialHomeAddressLineOne: [
         currentSettings ? currentSettings.authorisedOfficialHomeAddressLineOne : null,
-        [Validators.required, trimNotEmptyValidator()]
+        [Validators.required, notNullOrEmptyValidator()]
       ],
       authorisedOfficialHomeAddressLineTwo: [
         currentSettings ? currentSettings.authorisedOfficialHomeAddressLineTwo : null,
-        [Validators.required, trimNotEmptyValidator()]
+        [Validators.required, notNullOrEmptyValidator()]
       ],
       authorisedOfficialHomeAddressLineThree: [
         currentSettings ? currentSettings.authorisedOfficialHomeAddressLineThree : null,
-        [Validators.required, trimNotEmptyValidator()]
+        [Validators.required, notNullOrEmptyValidator()]
       ],
-      authorisedOfficialHomeAddressLineZipCode: [currentSettings ? currentSettings.authorisedOfficialHomeAddressLineZipCode : null, [Validators.required, trimNotEmptyValidator()]],
-      authorisedOfficialHomeAddressLineCountry: [currentSettings ? currentSettings.authorisedOfficialHomeAddressLineCountry : null, [Validators.required, trimNotEmptyValidator()]]
+      authorisedOfficialHomeAddressLineZipCode: [currentSettings ? currentSettings.authorisedOfficialHomeAddressLineZipCode : null, [Validators.required, notNullOrEmptyValidator()]],
+      authorisedOfficialHomeAddressLineCountry: [currentSettings ? currentSettings.authorisedOfficialHomeAddressLineCountry : null, [Validators.required, notNullOrEmptyValidator()]]
     });
   }
 

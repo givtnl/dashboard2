@@ -1,11 +1,16 @@
-<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100' #formDir="ngForm" [class.submitted]="formDir.submitted">
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'
+    #formDir="ngForm" [class.submitted]="formDir.submitted">
     <app-custom-card titleTranslationKey='onboardingGiftAidAuthorisedOfficialDetailsComponent.title'
-        [showPreviousButton]="true" iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
+        [showPreviousButton]="true"
+        questionMarkTitle="onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.questionmarkTitle"
+        questionMarkText="onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.questionmarkText"
+        iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
         <div body>
             <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
                 onboardingGiftAidAuthorisedOfficialDetailsComponent.description</p>
 
-            <p translate>onboardingGiftAidAuthorisedOfficialDetailsComponent.subtitleName</p>
+            <p translate class="introduction-title text-primary text-light-font text-givt-purple mt-3">
+                onboardingGiftAidAuthorisedOfficialDetailsComponent.subtitleName</p>
 
             <input type="text"
                 placeholder="{{'onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderFirstname' | translate }}"

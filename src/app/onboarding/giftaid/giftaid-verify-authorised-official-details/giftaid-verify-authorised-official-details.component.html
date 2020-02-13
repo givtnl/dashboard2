@@ -14,22 +14,19 @@
             <p class="text-primary text-light-font text-givt-purple mb-0">
                 {{giftAidSettings.authorisedOfficialLastName}}
             </p>
-            <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate="">
-                onboardingGiftAidVerifyPersonalDetailsComponent.subtitlePhonenumber
-            </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">
-                {{giftAidSettings.authorisedOfficialPhoneNumber}}
+                {{'onboardingOrganisationDetailsVerifyComponent.PhoneNumber'|translate}}: {{giftAidSettings.authorisedOfficialPhoneNumber}}
             </p>
         </div>
         <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">
             <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
                 onboardingGiftAidVerifyPersonalDetailsComponent.subtitleIdentificationDetails
             </p>
-            <p class="text-primary text-light-font text-givt-purple mb-0">
-                {{giftAidSettings.nationalInsuranceNumber}}
+            <p *ngIf="giftAidSettings.nationalInsuranceNumber" class="text-primary text-light-font text-givt-purple mb-0">
+                {{'onboardingGiftAidAuthorisedOfficialIdentificationDetailsComponent.insuranceNumber'|translate}} {{giftAidSettings.nationalInsuranceNumber}}
             </p>
-            <p class="text-primary text-light-font text-givt-purple mb-0">
-                {{giftAidSettings.nationalIdentityCardNumber}}
+            <p *ngIf="giftAidSettings.nationalIdentityCardNumber" class="text-primary text-light-font text-givt-purple mb-0">
+                {{'onboardingGiftAidAuthorisedOfficialIdentificationDetailsComponent.identityCardNumber'|translate}} {{giftAidSettings.nationalIdentityCardNumber}}
             </p>
         </div>
         <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">

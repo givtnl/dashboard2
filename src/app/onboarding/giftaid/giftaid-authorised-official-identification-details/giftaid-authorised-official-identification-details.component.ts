@@ -7,7 +7,8 @@ import { Observable, forkJoin } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { tap, switchMap } from 'rxjs/operators';
-import { trimNotEmptyValidator } from 'src/app/shared/validators/trim-notempty.validator';
+import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
+import { fixedLengthValidator } from 'src/app/shared/validators/fixed-length.validator';
 
 @Component({
   selector: 'app-giftaid-authorised-official-identification-details',
@@ -22,8 +23,8 @@ export class GiftaidAuthorisedOfficialIdentificationDetailsComponent implements 
   ngOnInit() {
     const currentSettings = this.getCachedValue();
     this.form = this.fb.group({
-      nationalInsuranceNumber: [currentSettings ? currentSettings.nationalInsuranceNumber : null, [Validators.required,trimNotEmptyValidator()]],
-      nationalIdentityCardNumber: [currentSettings ? currentSettings.nationalIdentityCardNumber : null, [Validators.required,trimNotEmptyValidator()]]
+      nationalInsuranceNumber: [currentSettings ? currentSettings.nationalInsuranceNumber : null, [Validators.required,notNullOrEmptyValidator(),fixedLengthValidator(9)]],
+      nationalIdentityCardNumber: [currentSettings ? currentSettings.nationalIdentityCardNumber : null, [Validators.required,notNullOrEmptyValidator()]]
     },{updateOn:'submit'});
   }
 

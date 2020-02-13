@@ -7,7 +7,7 @@ import { Observable, forkJoin } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { tap, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
-import { trimNotEmptyValidator } from 'src/app/shared/validators/trim-notempty.validator';
+import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
 
 @Component({
   selector: 'app-giftaid-organisation-address-details',
@@ -29,15 +29,15 @@ export class GiftaidOrganisationAddressDetailsComponent implements OnInit {
   ngOnInit() {
     const currentSettings = this.currentSettings();
     this.form = this.fb.group({
-      charityAddressLineOne: [this.currentSettings ? currentSettings.charityAddressLineOne : null, [Validators.required,trimNotEmptyValidator()]],
-      charityAddressLineTwo: [this.currentSettings ? currentSettings.charityAddressLineTwo : null, [Validators.required,trimNotEmptyValidator()]],
+      charityAddressLineOne: [this.currentSettings ? currentSettings.charityAddressLineOne : null, [Validators.required,notNullOrEmptyValidator()]],
+      charityAddressLineTwo: [this.currentSettings ? currentSettings.charityAddressLineTwo : null, [Validators.required,notNullOrEmptyValidator()]],
       charityAddressLineThree: [this.currentSettings ? currentSettings.charityAddressLineThree : null],
       charityAddressLineFour: [this.currentSettings ? currentSettings.charityAddressLineFour : null],
-      charityAddressZipCode: [this.currentSettings ? currentSettings.charityAddressZipCode : null, [Validators.required,trimNotEmptyValidator()]],
+      charityAddressZipCode: [this.currentSettings ? currentSettings.charityAddressZipCode : null, [Validators.required,notNullOrEmptyValidator()]],
       charityAddressCountry: [{
        value: this.currentSettings ? currentSettings.charityAddressCountry : null,
        disabled: true
-      }, [Validators.required,trimNotEmptyValidator()]]
+      }, [Validators.required,notNullOrEmptyValidator()]]
     },{updateOn:'submit'});
   }
 

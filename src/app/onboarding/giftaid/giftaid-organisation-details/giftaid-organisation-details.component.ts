@@ -7,7 +7,7 @@ import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
-import { trimNotEmptyValidator } from 'src/app/shared/validators/trim-notempty.validator';
+import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
 
 @Component({
   selector: 'app-giftaid-organisation-details',
@@ -29,9 +29,9 @@ export class GiftaidOrganisationDetailsComponent implements OnInit {
   ngOnInit() {
     const currentSettings = this.currentSettings();
     this.form = this.fb.group({
-      charityName: [this.currentSettings ? currentSettings.charityName : null, [Validators.required,trimNotEmptyValidator()]],
-      charityEmailAddress: [this.currentSettings ? currentSettings.charityEmailAddress : null, [Validators.required, Validators.email,trimNotEmptyValidator()]],
-      charityPhoneNumber: [this.currentSettings ? currentSettings.charityPhoneNumber : null, [Validators.required,trimNotEmptyValidator()]]
+      charityName: [this.currentSettings ? currentSettings.charityName : null, [Validators.required,notNullOrEmptyValidator()]],
+      charityEmailAddress: [this.currentSettings ? currentSettings.charityEmailAddress : null, [Validators.required, Validators.email,notNullOrEmptyValidator()]],
+      charityPhoneNumber: [this.currentSettings ? currentSettings.charityPhoneNumber : null, [Validators.required,notNullOrEmptyValidator()]]
     }, { updateOn: 'submit' });
   }
 
