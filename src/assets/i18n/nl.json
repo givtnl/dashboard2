@@ -253,7 +253,7 @@
     "errorMessages.charity-number-minLength": "The charity number should atleast be 6 characters long.",
     "errorMessages.charity-number-maxLength": "The charity number cannot exceed 15 characters.",
     "errorMessages.charity-id-required": "Please enter your charity id",
-    "errorMessages.charity-id-maxLength": "",
+    "errorMessages.charity-id-maxLength": "The charity number cannot exceed 20 characters.",
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderPhonenumber": "Telefoonnummer",
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderInsuranceNumber": "Verzekerings nummer",
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderNationalIdentityCardNumber": "Nationaal identiteitskaart nummer",
@@ -267,5 +267,8 @@
     "errorMessages.zipcode-required": "Please enter your Postal Code",
     "errorMessages.country-required": "Please enter your country name",
     "errorMessages.charity-name-required": "Please enter your charity name",
-    "errorMessages.phone-number-required": "Please enter your phone number"
+    "errorMessages.phone-number-required": "Please enter your phone number",
+    "errorMessages.insurance-number-required": "Please enter your insurance number",
+    "errorMessages.insurance-number-length": "Your insurance number can only be 9 characters long",
+    "errorMessages.national-identity-card-number-required": "Please enter your national identity card number"
 }
