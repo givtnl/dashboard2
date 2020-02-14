@@ -26,7 +26,7 @@ import { OnboardingBankAccountSigningDetailsIncorrectComponent } from './bank-ac
 import { OnboardingBankAccountSigningDirectDebitGuaranteeComponent } from './bank-account-signing/onboarding-bank-account-signing-direct-debit-guarantee/onboarding-bank-account-signing-direct-debit-guarantee.component';
 import { OnboardingBankAccountSigningCompleteComponent } from './bank-account-signing/onboarding-bank-account-signing-complete/onboarding-bank-account-signing-complete.component';
 import { OnboardingBankAccountRegistrationResolver } from './bank-account/resolvers/onboarding-bank-account-registration.resolver';
-import { OnlyOneActiveBankAccountGuard } from './bank-account-holder/guards/only-one-active-bank-account.guard';
+import { BankAccountIsVerifiedGuard } from './bank-account-holder/guards/only-one-active-bank-account.guard';
 import { OnboardingBankAccountHolderAccountResolver } from './bank-account-holder/resolvers/onboarding-bank-account-holder-account.resolver';
 import { InviteBankAccountHolderCompleteCheckSuccessGuard } from './bank-account-holder/guards/invite-bank-account-holder-complete-check-success.guard';
 import { BankAccountSignInvitationIdRequiredGuard } from './bank-account-signing/guards/bank-account-sign-invitation-id-required.guard';
@@ -169,7 +169,7 @@ const routes: Routes = [
   {
     path: 'bank-account-holder',
     component: OnboardingRootComponent,
-    canActivate: [OnlyOneActiveBankAccountGuard],
+    canActivate: [BankAccountIsVerifiedGuard],
     resolve: { bankAccount: OnboardingBankAccountHolderAccountResolver },
     children: [
       {
