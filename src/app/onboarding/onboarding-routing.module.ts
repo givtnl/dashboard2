@@ -26,7 +26,6 @@ import { OnboardingBankAccountSigningDetailsIncorrectComponent } from './bank-ac
 import { OnboardingBankAccountSigningDirectDebitGuaranteeComponent } from './bank-account-signing/onboarding-bank-account-signing-direct-debit-guarantee/onboarding-bank-account-signing-direct-debit-guarantee.component';
 import { OnboardingBankAccountSigningCompleteComponent } from './bank-account-signing/onboarding-bank-account-signing-complete/onboarding-bank-account-signing-complete.component';
 import { OnboardingBankAccountRegistrationResolver } from './bank-account/resolvers/onboarding-bank-account-registration.resolver';
-import { BankAccountIsVerifiedGuard } from './bank-account-holder/guards/only-one-active-bank-account.guard';
 import { OnboardingBankAccountHolderAccountResolver } from './bank-account-holder/resolvers/onboarding-bank-account-holder-account.resolver';
 import { InviteBankAccountHolderCompleteCheckSuccessGuard } from './bank-account-holder/guards/invite-bank-account-holder-complete-check-success.guard';
 import { BankAccountSignInvitationIdRequiredGuard } from './bank-account-signing/guards/bank-account-sign-invitation-id-required.guard';
@@ -46,6 +45,7 @@ import { OnboardingOrganisationDetailsIncorrectComponent } from './organisation-
 import { OnboardingOrganisationDetailsSendDataGuard } from './organisation-details/guards/onboarding-organisation-details-send-data.guard';
 import { OnboardingOrganisationDetailsFetchDataGuard } from './organisation-details/guards/onboarding-organisation-details-fetch-data.guard';
 import { BankAccountSignInvitationIdNotExpiredGuard } from './bank-account-signing/guards/bank-account-sign-invitation-id-not-expired.guard';
+import { BankAccountIsVerifiedGuard } from './bank-account-holder/guards/bank-account-is-verified.guard';
 
 const routes: Routes = [
   {
