@@ -13,7 +13,6 @@ export class BankAccountSignInvitationIdNotExpiredGuard implements CanActivate {
     if (!next.queryParams.invitationId || !next.queryParams.organisationId || !next.queryParams.accountId) {
       return this.HandleFailure(next);
     }
-debugger;
     try {
       const currentAccountHolder = await this.service
         .getToSignAccountHolder(next.queryParams.organisationId, next.queryParams.accountId, next.queryParams.invitationId)
