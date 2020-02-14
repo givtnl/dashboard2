@@ -23,9 +23,10 @@ export class InviteBankAccountHolderCompleteCheckSuccessGuard implements CanActi
       const currentBankAccount = this.onboardingBankAccountHolderStateService.currentBankAccountListModel;
       const currentToken = this.applicationStateService.currentTokenModel;
 
-      await this.onboardingBankAccountService.invite(currentToken.OrganisationAdmin, currentBankAccount.Id, registration).toPromise();
-
-      this.onboardingBankAccountHolderStateService.clear();
+      if (await this.onboardingBankAccountService.invite(currentToken.OrganisationAdmin, currentBankAccount.Id, registration).toPromise())
+        this.onboardingBankAccountHolderStateService.clear();
+      else
+        this.HandleFailure(next);
     } catch (error) {
       if (error instanceof HttpErrorResponse) {
         return this.HandleFailure(next);

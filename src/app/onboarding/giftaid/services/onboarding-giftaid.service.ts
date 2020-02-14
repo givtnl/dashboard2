@@ -5,6 +5,8 @@ import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import '../../../shared/extensions/general-extensions';
 import { GeneralExtensions } from '../../../shared/extensions/general-extensions';
+import { CreateGiftAidSettingsCommand } from '../models/create-giftaid-settings.command';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,5 +23,9 @@ export class OnboardingGiftAidService {
     return this.getPreparedSettings(organisationId)
     .pipe(map(result => true))
     .pipe(catchError(error => of(false)));
+  }
+
+  createGiftAidSettings(organisationId: string, command: CreateGiftAidSettingsCommand) {
+    return this.backendService.post(`v2/organisations/${organisationId}/giftaidsettings`, command).pipe(map(result => true)).pipe(catchError(error => of(false)));
   }
 }
