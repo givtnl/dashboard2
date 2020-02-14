@@ -263,6 +263,9 @@
     "onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.questionmarkText": "An authorised official is the person within your organisation who is authorised to deal with HMRC about\nyour organisation's tax affairs and, where necessary, submit tax returns. This is the only person within your\norganisation who is authorised to submit Gift Aid repayment claims. If you do not have an authorised official\nplease contact HMRC on 0300 123 1073",
     "onboardingGiftAidAuthorisedOfficialIdentificationDetailsComponent.insuranceNumber": "Verzekeringsnummer (enkel UK):",
     "onboardingGiftAidAuthorisedOfficialIdentificationDetailsComponent.identityCardNumber": "Identiteitskaart nummer (buiten de UK):",
-    "errorMessages.address-required": "",
-    "errorMessages.zipcode-required": ""
+    "errorMessages.address-required": "Please enter your address details",
+    "errorMessages.zipcode-required": "Please enter your Postal Code",
+    "errorMessages.country-required": "Please enter your country name",
+    "errorMessages.charity-name-required": "Please enter your charity name",
+    "errorMessages.phone-number-required": "Please enter your phone number"
 }
