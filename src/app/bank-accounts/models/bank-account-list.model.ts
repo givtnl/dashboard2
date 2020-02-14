@@ -3,4 +3,5 @@ export interface BankAccountListModel {
     Iban: number;
     AccountNumber: string;
     SortCode: string;
+    Verified: boolean;
 }
