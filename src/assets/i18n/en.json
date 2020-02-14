@@ -253,7 +253,7 @@
     "errorMessages.charity-number-minLength": "The charity number should atleast be 6 characters long.",
     "errorMessages.charity-number-maxLength": "The charity number cannot exceed 15 characters.",
     "errorMessages.charity-id-required": "Please enter your charity id",
-    "errorMessages.charity-id-maxLength": "",
+    "errorMessages.charity-id-maxLength": "jdklf;asdl;kfajkl;fjklads;fjkldsjfksldfjksaf",
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderPhonenumber": "Phone number",
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderInsuranceNumber": "Insurance number",
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderNationalIdentityCardNumber": "National identity card number",

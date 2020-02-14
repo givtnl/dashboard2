@@ -31,8 +31,7 @@ export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit 
         [Validators.required, notNullOrEmptyValidator()]
       ],
       authorisedOfficialHomeAddressLineThree: [
-        currentSettings ? currentSettings.authorisedOfficialHomeAddressLineThree : null,
-        [Validators.required, notNullOrEmptyValidator()]
+        currentSettings ? currentSettings.authorisedOfficialHomeAddressLineThree : null
       ],
       authorisedOfficialHomeAddressLineZipCode: [currentSettings ? currentSettings.authorisedOfficialHomeAddressLineZipCode : null, [Validators.required, notNullOrEmptyValidator()]],
       authorisedOfficialHomeAddressLineCountry: [currentSettings ? currentSettings.authorisedOfficialHomeAddressLineCountry : null, [Validators.required, notNullOrEmptyValidator()]]

@@ -7,7 +7,7 @@ import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-st
 @Component({
   selector: 'app-giftaid-verify-organisation-details',
   templateUrl: './giftaid-verify-organisation-details.component.html',
-  styleUrls: ['./giftaid-verify-organisation-details.component.scss']
+  styleUrls: ['../../onboarding.module.scss', './giftaid-verify-organisation-details.component.scss']
 })
 export class GiftaidVerifyOrganisationDetailsComponent implements OnInit {
   public form: FormGroup;

@@ -105,20 +105,18 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
     const charityIdErrors = this.form.get('charityId').errors;
 
     if (charityCommisionNumberErrors) {
-      if (charityCommisionNumberErrors.invalidCharityNumber)
-        errorMessages.push(this.translationService.get('errorMessages.charity-number-not-found'));
       if (charityCommisionNumberErrors.required)
         errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
       if (charityCommisionNumberErrors.minlength)
         errorMessages.push(this.translationService.get('errorMessages.charity-number-minLength'));
-      if (charityCommisionNumberErrors.maxLength)
+      if (charityCommisionNumberErrors.maxlength)
         errorMessages.push(this.translationService.get('errorMessages.charity-number-maxLength'));
     }
 
     if (charityIdErrors) {
       if (charityIdErrors.required || charityIdErrors.trimEmptyValue)
         errorMessages.push(this.translationService.get('errorMessages.charity-id-required'));
-      if (charityIdErrors.maxLength)
+      if (charityIdErrors.maxlength)
         errorMessages.push(this.translationService.get('errorMessages.charity-id-maxLength'));
     }
 
