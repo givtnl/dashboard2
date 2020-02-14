@@ -86,15 +86,15 @@ export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit 
     }
     if (addressZipCodeErrors) {
       if (addressZipCodeErrors.trimEmptyValue)
-      errorMessages.push(this.translationService.get('errorMessages.test'));
+        errorMessages.push(this.translationService.get('errorMessages.test'));
       if (addressZipCodeErrors.required)
-      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+        errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
     }
     if (addressCountryErrors) {
       if (addressCountryErrors.trimEmptyValue)
-      errorMessages.push(this.translationService.get('errorMessages.test'));
+        errorMessages.push(this.translationService.get('errorMessages.test'));
       if (addressCountryErrors.required)
-      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+        errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
     }
 
     forkJoin(errorMessages)
