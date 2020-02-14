@@ -110,7 +110,7 @@
     "onboardingBankAccountSigningVerifyDetails.orgDetails": "Organisation details",
     "onboardingBankAccountSigningVerifyDetails.bankDetails": "Bank details of the organisation",
     "onboardingBankAccountSigningVerifyDetails.nameAuthorized": "Name of the authorised person",
-    "dashboardCompleteAccountWidgetComponent.AddBankAccountHolders": "Verify account",
+    "dashboardCompleteAccountWidgetComponent.AddBankAccountHolders": "Add bank account holders",
     "errorMessages.no-bank-accounts-to-add-holder-to": "The account is awaiting verification.",
     "errorMessages.field-validation-errors": "Whoops, something went wrong. Could you please check the following input?",
     "buttonYes": "Yes",
