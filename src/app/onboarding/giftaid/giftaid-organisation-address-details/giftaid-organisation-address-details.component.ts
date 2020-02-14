@@ -70,31 +70,22 @@ export class GiftaidOrganisationAddressDetailsComponent implements OnInit {
     const addressZipCodeErrors = this.form.get('charityAddressZipCode').errors;
     const addressCountryErrors = this.form.get('charityAddressCountry').errors;
 
-    if (addressLine1Errors) {
-      if (addressLine1Errors.trimEmptyValue)
-      errorMessages.push(this.translationService.get('errorMessages.test'));
-      if (addressLine1Errors.required)
-      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
-    }
-    if (addressLine2Errors) {
-      if (addressLine2Errors.trimEmptyValue)
-      errorMessages.push(this.translationService.get('errorMessages.test'));
-      if (addressLine2Errors.required)
-      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
-    }
-    if (addressZipCodeErrors) {
-      if (addressZipCodeErrors.trimEmptyValue)
-      errorMessages.push(this.translationService.get('errorMessages.test'));
-      if (addressZipCodeErrors.required)
-      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
-    }
-    if (addressCountryErrors) {
-      if (addressCountryErrors.trimEmptyValue)
-      errorMessages.push(this.translationService.get('errorMessages.test'));
-      if (addressCountryErrors.required)
-      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
-    }
-    
+    if (addressLine1Errors)
+      if (addressLine1Errors.trimEmptyValue || addressLine1Errors.required)
+        errorMessages.push(this.translationService.get('errorMessages.address-required'));
+
+    if (addressLine2Errors)
+      if (addressLine2Errors.trimEmptyValue || addressLine2Errors.required)
+        errorMessages.push(this.translationService.get('errorMessages.address-required'));
+
+    if (addressZipCodeErrors)
+      if (addressZipCodeErrors.trimEmptyValue || addressZipCodeErrors.required)
+        errorMessages.push(this.translationService.get('errorMessages.zipcode-required'));
+
+    if (addressCountryErrors)
+      if (addressCountryErrors.trimEmptyValue || addressCountryErrors.required)
+        errorMessages.push(this.translationService.get('errorMessages.country-required'));
+
     forkJoin(errorMessages)
       .pipe(tap(results => (resolvedErrorMessages = results)))
       .pipe(tap(results => console.log(results)))

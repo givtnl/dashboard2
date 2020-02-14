@@ -76,26 +76,21 @@ export class GiftaidOrganisationDetailsComponent implements OnInit {
     const charityEmailErrors = this.form.get('charityEmailAddress').errors;
     const charityPhoneErrors = this.form.get('charityPhoneNumber').errors;
 
-    if (charityNameErrors) {
-      if (charityNameErrors.trimEmptyValue)
-      errorMessages.push(this.translationService.get('errorMessages.test'));
-      if (charityNameErrors.required)
-      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
-    }
+    if (charityNameErrors)
+      if (charityNameErrors.trimEmptyValue || charityNameErrors.required)
+        errorMessages.push(this.translationService.get('errorMessages.charity-name-required'));
+    
     if (charityEmailErrors) {
-      if (charityPhoneErrors.trimEmptyValue)
-      errorMessages.push(this.translationService.get('errorMessages.test'));
-      if (charityEmailErrors.required)
-        errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (charityEmailErrors.trimEmptyValue || charityEmailErrors.required)
+        errorMessages.push(this.translationService.get('errorMessages.email-required'));
       if (charityEmailErrors.email)
-        errorMessages.push(this.translationService.get('errorMessages.test'));
+        errorMessages.push(this.translationService.get('errorMessages.email-not-an-email'));
     }
-    if (charityPhoneErrors) {
-      if (charityPhoneErrors.trimEmptyValue)
-      errorMessages.push(this.translationService.get('errorMessages.test'));
-      if (charityPhoneErrors.required)
-      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
-    }
+    
+    if (charityPhoneErrors)
+      if (charityPhoneErrors.trimEmptyValue || charityPhoneErrors.required)
+        errorMessages.push(this.translationService.get('errorMessages.phone-number-required'));
+    
 
     forkJoin(errorMessages)
       .pipe(tap(results => (resolvedErrorMessages = results)))

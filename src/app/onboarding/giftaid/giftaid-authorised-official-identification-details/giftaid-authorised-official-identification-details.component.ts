@@ -52,19 +52,15 @@ export class GiftaidAuthorisedOfficialIdentificationDetailsComponent implements 
     const identityCardNumberErrors = this.form.get('nationalIdentityCardNumber').errors;
 
     if (insuranceNumberErrors) {
-      if (insuranceNumberErrors.trimEmptyValue)
-        errorMessages.push(this.translationService.get('errorMessages.test'));
-      if (insuranceNumberErrors.required)
-        errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+      if (insuranceNumberErrors.trimEmptyValue || insuranceNumberErrors.required)
+        errorMessages.push(this.translationService.get('errorMessages.insurance-number-required'));
       if (insuranceNumberErrors.fixedLength)
-        errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
+        errorMessages.push(this.translationService.get('errorMessages.insurance-number-length'));
     }
-    if (identityCardNumberErrors) {
-      if (identityCardNumberErrors.trimEmptyValue)
-        errorMessages.push(this.translationService.get('errorMessages.test'));
-      if (identityCardNumberErrors.required)
-        errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
-    }
+    if (identityCardNumberErrors)
+      if (identityCardNumberErrors.trimEmptyValue || identityCardNumberErrors.required)
+        errorMessages.push(this.translationService.get('errorMessages.national-identity-card-number-required'));
+    
 
     forkJoin(errorMessages)
       .pipe(tap(results => (resolvedErrorMessages = results)))

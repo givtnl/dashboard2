@@ -56,24 +56,18 @@ export class GiftaidAuthorisedOfficialDetailsComponent implements OnInit {
     const lastNameErrors = this.form.get('authorisedOfficialLastName').errors;
     const phoneNumberErrors = this.form.get('authorisedOfficialPhoneNumber').errors;
 
-    if (firstNameErrors) {
-      if (firstNameErrors.trimEmptyValue)
-      errorMessages.push(this.translationService.get('errorMessages.test'));
-      if (firstNameErrors.required)
-      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
-    }
-    if (lastNameErrors) {
-      if (lastNameErrors.trimEmptyValue)
-      errorMessages.push(this.translationService.get('errorMessages.test'));
-      if (lastNameErrors.required)
-      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
-    }
-    if (phoneNumberErrors) {
-      if (phoneNumberErrors.trimEmptyValue)
-      errorMessages.push(this.translationService.get('errorMessages.test'));
-      if (phoneNumberErrors.required)
-      errorMessages.push(this.translationService.get('errorMessages.charity-number-required'));
-    }
+    if (firstNameErrors)
+      if (firstNameErrors.trimEmptyValue || firstNameErrors.required)
+        errorMessages.push(this.translationService.get('errorMessages.first-name-required'));
+    
+    if (lastNameErrors)
+      if (lastNameErrors.trimEmptyValue || lastNameErrors.required)
+        errorMessages.push(this.translationService.get('errorMessages.last-name-required'));
+    
+    if (phoneNumberErrors)
+      if (phoneNumberErrors.trimEmptyValue || phoneNumberErrors.required)
+        errorMessages.push(this.translationService.get('errorMessages.phone-number-required'));
+    
 
     forkJoin(errorMessages)
       .pipe(tap(results => (resolvedErrorMessages = results)))

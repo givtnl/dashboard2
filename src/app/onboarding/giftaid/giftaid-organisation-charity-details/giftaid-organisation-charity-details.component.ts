@@ -20,7 +20,6 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
   public form: FormGroup;
   public loading = false;
   public isInValidCharityCommissionReference = false;
-  public isInValidCharityId = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -117,13 +116,10 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
     }
 
     if (charityIdErrors) {
-      this.isInValidCharityId = charityCommisionNumberErrors && charityCommisionNumberErrors.required
-      if (charityIdErrors.required)
-        errorMessages.push(this.translationService.get('errorMessages.test'));
-      if (charityIdErrors.trimEmptyValue)
-        errorMessages.push(this.translationService.get('errorMessages.test'));
+      if (charityIdErrors.required || charityIdErrors.trimEmptyValue)
+        errorMessages.push(this.translationService.get('errorMessages.charity-id-required'));
       if (charityIdErrors.maxLength)
-        errorMessages.push(this.translationService.get('errorMessages.test'));
+        errorMessages.push(this.translationService.get('errorMessages.charity-id-maxLength'));
     }
 
     forkJoin(errorMessages)
