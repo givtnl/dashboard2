@@ -23,7 +23,7 @@ export class GiftaidAuthorisedOfficialIdentificationDetailsComponent implements 
   ngOnInit() {
     const currentSettings = this.getCachedValue();
     this.form = this.fb.group({
-      nationalInsuranceNumber: [currentSettings ? currentSettings.nationalInsuranceNumber : null, [Validators.required, notNullOrEmptyValidator(), fixedLengthValidator(9)]]
+      nationalInsuranceNumber: [currentSettings ? currentSettings.nationalInsuranceNumber : null, [Validators.required, notNullOrEmptyValidator(), fixedLengthValidator(9), Validators.pattern('([A-Z]{2})(\\d{6})([A-Z]{1})')]]
     }, { updateOn: 'submit' });
   }
 
@@ -54,6 +54,8 @@ export class GiftaidAuthorisedOfficialIdentificationDetailsComponent implements 
         errorMessages.push(this.translationService.get('errorMessages.insurance-number-required'));
       if (insuranceNumberErrors.fixedLength)
         errorMessages.push(this.translationService.get('errorMessages.insurance-number-length'));
+      if (insuranceNumberErrors.pattern)
+        errorMessages.push(this.translationService.get('errorMessages.insurance-number-pattern'));
     }
 
     forkJoin(errorMessages)
