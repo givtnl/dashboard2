@@ -34,7 +34,10 @@ export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit 
         currentSettings ? currentSettings.authorisedOfficialHomeAddressLineThree : null
       ],
       authorisedOfficialHomeAddressLineZipCode: [currentSettings ? currentSettings.authorisedOfficialHomeAddressLineZipCode : null, [Validators.required, notNullOrEmptyValidator()]],
-      authorisedOfficialHomeAddressLineCountry: [currentSettings ? currentSettings.authorisedOfficialHomeAddressLineCountry : null, [Validators.required, notNullOrEmptyValidator()]]
+      authorisedOfficialHomeAddressLineCountry: [{
+       value : 'United Kingdom',
+       disabled:true
+      } , [Validators.required, notNullOrEmptyValidator()]]
     });
   }
 
