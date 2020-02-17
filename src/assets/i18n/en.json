@@ -61,7 +61,7 @@
     "underConstructionComponent.title": "Whoops",
     "underConstructionComponent.description": "We are working on this page to make the Givt dashboard even better for you!",
     "dashboardCompleteAccountWidgetComponent.createAccount": "Create an account for the admin",
-    "dashboardCompleteAccountWidgetComponent.addBankAccount": "Add bank account details",
+    "dashboardCompleteAccountWidgetComponent.AddBankAccount": "Add bank account details",
     "loginComponent.headerTitle": "Hello.",
     "loginComponent.title": "Welcome to the Givt dashboard. Log in to get access.",
     "loginComponent.loginButtonText": "Login",
@@ -269,5 +269,6 @@
     "errorMessages.phone-number-required": "Please enter your phone number",
     "errorMessages.insurance-number-required": "Please enter your insurance number",
     "errorMessages.insurance-number-length": "Your insurance number can only be 9 characters long",
-    "errorMessages.national-identity-card-number-required": "Please enter your national identity card number"
+    "errorMessages.national-identity-card-number-required": "Please enter your national identity card number",
+    "onboardingWelcomeComponent.goToGiftAid": "Connect with Gift Aid"
 }
