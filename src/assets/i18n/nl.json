@@ -169,8 +169,7 @@
     "errorMessages.charity-number-not-found": "Geen goed doel met dat nummer gevonden. Controleer je even?",
     "dashboardCompleteAccountWidgetComponent.CompleteOrganisationDetails": "Add organisation details",
     "onboardingOrganisationDetailsIntroComponent.dontHaveCharityNumber": "Klik hier als je geen charity number hebt",
-    "dashboardCompleteAccountWidgetComponent.AddBankAccountStatement": "Verifieer rekening",
-    "dashboardCompleteAccountWidgetComponent.AddBankAccountStatement.InProgress": "In afwachting van verificatie via bank-afschrijving",
+    "dashboardCompleteAccountWidgetComponent.AddBankAccount.InProgress": "In afwachting van verificatie via bank-afschrijving",
     "onboardingBankAccountSigningIntroComponent.questionmarkText": "The verification happens in 2 parts.\n<br/><br/>\nIn this first part, we ask you to manually check the provided bank account details and digitally sign a Direct Debit Instruction (DD) on the current account.\n<br/><br/>\nThis DD has multiple functions: <br/>\nfirstly, it acts as a partial verification of the bank account. <br/>\nSecondly, we use the DD to collect the startup cost. <br/>\nThirdly, it allows us to collect the amount in the unlikely event of a negative balance, if this balance wasn’t cleared following a request by Givt. \n<br/>\nThe letter of agreement agrees to this.\n<br/><br/>\nIn the second part, you will be asked to send a bank statement by e-mail, so we can check that the given details are fully correct. \n<br/><br/>\nWhen this is done, the registration with Givt will be completed!<br/>It is important that this step will be taken with utmost care.",
     "onboardingBankAccountIntroComponent.questionmarkTitle": "Meer info",
     "errorMessages.bankAccountHolderInvitationLinkExpired": "De uitnodigingslink is vervallen, gelieve je beheerder te contacteren",
@@ -232,7 +231,7 @@
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.subtitlePhonenumber": "Telefoonnummer van de geautoriseerde official:",
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderFirstname": "Voornaam",
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderLastname": "Familienaam",
-    "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderMiddlename": "2de naam",
+    "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderMiddlename": "2de naam (niet verplicht)",
     "onboardingGiftAidAuthorisedOfficialIdentificationDetailsComponent.title": "Verbinding met Gift Aid instellen",
     "onboardingGiftAidVerifyOrganisationDetailsComponent.title": "Verifieer de organisatie detailles",
     "onboardingGiftAidVerifyPersonalDetailsComponent.title": "Controleer de geautoriseerde persoon detailles",
@@ -269,5 +268,6 @@
     "errorMessages.phone-number-required": "Please enter your phone number",
     "errorMessages.insurance-number-required": "Please enter your insurance number",
     "errorMessages.insurance-number-length": "Your insurance number can only be 9 characters long",
-    "errorMessages.national-identity-card-number-required": "Please enter your national identity card number"
+    "errorMessages.national-identity-card-number-required": "Please enter your national identity card number",
+    "onboardingWelcomeComponent.goToGiftAid": "Verbind met Gift Aid"
 }
