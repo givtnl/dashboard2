@@ -28,4 +28,8 @@ export class OnboardingGiftAidService {
   createGiftAidSettings(organisationId: string, command: CreateGiftAidSettingsCommand) {
     return this.backendService.post(`v2/organisations/${organisationId}/giftaidsettings`, command).pipe(map(result => true)).pipe(catchError(error => of(false)));
   }
+
+  denyGiftAid(organisationId: string) {
+    return this.backendService.patch(`v2/organisations/${organisationId}/giftaidsettings/deactivate`);
+  }
 }
