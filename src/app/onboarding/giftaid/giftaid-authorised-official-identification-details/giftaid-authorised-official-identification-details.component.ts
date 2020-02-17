@@ -48,8 +48,7 @@ export class GiftaidAuthorisedOfficialIdentificationDetailsComponent implements 
     let resolvedErrorMessages = new Array<string>();
 
     const insuranceNumberErrors = this.form.get('nationalInsuranceNumber').errors;
-    const identityCardNumberErrors = this.form.get('nationalIdentityCardNumber').errors;
-
+  
     if (insuranceNumberErrors) {
       if (insuranceNumberErrors.trimEmptyValue || insuranceNumberErrors.required)
         errorMessages.push(this.translationService.get('errorMessages.insurance-number-required'));
@@ -59,7 +58,6 @@ export class GiftaidAuthorisedOfficialIdentificationDetailsComponent implements 
 
     forkJoin(errorMessages)
       .pipe(tap(results => (resolvedErrorMessages = results)))
-      .pipe(tap(results => console.log(results)))
       .pipe(switchMap(() => this.translationService.get('errorMessages.validation-errors')))
       .subscribe(title =>
         this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
