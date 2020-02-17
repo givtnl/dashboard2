@@ -232,7 +232,7 @@
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.subtitlePhonenumber": "Phone number of the authorised official:",
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderFirstname": "Firstname",
     "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderLastname": "Lastname",
-    "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderMiddlename": "Middlename",
+    "onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderMiddlename": "Middlename (not required)",
     "onboardingGiftAidAuthorisedOfficialIdentificationDetailsComponent.title": "Setup connection to Gift Aid",
     "onboardingGiftAidVerifyOrganisationDetailsComponent.title": "Check the organisations details",
     "onboardingGiftAidVerifyPersonalDetailsComponent.title": "Check the authorised official details",
