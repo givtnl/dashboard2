@@ -107,7 +107,7 @@ export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit 
     currentSettings.authorisedOfficialHomeAddressLineTwo = this.form.value.authorisedOfficialHomeAddressLineTwo;
     currentSettings.authorisedOfficialHomeAddressLineThree = this.form.value.authorisedOfficialHomeAddressLineThree;
     currentSettings.authorisedOfficialHomeAddressLineZipCode = this.form.value.authorisedOfficialHomeAddressLineZipCode;
-    currentSettings.authorisedOfficialHomeAddressLineCountry = this.form.value.authorisedOfficialHomeAddressLineCountry;
+    currentSettings.authorisedOfficialHomeAddressLineCountry = this.form.getRawValue().authorisedOfficialHomeAddressLineCountry;
 
     this.giftAidStateService.currentGiftAidSettings = currentSettings;
     this.giftAidStateService.validatedAndCompletedStepThree = true;
