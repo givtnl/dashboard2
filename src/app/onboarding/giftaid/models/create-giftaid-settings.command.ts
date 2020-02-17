@@ -17,7 +17,7 @@ export interface CreateGiftAidSettingsCommand {
   authorisedOfficialHomeAddressLineOne:string;
   authorisedOfficialHomeAddressLineTwo:string;
   authorisedOfficialHomeAddressLineThree:string;
-  authorisedOfficialHomeAddressLineFour:string;
+  authorisedOfficialHomeAddressLineFour?:string;
   authorisedOfficialHomeAddressZipCode:string;
   authorisedOfficialHomeAddressCountry:string;
   nationalInsuranceNumber?:string | null;
