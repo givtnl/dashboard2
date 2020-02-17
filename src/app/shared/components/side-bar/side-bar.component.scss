@@ -17,3 +17,13 @@ img {
 .image-holder img {
   height: 50px;
 }
+
+.menu-list-bottom {
+  list-style: none;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%
+}
