@@ -46,6 +46,18 @@ import { OnboardingOrganisationDetailsSendDataGuard } from './organisation-detai
 import { OnboardingOrganisationDetailsFetchDataGuard } from './organisation-details/guards/onboarding-organisation-details-fetch-data.guard';
 import { BankAccountSignInvitationIdNotExpiredGuard } from './bank-account-signing/guards/bank-account-sign-invitation-id-not-expired.guard';
 import { BankAccountIsVerifiedGuard } from './bank-account-holder/guards/bank-account-is-verified.guard';
+import { OnboardingGiftAidPreparationResolver } from './giftaid/resolvers/onboarding-giftaid-preparation.resolver';
+import { GiftaidIntroComponent } from './giftaid/giftaid-intro/giftaid-intro.component';
+import { GiftaidOrganisationDetailsCharityNumberComponent } from './giftaid/giftaid-organisation-charity-details/giftaid-organisation-charity-details.component';
+import { GiftaidOrganisationDetailsComponent } from './giftaid/giftaid-organisation-details/giftaid-organisation-details.component';
+import { GiftaidOrganisationAddressDetailsComponent } from './giftaid/giftaid-organisation-address-details/giftaid-organisation-address-details.component';
+import { GiftaidAuthorisedOfficialDetailsComponent } from './giftaid/giftaid-authorised-official-details/giftaid-authorised-official-details.component';
+import { GiftaidAuthorisedOfficialIdentificationDetailsComponent } from './giftaid/giftaid-authorised-official-identification-details/giftaid-authorised-official-identification-details.component';
+import { GiftaidAuthorisedOfficialAddressDetailsComponent } from './giftaid/giftaid-authorised-official-address-details/giftaid-authorised-official-address-details.component';
+import { GiftaidVerifyOrganisationDetailsComponent } from './giftaid/giftaid-verify-organisation-details/giftaid-verify-organisation-details.component';
+import { GiftaidVerifyAuthorisedOfficialDetailsComponent } from './giftaid/giftaid-verify-authorised-official-details/giftaid-verify-authorised-official-details.component';
+import { GiftaidCompletedComponent } from './giftaid/giftaid-completed/giftaid-completed.component';
+import { OnboardingGiftAidCompleteCheckSuccessGuard } from './giftaid/guards/onboarding-giftaid-complete-check-success.guard';
 
 const routes: Routes = [
   {
@@ -190,6 +202,63 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: 'giftaid',
+    component: OnboardingRootComponent,
+    resolve:{giftAidSettings: OnboardingGiftAidPreparationResolver},
+    children: [
+      {
+        path: '',
+        outlet: 'onboarding-outlet',
+        component: GiftaidIntroComponent
+      },
+      {
+        path: 'organisation-charity-details',
+        outlet: 'onboarding-outlet',
+        component: GiftaidOrganisationDetailsCharityNumberComponent
+      },
+      {
+        path: 'organisation-details',
+        outlet: 'onboarding-outlet',
+        component: GiftaidOrganisationDetailsComponent
+      },
+      {
+        path: 'organisation-address-details',
+        outlet: 'onboarding-outlet',
+        component: GiftaidOrganisationAddressDetailsComponent
+      },
+      {
+        path: 'authorised-official-details',
+        outlet: 'onboarding-outlet',
+        component: GiftaidAuthorisedOfficialDetailsComponent
+      },
+      {
+        path: 'authorised-official-identification-details',
+        outlet: 'onboarding-outlet',
+        component: GiftaidAuthorisedOfficialIdentificationDetailsComponent
+      },
+      {
+        path: 'authorised-official-address-details',
+        outlet: 'onboarding-outlet',
+        component: GiftaidAuthorisedOfficialAddressDetailsComponent
+      },
+      {
+        path: 'verify-organisation-details',
+        outlet: 'onboarding-outlet',
+        component: GiftaidVerifyOrganisationDetailsComponent
+      },
+      {
+        path: 'verify-personal-details',
+        outlet: 'onboarding-outlet',
+        component: GiftaidVerifyAuthorisedOfficialDetailsComponent
+      },
+      {
+        path: 'completed',
+        outlet: 'onboarding-outlet',
+        component: GiftaidCompletedComponent,
+        canActivate: [OnboardingGiftAidCompleteCheckSuccessGuard]
+      }
+    ]
   {
     path: 'bank-account-signing',
     component: OnboardingRootComponent,
