@@ -90,7 +90,6 @@ export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit 
 
     forkJoin(errorMessages)
       .pipe(tap(results => (resolvedErrorMessages = results)))
-      .pipe(tap(results => console.log(results)))
       .pipe(switchMap(() => this.translationService.get('errorMessages.validation-errors')))
       .subscribe(title =>
         this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
@@ -106,6 +105,7 @@ export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit 
     currentSettings.authorisedOfficialHomeAddressLineOne = this.form.value.authorisedOfficialHomeAddressLineOne;
     currentSettings.authorisedOfficialHomeAddressLineTwo = this.form.value.authorisedOfficialHomeAddressLineTwo;
     currentSettings.authorisedOfficialHomeAddressLineThree = this.form.value.authorisedOfficialHomeAddressLineThree;
+    currentSettings.authorisedOfficialHomeAddressLineFour = this.form.value.authorisedOfficialHomeAddressLineFour;
     currentSettings.authorisedOfficialHomeAddressZipCode = this.form.value.authorisedOfficialHomeAddressZipCode;
     currentSettings.authorisedOfficialHomeAddressCountry = this.form.getRawValue().authorisedOfficialHomeAddressCountry;
 
