@@ -33,8 +33,8 @@ export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit 
       authorisedOfficialHomeAddressLineThree: [
         currentSettings ? currentSettings.authorisedOfficialHomeAddressLineThree : null
       ],
-      authorisedOfficialHomeAddressLineZipCode: [currentSettings ? currentSettings.authorisedOfficialHomeAddressLineZipCode : null, [Validators.required, notNullOrEmptyValidator()]],
-      authorisedOfficialHomeAddressLineCountry: [{
+      authorisedOfficialHomeAddressZipCode: [currentSettings ? currentSettings.authorisedOfficialHomeAddressZipCode : null, [Validators.required, notNullOrEmptyValidator()]],
+      authorisedOfficialHomeAddressCountry: [{
        value : 'United Kingdom',
        disabled:true
       } , [Validators.required, notNullOrEmptyValidator()]]
@@ -106,8 +106,8 @@ export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit 
     currentSettings.authorisedOfficialHomeAddressLineOne = this.form.value.authorisedOfficialHomeAddressLineOne;
     currentSettings.authorisedOfficialHomeAddressLineTwo = this.form.value.authorisedOfficialHomeAddressLineTwo;
     currentSettings.authorisedOfficialHomeAddressLineThree = this.form.value.authorisedOfficialHomeAddressLineThree;
-    currentSettings.authorisedOfficialHomeAddressLineZipCode = this.form.value.authorisedOfficialHomeAddressLineZipCode;
-    currentSettings.authorisedOfficialHomeAddressLineCountry = this.form.getRawValue().authorisedOfficialHomeAddressLineCountry;
+    currentSettings.authorisedOfficialHomeAddressZipCode = this.form.value.authorisedOfficialHomeAddressZipCode;
+    currentSettings.authorisedOfficialHomeAddressCountry = this.form.getRawValue().authorisedOfficialHomeAddressCountry;
 
     this.giftAidStateService.currentGiftAidSettings = currentSettings;
     this.giftAidStateService.validatedAndCompletedStepThree = true;
