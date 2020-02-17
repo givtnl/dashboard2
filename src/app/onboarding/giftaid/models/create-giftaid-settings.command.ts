@@ -18,8 +18,8 @@ export interface CreateGiftAidSettingsCommand {
   authorisedOfficialHomeAddressLineTwo:string;
   authorisedOfficialHomeAddressLineThree:string;
   authorisedOfficialHomeAddressLineFour:string;
-  authorisedOfficialHomeAddressLineZipCode:string;
-  authorisedOfficialHomeAddressLineCountry:string;
+  authorisedOfficialHomeAddressZipCode:string;
+  authorisedOfficialHomeAddressCountry:string;
   nationalInsuranceNumber?:string | null;
   nationalIdentityCardNumber?:string | null;
 }
