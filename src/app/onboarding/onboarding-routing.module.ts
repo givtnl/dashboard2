@@ -259,6 +259,7 @@ const routes: Routes = [
         canActivate: [OnboardingGiftAidCompleteCheckSuccessGuard]
       }
     ]
+  },
   {
     path: 'bank-account-signing',
     component: OnboardingRootComponent,
