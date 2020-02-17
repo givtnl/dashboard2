@@ -1,8 +1,5 @@
-<app-custom-card
-  titleTranslationKey="onboardingGiftAidVerifyPersonalDetailsComponent.title"
-  iconBackgroundClass="circle-purple"
-  icon="fas fa-file-signature fa-4x"
->
+<app-custom-card titleTranslationKey="onboardingGiftAidVerifyPersonalDetailsComponent.title"
+  iconBackgroundClass="circle-purple" icon="fas fa-file-signature fa-4x">
   <div body>
     <div class="d-flex flex-column information-card p-3 shadow w-100 mb-3">
       <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
@@ -26,7 +23,8 @@
         onboardingGiftAidVerifyPersonalDetailsComponent.subtitleIdentificationDetails
       </p>
       <p *ngIf="giftAidSettings.nationalInsuranceNumber" class="text-primary text-light-font text-givt-purple mb-0">
-        {{ 'onboardingGiftAidAuthorisedOfficialIdentificationDetailsComponent.insuranceNumber' | translate }} {{ giftAidSettings.nationalInsuranceNumber }}
+        {{ 'onboardingGiftAidAuthorisedOfficialIdentificationDetailsComponent.insuranceNumber' | translate }}
+        {{ giftAidSettings.nationalInsuranceNumber }}
       </p>
       <p *ngIf="giftAidSettings.nationalIdentityCardNumber" class="text-primary text-light-font text-givt-purple mb-0">
         {{ 'onboardingGiftAidAuthorisedOfficialIdentificationDetailsComponent.identityCardNumber' | translate }}
@@ -45,6 +43,9 @@
       </p>
       <p class="text-primary text-light-font text-givt-purple mb-0">
         {{ giftAidSettings.authorisedOfficialHomeAddressLineThree }}
+      </p>
+      <p class="text-primary text-light-font text-givt-purple mb-0">
+        {{ giftAidSettings.authorisedOfficialHomeAddressLineFour }}
       </p>
       <p class="text-primary text-light-font text-givt-purple mb-0">
         {{ giftAidSettings.authorisedOfficialHomeAddressLineZipCode }}
