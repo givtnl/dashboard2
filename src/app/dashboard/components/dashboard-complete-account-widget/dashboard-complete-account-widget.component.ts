@@ -42,7 +42,7 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
     const toNavigateRouterLinks = this.getRouterLinks(record);
     if (toNavigateRouterLinks && toNavigateRouterLinks.length > 0) {
       this.loading = true;
-      this.router.navigate(this.getRouterLinks(record)).finally(() => (this.loading = false));
+      this.router.navigate(toNavigateRouterLinks).catch(error => console.log(error)).finally(() => (this.loading = false));
     }
   }
 
