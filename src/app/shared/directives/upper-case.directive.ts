@@ -8,7 +8,6 @@ export class UpperCaseDirective {
   
     @HostListener('input') input() {
         if (this.el.nativeElement.value) {
-            console.log("changed");
             this.el.nativeElement.value = this.el.nativeElement.value.toUpperCase();
         }
     }
