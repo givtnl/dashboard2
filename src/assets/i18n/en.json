@@ -170,7 +170,7 @@
     "dashboardCompleteAccountWidgetComponent.CompleteOrganisationDetails": "Add organisation details",
     "onboardingOrganisationDetailsIntroComponent.dontHaveCharityNumber": "Click here if you don't have a charity number",
     "dashboardCompleteAccountWidgetComponent.AddBankAccount.InProgress": "Awaiting verification by bank statement",
-    "onboardingBankAccountSigningIntroComponent.questionmarkText": "The verification happens in 2 parts.\n<br/><br/>\nIn this first part, we ask you to manually check the provided bank account details.\n<br/><br/>\nIn the second part, you will be asked to send a bank statement by e-mail, so we can check that the given details are fully correct. After we checked these details we will create the Direct Debit Instruction with the details you verified and we checked.\n<br/><br/>\nThis DD has multiple functions: <br/>\nfirstly, it acts as a partial verification of the bank account. <br/>\nSecondly, we use the DD to collect the startup cost. <br/>\nThirdly, it allows us to collect the amount in the unlikely event of a negative balance, if this balance wasn’t cleared following a request by Givt. \n<br/>\nThe letter of agreement agrees to this.\n<br/><br/>\nWhen this is done, the registration with Givt will be completed!<br/>It is important that this step will be taken with utmost care.",
+    "onboardingBankAccountSigningIntroComponent.questionmarkText": "The verification happens in 2 parts.\n<br/><br/>\nIn this first part, we ask you to manually check the provided bank account details.\n<br/><br/>\nIn the second part, we will create the Direct Debit Instruction with the details you verified and we checked.\n<br/><br/>\nThis DD has multiple functions: <br/>\nfirstly, it acts as a partial verification of the bank account. <br/>\nSecondly, we use the DD to collect the startup cost. <br/>\nThirdly, it allows us to collect the amount in the unlikely event of a negative balance, if this balance wasn’t cleared following a request by Givt. \n<br/>\nThe letter of agreement agrees to this.\n<br/><br/>\nWhen this is done, the registration with Givt will be completed!<br/>It is important that this step will be taken with utmost care.",
     "onboardingBankAccountIntroComponent.questionmarkTitle": "More info",
     "errorMessages.bankAccountHolderInvitationLinkExpired": "The link for the invitation has been expired. Please contact your organisation administrator to request a new link.",
     "errorPageComponent.description": "Something went wrong while processing your request, please try again later.",
@@ -269,5 +269,6 @@
     "errorMessages.insurance-number-required": "Please enter your insurance number",
     "errorMessages.insurance-number-length": "Your insurance number can only be 9 characters long",
     "errorMessages.national-identity-card-number-required": "Please enter your national identity card number",
-    "onboardingWelcomeComponent.goToGiftAid": "Connect with Gift Aid"
+    "onboardingWelcomeComponent.goToGiftAid": "Connect with Gift Aid",
+    "errorMessages.insurance-number-pattern": "The format of the insurance number should be two prefix letters, six digits and one suffix."
 }
