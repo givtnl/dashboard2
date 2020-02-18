@@ -27,7 +27,7 @@ pipelines:
           name: build the angular
           script:
             - npm install
-            - ng build
+            - ng build --outputHashing=all
           artifacts:
             - dist/**
       - step:
