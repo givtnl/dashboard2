@@ -270,5 +270,6 @@
     "errorMessages.insurance-number-length": "Your insurance number can only be 9 characters long",
     "errorMessages.national-identity-card-number-required": "Please enter your national identity card number",
     "onboardingWelcomeComponent.goToGiftAid": "Verbind met Gift Aid",
-    "errorMessages.insurance-number-pattern": "Het patroon van een Insurance number moet 2 letters, 6 cijfers en daarna opnieuw 1 letter zijn."
+    "errorMessages.insurance-number-pattern": "Het patroon van een Insurance number moet 2 letters, 6 cijfers en daarna opnieuw 1 letter zijn.",
+    "dashboardHomeComponent.giftaid": "Setup GiftAid connection"
 }
