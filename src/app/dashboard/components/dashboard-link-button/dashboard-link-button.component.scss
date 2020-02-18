@@ -2,8 +2,18 @@
 @import '~bootstrap/scss/variables';
 @import 'src/styles.scss';
 
-.border-radius-40 {
-  border-radius: 40px;
+.border-radius-20 {
+  border-radius: 20px;
+}
+
+p {
+  font-size: unset;
+  line-height: 100%;
+  margin-bottom: unset;
+}
+
+.minw-100 {
+  min-width: 100px;
 }
 
 .btn-givt:hover:not(:disabled),
