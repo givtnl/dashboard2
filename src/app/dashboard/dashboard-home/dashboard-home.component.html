@@ -3,7 +3,7 @@
     <div class="col-12">
       <h2 class="text-font-light text-givt-purple">
         {{ 'hello' | translate }}
-        {{ applicationStateService.currentUserExtensionModel.FirstName }}</h2>
+      <span *ngIf="applicationStateService.currentUserExtensionModel && applicationStateService.currentUserExtensionModel.FirstName">{{ applicationStateService.currentUserExtensionModel.FirstName }}</span></h2>
     </div>
   </div>
   <div class="row mt-5 mb-5" *ngIf="loading">
