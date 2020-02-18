@@ -16,4 +16,5 @@ export interface OrganisationDetailModel{
     AccountNumber:string;
     AccountHolderFirstName:string;
     AccountHolderLastName:string;
+    GiftAidEnabled?: boolean | null;
 }

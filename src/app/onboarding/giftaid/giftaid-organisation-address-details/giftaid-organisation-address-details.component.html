@@ -1,0 +1,49 @@
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'  #formDir="ngForm" [class.submitted]="formDir.submitted">
+    <app-custom-card titleTranslationKey='onboardingGiftAidOrganisationAddressDetailsComponent.title'
+        [showPreviousButton]="true" iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
+        <div body>
+
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
+                onboardingGiftAidOrganisationAddressDetailsComponent.description
+            </p>
+
+            <input type="text"
+                placeholder="{{'onboardingGiftAidOrganisationAddressDetailsComponent.placeholderAddressLine1' | translate }}"
+                formControlName="charityAddressLineOne"
+                class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+            <input type="text"
+                placeholder="{{'onboardingGiftAidOrganisationAddressDetailsComponent.placeholderAddressLine2' | translate }}"
+                formControlName="charityAddressLineTwo"
+                class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+            <input type="text"
+                placeholder="{{'onboardingGiftAidOrganisationAddressDetailsComponent.placeholderAddressLine3' | translate }}"
+                formControlName="charityAddressLineThree"
+                class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+            <input type="text"
+                placeholder="{{'onboardingGiftAidOrganisationAddressDetailsComponent.placeholderAddressLine4' | translate }}"
+                formControlName="charityAddressLineFour"
+                class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+            <input type="text"
+                placeholder="{{'onboardingGiftAidOrganisationAddressDetailsComponent.placeholderZipcode' | translate }}"
+                formControlName="charityAddressZipCode"
+                class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+            <input type="text"
+                placeholder="{{'onboardingGiftAidOrganisationAddressDetailsComponent.placeholderCountry' | translate }}"
+                formControlName="charityAddressCountry"
+                class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+        </div>
+        <button bottom type="submit" [translate] [disabled]="loading"
+            class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+            <span class="text-white text-heavy-font" translate>
+                <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
+                onboardingOrganisationDetailsCharityNumberComponent.nextButtonText
+            </span>
+        </button>
+    </app-custom-card>
+</form>

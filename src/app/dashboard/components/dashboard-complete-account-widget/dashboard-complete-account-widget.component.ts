@@ -38,11 +38,13 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
     return (toCalculatePercentage / 100) * 360;
   }
 
-  public navigate(record: CompleteAccountWidgetModel): void {
+  public async navigate(record: CompleteAccountWidgetModel): Promise<void> {
     const toNavigateRouterLinks = this.getRouterLinks(record);
     if (toNavigateRouterLinks && toNavigateRouterLinks.length > 0) {
       this.loading = true;
-      this.router.navigate(this.getRouterLinks(record)).finally(() => (this.loading = false));
+      await this.router.navigate(toNavigateRouterLinks)
+        .catch(error => console.log(error))
+        .finally(() => (this.loading = false));
     }
   }
 
@@ -51,12 +53,13 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
       case 1:
         return ['/', 'onboarding', 'organisation-details'];
       case 3:
-        return ['/', 'onboarding', 'bank-account'];
+        return !record.InProgress ? ['/', 'onboarding', 'bank-account'] : ['/', 'dashboard'];
       case 4:
         return record.InProgress
           ? ['/', 'onboarding', 'bank-account', { outlets: { 'onboarding-outlet': ['already-invited'] } }]
           : ['/', 'onboarding', 'bank-account-holder'];
-
+      case 6: 
+        return !record.InProgress ? ['/', 'onboarding', 'giftaid'] : ['/', 'dashboard']
       default:
         break;
     }

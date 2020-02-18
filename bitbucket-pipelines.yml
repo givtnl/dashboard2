@@ -20,14 +20,14 @@ pipelines:
             - docker push givt/givtdashboard2:master
           services:
             - docker
-    pre-master:
+    develop:
       - step:
           caches:
             - node
           name: build the angular
           script:
             - npm install
-            - ng build
+            - ng build --outputHashing=all
           artifacts:
             - dist/**
       - step:

@@ -12,7 +12,7 @@ export class OnboardingNewUsersService {
     constructor(private backendService: BackendService) {}
 
     prepareUser(collectGroupId: string, email: string): Observable<UserRegistrationResponseModel> {
-        return this.backendService.get<UserRegistrationResponseModel>(`v2/collectgroups/${collectGroupId}/users/register?email=${encodeURI(email)}`);
+        return this.backendService.get<UserRegistrationResponseModel>(`v2/collectgroups/${collectGroupId}/users/register?email=${encodeURIComponent(email)}`);
     }
 
     sendRegistrationMail(collectGroupId: string, command: SendUserRegistrationEmailOnboardingCommand): Observable<object> {

@@ -15,6 +15,7 @@ import { MissingFileTranslationsHandler } from '../infrastructure/services/missi
 import { QuestionmarkComponent } from './components/questionmark/questionmark.component';
 import { CustomCardComponent } from './components/custom-card/custom-card.component';
 import { RouterModule } from '@angular/router';
+import { UpperCaseDirective } from './directives/upper-case.directive';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RouterModule } from '@angular/router';
     NavBarComponent,
     CheckBoxInputComponent,
     QuestionmarkComponent,
-    CustomCardComponent
+    CustomCardComponent,
+    UpperCaseDirective
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,8 @@ import { RouterModule } from '@angular/router';
     SideBarComponent,
     TranslateModule,
     QuestionmarkComponent,
-    CustomCardComponent
+    CustomCardComponent,
+    UpperCaseDirective
   ]
 })
 export class SharedModule {}

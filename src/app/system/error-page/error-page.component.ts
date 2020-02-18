@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-error-page',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./error-page.component.scss', '../system.module.scss']
 })
 export class ErrorPageComponent implements OnInit {
+  public errorMessage: string;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.errorMessage = this.route.snapshot.queryParams.error || 'errorPageComponent.description';
   }
-
 }

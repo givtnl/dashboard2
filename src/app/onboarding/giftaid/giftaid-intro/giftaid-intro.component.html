@@ -1,0 +1,19 @@
+<app-custom-card [showCloseButton]="true" iconBackgroundClass="circle-purple"
+    icon="fas fa-heart fa-5x">
+
+    <div body>
+        <p class="introduction-title text-primary text-heavy-font text-givt-purple text-center" translate>
+            onboardingGiftAidIntroComponent.title</p>
+        <p class="text-givt-purple text-light-font text-center" translate>
+            onboardingGiftAidIntroComponent.description</p>
+            <p class="text-givt-purple text-light-font text-center" translate>
+                onboardingGiftAidIntroComponent.description2</p>
+    </div>
+
+    <div bottom class=" w-100" [formGroup]="form"> 
+        <p class="text-givt-purple text-heavy-font m-0 text-center" translate>
+            onboardingGiftAidIntroComponent.question
+        </p>
+        <app-check-box-input formControlName="answer" [(loading)]="loading"></app-check-box-input>
+    </div>
+</app-custom-card>

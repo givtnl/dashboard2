@@ -2,12 +2,18 @@
 @import '~bootstrap/scss/variables';
 @import 'src/styles.scss';
 
-.border-radius-10 {
-  border-radius: 10px;
+.border-radius-20 {
+  border-radius: 20px;
 }
 
-.btn {
-  font-size: 60%;
+p {
+  font-size: unset;
+  line-height: 100%;
+  margin-bottom: unset;
+}
+
+.minw-100 {
+  min-width: 100px;
 }
 
 .btn-givt:hover:not(:disabled),
@@ -15,6 +21,7 @@
   @extend .bg-givt-purple;
   color: white !important;
 }
+
 
 .disabled {
     cursor: not-allowed;

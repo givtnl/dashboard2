@@ -27,6 +27,16 @@ import { OnboardingOrganisationDetailsCompleteComponent } from './organisation-d
 import { OnboardingOrganisationDetailsIncorrectComponent } from './organisation-details/onboarding-organisation-details-incorrect/onboarding-organisation-details-incorrect.component';
 import { OnboardingOrganisationDetailsVerifyComponent } from './organisation-details/onboarding-organisation-details-verify/onboarding-organisation-details-verify.component';
 import { OnboardingOrganisationDetailsCharityNumberComponent } from './organisation-details/onboarding-organisation-details-charity-number/onboarding-organisation-details-charity-number.component';
+import { GiftaidOrganisationDetailsComponent } from './giftaid/giftaid-organisation-details/giftaid-organisation-details.component';
+import { GiftaidIntroComponent } from './giftaid/giftaid-intro/giftaid-intro.component';
+import { GiftaidCompletedComponent } from './giftaid/giftaid-completed/giftaid-completed.component';
+import { GiftaidAuthorisedOfficialDetailsComponent } from './giftaid/giftaid-authorised-official-details/giftaid-authorised-official-details.component';
+import { GiftaidOrganisationDetailsCharityNumberComponent } from './giftaid/giftaid-organisation-charity-details/giftaid-organisation-charity-details.component';
+import { GiftaidOrganisationAddressDetailsComponent } from './giftaid/giftaid-organisation-address-details/giftaid-organisation-address-details.component';
+import { GiftaidAuthorisedOfficialAddressDetailsComponent } from './giftaid/giftaid-authorised-official-address-details/giftaid-authorised-official-address-details.component';
+import { GiftaidAuthorisedOfficialIdentificationDetailsComponent } from './giftaid/giftaid-authorised-official-identification-details/giftaid-authorised-official-identification-details.component';
+import { GiftaidVerifyOrganisationDetailsComponent } from './giftaid/giftaid-verify-organisation-details/giftaid-verify-organisation-details.component';
+import { GiftaidVerifyAuthorisedOfficialDetailsComponent } from './giftaid/giftaid-verify-authorised-official-details/giftaid-verify-authorised-official-details.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +63,17 @@ import { OnboardingOrganisationDetailsCharityNumberComponent } from './organisat
     OnboardingOrganisationDetailsCompleteComponent,
     OnboardingOrganisationDetailsIncorrectComponent,
     OnboardingOrganisationDetailsVerifyComponent,
-    OnboardingOrganisationDetailsCharityNumberComponent
+    OnboardingOrganisationDetailsCharityNumberComponent,
+    GiftaidOrganisationDetailsComponent,
+    GiftaidIntroComponent,
+    GiftaidCompletedComponent,
+    GiftaidAuthorisedOfficialDetailsComponent,
+    GiftaidOrganisationDetailsCharityNumberComponent,
+    GiftaidOrganisationAddressDetailsComponent,
+    GiftaidAuthorisedOfficialAddressDetailsComponent,
+    GiftaidAuthorisedOfficialIdentificationDetailsComponent,
+    GiftaidVerifyOrganisationDetailsComponent,
+    GiftaidVerifyAuthorisedOfficialDetailsComponent
   ],
   imports: [CommonModule, ReactiveFormsModule, SharedModule, OnboardingRoutingModule]
 })

@@ -1,18 +1,15 @@
-<app-custom-card titleTranslationKey="" [showCloseButton]="false" iconBackgroundClass="circle-purple"
-    icon="fas fa-check fa-5x">
+<app-custom-card titleTranslationKey="" [showCloseButton]="false" iconBackgroundClass="circle-purple" icon="fas fa-check fa-5x">
+  <div body class="text-center">
+    <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
+      onboardingBankAccountSigningCompleteComponent.title
+    </p>
+    <p class="text-givt-purple text-light-font" innerHTML="{{ 'onboardingBankAccountSigningCompleteComponent.description' | translate }}"></p>
+    <p class="text-givt-purple text-light-font" translate>
+      onboardingBankAccountSigningCompleteComponent.description2
+    </p>
+  </div>
 
-    <div body class="text-center">
-        <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
-            onboardingBankAccountSigningCompleteComponent.title</p>
-        <p class="text-givt-purple text-light-font" translate>
-            onboardingBankAccountSigningCompleteComponent.description</p>
-        <p class="text-givt-purple text-light-font" translate>
-            onboardingBankAccountSigningCompleteComponent.description2</p>
-    </div>
-
-    <a bottom [translate]   [routerLink]="['/', 'dashboard']"
-        class="btn btn-lg bg-givt-green text-white text-heavy-font bottom-button w-100">
-        onboardingBankAccountSigningCompleteComponent.finalActionText
-</a>
-
+  <a bottom [translate] [routerLink]="['/', 'dashboard']" class="btn btn-lg bg-givt-green text-white text-heavy-font bottom-button w-100">
+    onboardingBankAccountSigningCompleteComponent.finalActionText
+  </a>
 </app-custom-card>

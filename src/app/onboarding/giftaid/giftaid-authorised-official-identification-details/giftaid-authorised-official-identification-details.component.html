@@ -1,0 +1,26 @@
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'
+    #formDir="ngForm" [class.submitted]="formDir.submitted">
+    <app-custom-card titleTranslationKey='onboardingGiftAidAuthorisedOfficialIdentificationDetailsComponent.title'
+        [showPreviousButton]="true" iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
+        <div body>
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
+                onboardingGiftAidAuthorisedOfficialIdentificationDetailsComponent.description</p>
+
+            <p translate class="introduction-title text-primary text-light-font text-givt-purple mt-3">
+                onboardingGiftAidAuthorisedOfficialIdentificationDetailsComponent.insuranceNumber</p>
+
+            <input upperCase type="text"
+                placeholder="{{'onboardingGiftAidAuthorisedOfficialDetailsComponent.placeholderInsuranceNumber' | translate}}"
+                formControlName="nationalInsuranceNumber"
+                class="form-control form-control-lg shadow text-givt-purple" />
+
+        </div>
+        <button bottom type="submit" [translate] [disabled]="loading"
+            class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+            <span class="text-white text-heavy-font" translate>
+                <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
+                onboardingOrganisationDetailsCharityNumberComponent.nextButtonText
+            </span>
+        </button>
+    </app-custom-card>
+</form>
