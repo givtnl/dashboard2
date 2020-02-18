@@ -53,7 +53,7 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
       case 1:
         return ['/', 'onboarding', 'organisation-details'];
       case 3:
-        return ['/', 'onboarding', 'bank-account'];
+        return !record.InProgress ? ['/', 'onboarding', 'bank-account'] : ['/', 'dashboard'];
       case 4:
         return record.InProgress
           ? ['/', 'onboarding', 'bank-account', { outlets: { 'onboarding-outlet': ['already-invited'] } }]
