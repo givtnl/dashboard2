@@ -10,4 +10,16 @@ export interface PreparedGiftAidSettings{
     charityAddressLineFour?:string;
     charityPhoneNumber:string;
     charityEmailAddress?:string | null;
+    nationalInsuranceNumber?:string | null;
+    authorisedOfficialFirstName?:string | null;
+    authorisedOfficialMiddleName?:string | null;
+    authorisedOfficialLastName?:string |null;
+    nationalIdentityCardNumber?:string |null;
+    authorisedOfficialPhoneNumber?:string |null;
+    authorisedOfficialHomeAddressLineOne?:string |null;
+    authorisedOfficialHomeAddressLineTwo?:string |null;
+    authorisedOfficialHomeAddressLineThree?:string | null;
+    authorisedOfficialHomeAddressLineFour?:string | null;
+    authorisedOfficialHomeAddressZipCode?:string |null;
+    authorisedOfficialHomeAddressCountry?:string | null;
 }

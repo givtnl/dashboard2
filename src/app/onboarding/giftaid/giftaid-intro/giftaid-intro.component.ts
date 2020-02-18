@@ -11,7 +11,7 @@ import { ApplicationStateService } from 'src/app/infrastructure/services/applica
 })
 export class GiftaidIntroComponent implements OnInit {
   public form: FormGroup;
-  public isLoading = false;
+  public loading = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private onboardingGiftAidService: OnboardingGiftAidService, private appStateService: ApplicationStateService) { }
 
@@ -22,17 +22,17 @@ export class GiftaidIntroComponent implements OnInit {
 
     this.form.valueChanges.subscribe(async (x) => {
       if(x.answer) {
-        this.isLoading = true
+        this.loading = true
         this.router.navigate(['/', 'onboarding', 'giftaid', { outlets: { 'onboarding-outlet': ['organisation-charity-details'] } }], {
           queryParamsHandling: 'merge'
-        }).finally(() => this.isLoading = false)
+        }).finally(() => this.loading = false)
       }
       else {
-        this.isLoading = true
+        this.loading = true
         await this.onboardingGiftAidService.denyGiftAid(this.appStateService.currentTokenModel.OrganisationAdmin).toPromise();
         this.router.navigate(['/', 'dashboard'], {
           queryParamsHandling: 'merge'
-        }).finally(() => this.isLoading = false)
+        }).finally(() => this.loading = false)
       }
     });
   }
