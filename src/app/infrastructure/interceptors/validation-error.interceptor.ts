@@ -24,6 +24,10 @@ export class ValidationErrorInterceptor implements HttpInterceptor {
     if (!errors) {
       return throwError(error);
     }
+    if (errors && errors.AdditionalInformation && errors.AdditionalInformation.errorTerm){
+      return;
+    } 
+
 
     const errorProperties = Object.values(errors.AdditionalInformation).join(',');
 

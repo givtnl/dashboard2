@@ -13,6 +13,7 @@ import { MissingFileTranslationsHandler } from './infrastructure/services/missin
 import { CurrentUserTokenInterceptor } from './infrastructure/interceptors/current-user-token.interceptor';
 import { ValidationErrorInterceptor } from './infrastructure/interceptors/validation-error.interceptor';
 import { UnauthorizedTokenInterceptor } from './shared/interceptors/unauthorized-token.interceptor';
+import { ErrorTermInterceptor } from './shared/interceptors/error-term.interceptor';
 
 
 @NgModule({
@@ -55,6 +56,11 @@ import { UnauthorizedTokenInterceptor } from './shared/interceptors/unauthorized
     {
       provide: HTTP_INTERCEPTORS,
       useClass: OnboardingInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorTermInterceptor,
       multi: true
     }
   ]
