@@ -19,7 +19,7 @@ export class ErrorTermInterceptor implements HttpInterceptor {
   async showErrorTermIfAny(result: any): Promise<any> {
     console.log(result);
     if (result && result.error && result.error.AdditionalInformation && result.error.AdditionalInformation.errorTerm) {
-      await this.toaster.error(result.error.AdditionalInformation.errorTerm, "onboardingBankAccountSigningIntroComponent.questionmarkTitle")
+      await this.toaster.error(result.error.AdditionalInformation.errorTerm, "errorMessages.validation-errors")
     }
   }
 }
