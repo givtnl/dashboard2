@@ -271,5 +271,6 @@
     "errorMessages.national-identity-card-number-required": "Please enter your national identity card number",
     "onboardingWelcomeComponent.goToGiftAid": "Connect with Gift Aid",
     "errorMessages.insurance-number-pattern": "The format of the insurance number should be two prefix letters, six digits and one suffix.",
-    "dashboardHomeComponent.giftaid": "Setup Gift Aid connection"
+    "dashboardHomeComponent.giftaid": "Setup Gift Aid connection",
+    "errorMessages.BankAccountCheckerValidationError": "There was an error during the validation of the bank account details. Please check the sort code and account number."
 }
