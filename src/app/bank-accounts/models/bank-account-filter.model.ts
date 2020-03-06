@@ -19,7 +19,7 @@ export enum BankAccountVerificationStatusFilter {
 
 
 export interface BankAccountFilterModel {
-    activeFilter?: BankAccountActiveStatusFilter;
-    primaryFilter?: BankAccountPrimaryStatusFilter;
-    verifiedFilter?: BankAccountVerificationStatusFilter;
+    activeFilter: BankAccountActiveStatusFilter;
+    primaryFilter: BankAccountPrimaryStatusFilter;
+    verifiedFilter: BankAccountVerificationStatusFilter;
 }

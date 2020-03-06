@@ -20,7 +20,7 @@ export class BankAccountIsVerifiedGuard implements CanActivate {
       .getAccounts(this.applicationStateService.currentTokenModel.OrganisationAdmin, {
        activeFilter: BankAccountActiveStatusFilter.Active,
        primaryFilter: BankAccountPrimaryStatusFilter.Primary,
-       verifiedFilter: BankAccountVerificationStatusFilter.NotVerified
+       verifiedFilter: BankAccountVerificationStatusFilter.All
       })
       .toPromise();
 
