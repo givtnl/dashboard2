@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { BankAccountService } from 'src/app/bank-accounts/services/bank-account.service';
 import { BankAccountListModel } from 'src/app/bank-accounts/models/bank-account-list.model';
+import { BankAccountActiveStatusFilter, BankAccountPrimaryStatusFilter, BankAccountVerificationStatusFilter } from 'src/app/bank-accounts/models/bank-account-filter.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,11 @@ export class OnboardingBankAccountHolderAccountResolver implements Resolve<BankA
     state: RouterStateSnapshot
   ): BankAccountListModel | Observable<BankAccountListModel> | Promise<BankAccountListModel> {
     return this.service
-      .getAccounts(this.applicationStateService.currentTokenModel.OrganisationAdmin)
+      .getAccounts(this.applicationStateService.currentTokenModel.OrganisationAdmin, {
+        activeFilter: BankAccountActiveStatusFilter.All,
+        primaryFilter: BankAccountPrimaryStatusFilter.Primary,
+        verifiedFilter: BankAccountVerificationStatusFilter.Verified
+      })
       .pipe(map(bankAccounts => bankAccounts[0]));
   }
 }

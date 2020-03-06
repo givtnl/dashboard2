@@ -14,17 +14,10 @@ export class BankAccountService {
   getAccounts(organisationId: string, filterModel: BankAccountFilterModel = null): Observable<BankAccountListModel[]> {
     let searchParams = new HttpParams();
     if (filterModel) {
-      if (filterModel.activeFilter) {
-        searchParams = searchParams.append('activeStatus', filterModel.activeFilter.toString());
-      }
-      if (filterModel.primaryFilter) {
-        searchParams = searchParams.append('primaryStatus', filterModel.primaryFilter.toString());
-      }
-      if (filterModel.verifiedFilter) {
-        searchParams = searchParams.append('verificationStatus', filterModel.verifiedFilter.toString());
-      }
+      searchParams = searchParams.append('activeStatus', filterModel.activeFilter.toString());
+      searchParams = searchParams.append('primaryStatus', filterModel.primaryFilter.toString());
+      searchParams = searchParams.append('verificationStatus', filterModel.verifiedFilter.toString());
     }
-
     return this.backendService.get<BankAccountListModel[]>(`v2/organisations/${organisationId}/accounts`, searchParams);
   }
 }
