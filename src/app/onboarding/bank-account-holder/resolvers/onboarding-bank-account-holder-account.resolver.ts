@@ -22,7 +22,7 @@ export class OnboardingBankAccountHolderAccountResolver implements Resolve<BankA
   ): BankAccountListModel | Observable<BankAccountListModel> | Promise<BankAccountListModel> {
     return this.service
       .getAccounts(this.applicationStateService.currentTokenModel.OrganisationAdmin, {
-        activeFilter: BankAccountActiveStatusFilter.All,
+        activeFilter: BankAccountActiveStatusFilter.Active,
         primaryFilter: BankAccountPrimaryStatusFilter.Primary,
         verifiedFilter: BankAccountVerificationStatusFilter.Verified
       })
