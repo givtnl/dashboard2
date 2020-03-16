@@ -16,7 +16,7 @@ export class ForbiddenInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(catchErrorStatus(403, () => {
         this.router.navigate(['/','account','login'])
-        this.toaster.error("errorMessages.forbidden.title", "errorMessages.forbidden")
+        this.toaster.error("errorMessages.forbidden", "errorMessages.forbidden.title")
     }));
   }
 }
