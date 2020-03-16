@@ -272,5 +272,7 @@
     "onboardingWelcomeComponent.goToGiftAid": "Verbind met Gift Aid",
     "errorMessages.insurance-number-pattern": "Het patroon van een Insurance number moet 2 letters, 6 cijfers en daarna opnieuw 1 letter zijn.",
     "dashboardHomeComponent.giftaid": "Setup Gift Aid connection",
-    "errorMessages.BankAccountCheckerValidationError": "There was an error during the validation of the bank account details. Please check the sort code and account number."
+    "errorMessages.BankAccountCheckerValidationError": "There was an error during the validation of the bank account details. Please check the sort code and account number.",
+    "errorMessages.forbidden": "",
+    "errorMessages.forbidden.title": ""
 }
