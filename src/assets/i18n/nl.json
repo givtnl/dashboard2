@@ -278,5 +278,5 @@
     "onboardingOrganisationDetailsVerifyComponent.ParentOrganisation": "The given Reference Number belongs to our parent organisation,",
     "onboardingOrganisationDetailsParentunknownComponent.title": "De parent organisation is niet gekend bij ons.",
     "onboardingOrganisationDetailsParentunknownComponent.description": "we will contact the parent organisation so that you can start with Givt as soon as possible.",
-    "onboardingOrganisationDetailsParentunknownComponent.finalAction": "I understand"
+    "onboardingOrganisationDetailsParentunknownComponent.finalActionText": "I understand and go back to dashboard"
 }
