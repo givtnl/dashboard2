@@ -14,6 +14,7 @@ import { CurrentUserTokenInterceptor } from './infrastructure/interceptors/curre
 import { ValidationErrorInterceptor } from './infrastructure/interceptors/validation-error.interceptor';
 import { UnauthorizedTokenInterceptor } from './shared/interceptors/unauthorized-token.interceptor';
 import { ErrorTermInterceptor } from './shared/interceptors/error-term.interceptor';
+import { ForbiddenInterceptor } from './shared/interceptors/forbidden.interceptor';
 
 
 @NgModule({
@@ -62,6 +63,11 @@ import { ErrorTermInterceptor } from './shared/interceptors/error-term.intercept
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorTermInterceptor,
       multi: true
+    },
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: ForbiddenInterceptor,
+        multi: true
     }
   ]
 })

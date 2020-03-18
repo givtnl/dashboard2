@@ -272,5 +272,7 @@
     "onboardingWelcomeComponent.goToGiftAid": "Connect with Gift Aid",
     "errorMessages.insurance-number-pattern": "The format of the National Insurance number should be two prefix letters, six digits and one suffix.",
     "dashboardHomeComponent.giftaid": "Setup Gift Aid connection",
-    "errorMessages.BankAccountCheckerValidationError": "There was an error during the validation of the bank account details. Please check the sort code and account number."
+    "errorMessages.BankAccountCheckerValidationError": "There was an error during the validation of the bank account details. Please check the sort code and account number.",
+    "errorMessages.forbidden": "You are not allowed to access this dashboard. This is for dashboard users from organisations.",
+    "errorMessages.forbidden.title": "This is forbidden"
 }
