@@ -58,6 +58,7 @@ import { GiftaidVerifyOrganisationDetailsComponent } from './giftaid/giftaid-ver
 import { GiftaidVerifyAuthorisedOfficialDetailsComponent } from './giftaid/giftaid-verify-authorised-official-details/giftaid-verify-authorised-official-details.component';
 import { GiftaidCompletedComponent } from './giftaid/giftaid-completed/giftaid-completed.component';
 import { OnboardingGiftAidCompleteCheckSuccessGuard } from './giftaid/guards/onboarding-giftaid-complete-check-success.guard';
+import { OnboardingOrganisationDetailsParentUnknownComponent } from './organisation-details/onboarding-organisation-details-parent-unknown/onboarding-organisation-details-parent-unknown.component';
 
 const routes: Routes = [
   {
@@ -145,6 +146,11 @@ const routes: Routes = [
         path: 'incorrect',
         outlet: 'onboarding-outlet',
         component: OnboardingOrganisationDetailsIncorrectComponent
+      },
+      {
+        path: 'parent-unknown',
+        outlet: 'onboarding-outlet',
+        component: OnboardingOrganisationDetailsParentUnknownComponent
       },
     ]
   },
