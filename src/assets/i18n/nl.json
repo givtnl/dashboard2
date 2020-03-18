@@ -274,5 +274,9 @@
     "dashboardHomeComponent.giftaid": "Setup Gift Aid connection",
     "errorMessages.BankAccountCheckerValidationError": "There was an error during the validation of the bank account details. Please check the sort code and account number.",
     "errorMessages.forbidden": "Verboden",
-    "errorMessages.forbidden.title": "Dit dashboard biedt momenteel enkel toegang voor organisaties."
+    "errorMessages.forbidden.title": "Dit dashboard biedt momenteel enkel toegang voor organisaties.",
+    "onboardingOrganisationDetailsVerifyComponent.ParentOrganisation": "The given Reference Number belongs to our parent organisation,",
+    "onboardingOrganisationDetailsParentunknownComponent.title": "De parent organisation is niet gekend bij ons.",
+    "onboardingOrganisationDetailsParentunknownComponent.description": "we will contact the parent organisation so that you can start with Givt as soon as possible.",
+    "onboardingOrganisationDetailsParentunknownComponent.finalActionText": "I understand and go back to dashboard"
 }
