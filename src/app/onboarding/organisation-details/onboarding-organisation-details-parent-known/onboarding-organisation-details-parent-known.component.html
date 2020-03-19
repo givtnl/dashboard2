@@ -8,9 +8,10 @@
             onboardingOrganisationDetailsParentKnownComponent.description</p>
     </div>
 
-    <a bottom [translate] [routerLink]="['/','dashboard']"
+    <a bottom
         class="btn btn-lg bg-givt-green text-white text-heavy-font bottom-button w-100">
-        onboardingOrganisationDetailsParentKnownComponent.finalActionText
+        <i class="fas fa-spinner fa-spin mr-1" *ngIf="loading"></i>
+        {{timeLeft}}
     </a>
 
 </app-custom-card>
