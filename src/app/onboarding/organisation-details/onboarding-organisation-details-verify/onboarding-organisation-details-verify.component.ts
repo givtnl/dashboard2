@@ -22,21 +22,36 @@ export class OnboardingOrganisationDetailsVerifyComponent implements OnInit {
     });
 
     this.organisationDetails = this.stateService.currentOrganisationCharityCommisionModel;
+
     this.form.valueChanges.subscribe(answer => {
       this.loading = true;
-      this.router
-        .navigate(
-          [
-            '/',
-            'onboarding',
-            'organisation-details',
-            { outlets: { 'onboarding-outlet': [answer.detailsCorrect ? 'complete' : 'incorrect'] } }
-          ],
-          {
-            queryParamsHandling: 'merge'
-          }
-        )
-        .finally(() => (this.loading = false));
+
+      if (this.organisationDetails.AlreadyKnownParent === true) {
+        this.setRouterPath(answer.detailsCorrect ? 'parent-known' : 'incorrect');
+      }
+      else {
+        this.setRouterPath(answer.detailsCorrect ? 'complete' : 'incorrect');
+      }
     });
+  }
+
+  setRouterPath(path: string) {
+    this.router
+      .navigate(
+        [
+          '/',
+          'onboarding',
+          'organisation-details',
+          { outlets: { 'onboarding-outlet': [path] } }
+        ],
+        {
+          queryParamsHandling: 'merge'
+        }
+      )
+      .finally(() => (this.loading = false));
+  }
+
+  public checkboxStatusChangend(value: boolean) {
+
   }
 }
