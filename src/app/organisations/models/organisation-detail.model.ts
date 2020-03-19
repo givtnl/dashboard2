@@ -17,4 +17,5 @@ export interface OrganisationDetailModel{
     AccountHolderFirstName:string;
     AccountHolderLastName:string;
     GiftAidEnabled?: boolean | null;
+    AlreadyKnownParent: boolean;
 }
