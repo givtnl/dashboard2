@@ -275,7 +275,8 @@
     "errorMessages.BankAccountCheckerValidationError": "There was an error during the validation of the bank account details. Please check the sort code and account number.",
     "errorMessages.forbidden": "Verboden",
     "errorMessages.forbidden.title": "Dit dashboard biedt momenteel enkel toegang voor organisaties.",
-    "onboardingOrganisationDetailsVerifyComponent.ParentOrganisation": "The given Reference Number belongs to our parent organisation,",
     "onboardingOrganisationDetailsParentKnownComponent.title": "Charity already known.",
-    "onboardingOrganisationDetailsParentKnownComponent.description": "You have entered a Charity Commission reference of a charity that is already known to us. Within 5 seconds, you will be forwarded to a form where you can enter your own organisation details. We will verify with the given charity if you are allowed to use their Charity Commission reference."
+    "onboardingOrganisationDetailsParentKnownComponent.description": "You have entered a Charity Commission reference of a charity that is already known to us. Within 5 seconds, you will be forwarded to a form where you can enter your own organisation details. We will verify with the given charity if you are allowed to use their Charity Commission reference.",
+    "onboardingOrganisationDetailsParentKnownComponent.timeDescription": "You will be redirected within",
+    "onboardingOrganisationDetailsParentKnownComponent.seconds": "seconden"
 }
