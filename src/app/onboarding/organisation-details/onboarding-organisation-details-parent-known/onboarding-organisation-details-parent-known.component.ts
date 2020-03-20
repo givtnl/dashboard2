@@ -13,7 +13,7 @@ export class OnboardingOrganisationDetailsParentKnownComponent implements OnInit
   constructor(private router: Router, private applicationStateService: ApplicationStateService) { }
 
   private contractUrl: string;
-  private initialTimeLeft: number = 6;
+  private initialTimeLeft: number = 5;
   public timeLeft: number = this.initialTimeLeft;
   private interval;
   public loading = false;
@@ -36,5 +36,9 @@ export class OnboardingOrganisationDetailsParentKnownComponent implements OnInit
 
   ngAfterViewInit() {
     this.startTimer();
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.interval);
   }
 }
