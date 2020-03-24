@@ -6,7 +6,7 @@
             <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
                 onboardingOrganisationDetailsVerifyComponent.orgDetails
             </p>
-            <p class="text-primary text-light-font text-givt-purple mb-0">
+            <!-- <p class="text-primary text-light-font text-givt-purple mb-0">
                 {{ 'onboardingOrganisationDetailsVerifyComponent.CharityNumber' | translate}}
                 {{ stateService.currentCharityNumber }}
             </p>
@@ -25,17 +25,58 @@
             <p class="text-primary text-light-font text-givt-purple mb-0">{{ organisationDetails.Locality }}
             </p>
             <p class="text-primary text-light-font text-givt-purple mb-0">{{ organisationDetails.PostalCode }}
-            </p>
+            </p> -->
+            <form [formGroup]="form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <textarea formControlName="name" type="text" class="form-control" id="name" rows="3"></textarea>
 
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <select formControlName="address" class="form-control" id="address">
+                        <option [ngValue]="null">Make your choice</option>
+                        <option *ngFor="let option of addressLines" [ngValue]="option">{{option}}</option>
+                    </select>
+                    <small id="addressHelp" class="form-text text-muted">Please pick a value from the list that
+                        matches your address</small>
+                </div>
+                <div class="form-group">
+                    <label for="address">City</label>
+                    <select formControlName="city" class="form-control" id="address">
+                        <option [ngValue]="null">Make your choice</option>
+                        <option *ngFor="let option of addressLines" [ngValue]="option">{{option}}</option>
+                    </select>
+                    <small id="cityHelp" class="form-text text-muted">Please pick a value from the list that
+                        matches your city</small>
+                </div>
+                <div class="form-group">
+                    <label for="locality">Locality</label>
+                    <select formControlName="locality" class="form-control" id="locality">
+                        <option [ngValue]="null">Make your choice</option>
+                        <option *ngFor="let option of addressLines" [ngValue]="option">{{option}}</option>
+                    </select>
+                    <small id="cityHelp" class="form-text text-muted">Please pick a value from the list that
+                        matches your locality or leave it empty if no option matches</small>
+                </div>
+                <div class="form-group">
+                    <label for="locality">Postcode</label>
+                    <input type="text" formControlName="postalCode" class="form-control" id="postcode">
+                </div>
+
+                <div bottom class=" w-100">
+                    <p [translate] class="text-givt-purple text-heavy-font m-0 text-center">
+                        onboardingBankAccountSigningVerifyDetailsComponent.yesNoQuestion
+                    </p>
+                    <app-check-box-input [disabled]="form.invalid" formControlName="detailsCorrect"
+                        [(loading)]="loading"></app-check-box-input>
+                </div>
+            </form>
 
         </div>
     </div>
 
-    <div bottom class=" w-100" [formGroup]="form"> 
-        <p [translate] class="text-givt-purple text-heavy-font m-0 text-center">
-            onboardingBankAccountSigningVerifyDetailsComponent.yesNoQuestion
-        </p>
-        <app-check-box-input formControlName="detailsCorrect" [(loading)]="loading"></app-check-box-input>
-    </div>
+
 
 </app-custom-card>
