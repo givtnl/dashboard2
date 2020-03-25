@@ -12,6 +12,11 @@ export class OnboardingOrganisationDetailsService {
   get(charityNumber: number): Observable<CharityCommisionOrganisationDetailModel> {
     return this.backendService.get<CharityCommisionOrganisationDetailModel>(`v2/charities/${charityNumber}`);
   }
+
+  checkIfParentExists(charityNumber: number) : Observable<CharityCommisionOrganisationDetailModel> {
+    return this.backendService.get<CharityCommisionOrganisationDetailModel>(`v2/organisations/${charityNumber}`);
+  }
+
   put(organisationId: string, command: AddCharityDetailsToOrganisationCommand) {
     return this.backendService.put(`v2/organisations/${organisationId}`, command);
   }

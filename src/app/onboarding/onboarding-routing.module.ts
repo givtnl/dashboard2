@@ -59,6 +59,7 @@ import { GiftaidVerifyAuthorisedOfficialDetailsComponent } from './giftaid/gifta
 import { GiftaidCompletedComponent } from './giftaid/giftaid-completed/giftaid-completed.component';
 import { OnboardingGiftAidCompleteCheckSuccessGuard } from './giftaid/guards/onboarding-giftaid-complete-check-success.guard';
 import { OnboardingOrganisationDetailsParentKnownComponent } from './organisation-details/onboarding-organisation-details-parent-known/onboarding-organisation-details-parent-known.component';
+import { OnboardingOrganisationDetailsFetchParentGuard } from './organisation-details/guards/onboarding-organisation-details-fetch-parent.guard';
 
 const routes: Routes = [
   {
@@ -134,7 +135,10 @@ const routes: Routes = [
         path: 'check-details',
         outlet: 'onboarding-outlet',
         component: OnboardingOrganisationDetailsVerifyComponent,
-        canActivate: [OnboardingOrganisationDetailsFetchDataGuard]
+        canActivate: [
+          OnboardingOrganisationDetailsFetchParentGuard, 
+          OnboardingOrganisationDetailsFetchDataGuard
+        ]
       },
       {
         path: 'complete',
