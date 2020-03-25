@@ -19,14 +19,17 @@ export class OnboardingOrganisationDetailsFetchParentGuard
   constructor(
     private toastr: TranslatableToastrService,
     private onboardingOrganisationDetailsStateService: OnboardingOrganisationDetailsStateService,
-    private onboardingOrganisationDetailsService: OnboardingOrganisationDetailsService
+    private onboardingOrganisationDetailsService: OnboardingOrganisationDetailsService,
+    private router: Router
   ) {
 
   }
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     var charityNumber = this.onboardingOrganisationDetailsStateService.currentCharityNumber;
     try {
-      var resp = await this.onboardingOrganisationDetailsService.checkIfParentExists(charityNumber).toPromise()
+      var resp = await this.onboardingOrganisationDetailsService.checkIfParentExists(charityNumber).toPromise();
+      // do a redirect to let the children fill in the contractform
+      this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['parent-known'] } }]);
     } catch(error) {
       return true;
     }
