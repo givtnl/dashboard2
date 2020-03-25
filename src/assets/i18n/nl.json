@@ -155,10 +155,10 @@
     "onboardingOrganisationDetailsCharityNumberComponent.title": "Charity Commission reference",
     "onboardingOrganisationDetailsCharityNumberComponent.questionmarkTitle": "Don't have a Charity Commission reference?",
     "onboardingOrganisationDetailsCharityNumberComponent.questionmarkText": "Even without a Charity Commission reference it is possible to join Givt. Please contact our helpdesk for more information.",
-    "onboardingOrganisationDetailsCharityNumberComponent.requestCharityNumber": "Please enter your Charity Commission reference:",
+    "onboardingOrganisationDetailsCharityNumberComponent.requestCharityNumber": "Please enter the Charity Commission reference you use:",
     "onboardingOrganisationDetailsCharityNumberComponent.explanation": "With this Charity Commission reference, we request some public information from the Charity Commission. You can check these details in the next screen. If you enter a Charity number which is already known to us, you will be considered a child organisation of that charity. They will have to verify your information.",
     "onboardingOrganisationDetailsCharityNumberComponent.nextButtonText": "Next",
-    "errorMessages.charity-number-required": "Please enter your Charity Commission reference",
+    "errorMessages.charity-number-required": "Please enter the Charity Commission reference you use",
     "placeholders.charityNumber": "Charity Number",
     "onboardingOrganisationDetailsVerifyComponent.CharityNumber": "Charity Commission reference:",
     "onboardingOrganisationDetailsVerifyComponent.CharityName": "Charity Name:",
@@ -278,5 +278,5 @@
     "onboardingOrganisationDetailsParentKnownComponent.title": "Charity already known.",
     "onboardingOrganisationDetailsParentKnownComponent.description": "You have entered a Charity Commission reference of a charity that is already known to us. Within 5 seconds, you will be forwarded to a form where you can enter your own organisation details. We will verify with the given charity if you are allowed to use their Charity Commission reference.",
     "onboardingOrganisationDetailsParentKnownComponent.timeDescription": "You will be redirected within",
-    "onboardingOrganisationDetailsParentKnownComponent.seconds": "seconden"
+    "onboardingOrganisationDetailsParentKnownComponent.seconds": "seconds"
 }
