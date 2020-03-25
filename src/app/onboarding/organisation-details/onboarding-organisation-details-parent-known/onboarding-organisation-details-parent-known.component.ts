@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
+import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
 
 @Component({
   selector: 'app-onboarding-organisation-details-parent-known',
@@ -9,8 +10,11 @@ import { ApplicationStateService } from 'src/app/infrastructure/services/applica
   styleUrls: ['../../onboarding.module.scss', './onboarding-organisation-details-parent-known.component.scss']
 })
 export class OnboardingOrganisationDetailsParentKnownComponent implements OnInit {
-
-  constructor(private router: Router, private applicationStateService: ApplicationStateService) { }
+  constructor(
+    private router: Router,
+    private onboardingOrganisationDetailStateService: OnboardingOrganisationDetailsStateService,
+    private applicationStateService: ApplicationStateService
+  ) {}
 
   private contractUrl: string;
   private initialTimeLeft: number = 5;
@@ -22,16 +26,16 @@ export class OnboardingOrganisationDetailsParentKnownComponent implements OnInit
     this.interval = setInterval(() => {
       if (this.timeLeft > 0) {
         this.timeLeft--;
-      }
-      else {
+      } else {
         this.loading = true;
         window.location.href = this.contractUrl;
       }
-    }, 1000)
+    }, 1000);
   }
 
   ngOnInit() {
-    this.contractUrl =`${environment.apiUrl}/contract/organisations/${this.applicationStateService.currentTokenModel.OrganisationAdmin}`
+    const charityCommissionReference = this.onboardingOrganisationDetailStateService.currentCharityNumber;
+    this.contractUrl = `${environment.apiUrl}/contract/organisations/${this.applicationStateService.currentTokenModel.OrganisationAdmin}?charityCommissionReference=${charityCommissionReference}`;
   }
 
   ngAfterViewInit() {
