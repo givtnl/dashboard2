@@ -14,18 +14,17 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ]
 })
 export class CheckBoxInputComponent implements ControlValueAccessor {
-
-  @Input() 
+  @Input()
   public loading = false;
 
-  public disabled = this.loading;
-
+  @Input()
+  public disabled = false;
 
   // Function to call when the button changes.
-  onChange = (value: boolean) => { };
+  onChange = (value: boolean) => {};
 
   // Function to call when the input is touched (when a button is clicked).
-  onTouched = () => { };
+  onTouched = () => {};
 
   public value: boolean;
 
