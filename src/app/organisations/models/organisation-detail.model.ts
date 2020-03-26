@@ -3,9 +3,11 @@ export interface OrganisationDetailModel{
     CrmId: number;
     Name:string;
     TaxDeductable: boolean;
-    Address:string;
-    Locality:string;
-    City:string;
+    AddressLine1: string;
+    AddressLine2: string;
+    AddressLine3: string;
+    AddressLine4: string;
+    AddressLine5: string;
     PostalCode:string;
     Country:string;
     TelNr:string;

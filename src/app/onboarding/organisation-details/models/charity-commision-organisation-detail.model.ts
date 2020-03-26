@@ -7,5 +7,6 @@ export interface CharityCommisionOrganisationDetailModel {
   AddressLineTwo: string;
   AddressLineThree: string;
   AddressLineFour: string;
+  AddressLineFive: string;
   PostCode: string;
 }

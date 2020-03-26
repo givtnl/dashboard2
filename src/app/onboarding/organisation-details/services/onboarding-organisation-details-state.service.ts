@@ -18,12 +18,6 @@ export class OnboardingOrganisationDetailsStateService {
   public set currentOrganisationCharityCommisionModel(value: CharityCommisionOrganisationDetailModel) {
     this.storage.setItem('OnboardingOrganisationDetailsStateService.CurrentOrganisationCharityCommisionModel', JSON.stringify(value));
   }
-  public set currentEditedOrganisationCharityCommisionCommand(value: AddCharityDetailsToOrganisationCommand) {
-    this.storage.setItem('OnboardingOrganisationDetailsStateService.currentEditedOrganisationCharityCommisionCommand', JSON.stringify(value));
-  }
-  public get currentEditedOrganisationCharityCommisionCommand(): AddCharityDetailsToOrganisationCommand {
-    return JSON.parse(this.storage.getItem('OnboardingOrganisationDetailsStateService.currentEditedOrganisationCharityCommisionCommand'));
-  }
 
   public get currentCharityNumber(): number {
     return +this.storage.getItem('OnboardingOrganisationDetailsStateService.CurrentCharityNumber');
