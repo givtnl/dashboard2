@@ -276,5 +276,6 @@
     "errorMessages.forbidden": "You are not allowed to access this dashboard. This is for dashboard users from organisations.",
     "errorMessages.forbidden.title": "This is forbidden",
     "onboardingOrganisationDetailsParentKnownComponent.title": "Charity already known",
-    "onboardingOrganisationDetailsParentKnownComponent.description": "You have entered a Charity Commission reference of a charity that is already known to us. Once you click on the button, you will be forwarded to a form where you can enter your own organisation details. We will verify with the given charity if you are allowed to use their Charity Commission reference."
+    "onboardingOrganisationDetailsParentKnownComponent.description": "You have entered a Charity Commission reference of a charity that is already known to us. Once you click on the button, you will be forwarded to a form where you can enter your own organisation details. We will verify with the given charity if you are allowed to use their Charity Commission reference.",
+    "onboardingOrganisationDetailsParentKnownComponent.buttonText": "Take me there"
 }
