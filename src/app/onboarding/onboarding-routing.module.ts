@@ -58,6 +58,8 @@ import { GiftaidVerifyOrganisationDetailsComponent } from './giftaid/giftaid-ver
 import { GiftaidVerifyAuthorisedOfficialDetailsComponent } from './giftaid/giftaid-verify-authorised-official-details/giftaid-verify-authorised-official-details.component';
 import { GiftaidCompletedComponent } from './giftaid/giftaid-completed/giftaid-completed.component';
 import { OnboardingGiftAidCompleteCheckSuccessGuard } from './giftaid/guards/onboarding-giftaid-complete-check-success.guard';
+import { OnboardingOrganisationDetailsParentKnownComponent } from './organisation-details/onboarding-organisation-details-parent-known/onboarding-organisation-details-parent-known.component';
+import { OnboardingOrganisationDetailsFetchParentGuard } from './organisation-details/guards/onboarding-organisation-details-fetch-parent.guard';
 
 const routes: Routes = [
   {
@@ -133,7 +135,10 @@ const routes: Routes = [
         path: 'check-details',
         outlet: 'onboarding-outlet',
         component: OnboardingOrganisationDetailsVerifyComponent,
-        canActivate: [OnboardingOrganisationDetailsFetchDataGuard]
+        canActivate: [
+          OnboardingOrganisationDetailsFetchParentGuard, 
+          OnboardingOrganisationDetailsFetchDataGuard
+        ]
       },
       {
         path: 'complete',
@@ -145,6 +150,11 @@ const routes: Routes = [
         path: 'incorrect',
         outlet: 'onboarding-outlet',
         component: OnboardingOrganisationDetailsIncorrectComponent
+      },
+      {
+        path: 'parent-known',
+        outlet: 'onboarding-outlet',
+        component: OnboardingOrganisationDetailsParentKnownComponent
       },
     ]
   },

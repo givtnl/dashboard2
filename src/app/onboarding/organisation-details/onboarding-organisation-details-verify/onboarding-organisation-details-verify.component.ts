@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
-import { OrganisationDetailModel } from 'src/app/organisations/models/organisation-detail.model';
+import { CharityCommisionOrganisationDetailModel } from '../models/charity-commision-organisation-detail.model';
 
 @Component({
   selector: 'app-onboarding-organisation-details-verify',
@@ -12,9 +12,9 @@ import { OrganisationDetailModel } from 'src/app/organisations/models/organisati
 export class OnboardingOrganisationDetailsVerifyComponent implements OnInit {
   public form: FormGroup;
   public loading = false;
-  public organisationDetails: OrganisationDetailModel;
+  public organisationDetails: CharityCommisionOrganisationDetailModel;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, public stateService: OnboardingOrganisationDetailsStateService) {}
+  constructor(private formBuilder: FormBuilder, private router: Router, public stateService: OnboardingOrganisationDetailsStateService) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -22,6 +22,7 @@ export class OnboardingOrganisationDetailsVerifyComponent implements OnInit {
     });
 
     this.organisationDetails = this.stateService.currentOrganisationCharityCommisionModel;
+
     this.form.valueChanges.subscribe(answer => {
       this.loading = true;
       this.router
