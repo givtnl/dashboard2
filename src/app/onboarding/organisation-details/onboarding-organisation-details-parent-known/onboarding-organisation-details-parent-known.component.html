@@ -8,10 +8,11 @@
             onboardingOrganisationDetailsParentKnownComponent.description</p>
     </div>
 
-    <a bottom
-        class="btn btn-lg bg-givt-green text-white text-heavy-font bottom-button w-100">
-        <i class="fas fa-spinner fa-spin mr-1" *ngIf="loading"></i>
-        {{'onboardingOrganisationDetailsParentKnownComponent.timeDescription' | translate }} {{timeLeft}} {{'onboardingOrganisationDetailsParentKnownComponent.seconds' | translate}}
-    </a>
+    <div bottom>
+        <a [href]="contractUrl" class="btn btn-lg bg-givt-green text-white text-heavy-font bottom-button w-100">
+            <i class="fas fa-spinner fa-spin mr-1" *ngIf="loading"></i>
+            {{ 'onboardingOrganisationDetailsParentKnownComponent.buttonText' | translate}}
+        </a>
+    </div>
 
 </app-custom-card>
