@@ -9,9 +9,11 @@ export interface BankAccountHolderDetailModel {
     AccountName:string;
     OrganisationId: string;
     OrganisationName:string;
-    OrganisationStreet:string;
-    OrganisationLocality:string;
-    OrganisationCity:string;
+    OrganisationAdddressLine1: string;
+    OrganisationAdddressLine2: string;
+    OrganisationAdddressLine3: string;
+    OrganisationAdddressLine4: string;
+    OrganisationAdddressLine5: string;
     OrganisationZipCode:string;
     InvitationExpiredDateTime: Date;
     InvitationIsExpired: boolean;

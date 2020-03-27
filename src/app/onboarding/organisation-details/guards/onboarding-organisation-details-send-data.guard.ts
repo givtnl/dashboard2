@@ -24,10 +24,12 @@ export class OnboardingOrganisationDetailsSendDataGuard implements CanActivate {
       var charity = this.onboardingOrganisationDetailsStateService.currentOrganisationCharityCommisionModel;
       var command = new AddCharityDetailsToOrganisationCommand();
       command.name = charity.Name;
-      command.address = charity.Address;
-      command.city = charity.City;
-      command.locality = charity.Locality;
-      command.postalCode = charity.PostalCode;
+      command.addressLine1 = charity.AddressLineOne;
+      command.addressLine2 = charity.AddressLineTwo;
+      command.addressLine3 = charity.AddressLineThree;
+      command.addressLine4 = charity.AddressLineFour;
+      command.addressLine5 = charity.AddressLineFive;
+      command.postalCode = charity.PostCode;
       command.charityCommissionNumber = this.onboardingOrganisationDetailsStateService.currentCharityNumber
 
       var organisationId = this.applicationStateService.currentTokenModel.OrganisationAdmin;
