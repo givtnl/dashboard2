@@ -221,7 +221,7 @@
     "onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.subtitleAddress": "Address",
     "onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderAddressLine1": "Address line 1",
     "onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderAddressLine2": "Address line 2",
-    "onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderAddressLine3": "Address line 3",
+    "onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderAddressLine3": "Address line 3 (not required)",
     "onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderAddressLine4": "Address line 4 (not required)",
     "onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderZipcode": "Postal Code",
     "onboardingGiftAidAuthorisedOfficialAddressDetailsComponent.placeholderCountry": "Country",
