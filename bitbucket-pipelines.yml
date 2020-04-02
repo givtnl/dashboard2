@@ -1,17 +1,35 @@
-image: atlassian/default-image:2
+image: trion/ng-cli
 
 pipelines:
   branches:
     master:
       - step:
+          caches:
+            - node
+          name: build the angular
+          script:
+            - npm install
+            - ng build --prod
+          artifacts:
+            - dist/**
+      - step:
           name: Login and build the docker image
           script: # Modify the commands below to build your repository.
             - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
-            - docker build --build-arg CONFIGURATION=prod -t givt/givtdashboard2:master .
+            - docker build -t givt/givtdashboard2:master .
             - docker push givt/givtdashboard2:master
           services:
             - docker
     develop:
+      - step:
+          caches:
+            - node
+          name: build the angular
+          script:
+            - npm install
+            - ng build --outputHashing=all
+          artifacts:
+            - dist/**
       - step:
           name: Login and build the docker image
           script: # Modify the commands below to build your repository.
