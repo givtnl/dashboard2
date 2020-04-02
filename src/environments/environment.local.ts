@@ -1,6 +1,6 @@
 export const environment = {
-  production: true,
+  production: false,
   // for testing purposes
-  apiUrl: 'http://api:8080',
-  oldDashboardUrl: 'http://dashboard-one:80'
+  apiUrl: 'http://host.docker.internal:5000',
+  oldDashboardUrl: 'http://host.docker.internal:1000'
 };
