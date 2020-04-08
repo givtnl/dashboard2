@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { AddCharityDetailsToOrganisationCommand } from '../models/commands/add-charity-details-to-organisation.command';
 import { Injectable } from '@angular/core';
 import { CharityCommisionOrganisationDetailModel } from '../models/charity-commision-organisation-detail.model';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,12 @@ export class OnboardingOrganisationDetailsService {
     return this.backendService.get<CharityCommisionOrganisationDetailModel>(`v2/charities/${charityNumber}`);
   }
 
-  checkIfParentExists(charityNumber: number) : Observable<CharityCommisionOrganisationDetailModel> {
-    return this.backendService.get<CharityCommisionOrganisationDetailModel>(`v2/organisations/${charityNumber}`);
+  checkIfParentExists(charityNumber: number, currentOrganisationId: string) : Observable<CharityCommisionOrganisationDetailModel> {
+    let httpParameters = new HttpParams();
+    if (currentOrganisationId && currentOrganisationId.length > 0){
+      httpParameters = httpParameters.append('toExcludeOrganisation', currentOrganisationId);
+    }
+    return this.backendService.get<CharityCommisionOrganisationDetailModel>(`v2/organisations/${charityNumber}`, httpParameters);
   }
 
   put(organisationId: string, command: AddCharityDetailsToOrganisationCommand) {

@@ -10,6 +10,7 @@ import { OnboardingOrganisationDetailsService } from '../services/onboarding-org
 import { isNullOrUndefined } from 'util';
 import { TranslatableToastrService } from 'src/app/shared/services/translate-able-toastr.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class OnboardingOrganisationDetailsFetchParentGuard
   implements CanActivate {
   constructor(
     private toastr: TranslatableToastrService,
+    private applicationStateService: ApplicationStateService,
     private onboardingOrganisationDetailsStateService: OnboardingOrganisationDetailsStateService,
     private onboardingOrganisationDetailsService: OnboardingOrganisationDetailsService,
     private router: Router
@@ -26,14 +28,14 @@ export class OnboardingOrganisationDetailsFetchParentGuard
   }
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     var charityNumber = this.onboardingOrganisationDetailsStateService.currentCharityNumber;
+    var currentOrganisation = this.applicationStateService.currentTokenModel.OrganisationAdmin;
     try {
-      var resp = await this.onboardingOrganisationDetailsService.checkIfParentExists(charityNumber).toPromise();
+      var resp = await this.onboardingOrganisationDetailsService.checkIfParentExists(charityNumber, currentOrganisation).toPromise();
       // do a redirect to let the children fill in the contractform
       this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['parent-known'] } }]);
-    } catch(error) {
+    } catch (error) {
       return true;
     }
     return false;
   }
-
 }
