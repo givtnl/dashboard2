@@ -6,6 +6,7 @@ RUN mkdir -p /app
 COPY ./ /app
 
 WORKDIR /app
+RUN echo "Building with configuration $CONFIGURATION"
 RUN npm install \
     && ng build --configuration $CONFIGURATION 
 
