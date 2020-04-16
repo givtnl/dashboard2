@@ -38,6 +38,6 @@ export class GiftaidVerifyOrganisationDetailsComponent implements OnInit {
     })
   }
   private get currentSettings(): PreparedGiftAidSettings {
-    return this.stateService.currentGiftAidSettings
+    return this.stateService.currentGiftAidSettings as PreparedGiftAidSettings;
   }
 }

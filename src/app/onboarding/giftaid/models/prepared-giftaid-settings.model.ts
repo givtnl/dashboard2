@@ -1,7 +1,10 @@
+import { OrganisationRegulator } from 'src/app/organisations/models/organisation-regulator.model';
+
 export interface PreparedGiftAidSettings{
     charityCommissionReference: string;
     charityName: string;
     charityId: string;
+    regulator: OrganisationRegulator;
     charityAddressZipCode: string;
     charityAddressCountry: string;
     charityAddressLineOne:string;

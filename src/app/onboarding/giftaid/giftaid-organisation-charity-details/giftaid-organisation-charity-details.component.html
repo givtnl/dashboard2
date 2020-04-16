@@ -6,10 +6,10 @@
             <p translate class="introduction-title text-primary text-light-font text-givt-purple mt-3">
                 onboardingGiftAidOrganisationDetailsCharityNumberComponent.description</p>
 
-            <p translate class="introduction-title text-primary text-light-font text-givt-purple mt-3">
+            <p  *ngIf="charityCommissionReferenceRequired" translate class="introduction-title text-primary text-light-font text-givt-purple mt-3">
                 onboardingGiftAidOrganisationDetailsCharityNumberComponent.subtitleCharityNumber</p>
 
-            <input type="text"
+            <input *ngIf="charityCommissionReferenceRequired" type="text"
                 placeholder="{{ 'onboardingGiftAidOrganisationDetailsCharityNumberComponent.placeholderCharityNumber' | translate }}"
                 formControlName="charityCommissionReference"
                 class="form-control form-control-lg mb-3 shadow text-givt-purple" />

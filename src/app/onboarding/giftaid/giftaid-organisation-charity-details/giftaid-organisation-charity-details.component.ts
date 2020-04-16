@@ -9,6 +9,7 @@ import { OnboardingOrganisationDetailsService } from '../../organisation-details
 import { map, catchError, tap, switchMap } from 'rxjs/operators';
 import { of, Observable, forkJoin } from 'rxjs';
 import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
+import { OrganisationRegulator } from 'src/app/organisations/models/organisation-regulator.model';
 
 @Component({
   selector: 'app-giftaid-organisation-charity-details',
@@ -20,6 +21,7 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
   public form: FormGroup;
   public loading = false;
   public isInValidCharityCommissionReference = false;
+  public charityCommissionReferenceRequired = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,10 +35,12 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
 
   ngOnInit() {
     const currentSettings = this.currentSettings();
+    this.charityCommissionReferenceRequired = currentSettings.regulator != OrganisationRegulator.Exempt;
     this.form = this.formBuilder.group({
 
       charityCommissionReference: [
-        { value: this.currentSettings ? currentSettings.charityCommissionReference : null, disabled: currentSettings && currentSettings.charityCommissionReference && currentSettings.charityCommissionReference.length > 0 }, [Validators.required, Validators.minLength(6), Validators.maxLength(15)]],
+        { value: this.currentSettings ? currentSettings.charityCommissionReference : null, disabled: currentSettings && currentSettings.charityCommissionReference && currentSettings.charityCommissionReference.length > 0 }, 
+        this.charityCommissionReferenceRequired ? [Validators.required, Validators.minLength(6), Validators.maxLength(15)] : []],
       charityId: [this.currentSettings ? currentSettings.charityId : null, [Validators.required, notNullOrEmptyValidator(), Validators.maxLength(20)]],
     }, {
       updateOn: 'submit'
@@ -56,7 +60,7 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
     this.loading = true;
 
     // check if we have a valid charity commision number ( length and required )
-    if (this.form.get('charityCommissionReference').valid) {
+    if (this.form.get('charityCommissionReference').valid && this.charityCommissionReferenceRequired) {
       // check our api if such a number exists
       this.onboardingOrganisationDetailsService.get(this.form.getRawValue().charityCommissionReference)
         .subscribe(success => {
