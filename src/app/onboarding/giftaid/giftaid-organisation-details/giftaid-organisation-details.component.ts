@@ -41,7 +41,7 @@ export class GiftaidOrganisationDetailsComponent implements OnInit {
     if (!this.giftAidStateService.validatedAndCompletedStepTwo) {
       return this.activatedRoute.parent.snapshot.data.giftAidSettings;
     } else {
-      return this.giftAidStateService.currentGiftAidSettings;
+      return this.giftAidStateService.currentGiftAidSettings as PreparedGiftAidSettings;
     }
   }
 

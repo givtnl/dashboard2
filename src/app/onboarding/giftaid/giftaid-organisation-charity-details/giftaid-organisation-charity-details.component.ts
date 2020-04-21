@@ -52,7 +52,7 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
     if (!this.giftAidStateService.validatedAndCompletedStepOne) {
       return this.activatedRoute.parent.snapshot.data.giftAidSettings;
     } else {
-      return this.giftAidStateService.currentGiftAidSettings;
+      return this.giftAidStateService.currentGiftAidSettings as PreparedGiftAidSettings;
     }
   }
 
