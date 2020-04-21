@@ -38,7 +38,7 @@ export class PasswordForgottenNewPasswordComponent implements OnInit {
         [Validators.required, Validators.email]
       ],
       code: [currentModel.code],
-      password: [null, [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{7,}$')]]
+      password: [null, [Validators.required, Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{7,}$/)]]
     });
   }
 

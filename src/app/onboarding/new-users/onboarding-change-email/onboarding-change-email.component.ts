@@ -40,7 +40,7 @@ export class OnboardingChangeEmailComponent implements OnInit {
     // todo retrieve email and companyname from route
     this.form = this.formBuilder.group({
       email: [null, [Validators.required, Validators.email, forbiddenValueValidator(this.request.emailAddress)]],
-      password: [null, [Validators.required, Validators.minLength(7)]]
+      password: [null, [Validators.required, Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{7,}$/)]]
     });
   }
 

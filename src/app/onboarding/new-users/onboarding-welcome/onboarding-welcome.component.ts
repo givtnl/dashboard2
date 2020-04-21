@@ -42,7 +42,10 @@ export class OnboardingWelcomeComponent implements OnInit {
           value:this.stateService.currentOnboardingRequest.emailAddress,
           disabled:true
       }, [Validators.required, Validators.email]],
-      password: [null, this.showPassword ? [Validators.required, Validators.minLength(7)] : []]
+      password: [null, this.showPassword ? [Validators.required, 
+       // Validators.pattern(/^([0-9]+[a-zA-Z]+|[a-zA-Z]+[0-9]+)[0-9a-zA-Z]*$/)
+       Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{7,}$/)
+      ] : []]
     });
   }
 
@@ -81,9 +84,10 @@ export class OnboardingWelcomeComponent implements OnInit {
       if (passwordErrors.required) {
         errorMessages.push(this.translationService.get('errorMessages.password-required'));
       }
-      if (passwordErrors.minlength) {
+      if (passwordErrors.minlength || passwordErrors.pattern) {
         errorMessages.push(this.translationService.get('errorMessages.password-min-length'));
       }
+  
     }
     forkJoin(errorMessages)
       .pipe(tap(results => (resolvedErrorMessages = results)))
