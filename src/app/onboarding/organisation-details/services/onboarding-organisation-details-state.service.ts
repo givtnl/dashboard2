@@ -19,10 +19,10 @@ export class OnboardingOrganisationDetailsStateService {
     this.storage.setItem('OnboardingOrganisationDetailsStateService.CurrentOrganisationCharityCommisionModel', JSON.stringify(value));
   }
 
-  public get currentCharityNumber(): number {
-    return +this.storage.getItem('OnboardingOrganisationDetailsStateService.CurrentCharityNumber');
+  public get currentCharityNumber(): string {
+    return this.storage.getItem('OnboardingOrganisationDetailsStateService.CurrentCharityNumber');
   }
-  public set currentCharityNumber(charityNumber: number) {
+  public set currentCharityNumber(charityNumber: string) {
     this.storage.setItem('OnboardingOrganisationDetailsStateService.CurrentCharityNumber', charityNumber.toString());
   }
 }

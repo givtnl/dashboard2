@@ -1,5 +1,5 @@
 export interface CharityCommisionOrganisationDetailModel {
-  CharityId: number;
+  CharityId: string;
   Name: string;
   TelNr: string;
   Email: string;

@@ -9,5 +9,5 @@ export class AddCharityDetailsToOrganisationCommand {
     postalCode: string;
     // city: string;
     // locality: string;
-    charityCommissionNumber: number;
+    charityCommissionNumber: string;
 }

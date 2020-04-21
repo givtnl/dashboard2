@@ -14,7 +14,7 @@ export class OnboardingOrganisationDetailsService {
     return this.backendService.get<CharityCommisionOrganisationDetailModel>(`v2/charities/${charityNumber}`);
   }
 
-  checkIfParentExists(charityNumber: number, currentOrganisationId: string) : Observable<CharityCommisionOrganisationDetailModel> {
+  checkIfParentExists(charityNumber: string, currentOrganisationId: string) : Observable<CharityCommisionOrganisationDetailModel> {
     let httpParameters = new HttpParams();
     if (currentOrganisationId && currentOrganisationId.length > 0){
       httpParameters = httpParameters.append('toExcludeOrganisation', currentOrganisationId);
