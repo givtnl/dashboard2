@@ -43,7 +43,6 @@ import { OnboardingOrganisationDetailsVerifyComponent } from './organisation-det
 import { OnboardingOrganisationDetailsCompleteComponent } from './organisation-details/onboarding-organisation-details-complete/onboarding-organisation-details-complete.component';
 import { OnboardingOrganisationDetailsIncorrectComponent } from './organisation-details/onboarding-organisation-details-incorrect/onboarding-organisation-details-incorrect.component';
 import { OnboardingOrganisationDetailsSendDataGuard } from './organisation-details/guards/onboarding-organisation-details-send-data.guard';
-import { OnboardingOrganisationDetailsFetchDataGuard } from './organisation-details/guards/onboarding-organisation-details-fetch-data.guard';
 import { BankAccountSignInvitationIdNotExpiredGuard } from './bank-account-signing/guards/bank-account-sign-invitation-id-not-expired.guard';
 import { BankAccountIsVerifiedGuard } from './bank-account-holder/guards/bank-account-is-verified.guard';
 import { OnboardingGiftAidPreparationResolver } from './giftaid/resolvers/onboarding-giftaid-preparation.resolver';
@@ -60,6 +59,7 @@ import { GiftaidCompletedComponent } from './giftaid/giftaid-completed/giftaid-c
 import { OnboardingGiftAidCompleteCheckSuccessGuard } from './giftaid/guards/onboarding-giftaid-complete-check-success.guard';
 import { OnboardingOrganisationDetailsParentKnownComponent } from './organisation-details/onboarding-organisation-details-parent-known/onboarding-organisation-details-parent-known.component';
 import { OnboardingOrganisationDetailsFetchParentGuard } from './organisation-details/guards/onboarding-organisation-details-fetch-parent.guard';
+import { TranslatedValueResolver } from '../shared/guards/translated-value.resolver';
 
 const routes: Routes = [
   {
@@ -129,6 +129,8 @@ const routes: Routes = [
       {
         path: 'charity-number',
         outlet: 'onboarding-outlet',
+        resolve: { charityErrorBaseText: TranslatedValueResolver },
+        data: { toResolveTranslationKey: 'onboardingOrganisationDetailsCharityNumberComponent.charityErrorDescription' },
         component: OnboardingOrganisationDetailsCharityNumberComponent
       },
       {
@@ -136,8 +138,7 @@ const routes: Routes = [
         outlet: 'onboarding-outlet',
         component: OnboardingOrganisationDetailsVerifyComponent,
         canActivate: [
-          OnboardingOrganisationDetailsFetchParentGuard, 
-          OnboardingOrganisationDetailsFetchDataGuard
+          OnboardingOrganisationDetailsFetchParentGuard
         ]
       },
       {
@@ -215,7 +216,7 @@ const routes: Routes = [
   {
     path: 'giftaid',
     component: OnboardingRootComponent,
-    resolve:{giftAidSettings: OnboardingGiftAidPreparationResolver},
+    resolve: { giftAidSettings: OnboardingGiftAidPreparationResolver },
     children: [
       {
         path: '',

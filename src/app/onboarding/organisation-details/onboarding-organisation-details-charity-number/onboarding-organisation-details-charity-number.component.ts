@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable, forkJoin } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
-import { tap, switchMap } from 'rxjs/operators';
+import { tap, switchMap, catchError } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
+import { OnboardingOrganisationDetailsService } from '../services/onboarding-organisation-details.service';
+import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-onboarding-organisation-details-charity-number',
@@ -16,10 +19,13 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
   public form: FormGroup
   public loading = false
   constructor(
+    private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private translationService: TranslateService,
+    private onboardingService: OnboardingOrganisationDetailsService,
     private router: Router,
+    private applicationStateService: ApplicationStateService,
     private stateService: OnboardingOrganisationDetailsStateService) { }
 
   ngOnInit() {
@@ -34,11 +40,24 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
     }
     this.stateService.currentCharityNumber = this.form.value.charityNumber;
 
+
     this.loading = true;
-    this.router
-      .navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['check-details'] } }])
-      .finally(() => (this.loading = false));
+    this.onboardingService.get(this.form.value.charityNumber)
+      .subscribe(foundCharity => {
+        // save the charity in our stateService for future reference
+        this.stateService.currentOrganisationCharityCommisionModel = foundCharity;
+        // navigate to the next window
+        this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['check-details'] } }])
+      }, error =>
+        this.form.get('charityNumber').setErrors({ invalid: true })
+      ).add(() => this.loading = false);
   }
+
+  public buildErrorTekst():string {
+    let baseText = this.activatedRoute.snapshot.data.charityErrorBaseText as string;
+    return baseText.replace('[LINK]', `${environment.apiUrl}/contract/organisations/${this.applicationStateService.currentTokenModel.OrganisationAdmin}?charityCommissionReference=${this.form.value.charityNumber}`);
+  }
+
   handleInvalidForm() {
     let errorMessages = new Array<Observable<string>>();
     let resolvedErrorMessages = new Array<string>();
