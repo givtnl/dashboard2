@@ -6,6 +6,7 @@ import { PreboardingWelcomeDetailsComponent } from './preboarding-welcome-detail
 import { PreboardingCollectionMediumDetailsComponent } from './preboarding-collection-medium-details/preboarding-collection-medium-details.component';
 import { PreboardingVisibleInApplicationDetailsComponent } from './preboarding-visible-in-application-details/preboarding-visible-in-application-details.component';
 import { PreboardingOrganisationAdminDetailsComponent } from './preboarding-organisation-admin-details/preboarding-organisation-admin-details.component';
+import { PreboardingDetailsCompleteComponent } from './preboarding-details-complete/preboarding-details-complete.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
       {
         path:'organisation-admin-details',
         component: PreboardingOrganisationAdminDetailsComponent
+      },
+      {
+        path:'complete',
+        component: PreboardingDetailsCompleteComponent
       }
     ]
   }];
