@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { PreboardingOrganisationAddressDetailsComponent } from './preboarding-organisation-address-details/preboarding-organisation-address-details.component';
 import { PreboardingRootComponent } from './preboarding-root/preboarding-root.component';
+import { PreboardingWelcomeDetailsComponent } from './preboarding-welcome-details/preboarding-welcome-details.component';
 
 const routes: Routes = [
   {
@@ -10,7 +11,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'organisation-details'
+        redirectTo: 'welcome'
+      },
+      {
+        path: 'welcome',
+        component: PreboardingWelcomeDetailsComponent
       },
       {
         path: 'organisation-details',
