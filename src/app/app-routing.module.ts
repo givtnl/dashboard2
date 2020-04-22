@@ -9,6 +9,10 @@ const routes: Routes = [
         loadChildren:() => import('./account/account.module').then(mod => mod.AccountModule)
     },
     {
+        path: 'preboarding',
+        loadChildren: () => import('./preboarding/preboarding.module').then(mod => mod.PreboardingModule)
+    },
+    {
         path: 'onboarding',
         loadChildren: () => import('./onboarding/onboarding.module').then(mod => mod.OnboardingModule)
     },
