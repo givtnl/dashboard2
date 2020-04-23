@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 import { PreboardingRootComponent } from './preboarding-root/preboarding-root.component';
 import { PreboardingWelcomeDetailsComponent } from './preboarding-welcome-details/preboarding-welcome-details.component';
 import { PreboardingCollectionMediumDetailsComponent } from './preboarding-collection-medium-details/preboarding-collection-medium-details.component';
-import { PreboardingVisibleInApplicationDetailsComponent } from './preboarding-visible-in-application-details/preboarding-visible-in-application-details.component';
+import { PreboardingNameInAppComponent } from './preboarding-name-in-app/preboarding-name-in-app.component';
 import { PreboardingOrganisationAdminDetailsComponent } from './preboarding-organisation-admin-details/preboarding-organisation-admin-details.component';
 import { PreboardingDetailsCompleteComponent } from './preboarding-details-complete/preboarding-details-complete.component';
+import { PreboardingMailBoxAddressDetailsComponent } from './preboarding-mail-box-address-details/preboarding-mail-box-address-details.component';
 
 const routes: Routes = [
   {
@@ -21,12 +22,16 @@ const routes: Routes = [
         component: PreboardingWelcomeDetailsComponent
       },
       {
-        path: 'collection-medium-details',
-        component: PreboardingCollectionMediumDetailsComponent
+        path:'name-in-app',
+        component: PreboardingNameInAppComponent
       },
       {
-        path:'visible-in-application-details',
-        component: PreboardingVisibleInApplicationDetailsComponent
+        path: 'mail-box-address-details',
+        component: PreboardingMailBoxAddressDetailsComponent   
+      },
+      {
+        path: 'collection-medium-details',
+        component: PreboardingCollectionMediumDetailsComponent
       },
       {
         path:'organisation-admin-details',
