@@ -282,7 +282,8 @@
     "preboardingWelcomeDetailsComponent.title": "Hi.",
     "preboardingWelcomeDetailsComponent.description": "You are about to register your organisation with Givt. In the following steps we will ask a few organisation details so your organisation can start collection as soon as possible.",
     "preboardingWelcomeDetailsComponent.startButtonText": "Next",
-    "preboardingNameInAppComponent.title": "",
-    "preboardingNameInAppComponent.description": "",
-    "preboardingNameInAppComponent.nextButtonText": ""
+    "preboardingNameInAppComponent.title": "Lets go",
+    "preboardingNameInAppComponent.description": "Make your organisation recognisable in the app by filling in a unique name.",
+    "preboardingNameInAppComponent.nextButtonText": "Next",
+    "placeholders.inAppOrgName": "Name in the app"
 }
