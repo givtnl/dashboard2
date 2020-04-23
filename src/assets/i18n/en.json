@@ -278,5 +278,13 @@
     "onboardingOrganisationDetailsParentKnownComponent.title": "Charity already known",
     "onboardingOrganisationDetailsParentKnownComponent.description": "You have entered a Charity Commission reference of a charity that is already known to us. Once you click on the button, you will be forwarded to a form where you can enter your own organisation details. We will verify with the given charity if you are allowed to use their Charity Commission reference.",
     "onboardingOrganisationDetailsParentKnownComponent.buttonText": "Take me there",
-    "onboardingOrganisationDetailsCharityNumberComponent.charityErrorDescription": "<p class=\"mb-0\">We did not found your charity at CCEW, this could be because:</p>      <ul>                        <li>Incorrect input, please check again</li>                        <li>Your organisation is regulated with another regulator (CCNI,OSCR)</li>                        <li>Your organisation is an exempt charity</li>                    </ul>                    <p class=\"mb-0\">If this is the case, please click <a href=\"[LINK]\">here</a></p>"
+    "onboardingOrganisationDetailsCharityNumberComponent.charityErrorDescription": "<p class=\"mb-0\">We did not found your charity at CCEW, this could be because:</p>      <ul>                        <li>Incorrect input, please check again</li>                        <li>Your organisation is regulated with another regulator (CCNI,OSCR)</li>                        <li>Your organisation is an exempt charity</li>                    </ul>                    <p class=\"mb-0\">If this is the case, please click <a href=\"[LINK]\">here</a></p>",
+    "preboardingWelcomeDetailsComponent.title": "Hi.",
+    "preboardingWelcomeDetailsComponent.description": "You are about to register your organisation with Givt. In the following steps we will ask a few organisation details so your organisation can start collection as soon as possible.",
+    "preboardingWelcomeDetailsComponent.startButtonText": "Next",
+    "preboardingNameInAppComponent.title": "Lets go",
+    "preboardingNameInAppComponent.description": "Make your organisation recognisable in the app by filling in a unique name.",
+    "preboardingNameInAppComponent.nextButtonText": "Next",
+    "placeholders.inAppOrgName": "Name in the app",
+    "preboardingOrganisation.topTitle": "Preboarding"
 }
