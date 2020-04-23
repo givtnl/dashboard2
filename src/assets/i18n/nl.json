@@ -281,7 +281,7 @@
     "onboardingOrganisationDetailsCharityNumberComponent.charityErrorDescription": "<p class=\"mb-0\">We did not found your charity at CCEW, this could be because:</p>      <ul>                        <li>Incorrect input, please check again</li>                        <li>Your organisation is regulated with another regulator (CCNI,OSCR)</li>                        <li>Your organisation is an exempt charity</li>                    </ul>                    <p class=\"mb-0\">If this is the case, please click <a href=\"[LINK]\">here</a></p>",
     "preboardingWelcomeDetailsComponent.title": "Hallo.",
     "preboardingWelcomeDetailsComponent.description": "Je staat het op punt je organisatie te registreren bij Givt. In de volgende schermen vragen we enkele organisatie gegevens zodat je snel en gemakkelijk aan de slag kunt gaan.",
-    "preboardingWelcomeDetailsComponent.startButtonText": "Volgende",
+    "preboardingWelcomeDetailsComponent.startButtonText": "Start",
     "preboardingNameInAppComponent.title": "Laten we ermee beginnen",
     "preboardingNameInAppComponent.description": "Maak je organisatie herkenbaar in de app door een unieke naam in te vullen.",
     "preboardingNameInAppComponent.nextButtonText": "Volgende",
@@ -300,5 +300,14 @@
     "preboardingCollectionMediumDetails.description": "Vul hier in hoeveel bezoekers de kerk ontvang op een zondag en de hoeveelheid collecte middelen die gebruikt worden. Collecte middelen kunnen mandjes, zakken, schalen en dergelijke zijn.",
     "preboardingCollectionMediumDetails.nextButtonText": "Volgende",
     "preboardingDetailsCompleteComponent.title": "Wohooo",
-    "preboardingDetailsCompleteComponent.description": "Bedankt om alle gegevens in te vullen. Jullie kunnen alvast beginnen met collecteren met Givt."
+    "preboardingDetailsCompleteComponent.description": "Bedankt om alle gegevens in te vullen. Jullie kunnen alvast beginnen met collecteren met Givt.",
+    "errorMessages.name-in-app-required": "Gelieve een naam in te vullen",
+    "errorMessages.address-line-one-required": "Adres lijn 1 is verplicht.",
+    "errorMessages.address-line-two-required": "Adres lijn 2 is verplicht.",
+    "errorMessages.address-zipcode-required": "Postcode is verplicht.",
+    "errorMessages.number-of-collectionbags-required": "Aantal collecte middelen is verplicht.",
+    "errorMessages.number-of-visitors-required\n": "Bezoekers aantal is verplicht.",
+    "preboardingCollectionMediumDetails.placeholderNumberOfVisitors": "Aantal bezoekers",
+    "preboardingCollectionMediumDetails.placeholderNumberOfCollectionMediums": "Aantal collecte middelen",
+    "errorMessages.organisator-email-required": "Het email adres van de organisator is verplicht."
 }
