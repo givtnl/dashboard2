@@ -1,6 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { PreboardingOrganisationAddressDetailsComponent } from './preboarding-organisation-address-details/preboarding-organisation-address-details.component';
 import { PreboardingRootComponent } from './preboarding-root/preboarding-root.component';
 import { PreboardingWelcomeDetailsComponent } from './preboarding-welcome-details/preboarding-welcome-details.component';
 import { PreboardingCollectionMediumDetailsComponent } from './preboarding-collection-medium-details/preboarding-collection-medium-details.component';
@@ -20,10 +19,6 @@ const routes: Routes = [
       {
         path: 'welcome',
         component: PreboardingWelcomeDetailsComponent
-      },
-      {
-        path: 'organisation-details',
-        component: PreboardingOrganisationAddressDetailsComponent
       },
       {
         path: 'collection-medium-details',
