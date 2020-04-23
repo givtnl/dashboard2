@@ -7,7 +7,7 @@ import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands
 @Component({
   selector: 'app-preboarding-details-complete',
   templateUrl: './preboarding-details-complete.component.html',
-  styleUrls: ['./preboarding-details-complete.component.scss']
+  styleUrls: ['./preboarding-details-complete.component.scss', '../../preboarding/preboarding.module.scss']
 })
 export class PreboardingDetailsCompleteComponent implements OnInit {
   ngOnInit(): void {

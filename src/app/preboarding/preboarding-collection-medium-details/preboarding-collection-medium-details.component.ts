@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-preboarding-collection-medium-details',
   templateUrl: './preboarding-collection-medium-details.component.html',
-  styleUrls: ['./preboarding-collection-medium-details.component.scss']
+  styleUrls: ['./preboarding-collection-medium-details.component.scss', '../../preboarding/preboarding.module.scss',]
 })
 export class PreboardingCollectionMediumDetailsComponent implements OnInit {
 

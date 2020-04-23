@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-preboarding-name-in-app',
   templateUrl: './preboarding-name-in-app.component.html',
-  styleUrls: ['./preboarding-name-in-app.component.scss']
+  styleUrls: ['./preboarding-name-in-app.component.scss', '../../preboarding/preboarding.module.scss']
 })
 export class PreboardingNameInAppComponent implements OnInit {
 
