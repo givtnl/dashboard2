@@ -1,13 +1,21 @@
-<app-custom-card [showCloseButton]="false">
-
-    <div body>
-        <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
-        en wie moet er boas zin van da spel
-    </div>
-
-    <a bottom type="submit" [routerLink]="['/','preboarding','register','complete']" [translate]
-        class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
-        onboardingWelcomeComponent.registerButtonText
-    </a>
-
-</app-custom-card>
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'
+    #formDir="ngForm" [class.submitted]="formDir.submitted">
+    <app-custom-card [showCloseButton]="false" [showPreviousButton]="true"
+        titleTranslationKey='preboardingOrganisation.topTitle'>
+        <div body>
+            <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
+                preboardingOrganisationAdminDetailsComponent.description
+            </p>
+            <input formControlName="organisatornEmail" type="text"
+                placeholder="{{ 'preboardingMailboxAddressDetailsComponent.placeholdersOrganisatorEmail' | translate }}"
+                class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
+        </div>
+        <button bottom type="submit" [translate]
+            class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+            <span class="text-white text-heavy-font" translate>
+                preboardingOrganisationAdminDetailsComponent.nextButtonText
+            </span>
+        </button>
+    </app-custom-card>
+</form>

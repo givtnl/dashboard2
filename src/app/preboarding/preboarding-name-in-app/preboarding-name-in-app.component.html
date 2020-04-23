@@ -1,15 +1,23 @@
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="justify-content-center w-100 h-100">
+  <app-custom-card [showCloseButton]="false" titleTranslationKey='preboardingOrganisation.topTitle'>
+    <div body>
+      <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
+      <p [translate]="'preboardingNameInAppComponent.title'"
+        class="introduction-title text-primary text-heavy-font text-givt-purple text-center mt-4"></p>
+      <p class="text-givt-purple text-light-font text-center" translate>
+        preboardingNameInAppComponent.description
+      </p>
+      <input formControlName="inAppOrgName" type="text" placeholder="{{ 'placeholders.inAppOrgName' | translate }}"
+        class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
+    </div>
 
-    <app-custom-card [showCloseButton]="false">
-  
-        <div body>
-          <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
- hoe wil je eruit zien in de app enzo max 30 chars
-        </div>
-    
-        <a bottom type="submit" [routerLink]="['/','preboarding','register','organisation-admin-details']" [translate] class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
-          onboardingWelcomeComponent.registerButtonText
-        </a>
-    
-      </app-custom-card>
-  
-    
+    <button bottom type="submit" [translate] [disabled]="loading"
+      class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
+      <span class="text-white text-heavy-font" translate>
+        <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
+        preboardingNameInAppComponent.nextButtonText
+      </span>
+    </button>
+
+  </app-custom-card>
+</form>

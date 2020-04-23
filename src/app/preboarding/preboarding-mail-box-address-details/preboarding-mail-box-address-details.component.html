@@ -1,1 +1,42 @@
-<p>preboarding-mail-box-address-details works!</p>
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100' #formDir="ngForm" [class.submitted]="formDir.submitted">
+    <app-custom-card [showCloseButton]="false" [showPreviousButton]="true" titleTranslationKey='preboardingOrganisation.topTitle'>
+        <div body>
+            <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
+                preboardingMailboxAddressDetailsComponent.description
+            </p>
+
+            <input type="text"
+                placeholder="{{'preboardingMailboxAddressDetailsComponent.placeholderAddressLine1' | translate}}"
+                formControlName="mailBoxAddressLineOne"
+                class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+            <input type="text"
+                placeholder="{{'preboardingMailboxAddressDetailsComponent.placeholderAddressLine2' | translate}}"
+                formControlName="mailBoxAddressLineTwo"
+                class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+            <input type="text"
+                placeholder="{{'preboardingMailboxAddressDetailsComponent.placeholderAddressLine3' | translate}}"
+                formControlName="mailBoxAddressLineThree"
+                class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+            <input type="text"
+                placeholder="{{'preboardingMailboxAddressDetailsComponent.placeholderAddressLine4' | translate}}"
+                formControlName="mailBoxAddressLineFour"
+                class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+            <input type="text"
+                placeholder="{{'preboardingMailboxAddressDetailsComponent.placeholderZipcode' | translate}}"
+                formControlName="mailBoxAddressLineZipCode"
+                class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+        </div>
+        <button bottom type="submit" [translate] 
+            class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+            <span class="text-white text-heavy-font" translate>
+                preboardingMailboxAddressDetailsComponent.nextButtonText
+            </span>
+        </button>
+    </app-custom-card>
+</form>
