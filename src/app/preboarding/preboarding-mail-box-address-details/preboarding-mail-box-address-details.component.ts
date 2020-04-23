@@ -21,11 +21,10 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      mailBoxAddressLineOne: [null, [Validators.required]],
-      mailBoxAddressLineTwo: [null, [Validators.required]], 
-      mailBoxAddressLineThree: [null, []],
-      mailBoxAddressLineFour: [null, []],
-      mailBoxAddressZipCode: [null, [Validators.required]]
+      mailBoxAddress: [null, [Validators.required]],
+      mailBoxCity: [null, [Validators.required]], 
+      mailBoxZipCode: [null, [Validators.required]],
+      mailBoxComments: [null, []]
     });
   }
   submit() {
@@ -40,24 +39,22 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
     let errorMessages = new Array<Observable<string>>();
     let resolvedErrorMessages = new Array<string>();
 
-    const mailBoxAddressLineOneErrors = this.form.get('mailBoxAddressLineOne').errors;
-    const mailBoxAddressLineTwoErrors = this.form.get('mailBoxAddressLineTwo').errors;
-    // const mailBoxAddressLineThreeErrors = this.form.get('mailBoxAddressLineThree').errors;
-    // const mailBoxAddressLineFourErrors = this.form.get('mailBoxAddressLineFour').errors;
-    const mailBoxAddressZipcodeErrors = this.form.get('mailBoxAddressZipCode').errors;
+    const mailBoxAddressErrors = this.form.get('mailBoxAddress').errors;
+    const mailBoxCityErrors = this.form.get('mailBoxCity').errors;
+    const mailBoxZipcodeErrors = this.form.get('mailBoxZipCode').errors;
 
-    if (mailBoxAddressLineOneErrors) {
-      if (mailBoxAddressLineOneErrors.required) {
-        errorMessages.push(this.translationService.get('errorMessages.address-line-one-required'));
+    if (mailBoxAddressErrors) {
+      if (mailBoxAddressErrors.required) {
+        errorMessages.push(this.translationService.get('errorMessages.address-required'));
       }
     }
-    if (mailBoxAddressLineTwoErrors) {
-      if (mailBoxAddressLineTwoErrors.required) {
-        errorMessages.push(this.translationService.get('errorMessages.address-line-two-required'));
+    if (mailBoxCityErrors) {
+      if (mailBoxCityErrors.required) {
+        errorMessages.push(this.translationService.get('errorMessages.address-city-required'));
       }
     }
-    if (mailBoxAddressZipcodeErrors) {
-      if (mailBoxAddressZipcodeErrors.required) {
+    if (mailBoxZipcodeErrors) {
+      if (mailBoxZipcodeErrors.required) {
         errorMessages.push(this.translationService.get('errorMessages.address-zipcode-required'));
       }
     }
