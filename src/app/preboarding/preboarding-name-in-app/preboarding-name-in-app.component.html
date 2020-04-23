@@ -1,9 +1,9 @@
 <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="justify-content-center w-100 h-100">
-  <app-custom-card [showCloseButton]="false" titleTranslationKey='preboardingOrganisation.topTitle'>
+  <app-custom-card [showCloseButton]="false">
     <div body>
       <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
-      <p [translate]="'preboardingNameInAppComponent.title'"
-        class="introduction-title text-primary text-heavy-font text-givt-purple text-center mt-4"></p>
+      <h1 [translate]="'preboardingNameInAppComponent.title'"
+      class="text-primary text-light-font text-givt-purple text-center mt-5"></h1>
       <p class="text-givt-purple text-light-font text-center" translate>
         preboardingNameInAppComponent.description
       </p>
@@ -12,7 +12,7 @@
     </div>
 
     <button bottom type="submit" [translate] [disabled]="loading"
-      class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
+      class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
       <span class="text-white text-heavy-font" translate>
         <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
         preboardingNameInAppComponent.nextButtonText
