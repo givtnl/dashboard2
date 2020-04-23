@@ -285,5 +285,6 @@
     "preboardingNameInAppComponent.title": "Lets go",
     "preboardingNameInAppComponent.description": "Make your organisation recognisable in the app by filling in a unique name.",
     "preboardingNameInAppComponent.nextButtonText": "Next",
-    "placeholders.inAppOrgName": "Name in the app"
+    "placeholders.inAppOrgName": "Name in the app",
+    "preboardingOrganisation.topTitle": "Preboarding"
 }
