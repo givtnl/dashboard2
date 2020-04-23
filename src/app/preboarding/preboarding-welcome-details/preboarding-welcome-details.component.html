@@ -1,15 +1,17 @@
 <app-custom-card [showCloseButton]="false">
   <div body>
     <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
-    <h1 [translate]="'preboardingWelcomeDetailsComponent.headerTitle'"
+    <h1 [translate]="'preboardingWelcomeDetailsComponent.title'"
       class="text-primary text-light-font text-givt-purple text-center mt-5"></h1>
     <p [translate]="'preboardingWelcomeDetailsComponent.description'"
       class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></p>
   </div>
 
-  <button bottom type="submit" [translate]
-    class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
+  <a bottom [translate] class="btn btn-lg bg-givt-green text-white text-heavy-font w-75 m-0"
+    [routerLink]="['/', 'preboarding', 'register', 'name-in-app']">
+    <i class="fas fa-rocket mr-1" *ngIf="!loading"></i>
+    <i class="fas fa-spinner fa-spin mr-1" *ngIf="loading"></i>
     preboardingWelcomeDetailsComponent.startButtonText
-  </button>
+  </a>
 
 </app-custom-card>
