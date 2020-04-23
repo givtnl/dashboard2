@@ -288,10 +288,8 @@
     "placeholders.inAppOrgName": "Naam in de app",
     "preboardingOrganisation.topTitle": "Preboarding",
     "preboardingMailboxAddressDetailsComponent.description": "Vul hieronder de adres gegevens in waar we de zenders mogen naar toe sturen.",
-    "preboardingMailboxAddressDetailsComponent.placeholderAddressLine1": "Adres lijn 1",
-    "preboardingMailboxAddressDetailsComponent.placeholderAddressLine2": "Adres lijn 2",
-    "preboardingMailboxAddressDetailsComponent.placeholderAddressLine3": "Adres lijn 3 (niet verplicht)",
-    "preboardingMailboxAddressDetailsComponent.placeholderAddressLine4": "Adres lijn 4 (niet verplicht)",
+    "preboardingMailboxAddressDetailsComponent.placeholderAddress": "Adres",
+    "preboardingMailboxAddressDetailsComponent.placeholderCity": "Stad",
     "preboardingMailboxAddressDetailsComponent.placeholderZipcode": "Postcode",
     "preboardingMailboxAddressDetailsComponent.nextButtonText": "Volgende",
     "preboardingOrganisationAdminDetailsComponent.description": "Vul hier het e-mailadres in van de contact persoon bij de organisatie.",
@@ -302,12 +300,12 @@
     "preboardingDetailsCompleteComponent.title": "Wohooo",
     "preboardingDetailsCompleteComponent.description": "Bedankt om alle gegevens in te vullen. Jullie kunnen alvast beginnen met collecteren met Givt.",
     "errorMessages.name-in-app-required": "Gelieve een naam in te vullen",
-    "errorMessages.address-line-one-required": "Adres lijn 1 is verplicht.",
-    "errorMessages.address-line-two-required": "Adres lijn 2 is verplicht.",
+    "errorMessages.address-city-required": "Stad is verplicht.",
     "errorMessages.address-zipcode-required": "Postcode is verplicht.",
     "errorMessages.number-of-collectionbags-required": "Aantal collecte middelen is verplicht.",
     "errorMessages.number-of-visitors-required\n": "Bezoekers aantal is verplicht.",
     "preboardingCollectionMediumDetails.placeholderNumberOfVisitors": "Aantal bezoekers",
     "preboardingCollectionMediumDetails.placeholderNumberOfCollectionMediums": "Aantal collecte middelen",
-    "errorMessages.organisator-email-required": "Het email adres van de organisator is verplicht."
+    "errorMessages.organisator-email-required": "Het email adres van de organisator is verplicht.",
+    "preboardingMailboxAddressDetailsComponent.placeholderComments": "Opmerkingen"
 }

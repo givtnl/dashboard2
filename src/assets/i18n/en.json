@@ -288,10 +288,8 @@
     "placeholders.inAppOrgName": "Name in the app",
     "preboardingOrganisation.topTitle": "Preboarding",
     "preboardingMailboxAddressDetailsComponent.description": "Fill in the address details to where we can send the transmitters.",
-    "preboardingMailboxAddressDetailsComponent.placeholderAddressLine1": "Address line 1",
-    "preboardingMailboxAddressDetailsComponent.placeholderAddressLine2": "Address line 2",
-    "preboardingMailboxAddressDetailsComponent.placeholderAddressLine3": "Address line 3 (not required)",
-    "preboardingMailboxAddressDetailsComponent.placeholderAddressLine4": "Address line 4 (not required)",
+    "preboardingMailboxAddressDetailsComponent.placeholderAddress": "Address",
+    "preboardingMailboxAddressDetailsComponent.placeholderCity": "City",
     "preboardingMailboxAddressDetailsComponent.placeholderZipcode": "Zipcode",
     "preboardingMailboxAddressDetailsComponent.nextButtonText": "Next",
     "preboardingOrganisationAdminDetailsComponent.description": "Fill in the e-mail address of the contact person in the organisation",
@@ -302,12 +300,12 @@
     "preboardingDetailsCompleteComponent.title": "Wohooo",
     "preboardingDetailsCompleteComponent.description": "Thanks for filling in all the data. You can now start collecting with Givt.",
     "errorMessages.name-in-app-required": "Please fill in a name",
-    "errorMessages.address-line-one-required": "Address line 1 is required.",
-    "errorMessages.address-line-two-required": "Address line 2 is required.",
+    "errorMessages.address-city-required": "City is required.",
     "errorMessages.address-zipcode-required": "Postal code is required.",
     "errorMessages.number-of-collectionbags-required": "Number of collection mediums is required.",
     "errorMessages.number-of-visitors-required\n": "Number of visitors is required.",
     "preboardingCollectionMediumDetails.placeholderNumberOfVisitors": "Number of visitors",
     "preboardingCollectionMediumDetails.placeholderNumberOfCollectionMediums": "Number of collection mediums",
-    "errorMessages.organisator-email-required": "The email address of the organisator is required"
+    "errorMessages.organisator-email-required": "The email address of the organisator is required",
+    "preboardingMailboxAddressDetailsComponent.placeholderComments": "Comments"
 }
