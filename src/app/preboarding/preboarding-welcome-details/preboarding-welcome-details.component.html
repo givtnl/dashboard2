@@ -1,18 +1,15 @@
 <app-custom-card [showCloseButton]="false">
-    <div body>
-      <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
-      <p class="introduction-title text-primary text-heavy-font text-givt-purple text-center" translate>
-        preboardingWelcomeDetailsComponent.title</p>
-    <p class="text-givt-purple text-light-font text-center" translate>
-      preboardingWelcomeDetailsComponent.description
-    </p>
-      
-    </div>
+  <div body>
+    <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
+    <h1 [translate]="'preboardingWelcomeDetailsComponent.headerTitle'"
+      class="text-primary text-light-font text-givt-purple text-center mt-5"></h1>
+    <p [translate]="'preboardingWelcomeDetailsComponent.description'"
+      class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></p>
+  </div>
 
-    <button bottom type="submit" [translate] class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
-      preboardingWelcomeDetailsComponent.startButtonText
-    </button>
+  <button bottom type="submit" [translate]
+    class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
+    preboardingWelcomeDetailsComponent.startButtonText
+  </button>
 
 </app-custom-card>
-
-  
