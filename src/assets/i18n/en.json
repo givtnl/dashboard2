@@ -286,5 +286,19 @@
     "preboardingNameInAppComponent.description": "Make your organisation recognisable in the app by filling in a unique name.",
     "preboardingNameInAppComponent.nextButtonText": "Next",
     "placeholders.inAppOrgName": "Name in the app",
-    "preboardingOrganisation.topTitle": "Preboarding"
+    "preboardingOrganisation.topTitle": "Preboarding",
+    "preboardingMailboxAddressDetailsComponent.description": "Fill in the address details to where we can send the transmitters.",
+    "preboardingMailboxAddressDetailsComponent.placeholderAddressLine1": "Address line 1",
+    "preboardingMailboxAddressDetailsComponent.placeholderAddressLine2": "Adress line 2",
+    "preboardingMailboxAddressDetailsComponent.placeholderAddressLine3": "Address line 3 (not required)",
+    "preboardingMailboxAddressDetailsComponent.placeholderAddressLine4": "Address line 4 (not required)",
+    "preboardingMailboxAddressDetailsComponent.placeholderZipcode": "Zipcode",
+    "preboardingMailboxAddressDetailsComponent.nextButtonText": "Next",
+    "preboardingOrganisationAdminDetailsComponent.description": "Fill in the e-mail address of the contact person in the organisation",
+    "preboardingOrganisationAdminDetailsComponent.placeholdersOrganisatorEmail": "E-mail address",
+    "preboardingOrganisationAdminDetailsComponent.nextButtonText": "Next",
+    "preboardingCollectionMediumDetails.description": "Please fill in the amount of visitors on a Sunday en the amount of collection mediums that are used. Collection mediums can be bags, baskets, scales or something similar.",
+    "preboardingCollectionMediumDetails.nextButtonText": "Next",
+    "preboardingDetailsCompleteComponent.title": "Wohooo",
+    "preboardingDetailsCompleteComponent.description": "Thanks for filling in all the data. You can now start collecting with Givt."
 }

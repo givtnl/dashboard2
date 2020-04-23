@@ -286,5 +286,19 @@
     "preboardingNameInAppComponent.description": "Maak je organisatie herkenbaar in de app door een unieke naam in te vullen.",
     "preboardingNameInAppComponent.nextButtonText": "Volgende",
     "placeholders.inAppOrgName": "Naam in de app",
-    "preboardingOrganisation.topTitle": "Preboarding"
+    "preboardingOrganisation.topTitle": "Preboarding",
+    "preboardingMailboxAddressDetailsComponent.description": "Vul hieronder de adres gegevens in waar we de zenders mogen naar toe sturen.",
+    "preboardingMailboxAddressDetailsComponent.placeholderAddressLine1": "Adres lijn 1",
+    "preboardingMailboxAddressDetailsComponent.placeholderAddressLine2": "Adres lijn 2",
+    "preboardingMailboxAddressDetailsComponent.placeholderAddressLine3": "Adres lijn 3 (niet verplicht)",
+    "preboardingMailboxAddressDetailsComponent.placeholderAddressLine4": "Adres lijn 4 (niet verplicht)",
+    "preboardingMailboxAddressDetailsComponent.placeholderZipcode": "Postcode",
+    "preboardingMailboxAddressDetailsComponent.nextButtonText": "Volgende",
+    "preboardingOrganisationAdminDetailsComponent.description": "Vul hier het e-mailadres in van de contact persoon bij de organisatie.",
+    "preboardingOrganisationAdminDetailsComponent.placeholdersOrganisatorEmail": "E-mailadres",
+    "preboardingOrganisationAdminDetailsComponent.nextButtonText": "Volgende",
+    "preboardingCollectionMediumDetails.description": "Vul hier in hoeveel bezoekers de kerk ontvang op een zondag en de hoeveelheid collecte middelen die gebruikt worden. Collecte middelen kunnen mandjes, zakken, schalen en dergelijke zijn.",
+    "preboardingCollectionMediumDetails.nextButtonText": "Volgende",
+    "preboardingDetailsCompleteComponent.title": "Wohooo",
+    "preboardingDetailsCompleteComponent.description": "Bedankt om alle gegevens in te vullen. Jullie kunnen alvast beginnen met collecteren met Givt."
 }
