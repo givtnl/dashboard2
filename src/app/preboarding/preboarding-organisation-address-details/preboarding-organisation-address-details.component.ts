@@ -19,23 +19,23 @@ export class PreboardingOrganisationAddressDetailsComponent implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
       name: [null, [Validators.required, notNullOrEmptyValidator()]],
-      addressLineOne: [null, [Validators.required, notNullOrEmptyValidator()]],
-      addressLineTwo: [null, [Validators.required, notNullOrEmptyValidator()]],
-      addressLineThree: [null],
-      addressLineFour: [null],
-      addressLineFive: [null],
+      addressLine1: [null, [Validators.required, notNullOrEmptyValidator()]],
+      addressLine2: [null, [Validators.required, notNullOrEmptyValidator()]],
+      addressLine3: [null],
+      addressLine4: [null],
+      addressLine5: [null],
       postalCode: [null, [Validators.required, notNullOrEmptyValidator()]],
-      country: [null, [Validators.required, notNullOrEmptyValidator()]]
+      city: [null, [Validators.required, notNullOrEmptyValidator()]]
     });
   }
 
   submit(): void {
-    if (this.form.invalid) {
-      this.handleInvalidForm();
-      return;
-    } else {
+    // if (this.form.invalid) {
+    //   this.handleInvalidForm();
+    //   return;
+    // } else {
       this.continue();
-    }
+    //}
   }
 
   handleInvalidForm(): void {

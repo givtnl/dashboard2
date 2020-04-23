@@ -1,5 +1,9 @@
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
+import { inject, Injectable } from '@angular/core';
 
+@Injectable({
+  providedIn:'root'
+})
 export class PreboardingStateService {
     private storage = sessionStorage;
 

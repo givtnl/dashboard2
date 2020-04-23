@@ -1,15 +1,52 @@
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'
+  #formDir="ngForm" [class.submitted]="formDir.submitted">
+  <app-custom-card [showCloseButton]="false">
 
-    <app-custom-card [showCloseButton]="false">
-  
-        <div body>
-          <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
- org details enzo
+    <div body>
+      <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
+      <div body>
+        <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
+          to-translate-blabla vul hier je adresgegevens in</p>
+
+        <p translate class="introduction-title text-primary text-light-font text-givt-purple mt-3">
+          to-translate-blabla organisatienaam</p>
+
+        <input type="text" placeholder="placeholder-org-totranslate" formControlName="name"
+          class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+        <input type="text" placeholder="placeholder-org-address-line1" formControlName="addressLine1"
+          class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+        <input type="text" placeholder="placeholder-org-address-line2" formControlName="addressLine2"
+          class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+
+        <input type="text" placeholder="placeholder-org-address-line3" formControlName="addressLine3"
+          class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+        <input type="text" placeholder="placeholder-org-address-line4" formControlName="addressLine4"
+          class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+        <input type="text" placeholder="placeholder-org-address-line5" formControlName="addressLine5"
+          class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <input type="text" placeholder="placeholder-org-postalcode" formControlName="postalCode" class="form-control form-control-lg mb-3 shadow text-givt-purple" >
+          </div>
+          <div class="form-group col-md-8">
+            <input type="text" placeholder="placeholder-org-city"  formControlName="city" class="form-control form-control-lg mb-3 shadow text-givt-purple">
+          </div>
         </div>
-    
-        <button bottom type="submit"  [translate] class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
-          onboardingWelcomeComponent.registerButtonText
-        </button>
-    
-      </app-custom-card>
-  
-    
+
+      </div>
+    </div>
+
+    <button bottom type="submit" [translate]
+      class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
+      onboardingWelcomeComponent.registerButtonText
+    </button>
+
+  </app-custom-card>
+</form>
