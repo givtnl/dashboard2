@@ -283,5 +283,6 @@
     "preboardingWelcomeDetailsComponent.description": "Je staat het op punt je organisatie te registreren bij Givt. In de volgende schermen vragen we enkele organisatie gegevens zodat je snel en gemakkelijk aan de slag kunt gaan.",
     "preboardingWelcomeDetailsComponent.startButtonText": "Volgende",
     "preboardingNameInAppComponent.title": "",
-    "preboardingNameInAppComponent.description": ""
+    "preboardingNameInAppComponent.description": "",
+    "preboardingNameInAppComponent.nextButtonText": ""
 }
