@@ -9,11 +9,6 @@ import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands
   templateUrl: './preboarding-details-complete.component.html',
   styleUrls: ['./preboarding-details-complete.component.scss', '../../preboarding/preboarding.module.scss']
 })
-export class PreboardingDetailsCompleteComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
-  }
-
-
+export class PreboardingDetailsCompleteComponent {
 
 }
