@@ -1,6 +1,7 @@
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
 import { inject, Injectable } from '@angular/core';
 import { organisationSettings } from '../models/preboarding-details-settings.model';
+import { CreateCollectGroupCommand } from 'src/app/collect-groups/models/create-collect-group.command';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,6 @@ export class PreboardingStateService {
     this.storage.removeItem('OnboardingOrganisationDetailsStateService.CurrentOrganisationCharityCommisionModel');
   }
 
-  public get validatedAndCompletedStepOne(): boolean {
-    const key = 'PreboardingStateService.validatedAndCompletedStepOne';
-    const serializedRequest = JSON.parse(this.storage.getItem(key));
-    return serializedRequest || false;
-  }
 
   public set validatedAndCompletedStepOne(value: boolean) {
     const key = 'PreboardingStateService.validatedAndCompletedStepOne';
@@ -56,6 +52,18 @@ export class PreboardingStateService {
     this.storage.setItem(key, JSON.stringify(value));
   }
 
+
+  public get currentCollectGroupDetails(): CreateCollectGroupCommand {
+    const key = 'PreboardingStateService.currentCollectGroupDetails';
+    const serializedRequest = JSON.parse(this.storage.getItem(key));
+    return serializedRequest || {};
+  }
+
+  public set currentCollectGroupDetails(value: CreateCollectGroupCommand) {
+    const key = 'PreboardingStateService.currentCollectGroupDetails';
+    this.storage.setItem(key, JSON.stringify(value));
+  }
+
   public get currentOrganisationDetails(): organisationSettings {
     const key = 'PreboardingStateService.currentOrganisationDetails';
     const serializedRequest = JSON.parse(this.storage.getItem(key));
@@ -66,5 +74,7 @@ export class PreboardingStateService {
     const key = 'PreboardingStateService.currentOrganisationDetails';
     this.storage.setItem(key, JSON.stringify(value));
   }
+
+
 
 }

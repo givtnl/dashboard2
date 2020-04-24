@@ -4,9 +4,10 @@ import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { organisationSettings } from '../models/preboarding-details-settings.model';
+import { CreateCollectGroupCommand } from 'src/app/collect-groups/models/create-collect-group.command';
 
 @Component({
   selector: 'app-preboarding-name-in-app',
@@ -15,29 +16,24 @@ import { organisationSettings } from '../models/preboarding-details-settings.mod
 })
 export class PreboardingNameInAppComponent implements OnInit {
 
-  form: FormGroup
+  public form: FormGroup
+  private collectGroup: CreateCollectGroupCommand;
+
   constructor(
-    private formBuilder: FormBuilder, 
-    private translationService: TranslateService, 
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private translationService: TranslateService,
     private toastr: ToastrService,
     private preboardingStateService: PreboardingStateService,
     private router: Router) { }
 
   ngOnInit() {
-    const currentSettings = this.getCachedValue();
-
+    this.collectGroup = this.route.snapshot.data.collectGroup;
     this.form = this.formBuilder.group({
-      inAppOrgName: [currentSettings ? currentSettings.organisationName : null, [Validators.required, Validators.maxLength(40)]]
+      inAppOrgName: [this.collectGroup ? this.collectGroup.name : null, [Validators.required, Validators.maxLength(40)]]
     });
   }
 
-  private getCachedValue(): organisationSettings {
-    if (this.preboardingStateService.validatedAndCompletedStepOne) {
-      return this.preboardingStateService.currentOrganisationDetails;
-    }
-    return null;
-  }
-  
   submit() {
     if (this.form.invalid) {
       this.handleInvalidForm();
@@ -48,14 +44,10 @@ export class PreboardingNameInAppComponent implements OnInit {
   }
 
   continue() {
-    const currentSettings = this.preboardingStateService.currentOrganisationDetails;
-
-    currentSettings.organisationName = this.form.value.inAppOrgName;
-    
-    this.preboardingStateService.currentOrganisationDetails = currentSettings;
-    this.preboardingStateService.validatedAndCompletedStepOne = true;
+    this.collectGroup.name = this.form.value.inAppOrgName;
+    this.preboardingStateService.currentCollectGroupDetails = this.collectGroup;
   }
-  
+
   handleInvalidForm() {
     let errorMessages = new Array<Observable<string>>();
     let resolvedErrorMessages = new Array<string>();
