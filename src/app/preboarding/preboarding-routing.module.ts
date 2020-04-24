@@ -7,6 +7,8 @@ import { PreboardingNameInAppComponent } from './preboarding-name-in-app/preboar
 import { PreboardingOrganisationAdminDetailsComponent } from './preboarding-organisation-admin-details/preboarding-organisation-admin-details.component';
 import { PreboardingDetailsCompleteComponent } from './preboarding-details-complete/preboarding-details-complete.component';
 import { PreboardingMailBoxAddressDetailsComponent } from './preboarding-mail-box-address-details/preboarding-mail-box-address-details.component';
+import { PreboardingVisitorCountComponent } from './preboarding-visitor-count/preboarding-visitor-count.component';
+import { PreboardingCollectionsComponent } from './preboarding-collections/preboarding-collections.component';
 
 const routes: Routes = [
   {
@@ -28,6 +30,14 @@ const routes: Routes = [
       {
         path: 'mail-box-address-details',
         component: PreboardingMailBoxAddressDetailsComponent   
+      },
+      {
+        path: 'visitors',
+        component: PreboardingVisitorCountComponent
+      },
+      {
+        path: 'collections',
+        component: PreboardingCollectionsComponent
       },
       {
         path: 'collection-medium-details',

@@ -46,7 +46,7 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
       return;
     }
     this.continue();
-    this.router.navigate(["/preboarding/register/collection-medium-details"])
+    this.router.navigate(["/preboarding/register/visitors"])
   }
 
   continue() {
@@ -55,7 +55,7 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
       addressLine: this.form.value.mailBoxAddress,
       city: this.form.value.mailBoxCity,
       postalCode: this.form.value.mailBoxZipCode,
-      country: "Nothing Hill",
+      country: "Nothing Hill", // TODO: Get from teamleader
       description: this.form.value.mailBoxComments
     };
 

@@ -1,8 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { PreboardingStateService } from '../services/preboarding-state.service';
-import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
-import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-preboarding-details-complete',

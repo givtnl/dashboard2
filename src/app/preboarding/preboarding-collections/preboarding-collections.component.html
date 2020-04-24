@@ -1,0 +1,40 @@
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100' #formDir="ngForm" [class.submitted]="formDir.submitted">
+    <app-custom-card [showCloseButton]="false" [showPreviousButton]="true" titleTranslationKey='preboardingOrganisation.topTitle'>
+        <div body>
+            <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
+                preboardingCollectionMediumDetails.description
+            </p>
+            <div class="form-check">
+                <input formControlName="singleCollectionService" type="checkbox" class="form-check-input" />
+                <label class="form-check-label introduction-title text-primary text-light-font text-givt-purple">Juste jin collecteeuh</label>
+            </div>
+            <div class="form-check">
+                <input formControlName="multipleCollectionService" type="checkbox" class="form-check-input" />
+                <label class="form-check-label introduction-title text-primary text-light-font text-givt-purple">Mjirdere collecteeuhz</label>
+            </div>
+            <div class="form-check">
+                <input formControlName="endOfServiceCollection" type="checkbox" class="form-check-input" />
+                <label class="form-check-label introduction-title text-primary text-light-font text-givt-purple">Juste jin ipt latste</label>
+            </div>
+            <div class="form-check">
+                <input formControlName="communionCollection" type="checkbox" class="form-check-input" />
+                <label class="form-check-label introduction-title text-primary text-light-font text-givt-purple">Communie collecte</label>
+            </div>
+            <div class="form-check">
+                <input formControlName="candleCollection" type="checkbox" class="form-check-input" />
+                <label class="form-check-label introduction-title text-primary text-light-font text-givt-purple">Keeskes collecte</label>
+            </div>
+            <div class="form-check">
+                <input formControlName="collectionBoxes" type="checkbox" class="form-check-input" />
+                <label class="form-check-label introduction-title text-primary text-light-font text-givt-purple">Dozekes collecte</label>
+            </div>
+            <p>FormValues: {{ form.value | json}} </p>
+        </div>
+        <button bottom type="submit" [translate] class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+            <span class="text-white text-heavy-font" translate>
+                preboardingCollectionMediumDetails.nextButtonText
+            </span>
+        </button>
+    </app-custom-card>
+</form>

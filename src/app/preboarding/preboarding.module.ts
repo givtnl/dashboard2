@@ -10,6 +10,8 @@ import { PreboardingWelcomeDetailsComponent } from './preboarding-welcome-detail
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { PreboardingMailBoxAddressDetailsComponent } from './preboarding-mail-box-address-details/preboarding-mail-box-address-details.component';
+import { PreboardingCollectionsComponent } from './preboarding-collections/preboarding-collections.component';
+import { PreboardingVisitorCountComponent } from './preboarding-visitor-count/preboarding-visitor-count.component';
 
 
 
@@ -21,7 +23,9 @@ import { PreboardingMailBoxAddressDetailsComponent } from './preboarding-mail-bo
     PreboardingDetailsCompleteComponent,
     PreboardingRootComponent,
     PreboardingWelcomeDetailsComponent,
-    PreboardingMailBoxAddressDetailsComponent
+    PreboardingMailBoxAddressDetailsComponent,
+    PreboardingCollectionsComponent,
+    PreboardingVisitorCountComponent
   ],
   imports: [
     CommonModule, ReactiveFormsModule, SharedModule,
