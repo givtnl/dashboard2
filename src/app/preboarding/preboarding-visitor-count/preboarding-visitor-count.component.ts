@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { organisationSettings } from '../models/preboarding-details-settings.model';
+import { CreateCollectGroupCommand } from 'src/app/collect-groups/models/create-collect-group.command';
+import { CreateUserForCollectGroupCommand } from 'src/app/onboarding/new-users/models/commands/create-user-for-collect-group.command';
 
 @Component({
   selector: 'app-preboarding-visitor-count',
@@ -15,29 +17,25 @@ import { organisationSettings } from '../models/preboarding-details-settings.mod
 })
 export class PreboardingVisitorCountComponent implements OnInit {
 
-  form: FormGroup
+  public form: FormGroup
+  private collectGroup: CreateCollectGroupCommand;
+
   constructor(
-    private formBuilder: FormBuilder, 
-    private translationService: TranslateService, 
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private translationService: TranslateService,
     private toastr: ToastrService,
     private preboardingStateService: PreboardingStateService,
     private router: Router) { }
 
   ngOnInit() {
-    const currentSettings = this.getCachedValue();
+    this.collectGroup = this.route.snapshot.data.collectGroup as CreateCollectGroupCommand;
 
     this.form = this.formBuilder.group({
-      numberOfVisitors: [currentSettings ? currentSettings.aantalMensenInKerk : null, [Validators.required]],
+      numberOfVisitors: [this.collectGroup ? this.collectGroup.visitorCount : null, [Validators.required]],
     });
   }
 
-  private getCachedValue(): organisationSettings {
-    if (this.preboardingStateService.validatedAndCompletedStepThree) {
-      return this.preboardingStateService.currentOrganisationDetails;
-    }
-    return null;
-  }
-  
   submit() {
     if (this.form.invalid) {
       this.handleInvalidForm();
@@ -48,14 +46,10 @@ export class PreboardingVisitorCountComponent implements OnInit {
   }
 
   continue() {
-    const currentSettings = this.preboardingStateService.currentOrganisationDetails;
-
-    currentSettings.aantalMensenInKerk  = this.form.value.numberOfVisitors;
-    
-    this.preboardingStateService.currentOrganisationDetails = currentSettings;
-    this.preboardingStateService.validatedAndCompletedStepThree = true;
+    this.collectGroup.visitorCount = this.form.value.numberOfVisitors;
+    this.preboardingStateService.currentCollectGroupDetails = this.collectGroup;
   }
-  
+
   handleInvalidForm() {
     let errorMessages = new Array<Observable<string>>();
     let resolvedErrorMessages = new Array<string>();

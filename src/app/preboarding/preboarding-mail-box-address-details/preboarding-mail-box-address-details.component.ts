@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { organisationSettings } from '../models/preboarding-details-settings.model';
+import { CreateOrganisationContactCommand } from 'src/app/organisations/models/commands/create-organisation-contact.command';
 
 @Component({
   selector: 'app-preboarding-mail-box-address-details',
@@ -14,8 +15,11 @@ import { organisationSettings } from '../models/preboarding-details-settings.mod
   styleUrls: ['./preboarding-mail-box-address-details.component.scss', '../../preboarding/preboarding.module.scss']
 })
 export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
-  form: FormGroup
+  public form: FormGroup
+  public contact: CreateOrganisationContactCommand;
+
   constructor(
+    private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private translationService: TranslateService,
     private toastr: ToastrService,
@@ -23,22 +27,16 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    const currentSettings = this.getCachedValue();
+    this.contact = this.route.snapshot.data.contact;
 
     this.form = this.formBuilder.group({
-      mailBoxAddress: [currentSettings ? currentSettings.address.addressLine : null, [Validators.required]],
-      mailBoxCity: [currentSettings ? currentSettings.address.city : null, [Validators.required]],
-      mailBoxZipCode: [currentSettings ? currentSettings.address.postalCode : null, [Validators.required]],
-      mailBoxComments: [currentSettings ? currentSettings.address.description : null, []]
+      mailBoxAddress: [this.contact ? this.contact.address : null, [Validators.required]],
+      mailBoxCity: [this.contact ? this.contact.city : null, [Validators.required]],
+      mailBoxZipCode: [this.contact ? this.contact.postCode : null, [Validators.required]],
+      mailBoxComments: [this.contact ? this.contact.comments : null]
     });
   }
 
-  private getCachedValue(): organisationSettings {
-    if (this.preboardingStateService.validatedAndCompletedStepTwo) {
-      return this.preboardingStateService.currentOrganisationDetails;
-    }
-    return null;
-  }
 
   submit() {
     if (this.form.invalid) {
@@ -50,17 +48,11 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
   }
 
   continue() {
-    const currentSettings = this.preboardingStateService.currentOrganisationDetails;
-    currentSettings.address = {
-      addressLine: this.form.value.mailBoxAddress,
-      city: this.form.value.mailBoxCity,
-      postalCode: this.form.value.mailBoxZipCode,
-      country: "Nothing Hill", // TODO: Get from teamleader
-      description: this.form.value.mailBoxComments
-    };
-
-    this.preboardingStateService.currentOrganisationDetails = currentSettings;
-    this.preboardingStateService.validatedAndCompletedStepTwo = true;
+    this.contact.address = this.form.value.mailBoxAddress;
+    this.contact.city = this.form.value.mailBoxCity;
+    this.contact.comments = this.form.value.mailBoxComments;
+    this.contact.postCode = this.form.value.mailBoxZipCode;
+    this.preboardingStateService.currentOrganisationContact = this.contact;
   }
 
   handleInvalidForm() {

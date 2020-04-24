@@ -10,6 +10,8 @@ import { PreboardingMailBoxAddressDetailsComponent } from './preboarding-mail-bo
 import { PreboardingVisitorCountComponent } from './preboarding-visitor-count/preboarding-visitor-count.component';
 import { PreboardingCollectionsComponent } from './preboarding-collections/preboarding-collections.component';
 import { PreboardingCurrentCollectGroupResolver } from './resolvers/preboarding-current-collect-group.resolver';
+import { PreboardingCurrentOrganisationContactGroupResolver } from './resolvers/preboarding-current-organisation-contact.resolver';
+import { PreboardingCurrentAdditionalInformationResolver } from './resolvers/preboarding-current-additional-information.resolver';
 
 const routes: Routes = [
   {
@@ -31,15 +33,18 @@ const routes: Routes = [
       },
       {
         path: 'mail-box-address-details',
-        component: PreboardingMailBoxAddressDetailsComponent
+        component: PreboardingMailBoxAddressDetailsComponent,
+        resolve: { contact: PreboardingCurrentOrganisationContactGroupResolver }
       },
       {
         path: 'visitors',
-        component: PreboardingVisitorCountComponent
+        component: PreboardingVisitorCountComponent,
+        resolve: { collectGroup: PreboardingCurrentCollectGroupResolver }
       },
       {
         path: 'collections',
-        component: PreboardingCollectionsComponent
+        component: PreboardingCollectionsComponent,
+        resolve: {additionalInformation: PreboardingCurrentAdditionalInformationResolver}
       },
       {
         path: 'collection-medium-details',

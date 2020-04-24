@@ -33,9 +33,6 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
   }
 
   private getCachedValue(): organisationSettings {
-    if (this.preboardingStateService.validatedAndCompletedStepThree) {
-      return this.preboardingStateService.currentOrganisationDetails;
-    }
     return null;
   }
   
@@ -55,7 +52,6 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
     currentSettings.aantalMensenInKerk  = this.form.value.numberOfVisitors;
     
     this.preboardingStateService.currentOrganisationDetails = currentSettings;
-    this.preboardingStateService.validatedAndCompletedStepThree = true;
   }
   
   handleInvalidForm() {

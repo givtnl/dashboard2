@@ -1,7 +1,8 @@
-import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { organisationSettings } from '../models/preboarding-details-settings.model';
 import { CreateCollectGroupCommand } from 'src/app/collect-groups/models/create-collect-group.command';
+import { CreateOrganisationContactCommand } from 'src/app/organisations/models/commands/create-organisation-contact.command';
+import { CreatePreboardingAdditionalInformationCommand } from '../models/create-preboarding-additional-information.command';
 
 @Injectable({
   providedIn: 'root'
@@ -11,34 +12,6 @@ export class PreboardingStateService {
 
   public clear(): void {
     this.storage.removeItem('OnboardingOrganisationDetailsStateService.CurrentOrganisationCharityCommisionModel');
-  }
-
-
-  public set validatedAndCompletedStepOne(value: boolean) {
-    const key = 'PreboardingStateService.validatedAndCompletedStepOne';
-    this.storage.setItem(key, JSON.stringify(value));
-  }
-
-  public get validatedAndCompletedStepTwo(): boolean {
-    const key = 'PreboardingStateService.validatedAndCompletedStepTwo';
-    const serializedRequest = JSON.parse(this.storage.getItem(key));
-    return serializedRequest || false;
-  }
-
-  public set validatedAndCompletedStepTwo(value: boolean) {
-    const key = 'PreboardingStateService.validatedAndCompletedStepTwo';
-    this.storage.setItem(key, JSON.stringify(value));
-  }
-
-  public get validatedAndCompletedStepThree(): boolean {
-    const key = 'PreboardingStateService.validatedAndCompletedStepThree';
-    const serializedRequest = JSON.parse(this.storage.getItem(key));
-    return serializedRequest || false;
-  }
-
-  public set validatedAndCompletedStepThree(value: boolean) {
-    const key = 'PreboardingStateService.validatedAndCompletedStepThree';
-    this.storage.setItem(key, JSON.stringify(value));
   }
 
   public get validatedAndCompletedStepFour(): boolean {
@@ -53,6 +26,24 @@ export class PreboardingStateService {
   }
 
 
+  public get currentAdditionalInformation(): CreatePreboardingAdditionalInformationCommand {
+    const key = 'PreboardingStateService.currentAdditionalInformation';
+    const serializedRequest = JSON.parse(this.storage.getItem(key));
+    return serializedRequest || {
+      candleCollection: { enabled: false },
+      collectionBoxes: { enabled: false },
+      communionCollection: { enabled: false },
+      endOfServiceCollection: { enabled: false },
+      multipleCollectionService: { enabled: false },
+      singleCollectionService: { enabled: false }
+    };;
+  }
+
+  public set currentAdditionalInformation(value: CreatePreboardingAdditionalInformationCommand) {
+    const key = 'PreboardingStateService.currentAdditionalInformation';
+    this.storage.setItem(key, JSON.stringify(value));
+  }
+
   public get currentCollectGroupDetails(): CreateCollectGroupCommand {
     const key = 'PreboardingStateService.currentCollectGroupDetails';
     const serializedRequest = JSON.parse(this.storage.getItem(key));
@@ -63,6 +54,18 @@ export class PreboardingStateService {
     const key = 'PreboardingStateService.currentCollectGroupDetails';
     this.storage.setItem(key, JSON.stringify(value));
   }
+
+  public get currentOrganisationContact(): CreateOrganisationContactCommand {
+    const key = 'PreboardingStateService.currentOrganisationContact';
+    const serializedRequest = JSON.parse(this.storage.getItem(key));
+    return serializedRequest || {};
+  }
+
+  public set currentOrganisationContact(value: CreateOrganisationContactCommand) {
+    const key = 'PreboardingStateService.currentOrganisationContact';
+    this.storage.setItem(key, JSON.stringify(value));
+  }
+
 
   public get currentOrganisationDetails(): organisationSettings {
     const key = 'PreboardingStateService.currentOrganisationDetails';
