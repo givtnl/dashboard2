@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { PreboardingStateService } from '../services/preboarding-state.service';
-import { organisationSettings } from '../models/preboarding-details-settings.model';
+import { CreatePreboardingAdditionalInformationCommand, PreboardingCollectionDetail } from '../models/create-preboarding-additional-information.command';
 
 @Component({
   selector: 'app-preboarding-collection-medium-details',
@@ -15,27 +15,45 @@ import { organisationSettings } from '../models/preboarding-details-settings.mod
 })
 export class PreboardingCollectionMediumDetailsComponent implements OnInit {
 
-  form: FormGroup
+  public form: FormGroup
+  public additionalInformationCommand: CreatePreboardingAdditionalInformationCommand;
+
   constructor(
-    private formBuilder: FormBuilder, 
-    private translationService: TranslateService, 
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private translationService: TranslateService,
     private toastr: ToastrService,
     private preboardingStateService: PreboardingStateService,
-    private router: Router) { }
+    private router: Router) {
+
+  }
+
+
+  singleCollectionDetails(): FormArray {
+    return this.form.get('singleCollectionDetails') as FormArray;
+  }
 
   ngOnInit() {
-    const currentSettings = this.getCachedValue();
-
+    this.additionalInformationCommand = this.route.snapshot.data.additionalInformation;
     this.form = this.formBuilder.group({
-      numberOfVisitors: [currentSettings ? currentSettings.aantalMensenInKerk : null, [Validators.required]],
-      numberOfCollectionBags: [currentSettings ? currentSettings.aantalCollecteMiddelen : null, [Validators.required]], 
+      singleCollectionDetails: this.mapDetailsToFormArray(this.additionalInformationCommand.singleCollectionService.details || [])
     });
   }
 
-  private getCachedValue(): organisationSettings {
-    return null;
+
+  mapDetail(detail: PreboardingCollectionDetail = null): FormGroup {
+    return this.formBuilder.group({
+      quantity: [detail ? detail.quantity : 0, [Validators.min(1)]],
+      collectionType: [detail ? detail.collectionType : null, [Validators.required]]
+    })
   }
-  
+
+  mapDetailsToFormArray(details: PreboardingCollectionDetail[]): FormArray {
+    return this.formBuilder.array(details.map(x => this.mapDetail(x)));
+  }
+
+
+
   submit() {
     if (this.form.invalid) {
       this.handleInvalidForm();
@@ -46,14 +64,10 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
   }
 
   continue() {
-    const currentSettings = this.preboardingStateService.currentOrganisationDetails;
-
-    currentSettings.aantalCollecteMiddelen = this.form.value.numberOfCollectionBags;
-    currentSettings.aantalMensenInKerk  = this.form.value.numberOfVisitors;
-    
-    this.preboardingStateService.currentOrganisationDetails = currentSettings;
+    this.additionalInformationCommand.singleCollectionService.details = this.singleCollectionDetails().value;
+    this.preboardingStateService.currentAdditionalInformation = this.additionalInformationCommand;
   }
-  
+
   handleInvalidForm() {
     let errorMessages = new Array<Observable<string>>();
     let resolvedErrorMessages = new Array<string>();
@@ -71,7 +85,7 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
         errorMessages.push(this.translationService.get('errorMessages.number-of-collectionbags-required'));
       }
     }
-    
+
 
     forkJoin(errorMessages)
       .pipe(tap(results => (resolvedErrorMessages = results)))

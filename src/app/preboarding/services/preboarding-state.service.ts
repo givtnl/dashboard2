@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { organisationSettings } from '../models/preboarding-details-settings.model';
 import { CreateCollectGroupCommand } from 'src/app/collect-groups/models/create-collect-group.command';
 import { CreateOrganisationContactCommand } from 'src/app/organisations/models/commands/create-organisation-contact.command';
 import { CreatePreboardingAdditionalInformationCommand } from '../models/create-preboarding-additional-information.command';
+import { CreateUserForCollectGroupCommand } from 'src/app/onboarding/new-users/models/commands/create-user-for-collect-group.command';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +44,17 @@ export class PreboardingStateService {
     this.storage.setItem(key, JSON.stringify(value));
   }
 
+  public get currentAdmin(): CreateUserForCollectGroupCommand {
+    const key = 'PreboardingStateService.currentAdmin';
+    const serializedRequest = JSON.parse(this.storage.getItem(key));
+    return serializedRequest
+  }
+
+  public set currentAdmin(value: CreateUserForCollectGroupCommand) {
+    const key = 'PreboardingStateService.currentAdmin';
+    this.storage.setItem(key, JSON.stringify(value));
+  }
+
   public get currentCollectGroupDetails(): CreateCollectGroupCommand {
     const key = 'PreboardingStateService.currentCollectGroupDetails';
     const serializedRequest = JSON.parse(this.storage.getItem(key));
@@ -65,19 +76,5 @@ export class PreboardingStateService {
     const key = 'PreboardingStateService.currentOrganisationContact';
     this.storage.setItem(key, JSON.stringify(value));
   }
-
-
-  public get currentOrganisationDetails(): organisationSettings {
-    const key = 'PreboardingStateService.currentOrganisationDetails';
-    const serializedRequest = JSON.parse(this.storage.getItem(key));
-    return serializedRequest || {};
-  }
-
-  public set currentOrganisationDetails(value: organisationSettings) {
-    const key = 'PreboardingStateService.currentOrganisationDetails';
-    this.storage.setItem(key, JSON.stringify(value));
-  }
-
-
 
 }

@@ -10,6 +10,10 @@ export interface CreatePreboardingAdditionalInformationCommand {
 
 export interface PreboardingCollectionDescription {
     enabled: boolean | false;
+    details: PreboardingCollectionDetail[];
+}
+
+export interface PreboardingCollectionDetail {
     quantity?: number | 0;
     collectionType?: string | null;
 }

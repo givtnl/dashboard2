@@ -1,19 +1,32 @@
-<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100' #formDir="ngForm" [class.submitted]="formDir.submitted">
-    <app-custom-card [showCloseButton]="false" [showPreviousButton]="true" titleTranslationKey='preboardingOrganisation.topTitle'>
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'
+    #formDir="ngForm" [class.submitted]="formDir.submitted">
+    <app-custom-card [showCloseButton]="false" [showPreviousButton]="true"
+        titleTranslationKey='preboardingOrganisation.topTitle'>
         <div body>
             <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
             <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
                 preboardingCollectionMediumDetails.description
             </p>
-            <input formControlName="numberOfVisitors" type="number" min="0" max="10000" placeholder="{{'preboardingCollectionMediumDetails.placeholderNumberOfVisitors' | translate }}" class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple"
-            />
 
-            <input formControlName="numberOfCollectionBags" type="number" min="0" max="100" placeholder="{{'preboardingCollectionMediumDetails.placeholderNumberOfCollectionMediums' | translate }}" class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple"
-            />
+            <div *ngIf="additionalInformationCommand.singleCollectionService">
+                <div formArrayName="singleCollectionDetails">
+                    <button type="button" class="btn btn-sm btn-primary"
+                        (click)="singleCollectionDetails().push(mapDetail())"><i class="fa fa-plus"></i></button>
+                    <div *ngFor="let employee of singleCollectionDetails().controls; let i=index">
+                        <div [formGroupName]="i">
+                            <input class="form-control form-control-sm" formControlName="quantity" type="number" />
+                            <input class="form-control form-control-sm" formControlName="collectionType" type="text" />
+                        </div>
+                        <button class="btn btn-light" type="button" (click)="singleCollectionDetails().removeAt(i)"><i
+                                class="fa fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button bottom type="submit" [translate] class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+        <button bottom type="submit" [translate]
+            class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
             <span class="text-white text-heavy-font" translate>
-              preboardingCollectionMediumDetails.nextButtonText
+                preboardingCollectionMediumDetails.nextButtonText
             </span>
         </button>
     </app-custom-card>

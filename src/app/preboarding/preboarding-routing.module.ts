@@ -48,7 +48,8 @@ const routes: Routes = [
       },
       {
         path: 'collection-medium-details',
-        component: PreboardingCollectionMediumDetailsComponent
+        component: PreboardingCollectionMediumDetailsComponent,
+        resolve: {additionalInformation: PreboardingCurrentAdditionalInformationResolver}
       },
       {
         path: 'organisation-admin-details',

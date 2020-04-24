@@ -6,7 +6,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PreboardingStateService } from '../services/preboarding-state.service';
-import { organisationSettings } from '../models/preboarding-details-settings.model';
 import { CreateCollectGroupCommand } from 'src/app/collect-groups/models/create-collect-group.command';
 
 @Component({

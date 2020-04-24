@@ -6,9 +6,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { PreboardingStateService } from '../services/preboarding-state.service';
-import { organisationSettings } from '../models/preboarding-details-settings.model';
 import { CreateCollectGroupCommand } from 'src/app/collect-groups/models/create-collect-group.command';
-import { CreateUserForCollectGroupCommand } from 'src/app/onboarding/new-users/models/commands/create-user-for-collect-group.command';
+
 
 @Component({
   selector: 'app-preboarding-visitor-count',
