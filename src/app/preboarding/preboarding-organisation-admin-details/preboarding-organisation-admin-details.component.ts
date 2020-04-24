@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
+import { organisationSettings } from '../models/preboarding-details-settings.model';
+import { PreboardingStateService } from '../services/preboarding-state.service';
 
 @Component({
   selector: 'app-preboarding-organisation-admin-details',
@@ -18,19 +20,40 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
     private formBuilder: FormBuilder, 
     private translationService: TranslateService, 
     private toastr: ToastrService,
+    private preboardingStateService: PreboardingStateService,
     private router: Router) { }
 
   ngOnInit() {
+    const currentSettings = this.getCachedValue();
+
     this.form = this.formBuilder.group({
-      organisatorEmail: [null, [Validators.required, Validators.email]]
+      organisatorEmail: [currentSettings ? currentSettings.email : null, [Validators.required, Validators.email]]
     });
   }
+
+  private getCachedValue(): organisationSettings {
+    if (this.preboardingStateService.validatedAndCompletedStepFour) {
+      return this.preboardingStateService.currentOrganisationDetails;
+    }
+    return null;
+  }
+  
   submit() {
     if (this.form.invalid) {
       this.handleInvalidForm();
       return;
     }
+    this.continue();
     this.router.navigate(["/preboarding/register/complete"])
+  }
+
+  continue() {
+    const currentSettings = this.preboardingStateService.currentOrganisationDetails;
+
+    currentSettings.email = this.form.value.organisatorEmail;
+    
+    this.preboardingStateService.currentOrganisationDetails = currentSettings;
+    this.preboardingStateService.validatedAndCompletedStepFour = true;
   }
   
   handleInvalidForm() {

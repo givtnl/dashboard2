@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
+import { PreboardingStateService } from '../services/preboarding-state.service';
+import { organisationSettings } from '../models/preboarding-details-settings.model';
 
 @Component({
   selector: 'app-preboarding-collection-medium-details',
@@ -18,20 +20,42 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
     private formBuilder: FormBuilder, 
     private translationService: TranslateService, 
     private toastr: ToastrService,
+    private preboardingStateService: PreboardingStateService,
     private router: Router) { }
 
   ngOnInit() {
+    const currentSettings = this.getCachedValue();
+
     this.form = this.formBuilder.group({
-      numberOfVisitors: [null, [Validators.required]],
-      numberOfCollectionBags: [null, [Validators.required]], 
+      numberOfVisitors: [currentSettings ? currentSettings.aantalMensenInKerk : null, [Validators.required]],
+      numberOfCollectionBags: [currentSettings ? currentSettings.aantalCollecteMiddelen : null, [Validators.required]], 
     });
   }
+
+  private getCachedValue(): organisationSettings {
+    if (this.preboardingStateService.validatedAndCompletedStepThree) {
+      return this.preboardingStateService.currentOrganisationDetails;
+    }
+    return null;
+  }
+  
   submit() {
     if (this.form.invalid) {
       this.handleInvalidForm();
       return;
     }
+    this.continue();
     this.router.navigate(["/preboarding/register/organisation-admin-details"])
+  }
+
+  continue() {
+    const currentSettings = this.preboardingStateService.currentOrganisationDetails;
+
+    currentSettings.aantalCollecteMiddelen = this.form.value.numberOfCollectionBags;
+    currentSettings.aantalMensenInKerk  = this.form.value.numberOfVisitors;
+    
+    this.preboardingStateService.currentOrganisationDetails = currentSettings;
+    this.preboardingStateService.validatedAndCompletedStepThree = true;
   }
   
   handleInvalidForm() {

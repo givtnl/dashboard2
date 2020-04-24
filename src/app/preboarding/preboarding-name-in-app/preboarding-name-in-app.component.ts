@@ -5,6 +5,8 @@ import { tap, switchMap } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { PreboardingStateService } from '../services/preboarding-state.service';
+import { organisationSettings } from '../models/preboarding-details-settings.model';
 
 @Component({
   selector: 'app-preboarding-name-in-app',
@@ -18,19 +20,40 @@ export class PreboardingNameInAppComponent implements OnInit {
     private formBuilder: FormBuilder, 
     private translationService: TranslateService, 
     private toastr: ToastrService,
+    private preboardingStateService: PreboardingStateService,
     private router: Router) { }
 
   ngOnInit() {
+    const currentSettings = this.getCachedValue();
+
     this.form = this.formBuilder.group({
-      inAppOrgName: [null, [Validators.required, Validators.maxLength(40)]]
+      inAppOrgName: [currentSettings ? currentSettings.organisationName : null, [Validators.required, Validators.maxLength(40)]]
     });
   }
+
+  private getCachedValue(): organisationSettings {
+    if (this.preboardingStateService.validatedAndCompletedStepOne) {
+      return this.preboardingStateService.currentOrganisationDetails;
+    }
+    return null;
+  }
+  
   submit() {
     if (this.form.invalid) {
       this.handleInvalidForm();
       return;
     }
+    this.continue();
     this.router.navigate(["/preboarding/register/mail-box-address-details"])
+  }
+
+  continue() {
+    const currentSettings = this.preboardingStateService.currentOrganisationDetails;
+
+    currentSettings.organisationName = this.form.value.inAppOrgName;
+    
+    this.preboardingStateService.currentOrganisationDetails = currentSettings;
+    this.preboardingStateService.validatedAndCompletedStepOne = true;
   }
   
   handleInvalidForm() {

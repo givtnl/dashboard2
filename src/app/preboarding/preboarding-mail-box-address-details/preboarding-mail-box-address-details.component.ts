@@ -16,8 +16,8 @@ import { organisationSettings } from '../models/preboarding-details-settings.mod
 export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
   form: FormGroup
   constructor(
-    private formBuilder: FormBuilder, 
-    private translationService: TranslateService, 
+    private formBuilder: FormBuilder,
+    private translationService: TranslateService,
     private toastr: ToastrService,
     private preboardingStateService: PreboardingStateService,
     private router: Router) { }
@@ -26,10 +26,10 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
     const currentSettings = this.getCachedValue();
 
     this.form = this.formBuilder.group({
-      mailBoxAddress: [null, [Validators.required]],
-      mailBoxCity: [null, [Validators.required]], 
-      mailBoxZipCode: [null, [Validators.required]],
-      mailBoxComments: [null, []]
+      mailBoxAddress: [currentSettings ? currentSettings.address.addressLine : null, [Validators.required]],
+      mailBoxCity: [currentSettings ? currentSettings.address.city : null, [Validators.required]],
+      mailBoxZipCode: [currentSettings ? currentSettings.address.postalCode : null, [Validators.required]],
+      mailBoxComments: [currentSettings ? currentSettings.address.description : null, []]
     });
   }
 
@@ -51,17 +51,18 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
 
   continue() {
     const currentSettings = this.preboardingStateService.currentOrganisationDetails;
+    currentSettings.address = {
+      addressLine: this.form.value.mailBoxAddress,
+      city: this.form.value.mailBoxCity,
+      postalCode: this.form.value.mailBoxZipCode,
+      country: "Nothing Hill",
+      description: this.form.value.mailBoxComments
+    };
 
-    currentSettings.address.addressLine = this.form.value.authorisedOfficialHomeAddressLineOne;
-    currentSettings.address.city  = this.form.value.authorisedOfficialHomeAddressLineTwo;
-    currentSettings.address.postalCode = this.form.value.authorisedOfficialHomeAddressLineThree;
-    currentSettings.address.country = this.form.value.authorisedOfficialHomeAddressLineFour;
-    currentSettings.address.description = this.form.value.authorisedOfficialHomeAddressZipCode;
-    
     this.preboardingStateService.currentOrganisationDetails = currentSettings;
-    this.preboardingStateService.validatedAndCompletedStepThree = true;
+    this.preboardingStateService.validatedAndCompletedStepTwo = true;
   }
-  
+
   handleInvalidForm() {
     let errorMessages = new Array<Observable<string>>();
     let resolvedErrorMessages = new Array<string>();
@@ -85,7 +86,7 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
         errorMessages.push(this.translationService.get('errorMessages.address-zipcode-required'));
       }
     }
-    
+
 
     forkJoin(errorMessages)
       .pipe(tap(results => (resolvedErrorMessages = results)))

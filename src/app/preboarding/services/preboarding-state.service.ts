@@ -45,6 +45,17 @@ export class PreboardingStateService {
     this.storage.setItem(key, JSON.stringify(value));
   }
 
+  public get validatedAndCompletedStepFour(): boolean {
+    const key = 'PreboardingStateService.validatedAndCompletedStepFour';
+    const serializedRequest = JSON.parse(this.storage.getItem(key));
+    return serializedRequest || false;
+  }
+
+  public set validatedAndCompletedStepFour(value: boolean) {
+    const key = 'PreboardingStateService.validatedAndCompletedStepFour';
+    this.storage.setItem(key, JSON.stringify(value));
+  }
+
   public get currentOrganisationDetails(): organisationSettings {
     const key = 'PreboardingStateService.currentOrganisationDetails';
     const serializedRequest = JSON.parse(this.storage.getItem(key));
