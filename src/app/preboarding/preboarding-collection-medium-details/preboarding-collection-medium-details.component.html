@@ -1,30 +1,48 @@
-<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'
-    #formDir="ngForm" [class.submitted]="formDir.submitted">
-    <app-custom-card [showCloseButton]="false" [showPreviousButton]="true"
-        titleTranslationKey='preboardingOrganisation.topTitle'>
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100' #formDir="ngForm" [class.submitted]="formDir.submitted">
+    <app-custom-card [showCloseButton]="false" [showPreviousButton]="true" titleTranslationKey='preboardingOrganisation.topTitle'>
         <div body>
             <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
             <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
                 preboardingCollectionMediumDetails.description
             </p>
 
-            <div *ngIf="additionalInformationCommand.singleCollectionService">
-                <div formArrayName="singleCollectionDetails">
-                    <button type="button" class="btn btn-sm btn-primary"
-                        (click)="singleCollectionDetails().push(mapDetail())"><i class="fa fa-plus"></i></button>
-                    <div *ngFor="let employee of singleCollectionDetails().controls; let i=index">
-                        <div [formGroupName]="i">
-                            <input class="form-control form-control-sm" formControlName="quantity" type="number" />
-                            <input class="form-control form-control-sm" formControlName="collectionType" type="text" />
-                        </div>
-                        <button class="btn btn-light" type="button" (click)="singleCollectionDetails().removeAt(i)"><i
-                                class="fa fa-trash"></i></button>
+            <div id="accordion">
+                <div class="card" *ngIf="additionalInformationCommand.singleCollectionService">
+                    <div class="card-header" id="headingSingleCollectionService" data-toggle="collapse" data-target="#collapseSingleCollectionService" aria-expanded="true" aria-controls="collapseSingleCollectionService">
+                        <span class="introduction-title text-primary text-light-font text-givt-purple">
+                            Single collection service
+                        </span>
                     </div>
+                    <div id="collapseSingleCollectionService" class="collapse show medium-card-body" aria-labelledby="headingSingleCollectionService" data-parent="#accordion">
+                        <div formArrayName="singleCollectionDetails">
+                            <div *ngFor="let employee of singleCollectionDetails().controls; let i=index">
+                                <div class="row no-gutters medium-control-row" [formGroupName]="i">
+                                    <div class="col-8">
+                                        <select class="form-control form-control-sm" formControlName="collectionType">
+                                                <option [selected]="collectionMediumType.Int === 0" *ngFor="let collectionMediumType of collectionMediumTypes" [value]="collectionMediumType.Int">{{collectionMediumType.Name}}</option>
+                                            </select>
+                                    </div>
+                                    <div class="col-3">
+                                        <input class="form-control form-control-sm" formControlName="quantity" type="number" placeholder="Amount" />
+                                    </div>
+                                    <div class="col-1">
+                                        <button class="btn btn-light btn-sm" type="button" (click)="singleCollectionDetails().removeAt(i)"><i
+                                                class="fa fa-trash fa-sm"></i></button>
+                                    </div>
+                                </div>
+                                <div *ngIf="i+1 == singleCollectionDetails().length" class="form-inline form-group-medium-btn" (click)="singleCollectionDetails().push(mapDetail())">
+                                    <button id="addSingleCollectionMedium" type="button" class="btn  btn-primary btn-sm"><i class="fa fa-plus fa-sm"></i></button>
+                                    <label class="introduction-title text-primary text-light-font text-givt-purple">Add another collection medium</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add '== true' to the ngIf -->
+
                 </div>
             </div>
         </div>
-        <button bottom type="submit" [translate]
-            class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+        <button bottom type="submit" [translate] class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
             <span class="text-white text-heavy-font" translate>
                 preboardingCollectionMediumDetails.nextButtonText
             </span>

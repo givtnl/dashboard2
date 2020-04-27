@@ -17,7 +17,7 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
 
   public form: FormGroup
   public additionalInformationCommand: CreatePreboardingAdditionalInformationCommand;
-
+  public collectionMediumTypes = [{ Int: 0, Name: "Schaaltje" }, { Int: 1, Name: "Mandje" }]
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -35,8 +35,9 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.additionalInformationCommand = this.route.snapshot.data.additionalInformation;
+    console.log(this.additionalInformationCommand)
     this.form = this.formBuilder.group({
-      singleCollectionDetails: this.mapDetailsToFormArray(this.additionalInformationCommand.singleCollectionService.details || [])
+      singleCollectionDetails: this.mapDetailsToFormArray(this.additionalInformationCommand.singleCollectionService.details || [this.mapDetail() as PreboardingCollectionDetail])
     });
   }
 
@@ -44,7 +45,7 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
   mapDetail(detail: PreboardingCollectionDetail = null): FormGroup {
     return this.formBuilder.group({
       quantity: [detail ? detail.quantity : 0, [Validators.min(1)]],
-      collectionType: [detail ? detail.collectionType : null, [Validators.required]]
+      collectionType: [detail ? detail.collectionType : 0, [Validators.required]]
     })
   }
 
