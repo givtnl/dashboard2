@@ -30,7 +30,6 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.additionalInformationCommand = this.route.snapshot.data.additionalInformation;
-    console.log(this.additionalInformationCommand.singleCollectionService.details)
     this.form = this.formBuilder.group({
       singleCollectionDetails: this.additionalInformationCommand.singleCollectionService.enabled ?
       (this.mapDetailsToFormArray(this.additionalInformationCommand.singleCollectionService.details && this.additionalInformationCommand.singleCollectionService.details.length > 0 ? 
