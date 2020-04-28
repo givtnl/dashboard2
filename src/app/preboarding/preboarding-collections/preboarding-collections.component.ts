@@ -32,8 +32,7 @@ export class PreboardingCollectionsComponent implements OnInit {
       multipleCollectionService: [this.additionalInformationCommand && this.additionalInformationCommand.multipleCollectionService ? this.additionalInformationCommand.multipleCollectionService.enabled: false],
       endOfServiceCollection: [this.additionalInformationCommand && this.additionalInformationCommand.endOfServiceCollection ? this.additionalInformationCommand.endOfServiceCollection.enabled : false],
       communionCollection: [this.additionalInformationCommand && this.additionalInformationCommand.communionCollection ? this.additionalInformationCommand.communionCollection.enabled : false],
-      candleCollection: [this.additionalInformationCommand && this.additionalInformationCommand.candleCollection ? this.additionalInformationCommand.candleCollection.enabled : false],
-      collectionBoxes: [this.additionalInformationCommand && this.additionalInformationCommand.collectionBoxes ? this.additionalInformationCommand.collectionBoxes.enabled : false]
+      candleCollection: [this.additionalInformationCommand && this.additionalInformationCommand.candleCollection ? this.additionalInformationCommand.candleCollection.enabled : false]
     }, { validators: [this.atleastOneIsCheckedValidator()] })
   }
 
@@ -80,7 +79,6 @@ export class PreboardingCollectionsComponent implements OnInit {
     this.additionalInformationCommand.multipleCollectionService.enabled = this.form.value.multipleCollectionService;
     this.additionalInformationCommand.endOfServiceCollection.enabled = this.form.value.endOfServiceCollection;
     this.additionalInformationCommand.communionCollection.enabled = this.form.value.communionCollection;
-    this.additionalInformationCommand.collectionBoxes.enabled = this.form.value.collectionBoxes;
     this.additionalInformationCommand.candleCollection.enabled = this.form.value.candleCollection;
     this.preboardingStateService.currentAdditionalInformation = this.additionalInformationCommand;
   }

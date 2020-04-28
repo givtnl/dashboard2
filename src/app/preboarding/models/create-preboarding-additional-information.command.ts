@@ -4,7 +4,6 @@ export interface CreatePreboardingAdditionalInformationCommand {
     endOfServiceCollection: PreboardingCollectionDescription;
     communionCollection: PreboardingCollectionDescription;
     candleCollection: PreboardingCollectionDescription;
-    collectionBoxes: PreboardingCollectionDescription;
 }
 
 
