@@ -15,5 +15,5 @@ export interface PreboardingCollectionDescription {
 
 export interface PreboardingCollectionDetail {
     quantity?: number | 0;
-    collectionType?: string | null;
+    collectionType?: number | null;
 }

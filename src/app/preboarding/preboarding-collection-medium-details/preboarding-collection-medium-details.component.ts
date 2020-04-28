@@ -17,7 +17,6 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
 
   public form: FormGroup
   public additionalInformationCommand: CreatePreboardingAdditionalInformationCommand;
-  public collectionMediumTypes = [{ Int: 0, Name: "Schaaltje" }, { Int: 1, Name: "Mandje" }]
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -32,20 +31,60 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
   singleCollectionDetails(): FormArray {
     return this.form.get('singleCollectionDetails') as FormArray;
   }
-
+  multipleCollectionDetails(): FormArray {
+    return this.form.get('multipleCollectionDetails') as FormArray;
+  }
+  endOfServiceCollectionDetails(): FormArray {
+    return this.form.get('endOfServiceCollectionDetails') as FormArray;
+  }
+  communionCollectionDetails(): FormArray {
+    return this.form.get('communionCollectionDetails') as FormArray;
+  }
+  candleCollectionDetails(): FormArray {
+    return this.form.get('candleCollectionDetails') as FormArray;
+  }
+  collectionBoxesDetails(): FormArray {
+    return this.form.get('collectionBoxesDetails') as FormArray;
+  }
   ngOnInit() {
     this.additionalInformationCommand = this.route.snapshot.data.additionalInformation;
-    console.log(this.additionalInformationCommand)
+    console.log(this.additionalInformationCommand.singleCollectionService.details)
     this.form = this.formBuilder.group({
-      singleCollectionDetails: this.mapDetailsToFormArray(this.additionalInformationCommand.singleCollectionService.details || [this.mapDetail() as PreboardingCollectionDetail])
+      singleCollectionDetails: this.additionalInformationCommand.singleCollectionService.enabled ?
+      (this.mapDetailsToFormArray(this.additionalInformationCommand.singleCollectionService.details && this.additionalInformationCommand.singleCollectionService.details.length > 0 ? 
+        this.additionalInformationCommand.singleCollectionService.details : 
+        [this.mapDetail() as PreboardingCollectionDetail])) : null,
+      multipleCollectionDetails: this.additionalInformationCommand.multipleCollectionService.enabled ? 
+      (this.mapDetailsToFormArray(this.additionalInformationCommand.multipleCollectionService.details && this.additionalInformationCommand.multipleCollectionService.details.length > 0 ? 
+        this.additionalInformationCommand.multipleCollectionService.details : 
+        [this.mapDetail() as PreboardingCollectionDetail])) : null,
+      endOfServiceCollectionDetails: this.additionalInformationCommand.endOfServiceCollection.enabled ? 
+      (this.mapDetailsToFormArray(this.additionalInformationCommand.endOfServiceCollection.details && this.additionalInformationCommand.endOfServiceCollection.details.length > 0 ? 
+        this.additionalInformationCommand.endOfServiceCollection.details : 
+        [this.mapDetail() as PreboardingCollectionDetail])) : null,
+      communionCollectionDetails: 
+      this.additionalInformationCommand.communionCollection.enabled ? 
+      (this.mapDetailsToFormArray(this.additionalInformationCommand.communionCollection.details && this.additionalInformationCommand.communionCollection.details.length > 0 ? 
+        this.additionalInformationCommand.communionCollection.details : 
+        [this.mapDetail() as PreboardingCollectionDetail])) : null,
+      candleCollectionDetails: 
+      this.additionalInformationCommand.candleCollection.enabled ? 
+      (this.mapDetailsToFormArray(this.additionalInformationCommand.candleCollection.details && this.additionalInformationCommand.candleCollection.details.length > 0 ? 
+        this.additionalInformationCommand.candleCollection.details : 
+        [this.mapDetail() as PreboardingCollectionDetail])) : null,
+      collectionBoxesDetails: 
+      this.additionalInformationCommand.collectionBoxes.enabled ? 
+      (this.mapDetailsToFormArray(this.additionalInformationCommand.collectionBoxes.details && this.additionalInformationCommand.collectionBoxes.details.length > 0 ? 
+        this.additionalInformationCommand.collectionBoxes.details : 
+        [this.mapDetail() as PreboardingCollectionDetail])) : null,
     });
   }
 
 
   mapDetail(detail: PreboardingCollectionDetail = null): FormGroup {
     return this.formBuilder.group({
-      quantity: [detail ? detail.quantity : 0, [Validators.min(1)]],
-      collectionType: [detail ? detail.collectionType : 0, [Validators.required]]
+      quantity: [detail ? detail.quantity : null, [Validators.min(1)]],
+      collectionType: [detail ? detail.collectionType : null, [Validators.required]]
     })
   }
 
@@ -66,6 +105,11 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
 
   continue() {
     this.additionalInformationCommand.singleCollectionService.details = this.singleCollectionDetails().value;
+    this.additionalInformationCommand.multipleCollectionService.details = this.multipleCollectionDetails().value;
+    this.additionalInformationCommand.endOfServiceCollection.details = this.endOfServiceCollectionDetails().value;
+    this.additionalInformationCommand.communionCollection.details = this.communionCollectionDetails().value;
+    this.additionalInformationCommand.candleCollection.details = this.candleCollectionDetails().value;
+    this.additionalInformationCommand.collectionBoxes.details = this.collectionBoxesDetails().value;
     this.preboardingStateService.currentAdditionalInformation = this.additionalInformationCommand;
   }
 
@@ -73,19 +117,20 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
     let errorMessages = new Array<Observable<string>>();
     let resolvedErrorMessages = new Array<string>();
 
-    const numberOfVisitorsErrors = this.form.get('numberOfVisitors').errors;
-    const numberOfCollectionBagsErrors = this.form.get('numberOfCollectionBags').errors;
+    console.log(this.form)
+    // const numberOfVisitorsErrors = this.form.get('numberOfVisitors').errors;
+    // const numberOfCollectionBagsErrors = this.form.get('numberOfCollectionBags').errors;
 
-    if (numberOfVisitorsErrors) {
-      if (numberOfVisitorsErrors.required) {
-        errorMessages.push(this.translationService.get('errorMessages.number-of-visitors-required'));
-      }
-    }
-    if (numberOfCollectionBagsErrors) {
-      if (numberOfCollectionBagsErrors.required) {
-        errorMessages.push(this.translationService.get('errorMessages.number-of-collectionbags-required'));
-      }
-    }
+    // if (numberOfVisitorsErrors) {
+    //   if (numberOfVisitorsErrors.required) {
+    //     errorMessages.push(this.translationService.get('errorMessages.number-of-visitors-required'));
+    //   }
+    // }
+    // if (numberOfCollectionBagsErrors) {
+    //   if (numberOfCollectionBagsErrors.required) {
+    //     errorMessages.push(this.translationService.get('errorMessages.number-of-collectionbags-required'));
+    //   }
+    // }
 
 
     forkJoin(errorMessages)
