@@ -9,6 +9,7 @@
 
 #accordion {
     .card {
+        margin-top: 10px;
         .card-header {
             span {
                 font-size: 1em;
@@ -30,6 +31,11 @@
             }
         }
     }
+     :first-child {
+        margin-top: 0;
+    }
 }
 
-.form-group-medium-btn {}
+.invalid-collection-type {
+    border: 1px solid red;
+}

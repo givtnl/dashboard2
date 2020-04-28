@@ -35,7 +35,7 @@
                                                 class="fa fa-trash fa-sm"></i></button>
                                     </div>
                                 </div>
-                                <div *ngIf="i+1 == singleCollectionDetails().length" class="form-inline form-group-medium-btn" (click)="singleCollectionDetails().push(mapDetail())">
+                                <div *ngIf="i+1 == singleCollectionDetails().length && i+1 < 4" class="form-inline form-group-medium-btn" (click)="singleCollectionDetails().push(mapDetail())">
                                     <button id="addSingleCollectionMedium" type="button" class="btn  btn-primary btn-sm"><i class="fa fa-plus fa-sm"></i></button>
                                     <label class="introduction-title text-primary text-light-font text-givt-purple">Add
                                         another collection medium</label>
@@ -73,7 +73,7 @@
                                                 class="fa fa-trash fa-sm"></i></button>
                                     </div>
                                 </div>
-                                <div *ngIf="i+1 == multipleCollectionDetails().length" class="form-inline form-group-medium-btn" (click)="multipleCollectionDetails().push(mapDetail())">
+                                <div *ngIf="i+1 == multipleCollectionDetails().length && i+1 < 4" class="form-inline form-group-medium-btn" (click)="multipleCollectionDetails().push(mapDetail())">
                                     <button id="addSingleCollectionMedium" type="button" class="btn  btn-primary btn-sm"><i class="fa fa-plus fa-sm"></i></button>
                                     <label class="introduction-title text-primary text-light-font text-givt-purple">Add
                                         another collection medium</label>
@@ -111,7 +111,7 @@
                                                 class="fa fa-trash fa-sm"></i></button>
                                     </div>
                                 </div>
-                                <div *ngIf="i+1 == endOfServiceCollectionDetails().length" class="form-inline form-group-medium-btn" (click)="endOfServiceCollectionDetails().push(mapDetail())">
+                                <div *ngIf="i+1 == endOfServiceCollectionDetails().length && i+1 < 4" class="form-inline form-group-medium-btn" (click)="endOfServiceCollectionDetails().push(mapDetail())">
                                     <button id="addSingleCollectionMedium" type="button" class="btn  btn-primary btn-sm"><i class="fa fa-plus fa-sm"></i></button>
                                     <label class="introduction-title text-primary text-light-font text-givt-purple">Add
                                         another collection medium</label>
@@ -149,7 +149,7 @@
                                                 class="fa fa-trash fa-sm"></i></button>
                                     </div>
                                 </div>
-                                <div *ngIf="i+1 == communionCollectionDetails().length" class="form-inline form-group-medium-btn" (click)="communionCollectionDetails().push(mapDetail())">
+                                <div *ngIf="i+1 == communionCollectionDetails().length && i+1 < 4" class="form-inline form-group-medium-btn" (click)="communionCollectionDetails().push(mapDetail())">
                                     <button id="addSingleCollectionMedium" type="button" class="btn  btn-primary btn-sm"><i class="fa fa-plus fa-sm"></i></button>
                                     <label class="introduction-title text-primary text-light-font text-givt-purple">Add
                                         another collection medium</label>
@@ -171,7 +171,7 @@
                             <div *ngFor="let employee of candleCollectionDetails().controls; let i=index">
                                 <div class="row no-gutters medium-control-row" [formGroupName]="i">
                                     <div class="col-8">
-                                        <select class="form-control form-control-sm" formControlName="collectionType">
+                                        <select class="form-control form-control-sm" [class.invalid-collection-type]="formSubmitted == true && employee.value.collectionType == null" formControlName="collectionType">
                                             <option [ngValue]="null">Select</option>
                                             <option [ngValue]="0">Bags</option>
                                             <option [ngValue]="1">Buckets</option>
@@ -187,7 +187,7 @@
                                                 class="fa fa-trash fa-sm"></i></button>
                                     </div>
                                 </div>
-                                <div *ngIf="i+1 == candleCollectionDetails().length" class="form-inline form-group-medium-btn" (click)="candleCollectionDetails().push(mapDetail())">
+                                <div *ngIf="i+1 == candleCollectionDetails().length && i+1 < 4" class="form-inline form-group-medium-btn" (click)="candleCollectionDetails().push(mapDetail())">
                                     <button id="addSingleCollectionMedium" type="button" class="btn  btn-primary btn-sm"><i class="fa fa-plus fa-sm"></i></button>
                                     <label class="introduction-title text-primary text-light-font text-givt-purple">Add
                                         another collection medium</label>
