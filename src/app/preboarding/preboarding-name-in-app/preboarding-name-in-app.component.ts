@@ -7,12 +7,14 @@ import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { CreateCollectGroupCommand } from 'src/app/collect-groups/models/create-collect-group.command';
+import { OrganisationType } from '../models/OrganisationType';
 
 @Component({
   selector: 'app-preboarding-name-in-app',
   templateUrl: './preboarding-name-in-app.component.html',
   styleUrls: ['./preboarding-name-in-app.component.scss', '../../preboarding/preboarding.module.scss']
 })
+
 export class PreboardingNameInAppComponent implements OnInit {
 
   public form: FormGroup
@@ -31,6 +33,15 @@ export class PreboardingNameInAppComponent implements OnInit {
     this.form = this.formBuilder.group({
       inAppOrgName: [this.collectGroup ? this.collectGroup.name : null, [Validators.required, Validators.maxLength(40)]]
     });
+
+    this.route.queryParamMap.subscribe(queryParams => {
+      this.preboardingStateService.organisationDetails = {
+        country: queryParams.get("country"),
+        type: Number(queryParams.get("type"))
+      }
+    })
+
+    alert(JSON.stringify(this.preboardingStateService.organisationDetails, null, 4))
   }
 
   submit() {

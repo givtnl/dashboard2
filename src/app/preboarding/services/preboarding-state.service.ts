@@ -3,6 +3,7 @@ import { CreateCollectGroupCommand } from 'src/app/collect-groups/models/create-
 import { CreateOrganisationContactCommand } from 'src/app/organisations/models/commands/create-organisation-contact.command';
 import { CreatePreboardingAdditionalInformationCommand } from '../models/create-preboarding-additional-information.command';
 import { CreateUserForCollectGroupCommand } from 'src/app/onboarding/new-users/models/commands/create-user-for-collect-group.command';
+import { OrganisationDetail } from '../models/organisation-detail-model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,18 +14,6 @@ export class PreboardingStateService {
   public clear(): void {
     this.storage.removeItem('OnboardingOrganisationDetailsStateService.CurrentOrganisationCharityCommisionModel');
   }
-
-  public get validatedAndCompletedStepFour(): boolean {
-    const key = 'PreboardingStateService.validatedAndCompletedStepFour';
-    const serializedRequest = JSON.parse(this.storage.getItem(key));
-    return serializedRequest || false;
-  }
-
-  public set validatedAndCompletedStepFour(value: boolean) {
-    const key = 'PreboardingStateService.validatedAndCompletedStepFour';
-    this.storage.setItem(key, JSON.stringify(value));
-  }
-
 
   public get currentAdditionalInformation(): CreatePreboardingAdditionalInformationCommand {
     const key = 'PreboardingStateService.currentAdditionalInformation';
@@ -77,4 +66,13 @@ export class PreboardingStateService {
     this.storage.setItem(key, JSON.stringify(value));
   }
 
+  public get organisationDetails(): OrganisationDetail {
+    const key = 'PreboardingStateService.organisationDetails';
+    const serializedRequest = JSON.parse(this.storage.getItem(key));
+    return serializedRequest || null;
+  }
+  public set organisationDetails(value: OrganisationDetail) {
+    const key = 'PreboardingStateService.organisationDetails';
+    this.storage.setItem(key, JSON.stringify(value));
+  }
 }
