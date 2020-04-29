@@ -16,7 +16,7 @@ export class OrganisationOfTypeChurchGuard implements CanActivate {
         if (organisation.type == OrganisationType.Church) {
             return true;
         } else {
-            this.router.navigate(['/preboarding/organisation-admin-details']);
+            this.router.navigate(['/preboarding/register/organisation-admin-details']);
             return false;
         }
     }
