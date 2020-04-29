@@ -13,6 +13,7 @@ import { PreboardingCurrentCollectGroupResolver } from './resolvers/preboarding-
 import { PreboardingCurrentOrganisationContactGroupResolver } from './resolvers/preboarding-current-organisation-contact.resolver';
 import { PreboardingCurrentAdditionalInformationResolver } from './resolvers/preboarding-current-additional-information.resolver';
 import { OrganisationOfTypeChurchGuard } from './guards/OrganisationOfTypeChurchGuard';
+import { PreboardingCompleteCheckSuccessGuard } from './guards/preboarding-complete-check-success-guard';
 
 const routes: Routes = [
   {
@@ -61,6 +62,7 @@ const routes: Routes = [
       },
       {
         path: 'complete',
+        canActivate: [PreboardingCompleteCheckSuccessGuard],
         component: PreboardingDetailsCompleteComponent
       }
     ]

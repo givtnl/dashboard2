@@ -31,10 +31,11 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
     this.contact = this.route.snapshot.data.contact;
     
     this.country = this.preboardingStateService.organisationDetails.country;
+    
     this.form = this.formBuilder.group({
       mailBoxAddress: [this.contact ? this.contact.address : null, [Validators.required]],
       mailBoxCity: [this.contact ? this.contact.city : null, [Validators.required]],
-  mailBoxZipCode: [this.contact ? this.contact.postCode : null, ["GB", "GG", "GE"].some(x => x == this.country) ? [Validators.required, postCodeBACSValidator] : [Validators.required, Validators.minLength(2)]],
+      mailBoxZipCode: [this.contact ? this.contact.postCode : null, ["GB", "GG", "GE"].some(x => x == this.country) ? [Validators.required, postCodeBACSValidator()] : [Validators.required, Validators.minLength(2)]],
       mailBoxComments: [this.contact ? this.contact.comments : null]
     });
   }
@@ -79,11 +80,8 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
       if (mailBoxZipcodeErrors.required) {
         errorMessages.push(this.translationService.get('errorMessages.address-zipcode-required'));
       }
-      if (mailBoxZipcodeErrors.minLength) {
-        errorMessages.push(this.translationService.get('errorMessages.address-zipcode-minLength'));
-      }
-      if (mailBoxZipcodeErrors.invalidPostCode) {
-        errorMessages.push(this.translationService.get('errorMessages.address-zipcode-postCodeBACS'));
+      if (mailBoxZipcodeErrors.minLength || mailBoxZipcodeErrors.invalidPostCode) {
+        errorMessages.push(this.translationService.get('errorMessages.postcode-invalid'));
       }
     }
 
