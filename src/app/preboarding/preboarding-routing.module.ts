@@ -12,6 +12,7 @@ import { PreboardingCollectionsComponent } from './preboarding-collections/prebo
 import { PreboardingCurrentCollectGroupResolver } from './resolvers/preboarding-current-collect-group.resolver';
 import { PreboardingCurrentOrganisationContactGroupResolver } from './resolvers/preboarding-current-organisation-contact.resolver';
 import { PreboardingCurrentAdditionalInformationResolver } from './resolvers/preboarding-current-additional-information.resolver';
+import { OrganisationOfTypeChurchGuard } from './guards/OrganisationOfTypeChurchGuard';
 
 const routes: Routes = [
   {
@@ -37,16 +38,19 @@ const routes: Routes = [
         resolve: { contact: PreboardingCurrentOrganisationContactGroupResolver }
       },
       {
+        canActivate: [OrganisationOfTypeChurchGuard],
         path: 'visitors',
         component: PreboardingVisitorCountComponent,
         resolve: { collectGroup: PreboardingCurrentCollectGroupResolver }
       },
       {
+        canActivate: [OrganisationOfTypeChurchGuard],
         path: 'collections',
         component: PreboardingCollectionsComponent,
         resolve: {additionalInformation: PreboardingCurrentAdditionalInformationResolver}
       },
       {
+        canActivate: [OrganisationOfTypeChurchGuard],
         path: 'collection-medium-details',
         component: PreboardingCollectionMediumDetailsComponent,
         resolve: {additionalInformation: PreboardingCurrentAdditionalInformationResolver}
