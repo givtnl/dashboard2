@@ -33,15 +33,6 @@ export class PreboardingNameInAppComponent implements OnInit {
     this.form = this.formBuilder.group({
       inAppOrgName: [this.collectGroup ? this.collectGroup.name : null, [Validators.required, Validators.maxLength(40)]]
     });
-
-    this.route.queryParamMap.subscribe(queryParams => {
-      this.preboardingStateService.organisationDetails = {
-        country: queryParams.get("country"),
-        type: Number(queryParams.get("type"))
-      }
-    })
-
-    alert(JSON.stringify(this.preboardingStateService.organisationDetails, null, 4))
   }
 
   submit() {
