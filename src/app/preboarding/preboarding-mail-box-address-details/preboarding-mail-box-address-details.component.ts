@@ -7,6 +7,7 @@ import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { CreateOrganisationContactCommand } from 'src/app/organisations/models/commands/create-organisation-contact.command';
+import { postCodeBACSValidator } from 'src/app/shared/validators/postcode-BACS.validator';
 
 @Component({
   selector: 'app-preboarding-mail-box-address-details',
@@ -16,6 +17,7 @@ import { CreateOrganisationContactCommand } from 'src/app/organisations/models/c
 export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
   public form: FormGroup
   public contact: CreateOrganisationContactCommand;
+  private country: String;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,11 +29,12 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.contact = this.route.snapshot.data.contact;
-
+    
+    this.country = this.preboardingStateService.organisationDetails.country;
     this.form = this.formBuilder.group({
       mailBoxAddress: [this.contact ? this.contact.address : null, [Validators.required]],
       mailBoxCity: [this.contact ? this.contact.city : null, [Validators.required]],
-      mailBoxZipCode: [this.contact ? this.contact.postCode : null, [Validators.required]],
+  mailBoxZipCode: [this.contact ? this.contact.postCode : null, ["GB", "GG", "GE"].some(x => x == this.country) ? [Validators.required, postCodeBACSValidator] : [Validators.required, Validators.minLength(2)]],
       mailBoxComments: [this.contact ? this.contact.comments : null]
     });
   }
@@ -75,6 +78,12 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
     if (mailBoxZipcodeErrors) {
       if (mailBoxZipcodeErrors.required) {
         errorMessages.push(this.translationService.get('errorMessages.address-zipcode-required'));
+      }
+      if (mailBoxZipcodeErrors.minLength) {
+        errorMessages.push(this.translationService.get('errorMessages.address-zipcode-minLength'));
+      }
+      if (mailBoxZipcodeErrors.invalidPostCode) {
+        errorMessages.push(this.translationService.get('errorMessages.address-zipcode-postCodeBACS'));
       }
     }
 
