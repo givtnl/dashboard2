@@ -121,6 +121,9 @@
           "configurations": {
             "production": {
               "browserTarget": "onboarding-app:build:production"
+            },
+            "local": {
+              "browserTarget": "onboarding-app:build:local"
             }
           }
         },
