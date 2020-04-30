@@ -1,11 +1,14 @@
 export interface UpdateOrganisationCommand {
-    name: string;
-    addressLine1: string;
-    addressLine2: string;
-    addressLine3: string;
-    addressLine4: string;
-    addressLine5: string;
-    postalCode: string;
-    city: string;
-    country: string;
+    Id: string;
+    Name: string;
+    AddressLine1: string;
+    AddressLine2: string;
+    AddressLine3: string;
+    AddressLine4: string;
+    AddressLine5: string;
+    PostalCode: string;
+    ParentId: string;
+    CharityCommissionNumber: string;
+    BackgroundInformation: string;
+    VisitorCount: number;
 }
