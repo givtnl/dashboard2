@@ -303,7 +303,7 @@
     "errorMessages.address-city-required": "Stad is verplicht.",
     "errorMessages.address-zipcode-required": "Postcode is verplicht.",
     "errorMessages.number-of-collectionbags-required": "Aantal collecte middelen is verplicht.",
-    "errorMessages.number-of-visitors-required\n": "Bezoekers aantal is verplicht.",
+    "errorMessages.number-of-visitors-required": "Bezoekers aantal is verplicht.",
     "preboardingCollectionMediumDetails.placeholderNumberOfVisitors": "Aantal bezoekers",
     "preboardingCollectionMediumDetails.placeholderNumberOfCollectionMediums": "Aantal collecte middelen",
     "errorMessages.organisator-email-required": "Het email adres van de organisator is verplicht.",
