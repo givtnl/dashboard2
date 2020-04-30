@@ -21,7 +21,7 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
 
     async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
         try {
-            const currentOrganisationId = this.applicationStateService.currentTokenModel.OrganisationAdmin;
+            const currentOrganisationId = this.preboardingStateService.organisationDetails.organisationId;
             const toUpdateOrganisation = await this.organisationService.getById(currentOrganisationId).toPromise();
             const additionalInformation = this.preboardingStateService.currentAdditionalInformation;
             let createCollectGroupCommand = this.preboardingStateService.currentCollectGroupDetails;
