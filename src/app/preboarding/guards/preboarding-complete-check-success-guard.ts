@@ -41,14 +41,11 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
                 VisitorCount: createCollectGroupCommand.visitorCount,
             }
             
-            const updatedOrganisationResponse = await this.organisationService.update(currentOrganisationId, updateOrganisation).toPromise();
-            console.log(updatedOrganisationResponse);
+            // kwil ier de status code checken voe te beslissen ofdak aldan niet een create coll group kan / mag / wil uitvoeren nadat update org is gelukt / niet gelukt
+            await this.organisationService.update(currentOrganisationId, updateOrganisation).toPromise();
 
-            console.log("Nu gebeurt de create van de collectgroup");
-            console.log(createCollectGroupCommand);
-            console.log("Create collectgroup result");
-            const createdCollectGroupResponse = await this.collectGroupService.create(currentOrganisationId, createCollectGroupCommand).toPromise();
-            console.log(createdCollectGroupResponse);
+            const createdCollectGroupId = (await this.collectGroupService.create(currentOrganisationId, createCollectGroupCommand).toPromise()).Result;
+            console.log("Created collectgroup id: ", createdCollectGroupId);
 
 
             // let createCollectGroup: CreateCollectGroupCommand
