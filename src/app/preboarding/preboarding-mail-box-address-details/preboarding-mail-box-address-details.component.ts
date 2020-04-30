@@ -30,7 +30,10 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
   ngOnInit() {
     this.contact = this.route.snapshot.data.contact;
     
-    this.country = this.preboardingStateService.organisationDetails.country;
+    if(this.preboardingStateService.organisationDetails)
+      this.country = this.preboardingStateService.organisationDetails.country
+    else this.country = "NL"
+
     
     this.form = this.formBuilder.group({
       mailBoxAddress: [this.contact ? this.contact.address : null, [Validators.required]],
