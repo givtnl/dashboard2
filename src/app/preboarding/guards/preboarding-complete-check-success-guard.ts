@@ -5,6 +5,7 @@ import { OrganisationsService } from 'src/app/organisations/services/organisatio
 import { CollectGroupsService } from 'src/app/collect-groups/services/collect-groups.service';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
+import { CreateUserForCollectGroupCommand } from 'src/app/collect-groups/models/create-user-for-collect-group.command';
 
 @Injectable({
     providedIn: 'root'
@@ -21,11 +22,11 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
 
     async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
         try {
-            const currentOrganisationId = this.preboardingStateService.organisationDetails.organisationId;
-            const toUpdateOrganisation = await this.organisationService.getById(currentOrganisationId).toPromise();
-            const additionalInformation = this.preboardingStateService.currentAdditionalInformation;
+            let currentOrganisationId = this.preboardingStateService.organisationDetails.organisationId;
+            let toUpdateOrganisation = await this.organisationService.getById(currentOrganisationId).toPromise();
+            let additionalInformation = this.preboardingStateService.currentAdditionalInformation;
             let createCollectGroupCommand = this.preboardingStateService.currentCollectGroupDetails;
-            
+
             let updateOrganisation: UpdateOrganisationCommand = {
                 Id: toUpdateOrganisation.Guid,
                 Name: toUpdateOrganisation.Name,
@@ -40,12 +41,23 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
                 BackgroundInformation: JSON.stringify(additionalInformation),
                 VisitorCount: createCollectGroupCommand.visitorCount,
             }
-            
+
             // kwil ier de status code checken voe te beslissen ofdak aldan niet een create coll group kan / mag / wil uitvoeren nadat update org is gelukt / niet gelukt
             await this.organisationService.update(currentOrganisationId, updateOrganisation).toPromise();
 
-            const createdCollectGroupId = (await this.collectGroupService.create(currentOrganisationId, createCollectGroupCommand).toPromise()).Result;
+            let createdCollectGroupId = (await this.collectGroupService.create(currentOrganisationId, createCollectGroupCommand).toPromise()).Result;
             console.log("Created collectgroup id: ", createdCollectGroupId);
+
+            let createUserForCollectGroup: CreateUserForCollectGroupCommand = {
+                email: this.preboardingStateService.organisationDetails.emailAddress,
+                collectGroupId: createdCollectGroupId,
+                organisationId: currentOrganisationId
+            }
+            let createdCollectGroupUsersResponse = await this.collectGroupService.createUser(createdCollectGroupId, createUserForCollectGroup).toPromise();
+            console.log("Created CollectGroup user: ", createdCollectGroupUsersResponse);
+
+
+
 
 
             // let createCollectGroup: CreateCollectGroupCommand
@@ -53,7 +65,7 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
 
 
 
-            
+
             // const currentCollectGroupDetails = this.preboardingStateService.currentCollectGroupDetails;
             // const organisationContact = this.preboardingStateService.currentOrganisationContact;
 
@@ -72,7 +84,7 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
             //     VisitorCount: currentCollectGroupDetails.visitorCount
             // }
 
-            
+
 
             // // volgens min moej ginder een poar stapn deurloopn, en ton na de volgende stap
             // // vo junder gemak vot testn, begint e ki me jin stap, update gwn e ki die fucking org details
@@ -83,7 +95,7 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
             // const createdCollectGroupResponse = await this.collectGroupService.create(null, null).toPromise();
 
             // // step 2,5 uitnodigen van de admins op de net aangemaakte collectgroup
-            // const createdCollectGroupUsersResponse = await this.collectGroupService.createUser(createdCollectGroupResponse.Result, createCollectGroupUserCommand).toPromise();
+            // 
 
             // // step drie create the crm contact
 

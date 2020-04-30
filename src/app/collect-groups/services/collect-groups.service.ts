@@ -4,8 +4,7 @@ import { Observable } from 'rxjs';
 import { CollectGroupListModel } from '../models/collect-group-list.model';
 import { CreateCollectGroupCommand } from '../models/create-collect-group.command';
 import { CreatedResponseModel } from 'src/app/infrastructure/models/response.model';
-import { CreateUserForCollectGroupCommand } from 'src/app/onboarding/new-users/models/commands/create-user-for-collect-group.command';
-
+import { CreateUserForCollectGroupCommand } from '../models/create-user-for-collect-group.command';
 @Injectable({
     providedIn:'root'
 })
