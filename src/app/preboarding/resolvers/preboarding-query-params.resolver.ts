@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { PreboardingDetailModel } from '../models/preboarding-detail.model';
+import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +12,7 @@ export class PreboardingQueryParamsResolver implements Resolve<PreboardingDetail
     /**
      *
      */
-    constructor(private stateService: PreboardingStateService) { }
+    constructor(private preboardingStateService: PreboardingStateService, private applicationService: ApplicationStateService) { }
     resolve(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
@@ -27,7 +28,8 @@ export class PreboardingQueryParamsResolver implements Resolve<PreboardingDetail
             language: route.queryParams.language
         };
         
-        this.stateService.organisationDetails = preboardingDetails;
+        this.preboardingStateService.organisationDetails = preboardingDetails;
+        this.applicationService.currentTokenModel = { access_token: preboardingDetails.token, refresh_token: null, OrganisationAdmin: null}
         return preboardingDetails;
     }
 }
