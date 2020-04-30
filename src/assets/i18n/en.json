@@ -303,7 +303,7 @@
     "errorMessages.address-city-required": "City/Town is required.",
     "errorMessages.address-zipcode-required": "Postcode is required.",
     "errorMessages.number-of-collectionbags-required": "Number of collection mediums is required.",
-    "errorMessages.number-of-visitors-required\n": "Number of visitors is required.",
+    "errorMessages.number-of-visitors-required": "Number of visitors is required.",
     "preboardingCollectionMediumDetails.placeholderNumberOfVisitors": "Please fill in the total amount of unique adults attending your services over the weekend. We use this number to help you track the percentage of your congregation using Givt.",
     "preboardingCollectionMediumDetails.placeholderNumberOfCollectionMediums": "Number of collection mediums",
     "errorMessages.organisator-email-required": "The email address of the organisator is required",
