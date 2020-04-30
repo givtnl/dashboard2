@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { CreateCollectGroupCommand } from 'src/app/collect-groups/models/create-collect-group.command';
 import { CreateOrganisationContactCommand } from 'src/app/organisations/models/commands/create-organisation-contact.command';
 import { CreatePreboardingAdditionalInformationCommand } from '../models/create-preboarding-additional-information.command';
-import { CreateUserForCollectGroupCommand } from 'src/app/onboarding/new-users/models/commands/create-user-for-collect-group.command';
-import { OrganisationDetail } from '../models/organisation-detail-model';
+import { CreateCollectGroupUserCommand } from 'src/app/collect-groups/models/create-collect-group-user.command';
+import { PreboardingDetailModel } from '../models/preboarding-detail.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class PreboardingStateService {
   private storage = sessionStorage;
 
   public clear(): void {
-    this.storage.removeItem('OnboardingOrganisationDetailsStateService.CurrentOrganisationCharityCommisionModel');
+    // this.storage.removeItem('OnboardingOrganisationDetailsStateService.CurrentOrganisationCharityCommisionModel');
   }
 
   public get currentAdditionalInformation(): CreatePreboardingAdditionalInformationCommand {
@@ -30,17 +30,6 @@ export class PreboardingStateService {
 
   public set currentAdditionalInformation(value: CreatePreboardingAdditionalInformationCommand) {
     const key = 'PreboardingStateService.currentAdditionalInformation';
-    this.storage.setItem(key, JSON.stringify(value));
-  }
-
-  public get currentAdmin(): CreateUserForCollectGroupCommand {
-    const key = 'PreboardingStateService.currentAdmin';
-    const serializedRequest = JSON.parse(this.storage.getItem(key));
-    return serializedRequest
-  }
-
-  public set currentAdmin(value: CreateUserForCollectGroupCommand) {
-    const key = 'PreboardingStateService.currentAdmin';
     this.storage.setItem(key, JSON.stringify(value));
   }
 
@@ -66,12 +55,23 @@ export class PreboardingStateService {
     this.storage.setItem(key, JSON.stringify(value));
   }
 
-  public get organisationDetails(): OrganisationDetail {
+  public get currentOrganisationAdminContact(): CreateCollectGroupUserCommand {
+    const key = 'PreboardingStateService.currentOrganisationAdminContact';
+    const serializedRequest = JSON.parse(this.storage.getItem(key));
+    return serializedRequest || {};
+  }
+
+  public set currentOrganisationAdminContact(value: CreateCollectGroupUserCommand) {
+    const key = 'PreboardingStateService.currentOrganisationAdminContact';
+    this.storage.setItem(key, JSON.stringify(value));
+  }
+
+  public get organisationDetails(): PreboardingDetailModel {
     const key = 'PreboardingStateService.organisationDetails';
     const serializedRequest = JSON.parse(this.storage.getItem(key));
     return serializedRequest || null;
   }
-  public set organisationDetails(value: OrganisationDetail) {
+  public set organisationDetails(value: PreboardingDetailModel) {
     const key = 'PreboardingStateService.organisationDetails';
     this.storage.setItem(key, JSON.stringify(value));
   }

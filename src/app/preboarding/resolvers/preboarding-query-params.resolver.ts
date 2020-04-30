@@ -2,13 +2,12 @@ import { Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/r
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { PreboardingStateService } from '../services/preboarding-state.service';
-import { CreatePreboardingQueryParamsCommand } from '../models/create-preboarding-query-params.command';
-
+import { PreboardingDetailModel } from '../models/preboarding-detail.model';
 
 @Injectable({
     providedIn: 'root'
 })
-export class PreboardingQueryParamsResolver implements Resolve<CreatePreboardingQueryParamsCommand> {
+export class PreboardingQueryParamsResolver implements Resolve<PreboardingDetailModel> {
     /**
      *
      */
@@ -16,10 +15,16 @@ export class PreboardingQueryParamsResolver implements Resolve<CreatePreboarding
     resolve(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
-    ): CreatePreboardingQueryParamsCommand | Observable<CreatePreboardingQueryParamsCommand> | Promise<CreatePreboardingQueryParamsCommand> {
-        let preboardingDetails = {
+    ): PreboardingDetailModel | Observable<PreboardingDetailModel> | Promise<PreboardingDetailModel> {    
+        
+        let preboardingDetails:PreboardingDetailModel = {
+            token: route.queryParams.token,
+            organisationName: route.queryParams.organisationName,
+            organisationId: route.queryParams.organisationId,
+            emailAddress: route.queryParams.emailAddress,
             country: route.queryParams.country,
-            type: Number(route.queryParams.type)
+            type: route.queryParams.type,
+            language: route.queryParams.language
         };
         
         this.stateService.organisationDetails = preboardingDetails;

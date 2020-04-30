@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./preboarding-details-complete.component.scss', '../../preboarding/preboarding.module.scss']
 })
 export class PreboardingDetailsCompleteComponent {
-
+  constructor() { }
 }

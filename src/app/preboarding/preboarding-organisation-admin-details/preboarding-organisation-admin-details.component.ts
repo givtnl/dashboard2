@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { PreboardingStateService } from '../services/preboarding-state.service';
+import { CreateCollectGroupUserCommand } from 'src/app/collect-groups/models/create-collect-group-user.command';
 
 @Component({
   selector: 'app-preboarding-organisation-admin-details',
@@ -13,6 +14,7 @@ import { PreboardingStateService } from '../services/preboarding-state.service';
   styleUrls: ['./preboarding-organisation-admin-details.component.scss', '../../preboarding/preboarding.module.scss']
 })
 export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
+  private orgAdmin: CreateCollectGroupUserCommand;
 
   form: FormGroup
   constructor(
@@ -20,10 +22,11 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
     private translationService: TranslateService, 
     private toastr: ToastrService,
     private preboardingStateService: PreboardingStateService,
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
-
+    this.orgAdmin = this.route.snapshot.data.orgAdmin;
     this.form = this.formBuilder.group({
       organisatorEmail: [null, [Validators.required, Validators.email]]
     });

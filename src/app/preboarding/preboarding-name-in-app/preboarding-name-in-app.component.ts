@@ -7,7 +7,6 @@ import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { CreateCollectGroupCommand } from 'src/app/collect-groups/models/create-collect-group.command';
-import { OrganisationType } from '../models/OrganisationType';
 
 @Component({
   selector: 'app-preboarding-name-in-app',

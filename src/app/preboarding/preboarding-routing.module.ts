@@ -12,8 +12,10 @@ import { PreboardingCollectionsComponent } from './preboarding-collections/prebo
 import { PreboardingCurrentCollectGroupResolver } from './resolvers/preboarding-current-collect-group.resolver';
 import { PreboardingCurrentOrganisationContactGroupResolver } from './resolvers/preboarding-current-organisation-contact.resolver';
 import { PreboardingCurrentAdditionalInformationResolver } from './resolvers/preboarding-current-additional-information.resolver';
-import { OrganisationOfTypeChurchGuard } from './guards/OrganisationOfTypeChurchGuard';
 import { PreboardingCompleteCheckSuccessGuard } from './guards/preboarding-complete-check-success-guard';
+import { PreboardingQueryParamsResolver } from './resolvers/preboarding-query-params.resolver';
+import { PreboardingOrganisationAdminContactResolver } from './resolvers/preboarding-organisation-admin-contact.resolver';
+import { PreboardingOrganisationTypeCheckGuard } from './guards/preboarding-organisation-type-check-guard';
 
 const routes: Routes = [
   {
@@ -26,7 +28,8 @@ const routes: Routes = [
       },
       {
         path: 'welcome',
-        component: PreboardingWelcomeDetailsComponent
+        component: PreboardingWelcomeDetailsComponent,
+        resolve: {queryParams: PreboardingQueryParamsResolver}
       },
       {
         path: 'name-in-app',
@@ -39,26 +42,27 @@ const routes: Routes = [
         resolve: { contact: PreboardingCurrentOrganisationContactGroupResolver }
       },
       {
-        canActivate: [OrganisationOfTypeChurchGuard],
+        canActivate: [PreboardingOrganisationTypeCheckGuard],
         path: 'visitors',
         component: PreboardingVisitorCountComponent,
         resolve: { collectGroup: PreboardingCurrentCollectGroupResolver }
       },
       {
-        canActivate: [OrganisationOfTypeChurchGuard],
+        canActivate: [PreboardingOrganisationTypeCheckGuard],
         path: 'collections',
         component: PreboardingCollectionsComponent,
         resolve: {additionalInformation: PreboardingCurrentAdditionalInformationResolver}
       },
       {
-        canActivate: [OrganisationOfTypeChurchGuard],
+        canActivate: [PreboardingOrganisationTypeCheckGuard],
         path: 'collection-medium-details',
         component: PreboardingCollectionMediumDetailsComponent,
         resolve: {additionalInformation: PreboardingCurrentAdditionalInformationResolver}
       },
       {
         path: 'organisation-admin-details',
-        component: PreboardingOrganisationAdminDetailsComponent
+        component: PreboardingOrganisationAdminDetailsComponent,
+        resolve: {orgAdmin: PreboardingOrganisationAdminContactResolver}
       },
       {
         path: 'complete',
