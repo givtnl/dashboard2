@@ -1,6 +1,6 @@
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { PreboardingStateService } from '../services/preboarding-state.service';
-import { Injectable } from '@angular/core';
+import { Injectable, ɵConsole } from '@angular/core';
 import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
 import { CollectGroupsService } from 'src/app/collect-groups/services/collect-groups.service';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
@@ -40,11 +40,17 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
                 BackgroundInformation: JSON.stringify(additionalInformation),
                 VisitorCount: createCollectGroupCommand.visitorCount,
             }
-            console.log("Nu gebeurt de update van de org");
-            console.log(updateOrganisation);
+            
             const updatedOrganisationResponse = await this.organisationService.update(currentOrganisationId, updateOrganisation).toPromise();
-            console.log("Update org result");
             console.log(updatedOrganisationResponse);
+
+            console.log("Nu gebeurt de create van de collectgroup");
+            console.log(createCollectGroupCommand);
+            console.log("Create collectgroup result");
+            const createdCollectGroupResponse = await this.collectGroupService.create(currentOrganisationId, createCollectGroupCommand).toPromise();
+            console.log(createdCollectGroupResponse);
+
+
             // let createCollectGroup: CreateCollectGroupCommand
             // const createdCollectGroupResponse = await this.collectGroupService.create(null, null).toPromise();
 
