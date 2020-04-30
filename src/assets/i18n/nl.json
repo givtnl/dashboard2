@@ -192,8 +192,8 @@
     "passwordForgottenCompletedComponent.finalActionText": "Aanmelden",
     "errorMessages.passwordResetLinkExpired": "De link voor het wachtwoord herstellen is verlopen.",
     "errorMessages.email-not-known": "Er is geen account gevonden met het ingegeven emailadres",
-    "dashboardCompleteAccountWidgetComponent.AddGiftAidSettings": "Instellen Gift Aid verbinding",
-    "dashboardCompleteAccountWidgetComponent.AddGiftAidSettings.InProgress": "Instellen Gift Aid verbinding - In behandeling",
+    "dashboardCompleteAccountWidgetComponent.AddGiftAidSettings": "Gift Aid?",
+    "dashboardCompleteAccountWidgetComponent.AddGiftAidSettings.InProgress": "Gift Aid - In behandeling",
     "onboardingGiftAidIntroComponent.title": "Verbinding met Gift Aid instellen",
     "onboardingGiftAidIntroComponent.description": "Via Givt is het mogelijk om automatisch de ontvangen giften te laten Gift Aiden.\nDit kan een grote extra hulp zijn bij de geldinzameling voor het door je gekozen doel.\n",
     "onboardingGiftAidIntroComponent.question": "Wil je de ontvangen donatie's automatisch laten Gift Aiden?",
@@ -282,7 +282,7 @@
     "preboardingWelcomeDetailsComponent.title": "Hallo.",
     "preboardingWelcomeDetailsComponent.description": "Je staat het op punt je organisatie te registreren bij Givt. In de volgende schermen vragen we enkele organisatie gegevens zodat je snel en gemakkelijk aan de slag kunt gaan.",
     "preboardingWelcomeDetailsComponent.startButtonText": "Start",
-    "preboardingNameInAppComponent.title": "Laten we ermee beginnen",
+    "preboardingNameInAppComponent.title": "Aan de slag",
     "preboardingNameInAppComponent.description": "Maak je organisatie herkenbaar in de app door een unieke naam in te vullen.",
     "preboardingNameInAppComponent.nextButtonText": "Volgende",
     "placeholders.inAppOrgName": "Naam in de app",
@@ -321,5 +321,6 @@
     "preboarding.selectMedium.boxes": "Mandjes",
     "preboarding.selectMedium.buckets": "Emmers",
     "preboarding.selectMedium.amount": "Aantal",
-    "preboarding.selectMedium.addMedium": "Voeg collectemiddel toe"
+    "preboarding.selectMedium.addMedium": "Voeg collectemiddel toe",
+    "errorMessages.postcode-invalid": "Gelieve je postcode na te kijken."
 }
