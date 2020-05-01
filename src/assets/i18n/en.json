@@ -77,7 +77,7 @@
     "dashboardCompleteAccountWidgetComponent.completeAccount": "Complete your account",
     "dashboardCompleteAccountWidgetComponent.moreInformation": "To be able to transfer donations, we need some more information.",
     "onboardingBankAccountHolderInfoComponent.title": "Who will sign?",
-    "onboardingBankAccountHolderInfoComponent.description": "In the next screen you will be asked to fill in the details of the person who is authorised to sign a Direct Debit Instruction on this account.",
+    "onboardingBankAccountHolderInfoComponent.description": "In the next screen you will be asked to fill in the details of the person who is authorised to sign a Direct Debit Instruction on this account. If your account needs multiple signatories, you should invite only one, because the electronic Direct Debit system in the UK does not allow for multiple signatories. Your bank will verify the signatories only when you file a complaint.",
     "onboardingBankAccountHolderInfoComponent.startButtonText": "Start",
     "onboardingBankAccountHolderWhoComponent.title": "Who is authorised?",
     "onboardingBankAccountHolderWhoComponent.description": "We will send the e-mail with an invitation to sign the DD to this person in order for the bank account to be verified.",
