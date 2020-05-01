@@ -77,7 +77,7 @@
     "dashboardCompleteAccountWidgetComponent.completeAccount": "Maak je account compleet",
     "dashboardCompleteAccountWidgetComponent.moreInformation": "Om giften te ontvangen, hebben we wat informatie nodig.",
     "onboardingBankAccountHolderInfoComponent.title": "Wie gaat tekenen?",
-    "onboardingBankAccountHolderInfoComponent.description": "In het volgend scherm wordt gevraagd naar de gegevens van de persoon die gemachtigd is om een machtiging af te geven op deze rekening.\nDaarna wordt een mail verstuurd naar deze persoon om de machtiging vervolledigen.",
+    "onboardingBankAccountHolderInfoComponent.description": "In het volgend scherm wordt gevraagd naar de gegevens van de persoon die gemachtigd is om een machtiging af te geven op deze rekening. Als de bankrekening meerdere gemachtigden heeft, hoeft er maar één te worden ingevuld, omdat het elektronisch betalingssysteem er maar één toelaat. De bank zal de gemachtigden alleen controleren als er een klacht wordt ingediend.",
     "onboardingBankAccountHolderInfoComponent.startButtonText": "Start",
     "onboardingBankAccountHolderWhoComponent.title": "Wie is gemachtigd?",
     "onboardingBankAccountHolderWhoComponent.description": "We sturen een e-mail met een uitnodiging om de machtiging digitaal te tekenen naar deze persoon zodat de rekening geverifieerd kan worden.",
