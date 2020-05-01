@@ -30,7 +30,7 @@ export class PreboardingNameInAppComponent implements OnInit {
   ngOnInit() {
     this.collectGroup = this.route.snapshot.data.collectGroup;
     this.form = this.formBuilder.group({
-      inAppOrgName: [this.collectGroup ? this.collectGroup.name : null, [Validators.required, Validators.maxLength(40)]]
+      inAppOrgName: [this.collectGroup ? this.collectGroup.name : null, [Validators.required, Validators.maxLength(30)]]
     });
   }
 
