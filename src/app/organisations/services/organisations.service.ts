@@ -3,6 +3,7 @@ import { BackendService } from 'src/app/infrastructure/services/backend.service'
 import { Observable } from 'rxjs';
 import { OrganisationDetailModel } from '../models/organisation-detail.model';
 import { UpdateOrganisationCommand } from '../models/commands/update-organisation.command';
+import { CreateOrganisationContactCommand } from '../models/commands/create-organisation-contact.command';
 
 @Injectable({
     providedIn:'root'
@@ -18,4 +19,7 @@ export class OrganisationsService {
     } 
 
     //add contact
+    addContact(id: string, command: CreateOrganisationContactCommand): Observable<object> {
+        return this.backendService.post(`v2/organisations/${id}/contact`, command);
+    }
 }
