@@ -6,6 +6,9 @@ import { CollectGroupsService } from 'src/app/collect-groups/services/collect-gr
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
 import { CreateUserForCollectGroupCommand } from 'src/app/collect-groups/models/create-user-for-collect-group.command';
+import { OnboardingNewUsersService } from 'src/app/onboarding/new-users/services/onboarding-new-users.service';
+import { SendUserRegistrationEmailForCollectGroupCommand } from 'src/app/collect-groups/models/send-user-registration-email-for-collect-group.command';
+import { forkJoin, concat } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -17,7 +20,8 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
         private organisationService: OrganisationsService,
         private collectGroupService: CollectGroupsService,
         private preboardingStateService: PreboardingStateService,
-        private applicationStateService: ApplicationStateService
+        private applicationStateService: ApplicationStateService,
+        private onboardingNewUserService: OnboardingNewUsersService
     ) { }
 
     async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
@@ -45,70 +49,33 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
             // kwil ier de status code checken voe te beslissen ofdak aldan niet een create coll group kan / mag / wil uitvoeren nadat update org is gelukt / niet gelukt
             await this.organisationService.update(currentOrganisationId, updateOrganisation).toPromise();
 
-            let createdCollectGroupId = (await this.collectGroupService.create(currentOrganisationId, createCollectGroupCommand).toPromise()).Result;
-            console.log("Created collectgroup id: ", createdCollectGroupId);
+            let createdCollectGroupResponse = await this.collectGroupService.create(currentOrganisationId, createCollectGroupCommand).toPromise();
 
-            let createUserForCollectGroup: CreateUserForCollectGroupCommand = {
-                email: this.preboardingStateService.organisationDetails.emailAddress,
-                collectGroupId: createdCollectGroupId,
-                organisationId: currentOrganisationId
-            }
-            let createdCollectGroupUsersResponse = await this.collectGroupService.createUser(createdCollectGroupId, createUserForCollectGroup).toPromise();
-            console.log("Created CollectGroup user: ", createdCollectGroupUsersResponse);
+            var toExecuteAdminCalls = [this.preboardingStateService.organisationDetails].map(x => this.onboardingNewUserService.sendRegistrationMail(createdCollectGroupResponse.Result, {
+                collectGroupId: createdCollectGroupResponse.Result,
+                language: this.preboardingStateService.organisationDetails.language,
+                email: x.emailAddress
+            }));
 
+            // execute multiple calls, but one at a time
+            // await concat(toExecuteAdminCalls).toPromise();
+            // execute multiple calls, all at the same time
 
+            await forkJoin(toExecuteAdminCalls).toPromise();
 
+            // create the contact
+            await this.organisationService.addContact(currentOrganisationId, this.preboardingStateService.currentOrganisationContact).toPromise();
 
+            // create the qr code
+            // var createdQrCodeResponse = await this.collectGroupService.addCollectionMedium(createdCollectGroupResponse.Result).toPromise();
 
-            // let createCollectGroup: CreateCollectGroupCommand
-            // const createdCollectGroupResponse = await this.collectGroupService.create(null, null).toPromise();
-
-
-
-
-            // const currentCollectGroupDetails = this.preboardingStateService.currentCollectGroupDetails;
-            // const organisationContact = this.preboardingStateService.currentOrganisationContact;
-
-            // heb je volgens mij hier ni nodig
-            // want de id van je org zit in je stijt state
-            // aja toet, de language vo je users te inviten vo de onboarding mail
-            //const organisationDetails = this.preboardingStateService.organisationDetails;
-
-            // const createCollectGroupUserCommand = this.preboardingStateService.currentOrganisationAdminContact;
-
-
-            // let updateOrganisationCommand = {
-            //     // je moet zeker de andere properties ook invullen, anders gaaj ze in de api uitblanken
-
-            //     BackgroundInformation: JSON.stringify(additionalInformation),
-            //     VisitorCount: currentCollectGroupDetails.visitorCount
-            // }
-
-
-
-            // // volgens min moej ginder een poar stapn deurloopn, en ton na de volgende stap
-            // // vo junder gemak vot testn, begint e ki me jin stap, update gwn e ki die fucking org details
-
-            // // step one update the org details
-            // const updatedOrganisationResponse = await this.organisationService.update(null, null).toPromise();
-            // // step two create a collect group
-            // const createdCollectGroupResponse = await this.collectGroupService.create(null, null).toPromise();
-
-            // // step 2,5 uitnodigen van de admins op de net aangemaakte collectgroup
-            // 
-
-            // // step drie create the crm contact
-
-            // // step vier, aanmaken van een qr code
-
-            // // step 5 , exporteren van de aangemaakte qr van stap 4 via email
-
-
-
-
-
-
-
+            //export the qr code via mail
+            // await this.collectGroupService.exportCollectionMedium(createdCollectGroupResponse.Result,
+            //     createdQrCodeResponse.Result,
+            //     this.preboardingStateService.organisationDetails.language,
+            //     this.preboardingStateService.organisationDetails.emailAddress
+            // ).toPromise();
+            
         } catch (error) {
             alert(error)
             return false;
