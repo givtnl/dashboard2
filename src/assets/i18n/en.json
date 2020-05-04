@@ -322,5 +322,8 @@
     "preboarding.selectMedium.buckets": "Buckets",
     "preboarding.selectMedium.amount": "No.",
     "preboarding.selectMedium.addMedium": "Add collection medium",
-    "errorMessages.postcode-invalid": "Please check your postcode."
+    "errorMessages.postcode-invalid": "Please check your postcode.",
+    "preboardingNameInAppComponent.questionmarkPictureText": "Name in the app",
+    "preboardingNameInAppComponent.questionmarkPictureTitle": "Enter a name of maximum 30 characters how your organisation should show in the app. Make sure the name will be recognised by givers so the name is trustworthy towards givers.",
+    "preboardingNameInAppComponent.questionmarkPictureAlt": "Example image of a gift given in the Givt-app."
 }
