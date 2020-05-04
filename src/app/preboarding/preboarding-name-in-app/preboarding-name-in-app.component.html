@@ -1,5 +1,9 @@
 <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="justify-content-center w-100 h-100">
-  <app-custom-card [showCloseButton]="false">
+  <app-custom-card [showCloseButton]="false"
+    questionMarkPictureTitle="preboardingNameInAppComponent.questionmarkPictureTitle"
+    questionMarkPictureText="preboardingNameInAppComponent.questionmarkPictureText"
+    questionMarkPicturePath="../../../../assets/images/organisation-name-example.png"
+    questionMarkPictureAlt="preboardingNameInAppComponent.questionmarkPictureAlt">
     <div body>
       <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
       <h1 [translate]="'preboardingNameInAppComponent.title'"

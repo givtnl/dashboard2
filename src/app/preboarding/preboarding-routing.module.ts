@@ -29,12 +29,11 @@ const routes: Routes = [
       {
         path: 'welcome',
         component: PreboardingWelcomeDetailsComponent,
-        resolve: {queryParams: PreboardingQueryParamsResolver}
+        resolve: { queryParams: PreboardingQueryParamsResolver }
       },
       {
         path: 'name-in-app',
         component: PreboardingNameInAppComponent,
-        resolve: { collectGroup: PreboardingCurrentCollectGroupResolver }
       },
       {
         path: 'mail-box-address-details',
@@ -51,18 +50,18 @@ const routes: Routes = [
         canActivate: [PreboardingOrganisationTypeCheckGuard],
         path: 'collections',
         component: PreboardingCollectionsComponent,
-        resolve: {additionalInformation: PreboardingCurrentAdditionalInformationResolver}
+        resolve: { additionalInformation: PreboardingCurrentAdditionalInformationResolver }
       },
       {
         canActivate: [PreboardingOrganisationTypeCheckGuard],
         path: 'collection-medium-details',
         component: PreboardingCollectionMediumDetailsComponent,
-        resolve: {additionalInformation: PreboardingCurrentAdditionalInformationResolver}
+        resolve: { additionalInformation: PreboardingCurrentAdditionalInformationResolver }
       },
       {
         path: 'organisation-admin-details',
         component: PreboardingOrganisationAdminDetailsComponent,
-        resolve: {orgAdmin: PreboardingOrganisationAdminContactResolver}
+        resolve: { orgAdmin: PreboardingOrganisationAdminContactResolver }
       },
       {
         path: 'complete',
