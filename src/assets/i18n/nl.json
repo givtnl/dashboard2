@@ -323,7 +323,7 @@
     "preboarding.selectMedium.amount": "Aantal",
     "preboarding.selectMedium.addMedium": "Voeg collectemiddel toe",
     "errorMessages.postcode-invalid": "Gelieve je postcode na te kijken.",
-    "preboardingNameInAppComponent.questionmarkPictureText": "Naam in de app",
-    "preboardingNameInAppComponent.questionmarkPictureTitle": "Geef een naam op (van maximaal 30 karakters lang) om je organisatie weer te geven in de app. Zorg ervoor dat de naam herkenbaar is voor de gevers en dat hij betrouwbaar/vertrouwbaar overkomt.",
+    "preboardingNameInAppComponent.questionmarkPictureText": "Geef een naam op (van maximaal 30 karakters lang) om je organisatie weer te geven in de app. Zorg ervoor dat de naam herkenbaar is voor de gevers en dat hij betrouwbaar/vertrouwbaar overkomt.",
+    "preboardingNameInAppComponent.questionmarkPictureTitle": "Naam in de app",
     "preboardingNameInAppComponent.questionmarkPictureAlt": "Voorbeeld foto van een succesvolle gift in de Givt-app."
 }
