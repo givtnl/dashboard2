@@ -16,6 +16,7 @@ import { QuestionmarkComponent } from './components/questionmark/questionmark.co
 import { CustomCardComponent } from './components/custom-card/custom-card.component';
 import { RouterModule } from '@angular/router';
 import { UpperCaseDirective } from './directives/upper-case.directive';
+import { QuestionmarkPictureComponent } from './components/questionmark-picture/questionmark-picture.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UpperCaseDirective } from './directives/upper-case.directive';
     CheckBoxInputComponent,
     QuestionmarkComponent,
     CustomCardComponent,
-    UpperCaseDirective
+    UpperCaseDirective,
+    QuestionmarkPictureComponent
   ],
   imports: [
     CommonModule,
@@ -57,4 +59,4 @@ import { UpperCaseDirective } from './directives/upper-case.directive';
     UpperCaseDirective
   ]
 })
-export class SharedModule {}
+export class SharedModule { }
