@@ -325,6 +325,6 @@
     "errorMessages.postcode-invalid": "Gelieve je postcode na te kijken.",
     "preboardingNameInAppComponent.questionmarkPictureText": "Geef een naam op (maximaal 30 karakters lang) waarmee je organisatie in de app wordt weergegeven. Zorg ervoor dat de naam herkenbaar is voor de gevers zodat deze vertrouwd aanvoelt.",
     "preboardingNameInAppComponent.questionmarkPictureTitle": "Naam in de app",
-    "preboardingNameInAppComponent.questionmarkPictureAlt": "Voorbeeld foto van een succesvolle gift in de Givt-app.",
+    "preboardingNameInAppComponent.questionmarkPictureAlt": "Voorbeeld afbeelding van een succesvolle gift in de Givt-app",
     "preboardingOrganisationAdminDetailsComponent.buttonText": "Voeg e-mailadres toe"
 }
