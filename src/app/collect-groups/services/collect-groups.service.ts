@@ -17,7 +17,7 @@ export class CollectGroupsService {
         return this.backendService.get<CollectGroupListModel[]>(`v2/organisations/${organisationId}/collectgroups`);
     }
 
-    create(organisationId: string, command: CreateCollectGroupCommand): Observable<CreatedResponseModel<string>>{
+    create(organisationId: string, command: CreateCollectGroupCommand): Observable<CreatedResponseModel<CreatedCollectGroupResponse>>{
         return this.backendService.post(`v2/organisations/${organisationId}/collectgroups`, command);
     }
 
@@ -26,8 +26,8 @@ export class CollectGroupsService {
     }
 
     // create qr
-    addCollectionMedium( collectGroupId: string ): Observable<CreatedResponseModel<CreatedCollectGroupResponse>>{
-        return this.backendService.post(`v2/collectgroups/${collectGroupId}/collectionmediums`, {})
+    addCollectionMedium(organisationId: string, collectGroupId: string): Observable<CreatedResponseModel<string>>{
+        return this.backendService.post(`v2/organisations/${organisationId}/collectgroups/${collectGroupId}/collectionmediums`, {})
     }
     //export qr
 

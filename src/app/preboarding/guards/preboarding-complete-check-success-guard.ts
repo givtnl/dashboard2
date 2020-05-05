@@ -51,8 +51,8 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
             let createdCollectGroupResponse = await this.collectGroupService.create(currentOrganisationId, createCollectGroupCommand).toPromise();
 
             var toExecuteAdminCalls = this.preboardingStateService.currentOrganisationAdminContact.map(x => 
-                this.onboardingNewUserService.sendRegistrationMail(createdCollectGroupResponse.Result, {
-                    collectGroupId: createdCollectGroupResponse.Result,
+                this.onboardingNewUserService.sendRegistrationMail(createdCollectGroupResponse.Result.Id, {
+                    collectGroupId: createdCollectGroupResponse.Result.Id,
                     language: x.language,
                     email: x.email
                 })
@@ -65,18 +65,17 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
             await this.organisationService.addContact(currentOrganisationId, this.preboardingStateService.currentOrganisationContact).toPromise();
 
             // create the qr code
-            var createdQrCodeResponse = await this.collectGroupService.addCollectionMedium(createdCollectGroupResponse.Result).toPromise();
+            var createdQrCodeResponse = await this.collectGroupService.addCollectionMedium(currentOrganisationId, createdCollectGroupResponse.Result.Id).toPromise();
 
             // build template name
             var templateName = this.getTemplateNameForExportQr(this.preboardingStateService.organisationDetails.language);
             // export the qr code via mail
-            await this.collectGroupService.exportCollectionMedium(createdCollectGroupResponse.Result,
-                createdQrCodeResponse.Result.id,
+            await this.collectGroupService.exportCollectionMedium(createdCollectGroupResponse.Result.Id,
+                createdQrCodeResponse.Result.Id,
                 this.preboardingStateService.organisationDetails.language,
                 this.preboardingStateService.organisationDetails.emailAddress,
                 templateName
             ).toPromise();
-
         } catch (error) {
             alert(error)
             return false;
