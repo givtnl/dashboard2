@@ -31,7 +31,7 @@
                     translate>preboardingOrganisationAdminDetailsComponent.buttonText</label>
             </div>
         </div>
-        <button bottom type="submit" [translate]
+        <button bottom type="submit" [translate] [disabled]="this.inviteEmails().length === 0"
             class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
             <span class="text-white text-heavy-font" translate>
                 <i class="fas fa-spinner fa-spin mr-1" *ngIf="loading"></i>

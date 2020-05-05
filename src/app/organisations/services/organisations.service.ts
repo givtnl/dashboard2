@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { OrganisationDetailModel } from '../models/organisation-detail.model';
 import { UpdateOrganisationCommand } from '../models/commands/update-organisation.command';
 import { CreateOrganisationContactCommand } from '../models/commands/create-organisation-contact.command';
+import { stringify } from 'querystring';
 
 @Injectable({
     providedIn:'root'
@@ -19,7 +20,11 @@ export class OrganisationsService {
     } 
 
     //add contact
-    addContact(id: string, command: CreateOrganisationContactCommand): Observable<object> {
-        return this.backendService.post(`v2/organisations/${id}/contacts`, command);
+    addNote(id: string, title: string, contents: string): Observable<object> {
+        return this.backendService.post(`v2/organisations/${id}/notes`, {
+            OrganisationId: id,
+            title: title,
+            contents: contents
+        });
     }
 }
