@@ -42,15 +42,14 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
                 PostalCode: toUpdateOrganisation.PostalCode,
                 ParentId: null,
                 CharityCommissionNumber: null,
-                BackgroundInformation: JSON.stringify(additionalInformation),
-                VisitorCount: createCollectGroupCommand.visitorCount,
+                BackgroundInformation: JSON.stringify(additionalInformation)
             }
 
             // kwil ier de status code checken voe te beslissen ofdak aldan niet een create coll group kan / mag / wil uitvoeren nadat update org is gelukt / niet gelukt
             await this.organisationService.update(currentOrganisationId, updateOrganisation).toPromise();
 
             let createdCollectGroupResponse = await this.collectGroupService.create(currentOrganisationId, createCollectGroupCommand).toPromise();
-            console.log(this.preboardingStateService.currentOrganisationAdminContact)
+
             var toExecuteAdminCalls = this.preboardingStateService.currentOrganisationAdminContact.map(x => 
                 this.onboardingNewUserService.sendRegistrationMail(createdCollectGroupResponse.Result, {
                     collectGroupId: createdCollectGroupResponse.Result,
@@ -58,31 +57,34 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
                     email: x.email
                 })
             );
-            console.log(toExecuteAdminCalls)
-            // execute multiple calls, bust one at a time
-            // await concat(toExecuteAdminCalls).toPromise();
-            // execute multiple calls, all at the same time
 
+            // execute multiple calls, all at the same time
             await forkJoin(toExecuteAdminCalls).toPromise();
 
             // create the contact
             await this.organisationService.addContact(currentOrganisationId, this.preboardingStateService.currentOrganisationContact).toPromise();
 
             // create the qr code
-            // var createdQrCodeResponse = await this.collectGroupService.addCollectionMedium(createdCollectGroupResponse.Result).toPromise();
+            var createdQrCodeResponse = await this.collectGroupService.addCollectionMedium(createdCollectGroupResponse.Result).toPromise();
 
-            //export the qr code via mail
-            // await this.collectGroupService.exportCollectionMedium(createdCollectGroupResponse.Result,
-            //     createdQrCodeResponse.Result,
-            //     this.preboardingStateService.organisationDetails.language,
-            //     this.preboardingStateService.organisationDetails.emailAddress
-            // ).toPromise();
+            // build template name
+            var templateName = this.getTemplateNameForExportQr(this.preboardingStateService.organisationDetails.language);
+            // export the qr code via mail
+            await this.collectGroupService.exportCollectionMedium(createdCollectGroupResponse.Result,
+                createdQrCodeResponse.Result.id,
+                this.preboardingStateService.organisationDetails.language,
+                this.preboardingStateService.organisationDetails.emailAddress,
+                templateName
+            ).toPromise();
 
         } catch (error) {
             alert(error)
             return false;
         }
         return true;
+    }
+    getTemplateNameForExportQr(language: string = "en"): string {
+        return `PreboardInvite_${language}`
     }
 }
 

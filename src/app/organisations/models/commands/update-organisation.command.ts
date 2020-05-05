@@ -10,5 +10,4 @@ export interface UpdateOrganisationCommand {
     ParentId: string;
     CharityCommissionNumber: string;
     BackgroundInformation: string;
-    VisitorCount: number;
 }
