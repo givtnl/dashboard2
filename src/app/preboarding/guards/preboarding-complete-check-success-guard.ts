@@ -1,14 +1,13 @@
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { PreboardingStateService } from '../services/preboarding-state.service';
-import { Injectable, ɵConsole } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
 import { CollectGroupsService } from 'src/app/collect-groups/services/collect-groups.service';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
-import { CreateUserForCollectGroupCommand } from 'src/app/collect-groups/models/create-user-for-collect-group.command';
 import { OnboardingNewUsersService } from 'src/app/onboarding/new-users/services/onboarding-new-users.service';
-import { SendUserRegistrationEmailForCollectGroupCommand } from 'src/app/collect-groups/models/send-user-registration-email-for-collect-group.command';
 import { forkJoin, concat } from 'rxjs';
+import { isNullOrUndefined } from 'util';
 
 @Injectable({
     providedIn: 'root'
@@ -16,11 +15,9 @@ import { forkJoin, concat } from 'rxjs';
 
 export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
     constructor(
-        private router: Router,
         private organisationService: OrganisationsService,
         private collectGroupService: CollectGroupsService,
         private preboardingStateService: PreboardingStateService,
-        private applicationStateService: ApplicationStateService,
         private onboardingNewUserService: OnboardingNewUsersService
     ) { }
 
@@ -99,7 +96,9 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
         return true;
     }
     getTemplateNameForExportQr(language: string = "en"): string {
-        return `PreboardInvite_${language}`
+        if (isNullOrUndefined(language))
+            language = "en";
+        return `PreboardInvite_${language.toLowerCase()}`
     }
 }
 
