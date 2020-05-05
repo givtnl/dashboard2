@@ -20,6 +20,6 @@ export class OrganisationsService {
 
     //add contact
     addContact(id: string, command: CreateOrganisationContactCommand): Observable<object> {
-        return this.backendService.post(`v2/organisations/${id}/contact`, command);
+        return this.backendService.post(`v2/organisations/${id}/contacts`, command);
     }
 }

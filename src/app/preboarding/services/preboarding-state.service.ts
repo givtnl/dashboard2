@@ -55,13 +55,13 @@ export class PreboardingStateService {
     this.storage.setItem(key, JSON.stringify(value));
   }
 
-  public get currentOrganisationAdminContact(): CreateCollectGroupUserCommand {
+  public get currentOrganisationAdminContact(): CreateCollectGroupUserCommand[] {
     const key = 'PreboardingStateService.currentOrganisationAdminContact';
     const serializedRequest = JSON.parse(this.storage.getItem(key));
     return serializedRequest || {};
   }
 
-  public set currentOrganisationAdminContact(value: CreateCollectGroupUserCommand) {
+  public set currentOrganisationAdminContact(value: CreateCollectGroupUserCommand[]) {
     const key = 'PreboardingStateService.currentOrganisationAdminContact';
     this.storage.setItem(key, JSON.stringify(value));
   }

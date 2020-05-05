@@ -50,14 +50,16 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
             await this.organisationService.update(currentOrganisationId, updateOrganisation).toPromise();
 
             let createdCollectGroupResponse = await this.collectGroupService.create(currentOrganisationId, createCollectGroupCommand).toPromise();
-
-            var toExecuteAdminCalls = [this.preboardingStateService.organisationDetails].map(x => this.onboardingNewUserService.sendRegistrationMail(createdCollectGroupResponse.Result, {
-                collectGroupId: createdCollectGroupResponse.Result,
-                language: this.preboardingStateService.organisationDetails.language,
-                email: x.emailAddress
-            }));
-
-            // execute multiple calls, but one at a time
+            console.log(this.preboardingStateService.currentOrganisationAdminContact)
+            var toExecuteAdminCalls = this.preboardingStateService.currentOrganisationAdminContact.map(x => 
+                this.onboardingNewUserService.sendRegistrationMail(createdCollectGroupResponse.Result, {
+                    collectGroupId: createdCollectGroupResponse.Result,
+                    language: x.language,
+                    email: x.email
+                })
+            );
+            console.log(toExecuteAdminCalls)
+            // execute multiple calls, bust one at a time
             // await concat(toExecuteAdminCalls).toPromise();
             // execute multiple calls, all at the same time
 
@@ -75,7 +77,7 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
             //     this.preboardingStateService.organisationDetails.language,
             //     this.preboardingStateService.organisationDetails.emailAddress
             // ).toPromise();
-            
+
         } catch (error) {
             alert(error)
             return false;

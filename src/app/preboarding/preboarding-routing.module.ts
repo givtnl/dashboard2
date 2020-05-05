@@ -62,7 +62,7 @@ const routes: Routes = [
       {
         path: 'organisation-admin-details',
         component: PreboardingOrganisationAdminDetailsComponent,
-        resolve: {orgAdmin: PreboardingOrganisationAdminContactResolver}
+        resolve: {orgAdmins: PreboardingOrganisationAdminContactResolver}
       },
       {
         path: 'complete',

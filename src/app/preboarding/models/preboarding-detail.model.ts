@@ -8,4 +8,5 @@ export interface PreboardingDetailModel {
     country: string;
     type: OrganisationType;
     language: string;
+    inviteEmails?: string[]
 }

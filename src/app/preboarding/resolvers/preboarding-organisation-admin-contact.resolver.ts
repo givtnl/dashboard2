@@ -7,7 +7,7 @@ import { CreateCollectGroupUserCommand } from 'src/app/collect-groups/models/cre
 @Injectable({
     providedIn: 'root'
 })
-export class PreboardingOrganisationAdminContactResolver implements Resolve<CreateCollectGroupUserCommand> {
+export class PreboardingOrganisationAdminContactResolver implements Resolve<CreateCollectGroupUserCommand[]> {
     /**
      *
      */
@@ -15,7 +15,7 @@ export class PreboardingOrganisationAdminContactResolver implements Resolve<Crea
     resolve(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
-    ): CreateCollectGroupUserCommand | Observable<CreateCollectGroupUserCommand> | Promise<CreateCollectGroupUserCommand> {
+    ): CreateCollectGroupUserCommand[] | Observable<CreateCollectGroupUserCommand[]> | Promise<CreateCollectGroupUserCommand[]> {
         return this.stateService.currentOrganisationAdminContact;
     }
 }
