@@ -44,7 +44,7 @@ export class PreboardingNameInAppComponent implements OnInit {
   }
 
   continue() {
-    this.collectGroup.name = this.form.value.inAppOrgName;
+    this.collectGroup.name = this.form.value.inAppOrgName.trim();
     this.preboardingStateService.currentCollectGroupDetails = this.collectGroup;
   }
 

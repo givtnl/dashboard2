@@ -60,7 +60,7 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
 
   continue() {
     this.preboardingStateService.currentOrganisationAdminContact = this.form.value.inviteEmails.map(x => {
-      return { email: x.email, language: this.preboardingStateService.organisationDetails.language }
+      return { email: x.email.trim(), language: this.preboardingStateService.organisationDetails.language }
     })
 
   }
