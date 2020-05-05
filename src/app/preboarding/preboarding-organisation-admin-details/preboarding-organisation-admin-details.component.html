@@ -1,36 +1,20 @@
-<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100' #formDir="ngForm" [class.submitted]="formDir.submitted">
-    <app-custom-card [showCloseButton]="false" [showPreviousButton]="true" titleTranslationKey='preboardingOrganisation.topTitle'>
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'
+    #formDir="ngForm" [class.submitted]="formDir.submitted">
+    <app-custom-card [showCloseButton]="false" [showPreviousButton]="true"
+        titleTranslationKey='preboardingOrganisation.topTitle'>
         <div body>
             <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
             <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
                 preboardingOrganisationAdminDetailsComponent.description
             </p>
-            <!-- <input formControlName="organisatorEmail" type="text" placeholder="{{ 'preboardingOrganisationAdminDetailsComponent.placeholdersOrganisatorEmail' | translate }}" class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple"
-            /> -->
-            <div formArrayName="inviteEmails">
-                <div *ngFor="let email of inviteEmails().controls; let i = index">
-                    <div class="row no-gutters" [formGroupName]="i">
-                        <div class="col-11">
-                            <div class="form-group">
-                                <input class="form-control email-input" formControlName="email" type="email" />
-                            </div>
-                        </div>
-                        <div class="col-1">
-                            <div class="form-group">
-                                <button *ngIf="inviteEmails().length > 1" class="btn btn-light" type="button" (click)="inviteEmails().removeAt(i)"><i
-                                    class="fa fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-inline form-group-sm-btn" (click)="inviteEmails().push(mapEmail())">
-                <button type="button" class="btn  btn-primary btn-sm"><i class="fa fa-plus fa-sm"></i></button>
-                <label translate class="introduction-title text-primary text-light-font text-givt-purple">Voeg nen admin toe</label>
-            </div>
+            <input formControlName="organisatorEmail" type="text"
+                placeholder="{{ 'preboardingOrganisationAdminDetailsComponent.placeholdersOrganisatorEmail' | translate }}"
+                class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
         </div>
-        <button bottom type="submit" [translate] class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+        <button bottom type="submit" [translate]
+            class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
             <span class="text-white text-heavy-font" translate>
+                <i class="fas fa-spinner fa-spin mr-1" *ngIf="loading"></i>
                 preboardingOrganisationAdminDetailsComponent.nextButtonText
             </span>
         </button>

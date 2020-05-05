@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -14,8 +14,8 @@ import { CreateCollectGroupUserCommand } from 'src/app/collect-groups/models/cre
   styleUrls: ['./preboarding-organisation-admin-details.component.scss', '../../preboarding/preboarding.module.scss']
 })
 export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
-  private orgAdmins: CreateCollectGroupUserCommand[];
-  public emails = ["Ah yeep", "Goedja?"]
+  private orgAdmin: CreateCollectGroupUserCommand;
+  public loading = false;
 
   form: FormGroup
   constructor(
@@ -27,22 +27,12 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.orgAdmins = this.route.snapshot.data.orgAdmins;
+    this.orgAdmin = this.route.snapshot.data.orgAdmin;
     this.form = this.formBuilder.group({
-      inviteEmails: this.mapEmailsToArray(this.orgAdmins && this.orgAdmins.length > 0 ? this.orgAdmins : [])
-    })
+      organisatorEmail: [null, [Validators.required, Validators.email]]
+    });
   }
-  mapEmail(email: string = null): FormGroup {
-    return this.formBuilder.group({
-      email: [email ? email : null, [Validators.required]]
-    })
-  }
-  mapEmailsToArray(emails: CreateCollectGroupUserCommand[]): FormArray {
-    return this.formBuilder.array(emails.map(x => this.mapEmail(x.email)))
-  }
-  inviteEmails():FormArray {
-    return this.form.get("inviteEmails") as FormArray
-  }
+
 
 
   submit() {
@@ -50,14 +40,13 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
       this.handleInvalidForm();
       return;
     }
+    this.loading = true;
     this.continue();
-    this.router.navigate(["/preboarding/register/complete"])
+    this.router.navigate(["/preboarding/register/complete"]).finally(() => (this.loading = false))
   }
 
   continue() {
-    this.preboardingStateService.currentOrganisationAdminContact = this.form.value.inviteEmails.map(x=> {
-       return {email: x.email, language: this.preboardingStateService.organisationDetails.language}
-    })
+
   }
 
   handleInvalidForm() {
