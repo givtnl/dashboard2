@@ -78,7 +78,7 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
                     await this.collectGroupService.addCollectionMedium(currentOrganisationId, createdCollectGroupResponse.Result.Id).toPromise();
 
             // build template name
-            var templateName = this.getTemplateNameForExportQr(this.preboardingStateService.organisationDetails.language);
+            var templateName = `PreboardCompleted${this.preboardingStateService.organisationDetails.type.toString()}`
             // export the qr code via mail
             await this.collectGroupService.exportCollectionMedium(
                 currentOrganisationId,
@@ -93,11 +93,6 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
             return false;
         }
         return true;
-    }
-    getTemplateNameForExportQr(language: string = "en"): string {
-        if (isNullOrUndefined(language))
-            language = "en";
-        return `PreboardInvite_${language.toLowerCase()}`
     }
 }
 

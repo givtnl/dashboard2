@@ -1,5 +1,5 @@
 export enum OrganisationType {
   Church,
-  Foundation,
-  Artists
+  Charity,
+  Artist
 }
