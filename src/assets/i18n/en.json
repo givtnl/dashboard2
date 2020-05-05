@@ -325,6 +325,6 @@
     "errorMessages.postcode-invalid": "Please check your postcode.",
     "preboardingNameInAppComponent.questionmarkPictureText": "Enter a name of maximum 30 characters how your organisation should show in the app. Make sure the name will be recognised by givers so the name is familiar towards givers.",
     "preboardingNameInAppComponent.questionmarkPictureTitle": "Name in the app",
-    "preboardingNameInAppComponent.questionmarkPictureAlt": "Example image of a gift given in the Givt app",
+    "preboardingNameInAppComponent.questionmarkPictureAlt": "Example image of a gift given in the Givt-app.",
     "preboardingOrganisationAdminDetailsComponent.buttonText": "Add e-mail address"
 }

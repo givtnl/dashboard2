@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { OnboardingRequestModel } from '../models/onboarding-request.model';
-import { CreateUserForCollectGroupCommand } from '../models/commands/create-user-for-collect-group.command';
 import { UserRegistrationResponseModel } from '../models/user-registration-response.model';
+import { CreateUserForCollectGroupCommand } from 'src/app/collect-groups/models/create-user-for-collect-group.command';
 
 @Injectable({
     providedIn: 'root'
