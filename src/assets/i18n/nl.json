@@ -283,7 +283,7 @@
     "preboardingWelcomeDetailsComponent.description": "Je staat het op punt je organisatie te registreren bij Givt. In de volgende schermen vragen we enkele gegevens van je organisatie zodat je snel en gemakkelijk aan de slag kunt gaan.",
     "preboardingWelcomeDetailsComponent.startButtonText": "Start",
     "preboardingNameInAppComponent.title": "Aan de slag",
-    "preboardingNameInAppComponent.description": "Maak je organisatie herkenbaar in de app door een unieke naam in te vullen.",
+    "preboardingNameInAppComponent.description": "Maak je organisatie herkenbaar in de app door een unieke naam in te vullen. Voeg daarom ook de plaatsnaam van de organisatie toe in de naam. (Bijv. Stichting Langenaam A'dam West)",
     "preboardingNameInAppComponent.nextButtonText": "Volgende",
     "placeholders.inAppOrgName": "Naam in de app",
     "preboardingOrganisation.topTitle": "Preboarding",
@@ -307,7 +307,7 @@
     "preboardingCollectionMediumDetails.placeholderNumberOfVisitors": "Aantal bezoekers",
     "preboardingCollectionMediumDetails.placeholderNumberOfCollectionMediums": "Aantal collecte middelen",
     "errorMessages.organisator-email-required": "Het email adres van de organisator is verplicht.",
-    "preboardingMailboxAddressDetailsComponent.placeholderComments": "Opmerkingen",
+    "preboardingMailboxAddressDetailsComponent.placeholderComments": "Opmerkingen? Schrijf ze hier.",
     "preboardingVisitorCount.description": "Vul hier in hoeveel bezoekers de kerk gemiddeld ontvangt tijdens een dienst.",
     "preboardingCollections.description": "Givt ondersteunt meerdere soorten collectes. Kies diegenen die jullie momenteel gebruiken.",
     "preboardingCollections.labelSingleCollection": "Eén collecte / dienst",
@@ -325,6 +325,6 @@
     "errorMessages.postcode-invalid": "Gelieve je postcode na te kijken.",
     "preboardingNameInAppComponent.questionmarkPictureText": "Geef een naam op (maximaal 30 karakters lang) waarmee je organisatie in de app wordt weergegeven. Zorg ervoor dat de naam herkenbaar is voor de gevers zodat deze vertrouwd aanvoelt.",
     "preboardingNameInAppComponent.questionmarkPictureTitle": "Naam in de app",
-    "preboardingNameInAppComponent.questionmarkPictureAlt": "Voorbeeld foto van een succesvolle gift in de Givt-app.",
+    "preboardingNameInAppComponent.questionmarkPictureAlt": "Voorbeeld afbeelding van een succesvolle gift in de Givt-app",
     "preboardingOrganisationAdminDetailsComponent.buttonText": "Voeg e-mailadres toe"
 }
