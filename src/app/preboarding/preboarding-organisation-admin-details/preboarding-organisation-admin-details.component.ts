@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -14,7 +14,8 @@ import { CreateCollectGroupUserCommand } from 'src/app/collect-groups/models/cre
   styleUrls: ['./preboarding-organisation-admin-details.component.scss', '../../preboarding/preboarding.module.scss']
 })
 export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
-  private orgAdmin: CreateCollectGroupUserCommand;
+  private orgAdmins: CreateCollectGroupUserCommand[];
+  public emails = ["Ah yeep", "Goedja?"]
   public loading = false;
 
   form: FormGroup
@@ -27,10 +28,22 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.orgAdmin = this.route.snapshot.data.orgAdmin;
+    this.orgAdmins = this.route.snapshot.data.orgAdmins;
     this.form = this.formBuilder.group({
-      organisatorEmail: [null, [Validators.required, Validators.email]]
-    });
+      inviteEmails: this.mapEmailsToArray(this.orgAdmins && this.orgAdmins.length > 0 ? this.orgAdmins : [])
+    })
+  }
+  mapEmail(email: string = null): FormGroup {
+    return this.formBuilder.group({
+      email: [email ? email : null, [Validators.required]]
+    })
+  }
+  mapEmailsToArray(emails: CreateCollectGroupUserCommand[]): FormArray {
+    return this.formBuilder.array(emails.map(x => this.mapEmail(x.email)))
+  }
+  inviteEmails(): FormArray {
+    return this.form.get("inviteEmails") as FormArray
+
   }
 
 
@@ -46,6 +59,9 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
   }
 
   continue() {
+    this.preboardingStateService.currentOrganisationAdminContact = this.form.value.inviteEmails.map(x => {
+      return { email: x.email, language: this.preboardingStateService.organisationDetails.language }
+    })
 
   }
 
