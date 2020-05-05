@@ -90,7 +90,6 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
                 templateName
             ).toPromise();
         } catch (error) {
-            alert(error)
             return false;
         }
         return true;
