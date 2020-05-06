@@ -20,9 +20,9 @@ export class PreboardingQueryParamsResolver implements Resolve<PreboardingDetail
         
         let preboardingDetails:PreboardingDetailModel = {
             token: route.queryParams.token,
-            organisationName: route.queryParams.organisationName,
+            organisationName: decodeURIComponent(route.queryParams.organisationName),
             organisationId: route.queryParams.organisationId,
-            emailAddress: route.queryParams.emailAddress,
+            emailAddress: decodeURIComponent(route.queryParams.emailAddress),
             country: route.queryParams.country,
             type: route.queryParams.type,
             language: route.queryParams.language
