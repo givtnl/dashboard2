@@ -329,5 +329,6 @@
     "preboardingOrganisationAdminDetailsComponent.buttonText": "Voeg e-mailadres toe",
     "errorMessages.collection-selection-required": "Gelieve minstens één manier van collecteren te selecteren",
     "errorMessages.select-a-collection": "Selecteer ten minste 1 collecte soort.",
-    "errorMessages.name-in-app-length": "Je hebt een ongeldige naam ingevuld.\nEen naam mag maximaal uit 30 tekens bestaan."
+    "errorMessages.name-in-app-length": "Je hebt een ongeldige naam ingevuld.\nEen naam mag maximaal uit 30 tekens bestaan.",
+    "errorMessages.fill-in-all-details": "Je hebt niet alle details volledig ingegeven.\nGelieve de rood-omcirkelde veldjes aan te vullen."
 }
