@@ -53,10 +53,10 @@ export class PreboardingNameInAppComponent implements OnInit {
     let errorMessages = new Array<Observable<string>>();
     let resolvedErrorMessages = new Array<string>();
 
-    const charityNumberErrors = this.form.get('inAppOrgName').errors;
+    const inAppOrgNameErrors = this.form.get('inAppOrgName').errors;
 
-    if (charityNumberErrors) {
-      if (charityNumberErrors.required) {
+    if (inAppOrgNameErrors) {
+      if (inAppOrgNameErrors.trimEmptyValue || inAppOrgNameErrors.required) {
         errorMessages.push(this.translationService.get('errorMessages.name-in-app-required'));
       }
     }

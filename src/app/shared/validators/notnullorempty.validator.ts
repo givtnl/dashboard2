@@ -6,7 +6,7 @@ export function notNullOrEmptyValidator(): ValidatorFn {
     if (enteredValue && enteredValue.toString().trim() == "") {
       return {
         trimEmptyValue: true,
-        value: enteredValue
+        value: enteredValue.toString()
       };
     }
     return null;

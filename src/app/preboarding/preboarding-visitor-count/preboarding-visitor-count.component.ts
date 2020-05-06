@@ -57,7 +57,7 @@ export class PreboardingVisitorCountComponent implements OnInit {
     const numberOfVisitorsErrors = this.form.get('numberOfVisitors').errors;
 
     if (numberOfVisitorsErrors) {
-      if (numberOfVisitorsErrors.required) {
+      if (numberOfVisitorsErrors.trimEmptyValue || numberOfVisitorsErrors.required) {
         errorMessages.push(this.translationService.get('errorMessages.number-of-visitors-required'));
       }
     }

@@ -71,17 +71,17 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
     const mailBoxZipcodeErrors = this.form.get('mailBoxZipCode').errors;
 
     if (mailBoxAddressErrors) {
-      if (mailBoxAddressErrors.required) {
+      if (mailBoxAddressErrors.trimEmptyValue || mailBoxAddressErrors.required) {
         errorMessages.push(this.translationService.get('errorMessages.address-required'));
       }
     }
     if (mailBoxCityErrors) {
-      if (mailBoxCityErrors.required) {
+      if (mailBoxCityErrors.trimEmptyValue || mailBoxCityErrors.required) {
         errorMessages.push(this.translationService.get('errorMessages.address-city-required'));
       }
     }
     if (mailBoxZipcodeErrors) {
-      if (mailBoxZipcodeErrors.required) {
+      if (mailBoxZipcodeErrors.trimEmptyValue || mailBoxZipcodeErrors.required) {
         errorMessages.push(this.translationService.get('errorMessages.address-zipcode-required'));
       }
       if (mailBoxZipcodeErrors.minLength || mailBoxZipcodeErrors.invalidPostCode) {
