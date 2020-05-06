@@ -33,7 +33,8 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
         this.form = this.formBuilder.group({
             inviteEmails: this.mapEmailsToArray(this.orgAdmins && this.orgAdmins.length > 0 ? this.orgAdmins : [])
         })
-        this.inviteEmails().push(this.mapEmail())
+        if (this.orgAdmins.length == 0)
+            this.inviteEmails().push(this.mapEmail())
     }
     mapEmail(email: string = null): FormGroup {
         return this.formBuilder.group({
