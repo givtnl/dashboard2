@@ -39,7 +39,7 @@ export class CollectGroupsService {
     exportCollectionMedium(organisationId: string, collectGroupId: string, collectionMediumId: string, language: string, email: string,organisationName:string, templateName: string): Observable<object> {
         let queryParams = new HttpParams();
         queryParams = queryParams.set('emailAddress', email);
-        queryParams = queryParams.set('receiverFirstName', ' ');
+        queryParams = queryParams.set('receiverFirstName', '');
         queryParams = queryParams.set('organisationName', organisationName);
         queryParams = queryParams.set('templateName', templateName);
 
