@@ -1,13 +1,11 @@
-import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { Injectable } from '@angular/core';
 import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
 import { CollectGroupsService } from 'src/app/collect-groups/services/collect-groups.service';
-import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
 import { OnboardingNewUsersService } from 'src/app/onboarding/new-users/services/onboarding-new-users.service';
-import { forkJoin, concat } from 'rxjs';
-import { isNullOrUndefined } from 'util';
+import { forkJoin } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
