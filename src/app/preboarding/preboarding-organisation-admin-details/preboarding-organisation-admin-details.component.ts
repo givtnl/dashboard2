@@ -29,12 +29,13 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
 
     ngOnInit() {
         this.orgAdmins = this.route.snapshot.data.orgAdmins;
-        console.log(this.orgAdmins);
+
         this.form = this.formBuilder.group({
             inviteEmails: this.mapEmailsToArray(this.orgAdmins && this.orgAdmins.length > 0 ? this.orgAdmins : [])
         })
-        if (this.orgAdmins.length == 0)
+        if (this.orgAdmins.length == 0) {
             this.inviteEmails().push(this.mapEmail())
+        }
     }
     mapEmail(email: string = null): FormGroup {
         return this.formBuilder.group({
@@ -47,8 +48,6 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
     inviteEmails(): FormArray {
         return this.form.get("inviteEmails") as FormArray
     }
-
-
 
     submit() {
         if (this.form.invalid) {

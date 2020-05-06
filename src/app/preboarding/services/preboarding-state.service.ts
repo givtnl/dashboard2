@@ -58,7 +58,7 @@ export class PreboardingStateService {
   public get currentOrganisationAdminContact(): CreateCollectGroupUserCommand[] {
     const key = 'PreboardingStateService.currentOrganisationAdminContact';
     const serializedRequest = JSON.parse(this.storage.getItem(key));
-    return serializedRequest || {};
+    return serializedRequest || [];
   }
 
   public set currentOrganisationAdminContact(value: CreateCollectGroupUserCommand[]) {
