@@ -6,6 +6,7 @@ import { CollectGroupsService } from 'src/app/collect-groups/services/collect-gr
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
 import { OnboardingNewUsersService } from 'src/app/onboarding/new-users/services/onboarding-new-users.service';
 import { forkJoin } from 'rxjs';
+import { OrganisationType } from '../models/organisation-type.enum';
 
 @Injectable({
     providedIn: 'root'
@@ -76,7 +77,7 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
                     await this.collectGroupService.addCollectionMedium(currentOrganisationId, createdCollectGroupResponse.Result.Id).toPromise();
 
             // build template name
-            var templateName = `PreboardCompleted${this.preboardingStateService.organisationDetails.type.toString()}`
+            var templateName = `PreboardCompleted${OrganisationType[this.preboardingStateService.organisationDetails.type]}`
             // export the qr code via mail
             await this.collectGroupService.exportCollectionMedium(
                 currentOrganisationId,
