@@ -286,7 +286,7 @@
     "preboardingNameInAppComponent.description": "Make sure givers will recognise your organisation in the app by choosing a unique name. Add (an abbreviation of) the City/Town of the organisation to it. (E.g. Charity Sir. Example B'gham)",
     "preboardingNameInAppComponent.nextButtonText": "Next",
     "placeholders.inAppOrgName": "Name in the app",
-    "preboardingOrganisation.topTitle": "Preboarding",
+    "preboardingOrganisation.topTitle": "Starting with Givt",
     "preboardingMailboxAddressDetailsComponent.description": "Fill in the address details to where we can send the physical material.",
     "preboardingMailboxAddressDetailsComponent.placeholderAddress": "Address",
     "preboardingMailboxAddressDetailsComponent.placeholderCity": "City/Town",
@@ -328,5 +328,6 @@
     "preboardingNameInAppComponent.questionmarkPictureAlt": "Example image of a gift given in the Givt app",
     "preboardingOrganisationAdminDetailsComponent.buttonText": "Add e-mail address",
     "errorMessages.collection-selection-required": "Please choose at least one collection method",
-    "errorMessages.select-a-collection": "Select at least 1 collection type."
+    "errorMessages.select-a-collection": "Select at least 1 collection type.",
+    "errorMessages.name-in-app-length": "You have filled in an invalid name.\nA name may contain a maximum of 30 characters."
 }
