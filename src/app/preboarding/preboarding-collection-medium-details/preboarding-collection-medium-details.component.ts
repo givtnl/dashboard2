@@ -32,27 +32,27 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
     this.additionalInformationCommand = this.route.snapshot.data.additionalInformation;
     this.form = this.formBuilder.group({
       singleCollectionDetails: this.additionalInformationCommand.singleCollectionService.enabled ?
-      (this.mapDetailsToFormArray(this.additionalInformationCommand.singleCollectionService.details && this.additionalInformationCommand.singleCollectionService.details.length > 0 ? 
-        this.additionalInformationCommand.singleCollectionService.details : 
-        [this.mapDetail() as PreboardingCollectionDetail])) : null,
-      multipleCollectionDetails: this.additionalInformationCommand.multipleCollectionService.enabled ? 
-      (this.mapDetailsToFormArray(this.additionalInformationCommand.multipleCollectionService.details && this.additionalInformationCommand.multipleCollectionService.details.length > 0 ? 
-        this.additionalInformationCommand.multipleCollectionService.details : 
-        [this.mapDetail() as PreboardingCollectionDetail])) : null,
-      endOfServiceCollectionDetails: this.additionalInformationCommand.endOfServiceCollection.enabled ? 
-      (this.mapDetailsToFormArray(this.additionalInformationCommand.endOfServiceCollection.details && this.additionalInformationCommand.endOfServiceCollection.details.length > 0 ? 
-        this.additionalInformationCommand.endOfServiceCollection.details : 
-        [this.mapDetail() as PreboardingCollectionDetail])) : null,
-      communionCollectionDetails: 
-      this.additionalInformationCommand.communionCollection.enabled ? 
-      (this.mapDetailsToFormArray(this.additionalInformationCommand.communionCollection.details && this.additionalInformationCommand.communionCollection.details.length > 0 ? 
-        this.additionalInformationCommand.communionCollection.details : 
-        [this.mapDetail() as PreboardingCollectionDetail])) : null,
-      candleCollectionDetails: 
-      this.additionalInformationCommand.candleCollection.enabled ? 
-      (this.mapDetailsToFormArray(this.additionalInformationCommand.candleCollection.details && this.additionalInformationCommand.candleCollection.details.length > 0 ? 
-        this.additionalInformationCommand.candleCollection.details : 
-        [this.mapDetail() as PreboardingCollectionDetail])) : null
+        (this.mapDetailsToFormArray(this.additionalInformationCommand.singleCollectionService.details && this.additionalInformationCommand.singleCollectionService.details.length > 0 ?
+          this.additionalInformationCommand.singleCollectionService.details :
+          [this.mapDetail() as PreboardingCollectionDetail])) : null,
+      multipleCollectionDetails: this.additionalInformationCommand.multipleCollectionService.enabled ?
+        (this.mapDetailsToFormArray(this.additionalInformationCommand.multipleCollectionService.details && this.additionalInformationCommand.multipleCollectionService.details.length > 0 ?
+          this.additionalInformationCommand.multipleCollectionService.details :
+          [this.mapDetail() as PreboardingCollectionDetail])) : null,
+      endOfServiceCollectionDetails: this.additionalInformationCommand.endOfServiceCollection.enabled ?
+        (this.mapDetailsToFormArray(this.additionalInformationCommand.endOfServiceCollection.details && this.additionalInformationCommand.endOfServiceCollection.details.length > 0 ?
+          this.additionalInformationCommand.endOfServiceCollection.details :
+          [this.mapDetail() as PreboardingCollectionDetail])) : null,
+      communionCollectionDetails:
+        this.additionalInformationCommand.communionCollection.enabled ?
+          (this.mapDetailsToFormArray(this.additionalInformationCommand.communionCollection.details && this.additionalInformationCommand.communionCollection.details.length > 0 ?
+            this.additionalInformationCommand.communionCollection.details :
+            [this.mapDetail() as PreboardingCollectionDetail])) : null,
+      candleCollectionDetails:
+        this.additionalInformationCommand.candleCollection.enabled ?
+          (this.mapDetailsToFormArray(this.additionalInformationCommand.candleCollection.details && this.additionalInformationCommand.candleCollection.details.length > 0 ?
+            this.additionalInformationCommand.candleCollection.details :
+            [this.mapDetail() as PreboardingCollectionDetail])) : null
     });
   }
 
@@ -79,21 +79,8 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
     let errorMessages = new Array<Observable<string>>();
     let resolvedErrorMessages = new Array<string>();
 
-    console.log(this.form)
-    // const numberOfVisitorsErrors = this.form.get('numberOfVisitors').errors;
-    // const numberOfCollectionBagsErrors = this.form.get('numberOfCollectionBags').errors;
-
-    // if (numberOfVisitorsErrors) {
-    //   if (numberOfVisitorsErrors.required) {
-    //     errorMessages.push(this.translationService.get('errorMessages.number-of-visitors-required'));
-    //   }
-    // }
-    // if (numberOfCollectionBagsErrors) {
-    //   if (numberOfCollectionBagsErrors.required) {
-    //     errorMessages.push(this.translationService.get('errorMessages.number-of-collectionbags-required'));
-    //   }
-    // }
-
+    if (this.form.status == "INVALID")
+      errorMessages.push(this.translationService.get('errorMessages.fill-in-all-details'));
 
     forkJoin(errorMessages)
       .pipe(tap(results => (resolvedErrorMessages = results)))
@@ -135,8 +122,8 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
     /* To prevent submitting the form */
     /* Showing red border around dropdown when invalid happens in html. */
     return (group: FormGroup): ValidationErrors => {
-      if(group.value == null)
-        return {collectionTypeNotSelected: true}
+      if (group.value == null)
+        return { collectionTypeNotSelected: true }
       return null;
     }
   }
