@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CreatePreboardingAdditionalInformationCommand } from '../models/create-preboarding-additional-information.command';
+import { Observable, forkJoin } from 'rxjs';
+import { tap, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-preboarding-collections',
@@ -29,7 +31,7 @@ export class PreboardingCollectionsComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       singleCollectionService: [this.additionalInformationCommand && this.additionalInformationCommand.singleCollectionService ? this.additionalInformationCommand.singleCollectionService.enabled : false],
-      multipleCollectionService: [this.additionalInformationCommand && this.additionalInformationCommand.multipleCollectionService ? this.additionalInformationCommand.multipleCollectionService.enabled: false],
+      multipleCollectionService: [this.additionalInformationCommand && this.additionalInformationCommand.multipleCollectionService ? this.additionalInformationCommand.multipleCollectionService.enabled : false],
       endOfServiceCollection: [this.additionalInformationCommand && this.additionalInformationCommand.endOfServiceCollection ? this.additionalInformationCommand.endOfServiceCollection.enabled : false],
       communionCollection: [this.additionalInformationCommand && this.additionalInformationCommand.communionCollection ? this.additionalInformationCommand.communionCollection.enabled : false],
       candleCollection: [this.additionalInformationCommand && this.additionalInformationCommand.candleCollection ? this.additionalInformationCommand.candleCollection.enabled : false]
@@ -54,25 +56,25 @@ export class PreboardingCollectionsComponent implements OnInit {
   }
   handleInvalidForm() {
 
-    // let errorMessages = new Array<Observable<string>>();
-    // let resolvedErrorMessages = new Array<string>();
+    let errorMessages = new Array<Observable<string>>();
+    let resolvedErrorMessages = new Array<string>();
 
-    // const numberOfVisitorsErrors = this.form.get('numberOfVisitors').errors;
+    const formErrors = this.form.errors;
 
-    // if (numberOfVisitorsErrors) {
-    //   if (numberOfVisitorsErrors.required) {
-    //     errorMessages.push(this.translationService.get('errorMessages.number-of-visitors-required'));
-    //   }
-    // }
+    if (formErrors) {
+      if (formErrors.noCollectionsSelected) {
+        errorMessages.push(this.translationService.get('errorMessages.select-a-collection'));
+      }
+    }
 
-    // forkJoin(errorMessages)
-    //   .pipe(tap(results => (resolvedErrorMessages = results)))
-    //   .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
-    //   .subscribe(title =>
-    //     this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
-    //       enableHtml: true
-    //     })
-    //   );
+    forkJoin(errorMessages)
+      .pipe(tap(results => (resolvedErrorMessages = results)))
+      .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+      .subscribe(title =>
+        this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
+          enableHtml: true
+        })
+      );
   }
   continue() {
     this.additionalInformationCommand.singleCollectionService.enabled = this.form.value.singleCollectionService;
