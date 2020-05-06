@@ -12,7 +12,8 @@
                     <div class="row no-gutters" [formGroupName]="i">
                         <div class="col-11">
                             <div class="form-group">
-                                <input class="form-control email-input" formControlName="email" type="email" />
+                                <input class="form-control email-input" formControlName="email" type="email"
+                                    placeholder="{{ 'placeholders.email' | translate }}" />
                             </div>
                         </div>
                         <div class="col-1" *ngIf="inviteEmails().length > 1">
