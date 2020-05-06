@@ -84,8 +84,8 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
                 createdCollectGroupResponse.Result.Id,
                 createdQrCodeResponse.Result,
                 this.preboardingStateService.organisationDetails.language,
-                encodeURIComponent(this.preboardingStateService.organisationDetails.emailAddress),
-                encodeURIComponent(this.preboardingStateService.organisationDetails.organisationName),
+                this.preboardingStateService.organisationDetails.emailAddress,
+                this.preboardingStateService.organisationDetails.organisationName,
                 templateName
             ).toPromise();
         } catch (error) {
