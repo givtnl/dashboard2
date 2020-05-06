@@ -37,8 +37,8 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
 
     
     this.form = this.formBuilder.group({
-      mailBoxAddress: [this.contact ? this.contact.address : null, [Validators.required, notNullOrEmptyValidator()]],
-      mailBoxCity: [this.contact ? this.contact.city : null, [Validators.required, notNullOrEmptyValidator()]],
+      mailBoxAddress: [this.contact ? this.contact.address : null, [Validators.required, notNullOrEmptyValidator(),Validators.minLength(2)]],
+      mailBoxCity: [this.contact ? this.contact.city : null, [Validators.required, notNullOrEmptyValidator(), Validators.minLength(2)]],
       mailBoxZipCode: [this.contact ? this.contact.postCode : null, ["GB", "GG", "GE"].some(x => x == this.country) ? [Validators.required, postCodeBACSValidator(), notNullOrEmptyValidator()] : [Validators.required, Validators.minLength(2), notNullOrEmptyValidator()]],
       mailBoxComments: [this.contact ? this.contact.comments : null]
     });
