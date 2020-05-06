@@ -329,5 +329,6 @@
     "preboardingOrganisationAdminDetailsComponent.buttonText": "Add e-mail address",
     "errorMessages.collection-selection-required": "Please choose at least one collection method",
     "errorMessages.select-a-collection": "Select at least 1 collection type.",
-    "errorMessages.name-in-app-length": "You have filled in an invalid name.\nA name may contain a maximum of 30 characters."
+    "errorMessages.name-in-app-length": "You have filled in an invalid name.\nA name may contain a maximum of 30 characters.",
+    "errorMessages.fill-in-all-details": "You have not completed the form correctly.\nPlease complete the fields with a red border."
 }
