@@ -286,7 +286,7 @@
     "preboardingNameInAppComponent.description": "Maak je organisatie herkenbaar in de app door een unieke naam in te vullen. Voeg daarom ook de plaatsnaam van de organisatie toe in de naam. (Bijv. Stichting Voorbeeld A'dam West)",
     "preboardingNameInAppComponent.nextButtonText": "Volgende",
     "placeholders.inAppOrgName": "Naam in de app",
-    "preboardingOrganisation.topTitle": "Preboarding",
+    "preboardingOrganisation.topTitle": "Starten met Givt",
     "preboardingMailboxAddressDetailsComponent.description": "Vul hieronder de adres gegevens in waar we de zenders mogen naar toe sturen.",
     "preboardingMailboxAddressDetailsComponent.placeholderAddress": "Adres",
     "preboardingMailboxAddressDetailsComponent.placeholderCity": "Stad",
@@ -328,5 +328,6 @@
     "preboardingNameInAppComponent.questionmarkPictureAlt": "Voorbeeld afbeelding van een succesvolle gift in de Givt-app",
     "preboardingOrganisationAdminDetailsComponent.buttonText": "Voeg e-mailadres toe",
     "errorMessages.collection-selection-required": "Gelieve minstens één manier van collecteren te selecteren",
-    "errorMessages.select-a-collection": "Selecteer ten minste 1 collecte soort."
+    "errorMessages.select-a-collection": "Selecteer ten minste 1 collecte soort.",
+    "errorMessages.name-in-app-length": "Je hebt een ongeldige naam ingevuld.\nEen naam mag maximaal uit 30 tekens bestaan."
 }
