@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { CreateCollectGroupCommand } from 'src/app/collect-groups/models/create-collect-group.command';
+import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
 
 @Component({
   selector: 'app-preboarding-name-in-app',
@@ -30,7 +31,7 @@ export class PreboardingNameInAppComponent implements OnInit {
   ngOnInit() {
     this.collectGroup = this.route.snapshot.data.collectGroup;
     this.form = this.formBuilder.group({
-      inAppOrgName: [this.collectGroup ? this.collectGroup.name : null, [Validators.required, Validators.maxLength(30)]]
+      inAppOrgName: [this.collectGroup ? this.collectGroup.name : null, [Validators.required, Validators.maxLength(30), notNullOrEmptyValidator()]]
     });
   }
 

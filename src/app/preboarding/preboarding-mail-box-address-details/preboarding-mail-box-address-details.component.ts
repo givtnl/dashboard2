@@ -8,6 +8,7 @@ import { tap, switchMap } from 'rxjs/operators';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { CreateOrganisationContactCommand } from 'src/app/organisations/models/commands/create-organisation-contact.command';
 import { postCodeBACSValidator } from 'src/app/shared/validators/postcode-BACS.validator';
+import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
 
 @Component({
   selector: 'app-preboarding-mail-box-address-details',
@@ -36,9 +37,9 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
 
     
     this.form = this.formBuilder.group({
-      mailBoxAddress: [this.contact ? this.contact.address : null, [Validators.required]],
-      mailBoxCity: [this.contact ? this.contact.city : null, [Validators.required]],
-      mailBoxZipCode: [this.contact ? this.contact.postCode : null, ["GB", "GG", "GE"].some(x => x == this.country) ? [Validators.required, postCodeBACSValidator()] : [Validators.required, Validators.minLength(2)]],
+      mailBoxAddress: [this.contact ? this.contact.address : null, [Validators.required, notNullOrEmptyValidator()]],
+      mailBoxCity: [this.contact ? this.contact.city : null, [Validators.required, notNullOrEmptyValidator()]],
+      mailBoxZipCode: [this.contact ? this.contact.postCode : null, ["GB", "GG", "GE"].some(x => x == this.country) ? [Validators.required, postCodeBACSValidator(), notNullOrEmptyValidator()] : [Validators.required, Validators.minLength(2), notNullOrEmptyValidator()]],
       mailBoxComments: [this.contact ? this.contact.comments : null]
     });
   }

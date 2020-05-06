@@ -7,6 +7,7 @@ import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { CreateCollectGroupCommand } from 'src/app/collect-groups/models/create-collect-group.command';
+import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class PreboardingVisitorCountComponent implements OnInit {
     this.collectGroup = this.route.snapshot.data.collectGroup as CreateCollectGroupCommand;
 
     this.form = this.formBuilder.group({
-      numberOfVisitors: [this.collectGroup ? this.collectGroup.visitorCount : null, [Validators.required]],
+      numberOfVisitors: [this.collectGroup ? this.collectGroup.visitorCount : null, [Validators.required, notNullOrEmptyValidator()]],
     });
   }
 
