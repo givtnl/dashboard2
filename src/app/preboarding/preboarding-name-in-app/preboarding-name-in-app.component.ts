@@ -59,6 +59,9 @@ export class PreboardingNameInAppComponent implements OnInit {
       if (inAppOrgNameErrors.trimEmptyValue || inAppOrgNameErrors.required) {
         errorMessages.push(this.translationService.get('errorMessages.name-in-app-required'));
       }
+      if (inAppOrgNameErrors.maxlength) {
+        errorMessages.push(this.translationService.get('errorMessages.name-in-app-length'));
+      }
     }
 
     forkJoin(errorMessages)
