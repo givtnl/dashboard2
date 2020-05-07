@@ -9,5 +9,4 @@ export interface UpdateOrganisationCommand {
     PostalCode: string;
     ParentId: string;
     CharityCommissionNumber: string;
-    BackgroundInformation: string;
 }

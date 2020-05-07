@@ -37,8 +37,7 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
                 AddressLine5: toUpdateOrganisation.AddressLine5,
                 PostalCode: toUpdateOrganisation.PostalCode,
                 ParentId: null,
-                CharityCommissionNumber: null,
-                BackgroundInformation: JSON.stringify(additionalInformation)
+                CharityCommissionNumber: null
             }
 
             // kwil ier de status code checken voe te beslissen ofdak aldan niet een create coll group kan / mag / wil uitvoeren nadat update org is gelukt / niet gelukt
@@ -65,7 +64,10 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
             await forkJoin(toExecuteAdminCalls).toPromise();
 
             // create the note
-            await this.organisationService.addNote(currentOrganisationId, 'Preboarding completed', JSON.stringify(this.preboardingStateService.currentOrganisationContact, null, 2)).toPromise();
+            await this.organisationService.addNote(currentOrganisationId, 'Preboarding completed', JSON.stringify({
+                contact: this.preboardingStateService.currentOrganisationContact,
+                additionalInformation: additionalInformation
+            }, null, 2)).toPromise();
 
             // create the qr code
             var currentQrCodes = await this.collectGroupService.getCollectionMediums(currentOrganisationId, createdCollectGroupResponse.Result.Id).toPromise();
