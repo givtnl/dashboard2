@@ -67,7 +67,7 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
 
             // create the note
             await this.organisationService.addNote(currentOrganisationId, 'Preboarding completed',
-                `${this.formattingService.formatContact(this.preboardingStateService.currentOrganisationContact)}\n\n\n${this.formattingService.formatInfo(additionalInformation)}`).toPromise();
+                `${this.formattingService.formatContact(this.preboardingStateService.currentOrganisationContact)}${this.formattingService.formatInfo(additionalInformation)}`).toPromise();
 
             // create the qr code
             var currentQrCodes = await this.collectGroupService.getCollectionMediums(currentOrganisationId, createdCollectGroupResponse.Result.Id).toPromise();
