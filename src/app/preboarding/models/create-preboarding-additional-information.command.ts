@@ -14,5 +14,12 @@ export interface PreboardingCollectionDescription {
 
 export interface PreboardingCollectionDetail {
     quantity?: number | 0;
-    collectionType?: number | null;
+    collectionType?: PreboardingCollectionDetailType | null;
 }
+export enum PreboardingCollectionDetailType {
+Bags = 0,
+Buckets = 1,
+Plates = 2,
+Boxes = 3
+}
+

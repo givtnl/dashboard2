@@ -7,6 +7,7 @@ import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands
 import { OnboardingNewUsersService } from 'src/app/onboarding/new-users/services/onboarding-new-users.service';
 import { forkJoin } from 'rxjs';
 import { OrganisationType } from '../models/organisation-type.enum';
+import { PreboardingFormattingService } from '../services/preboarding-formatting.service';
 
 @Injectable({
     providedIn: 'root'
@@ -14,6 +15,7 @@ import { OrganisationType } from '../models/organisation-type.enum';
 
 export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
     constructor(
+        private formattingService: PreboardingFormattingService,
         private organisationService: OrganisationsService,
         private collectGroupService: CollectGroupsService,
         private preboardingStateService: PreboardingStateService,
@@ -64,10 +66,8 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
             await forkJoin(toExecuteAdminCalls).toPromise();
 
             // create the note
-            await this.organisationService.addNote(currentOrganisationId, 'Preboarding completed', JSON.stringify({
-                contact: this.preboardingStateService.currentOrganisationContact,
-                additionalInformation: additionalInformation
-            }, null, 2)).toPromise();
+            await this.organisationService.addNote(currentOrganisationId, 'Preboarding completed',
+                `${this.formattingService.formatContact(this.preboardingStateService.currentOrganisationContact)}\n\n\n${this.formattingService.formatInfo(additionalInformation)}`).toPromise();
 
             // create the qr code
             var currentQrCodes = await this.collectGroupService.getCollectionMediums(currentOrganisationId, createdCollectGroupResponse.Result.Id).toPromise();
