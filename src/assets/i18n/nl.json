@@ -295,9 +295,9 @@
     "preboardingOrganisationAdminDetailsComponent.description": "Vul hier één of meerdere e-mailadres(sen) van de admins die toegang zullen hebben tot het dashboard van je organisatie.",
     "preboardingOrganisationAdminDetailsComponent.placeholdersOrganisatorEmail": "E-mailadres",
     "preboardingOrganisationAdminDetailsComponent.nextButtonText": "Volgende",
-    "preboardingCollectionMediumDetails.description": "Iedere collecte kan met verschillende collectemiddelen gebeuren. Geef aan met welke middelen en hoeveel ervan jullie collecteren. Zo kunnen wij de juiste hoeveel zenders (inc. bevestigingen) meesturen.",
+    "preboardingCollectionMediumDetails.description": "Iedere collecte kan met verschillende collectemiddelen gebeuren. Geef aan met welke middelen en hoeveel ervan jullie collecteren. Zo kunnen wij het juiste aantal zenders (inc. bevestigingen) meesturen.",
     "preboardingCollectionMediumDetails.nextButtonText": "Volgende",
-    "preboardingDetailsCompleteComponent.title": "Wohooo",
+    "preboardingDetailsCompleteComponent.title": "Wohooo!",
     "preboardingDetailsCompleteComponent.description": "Bedankt om alle gegevens in te vullen. Jullie kunnen alvast beginnen met collecteren met Givt.",
     "errorMessages.name-in-app-required": "Gelieve een naam in te vullen",
     "errorMessages.address-city-required": "Gelieve een stad in te vullen",
@@ -328,7 +328,7 @@
     "preboardingNameInAppComponent.questionmarkPictureAlt": "Voorbeeld afbeelding van een succesvolle gift in de Givt-app",
     "preboardingOrganisationAdminDetailsComponent.buttonText": "Voeg e-mailadres toe",
     "errorMessages.collection-selection-required": "Gelieve minstens één manier van collecteren te selecteren",
-    "errorMessages.select-a-collection": "Selecteer ten minste 1 collecte soort.",
+    "errorMessages.select-a-collection": "Selecteer minstens 1 soort collecte.",
     "errorMessages.name-in-app-length": "Je hebt een ongeldige naam ingevuld.\nEen naam mag maximaal uit 30 tekens bestaan.",
     "errorMessages.fill-in-all-details": "Je hebt niet alle details volledig ingegeven.\nGelieve de rood-omcirkelde veldjes aan te vullen."
 }
