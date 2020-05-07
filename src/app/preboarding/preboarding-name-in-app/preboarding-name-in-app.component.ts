@@ -36,7 +36,7 @@ export class PreboardingNameInAppComponent implements OnInit {
     this.form = this.formBuilder.group({
       inAppOrgName: [this.collectGroup ? this.collectGroup.name : null, [Validators.required, Validators.maxLength(30), notNullOrEmptyValidator()],
       [UniqueCollectGroupNameValidator.create(this.collectGroupService)]],
-      paymentReference: [this.preboardingStateService.organisationDetails.country.toLowerCase() === 'nl' ? 'Automatische betaling Givt' : 'Automatische uitbetaling Givt']
+      paymentReference: [this.preboardingStateService.organisationDetails.country.toLowerCase() === 'nl' ? 'Automatische betaling Givt' : 'Automatic Payment Givt']
     });
   }
 
