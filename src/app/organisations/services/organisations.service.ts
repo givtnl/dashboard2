@@ -27,4 +27,9 @@ export class OrganisationsService {
             contents: contents
         });
     }
+
+    //change the progress internally
+    changeProgress(id: string, progress: OrganisationRegistrationProgress): Observable<object>{
+        return this.backendService.patch(`v2/organisations/${id}/registration/progress/${progress}`, {});
+    }
 }

@@ -8,6 +8,7 @@ import { OnboardingNewUsersService } from 'src/app/onboarding/new-users/services
 import { forkJoin } from 'rxjs';
 import { OrganisationType } from '../models/organisation-type.enum';
 import { PreboardingFormattingService } from '../services/preboarding-formatting.service';
+import { OrganisationRegistrationProgress } from '../../organisations/models/organisaition-registration-progress';
 
 @Injectable({
     providedIn: 'root'
@@ -90,6 +91,8 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
                 this.preboardingStateService.organisationDetails.organisationName,
                 templateName
             ).toPromise();
+
+            await this.organisationService.changeProgress(currentOrganisationId, OrganisationRegistrationProgress.Preboarded).toPromise();
         } catch (error) {
             return false;
         }
