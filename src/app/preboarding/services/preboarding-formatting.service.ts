@@ -51,6 +51,6 @@ export class PreboardingFormattingService {
    }
 
    private formatDetail(detail: PreboardingCollectionDetail): string {
-      return `Quantity: ${detail.quantity || 0} Type: ${PreboardingCollectionDetailType[detail.collectionType]}`
+      return `Type: ${PreboardingCollectionDetailType[detail.collectionType]} Quantity: ${detail.quantity || 0}`
    }
 }
