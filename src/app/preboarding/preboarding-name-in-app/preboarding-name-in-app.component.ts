@@ -31,7 +31,8 @@ export class PreboardingNameInAppComponent implements OnInit {
   ngOnInit() {
     this.collectGroup = this.route.snapshot.data.collectGroup;
     this.form = this.formBuilder.group({
-      inAppOrgName: [this.collectGroup ? this.collectGroup.name : null, [Validators.required, Validators.maxLength(30), notNullOrEmptyValidator()]]
+      inAppOrgName: [this.collectGroup ? this.collectGroup.name : null, [Validators.required, Validators.maxLength(30), notNullOrEmptyValidator()]],
+      paymentReference: [this.preboardingStateService.organisationDetails.country.toLowerCase() === 'nl' ? 'Automatische betaling Givt' : 'Automatische uitbetaling Givt']
     });
   }
 
@@ -46,6 +47,7 @@ export class PreboardingNameInAppComponent implements OnInit {
 
   continue() {
     this.collectGroup.name = this.form.value.inAppOrgName.trim();
+    this.collectGroup.paymentReference = this.form.value.paymentReference;
     this.preboardingStateService.currentCollectGroupDetails = this.collectGroup;
   }
 
