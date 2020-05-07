@@ -330,5 +330,7 @@
     "errorMessages.collection-selection-required": "Gelieve minstens één manier van collecteren te selecteren",
     "errorMessages.select-a-collection": "Selecteer minstens 1 soort collecte.",
     "errorMessages.name-in-app-length": "Je hebt een ongeldige naam ingevuld.\nEen naam mag maximaal uit 30 tekens bestaan.",
-    "errorMessages.fill-in-all-details": "Je hebt niet alle details volledig ingegeven.\nGelieve de rood-omcirkelde veldjes aan te vullen."
+    "errorMessages.fill-in-all-details": "Je hebt niet alle details volledig ingegeven.\nGelieve de rood-omcirkelde veldjes aan te vullen.",
+    "errorMessages.unique-collectgroup-name": "Helaas! Deze naam bestaat al.",
+    "preboardingNameInAppComponent.collectGroupPendingStatus": "Even geduld ... We checken de beschikbaarheid van deze naam."
 }

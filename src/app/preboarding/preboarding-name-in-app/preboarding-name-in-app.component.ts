@@ -8,6 +8,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { CreateCollectGroupCommand } from 'src/app/collect-groups/models/create-collect-group.command';
 import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
+import { UniqueCollectGroupNameValidator } from 'src/app/collect-groups/validators/unique-collect-group-name.validator';
+import { CollectGroupsService } from 'src/app/collect-groups/services/collect-groups.service';
 
 @Component({
   selector: 'app-preboarding-name-in-app',
@@ -22,6 +24,7 @@ export class PreboardingNameInAppComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private collectGroupService: CollectGroupsService,
     private formBuilder: FormBuilder,
     private translationService: TranslateService,
     private toastr: ToastrService,
@@ -31,7 +34,8 @@ export class PreboardingNameInAppComponent implements OnInit {
   ngOnInit() {
     this.collectGroup = this.route.snapshot.data.collectGroup;
     this.form = this.formBuilder.group({
-      inAppOrgName: [this.collectGroup ? this.collectGroup.name : null, [Validators.required, Validators.maxLength(30), notNullOrEmptyValidator()]],
+      inAppOrgName: [this.collectGroup ? this.collectGroup.name : null, [Validators.required, Validators.maxLength(30), notNullOrEmptyValidator()],
+      [UniqueCollectGroupNameValidator.create(this.collectGroupService)]],
       paymentReference: [this.preboardingStateService.organisationDetails.country.toLowerCase() === 'nl' ? 'Automatische betaling Givt' : 'Automatische uitbetaling Givt']
     });
   }
@@ -63,6 +67,9 @@ export class PreboardingNameInAppComponent implements OnInit {
       }
       if (inAppOrgNameErrors.maxlength) {
         errorMessages.push(this.translationService.get('errorMessages.name-in-app-length'));
+      }
+      if (inAppOrgNameErrors.unique) {
+        errorMessages.push(this.translationService.get('errorMessages.unique-collectgroup-name'));
       }
     }
 
