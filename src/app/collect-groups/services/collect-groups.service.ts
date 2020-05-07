@@ -25,8 +25,9 @@ export class CollectGroupsService {
     createUser(collectGroupId: string, command: CreateUserForCollectGroupCommand): Observable<object> {
         return this.backendService.post(`v2/collectgroups/${collectGroupId}/users/register`, command);
     }
-
-
+    search(name: string): Observable<CollectGroupListModel[]> {
+        return this.backendService.get<CollectGroupListModel[]>(`v2/collectgroups/search/${name.trim()}`);
+    }
     getCollectionMediums(organisationId: string, collectGroupId: string): Observable<Array<CollectionMediumListModel>> {
         return this.backendService.get(`v2/organisations/${organisationId}/collectgroups/${collectGroupId}/collectionMediums`);
     }
@@ -36,7 +37,7 @@ export class CollectGroupsService {
     }
 
 
-    exportCollectionMedium(organisationId: string, collectGroupId: string, collectionMediumId: string, language: string, email: string,organisationName:string, templateName: string): Observable<object> {
+    exportCollectionMedium(organisationId: string, collectGroupId: string, collectionMediumId: string, language: string, email: string, organisationName: string, templateName: string): Observable<object> {
         let queryParams = new HttpParams();
         queryParams = queryParams.set('emailAddress', email);
         queryParams = queryParams.set('receiverFirstName', '');

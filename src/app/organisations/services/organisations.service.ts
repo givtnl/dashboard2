@@ -5,6 +5,7 @@ import { OrganisationDetailModel } from '../models/organisation-detail.model';
 import { UpdateOrganisationCommand } from '../models/commands/update-organisation.command';
 import { CreateOrganisationContactCommand } from '../models/commands/create-organisation-contact.command';
 import { stringify } from 'querystring';
+import { OrganisationRegistrationProgress } from '../models/organisaition-registration-progress';
 
 @Injectable({
     providedIn:'root'
