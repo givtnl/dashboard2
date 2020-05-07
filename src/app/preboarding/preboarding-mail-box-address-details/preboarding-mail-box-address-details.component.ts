@@ -57,7 +57,8 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
   continue() {
     this.contact.address = this.form.value.mailBoxAddress.trim();
     this.contact.city = this.form.value.mailBoxCity.trim();
-    this.contact.comments = this.form.value.mailBoxComments.trim();
+    if (this.form.value.mailBoxComments) //This is not required so can be null
+      this.contact.comments = this.form.value.mailBoxComments.trim();
     this.contact.postCode = this.form.value.mailBoxZipCode.trim();
     this.preboardingStateService.currentOrganisationContact = this.contact;
   }
