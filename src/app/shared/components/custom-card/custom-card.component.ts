@@ -10,6 +10,10 @@ export class CustomCardComponent {
   @Input() public titleTranslationKey: string;
   @Input() public questionMarkTitle: string;
   @Input() public questionMarkText: string;
+  @Input() public questionMarkPictureTitle: string;
+  @Input() public questionMarkPictureText: string;
+  @Input() public questionMarkPicturePath: string;
+  @Input() public questionMarkPictureAlt: string;
   @Input() public showCloseButton = false;
   @Input() public icon: string;
   @Input() public iconBackgroundClass: string;
@@ -18,7 +22,7 @@ export class CustomCardComponent {
   /**
    *
    */
-  constructor(private location:Location) {
+  constructor(private location: Location) {
 
   }
 
@@ -29,7 +33,7 @@ export class CustomCardComponent {
       pixelSize += 50;
     }
 
-    if (this.questionMarkTitle && this.questionMarkTitle.length > 0) {
+    if ((this.questionMarkTitle && this.questionMarkTitle.length > 0) || (this.questionMarkPictureTitle && this.questionMarkPictureTitle.length > 0)) {
       pixelSize += 50;
     }
 
@@ -37,7 +41,7 @@ export class CustomCardComponent {
     return pixelSize;
   }
 
-  public onClickPrevious():void {
+  public onClickPrevious(): void {
     this.location.back();
   }
 }

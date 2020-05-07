@@ -1,0 +1,45 @@
+.form-group-medium-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    button {
+        margin-right: 20px;
+    }
+}
+
+#accordion {
+    .card {
+        margin-top: 10px;
+        .card-header {
+            span {
+                font-size: 1em;
+            }
+        }
+        .medium-card-body {
+            padding: 10px;
+            .medium-control-row {
+                justify-content: space-between;
+                margin-bottom: 10px;
+                div:nth-child(1),
+                div:nth-child(2) {
+                    padding-right: 10px;
+                }
+                div:nth-child(3) {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+     :first-child {
+        margin-top: 0;
+    }
+}
+
+.invalid-collection-type {
+    border: 1px solid red;
+}
+
+label {
+    margin-bottom: 0 !important;
+}

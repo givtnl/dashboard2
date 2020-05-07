@@ -15,6 +15,7 @@ import { ValidationErrorInterceptor } from './infrastructure/interceptors/valida
 import { UnauthorizedTokenInterceptor } from './shared/interceptors/unauthorized-token.interceptor';
 import { ErrorTermInterceptor } from './shared/interceptors/error-term.interceptor';
 import { ForbiddenInterceptor } from './shared/interceptors/forbidden.interceptor';
+import { EncodeHttpParamsInterceptor } from './infrastructure/interceptors/http-params.interceptor';
 
 
 @NgModule({
@@ -43,6 +44,11 @@ import { ForbiddenInterceptor } from './shared/interceptors/forbidden.intercepto
       provide:HTTP_INTERCEPTORS,
       useClass:UnauthorizedTokenInterceptor,
       multi:true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: EncodeHttpParamsInterceptor,
+      multi: true
     },
     {
       provide:HTTP_INTERCEPTORS,

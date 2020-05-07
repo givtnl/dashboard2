@@ -6,13 +6,18 @@
             </a>
         </div>
         <div class="middle-col">
-            <p *ngIf="titleTranslationKey && titleTranslationKey?.length > 0" [translate]="titleTranslationKey" class="text-givt-purple text-center text-heavy-font p-0 m-0">
+            <p *ngIf="titleTranslationKey && titleTranslationKey?.length > 0" [translate]="titleTranslationKey"
+                class="text-givt-purple text-center text-heavy-font p-0 m-0">
             </p>
         </div>
         <div class="side-col w-{{getHeaderButtonsWidth()}}px">
             <app-questionmark [title]="questionMarkTitle" *ngIf="questionMarkTitle" [text]="questionMarkText"
                 class="card-titlebar-button">
             </app-questionmark>
+            <app-questionmark-picture [title]="questionMarkPictureTitle" *ngIf="questionMarkPictureTitle"
+                [text]="questionMarkPictureText" [picturePath]="questionMarkPicturePath"
+                [pictureAlt]="questionMarkPictureAlt" class="card-titlebar-button">
+            </app-questionmark-picture>
             <a class="card-titlebar-button" [routerLink]="['/', 'dashboard']" *ngIf="showCloseButton">
                 <i class="fas text-givt-purple fa-times"></i>
             </a>
