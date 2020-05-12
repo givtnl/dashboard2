@@ -18,11 +18,16 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
     ) { }
 
   ngOnInit() {
+    var regulator = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.regulator;
+    var referenceWithRegulator = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.referenceWithRegulator;
+    var referenceWithParent = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.referenceWithParent;
+    var referenceWithHMRC = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.referenceWithHMRC;
+
     this.form = this.formBuilder.group({
-      regulator: [null, [Validators.required]],
-      referenceWithRegulator: [null, [Validators.required]],
-      referenceWithParent: [null, [Validators.required]],
-      referenceWithHMRC: [null, [Validators.required]]
+      regulator: [regulator ? regulator : null, [Validators.required]],
+      referenceWithRegulator: [referenceWithRegulator ? referenceWithRegulator : null, [Validators.required]],
+      referenceWithParent: [referenceWithParent ? referenceWithParent : null, [Validators.required]],
+      referenceWithHMRC: [referenceWithHMRC ? referenceWithHMRC : null, [Validators.required]]
     })
   }
   submit() {

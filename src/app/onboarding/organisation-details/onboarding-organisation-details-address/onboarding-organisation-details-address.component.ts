@@ -19,11 +19,16 @@ export class OnboardingOrganisationDetailsAddressComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    var address = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.address
+    var city = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.city
+    var postcode = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.postcode
+    var country = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.country
+
     this.form = this.formBuilder.group({
-      address: [null, [Validators.required]],
-      city: [null, [Validators.required]],
-      postcode: [null, [Validators.required]],
-      country: [null, [Validators.required]]
+      address: [address ? address : null, [Validators.required]],
+      city: [city ? city : null, [Validators.required]],
+      postcode: [postcode ? postcode : null, [Validators.required]],
+      country: [country ? country : null, [Validators.required]]
     })
   }
   submit() {

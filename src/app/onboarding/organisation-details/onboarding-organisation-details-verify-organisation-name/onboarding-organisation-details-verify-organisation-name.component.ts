@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
 import { CurrentOrganisationRegistrationDetailsModel } from '../models/current-organisation-registration-details-model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-onboarding-organisation-details-verify-organisation-name',
@@ -15,12 +15,15 @@ export class OnboardingOrganisationDetailsVerifyOrganisationNameComponent implem
   constructor(
     private formBuilder: FormBuilder,
     private onboardingStateService: OnboardingOrganisationDetailsStateService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
     ) { }
 
   ngOnInit() {
+    var organisationName = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.organisationName;
+
     this.form = this.formBuilder.group({
-      organisationName: [null, [Validators.required]]
+      organisationName: [organisationName ? organisationName : null, [Validators.required]]
     })
   }
   submit() {
