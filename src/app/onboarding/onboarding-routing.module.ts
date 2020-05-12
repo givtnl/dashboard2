@@ -60,6 +60,9 @@ import { OnboardingGiftAidCompleteCheckSuccessGuard } from './giftaid/guards/onb
 import { OnboardingOrganisationDetailsParentKnownComponent } from './organisation-details/onboarding-organisation-details-parent-known/onboarding-organisation-details-parent-known.component';
 import { OnboardingOrganisationDetailsFetchParentGuard } from './organisation-details/guards/onboarding-organisation-details-fetch-parent.guard';
 import { TranslatedValueResolver } from '../shared/guards/translated-value.resolver';
+import { OnboardingOrganisationDetailsVerifyOrganisationNameComponent } from './organisation-details/onboarding-organisation-details-verify-organisation-name/onboarding-organisation-details-verify-organisation-name.component';
+import { OnboardingOrganisationDetailsCharityDetailsComponent } from './organisation-details/onboarding-organisation-details-charity-details/onboarding-organisation-details-charity-details.component';
+import { OnboardingOrganisationDetailsAddressComponent } from './organisation-details/onboarding-organisation-details-address/onboarding-organisation-details-address.component';
 
 const routes: Routes = [
   {
@@ -152,11 +155,26 @@ const routes: Routes = [
         outlet: 'onboarding-outlet',
         component: OnboardingOrganisationDetailsIncorrectComponent
       },
+      // {
+      //   path: 'parent-known',
+      //   outlet: 'onboarding-outlet',
+      //   component: OnboardingOrganisationDetailsParentKnownComponent
+      // },
       {
-        path: 'parent-known',
+        path: 'verify-organisation-name',
         outlet: 'onboarding-outlet',
-        component: OnboardingOrganisationDetailsParentKnownComponent
+        component: OnboardingOrganisationDetailsVerifyOrganisationNameComponent
       },
+      {
+        path: 'address-details',
+        outlet: 'onboarding-outlet',
+        component: OnboardingOrganisationDetailsAddressComponent
+      },
+      {
+        path: 'charity-details',
+        outlet: 'onboarding-outlet',
+        component: OnboardingOrganisationDetailsCharityDetailsComponent
+      }
     ]
   },
   {

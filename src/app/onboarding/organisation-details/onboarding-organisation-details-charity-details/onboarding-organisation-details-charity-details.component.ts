@@ -47,6 +47,6 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
     currentOrganisationRegistrationDetailModel.referenceWithParent = this.form.value.referenceWithParent;
     currentOrganisationRegistrationDetailModel.referenceWithHMRC = this.form.value.referenceWithHMRC;
     this.onboardingStateService.currentOrganisationRegistrationDetailsModel = currentOrganisationRegistrationDetailModel
-    this.router.navigate(['/','onboarding','organisation-details', { outlets: { 'onboarding-outlet': ['charity-details'] } }])
+    this.router.navigate(['/','onboarding','organisation-details', { outlets: { 'onboarding-outlet': ['complete'] } }])
   }
 }
