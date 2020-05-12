@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
+import { CurrentOrganisationRegistrationDetailsModel } from '../models/current-organisation-registration-details-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-onboarding-organisation-details-verify-organisation-name',
@@ -7,9 +11,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OnboardingOrganisationDetailsVerifyOrganisationNameComponent implements OnInit {
 
-  constructor() { }
+  public form: FormGroup
+  constructor(
+    private formBuilder: FormBuilder,
+    private onboardingStateService: OnboardingOrganisationDetailsStateService,
+    private router: Router
+    ) { }
 
   ngOnInit() {
+    this.form = this.formBuilder.group({
+      organisationName: [null, [Validators.required]]
+    })
   }
+  submit() {
+    if (this.form.invalid) {
+      this.handleInvalidForm();
+      return;
+    }
+    this.continue();
+  }
+  handleInvalidForm() {
 
+  }
+  continue() {
+    var currentOrganisationRegistrationDetailModel: CurrentOrganisationRegistrationDetailsModel = this.onboardingStateService.currentOrganisationRegistrationDetailsModel || Object()
+    currentOrganisationRegistrationDetailModel.organisationName = this.form.value.organisationName
+    this.onboardingStateService.currentOrganisationRegistrationDetailsModel = currentOrganisationRegistrationDetailModel
+    this.router.navigate(['/','onboarding','organisation-details', { outlets: { 'onboarding-outlet': ['address-details'] } }])
+  }
 }

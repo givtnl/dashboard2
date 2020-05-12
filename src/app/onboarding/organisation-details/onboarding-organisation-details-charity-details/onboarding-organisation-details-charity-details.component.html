@@ -1,1 +1,18 @@
-<p>onboarding-organisation-details-charity-details works!</p>
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'>
+    <app-custom-card [showCloseButton]='false' [showPreviousButton]='true' iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
+        <div body>
+
+            <input type="text" placeholder="Plekke oeder" formControlName="regulator" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+            <input type="text" placeholder="Plekke oeder" formControlName="referenceWithRegulator" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+            <input type="text" placeholder="Plekke oeder" formControlName="referenceWithParent" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+            <input type="text" placeholder="Plekke oeder" formControlName="referenceWithHMRC" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+        </div>
+        <button bottom type="submit" [translate] [disabled]="loading" class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+            <span class="text-white text-heavy-font" translate>
+                <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
+                Gif mo goaze
+            </span>
+        </button>
+    </app-custom-card>
+</form>
