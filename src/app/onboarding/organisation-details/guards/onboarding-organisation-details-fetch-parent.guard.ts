@@ -32,7 +32,7 @@ export class OnboardingOrganisationDetailsFetchParentGuard
     try {
       var resp = await this.onboardingOrganisationDetailsService.checkIfParentExists(charityNumber, currentOrganisation).toPromise();
       // do a redirect to let the children fill in the contractform
-      this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['parent-known'] } }]);
+      this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['verify-organisation-name'] } }]);
     } catch (error) {
       return true;
     }
