@@ -50,7 +50,8 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
             let createdCollectGroupResponse = currentOrganisationCollectGroups && currentOrganisationCollectGroups.length > 0 ?
                 {
                     Result: {
-                        Id: currentOrganisationCollectGroups[0].Id
+                        Id: currentOrganisationCollectGroups[0].Id,
+                        Namespace: currentOrganisationCollectGroups[0].Namespace
                     }
                 } :
                 await this.collectGroupService.create(currentOrganisationId, createCollectGroupCommand).toPromise();
@@ -91,6 +92,29 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
                 this.preboardingStateService.organisationDetails.organisationName,
                 templateName,
                 null
+            ).toPromise();
+
+            // generate and upload the qr code for the wog (c6 and ce)
+            await this.collectGroupService.exportCollectionMedium(
+                currentOrganisationId,
+                createdCollectGroupResponse.Result.Id,
+                createdQrCodeResponse.Result,
+                this.preboardingStateService.organisationDetails.language,
+                null,
+                null,
+                null,
+                `${createdCollectGroupResponse.Result.Namespace}.ce0000000001.`
+            ).toPromise();
+
+            await this.collectGroupService.exportCollectionMedium(
+                currentOrganisationId,
+                createdCollectGroupResponse.Result.Id,
+                createdQrCodeResponse.Result,
+                this.preboardingStateService.organisationDetails.language,
+                null,
+                null,
+                null,
+                `${createdCollectGroupResponse.Result.Namespace}.c60000000001.`
             ).toPromise();
 
             await this.organisationService.changeProgress(currentOrganisationId, OrganisationRegistrationProgress.Preboarded).toPromise();
