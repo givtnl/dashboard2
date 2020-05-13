@@ -89,7 +89,8 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
                 this.preboardingStateService.organisationDetails.language,
                 this.preboardingStateService.organisationDetails.emailAddress,
                 this.preboardingStateService.organisationDetails.organisationName,
-                templateName
+                templateName,
+                null
             ).toPromise();
 
             await this.organisationService.changeProgress(currentOrganisationId, OrganisationRegistrationProgress.Preboarded).toPromise();
