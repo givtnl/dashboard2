@@ -98,23 +98,23 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
             await this.collectGroupService.exportCollectionMedium(
                 currentOrganisationId,
                 createdCollectGroupResponse.Result.Id,
-                createdQrCodeResponse.Result,
+                `${createdCollectGroupResponse.Result.Namespace}.ce0000000001.`,
                 this.preboardingStateService.organisationDetails.language,
                 null,
                 null,
                 null,
-                `${createdCollectGroupResponse.Result.Namespace}.ce0000000001.`
+                "cdn/qr"
             ).toPromise();
 
             await this.collectGroupService.exportCollectionMedium(
                 currentOrganisationId,
                 createdCollectGroupResponse.Result.Id,
-                createdQrCodeResponse.Result,
+                `${createdCollectGroupResponse.Result.Namespace}.c60000000001.`,
                 this.preboardingStateService.organisationDetails.language,
                 null,
                 null,
                 null,
-                `${createdCollectGroupResponse.Result.Namespace}.c60000000001.`
+                "cdn/qr"
             ).toPromise();
 
             await this.organisationService.changeProgress(currentOrganisationId, OrganisationRegistrationProgress.Preboarded).toPromise();
