@@ -332,5 +332,17 @@
     "errorMessages.name-in-app-length": "You have filled in an invalid name.\nA name may contain a maximum of 30 characters.",
     "errorMessages.fill-in-all-details": "You have not completed the form correctly.\nPlease complete the fields with a red border.",
     "errorMessages.unique-collectgroup-name": "Alas! This name has been taken.",
-    "preboardingNameInAppComponent.collectGroupPendingStatus": "Just a second ... We're checking the availability of this name."
+    "preboardingNameInAppComponent.collectGroupPendingStatus": "Just a second ... We're checking the availability of this name.",
+    "onboardingOrganisationDetails.placeholderName": "Name of your organisation",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.selectCountry": "Select country",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.address": "House number and street",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.city": "City/Town",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.postcode": "Postcode",
+    "onboardingOrganisationDetailsAddressComponent.countrys.GB": "United Kingdom",
+    "onboardingOrganisationDetailsAddressComponent.countrys.GG": "Guernsey",
+    "onboardingOrganisationDetailsAddressComponent.countrys.JE": "Jersey",
+    "onboardingOrganisationDetailsCharityDetailsComponent.placholders.selectRegulator": "Select regulator",
+    "onboardingOrganisationDetailsCharityDetailsComponent.placholders.referenceWithRegulator": "Reference with regulator",
+    "onboardingOrganisationDetailsCharityDetailsComponent.placholders.referenceWithParent": "Reference with parent",
+    "onboardingOrganisationDetailsCharityDetailsComponent.placholders.referenceWithHMRC": "Reference with HMRC"
 }
