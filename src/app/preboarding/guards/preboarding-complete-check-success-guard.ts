@@ -98,7 +98,7 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
             await this.collectGroupService.exportCollectionMedium(
                 currentOrganisationId,
                 createdCollectGroupResponse.Result.Id,
-                `${createdCollectGroupResponse.Result.Namespace}.ce0000000001.`,
+                `${createdCollectGroupResponse.Result.Namespace}.ce0000000001`,
                 this.preboardingStateService.organisationDetails.language,
                 null,
                 null,
@@ -109,7 +109,7 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
             await this.collectGroupService.exportCollectionMedium(
                 currentOrganisationId,
                 createdCollectGroupResponse.Result.Id,
-                `${createdCollectGroupResponse.Result.Namespace}.c60000000001.`,
+                `${createdCollectGroupResponse.Result.Namespace}.c60000000001`,
                 this.preboardingStateService.organisationDetails.language,
                 null,
                 null,
