@@ -157,7 +157,7 @@
     "onboardingOrganisationDetailsCharityNumberComponent.questionmarkText": "Even without a Charity Commission reference it is possible to join Givt. Please contact our helpdesk for more information.",
     "onboardingOrganisationDetailsCharityNumberComponent.requestCharityNumber": "Please enter the Charity Commission reference you use:",
     "onboardingOrganisationDetailsCharityNumberComponent.explanation": "With this Charity Commission reference, we request some public information from the Charity Commission. You can check these details in the next screen. If you enter a Charity number which is already known to us, you will be considered a child organisation of that charity. They will have to verify your information.",
-    "onboardingOrganisationDetailsCharityNumberComponent.nextButtonText": "Next",
+    "onboardingOrganisationDetailsCharityNumberComponent.nextButtonText": "Volgende",
     "errorMessages.charity-number-required": "Please fill in the Charity Commission reference you use",
     "placeholders.charityNumber": "Charity Number",
     "onboardingOrganisationDetailsVerifyComponent.CharityNumber": "Charity Commission reference:",
@@ -332,5 +332,17 @@
     "errorMessages.name-in-app-length": "Je hebt een ongeldige naam ingevuld.\nEen naam mag maximaal uit 30 tekens bestaan.",
     "errorMessages.fill-in-all-details": "Je hebt niet alle details volledig ingegeven.\nGelieve de rood-omcirkelde veldjes aan te vullen.",
     "errorMessages.unique-collectgroup-name": "Helaas! Deze naam bestaat al.",
-    "preboardingNameInAppComponent.collectGroupPendingStatus": "Even geduld ... We checken de beschikbaarheid van deze naam."
+    "preboardingNameInAppComponent.collectGroupPendingStatus": "Even geduld ... We checken de beschikbaarheid van deze naam.",
+    "onboardingOrganisationDetails.placeholderName": "Naam van je organisatie",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.selectCountry": "Selecteer land",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.address": "Straat en huisnummer",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.city": "Stad",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.postcode": "Postcode",
+    "onboardingOrganisationDetailsAddressComponent.countrys.GB": "Verenigd Koninkrijk",
+    "onboardingOrganisationDetailsAddressComponent.countrys.GG": "Guernsey",
+    "onboardingOrganisationDetailsAddressComponent.countrys.JE": "Jersey",
+    "onboardingOrganisationDetailsCharityDetailsComponent.placholders.selectRegulator": "Select regulator",
+    "onboardingOrganisationDetailsCharityDetailsComponent.placholders.referenceWithRegulator": "Reference with regulator",
+    "onboardingOrganisationDetailsCharityDetailsComponent.placholders.referenceWithParent": "Reference with parent",
+    "onboardingOrganisationDetailsCharityDetailsComponent.placholders.referenceWithHMRC": "Reference with HMRC"
 }
