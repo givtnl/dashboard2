@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CharityCommisionOrganisationDetailModel } from '../models/charity-commision-organisation-detail.model';
 import { CurrentOrganisationRegistrationDetailsModel } from '../models/current-organisation-registration-details-model';
+import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +25,10 @@ export class OnboardingOrganisationDetailsStateService {
   public set currentCharityNumber(charityNumber: string) {
     this.storage.setItem('OnboardingOrganisationDetailsStateService.CurrentCharityNumber', charityNumber.toString());
   }
-  public get currentOrganisationRegistrationDetailsModel(): CurrentOrganisationRegistrationDetailsModel {
+  public get currentOrganisationRegistrationDetailsModel(): UpdateOrganisationCommand {
     return JSON.parse(this.storage.getItem('OnboardingOrganisationDetailsStateService.CurrentOrganisationRegistrationDetailsModel'));
   } 
-  public set currentOrganisationRegistrationDetailsModel(value: CurrentOrganisationRegistrationDetailsModel) {
+  public set currentOrganisationRegistrationDetailsModel(value: UpdateOrganisationCommand) {
     this.storage.setItem('OnboardingOrganisationDetailsStateService.CurrentOrganisationRegistrationDetailsModel', JSON.stringify(value))
   }
 }
