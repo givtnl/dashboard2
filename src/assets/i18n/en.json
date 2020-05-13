@@ -344,5 +344,6 @@
     "onboardingOrganisationDetailsCharityDetailsComponent.placholders.selectRegulator": "Select regulator",
     "onboardingOrganisationDetailsCharityDetailsComponent.placholders.referenceWithRegulator": "Reference with regulator",
     "onboardingOrganisationDetailsCharityDetailsComponent.placholders.referenceWithParent": "Reference with parent",
-    "onboardingOrganisationDetailsCharityDetailsComponent.placholders.referenceWithHMRC": "Reference with HMRC"
+    "onboardingOrganisationDetailsCharityDetailsComponent.placholders.referenceWithHMRC": "Reference with HMRC",
+    "errorMessages.organisation-name-required": "Please fill in the name of the organisation"
 }
