@@ -95,6 +95,7 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
             ).toPromise();
 
             // generate and upload the qr code for the wog (c6 and ce)
+            await this.collectGroupService.addCollectionMedium(currentOrganisationId, `${createdCollectGroupResponse.Result.Namespace}.ce0000000001`).toPromise();
             await this.collectGroupService.exportCollectionMedium(
                 currentOrganisationId,
                 createdCollectGroupResponse.Result.Id,
@@ -106,6 +107,7 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
                 "cdn/qr"
             ).toPromise();
 
+            await this.collectGroupService.addCollectionMedium(currentOrganisationId, `${createdCollectGroupResponse.Result.Namespace}.c60000000001`).toPromise();
             await this.collectGroupService.exportCollectionMedium(
                 currentOrganisationId,
                 createdCollectGroupResponse.Result.Id,
