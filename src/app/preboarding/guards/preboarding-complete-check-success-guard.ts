@@ -9,6 +9,7 @@ import { forkJoin } from 'rxjs';
 import { OrganisationType } from '../models/organisation-type.enum';
 import { PreboardingFormattingService } from '../services/preboarding-formatting.service';
 import { OrganisationRegistrationProgress } from '../../organisations/models/organisaition-registration-progress';
+import { CollectionMediumType } from 'src/app/collect-groups/models/collection-medium-list.model';
 
 @Injectable({
     providedIn: 'root'
@@ -94,30 +95,22 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
                 null
             ).toPromise();
 
-            // generate and upload the qr code for the wog (c6 and ce)
-            await this.collectGroupService.addCollectionMedium(currentOrganisationId, `${createdCollectGroupResponse.Result.Namespace}.ce0000000001`).toPromise();
-            await this.collectGroupService.exportCollectionMedium(
-                currentOrganisationId,
-                createdCollectGroupResponse.Result.Id,
-                `${createdCollectGroupResponse.Result.Namespace}.ce0000000001`,
-                this.preboardingStateService.organisationDetails.language,
-                null,
-                null,
-                null,
-                "cdn/qr"
-            ).toPromise();
-
-            await this.collectGroupService.addCollectionMedium(currentOrganisationId, `${createdCollectGroupResponse.Result.Namespace}.c60000000001`).toPromise();
-            await this.collectGroupService.exportCollectionMedium(
-                currentOrganisationId,
-                createdCollectGroupResponse.Result.Id,
-                `${createdCollectGroupResponse.Result.Namespace}.c60000000001`,
-                this.preboardingStateService.organisationDetails.language,
-                null,
-                null,
-                null,
-                "cdn/qr"
-            ).toPromise();
+            if (currentQrCodes.length == 0) {
+                for (const qrType of [CollectionMediumType.QrCodeWebOnly, CollectionMediumType.QrCodeKDGM]) {
+                    // generate and upload the qr code for the wog (c6 and ce)
+                    await this.collectGroupService.addCollectionMedium(currentOrganisationId, createdCollectGroupResponse.Result.Id, qrType).toPromise();
+                    await this.collectGroupService.exportCollectionMedium(
+                        currentOrganisationId,
+                        createdCollectGroupResponse.Result.Id,
+                        createdQrCodeResponse.Result,
+                        this.preboardingStateService.organisationDetails.language,
+                        null,
+                        null,
+                        null,
+                        "cdn/qr"
+                    ).toPromise();                        
+                }
+            }
 
             await this.organisationService.changeProgress(currentOrganisationId, OrganisationRegistrationProgress.Preboarded).toPromise();
         } catch (error) {

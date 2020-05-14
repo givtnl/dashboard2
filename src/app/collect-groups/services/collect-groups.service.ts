@@ -7,7 +7,7 @@ import { CreatedResponseModel } from 'src/app/infrastructure/models/response.mod
 import { CreateUserForCollectGroupCommand } from '../models/create-user-for-collect-group.command';
 import { HttpParams } from '@angular/common/http';
 import { CreatedCollectGroupResponse } from '../models/created-collect-group-response.model';
-import { CollectionMediumListModel } from '../models/collection-medium-list.model';
+import { CollectionMediumListModel, CollectionMediumType } from '../models/collection-medium-list.model';
 @Injectable({
     providedIn: 'root'
 })
@@ -32,8 +32,10 @@ export class CollectGroupsService {
         return this.backendService.get(`v2/organisations/${organisationId}/collectgroups/${collectGroupId}/collectionMediums`);
     }
 
-    addCollectionMedium(organisationId: string, collectGroupId: string): Observable<CreatedResponseModel<string>> {
-        return this.backendService.post(`v2/organisations/${organisationId}/collectgroups/${collectGroupId}/collectionmediums`, {})
+    addCollectionMedium(organisationId: string, collectGroupId: string, type: CollectionMediumType = CollectionMediumType.QrCodeDefault): Observable<CreatedResponseModel<string>> {
+        return this.backendService.post(`v2/organisations/${organisationId}/collectgroups/${collectGroupId}/collectionmediums`, {
+            CollectionMediumType: type
+        })
     }
 
 
