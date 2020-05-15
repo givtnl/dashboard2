@@ -96,24 +96,20 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
             ).toPromise();
 
             if (currentQrCodes.length == 0) {
-                var toCreateQrCodes = [CollectionMediumType.QrCodeWebOnly, CollectionMediumType.QrCodeKDGM].map(qrType =>
+                for (const qrType of [CollectionMediumType.QrCodeWebOnly, CollectionMediumType.QrCodeKDGM]) {
                     // generate and upload the qr code for the wog (c6 and ce)
-                    this.collectGroupService.addCollectionMedium(currentOrganisationId, createdCollectGroupResponse.Result.Id, qrType)
-                        .toPromise()
-                        .then((response) => {
-                            this.collectGroupService.exportCollectionMedium(
-                                currentOrganisationId,
-                                createdCollectGroupResponse.Result.Id,
-                                response.Result,
-                                this.preboardingStateService.organisationDetails.language,
-                                null,
-                                null,
-                                null,
-                                "cdn/qr"
-                            );                                                            
-                        })
-                )
-                await forkJoin(toCreateQrCodes).toPromise();
+                    var response = await this.collectGroupService.addCollectionMedium(currentOrganisationId, createdCollectGroupResponse.Result.Id, qrType).toPromise()
+                    await this.collectGroupService.exportCollectionMedium(
+                        currentOrganisationId,
+                        createdCollectGroupResponse.Result.Id,
+                        response.Result,
+                        this.preboardingStateService.organisationDetails.language,
+                        null,
+                        null,
+                        null,
+                        "cdn/qr"
+                    ).toPromise();
+                }
             }
 
             await this.organisationService.changeProgress(currentOrganisationId, OrganisationRegistrationProgress.Preboarded).toPromise();
