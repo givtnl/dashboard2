@@ -96,20 +96,24 @@ export class PreboardingCompleteCheckSuccessGuard implements CanActivate {
             ).toPromise();
 
             if (currentQrCodes.length == 0) {
-                for (const qrType of [CollectionMediumType.QrCodeWebOnly, CollectionMediumType.QrCodeKDGM]) {
+                var toCreateQrCodes = [CollectionMediumType.QrCodeWebOnly, CollectionMediumType.QrCodeKDGM].map(qrType =>
                     // generate and upload the qr code for the wog (c6 and ce)
-                    await this.collectGroupService.addCollectionMedium(currentOrganisationId, createdCollectGroupResponse.Result.Id, qrType).toPromise();
-                    await this.collectGroupService.exportCollectionMedium(
-                        currentOrganisationId,
-                        createdCollectGroupResponse.Result.Id,
-                        createdQrCodeResponse.Result,
-                        this.preboardingStateService.organisationDetails.language,
-                        null,
-                        null,
-                        null,
-                        "cdn/qr"
-                    ).toPromise();                        
-                }
+                    this.collectGroupService.addCollectionMedium(currentOrganisationId, createdCollectGroupResponse.Result.Id, qrType)
+                        .toPromise()
+                        .then((response) => {
+                            this.collectGroupService.exportCollectionMedium(
+                                currentOrganisationId,
+                                createdCollectGroupResponse.Result.Id,
+                                response.Result,
+                                this.preboardingStateService.organisationDetails.language,
+                                null,
+                                null,
+                                null,
+                                "cdn/qr"
+                            );                                                            
+                        })
+                )
+                await forkJoin(toCreateQrCodes).toPromise();
             }
 
             await this.organisationService.changeProgress(currentOrganisationId, OrganisationRegistrationProgress.Preboarded).toPromise();
