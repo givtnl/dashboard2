@@ -39,7 +39,7 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
     }
     mapEmail(email: string = null): FormGroup {
         return this.formBuilder.group({
-            email: [email ? email : null, [Validators.required]]
+            email: [email ? email : null, [Validators.required, Validators.email]]
         })
     }
     mapEmailsToArray(emails: CreateCollectGroupUserCommand[]): FormArray {
