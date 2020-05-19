@@ -136,6 +136,23 @@ const routes: Routes = [
         data: { toResolveTranslationKey: 'onboardingOrganisationDetailsCharityNumberComponent.charityErrorDescription' },
         component: OnboardingOrganisationDetailsCharityNumberComponent
       },
+     
+      {
+        path: 'verify-organisation-name',
+        outlet: 'onboarding-outlet',
+        component: OnboardingOrganisationDetailsVerifyOrganisationNameComponent
+      },
+      {
+        path: 'address-details',
+        outlet: 'onboarding-outlet',
+        component: OnboardingOrganisationDetailsAddressComponent
+      },
+      {
+        path: 'charity-details',
+        outlet: 'onboarding-outlet',
+        data: {hasParent: false},
+        component: OnboardingOrganisationDetailsCharityDetailsComponent
+      },
       {
         path: 'check-details',
         outlet: 'onboarding-outlet',
@@ -160,21 +177,6 @@ const routes: Routes = [
       //   outlet: 'onboarding-outlet',
       //   component: OnboardingOrganisationDetailsParentKnownComponent
       // },
-      {
-        path: 'verify-organisation-name',
-        outlet: 'onboarding-outlet',
-        component: OnboardingOrganisationDetailsVerifyOrganisationNameComponent
-      },
-      {
-        path: 'address-details',
-        outlet: 'onboarding-outlet',
-        component: OnboardingOrganisationDetailsAddressComponent
-      },
-      {
-        path: 'charity-details',
-        outlet: 'onboarding-outlet',
-        component: OnboardingOrganisationDetailsCharityDetailsComponent
-      }
     ]
   },
   {
