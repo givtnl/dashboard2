@@ -123,7 +123,7 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
           null,
           "cdn/qr"
         )))
-      ));
+      )).subscribe(x => this.handleStep(3));
   }
   // Exports Collection Mediums By Mail
   stepFour(createdOrRetrievedCollectionMedium: CreatedResponseModel<string>, createdOrRetrievedCollectGroup: CreatedResponseModel<CreatedCollectGroupResponse>): void {
