@@ -8,6 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { tap, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
+import { postCodeBACSValidator } from 'src/app/shared/validators/postcode-BACS.validator';
 
 @Component({
   selector: 'app-giftaid-organisation-address-details',
@@ -29,13 +30,13 @@ export class GiftaidOrganisationAddressDetailsComponent implements OnInit {
   ngOnInit() {
     const currentSettings = this.currentSettings();
     this.form = this.fb.group({
-      charityAddressLineOne: [this.currentSettings ? currentSettings.charityAddressLineOne : null, [Validators.required,notNullOrEmptyValidator()]],
-      charityAddressLineTwo: [this.currentSettings ? currentSettings.charityAddressLineTwo : null, [Validators.required,notNullOrEmptyValidator()]],
-      charityAddressLineThree: [this.currentSettings ? currentSettings.charityAddressLineThree : null],
-      charityAddressLineFour: [this.currentSettings ? currentSettings.charityAddressLineFour : null],
-      charityAddressZipCode: [this.currentSettings ? currentSettings.charityAddressZipCode : null, [Validators.required,notNullOrEmptyValidator()]],
+      charityAddressLineOne: [currentSettings ? currentSettings.charityAddressLineOne : null, [Validators.required,notNullOrEmptyValidator()]],
+      charityAddressLineTwo: [currentSettings ? currentSettings.charityAddressLineTwo : null, [Validators.required,notNullOrEmptyValidator()]],
+      charityAddressLineThree: [currentSettings ? currentSettings.charityAddressLineThree : null],
+      charityAddressLineFour: [currentSettings ? currentSettings.charityAddressLineFour : null],
+      charityAddressZipCode: [currentSettings ? currentSettings.charityAddressZipCode : null, [Validators.required,postCodeBACSValidator(),notNullOrEmptyValidator()]],
       charityAddressCountry: [{
-       value: this.currentSettings ? currentSettings.charityAddressCountry : null,
+       value: currentSettings ? currentSettings.charityAddressCountry : null,
        disabled: true
       }, [Validators.required,notNullOrEmptyValidator()]]
     },{updateOn:'submit'});
@@ -78,9 +79,15 @@ export class GiftaidOrganisationAddressDetailsComponent implements OnInit {
       if (addressLine2Errors.trimEmptyValue || addressLine2Errors.required)
         errorMessages.push(this.translationService.get('errorMessages.address-required'));
 
-    if (addressZipCodeErrors)
-      if (addressZipCodeErrors.trimEmptyValue || addressZipCodeErrors.required)
-        errorMessages.push(this.translationService.get('errorMessages.zipcode-required'));
+        if (addressZipCodeErrors) {
+          if (addressZipCodeErrors.trimEmptyValue || addressZipCodeErrors.required){
+            errorMessages.push(this.translationService.get('errorMessages.zipcode-required'));
+          }
+          if(addressZipCodeErrors.invalidPostCode) {
+            errorMessages.push(this.translationService.get('errorMessages.postcode-invalid'));
+    
+          }
+        }
 
     if (addressCountryErrors)
       if (addressCountryErrors.trimEmptyValue || addressCountryErrors.required)

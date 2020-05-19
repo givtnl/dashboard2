@@ -8,6 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
+import { postCodeBACSValidator } from 'src/app/shared/validators/postcode-BACS.validator';
 
 @Component({
   selector: 'app-giftaid-authorised-official-address-details',
@@ -36,7 +37,7 @@ export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit 
       authorisedOfficialHomeAddressLineFour: [
         currentSettings ? currentSettings.authorisedOfficialHomeAddressLineFour : null
       ],
-      authorisedOfficialHomeAddressZipCode: [currentSettings ? currentSettings.authorisedOfficialHomeAddressZipCode : null, [Validators.required, notNullOrEmptyValidator()]],
+      authorisedOfficialHomeAddressZipCode: [currentSettings ? currentSettings.authorisedOfficialHomeAddressZipCode : null, [Validators.required, postCodeBACSValidator(),  notNullOrEmptyValidator()]],
       authorisedOfficialHomeAddressCountry: [{
        value : 'United Kingdom',
        disabled:true
@@ -82,9 +83,15 @@ export class GiftaidAuthorisedOfficialAddressDetailsComponent implements OnInit 
       if (addressLine3Errors.trimEmptyValue || addressLine3Errors.required)
         errorMessages.push(this.translationService.get('errorMessages.address-required'));
     
-    if (addressZipCodeErrors) 
-      if (addressZipCodeErrors.trimEmptyValue || addressZipCodeErrors.required)
+    if (addressZipCodeErrors) {
+      if (addressZipCodeErrors.trimEmptyValue || addressZipCodeErrors.required){
         errorMessages.push(this.translationService.get('errorMessages.zipcode-required'));
+      }
+      if(addressZipCodeErrors.invalidPostCode) {
+        errorMessages.push(this.translationService.get('errorMessages.postcode-invalid'));
+
+      }
+    }
     
     if (addressCountryErrors)
       if (addressCountryErrors.trimEmptyValue || addressCountryErrors.required)
