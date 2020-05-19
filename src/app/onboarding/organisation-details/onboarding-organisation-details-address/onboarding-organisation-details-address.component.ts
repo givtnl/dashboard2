@@ -72,7 +72,9 @@ export class OnboardingOrganisationDetailsAddressComponent implements OnInit {
       if (postcodeErrors.required) {
         errorMessages.push(this.translationService.get('errorMessages.address-zipcode-required'));
       }
-      //TODO: DO THE ERROR MESSAGE FOR INVALID UK POSTCODE
+      if (postcodeErrors.invalidPostCode) {
+        errorMessages.push(this.translationService.get('errorMessages.postcode-invalid'));
+      }
     }
 
     if (countryErrors) {
