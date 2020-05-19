@@ -12,10 +12,10 @@ import { PreboardingCollectionsComponent } from './preboarding-collections/prebo
 import { PreboardingCurrentCollectGroupResolver } from './resolvers/preboarding-current-collect-group.resolver';
 import { PreboardingCurrentOrganisationContactGroupResolver } from './resolvers/preboarding-current-organisation-contact.resolver';
 import { PreboardingCurrentAdditionalInformationResolver } from './resolvers/preboarding-current-additional-information.resolver';
-import { PreboardingCompleteCheckSuccessGuard } from './guards/preboarding-complete-check-success-guard';
 import { PreboardingQueryParamsResolver } from './resolvers/preboarding-query-params.resolver';
 import { PreboardingOrganisationAdminContactResolver } from './resolvers/preboarding-organisation-admin-contact.resolver';
 import { PreboardingOrganisationTypeCheckGuard } from './guards/preboarding-organisation-type-check-guard';
+import { PreboardingAvailableStepsResolver } from './resolvers/preboarding-available-steps.resolver';
 
 const routes: Routes = [
   {
@@ -66,7 +66,7 @@ const routes: Routes = [
       },
       {
         path: 'complete',
-        canActivate: [PreboardingCompleteCheckSuccessGuard],
+        resolve:{steps: PreboardingAvailableStepsResolver},
         component: PreboardingDetailsCompleteComponent
       }
     ]
