@@ -107,7 +107,7 @@
     "onboardingBankAccountHolderWhoComponent.firstName": "Voornaam",
     "onboardingBankAccountHolderWhoComponent.lastName": "Achternaam",
     "onboardingBankAccountHolderWhoComponent.emailAddress": "E-mailadres",
-    "onboardingBankAccountSigningVerifyDetails.orgDetails": "Gegevens van de organisatie",
+    "onboardingBankAccountSigningVerifyDetails.orgDetails": "Naam van de organisatie",
     "onboardingBankAccountSigningVerifyDetails.bankDetails": "Gegevens van de bank",
     "onboardingBankAccountSigningVerifyDetails.nameAuthorized": "Naam van de gemachtigde",
     "dashboardCompleteAccountWidgetComponent.AddBankAccountHolders": "Verifieer rekening",

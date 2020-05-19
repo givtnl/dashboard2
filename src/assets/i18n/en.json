@@ -107,7 +107,7 @@
     "onboardingBankAccountHolderWhoComponent.firstName": "First name",
     "onboardingBankAccountHolderWhoComponent.lastName": "Last name",
     "onboardingBankAccountHolderWhoComponent.emailAddress": "E-mail address",
-    "onboardingBankAccountSigningVerifyDetails.orgDetails": "Organisation details",
+    "onboardingBankAccountSigningVerifyDetails.orgDetails": "Name of the organisation",
     "onboardingBankAccountSigningVerifyDetails.bankDetails": "Bank details of the organisation",
     "onboardingBankAccountSigningVerifyDetails.nameAuthorized": "Name of the authorised person",
     "dashboardCompleteAccountWidgetComponent.AddBankAccountHolders": "Add bank account holders",
