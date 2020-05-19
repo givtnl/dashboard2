@@ -4,6 +4,10 @@ import { OnboardingOrganisationDetailsStateService } from '../services/onboardin
 import { CurrentOrganisationRegistrationDetailsModel } from '../models/current-organisation-registration-details-model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
+import { Observable, forkJoin } from 'rxjs';
+import { tap, switchMap } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-onboarding-organisation-details-verify-organisation-name',
@@ -17,7 +21,9 @@ export class OnboardingOrganisationDetailsVerifyOrganisationNameComponent implem
     private formBuilder: FormBuilder,
     private onboardingStateService: OnboardingOrganisationDetailsStateService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private translationService: TranslateService,
+    private toastr: ToastrService
     ) { }
 
   ngOnInit() {
@@ -35,7 +41,26 @@ export class OnboardingOrganisationDetailsVerifyOrganisationNameComponent implem
     this.continue();
   }
   handleInvalidForm() {
+    let errorMessages = new Array<Observable<string>>();
+    let resolvedErrorMessages = new Array<string>();
 
+    const organisationName = this.form.get('organisationName').errors;
+
+    if (organisationName) {
+      if (organisationName.required) {
+        errorMessages.push(this.translationService.get('errorMessages.organisation-name-required'));
+      }
+    }
+
+    forkJoin(errorMessages)
+      .pipe(tap(results => (resolvedErrorMessages = results)))
+      .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+      .subscribe(title =>
+        this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
+          enableHtml: true
+        })
+      );
+  
   }
   continue() {
     var currentOrganisationRegistrationDetailModel: UpdateOrganisationCommand = this.onboardingStateService.currentOrganisationRegistrationDetailsModel || Object()
