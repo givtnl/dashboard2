@@ -115,19 +115,3 @@
   display: flex;
   justify-content: center;
 }
-
-.circle-red { 
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#41c98e+87,f4bf63+100 */
-    background: red; /* Old browsers */
-    background: -moz-linear-gradient(45deg, red 30%, #f4bf63 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(45deg, red 30%,#f4bf63 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(45deg, red 30%,#f4bf63 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='red', endColorstr='#f4bf63',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
-    display:flex;
-    align-items:center;
-}
