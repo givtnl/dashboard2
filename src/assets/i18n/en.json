@@ -369,5 +369,9 @@
     "PreboardingDetailsCompleteComponent.steps-export-collection-medium-by-mail": "Mailing you the QR code to start giving",
     "PreboardingDetailsCompleteComponent.steps-inviting-collect-group-admins": "Inviting the administrators for the dashboard",
     "PreboardingDetailsCompleteComponent.steps-adding-notes-to-teamleader": "Validating all previous steps",
-    "PreboardingDetailsCompleteComponent.steps-update-teamleader-progress": "Wrapping up the registration"
+    "PreboardingDetailsCompleteComponent.steps-update-teamleader-progress": "Wrapping up the registration",
+    "errorMessages.regulator-required": "Please select a regulator",
+    "errorMessages.regulator-reference-required": "Please fill in a regulator reference",
+    "errorMessages.parent-reference-required": "Please fill in a parent reference",
+    "errorMessages.hmrc-reference-required": "Please fill a reference with HMRC"
 }
