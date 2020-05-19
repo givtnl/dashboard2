@@ -99,6 +99,7 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
       .pipe(switchMap(results => results.length === 0 ? this.collectGroupService.addCollectionMedium(this.preboardingStateService.organisationDetails.organisationId, createdOrRetrievedCollectGroup.Result.Id) : of({
         Result: results[0].MediumId
       })))
+      .pipe(catchError(() => this.genericError(2)))
       .subscribe(createdOrRetrievedCollectionMedium => {
         this.handleStep(2);
         this.stepFour(createdOrRetrievedCollectionMedium, createdOrRetrievedCollectGroup);
