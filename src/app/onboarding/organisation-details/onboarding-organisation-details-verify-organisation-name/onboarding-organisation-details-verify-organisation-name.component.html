@@ -1,7 +1,10 @@
 <form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'>
     <app-custom-card [showCloseButton]='false' iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
-        <div body>
-
+        <div body class="text-center">
+            <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
+                onboardingOrganisationDetailsVerifyOrganisationNameComponent.title</p>
+            <p class="text-givt-purple text-light-font" translate>
+                onboardingOrganisationDetailsVerifyOrganisationNameComponent.description</p>
             <input type="text" placeholder="Plekke oeder" formControlName="organisationName" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
         </div>
