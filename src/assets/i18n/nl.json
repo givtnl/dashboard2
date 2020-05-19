@@ -369,5 +369,9 @@
     "PreboardingDetailsCompleteComponent.steps-export-collection-medium-by-mail": "Versturen van de QR-code per mail",
     "PreboardingDetailsCompleteComponent.steps-inviting-collect-group-admins": "Uitnodigen van de beheerders",
     "PreboardingDetailsCompleteComponent.steps-adding-notes-to-teamleader": "Valideren van alle voorgaande stappen",
-    "PreboardingDetailsCompleteComponent.steps-update-teamleader-progress": "Afronden van de registratie"
+    "PreboardingDetailsCompleteComponent.steps-update-teamleader-progress": "Afronden van de registratie",
+    "errorMessages.regulator-required": "Gelieve een regulator te selecteren",
+    "errorMessages.regulator-reference-required": "Gelieve een regulator referentie in te vullen",
+    "errorMessages.parent-reference-required": "Gelieve een referentie van je ouder in te vullen",
+    "errorMessages.hmrc-reference-required": "Gelieve een HMRC referentie in te vullen"
 }
