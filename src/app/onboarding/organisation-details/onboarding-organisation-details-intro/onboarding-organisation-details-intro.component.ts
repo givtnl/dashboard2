@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-onboarding-organisation-details-intro',
@@ -7,11 +6,5 @@ import { Router } from '@angular/router';
   styleUrls: ['../../onboarding.module.scss', './onboarding-organisation-details-intro.component.scss']
 })
 export class OnboardingOrganisationDetailsIntroComponent {
-  constructor(
-    private router: Router) { }
-
-  public gotoNextStep() {
-    this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['verify-organisation-name'] } }])
-
-  }
+  constructor() { }
 }

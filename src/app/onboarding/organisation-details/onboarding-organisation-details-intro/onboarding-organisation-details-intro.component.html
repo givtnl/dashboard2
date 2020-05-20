@@ -5,7 +5,7 @@
             onboardingOrganisationDetailsIntroComponent.title</p>
         <p class="text-givt-purple text-light-font" translate>
             onboardingOrganisationDetailsIntroComponent.description</p>
-        <a class="text-givt-purple text-light-font no-charity-number-link" (click)="gotoNextStep()">
+        <a class="text-givt-purple text-light-font no-charity-number-link" [routerLink]="['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['verify-organisation-name'] } }]" queryParamsHandling="merge">
             <u>{{'onboardingOrganisationDetailsIntroComponent.dontHaveCharityNumber' | translate}}</u>
         </a>
     </div>
