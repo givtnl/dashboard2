@@ -1,5 +1,5 @@
 export interface CreatedCollectGroupResponse {
     Id: string;
-    NameSpace: string;
-    VisitorCount: string;
+    Namespace: string;
+    VisitorCount?: string;
 }
