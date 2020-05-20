@@ -27,7 +27,9 @@ export class OnboardingOrganisationDetailsVerifyOrganisationNameComponent implem
     ) { }
 
   ngOnInit() {
-    var name = this.onboardingStateService.currentOrganisationRegistrationDetailsModel ? this.onboardingStateService.currentOrganisationRegistrationDetailsModel.Name : null
+    var nameInSnapShot = this.route.snapshot.data.currentOrganisation.Name;
+    
+    var name = this.onboardingStateService.currentOrganisationRegistrationDetailsModel ? this.onboardingStateService.currentOrganisationRegistrationDetailsModel.Name : nameInSnapShot ? nameInSnapShot : null
 
     this.form = this.formBuilder.group({
       organisationName: [name, [Validators.required]]
