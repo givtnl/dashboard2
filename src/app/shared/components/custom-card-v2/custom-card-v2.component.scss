@@ -1,0 +1,206 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+@include media-breakpoint-up(sm) {
+  .custom-card {
+    height: 500px !important;
+    width: 600px !important;
+    border-radius: 2rem !important;
+  }
+
+  .custom-card-with-picture {
+    height: 600px !important;
+    width: 750px !important;
+    border-radius: 2rem !important;
+  }
+}
+
+.custom-card, .custom-card-with-picture {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  // background: var(--background-grey);
+  // background-image: linear-gradient(to bottom right,var(--background-grey)  , white);
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/var(--background-grey)+0,f5f5f5+50,ffffff+51,ffffff+100 */
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/var(--background-grey)+0,f5f5f5+50,ffffff+51,ffffff+100 */
+  background: var(--background-grey); /* Old browsers */
+  background: -moz-linear-gradient(
+    -180deg,
+    var(--background-grey) 0%,
+    var(--background-grey) 25%,
+    #ffffff 26%,
+    #ffffff 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    -180deg,
+    var(--background-grey) 0%,
+    var(--background-grey) 25%,
+    #ffffff 26%,
+    #ffffff 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    177deg,
+    var(--background-grey) 0%,
+    var(--background-grey) 25%,
+    #ffffff 26%,
+    #ffffff 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--background-grey)', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.card-titlebar {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 2rem 0 2rem;
+}
+
+.side-col {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.middle-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-titlebar-button {
+  height: 50px;
+  width: 50px;
+
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-bottom: 2rem;
+}
+
+.card-content-inner {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 1rem 2rem 0 2rem;
+}
+
+.card-content-body {
+  flex-direction: column;
+}
+
+.card-content-inner-content {
+  align-items: stretch;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.custom-card-with-picture .card-content-inner-content {
+  padding-top: 3rem;
+}
+
+.circle-purple {
+  border-radius: 50%;
+  align-self: center;
+
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#724D7C+87,BD3F56+100 */
+  background: #724d7c;
+  /* Old browsers */
+  background: -moz-linear-gradient(45deg, #724d7c 30%, #bd3f56 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #724d7c 30%, #bd3f56 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #724d7c 30%, #bd3f56 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#724D7C', endColorstr='#BD3F56', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+}
+
+.circle-blue {
+  border-radius: 50%;
+  align-self: center;
+
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#724D7C+87,BD3F56+100 */
+  background: #5A5387;
+  /* Old browsers */
+  background: -moz-linear-gradient(45deg, #5A5387 30%, #4D98CF 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #5A5387 30%, #4D98CF 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #5A5387 30%, #4D98CF 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5A5387', endColorstr='#4D98CF', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+}
+
+.circle-orange {
+  border-radius: 50%;
+  align-self: center;
+
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#724D7C+87,BD3F56+100 */
+  background: #f17057;
+  /* Old browsers */
+  background: -moz-linear-gradient(45deg, #f17057 30%, #ffb12a 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #f17057 30%, #ffb12a 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #f17057 30%, #ffb12a 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F17057', endColorstr='#FFB12A', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+}
+
+.w-150px {
+  width: 150px;
+}
+.w-100px {
+  width: 100px;
+}
+.w-50px {
+  width: 50px;
+}
+.w-0px {
+  width: 0px;
+}
+.h-150px {
+  height: 150px;
+}
+.h-100px {
+  height: 100px;
+}
+
+@include media-breakpoint-up(md) {
+  .custom-card-with-picture .card-content-body {
+    flex-direction: row;
+  }
+
+  .custom-card-with-picture .card-content-inner-content {
+    padding-top: 150px;
+    padding-left: 2em;
+  }
+
+  .custom-card-with-picture .card-content-inner-content-picture {
+    border-right: solid lightgrey;
+    padding-right: 2em !important;
+  }
+  
+}

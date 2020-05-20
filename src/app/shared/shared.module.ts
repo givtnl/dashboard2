@@ -17,6 +17,7 @@ import { CustomCardComponent } from './components/custom-card/custom-card.compon
 import { RouterModule } from '@angular/router';
 import { UpperCaseDirective } from './directives/upper-case.directive';
 import { QuestionmarkPictureComponent } from './components/questionmark-picture/questionmark-picture.component';
+import { CustomCardV2Component } from './components/custom-card-v2/custom-card-v2.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { QuestionmarkPictureComponent } from './components/questionmark-picture/
     QuestionmarkComponent,
     CustomCardComponent,
     UpperCaseDirective,
-    QuestionmarkPictureComponent
+    QuestionmarkPictureComponent,
+    CustomCardV2Component
   ],
   imports: [
     CommonModule,
@@ -56,7 +58,8 @@ import { QuestionmarkPictureComponent } from './components/questionmark-picture/
     TranslateModule,
     QuestionmarkComponent,
     CustomCardComponent,
-    UpperCaseDirective
+    UpperCaseDirective,
+    CustomCardV2Component
   ]
 })
 export class SharedModule { }

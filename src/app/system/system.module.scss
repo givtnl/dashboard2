@@ -3,7 +3,7 @@
 @import '~bootstrap/scss/mixins';
 
 @include media-breakpoint-up(sm) {
-  .custom-card {
+  .custom-card, .custom-card-v2 {
     height: 631px !important;
     width: 554px !important;
     border-radius: 2rem !important;
@@ -30,7 +30,7 @@
   @extend .center-xy;
 }
 
-.custom-card {
+.custom-card, .custom-card-v2 {
   padding-top: 1rem;
   padding-bottom: 1rem;
   height: 100%;

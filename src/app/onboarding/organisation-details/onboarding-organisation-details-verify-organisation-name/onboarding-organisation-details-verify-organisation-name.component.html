@@ -1,63 +1,30 @@
-<form class="form d-flex flex-column" autocomplete='off' [formGroup]='form' (ngSubmit)='submit()'>
-    <div class="canvas d-flex flex-column flex-grow-1 shadow overflow-hidden mx-sm-4 mx-md-auto py-sm-3 px-sm-5">
-        <header class="canvas-header progress">
-            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
-                aria-valuemax="100">25%
-            </div>
-        </header>
-        <div class="canvas-body d-flex flex-column flex-grow-1">
-            <div class="section1 d-flex flex-column justify-content-center align-items-center col-sm-4 pl-sm-0">
-                <div class="icon-circle circle-blue">
-                    <i class="icon fas fa-newspaper fa-5x text-white"></i>
-                </div>
-            </div>
-            <div class="section2 flex-grow-1 col-sm-8 mt-5 pr-sm-0">
-                <header class="section2-header mb-3">
-                    <div class="header-icon circle-blue mb-3">
-                        <i class="icon fas fa-newspaper fa text-white"></i>
-                    </div>
-                    <h2 translate>onboardingOrganisationDetailsVerifyOrganisationNameComponent.title</h2>
-                    <p class="mb-0 pb-0">onboardingOrganisationDetailsVerifyOrganisationNameComponent.description</p>
-                </header>
-                <div class="section2-body">
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <!-- <label for="inputOrganisationName">Email</label> -->
-                            <input type="email" class="form-control" id="inputOrganisationName"
-                                placeholder="{{'onboardingOrganisationDetailsVerifyOrganisationNameComponent.placeholder' | translate }}">
-                        </div>
-                    </div>
-                </div>
-            </div>
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'>
+    <app-custom-card-v2 [showCloseButton]='false' [showPreviousButton]='true' iconBackgroundClass="circle-blue"
+        titleTranslationKey="onboardingOrganisationDetailsIntroComponent.title" icon="fas fa-newspaper fa-4x">
+        <div text class="pt-5">
+            <!-- <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
+                onboardingOrganisationDetailsIntroComponent.title</p> -->
+            <p class="text-givt-purple text-light-font" translate>
+                onboardingOrganisationDetailsIntroComponent.description</p>
         </div>
-        <footer class="canvas-footer d-flex justify-content-between">
-            <a class="btn btn-secondary" href="#" role="button">&lt; Go back</a>
-            <a class="btn btn-primary" href="#" role="button" translate>
-                <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
-                onboardingOrganisationDetailsVerifyOrganisationNameComponent.next
-            </a>
-        </footer>
-    </div>
-</form>
 
-
-<!-- <form autocomplete=' off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'>
-    <app-custom-card titleTranslationKey='onboardingOrganisationDetailsVerifyOrganisationNameComponent.title'
-        [showCloseButton]='false' iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
         <div body>
-            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
-                onboardingOrganisationDetailsVerifyOrganisationNameComponent.description
-            </p>
-            <input type="text"
-                placeholder="{{'onboardingOrganisationDetailsVerifyOrganisationNameComponent.placeholder' | translate }}"
-                formControlName="organisationName" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <p class="text-givt-purple text-light-font" translate>
+                        Eerst willen we graag de naam van je organisatie weten.</p>
+                    <input type="email" class="form-control shadow text-givt-purple" id="inputOrganisationName"
+                        placeholder="{{'onboardingOrganisationDetailsVerifyOrganisationNameComponent.placeholder' | translate }}">
+                </div>
+            </div>
+
         </div>
         <button bottom type="submit" [translate] [disabled]="loading"
-            class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+            class="card-content-bottom btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button px-5">
             <span class="text-white text-heavy-font" translate>
                 <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
                 onboardingOrganisationDetailsVerifyOrganisationNameComponent.next
             </span>
         </button>
-    </app-custom-card>
-</form> -->
+    </app-custom-card-v2>
+</form>

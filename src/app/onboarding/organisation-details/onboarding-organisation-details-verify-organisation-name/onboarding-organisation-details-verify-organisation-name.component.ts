@@ -24,7 +24,7 @@ export class OnboardingOrganisationDetailsVerifyOrganisationNameComponent implem
     private route: ActivatedRoute,
     private translationService: TranslateService,
     private toastr: ToastrService
-    ) { }
+  ) { }
 
   ngOnInit() {
     var nameInSnapShot = this.route.snapshot.data.currentOrganisation.Name;
@@ -62,12 +62,12 @@ export class OnboardingOrganisationDetailsVerifyOrganisationNameComponent implem
           enableHtml: true
         })
       );
-  
+
   }
   continue() {
     var currentOrganisationRegistrationDetailModel: UpdateOrganisationCommand = this.onboardingStateService.currentOrganisationRegistrationDetailsModel || Object()
     currentOrganisationRegistrationDetailModel.Name = this.form.value.organisationName
     this.onboardingStateService.currentOrganisationRegistrationDetailsModel = currentOrganisationRegistrationDetailModel
-    this.router.navigate(['/','onboarding','organisation-details', { outlets: { 'onboarding-outlet': ['address-details'] } }])
+    this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['address-details'] } }])
   }
 }
