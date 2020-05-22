@@ -23,7 +23,7 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
     private route: ActivatedRoute,
     private translationService: TranslateService,
     private toastr: ToastrService
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.hasParent = this.route.snapshot.data.hasParent;
@@ -40,11 +40,11 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
     } else {
       this.form = this.formBuilder.group({
         regulator: [regulator ? regulator : null, [Validators.required]],
-        referenceWithRegulator: [{value: referenceWithRegulator ? referenceWithRegulator : null, disabled: true}, [Validators.required]],
-        referenceWithHMRC: [{value: referenceWithHMRC ? referenceWithHMRC : null, disabled: true}, [Validators.required]]
+        referenceWithRegulator: [{ value: referenceWithRegulator ? referenceWithRegulator : null, disabled: true }, [Validators.required]],
+        referenceWithHMRC: [{ value: referenceWithHMRC ? referenceWithHMRC : null, disabled: true }, [Validators.required]]
       });
     }
-    this.form.get('regulator').valueChanges.subscribe(x=>this.onChangeRegulator(x));
+    this.form.get('regulator').valueChanges.subscribe(x => this.onChangeRegulator(x));
   }
   submit() {
     if (this.form.invalid) {
@@ -57,7 +57,7 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
     let errorMessages = new Array<Observable<string>>();
     let resolvedErrorMessages = new Array<string>();
 
-    if(this.hasParent) {
+    if (this.hasParent) {
       const referenceWithParentErrors = this.form.get('referenceWithParent').errors;
       if (referenceWithParentErrors) {
         if (referenceWithParentErrors.required) {
@@ -78,7 +78,7 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
           errorMessages.push(this.translationService.get('errorMessages.regulator-reference-required'));
         }
       }
-      
+
       if (referenceWithHMRCErrors) {
         if (referenceWithHMRCErrors.required) {
           errorMessages.push(this.translationService.get('errorMessages.hmrc-reference-required'));
@@ -94,7 +94,7 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
           enableHtml: true
         })
       );
-  
+
   }
   continue() {
     var currentOrganisationRegistrationDetailModel: UpdateOrganisationCommand = this.onboardingStateService.currentOrganisationRegistrationDetailsModel
@@ -103,17 +103,17 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
     currentOrganisationRegistrationDetailModel.ReferenceWithParent = this.form.value.ReferenceWithParent;
     currentOrganisationRegistrationDetailModel.ReferenceWithHMRC = this.form.value.ReferenceWithHMRC;
     this.onboardingStateService.currentOrganisationRegistrationDetailsModel = currentOrganisationRegistrationDetailModel
-    this.router.navigate(['/','onboarding','organisation-details', { outlets: { 'onboarding-outlet': ['complete'] } }])
+    this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['complete'] } }])
   }
   onChangeRegulator(selectedValue: number) {
     let enableCharityId = false;
     let enableRegulatorReference = false;
     switch (selectedValue) {
-      case null: 
-      enableCharityId = false;
-      enableRegulatorReference = false;
-      break;
-      case 4: 
+      case null:
+        enableCharityId = false;
+        enableRegulatorReference = false;
+        break;
+      case 4:
         enableCharityId = true;
         enableRegulatorReference = false;
         break;

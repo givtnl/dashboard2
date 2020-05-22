@@ -1,13 +1,7 @@
-<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'>
-    <app-custom-card-v2 [showCloseButton]='false' [showPreviousButton]='true' iconBackgroundClass="circle-blue"
-        titleTranslationKey="onboardingOrganisationDetailsIntroComponent.title" icon="fas fa-newspaper fa-4x">
-        <div text class="pt-5">
-            <!-- <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
-                onboardingOrganisationDetailsIntroComponent.title</p> -->
-            <p class="text-givt-purple text-light-font" translate>
-                onboardingOrganisationDetailsIntroComponent.description</p>
-        </div>
-
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()'>
+    <app-custom-card-v2 titleTranslationKey="Verify the organisation details"
+        description="onboardingOrganisationDetailsIntroComponent.description" showPreviousButton="true"
+        showSideInfo="true">
         <div body>
             <div class="form-row">
                 <div class="form-group col-md-12">
@@ -17,14 +11,6 @@
                         placeholder="{{'onboardingOrganisationDetailsVerifyOrganisationNameComponent.placeholder' | translate }}">
                 </div>
             </div>
-
         </div>
-        <button bottom type="submit" [translate] [disabled]="loading"
-            class="card-content-bottom btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button px-5">
-            <span class="text-white text-heavy-font" translate>
-                <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
-                onboardingOrganisationDetailsVerifyOrganisationNameComponent.next
-            </span>
-        </button>
     </app-custom-card-v2>
 </form>

@@ -1,25 +1,38 @@
-<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'>
-    <app-custom-card [showCloseButton]='false' [showPreviousButton]='true' iconBackgroundClass="circle-blue" icon="fas fa-newspaper fa-5x">
-        <div body class="text-center">
-            <p class="introduction-title text-primary text-heavy-font text-givt-purple" translate>
-                onboardingOrganisationDetailsAddressComponent.title</p>
-            <p class="text-givt-purple text-light-font" translate>
-                onboardingOrganisationDetailsAddressComponent.subtitle</p>
-            <input type="text" placeholder="{{'onboardingOrganisationDetailsAddressComponent.placeholders.address' | translate}}" formControlName="address" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
-            <input type="text" placeholder="{{'onboardingOrganisationDetailsAddressComponent.placeholders.city' | translate}}" formControlName="city" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
-            <input type="text" placeholder="{{'onboardingOrganisationDetailsAddressComponent.placeholders.postcode' | translate}}" formControlName="postcode" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
-            <select class="form-control form-control-lg mb-3 shadow text-givt-purple" formControlName="country">
-                <option translate value="null">onboardingOrganisationDetailsAddressComponent.labels.selectCountry</option>
-                <option translate value="GB">onboardingOrganisationDetailsAddressComponent.countrys.GB</option>
-                <option translate value="GG">onboardingOrganisationDetailsAddressComponent.countrys.GG</option>
-                <option translate value="JE">onboardingOrganisationDetailsAddressComponent.countrys.JE</option>
-            </select>
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()'>
+    <app-custom-card-v2 titleTranslationKey="Verify the organisation details"
+        description="onboardingOrganisationDetailsIntroComponent.description" showPreviousButton="true">
+        <div body>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <input type="text"
+                        placeholder="{{'onboardingOrganisationDetailsAddressComponent.placeholders.address' | translate}}"
+                        formControlName="address" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="text"
+                        placeholder="{{'onboardingOrganisationDetailsAddressComponent.placeholders.city' | translate}}"
+                        formControlName="city" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text"
+                        placeholder="{{'onboardingOrganisationDetailsAddressComponent.placeholders.postcode' | translate}}"
+                        formControlName="postcode" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <select class="form-control form-control-lg shadow text-givt-purple" formControlName="country">
+                        <option translate value="null">
+                            onboardingOrganisationDetailsAddressComponent.labels.selectCountry
+                        </option>
+                        <option translate value="GB">onboardingOrganisationDetailsAddressComponent.countrys.GB</option>
+                        <option translate value="GG">onboardingOrganisationDetailsAddressComponent.countrys.GG</option>
+                        <option translate value="JE">onboardingOrganisationDetailsAddressComponent.countrys.JE</option>
+                    </select>
+                </div>
+            </div>
         </div>
-        <button bottom type="submit" [translate] [disabled]="loading" class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
-            <span class="text-white text-heavy-font" translate>
-                <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
-                Gif mo goaze
-            </span>
-        </button>
-    </app-custom-card>
+    </app-custom-card-v2>
 </form>
