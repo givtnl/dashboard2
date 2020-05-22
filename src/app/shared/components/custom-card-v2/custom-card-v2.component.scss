@@ -11,24 +11,19 @@
   width: 100px;
 }
 
-.min-h-30px {
-  min-height: 30px;
-}
+@include media-breakpoint-up(md) {
+  .card-parent {
+    width: 700px;
+    height: 600px;
+  }
 
-.min-h-60px {
-  min-height: 60px;
-}
-
-@include media-breakpoint-up(lg) {
   .card {
     min-height: unset !important;
     border-radius:2rem !important;
   }
+}
 
-  .min-height-lg-300px {
-    min-height:300px;
-  }
-
+@include media-breakpoint-up(lg) {
   .custom-border-right {
     border-right: solid lightgrey;
   }
