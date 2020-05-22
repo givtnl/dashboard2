@@ -351,7 +351,7 @@
     "onboardingOrganisationDetailsVerifyOrganisationNameComponent.next": "Next",
     "onboardingOrganisationDetailsAddressComponent.title": "Organisation address",
     "onboardingOrganisationDetailsAddressComponent.subtitle": "To fully join your organisation, we need to know the official address.",
-    "onboardingOrganisationDetailsAddressComponent.placeholders.address": "Eg.: Givt Ltd., Censeo House, St Peter's Street 6",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.address": "Eg.: Givt Ltd., Censeo House, 6 St Peter's Street",
     "onboardingOrganisationDetailsAddressComponent.placeholders.city": "E.g.: St Albans",
     "onboardingOrganisationDetailsAddressComponent.placeholders.postcode": "E.g.: AL1 3LF",
     "onboardingOrganisationDetailsCharityDetailsComponent.title": "Charity details",
@@ -359,9 +359,6 @@
     "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithHMRC": "HMRC reference (Charity Id)",
     "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithParent": "Reference code with parent organisation",
     "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithRegulator": "Regulator reference",
-    "onboardingOrganisationDetailsComplete2Component.title": "Completed",
-    "onboardingOrganisationDetailsComplete2Component.subtitle": "We have successfully received your data and are processing it. In the meantime, you can simply go back to the dashboard.",
-    "onboardingOrganisationDetailsComplete2Component.buttonGoToDashboard": "Go to the dashboard",
     "PreboardingDetailsCompleteComponent.steps-update-organisation": "Registering your organisation details",
     "PreboardingDetailsCompleteComponent.steps-registering-in-app": "Putting your organisation into the app",
     "PreboardingDetailsCompleteComponent.steps-create-collection-mediums": "Creating your first QR code",
@@ -373,5 +370,13 @@
     "errorMessages.regulator-required": "Please select a regulator",
     "errorMessages.regulator-reference-required": "Please fill in a regulator reference",
     "errorMessages.parent-reference-required": "Please fill in a parent reference",
-    "errorMessages.hmrc-reference-required": "Please fill a reference with HMRC"
+    "errorMessages.hmrc-reference-required": "Please fill a reference with HMRC",
+    "onboardingOrganisationDetailsVerifyOrganisationNameComponent.labelOrganisationName": "At first, we want to know the name of your organisation.",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.country": "Bv.: England",
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.OSCR": "OSCR - Office of the Scottish Charity Regulator",
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.CCNI": "CCNI - Charity Commission Northern Ireland",
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.Exempt": "Exempt Charity",
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.Jersey": "Jersey Charity Commissioner",
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.Guernsey": "Association of Guernsey Charities",
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.CompaniesHouse": "Companies house"
 }
