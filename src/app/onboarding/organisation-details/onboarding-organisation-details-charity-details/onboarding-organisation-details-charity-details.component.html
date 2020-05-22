@@ -3,7 +3,7 @@
         description="onboardingOrganisationDetailsCharityDetailsComponent.subtitle" showPreviousButton="true">
         <div body>
             <div class="form-row" *ngIf="hasParent">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-12">
                     <input type="text"
                         placeholder="{{'onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithParent'|translate}}"
                         formControlName="referenceWithParent"
@@ -12,10 +12,10 @@
             </div>
 
             <div class="form-row" *ngIf="!hasParent">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-12">
                     <select class="form-control form-control-lg mb-3 shadow text-givt-purple"
                         formControlName="regulator">
-                        <option translate [ngValue]="null" value="" disabled selected>
+                        <option translate [ngValue]="null" disabled>
                             onboardingOrganisationDetailsCharityDetailsComponent.labels.selectRegulator</option>
                         <option [ngValue]="2" translate>onboardingOrganisationDetailsCharityDetailsComponent.labels.OSCR
                         </option>
@@ -32,7 +32,6 @@
                     </select>
                 </div>
             </div>
-
             <div class="form-row" *ngIf="!hasParent">
                 <div class="form-group col-md-6">
                     <input type="text"
@@ -40,7 +39,6 @@
                         formControlName="referenceWithRegulator"
                         class="form-control form-control-lg mb-3 shadow text-givt-purple" />
                 </div>
-
                 <div class="form-group col-md-6">
                     <input type="text"
                         placeholder="{{'onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithHMRC'|translate}}"

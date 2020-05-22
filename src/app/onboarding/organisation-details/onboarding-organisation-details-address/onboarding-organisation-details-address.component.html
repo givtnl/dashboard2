@@ -24,11 +24,15 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <select class="form-control form-control-lg shadow text-givt-purple" formControlName="country">
-                        <option value="" disabled selected translate>
-                            onboardingOrganisationDetailsAddressComponent.placeholders.country</option>
-                        <option translate value="GB">onboardingOrganisationDetailsAddressComponent.countrys.GB</option>
-                        <option translate value="GG">onboardingOrganisationDetailsAddressComponent.countrys.GG</option>
-                        <option translate value="JE">onboardingOrganisationDetailsAddressComponent.countrys.JE</option>
+                        <option [ngValue]="null" disabled>
+                            {{'onboardingOrganisationDetailsAddressComponent.labels.selectCountry' | translate}}
+                        </option>
+                        <option translate [ngValue]="GB">onboardingOrganisationDetailsAddressComponent.countrys.GB
+                        </option>
+                        <option translate [ngValue]="GG">onboardingOrganisationDetailsAddressComponent.countrys.GG
+                        </option>
+                        <option translate [ngValue]="JE">onboardingOrganisationDetailsAddressComponent.countrys.JE
+                        </option>
                     </select>
                 </div>
             </div>
