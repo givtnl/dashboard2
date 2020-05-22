@@ -1,6 +1,6 @@
 <form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()'>
-    <app-custom-card-v2 titleTranslationKey="Verify the organisation details"
-        description="onboardingOrganisationDetailsIntroComponent.description" showPreviousButton="true">
+    <app-custom-card-v2 titleTranslationKey="onboardingOrganisationDetailsAddressComponent.title"
+        description="onboardingOrganisationDetailsAddressComponent.subtitle" showPreviousButton="true">
         <div body>
             <div class="form-row">
                 <div class="form-group col-md-12">
@@ -24,9 +24,8 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <select class="form-control form-control-lg shadow text-givt-purple" formControlName="country">
-                        <option translate value="null">
-                            onboardingOrganisationDetailsAddressComponent.labels.selectCountry
-                        </option>
+                        <option value="" disabled selected translate>
+                            onboardingOrganisationDetailsAddressComponent.placeholders.country</option>
                         <option translate value="GB">onboardingOrganisationDetailsAddressComponent.countrys.GB</option>
                         <option translate value="GG">onboardingOrganisationDetailsAddressComponent.countrys.GG</option>
                         <option translate value="JE">onboardingOrganisationDetailsAddressComponent.countrys.JE</option>
