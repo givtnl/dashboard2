@@ -359,9 +359,6 @@
     "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithHMRC": "HMRC reference (Charity Id)",
     "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithParent": "Referentiecode met de hoofd organisatie",
     "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithRegulator": "Regulator reference",
-    "onboardingOrganisationDetailsComplete2Component.title": "Compleet",
-    "onboardingOrganisationDetailsComplete2Component.subtitle": "We hebben de opgegeven gegevens goed ontvangen en verwerken deze. In tussentijd kan je gewoon teruggaan naar het dashboard.",
-    "onboardingOrganisationDetailsComplete2Component.buttonGoToDashboard": "Ga terug naar het dashboard",
     "PreboardingDetailsCompleteComponent.steps-update-organisation": "Registreren van de gegevens van de organisatie",
     "PreboardingDetailsCompleteComponent.steps-registering-in-app": "Je organisatie in de app plaatsen",
     "PreboardingDetailsCompleteComponent.steps-create-collection-mediums": "Aanmaken van een QR-code",
@@ -373,5 +370,13 @@
     "errorMessages.regulator-required": "Gelieve een regulator te selecteren",
     "errorMessages.regulator-reference-required": "Gelieve een regulator referentie in te vullen",
     "errorMessages.parent-reference-required": "Gelieve een referentie van je ouder in te vullen",
-    "errorMessages.hmrc-reference-required": "Gelieve een HMRC referentie in te vullen"
+    "errorMessages.hmrc-reference-required": "Gelieve een HMRC referentie in te vullen",
+    "onboardingOrganisationDetailsVerifyOrganisationNameComponent.labelOrganisationName": "Eerst willen we graag de naam van je organisatie weten.",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.country": "Bv.: Nederland",
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.OSCR": "OSCR - Office of the Scottish Charity Regulator",
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.CCNI": "CCNI - Charity Commission Northern Ireland",
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.Exempt": "Exempt Charity",
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.Jersey": "Jersey Charity Commissioner",
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.Guernsey": "Association of Guernsey Charities",
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.CompaniesHouse": "Companies house"
 }
