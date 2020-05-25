@@ -97,10 +97,10 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
   }
   continue() {
     var currentOrganisationRegistrationDetailModel: UpdateOrganisationCommand = this.onboardingStateService.currentOrganisationRegistrationDetailsModel
-    currentOrganisationRegistrationDetailModel.Regulator = this.form.value.Regulator;
-    currentOrganisationRegistrationDetailModel.ReferenceWithRegulator = this.form.value.ReferenceWithRegulator;
-    currentOrganisationRegistrationDetailModel.ReferenceWithParent = this.form.value.ReferenceWithParent;
-    currentOrganisationRegistrationDetailModel.ReferenceWithHMRC = this.form.value.ReferenceWithHMRC;
+    currentOrganisationRegistrationDetailModel.Regulator = this.form.value.regulator;
+    currentOrganisationRegistrationDetailModel.ReferenceWithRegulator = this.form.value.referenceWithRegulator;
+    currentOrganisationRegistrationDetailModel.ReferenceWithParent = this.form.value.referenceWithParent;
+    currentOrganisationRegistrationDetailModel.ReferenceWithHMRC = this.form.value.referenceWithHMRC;
     this.onboardingStateService.currentOrganisationRegistrationDetailsModel = currentOrganisationRegistrationDetailModel
     this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['complete'] } }])
   }
