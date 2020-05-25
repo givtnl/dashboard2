@@ -31,4 +31,10 @@ export class OnboardingOrganisationDetailsStateService {
   public set currentOrganisationRegistrationDetailsModel(value: UpdateOrganisationCommand) {
     this.storage.setItem('OnboardingOrganisationDetailsStateService.CurrentOrganisationRegistrationDetailsModel', JSON.stringify(value))
   }
+  public get isManualRegistration(): boolean {
+    return Boolean(this.storage.getItem('OnboardingOrganisationDetailsStateService.ManualRegistration'));
+  }
+  public set isManualRegistration(value: boolean) {
+    this.storage.setItem('OnboardingOrganisationDetailsStateService.ManualRegistration', value.toString());
+  }
 }

@@ -4,6 +4,7 @@ import { AddCharityDetailsToOrganisationCommand } from '../models/commands/add-c
 import { Injectable } from '@angular/core';
 import { CharityCommisionOrganisationDetailModel } from '../models/charity-commision-organisation-detail.model';
 import { HttpParams } from '@angular/common/http';
+import { UpdateOrganisationDetailsCommand } from '../models/commands/update-organisation-details.command';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,10 @@ export class OnboardingOrganisationDetailsService {
   }
 
   put(organisationId: string, command: AddCharityDetailsToOrganisationCommand) {
+    return this.backendService.put(`v2/organisations/${organisationId}`, command);
+  }
+
+  putManual(organisationId: string, command: UpdateOrganisationDetailsCommand) {
     return this.backendService.put(`v2/organisations/${organisationId}`, command);
   }
 }
