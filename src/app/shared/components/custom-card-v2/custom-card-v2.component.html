@@ -5,7 +5,7 @@
         <div class="card-header px-4 bg-transparent border-bottom-0 mt-3 bg-white">
           <div class="d-flex justify-content-between">
             <div>
-              <a *ngIf="showPreviousButton" (click)="onClickPrevious()">
+              <a class="btn py-0" *ngIf="showPreviousButton" (click)="onClickPrevious()">
                 <i class="fa fa-arrow-left align-self-center"></i>
               </a>
             </div>
@@ -19,7 +19,7 @@
                 [text]="questionMarkPictureText" [picturePath]="questionMarkPicturePath"
                 [pictureAlt]="questionMarkPictureAlt" class="card-titlebar-button">
               </app-questionmark-picture>
-              <a [routerLink]="['/', 'dashboard']" *ngIf="showCloseButton">
+              <a class="btn py-0" [routerLink]="['/', 'dashboard']" *ngIf="showCloseButton">
                 <i class="fa fa-times align-self-center"></i>
               </a>
             </div>
