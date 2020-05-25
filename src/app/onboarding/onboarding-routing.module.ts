@@ -64,6 +64,7 @@ import { OnboardingOrganisationDetailsVerifyOrganisationNameComponent } from './
 import { OnboardingOrganisationDetailsCharityDetailsComponent } from './organisation-details/onboarding-organisation-details-charity-details/onboarding-organisation-details-charity-details.component';
 import { OnboardingOrganisationDetailsAddressComponent } from './organisation-details/onboarding-organisation-details-address/onboarding-organisation-details-address.component';
 import { OnboardingDetailsFetchOrganisationResolver } from './organisation-details/resolvers/onboarding-details-fetch-organisation.resolver';
+import { OnboardingOrganisationDetailsSendManualRegistrationDataGuard } from './organisation-details/guards/onboarding-organisation-details-send-manual-registration-data.guard';
 
 const routes: Routes = [
   {
@@ -165,7 +166,10 @@ const routes: Routes = [
       {
         path: 'complete',
         outlet: 'onboarding-outlet',
-        canActivate: [OnboardingOrganisationDetailsSendDataGuard],
+        canActivate: [
+          OnboardingOrganisationDetailsSendDataGuard,
+          OnboardingOrganisationDetailsSendManualRegistrationDataGuard
+        ],
         component: OnboardingOrganisationDetailsCompleteComponent
       },
       {
