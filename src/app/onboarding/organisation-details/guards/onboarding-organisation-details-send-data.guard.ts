@@ -21,6 +21,9 @@ export class OnboardingOrganisationDetailsSendDataGuard implements CanActivate {
   async canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     try {
 
+      if(this.onboardingOrganisationDetailsStateService.isManualRegistration) 
+        return true;
+
       var charity = this.onboardingOrganisationDetailsStateService.currentOrganisationCharityCommisionModel;
       var command = new AddCharityDetailsToOrganisationCommand();
       command.name = charity.Name;
