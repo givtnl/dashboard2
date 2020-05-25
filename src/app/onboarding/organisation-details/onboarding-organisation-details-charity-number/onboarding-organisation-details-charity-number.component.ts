@@ -53,9 +53,10 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
       ).add(() => this.loading = false);
   }
 
-  public buildErrorTekst():string {
+  public buildErrorTekst(): string {
     let baseText = this.activatedRoute.snapshot.data.charityErrorBaseText as string;
-    return baseText.replace('[LINK]', `${environment.apiUrl}/contract/organisations/${this.applicationStateService.currentTokenModel.OrganisationAdmin}?charityCommissionReference=${this.form.value.charityNumber}`);
+    let url = this.router.parseUrl("onboarding/organisation-details/(onboarding-outlet:verify-organisation-name)");
+    return baseText.replace('[LINK]', this.router.serializeUrl(url));
   }
 
   handleInvalidForm() {
