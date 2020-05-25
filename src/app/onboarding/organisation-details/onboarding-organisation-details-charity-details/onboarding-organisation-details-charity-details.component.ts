@@ -39,11 +39,15 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
     } else {
       this.form = this.formBuilder.group({
         regulator: [regulator ? regulator : null, [Validators.required]],
-        referenceWithRegulator: [{ value: referenceWithRegulator ? referenceWithRegulator : null, disabled: true }, [Validators.required]],
-        referenceWithHMRC: [{ value: referenceWithHMRC ? referenceWithHMRC : null, disabled: true }, [Validators.required]]
+        referenceWithRegulator: [{ value: referenceWithRegulator ? referenceWithRegulator : null, disabled: true }, [Validators.required, Validators.maxLength(30)]],
+        referenceWithHMRC: [{ value: referenceWithHMRC ? referenceWithHMRC : null, disabled: true }, [Validators.required, Validators.maxLength(30)]]
       });
     }
     this.form.get('regulator').valueChanges.subscribe(x => this.onChangeRegulator(x));
+    // make sure the controls are loaded upon navigation forward backwards
+    // else it could be the field is disabled, but the user could fill it in ?
+    // so re-evaulate the controls
+    this.onChangeRegulator(this.form.value.regulator);
   }
   submit() {
     if (this.form.invalid) {
