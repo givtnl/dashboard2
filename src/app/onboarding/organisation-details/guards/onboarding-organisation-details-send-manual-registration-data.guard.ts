@@ -22,7 +22,7 @@ export class OnboardingOrganisationDetailsSendManualRegistrationDataGuard implem
     try {
 
       // thou shall not pass if its not manual
-      if (!this.onboardingOrganisationDetailsStateService.isManualRegistration)
+      if (this.onboardingOrganisationDetailsStateService.isManualRegistration === true)
         return true;
 
       const charity: UpdateOrganisationCommand = this.onboardingOrganisationDetailsStateService.currentOrganisationRegistrationDetailsModel;
