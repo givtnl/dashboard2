@@ -1,3 +1,5 @@
+import { OrganisationRegulator } from '../organisation-regulator.model';
+
 export interface UpdateOrganisationCommand {
     Id: string;
     Name: string;
@@ -10,7 +12,7 @@ export interface UpdateOrganisationCommand {
     ParentId: string;
     CharityCommissionNumber: string;
     Country?: string;
-    Regulator?: string;
+    Regulator?: OrganisationRegulator;
     ReferenceWithRegulator?: string;
     ReferenceWithParent?: string;
     ReferenceWithHMRC?: string;
