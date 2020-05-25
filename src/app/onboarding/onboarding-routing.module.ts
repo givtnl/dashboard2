@@ -57,8 +57,6 @@ import { GiftaidVerifyOrganisationDetailsComponent } from './giftaid/giftaid-ver
 import { GiftaidVerifyAuthorisedOfficialDetailsComponent } from './giftaid/giftaid-verify-authorised-official-details/giftaid-verify-authorised-official-details.component';
 import { GiftaidCompletedComponent } from './giftaid/giftaid-completed/giftaid-completed.component';
 import { OnboardingGiftAidCompleteCheckSuccessGuard } from './giftaid/guards/onboarding-giftaid-complete-check-success.guard';
-import { OnboardingOrganisationDetailsParentKnownComponent } from './organisation-details/onboarding-organisation-details-parent-known/onboarding-organisation-details-parent-known.component';
-import { OnboardingOrganisationDetailsFetchParentGuard } from './organisation-details/guards/onboarding-organisation-details-fetch-parent.guard';
 import { TranslatedValueResolver } from '../shared/guards/translated-value.resolver';
 import { OnboardingOrganisationDetailsVerifyOrganisationNameComponent } from './organisation-details/onboarding-organisation-details-verify-organisation-name/onboarding-organisation-details-verify-organisation-name.component';
 import { OnboardingOrganisationDetailsCharityDetailsComponent } from './organisation-details/onboarding-organisation-details-charity-details/onboarding-organisation-details-charity-details.component';
