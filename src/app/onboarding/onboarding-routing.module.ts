@@ -124,7 +124,7 @@ const routes: Routes = [
   {
     path: 'organisation-details',
     component: OnboardingRootComponent,
-   canActivate: [AuthenticationGuard],
+    canActivate: [AuthenticationGuard],
     children: [
       {
         path: '',
@@ -158,10 +158,7 @@ const routes: Routes = [
       {
         path: 'check-details',
         outlet: 'onboarding-outlet',
-        component: OnboardingOrganisationDetailsVerifyComponent,
-        canActivate: [
-          OnboardingOrganisationDetailsFetchParentGuard
-        ]
+        component: OnboardingOrganisationDetailsVerifyComponent
       },
       {
         path: 'complete',
