@@ -7,13 +7,18 @@ import { ApplicationStateService } from 'src/app/infrastructure/services/applica
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
 import { UpdateOrganisationDetailsCommand } from '../models/commands/update-organisation-details.command';
 import { isNullOrUndefined } from 'util';
+import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
 
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Updates the Organisation based on details that were manually entered from the user
+ */
 export class OnboardingOrganisationDetailsSendManualRegistrationDataGuard implements CanActivate {
   constructor(
     private toastr: TranslatableToastrService,
+    private organisationService: OrganisationsService,
     private onboardingOrganisationDetailsStateService: OnboardingOrganisationDetailsStateService,
     private onboardingOrganisationDetailsService: OnboardingOrganisationDetailsService,
     private applicationStateService: ApplicationStateService
@@ -41,8 +46,14 @@ export class OnboardingOrganisationDetailsSendManualRegistrationDataGuard implem
 
       // check if we have parent or not
       if (!isNullOrUndefined(charity.ParentId)) {
-        // update reference with parent
+        // retrieve the parent
+        var parentOrganisation = await this.organisationService.getById(charity.ParentId).toPromise();
+
+        // update reference with parent      
         command.referenceWithParent = charity.ReferenceWithParent;
+        command.regulator = parentOrganisation.Regulator
+        command.charityId = parentOrganisation.CharityId;
+        command.charityCommissionNumber = parentOrganisation.CharityCommissionReference;
       } else {
         // update regulator and reference with regulator / parentId
         command.regulator = charity.Regulator;
@@ -50,8 +61,8 @@ export class OnboardingOrganisationDetailsSendManualRegistrationDataGuard implem
         command.charityId = charity.ReferenceWithHMRC;
       }
       // update the organisation details
-      await this.onboardingOrganisationDetailsService.putManual(organisationId, command).toPromise();
-      
+      await this.onboardingOrganisationDetailsService.put(organisationId, command).toPromise();
+
       return true;
     } catch (error) {
       await this.toastr.warning('errorMessages.generic-error-title', 'errorMessages.generic-error-message');
