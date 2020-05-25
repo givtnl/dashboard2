@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, forkJoin } from 'rxjs';
@@ -20,13 +20,12 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
     private formBuilder: FormBuilder,
     private onboardingStateService: OnboardingOrganisationDetailsStateService,
     private router: Router,
-    private route: ActivatedRoute,
     private translationService: TranslateService,
     private toastr: ToastrService
   ) { }
 
   ngOnInit() {
-    this.hasParent = this.route.snapshot.data.hasParent;
+    this.hasParent = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.ParentId != null
 
     var regulator = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.Regulator;
     var referenceWithRegulator = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.ReferenceWithRegulator;

@@ -137,11 +137,11 @@ const routes: Routes = [
         data: { toResolveTranslationKey: 'onboardingOrganisationDetailsCharityNumberComponent.charityErrorDescription' },
         component: OnboardingOrganisationDetailsCharityNumberComponent
       },
-     
+
       {
         path: 'verify-organisation-name',
         outlet: 'onboarding-outlet',
-        resolve: { currentOrganisation: OnboardingDetailsFetchOrganisationResolver},
+        resolve: { currentOrganisation: OnboardingDetailsFetchOrganisationResolver },
         component: OnboardingOrganisationDetailsVerifyOrganisationNameComponent
       },
       {
@@ -152,7 +152,6 @@ const routes: Routes = [
       {
         path: 'charity-details',
         outlet: 'onboarding-outlet',
-        data: {hasParent: false},
         component: OnboardingOrganisationDetailsCharityDetailsComponent
       },
       {
