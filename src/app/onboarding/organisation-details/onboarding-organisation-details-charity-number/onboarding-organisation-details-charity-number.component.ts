@@ -30,10 +30,10 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      charityNumber: [null, [Validators.required]]
+      charityNumber: [this.stateService.currentCharityNumber || null, [Validators.required]]
     });
   }
-  submit() {
+  async submit() {
     if (this.form.invalid) {
       this.handleInvalidForm();
       return;
@@ -42,15 +42,23 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
 
 
     this.loading = true;
-    this.onboardingService.get(this.form.value.charityNumber)
-      .subscribe(foundCharity => {
-        // save the charity in our stateService for future reference
-        this.stateService.currentOrganisationCharityCommisionModel = foundCharity;
-        // navigate to the next window
+    try {
+
+      var currentKnownGivtOrganisation = await this.onboardingService.checkIfParentExists(this.form.value.charityNumber, this.applicationStateService.currentUserModel.organisationId).toPromise();
+      // do a redirect to let the children fill in the contractform
+      this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['verify-organisation-name'] } }]);
+    } catch (error) {
+      try {
+        var currentCharityOrganisation = await this.onboardingService.get(+this.form.value.charityNumber).toPromise();
         this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['check-details'] } }])
-      }, error =>
-        this.form.get('charityNumber').setErrors({ invalid: true })
-      ).add(() => this.loading = false);
+
+      } catch (error) {
+        this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['verify-organisation-name'] } }]);
+      }
+      //     }, error =>
+      //     this.form.get('charityNumber').setErrors({ invalid: true })
+      //   ).add(() => this.loading = false);
+    }
   }
 
   public buildErrorTekst(): string {
