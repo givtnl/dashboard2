@@ -1,3 +1,5 @@
+import { OrganisationRegulator } from 'src/app/organisations/models/organisation-regulator.model';
+
 export class UpdateOrganisationDetailsCommand {
     name: string;
     addressLine1: string;
@@ -9,5 +11,5 @@ export class UpdateOrganisationDetailsCommand {
     referenceWithParent: string;
     charityId: string;
     charityCommissionNumber: string;
-    regulator: string;
+    regulator: OrganisationRegulator;
 }
