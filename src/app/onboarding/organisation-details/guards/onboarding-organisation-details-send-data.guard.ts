@@ -10,6 +10,9 @@ import { OrganisationRegulator } from 'src/app/organisations/models/organisation
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Updates the Organisation based on details from the Charity Commission API
+ */
 export class OnboardingOrganisationDetailsSendDataGuard implements CanActivate {
   constructor(
     private toastr: TranslatableToastrService,
