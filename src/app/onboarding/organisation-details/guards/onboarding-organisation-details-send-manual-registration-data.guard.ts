@@ -7,8 +7,6 @@ import { ApplicationStateService } from 'src/app/infrastructure/services/applica
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
 import { UpdateOrganisationDetailsCommand } from '../models/commands/update-organisation-details.command';
 import { isNullOrUndefined } from 'util';
-import { UpdateReferenceWithParentCommand } from '../models/commands/update-reference-with-parent.command';
-import { UpdateRegulatorAndRegulatorReferenceCommand } from '../models/commands/update-regulator-and-regulator-reference.command';
 
 @Injectable({
   providedIn: 'root'
