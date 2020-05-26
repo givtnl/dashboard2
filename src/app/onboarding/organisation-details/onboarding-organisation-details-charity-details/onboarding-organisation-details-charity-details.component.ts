@@ -7,6 +7,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
+import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
+import { noSpacesValidator } from 'src/app/shared/validators/no-spaces.validator';
 
 @Component({
   selector: 'app-onboarding-organisation-details-charity-details',
@@ -15,6 +17,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnInit {
   public form: FormGroup
+  public loading = false;
   public hasParent: boolean = undefined
   constructor(
     private formBuilder: FormBuilder,
@@ -39,8 +42,8 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
     } else {
       this.form = this.formBuilder.group({
         regulator: [regulator ? regulator : null, [Validators.required]],
-        referenceWithRegulator: [{ value: referenceWithRegulator ? referenceWithRegulator : null, disabled: true }, [Validators.required, Validators.maxLength(30)]],
-        referenceWithHMRC: [{ value: referenceWithHMRC ? referenceWithHMRC : null, disabled: true }, [Validators.required, Validators.maxLength(30)]]
+        referenceWithRegulator: [{ value: referenceWithRegulator ? referenceWithRegulator : null, disabled: true }, [Validators.required, Validators.maxLength(30), notNullOrEmptyValidator()]],
+        referenceWithHMRC: [{ value: referenceWithHMRC ? referenceWithHMRC : null, disabled: true }, [Validators.maxLength(30), noSpacesValidator()]]
       });
 
       this.form.get('regulator').valueChanges.subscribe(x => this.onChangeRegulator(x));
@@ -102,13 +105,14 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
 
   }
   continue() {
+    this.loading = true;
     var currentOrganisationRegistrationDetailModel: UpdateOrganisationCommand = this.onboardingStateService.currentOrganisationRegistrationDetailsModel
     currentOrganisationRegistrationDetailModel.Regulator = this.form.value.regulator;
     currentOrganisationRegistrationDetailModel.ReferenceWithRegulator = this.form.value.referenceWithRegulator;
     currentOrganisationRegistrationDetailModel.ReferenceWithParent = this.form.value.referenceWithParent;
     currentOrganisationRegistrationDetailModel.ReferenceWithHMRC = this.form.value.referenceWithHMRC;
     this.onboardingStateService.currentOrganisationRegistrationDetailsModel = currentOrganisationRegistrationDetailModel
-    this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['complete'] } }])
+    this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['complete'] } }]).finally(() => this.loading = false);
   }
   onChangeRegulator(selectedValue: number) {
     let enableCharityId = false;
@@ -117,6 +121,10 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
       case null:
         enableCharityId = false;
         enableRegulatorReference = false;
+        break;
+      case 0:
+        enableRegulatorReference = false;
+        enableCharityId = true;
         break;
       case 4:
         enableCharityId = true;
