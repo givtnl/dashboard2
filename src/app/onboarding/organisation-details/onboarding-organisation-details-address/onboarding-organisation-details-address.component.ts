@@ -71,7 +71,7 @@ export class OnboardingOrganisationDetailsAddressComponent implements OnInit {
       if (postcodeErrors.required) {
         errorMessages.push(this.translationService.get('errorMessages.address-zipcode-required'));
       }
-      if (postcodeErrors.invalidPostCode) {
+      if (!postcodeErrors.required && postcodeErrors.invalidPostCode) {
         errorMessages.push(this.translationService.get('errorMessages.postcode-invalid'));
       }
     }
