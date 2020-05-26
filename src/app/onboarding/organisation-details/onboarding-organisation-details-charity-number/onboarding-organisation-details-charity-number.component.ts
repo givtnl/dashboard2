@@ -51,7 +51,7 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
       this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['verify-organisation-name'] } }]);
     } catch (error) {
       try {
-        var currentCharityOrganisation = await this.onboardingService.get(+this.form.value.charityNumber).toPromise();
+        this.stateService.currentOrganisationCharityCommisionModel = await this.onboardingService.get(+this.form.value.charityNumber).toPromise();
         this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['check-details'] } }])
 
       } catch (error) {
