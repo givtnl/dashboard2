@@ -9,6 +9,8 @@ import { OnboardingOrganisationDetailsStateService } from '../services/onboardin
 import { OnboardingOrganisationDetailsService } from '../services/onboarding-organisation-details.service';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { environment } from 'src/environments/environment';
+import { isNullOrUndefined } from 'util';
+import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
 
 @Component({
   selector: 'app-onboarding-organisation-details-charity-number',
@@ -30,7 +32,7 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      charityNumber: [this.stateService.currentCharityNumber || null, [Validators.required]]
+      charityNumber: [this.stateService.currentCharityNumber || null, [Validators.required, notNullOrEmptyValidator()]]
     });
   }
   async submit() {
@@ -55,10 +57,8 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
       } catch (error) {
         this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['verify-organisation-name'] } }]);
       }
-      //     }, error =>
-      //     this.form.get('charityNumber').setErrors({ invalid: true })
-      //   ).add(() => this.loading = false);
     }
+    this.loading = false;
   }
 
   public buildErrorTekst(): string {
