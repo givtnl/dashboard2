@@ -33,10 +33,10 @@ export class OnboardingOrganisationDetailsAddressComponent implements OnInit {
     var country = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.Country
 
     this.form = this.formBuilder.group({
-      address: [address ? address : null, [Validators.required]],
-      city: [city ? city : null, [Validators.required]],
+      address: [address ? address : null, [Validators.required, notNullOrEmptyValidator()]],
+      city: [city ? city : null, [Validators.required, notNullOrEmptyValidator()]],
       postcode: [postcode ? postcode : null, ["GB", "GG", "GE"].some(x => x == country) ? [Validators.required, postCodeBACSValidator(), notNullOrEmptyValidator()] : [Validators.required, Validators.minLength(2), notNullOrEmptyValidator()]],
-      country: [country ? country : null, [Validators.required]]
+      country: [country ? country : null, [Validators.required, notNullOrEmptyValidator()]]
     })
   }
   submit() {
