@@ -354,10 +354,10 @@
     "onboardingOrganisationDetailsAddressComponent.placeholders.address": "Bv.: Noordersluisweg 27",
     "onboardingOrganisationDetailsAddressComponent.placeholders.city": "Bv.: Lelystad",
     "onboardingOrganisationDetailsAddressComponent.placeholders.postcode": "Bv.: 8243 PR",
-    "onboardingOrganisationDetailsCharityDetailsComponent.title": "Charity detailles",
-    "onboardingOrganisationDetailsCharityDetailsComponent.subtitle": "Als laatste hebben we ook nog even je charity-detailles nodig.\nDit omvat oa. de regulator waarbij jullie zijn aangesloten en eventuele referenties met andere organisaties.",
+    "onboardingOrganisationDetailsCharityDetailsComponent.title": "Charity details",
+    "onboardingOrganisationDetailsCharityDetailsComponent.subtitle": "Als laatste hebben we ook nog even je charity-details nodig.\nDit omvat o.a. de regulator waarbij jullie zijn aangesloten en eventuele referenties met andere organisaties.",
     "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithHMRC": "HMRC reference (Charity Id)",
-    "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithParent": "Referentiecode met de hoofd organisatie",
+    "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithParent": "Referentiecode met de hoofd-organisatie",
     "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithRegulator": "Regulator reference",
     "PreboardingDetailsCompleteComponent.steps-update-organisation": "Registreren van de gegevens van de organisatie",
     "PreboardingDetailsCompleteComponent.steps-registering-in-app": "Je organisatie in de app plaatsen",
@@ -378,5 +378,6 @@
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.Exempt": "Exempt Charity",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.Jersey": "Jersey Charity Commissioner",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.Guernsey": "Association of Guernsey Charities",
-    "onboardingOrganisationDetailsCharityDetailsComponent.labels.CompaniesHouse": "Companies house"
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.CompaniesHouse": "Companies house",
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.None": "Geen"
 }
