@@ -372,7 +372,7 @@
     "errorMessages.parent-reference-required": "Please fill in a parent reference",
     "errorMessages.hmrc-reference-required": "Please fill a reference with HMRC",
     "onboardingOrganisationDetailsVerifyOrganisationNameComponent.labelOrganisationName": "At first, we want to know the name of your organisation.",
-    "onboardingOrganisationDetailsAddressComponent.placeholders.country": "Bv.: England",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.country": "E.g.: England",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.OSCR": "OSCR - Office of the Scottish Charity Regulator",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.CCNI": "CCNI - Charity Commission Northern Ireland",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.Exempt": "Exempt Charity",
