@@ -6,6 +6,7 @@ import { TranslatableToastrService } from 'src/app/shared/services/translate-abl
 import { AddCharityDetailsToOrganisationCommand } from '../models/commands/add-charity-details-to-organisation.command';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { OrganisationRegulator } from 'src/app/organisations/models/organisation-regulator.model';
+import { UpdateOrganisationDetailsCommand } from '../models/commands/update-organisation-details.command';
 
 @Injectable({
   providedIn: 'root'
@@ -22,12 +23,14 @@ export class OnboardingOrganisationDetailsSendDataGuard implements CanActivate {
   ) {
 
   }
+
+  
   async canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     try {
 
       if (this.onboardingOrganisationDetailsStateService.isManualRegistration && this.onboardingOrganisationDetailsStateService.isManualRegistration === true) {
         var charity = this.onboardingOrganisationDetailsStateService.currentOrganisationCharityCommisionModel;
-        var command = new AddCharityDetailsToOrganisationCommand();
+        var command = new UpdateOrganisationDetailsCommand();
         command.name = charity.Name;
         command.addressLine1 = charity.AddressLineOne;
         command.addressLine2 = charity.AddressLineTwo;
