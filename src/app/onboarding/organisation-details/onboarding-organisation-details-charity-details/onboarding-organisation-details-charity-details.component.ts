@@ -135,5 +135,10 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
     }
     enableCharityId === true ? this.form.get('referenceWithHMRC').enable() : this.form.get('referenceWithHMRC').disable()
     enableRegulatorReference === true ? this.form.get('referenceWithRegulator').enable() : this.form.get('referenceWithRegulator').disable()
+
+    // reset the field values because they might have been disabled or are disabled now
+    // this way, we cannot have unexpected input ( for example HMRC ID when the field was disabled )
+    this.form.get('referenceWithRegulator').reset();
+    this.form.get('referenceWithHMRC').reset();
   }
 }
