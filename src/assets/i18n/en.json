@@ -378,5 +378,6 @@
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.Exempt": "Exempt Charity",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.Jersey": "Jersey Charity Commissioner",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.Guernsey": "Association of Guernsey Charities",
-    "onboardingOrganisationDetailsCharityDetailsComponent.labels.CompaniesHouse": "Companies house"
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.CompaniesHouse": "Companies house",
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.None": "None"
 }
