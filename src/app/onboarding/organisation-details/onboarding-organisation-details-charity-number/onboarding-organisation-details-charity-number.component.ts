@@ -55,6 +55,7 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
         this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['check-details'] } }])
 
       } catch (error) {
+        this.stateService.isManualRegistration = true;
         this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['verify-organisation-name'] } }]);
       }
     }
