@@ -358,11 +358,7 @@
     "onboardingOrganisationDetailsCharityDetailsComponent.subtitle": "In this final step, we need you to fill in your charity-details.\nThese include, among others, the regulator and any references with other organisations.",
     "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithHMRC": "HMRC reference number (Gift Aid)",
     "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithParent": "Reference code with parent organisation",
-<<<<<<< .merge_file_iABiiZ
-    "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithRegulator": "Regulator reference",
-=======
     "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithRegulator": "Regulator registration number",
->>>>>>> .merge_file_Wh6IS8
     "PreboardingDetailsCompleteComponent.steps-update-organisation": "Registering your organisation details",
     "PreboardingDetailsCompleteComponent.steps-registering-in-app": "Putting your organisation into the app",
     "PreboardingDetailsCompleteComponent.steps-create-collection-mediums": "Creating your first QR code",
