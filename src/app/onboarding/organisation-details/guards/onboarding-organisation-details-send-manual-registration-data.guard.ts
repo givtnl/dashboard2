@@ -27,7 +27,7 @@ export class OnboardingOrganisationDetailsSendManualRegistrationDataGuard implem
     try {
 
       // thou shall not pass if its not manual
-      if (this.onboardingOrganisationDetailsStateService.isManualRegistration === true)
+      if (!this.onboardingOrganisationDetailsStateService.isManualRegistration)
         return true;
 
       const charity: UpdateOrganisationCommand = this.onboardingOrganisationDetailsStateService.currentOrganisationRegistrationDetailsModel;
