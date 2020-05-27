@@ -8,9 +8,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
 import { OnboardingOrganisationDetailsService } from '../services/onboarding-organisation-details.service';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
-import { environment } from 'src/environments/environment';
-import { isNullOrUndefined } from 'util';
 import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
+import { AddChildOrganisationToParentOrganisationCommand } from '../models/commands/add-childorganisation-to-parentorganisation.command';
 
 @Component({
   selector: 'app-onboarding-organisation-details-charity-number',
@@ -45,8 +44,12 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
 
     this.loading = true;
     try {
-
-      var currentKnownGivtOrganisation = await this.onboardingService.checkIfParentExists(this.form.value.charityNumber, this.applicationStateService.currentUserModel.organisationId).toPromise();
+      var parent = await this.onboardingService.checkIfParentExists(this.form.value.charityNumber, this.applicationStateService.currentUserModel.organisationId).toPromise();
+      // Add the child to the parent organisation
+      var command = new AddChildOrganisationToParentOrganisationCommand();
+      command.childOrganisationId = this.applicationStateService.currentUserModel.organisationId;
+      command.parentOrganisationId = parent.Guid;
+      await this.onboardingService.addChildToParentOrgansiation(this.applicationStateService.currentUserModel.organisationId, command).toPromise();
       // do a redirect to let the children fill in the contractform
       this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['verify-organisation-name'] } }]);
     } catch (error) {
