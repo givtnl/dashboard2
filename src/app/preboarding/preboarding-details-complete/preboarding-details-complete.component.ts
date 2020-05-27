@@ -44,34 +44,8 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
     this.steps = this.activatedRoute.snapshot.data.steps;
     this.start();
   }
-  // Updates the organisation
-  start(): void {
-    this.organisationService.getById(this.preboardingStateService.organisationDetails.organisationId)
-      .pipe(catchError(() => this.genericError(0)))
-      .pipe(map((toUpdateOrganisation) => {
-        return {
-          Id: toUpdateOrganisation.Guid,
-          Name: toUpdateOrganisation.Name,
-          AddressLine1: toUpdateOrganisation.AddressLine1,
-          AddressLine2: toUpdateOrganisation.AddressLine2,
-          AddressLine3: toUpdateOrganisation.AddressLine3,
-          AddressLine4: toUpdateOrganisation.AddressLine4,
-          AddressLine5: toUpdateOrganisation.AddressLine5,
-          PostalCode: toUpdateOrganisation.PostalCode,
-          ParentId: null,
-          CharityCommissionNumber: null
-        }
-      }))
-      .pipe(switchMap(command => this.organisationService.update(command.Id, command)))
-      .pipe(retry(2))
-      .pipe(catchError(() => this.genericError(0)))
-      .subscribe(() => {
-        this.handleStep(0);
-        this.stepOne();
-      });
-  }
   // Gets the current collectgroup, or creates one if none does exist
-  stepOne(): void {
+  start(): void {
     this.collectGroupService.getAll(this.preboardingStateService.organisationDetails.organisationId)
       .pipe(catchError(() => this.genericError(1)))
       .pipe(switchMap(results => results && results.length > 0 ? of({
