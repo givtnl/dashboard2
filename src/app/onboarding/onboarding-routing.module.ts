@@ -57,9 +57,12 @@ import { GiftaidVerifyOrganisationDetailsComponent } from './giftaid/giftaid-ver
 import { GiftaidVerifyAuthorisedOfficialDetailsComponent } from './giftaid/giftaid-verify-authorised-official-details/giftaid-verify-authorised-official-details.component';
 import { GiftaidCompletedComponent } from './giftaid/giftaid-completed/giftaid-completed.component';
 import { OnboardingGiftAidCompleteCheckSuccessGuard } from './giftaid/guards/onboarding-giftaid-complete-check-success.guard';
-import { OnboardingOrganisationDetailsParentKnownComponent } from './organisation-details/onboarding-organisation-details-parent-known/onboarding-organisation-details-parent-known.component';
-import { OnboardingOrganisationDetailsFetchParentGuard } from './organisation-details/guards/onboarding-organisation-details-fetch-parent.guard';
 import { TranslatedValueResolver } from '../shared/guards/translated-value.resolver';
+import { OnboardingOrganisationDetailsVerifyOrganisationNameComponent } from './organisation-details/onboarding-organisation-details-verify-organisation-name/onboarding-organisation-details-verify-organisation-name.component';
+import { OnboardingOrganisationDetailsCharityDetailsComponent } from './organisation-details/onboarding-organisation-details-charity-details/onboarding-organisation-details-charity-details.component';
+import { OnboardingOrganisationDetailsAddressComponent } from './organisation-details/onboarding-organisation-details-address/onboarding-organisation-details-address.component';
+import { OnboardingDetailsFetchOrganisationResolver } from './organisation-details/resolvers/onboarding-details-fetch-organisation.resolver';
+import { OnboardingOrganisationDetailsSendManualRegistrationDataGuard } from './organisation-details/guards/onboarding-organisation-details-send-manual-registration-data.guard';
 
 const routes: Routes = [
   {
@@ -133,18 +136,35 @@ const routes: Routes = [
         data: { toResolveTranslationKey: 'onboardingOrganisationDetailsCharityNumberComponent.charityErrorDescription' },
         component: OnboardingOrganisationDetailsCharityNumberComponent
       },
+
+      {
+        path: 'verify-organisation-name',
+        outlet: 'onboarding-outlet',
+        resolve: { currentOrganisation: OnboardingDetailsFetchOrganisationResolver },
+        component: OnboardingOrganisationDetailsVerifyOrganisationNameComponent
+      },
+      {
+        path: 'address-details',
+        outlet: 'onboarding-outlet',
+        component: OnboardingOrganisationDetailsAddressComponent
+      },
+      {
+        path: 'charity-details',
+        outlet: 'onboarding-outlet',
+        component: OnboardingOrganisationDetailsCharityDetailsComponent
+      },
       {
         path: 'check-details',
         outlet: 'onboarding-outlet',
-        component: OnboardingOrganisationDetailsVerifyComponent,
-        canActivate: [
-          OnboardingOrganisationDetailsFetchParentGuard
-        ]
+        component: OnboardingOrganisationDetailsVerifyComponent
       },
       {
         path: 'complete',
         outlet: 'onboarding-outlet',
-        canActivate: [OnboardingOrganisationDetailsSendDataGuard],
+        canActivate: [
+          OnboardingOrganisationDetailsSendDataGuard,
+          OnboardingOrganisationDetailsSendManualRegistrationDataGuard
+        ],
         component: OnboardingOrganisationDetailsCompleteComponent
       },
       {
@@ -152,11 +172,11 @@ const routes: Routes = [
         outlet: 'onboarding-outlet',
         component: OnboardingOrganisationDetailsIncorrectComponent
       },
-      {
-        path: 'parent-known',
-        outlet: 'onboarding-outlet',
-        component: OnboardingOrganisationDetailsParentKnownComponent
-      },
+      // {
+      //   path: 'parent-known',
+      //   outlet: 'onboarding-outlet',
+      //   component: OnboardingOrganisationDetailsParentKnownComponent
+      // },
     ]
   },
   {

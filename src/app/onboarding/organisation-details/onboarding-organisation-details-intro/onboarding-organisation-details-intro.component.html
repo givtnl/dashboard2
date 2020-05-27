@@ -5,15 +5,12 @@
             onboardingOrganisationDetailsIntroComponent.title</p>
         <p class="text-givt-purple text-light-font" translate>
             onboardingOrganisationDetailsIntroComponent.description</p>
-        <a class="text-givt-purple text-light-font" href="{{contractUrl}}">
+        <a class="text-givt-purple text-light-font no-charity-number-link" (click)="gotoManualEntry()">
             <u>{{'onboardingOrganisationDetailsIntroComponent.dontHaveCharityNumber' | translate}}</u>
-            </a>
+        </a>
     </div>
 
-    <a bottom [translate]
-        class="btn btn-lg align-self-end bg-givt-green text-center text-white text-heavy-font bottom-button w-75"
-        [routerLink]="['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['charity-number'] } }]"
-        queryParamsHandling="merge">
+    <a bottom [translate] class="btn btn-lg align-self-end bg-givt-green text-center text-white text-heavy-font bottom-button w-75" [routerLink]="['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['charity-number'] } }]" queryParamsHandling="merge">
         onboardingOrganisationDetailsIntroComponent.startButtonText
     </a>
 </app-custom-card>

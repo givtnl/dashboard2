@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { OrganisationDetailModel } from 'src/app/organisations/models/organisation-detail.model';
 import { CharityCommisionOrganisationDetailModel } from '../models/charity-commision-organisation-detail.model';
-import { AddCharityDetailsToOrganisationCommand } from '../models/commands/add-charity-details-to-organisation.command';
+import { CurrentOrganisationRegistrationDetailsModel } from '../models/current-organisation-registration-details-model';
+import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +24,23 @@ export class OnboardingOrganisationDetailsStateService {
   }
   public set currentCharityNumber(charityNumber: string) {
     this.storage.setItem('OnboardingOrganisationDetailsStateService.CurrentCharityNumber', charityNumber.toString());
+  }
+  public get currentOrganisationRegistrationDetailsModel(): UpdateOrganisationCommand {
+    return JSON.parse(this.storage.getItem('OnboardingOrganisationDetailsStateService.CurrentOrganisationRegistrationDetailsModel'));
+  } 
+  public set currentOrganisationRegistrationDetailsModel(value: UpdateOrganisationCommand) {
+    this.storage.setItem('OnboardingOrganisationDetailsStateService.CurrentOrganisationRegistrationDetailsModel', JSON.stringify(value))
+  }
+  public get isManualRegistration(): boolean {
+    return Boolean(this.storage.getItem('OnboardingOrganisationDetailsStateService.ManualRegistration'));
+  }
+  public set isManualRegistration(value: boolean) {
+    this.storage.setItem('OnboardingOrganisationDetailsStateService.ManualRegistration', value.toString());
+  }
+  public get parentId(): string {
+    return this.storage.getItem('OnboardingOrganisationDetailsStateService.ParentId');
+  }
+  public set parentId(value: string) {
+    this.storage.setItem('OnboardingOrganisationDetailsStateService.ParentId', value);
   }
 }

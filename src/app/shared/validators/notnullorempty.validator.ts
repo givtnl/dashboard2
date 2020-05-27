@@ -1,12 +1,15 @@
 import { ValidatorFn, AbstractControl } from '@angular/forms';
+import { isNullOrUndefined } from 'util';
 
 export function notNullOrEmptyValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: boolean } | null => {
     let enteredValue = control.value;
-    if (enteredValue && enteredValue.toString().trim() == "") {
+    if (enteredValue) {
+      enteredValue = (<string>enteredValue).trim();
+    }
+    if (isNullOrUndefined(enteredValue) || enteredValue === '') {
       return {
-        trimEmptyValue: true,
-        value: enteredValue.toString()
+        required: true
       };
     }
     return null;

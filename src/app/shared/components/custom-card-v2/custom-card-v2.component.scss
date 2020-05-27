@@ -1,0 +1,74 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+.h-100px {
+  height: 100px;
+}
+
+.w-100px {
+  width: 100px;
+}
+
+.min-w-40px {
+  min-width: 40px;
+}
+
+@include media-breakpoint-up(md) {
+  .card {
+    min-height: unset !important;
+    width: 700px;
+    height: 600px;
+    border-radius:2rem !important;
+  }
+
+  .card-body .row {
+    height: 100%;
+  }
+
+  .custom-border-right {
+    border-right: solid lightgrey;
+  }
+}
+
+.custom-background {
+  background: var(--background-grey); /* Old browsers */
+  background: -moz-linear-gradient(
+    -180deg,
+    var(--background-grey) 0%,
+    var(--background-grey) 25%,
+    #ffffff 26%,
+    #ffffff 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    -180deg,
+    var(--background-grey) 0%,
+    var(--background-grey) 25%,
+    #ffffff 26%,
+    #ffffff 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    177deg,
+    var(--background-grey) 0%,
+    var(--background-grey) 25%,
+    #ffffff 26%,
+    #ffffff 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--background-grey)', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.circle-blue {
+  border-radius: 50%;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#724D7C+87,BD3F56+100 */
+  background: #5A5387;
+  /* Old browsers */
+  background: -moz-linear-gradient(45deg, #5A5387 30%, #4D98CF 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #5A5387 30%, #4D98CF 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #5A5387 30%, #4D98CF 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5A5387', endColorstr='#4D98CF', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+}

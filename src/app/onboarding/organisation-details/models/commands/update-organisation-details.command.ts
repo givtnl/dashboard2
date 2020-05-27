@@ -1,16 +1,16 @@
 import { OrganisationRegulator } from 'src/app/organisations/models/organisation-regulator.model';
 
-export class AddCharityDetailsToOrganisationCommand {
+export class UpdateOrganisationDetailsCommand {
     name: string;
     addressLine1: string;
     addressLine2: string;
     addressLine3: string;
     addressLine4: string;
     addressLine5: string;
-    // address: string
     postalCode: string;
-    // city: string;
-    // locality: string;
+    referenceWithParent: string;
+    charityId: string;
+    parentId: string;
     charityCommissionNumber: string;
     regulator: OrganisationRegulator;
 }

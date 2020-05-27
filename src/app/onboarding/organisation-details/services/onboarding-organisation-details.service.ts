@@ -4,6 +4,8 @@ import { AddCharityDetailsToOrganisationCommand } from '../models/commands/add-c
 import { Injectable } from '@angular/core';
 import { CharityCommisionOrganisationDetailModel } from '../models/charity-commision-organisation-detail.model';
 import { HttpParams } from '@angular/common/http';
+import { UpdateOrganisationDetailsCommand } from '../models/commands/update-organisation-details.command';
+import { AddChildOrganisationToParentOrganisationCommand } from '../models/commands/add-childorganisation-to-parentorganisation.command';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +24,11 @@ export class OnboardingOrganisationDetailsService {
     return this.backendService.get<CharityCommisionOrganisationDetailModel>(`v2/organisations/${charityNumber}`, httpParameters);
   }
 
-  put(organisationId: string, command: AddCharityDetailsToOrganisationCommand) {
+  addChildToParentOrgansiation(organisationId: string, command: AddChildOrganisationToParentOrganisationCommand){
+    return this.backendService.post(`v2/organisations/${organisationId}/suborganisations`, command)
+  }
+
+  put(organisationId: string, command: UpdateOrganisationDetailsCommand) {
     return this.backendService.put(`v2/organisations/${organisationId}`, command);
   }
 }
