@@ -8,6 +8,7 @@ import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands
 import { UpdateOrganisationDetailsCommand } from '../models/commands/update-organisation-details.command';
 import { isNullOrUndefined } from 'util';
 import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
+import { OrganisationRegistrationProgress } from 'src/app/organisations/models/organisaition-registration-progress';
 
 @Injectable({
   providedIn: 'root'
@@ -65,6 +66,7 @@ export class OnboardingOrganisationDetailsSendManualRegistrationDataGuard implem
       }
       // update the organisation details
       await this.onboardingOrganisationDetailsService.put(organisationId, command).toPromise();
+      await this.organisationService.changeProgress(organisationId, OrganisationRegistrationProgress.OrganisationDetailsDone).toPromise();
 
       return true;
     } catch (error) {

@@ -7,6 +7,8 @@ import { AddCharityDetailsToOrganisationCommand } from '../models/commands/add-c
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { OrganisationRegulator } from 'src/app/organisations/models/organisation-regulator.model';
 import { UpdateOrganisationDetailsCommand } from '../models/commands/update-organisation-details.command';
+import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
+import { OrganisationRegistrationProgress } from 'src/app/organisations/models/organisaition-registration-progress';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +21,9 @@ export class OnboardingOrganisationDetailsSendDataGuard implements CanActivate {
     private toastr: TranslatableToastrService,
     private onboardingOrganisationDetailsStateService: OnboardingOrganisationDetailsStateService,
     private onboardingOrganisationDetailsService: OnboardingOrganisationDetailsService,
-    private applicationStateService: ApplicationStateService
-  ) {
+    private applicationStateService: ApplicationStateService,
+    private organisationService: OrganisationsService,
+    ) {
 
   }
 
@@ -43,6 +46,7 @@ export class OnboardingOrganisationDetailsSendDataGuard implements CanActivate {
 
         var organisationId = this.applicationStateService.currentTokenModel.OrganisationAdmin;
         await this.onboardingOrganisationDetailsService.put(organisationId, command).toPromise();
+        await this.organisationService.changeProgress(organisationId, OrganisationRegistrationProgress.OrganisationDetailsDone).toPromise();
       }
 
       return true;
