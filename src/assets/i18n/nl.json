@@ -379,5 +379,6 @@
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.Jersey": "Jersey Charity Commissioner",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.Guernsey": "Association of Guernsey Charities",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.CompaniesHouse": "Companies house",
-    "onboardingOrganisationDetailsCharityDetailsComponent.labels.None": "Geen"
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.None": "Geen",
+    "errorMessages.number-of-visitors-min_max": "Gelieve een bezoekersaantal tussen 1 en 50.000 te kiezen."
 }
