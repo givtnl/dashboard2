@@ -356,7 +356,7 @@
     "onboardingOrganisationDetailsAddressComponent.placeholders.postcode": "E.g.: AL1 3LF",
     "onboardingOrganisationDetailsCharityDetailsComponent.title": "Charity details",
     "onboardingOrganisationDetailsCharityDetailsComponent.subtitle": "In this final step, we need you to fill in your charity-details.\nThese include, among others, the regulator and any references with other organisations.",
-    "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithHMRC": "HMRC reference number (Gift Aid)",
+    "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithHMRC": "HMRC reference no. (Gift Aid)",
     "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithParent": "Reference code with parent organisation",
     "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithRegulator": "Regulator registration number",
     "PreboardingDetailsCompleteComponent.steps-update-organisation": "Registering your organisation details",
@@ -379,5 +379,6 @@
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.Jersey": "Jersey Charity Commissioner",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.Guernsey": "Association of Guernsey Charities",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.CompaniesHouse": "Companies house",
-    "onboardingOrganisationDetailsCharityDetailsComponent.labels.None": "None"
+    "onboardingOrganisationDetailsCharityDetailsComponent.labels.None": "None",
+    "errorMessages.number-of-visitors-min_max": "Please fill in a number of unique visitors between 1 and 50,000."
 }
