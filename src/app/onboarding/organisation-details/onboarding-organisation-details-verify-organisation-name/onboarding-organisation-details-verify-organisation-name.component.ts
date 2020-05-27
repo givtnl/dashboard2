@@ -67,6 +67,8 @@ export class OnboardingOrganisationDetailsVerifyOrganisationNameComponent implem
   continue() {
     var currentOrganisationRegistrationDetailModel: UpdateOrganisationCommand = this.onboardingStateService.currentOrganisationRegistrationDetailsModel || Object()
     currentOrganisationRegistrationDetailModel.Name = this.form.value.organisationName
+    if (this.onboardingStateService.parentId)
+      currentOrganisationRegistrationDetailModel.ParentId = this.onboardingStateService.parentId
     this.onboardingStateService.currentOrganisationRegistrationDetailsModel = currentOrganisationRegistrationDetailModel
     this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['address-details'] } }])
   }

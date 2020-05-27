@@ -10,6 +10,7 @@ export class UpdateOrganisationDetailsCommand {
     postalCode: string;
     referenceWithParent: string;
     charityId: string;
+    parentId: string;
     charityCommissionNumber: string;
     regulator: OrganisationRegulator;
 }

@@ -54,11 +54,14 @@ export class OnboardingOrganisationDetailsSendManualRegistrationDataGuard implem
         command.regulator = parentOrganisation.Regulator
         command.charityId = parentOrganisation.CharityId;
         command.charityCommissionNumber = parentOrganisation.CharityCommissionReference;
+        command.parentId = parentOrganisation.Guid;
       } else {
         // update regulator and reference with regulator / parentId
         command.regulator = charity.Regulator;
         command.charityCommissionNumber = charity.ReferenceWithRegulator;
         command.charityId = charity.ReferenceWithHMRC;
+        command.parentId = null;
+        command.referenceWithParent = null;
       }
       // update the organisation details
       await this.onboardingOrganisationDetailsService.put(organisationId, command).toPromise();

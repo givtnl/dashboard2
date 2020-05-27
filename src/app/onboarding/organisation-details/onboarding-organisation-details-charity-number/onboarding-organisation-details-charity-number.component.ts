@@ -45,11 +45,8 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
     this.loading = true;
     try {
       var parent = await this.onboardingService.checkIfParentExists(this.form.value.charityNumber, this.applicationStateService.currentUserModel.organisationId).toPromise();
-      // Add the child to the parent organisation
-      var command = new AddChildOrganisationToParentOrganisationCommand();
-      command.childOrganisationId = this.applicationStateService.currentUserModel.organisationId;
-      command.parentOrganisationId = parent.Guid;
-      await this.onboardingService.addChildToParentOrgansiation(this.applicationStateService.currentUserModel.organisationId, command).toPromise();
+      this.stateService.parentId = parent.Guid;
+      this.stateService.isManualRegistration = true;
       // do a redirect to let the children fill in the contractform
       this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['verify-organisation-name'] } }]);
     } catch (error) {

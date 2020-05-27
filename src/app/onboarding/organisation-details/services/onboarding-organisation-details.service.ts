@@ -28,7 +28,7 @@ export class OnboardingOrganisationDetailsService {
     return this.backendService.post(`v2/organisations/${organisationId}/suborganisations`, command)
   }
 
-  put(organisationId: string, command: AddCharityDetailsToOrganisationCommand) {
+  put(organisationId: string, command: UpdateOrganisationDetailsCommand) {
     return this.backendService.put(`v2/organisations/${organisationId}`, command);
   }
 }
