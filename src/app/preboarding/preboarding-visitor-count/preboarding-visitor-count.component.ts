@@ -32,7 +32,7 @@ export class PreboardingVisitorCountComponent implements OnInit {
     this.collectGroup = this.route.snapshot.data.collectGroup as CreateCollectGroupCommand;
 
     this.form = this.formBuilder.group({
-      numberOfVisitors: [this.collectGroup ? this.collectGroup.visitorCount : null, [Validators.required, notNullOrEmptyValidator()]],
+      numberOfVisitors: [this.collectGroup ? this.collectGroup.visitorCount : null, [Validators.required, Validators.min(1)]],
     });
   }
 
