@@ -32,7 +32,7 @@ export class PreboardingVisitorCountComponent implements OnInit {
     this.collectGroup = this.route.snapshot.data.collectGroup as CreateCollectGroupCommand;
 
     this.form = this.formBuilder.group({
-      numberOfVisitors: [this.collectGroup ? this.collectGroup.visitorCount : null, [Validators.required, Validators.min(1)]],
+      numberOfVisitors: [this.collectGroup ? this.collectGroup.visitorCount : null, [Validators.required, Validators.min(1), Validators.max(50000)]],
     });
   }
 
@@ -57,8 +57,11 @@ export class PreboardingVisitorCountComponent implements OnInit {
     const numberOfVisitorsErrors = this.form.get('numberOfVisitors').errors;
 
     if (numberOfVisitorsErrors) {
-      if (numberOfVisitorsErrors.trimEmptyValue || numberOfVisitorsErrors.required) {
+      if (numberOfVisitorsErrors.required) {
         errorMessages.push(this.translationService.get('errorMessages.number-of-visitors-required'));
+      }
+      if (numberOfVisitorsErrors.min || numberOfVisitorsErrors.max) {
+        errorMessages.push(this.translationService.get('errorMessages.number-of-visitors-min_max'));
       }
     }
 
