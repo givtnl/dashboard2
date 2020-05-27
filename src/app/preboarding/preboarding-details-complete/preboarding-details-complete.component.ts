@@ -138,6 +138,7 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
       templateName,
       null
     )
+     .pipe(retry(2))
       .pipe(catchError(() => this.genericError(4)))
       .subscribe(() => {
         this.handleStep(4);
