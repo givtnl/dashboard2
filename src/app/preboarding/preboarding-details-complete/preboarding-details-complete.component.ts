@@ -135,7 +135,7 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
   // Adds the note in teamleader
   stepSix(): void {
     this.organisationService
-      .addNote(this.preboardingStateService.organisationDetails.organisationId, 'Preboarding completed',
+      .addNote(this.preboardingStateService.organisationDetails.organisationId, `Preboarding completed ${this.preboardingStateService.currentCollectGroupDetails.name}`,
         `${this.formattingService.formatContact(this.preboardingStateService.currentOrganisationContact)}
     ${this.formattingService.formatInfo(this.preboardingStateService.currentAdditionalInformation)}`)
       .pipe(catchError(() => this.genericError(5)))
