@@ -32,7 +32,7 @@ export class OnboardingOrganisationDetailsStateService {
     this.storage.setItem('OnboardingOrganisationDetailsStateService.CurrentOrganisationRegistrationDetailsModel', JSON.stringify(value))
   }
   public get isManualRegistration(): boolean {
-    return Boolean(this.storage.getItem('OnboardingOrganisationDetailsStateService.ManualRegistration'));
+    return this.storage.getItem('OnboardingOrganisationDetailsStateService.ManualRegistration') === "true";
   }
   public set isManualRegistration(value: boolean) {
     this.storage.setItem('OnboardingOrganisationDetailsStateService.ManualRegistration', value.toString());
