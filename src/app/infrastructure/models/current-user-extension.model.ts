@@ -5,4 +5,7 @@ export interface CurrentUserExtensionModel {
     FirstName: string;
     LastName:string;
     Email: string;
+    IBAN: string;
+    SortCode: string;
+    AccountNumber: string;
 }
