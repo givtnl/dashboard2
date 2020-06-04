@@ -380,5 +380,6 @@
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.Guernsey": "Association of Guernsey Charities",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.CompaniesHouse": "Companies house",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.None": "Geen",
-    "errorMessages.number-of-visitors-min_max": "Gelieve een bezoekersaantal tussen 1 en 50.000 te kiezen."
+    "errorMessages.number-of-visitors-min_max": "Gelieve een bezoekersaantal tussen 1 en 50.000 te kiezen.",
+    "errorMessages.tempUser": "Om verder te kunnen gaan op het dashboard moet je eerst even je registratie in de app afronden."
 }
