@@ -8,7 +8,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
 import { OnboardingOrganisationDetailsService } from '../services/onboarding-organisation-details.service';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
-import { environment } from 'src/environments/environment';
+import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
+import { AddChildOrganisationToParentOrganisationCommand } from '../models/commands/add-childorganisation-to-parentorganisation.command';
 
 @Component({
   selector: 'app-onboarding-organisation-details-charity-number',
@@ -30,10 +31,10 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      charityNumber: [null, [Validators.required]]
+      charityNumber: [this.stateService.currentCharityNumber || null, [Validators.required, notNullOrEmptyValidator()]]
     });
   }
-  submit() {
+  async submit() {
     if (this.form.invalid) {
       this.handleInvalidForm();
       return;
@@ -42,20 +43,29 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
 
 
     this.loading = true;
-    this.onboardingService.get(this.form.value.charityNumber)
-      .subscribe(foundCharity => {
-        // save the charity in our stateService for future reference
-        this.stateService.currentOrganisationCharityCommisionModel = foundCharity;
-        // navigate to the next window
+    try {
+      var parent = await this.onboardingService.checkIfParentExists(this.form.value.charityNumber, this.applicationStateService.currentUserModel.organisationId).toPromise();
+      this.stateService.parentId = parent.Guid;
+      this.stateService.isManualRegistration = true;
+      // do a redirect to let the children fill in the contractform
+      this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['verify-organisation-name'] } }]);
+    } catch (error) {
+      try {
+        this.stateService.currentOrganisationCharityCommisionModel = await this.onboardingService.get(+this.form.value.charityNumber).toPromise();
+        this.stateService.isManualRegistration = false;
         this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['check-details'] } }])
-      }, error =>
-        this.form.get('charityNumber').setErrors({ invalid: true })
-      ).add(() => this.loading = false);
+      } catch (error) {
+        this.stateService.isManualRegistration = true;
+        this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['verify-organisation-name'] } }]);
+      }
+    }
+    this.loading = false;
   }
 
-  public buildErrorTekst():string {
+  public buildErrorTekst(): string {
     let baseText = this.activatedRoute.snapshot.data.charityErrorBaseText as string;
-    return baseText.replace('[LINK]', `${environment.apiUrl}/contract/organisations/${this.applicationStateService.currentTokenModel.OrganisationAdmin}?charityCommissionReference=${this.form.value.charityNumber}`);
+    let url = this.router.parseUrl("onboarding/organisation-details/(onboarding-outlet:verify-organisation-name)");
+    return baseText.replace('[LINK]', this.router.serializeUrl(url));
   }
 
   handleInvalidForm() {

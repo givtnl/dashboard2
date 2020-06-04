@@ -44,36 +44,10 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
     this.steps = this.activatedRoute.snapshot.data.steps;
     this.start();
   }
-  // Updates the organisation
-  start(): void {
-    this.organisationService.getById(this.preboardingStateService.organisationDetails.organisationId)
-      .pipe(catchError(() => this.genericError(0)))
-      .pipe(map((toUpdateOrganisation) => {
-        return {
-          Id: toUpdateOrganisation.Guid,
-          Name: toUpdateOrganisation.Name,
-          AddressLine1: toUpdateOrganisation.AddressLine1,
-          AddressLine2: toUpdateOrganisation.AddressLine2,
-          AddressLine3: toUpdateOrganisation.AddressLine3,
-          AddressLine4: toUpdateOrganisation.AddressLine4,
-          AddressLine5: toUpdateOrganisation.AddressLine5,
-          PostalCode: toUpdateOrganisation.PostalCode,
-          ParentId: null,
-          CharityCommissionNumber: null
-        }
-      }))
-      .pipe(switchMap(command => this.organisationService.update(command.Id, command)))
-      .pipe(retry(2))
-      .pipe(catchError(() => this.genericError(0)))
-      .subscribe(() => {
-        this.handleStep(0);
-        this.stepOne();
-      });
-  }
   // Gets the current collectgroup, or creates one if none does exist
-  stepOne(): void {
+  start(): void {
     this.collectGroupService.getAll(this.preboardingStateService.organisationDetails.organisationId)
-      .pipe(catchError(() => this.genericError(1)))
+      .pipe(catchError(() => this.genericError(0)))
       .pipe(switchMap(results => results && results.length > 0 ? of({
         Result: {
           Id: results[0].Id,
@@ -81,9 +55,9 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
         }
       }) : this.collectGroupService
         .create(this.preboardingStateService.organisationDetails.organisationId, this.preboardingStateService.currentCollectGroupDetails)
-        .pipe(catchError(() => this.genericError(1)))))
+        .pipe(catchError(() => this.genericError(0)))))
       .subscribe(createdOrRetrievedCollectGroupResponse => {
-        this.handleStep(1);
+        this.handleStep(0);
         this.stepTwo(createdOrRetrievedCollectGroupResponse);
       });
   }
@@ -91,19 +65,19 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
   stepTwo(createdOrRetrievedCollectGroup: CreatedResponseModel<CreatedCollectGroupResponse>): void {
     this.collectGroupService
       .getCollectionMediums(this.preboardingStateService.organisationDetails.organisationId, createdOrRetrievedCollectGroup.Result.Id)
-      .pipe(catchError(() => this.genericError(2)))
+      .pipe(catchError(() => this.genericError(1)))
       // export to KDGM if no qr codes currently present
       .pipe(tap(results => results.length === 0 ? this.stepThree(createdOrRetrievedCollectGroup) : EMPTY))
       // finish the KDGM step if there are already codes!
-      .pipe(tap(results => results.length > 0 ? this.handleStep(3) : EMPTY))
+      .pipe(tap(results => results.length > 0 ? this.handleStep(2) : EMPTY))
       .pipe(switchMap(results => results.length === 0 ? 
         this.collectGroupService.addCollectionMedium(this.preboardingStateService.organisationDetails.organisationId, createdOrRetrievedCollectGroup.Result.Id)
-        .pipe(catchError(() => this.genericError(2)))
+        .pipe(catchError(() => this.genericError(1)))
         : of({
         Result: results[0].MediumId
       })))
       .subscribe(createdOrRetrievedCollectionMedium => {
-        this.handleStep(2);
+        this.handleStep(1);
         this.stepFour(createdOrRetrievedCollectionMedium, createdOrRetrievedCollectGroup);
       })
   }
@@ -112,7 +86,7 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
     forkJoin([CollectionMediumType.QrCodeWebOnly, CollectionMediumType.QrCodeKDGM]
       .map(qrType => this.collectGroupService
         .addCollectionMedium(this.preboardingStateService.organisationDetails.organisationId, createdOrRetrievedCollectGroup.Result.Id, qrType)
-        .pipe(catchError(() => this.genericError(3)))
+        .pipe(catchError(() => this.genericError(2)))
         .pipe(switchMap(createdQrCode => this.collectGroupService.exportCollectionMedium(
           this.preboardingStateService.organisationDetails.organisationId,
           createdOrRetrievedCollectGroup.Result.Id,
@@ -123,7 +97,7 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
           null,
           "cdn/qr"
         )))
-      )).subscribe(x => this.handleStep(3));
+      )).subscribe(x => this.handleStep(2));
   }
   // Exports Collection Mediums By Mail
   stepFour(createdOrRetrievedCollectionMedium: CreatedResponseModel<string>, createdOrRetrievedCollectGroup: CreatedResponseModel<CreatedCollectGroupResponse>): void {
@@ -139,9 +113,13 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
       null
     )
      .pipe(retry(2))
+<<<<<<< HEAD
       .pipe(catchError(() => this.genericError(4)))
+=======
+      .pipe(catchError(() => this.genericError(3)))
+>>>>>>> develop
       .subscribe(() => {
-        this.handleStep(4);
+        this.handleStep(3);
         this.stepFive(createdOrRetrievedCollectGroup);
       });
   }
@@ -152,21 +130,21 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
         collectGroupId: createdOrRetrievedCollectGroup.Result.Id,
         language: x.language,
         email: x.email
-      }).pipe(catchError(() => this.genericError(5)))
+      }).pipe(catchError(() => this.genericError(4)))
     )).subscribe(() => {
-      this.handleStep(5);
+      this.handleStep(4);
       this.stepSix();
     })
   }
   // Adds the note in teamleader
   stepSix(): void {
     this.organisationService
-      .addNote(this.preboardingStateService.organisationDetails.organisationId, 'Preboarding completed',
+      .addNote(this.preboardingStateService.organisationDetails.organisationId, `Preboarding completed ${this.preboardingStateService.currentCollectGroupDetails.name}`,
         `${this.formattingService.formatContact(this.preboardingStateService.currentOrganisationContact)}
     ${this.formattingService.formatInfo(this.preboardingStateService.currentAdditionalInformation)}`)
-      .pipe(catchError(() => this.genericError(6)))
+      .pipe(catchError(() => this.genericError(5)))
       .subscribe(() => {
-        this.handleStep(6);
+        this.handleStep(5);
         this.stepSeven();
       })
   }
@@ -174,8 +152,8 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
   stepSeven(): void {
     this.organisationService
       .changeProgress(this.preboardingStateService.organisationDetails.organisationId, OrganisationRegistrationProgress.Preboarded)
-      .pipe(catchError(() => this.genericError(7)))
-      .subscribe(() => this.handleStep(7));
+      .pipe(catchError(() => this.genericError(6)))
+      .subscribe(() => this.handleStep(6));
   }
   private genericError(stepIndex: number): Observable<never> {
     this.handleStep(stepIndex, false);

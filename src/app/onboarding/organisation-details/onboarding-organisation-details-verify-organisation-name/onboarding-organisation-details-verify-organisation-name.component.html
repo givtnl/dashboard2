@@ -1,0 +1,13 @@
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()'>
+    <app-custom-card-v2 titleTranslationKey="Verify the organisation details" description="onboardingOrganisationDetailsVerifyOrganisationNameComponent.description" showPreviousButton="true" showSideInfo="true">
+        <div body>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <p class="text-givt-purple text-light-font" translate>
+                        onboardingOrganisationDetailsVerifyOrganisationNameComponent.labelOrganisationName</p>
+                    <input formControlName="organisationName" type="email" class="form-control shadow text-givt-purple" id="inputOrganisationName" placeholder="{{'onboardingOrganisationDetailsVerifyOrganisationNameComponent.placeholder' | translate }}">
+                </div>
+            </div>
+        </div>
+    </app-custom-card-v2>
+</form>

@@ -1,0 +1,53 @@
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()'>
+    <app-custom-card-v2 titleTranslationKey="onboardingOrganisationDetailsCharityDetailsComponent.title"
+        description="onboardingOrganisationDetailsCharityDetailsComponent.subtitle" showPreviousButton="true">
+        <div body>
+            <div class="form-row" *ngIf="hasParent">
+                <div class="form-group col-md-12">
+                    <input type="text"
+                        placeholder="{{'onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithParent'|translate}}"
+                        formControlName="referenceWithParent"
+                        class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+                </div>
+            </div>
+
+            <div class="form-row" *ngIf="!hasParent">
+                <div class="form-group col-md-12">
+                    <select class="form-control form-control-lg mb-3 shadow text-givt-purple"
+                        formControlName="regulator">
+                        <option translate [ngValue]="null" disabled>
+                            onboardingOrganisationDetailsCharityDetailsComponent.labels.selectRegulator</option>
+                        <option [ngValue]="0" translate>onboardingOrganisationDetailsCharityDetailsComponent.labels.None
+                        </option>
+                        <option [ngValue]="2" translate>onboardingOrganisationDetailsCharityDetailsComponent.labels.OSCR
+                        </option>
+                        <option [ngValue]="3" translate>onboardingOrganisationDetailsCharityDetailsComponent.labels.CCNI
+                        </option>
+                        <option [ngValue]="4" translate>
+                            onboardingOrganisationDetailsCharityDetailsComponent.labels.Exempt</option>
+                        <option [ngValue]="5" translate>
+                            onboardingOrganisationDetailsCharityDetailsComponent.labels.Jersey</option>
+                        <option [ngValue]="6" translate>
+                            onboardingOrganisationDetailsCharityDetailsComponent.labels.Guernsey</option>
+                        <option [ngValue]="7" translate>
+                            onboardingOrganisationDetailsCharityDetailsComponent.labels.CompaniesHouse</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row" *ngIf="!hasParent">
+                <div class="form-group col-md-6">
+                    <input type="text"
+                        placeholder="{{'onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithRegulator'|translate}}"
+                        formControlName="referenceWithRegulator"
+                        class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="text"
+                        placeholder="{{'onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithHMRC'|translate}}"
+                        formControlName="referenceWithHMRC"
+                        class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+                </div>
+            </div>
+        </div>
+    </app-custom-card-v2>
+</form>

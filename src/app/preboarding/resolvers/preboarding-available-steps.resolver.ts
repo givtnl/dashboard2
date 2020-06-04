@@ -15,10 +15,6 @@ export class PreboardingAvailableStepsResolver implements Resolve<PreboardingSte
         return [
             {
                 loading: true,
-                term: 'PreboardingDetailsCompleteComponent.steps-update-organisation',
-            },
-            {
-                loading: true,
                 term: 'PreboardingDetailsCompleteComponent.steps-registering-in-app'
             },
             {
