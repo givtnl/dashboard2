@@ -380,5 +380,6 @@
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.Guernsey": "Association of Guernsey Charities",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.CompaniesHouse": "Companies house",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.None": "None",
-    "errorMessages.number-of-visitors-min_max": "Please fill in a number of unique visitors between 1 and 50,000."
+    "errorMessages.number-of-visitors-min_max": "Please fill in a number of unique visitors between 1 and 50,000.",
+    "errorMessages.tempUser": "To continue on the dashboard you need to finish your registration in the app first."
 }
