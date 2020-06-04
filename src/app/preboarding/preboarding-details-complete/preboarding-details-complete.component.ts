@@ -70,12 +70,12 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
       .pipe(tap(results => results.length === 0 ? this.stepThree(createdOrRetrievedCollectGroup) : EMPTY))
       // finish the KDGM step if there are already codes!
       .pipe(tap(results => results.length > 0 ? this.handleStep(2) : EMPTY))
-      .pipe(switchMap(results => results.length === 0 ? 
+      .pipe(switchMap(results => results.length === 0 ?
         this.collectGroupService.addCollectionMedium(this.preboardingStateService.organisationDetails.organisationId, createdOrRetrievedCollectGroup.Result.Id)
-        .pipe(catchError(() => this.genericError(1)))
+          .pipe(catchError(() => this.genericError(1)))
         : of({
-        Result: results[0].MediumId
-      })))
+          Result: results[0].MediumId
+        })))
       .subscribe(createdOrRetrievedCollectionMedium => {
         this.handleStep(1);
         this.stepFour(createdOrRetrievedCollectionMedium, createdOrRetrievedCollectGroup);
@@ -112,12 +112,8 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
       templateName,
       null
     )
-     .pipe(retry(2))
-<<<<<<< HEAD
-      .pipe(catchError(() => this.genericError(4)))
-=======
+      .pipe(retry(2))
       .pipe(catchError(() => this.genericError(3)))
->>>>>>> develop
       .subscribe(() => {
         this.handleStep(3);
         this.stepFive(createdOrRetrievedCollectGroup);
