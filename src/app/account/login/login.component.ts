@@ -4,7 +4,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { AccountService } from '../services/account.service';
 import { Observable } from 'rxjs';
 import { catchErrorStatus } from 'src/app/shared/extensions/observable-extensions';
-import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorMessages } from 'src/app/infrastructure/enums/error-messages.enum';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { Router } from '@angular/router';
@@ -29,7 +28,7 @@ export class LoginComponent implements OnInit {
     private accountService: AccountService,
     private router: Router,
     private applicationStateService: ApplicationStateService
-  ) {}
+  ) { }
 
   ngOnInit() {
 
@@ -57,17 +56,18 @@ export class LoginComponent implements OnInit {
       this.submitted = false;
       this.accountService
         .login(this.form.value.email, this.form.value.password)
-        .pipe(catchErrorStatus(400, x => this.handleInvalidLogin(x)))
+        .pipe(catchErrorStatus(400, x => this.handleInvalidLogin(x.error.error.error_status || ErrorMessages.UnExpectedError)))
         .subscribe(resp =>
           this.router
             .navigate(['/', 'dashboard', 'root', { outlets: { 'dashboard-outlet': ['home'] } }])
+            .catch(error => this.handleInvalidLogin(error.error_status || ErrorMessages.UnExpectedError))
             .finally(() => (this.loading = false))
         ).add(() => this.loading = false);
     }
   }
-  handleInvalidLogin(error: HttpErrorResponse) {
+  handleInvalidLogin(errorNumber: number) {
     this.loading = false;
-    switch (error.error.error_status) {
+    switch (errorNumber) {
       case ErrorMessages.AccountDisabled:
         {
           this.errorMessages.push(this.translationService.get('errorMessages.accountDisabled'));
@@ -88,6 +88,11 @@ export class LoginComponent implements OnInit {
         {
           this.errorMessages.push(this.translationService.get('errorMessages.wrongEmailOrPassword'));
           this.errorMessages.push(this.translationService.get('errorMessages.twoAttemptLeft'));
+        }
+        break;
+      case ErrorMessages.TempUser:
+        {
+          this.errorMessages.push(this.translationService.get('errorMessages.tempUser'));
         }
         break;
       default:

@@ -10,5 +10,6 @@ export enum ErrorMessages {
   NoFingerprintSet,
   AccountDisabled,
   RefreshFailed,
-  UnExpectedError
+  UnExpectedError,
+  TempUser
 }

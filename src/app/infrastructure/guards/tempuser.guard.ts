@@ -2,14 +2,16 @@ import { Router, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate } from
 import { ApplicationStateService } from '../services/application-state.service';
 import { isNullOrUndefined } from 'util';
 import { Injectable } from '@angular/core';
+import { throwError, Observable, of } from 'rxjs';
+import { ErrorMessages } from '../enums/error-messages.enum';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TempUserGuard implements CanActivate {
-  constructor(private router: Router, private applicationStateService: ApplicationStateService) { }
+  constructor(private applicationStateService: ApplicationStateService) { }
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     var userExt = this.applicationStateService.currentUserExtensionModel;
 
     var tempUser = isNullOrUndefined(userExt.IBAN)
@@ -17,16 +19,11 @@ export class TempUserGuard implements CanActivate {
       && isNullOrUndefined(userExt.AccountNumber);
 
     if (tempUser) {
-      this.HandleFailure(next, 'errorMessages.tempUser')
-    } else
-      return true;
-  }
-  private HandleFailure(next: ActivatedRouteSnapshot, errorTerm: string = null): boolean {
-    this.router.navigate(['system', 'root', { outlets: { 'system-outlet': ['error'] } }], {
-      queryParams: {
-        error: errorTerm
-      }
-    });
-    return false;
+      return throwError({
+        error_status: ErrorMessages.TempUser
+      });
+    }
+
+    return of(true);
   }
 }
