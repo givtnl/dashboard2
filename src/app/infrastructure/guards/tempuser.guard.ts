@@ -15,7 +15,7 @@ export class TempUserGuard implements CanActivate {
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     var userExt = this.applicationStateService.currentUserExtensionModel;
 
-    if (userExt.IBAN == userExt.tempIBAN) {
+    if (userExt.IBAN == "FB66GIVT12345678") {
       return throwError({
         error_status: ErrorMessages.TempUser
       });

@@ -8,6 +8,4 @@ export interface CurrentUserExtensionModel {
     IBAN: string;
     SortCode: string;
     AccountNumber: string;
-
-    tempIBAN : "FB66GIVT12345678";
 }
