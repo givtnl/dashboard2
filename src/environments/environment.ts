@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   apiUrl: 'https://givt-debug-api.azurewebsites.net',
-  oldDashboardUrl:'https://givtdashboarddebug.azurewebsites.net'
+  oldDashboardUrl: 'https://givtdashboarddebug.azurewebsites.net',
+  // To avoid to declare tempIban on several places
+  tempIban: "FB66GIVT12345678"
 };
 
 /*
