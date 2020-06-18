@@ -381,5 +381,5 @@
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.CompaniesHouse": "Companies house",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.None": "Geen",
     "errorMessages.number-of-visitors-min_max": "Gelieve een bezoekersaantal tussen 1 en 50.000 te kiezen.",
-    "errorMessages.tempUser": "Om verder te kunnen gaan op het dashboard moet je eerst even je registratie in de app afronden."
+    "errorMessages.tempUser": "Wij hebben gezien dat je met dit mail-adres al reeds een Givt-account hebt aangemaakt via de app. Om verder op het dashboard te kunnen gaan is het nodig dat je eerst in de app je registratie voltooid."
 }
