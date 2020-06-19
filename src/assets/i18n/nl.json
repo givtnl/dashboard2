@@ -18,7 +18,7 @@
     "onboardingCompletedComponent.title": "Welkom. Je bent succesvol geregistreerd!",
     "onboardingCompletedComponent.description": "Je hebt nu toegang tot het dashboard waar je onder andere gegevens kunt aanvullen en de collectes en uitbetalingen kunt inzien.",
     "notFoundComponent.title": "Oeps, er gaat iets mis.",
-    "notFoundComponent.description": "Oeps, deze pagina werd niet gevonden.\nControleer de ingevulde gegevens of neem contact op met onze helpdesk.",
+    "notFoundComponent.description": "Oeps, deze pagina werd niet gevonden.\nControleer de ingevulde gegevens of neem contact op met ons.",
     "onboardingCheckInboxComponent.title": "Gelukt! Check je mailbox.",
     "onboardingCheckInboxComponent.description": "Je krijgt een e-mail met daarin een nieuwe link om je te registreren met het e-mailadres dat je hebt opgegeven.\nHeb je na 5 minuten nog steeds de e-mail niet ontvangen? Kijk dan even in je spam.\n\nJe mag dit venster nu sluiten.",
     "onboardingWelcomeComponent.title": "Welkom bij het dashboard van {{name}}. Registreer je bij Givt om toegang te krijgen tot dit dashboard.",
@@ -57,7 +57,7 @@
     "onboardingBankAccountAuthorizedComponent.okButtonText": "Afronden",
     "onboardingBankAccountCompletedComponent.title": "We zijn goed op weg",
     "onboardingBankAccountCompletedComponent.description": "Zodra de bankrekening is geverifieerd, voegen we deze toe aan je dashboard.",
-    "errorPageComponent.title": "Oeps, er ging iets fout. Probeer het even opnieuw of neem contact op met onze helpdesk.",
+    "errorPageComponent.title": "Oeps, er ging iets fout. Probeer het even opnieuw of neem contact op met ons.",
     "underConstructionComponent.title": "Oeps",
     "underConstructionComponent.description": "We werken aan deze pagina om het Givt-dashboard nog beter te maken voor je!",
     "dashboardCompleteAccountWidgetComponent.createAccount": "Account registreren voor de hoofdgebruiker",
@@ -67,7 +67,7 @@
     "loginComponent.loginButtonText": "Login",
     "errorMessages.lockedOut": "Er is meerdere malen geprobeerd in te loggen met verkeerde inloggegevens. Wegens veiligheidsredenen is het account tijdelijk geblokkeerd. Probeer het later nog een keer.",
     "errorMessages.wrongEmailOrPassword": "Helaas, er is een verkeerd wachtwoord en/of verkeerd e-mailadres ingevoerd. Probeer het nog eens.",
-    "errorMessages.accountDisabled": "Je account is geblokkeerd. Neem contact op met onze helpdesk voor meer informatie.",
+    "errorMessages.accountDisabled": "Je account is geblokkeerd. Neem contact op met ons voor meer informatie.",
     "errorMessages.oneAttemptLeft": "Je hebt nog 1 poging om in te loggen.",
     "errorMessages.twoAttemptLeft": "Je hebt nog 2 pogingen om in te loggen.",
     "errorMessages.generic-error-message": "Er ging iets verkeerd tijdens de verwerking van je aanvraag",
@@ -150,7 +150,7 @@
     "onboardingOrganisationDetailsIntroComponent.description": "In the following screen you need to enter your organisation’s England/Wales Charity Commission Reference (CCEW). If you are part of a larger national charity, use that reference instead.\nThereafter, we request the public organisation details and ask you to verify if they are correct.",
     "onboardingOrganisationDetailsIntroComponent.startButtonText": "Start",
     "onboardingOrganisationDetailsIncorrectComponent.title": "You marked some organisation details as incorrect.",
-    "onboardingOrganisationDetailsIncorrectComponent.description": "Please contact the Givt helpdesk.",
+    "onboardingOrganisationDetailsIncorrectComponent.description": "Gelieve ons te contacteren.",
     "onboardingOrganisationDetailsIncorrectComponent.finalActionText": "Back to dashboard",
     "onboardingOrganisationDetailsCharityNumberComponent.title": "Charity Commission reference",
     "onboardingOrganisationDetailsCharityNumberComponent.questionmarkTitle": "Don't have a Charity Commission reference?",
@@ -381,5 +381,5 @@
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.CompaniesHouse": "Companies house",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.None": "Geen",
     "errorMessages.number-of-visitors-min_max": "Gelieve een bezoekersaantal tussen 1 en 50.000 te kiezen.",
-    "errorMessages.tempUser": "Om verder te kunnen gaan op het dashboard moet je eerst even je registratie in de app afronden."
+    "errorMessages.tempUser": "Wij hebben gezien dat je met dit mail-adres al reeds een Givt-account hebt aangemaakt via de app. Om verder op het dashboard te kunnen gaan is het nodig dat je eerst in de app je registratie voltooid."
 }
