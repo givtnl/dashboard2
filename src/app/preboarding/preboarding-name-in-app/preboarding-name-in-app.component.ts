@@ -46,7 +46,7 @@ export class PreboardingNameInAppComponent implements OnInit {
       return;
     }
     this.continue();
-    this.router.navigate(["/preboarding/register/mail-box-address-details"])
+    this.router.navigate(["/preboarding/register/relationship"])
   }
 
   continue() {

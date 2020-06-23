@@ -16,7 +16,7 @@ import { PreboardingQueryParamsResolver } from './resolvers/preboarding-query-pa
 import { PreboardingOrganisationAdminContactResolver } from './resolvers/preboarding-organisation-admin-contact.resolver';
 import { PreboardingOrganisationTypeCheckGuard } from './guards/preboarding-organisation-type-check-guard';
 import { PreboardingAvailableStepsResolver } from './resolvers/preboarding-available-steps.resolver';
-import { PreboardingRelationShipProvidingOrganisationsResolver as PreboardingRelationshipProvidingOrganisationsResolver } from './resolvers/preboarding-relationship-providing-organisations';
+import { PreboardingRelationShipProvidingOrganisationsResolver as PreboardingRelationshipProvidingOrganisationsResolver } from './resolvers/preboarding-relationship-providing-organisations.resolver';
 import { PreboardingOrganisationRelationComponent as PreboardingOrganisationRelationshipComponent } from './preboarding-organisation-relationship/preboarding-organisation-relationship.component';
 
 const routes: Routes = [
