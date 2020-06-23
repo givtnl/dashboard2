@@ -1,5 +1,4 @@
 export interface CharityCommisionOrganisationDetailModel {
-  CharityId: string;
   Name: string;
   TelNr: string;
   Email: string;
@@ -9,5 +8,4 @@ export interface CharityCommisionOrganisationDetailModel {
   AddressLineFour: string;
   AddressLineFive: string;
   PostCode: string;
-  Guid: string;
 }
