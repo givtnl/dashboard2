@@ -1,6 +1,6 @@
 import { RelationshipType } from './enums/relationship-type.model';
 
-export interface RelationShipRule {
+export interface RelationshipRule {
     RelationshipType: RelationshipType;
     Optional: boolean;
 }

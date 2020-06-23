@@ -1,4 +1,4 @@
-<form (ngSubmit)='submit()' class='justify-content-center w-100 h-100' [formGroup]="form">
+<form class="formGroup" (ngSubmit)='submit()' class='justify-content-center w-100 h-100' [formGroup]="form">
     <app-custom-card [showCloseButton]="false" [showPreviousButton]="true"
         titleTranslationKey='preboardingOrganisation.topTitle'>
         <div body>
@@ -7,7 +7,7 @@
                 preboardingOrganisationRelationComponent.description
             </p>
 
-            <select formControlName="providingOrganisationId">
+            <select class="form-control" formControlName="providingOrganisationId">
                 <option *ngFor="let providingOrganisation of providingOrganisations" [ngValue]='providingOrganisation.Id'>
                     {{providingOrganisation.Name}}
                 </option>
@@ -24,4 +24,3 @@
         </button>
     </app-custom-card>
 </form>
-{{form.value | json}}
