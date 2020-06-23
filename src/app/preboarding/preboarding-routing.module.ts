@@ -16,6 +16,8 @@ import { PreboardingQueryParamsResolver } from './resolvers/preboarding-query-pa
 import { PreboardingOrganisationAdminContactResolver } from './resolvers/preboarding-organisation-admin-contact.resolver';
 import { PreboardingOrganisationTypeCheckGuard } from './guards/preboarding-organisation-type-check-guard';
 import { PreboardingAvailableStepsResolver } from './resolvers/preboarding-available-steps.resolver';
+import { PreboardingRelationShipProvidingOrganisationsResolver as PreboardingRelationshipProvidingOrganisationsResolver } from './resolvers/preboarding-relationship-providing-organisations';
+import { PreboardingOrganisationRelationComponent as PreboardingOrganisationRelationshipComponent } from './preboarding-organisation-relationship/preboarding-organisation-relationship.component';
 
 const routes: Routes = [
   {
@@ -35,6 +37,11 @@ const routes: Routes = [
         path: 'name-in-app',
         component: PreboardingNameInAppComponent,
         resolve: { collectGroup: PreboardingCurrentCollectGroupResolver }
+      },
+      {
+        path: 'relationship',
+        component: PreboardingOrganisationRelationshipComponent,
+        resolve: { providingOrganisations: PreboardingRelationshipProvidingOrganisationsResolver }
       },
       {
         path: 'mail-box-address-details',

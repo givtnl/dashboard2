@@ -1,0 +1,27 @@
+<form (ngSubmit)='submit()' class='justify-content-center w-100 h-100' [formGroup]="form">
+    <app-custom-card [showCloseButton]="false" [showPreviousButton]="true"
+        titleTranslationKey='preboardingOrganisation.topTitle'>
+        <div body>
+            <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
+                preboardingOrganisationRelationComponent.description
+            </p>
+
+            <select formControlName="providingOrganisationId">
+                <option *ngFor="let providingOrganisation of providingOrganisations" [ngValue]='providingOrganisation.Id'>
+                    {{providingOrganisation.Name}}
+                </option>
+            </select>
+
+        </div>
+        <button bottom type="submit" [translate]
+            class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+
+            <span class="text-white text-heavy-font" translate>
+                <i class="fas fa-spinner fa-spin mr-1" *ngIf="loading"></i>
+                preboardingOrganisationRelationComponent.nextButtonText
+            </span>
+        </button>
+    </app-custom-card>
+</form>
+{{form.value | json}}

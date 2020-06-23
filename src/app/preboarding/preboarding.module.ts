@@ -12,8 +12,7 @@ import { SharedModule } from '../shared/shared.module';
 import { PreboardingMailBoxAddressDetailsComponent } from './preboarding-mail-box-address-details/preboarding-mail-box-address-details.component';
 import { PreboardingCollectionsComponent } from './preboarding-collections/preboarding-collections.component';
 import { PreboardingVisitorCountComponent } from './preboarding-visitor-count/preboarding-visitor-count.component';
-
-
+import { PreboardingOrganisationRelationComponent } from './preboarding-organisation-relationship/preboarding-organisation-relationship.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,8 @@ import { PreboardingVisitorCountComponent } from './preboarding-visitor-count/pr
     PreboardingWelcomeDetailsComponent,
     PreboardingMailBoxAddressDetailsComponent,
     PreboardingCollectionsComponent,
-    PreboardingVisitorCountComponent
+    PreboardingVisitorCountComponent,
+    PreboardingOrganisationRelationComponent
   ],
   imports: [
     CommonModule, ReactiveFormsModule, SharedModule,
