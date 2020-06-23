@@ -1,4 +1,4 @@
-import { RelationshipRule as RelationshipRule } from './relationship-rule.model';
+import { RelationshipRule } from 'src/app/organisations/models/relationship-rule.model';
 
 export interface OrganisationWithRulesDetail {
     Id: string;

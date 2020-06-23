@@ -3,12 +3,12 @@ import { OrganisationWithRulesDetail } from 'src/app/onboarding/organisation-det
 import { Observable, of } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
 import { BackendService } from 'src/app/infrastructure/services/backend.service';
-import { RelationshipType } from 'src/app/onboarding/organisation-details/models/enums/relationship-type.model';
+import { RelationshipType } from 'src/app/organisations/enums/relationship-type.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PreboardingRelationShipService {
+export class RelationShipService {
     
     constructor(private backendService: BackendService) { }
 

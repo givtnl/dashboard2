@@ -1,4 +1,4 @@
-import { RelationshipType } from './enums/relationship-type.model';
+import { RelationshipType } from '../enums/relationship-type.model';
 
 export interface RelationshipRule {
     RelationshipType: RelationshipType;

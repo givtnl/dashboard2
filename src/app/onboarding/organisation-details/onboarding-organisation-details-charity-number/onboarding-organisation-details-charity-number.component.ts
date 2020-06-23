@@ -9,7 +9,6 @@ import { OnboardingOrganisationDetailsStateService } from '../services/onboardin
 import { OnboardingOrganisationDetailsService } from '../services/onboarding-organisation-details.service';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
-import { RelationshipType } from '../models/enums/relationship-type.model';
 
 @Component({
     selector: 'app-onboarding-organisation-details-charity-number',

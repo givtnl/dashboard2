@@ -2,7 +2,7 @@ import { Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/r
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { OrganisationWithRulesDetail } from 'src/app/onboarding/organisation-details/models/organisation-with-rules-detail.model';
-import { PreboardingRelationShipService as PreboardingRelationshipService } from '../services/preboarding-relationship.service';
+import { RelationShipService as PreboardingRelationshipService } from '../services/relationship.service';
 
 
 @Injectable({
