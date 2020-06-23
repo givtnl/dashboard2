@@ -34,14 +34,15 @@ export class PreboardingOrganisationRelationComponent implements OnInit {
         this.providingOrganisations = this.activatedRoute.snapshot.data.providingOrganisations;
         this.providingOrganisations.unshift({
             Id: null,
-            Name: "niet van toepassing",
+            Name: this.translationService.instant("preboardingOrganisationRelationComponent.notApplicable"),
             RelationshipRules: []
         })
     }
 
     submit() {
         let currentOrganisationRelationship = this.form.get('providingOrganisationId') as FormArray;
-        this.preBoardingStateService.organisationRelationship = this.providingOrganisations.find(org => org.Id == currentOrganisationRelationship.value);
+        if (currentOrganisationRelationship.value != null)
+            this.preBoardingStateService.organisationRelationship = this.activatedRoute.snapshot.data.providingOrganisations.find(org => org.Id == currentOrganisationRelationship.value);
         this.router.navigate(["/preboarding/register/mail-box-address-details"])
     }
 }
