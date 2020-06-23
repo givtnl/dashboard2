@@ -381,5 +381,7 @@
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.CompaniesHouse": "Companies house",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.None": "None",
     "errorMessages.number-of-visitors-min_max": "Please fill in a number of unique visitors between 1 and 50,000.",
-    "errorMessages.tempUser": "We see that you have already created a Givt account with this email address via the app. In order to proceed further on the dashboard, you must first complete your registration in the app."
+    "errorMessages.tempUser": "We see that you have already created a Givt account with this email address via the app. In order to proceed further on the dashboard, you must first complete your registration in the app.",
+    "preboardingOrganisationRelationComponent.description": "If you are part of a bigger organisation or denomination which is registered with Givt. And if you need to use details from these organisation (This could be the bank account, the Gift Aid details or the reference with which you are registered with a regulator). You can select the one you are part in the selection below. If you are not part of an organisation or denomination which is registered with Givt and has shared their details you can just continue.",
+    "preboardingOrganisationRelationComponent.nextButtonText": "Continue"
 }
