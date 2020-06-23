@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { OrganisationWithRulesDetail } from 'src/app/onboarding/organisation-details/models/organisation-with-rules-detail.model';
+import { PreboardingStateService } from '../services/preboarding-state.service';
 
 @Component({
     selector: 'app-preboarding-organisation-relationship',
@@ -17,7 +18,7 @@ export class PreboardingOrganisationRelationComponent implements OnInit {
 
     public providingOrganisations: OrganisationWithRulesDetail[] = [];
 
-    constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
+    constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private preBoardingStateService: PreboardingStateService, private router: Router) {
         
     }
 
@@ -32,5 +33,11 @@ export class PreboardingOrganisationRelationComponent implements OnInit {
         });
 
         this.providingOrganisations = this.activatedRoute.snapshot.data.providingOrganisations;
+    }
+
+    submit() {
+        let currentOrganisationRelationship = this.form.get('providingOrganisationId') as FormArray;
+        this.preBoardingStateService.organisationRelationship = this.providingOrganisations.find(org => org.Id == currentOrganisationRelationship.value);
+        this.router.navigate(["/preboarding/register/mail-box-address-details"])
     }
 }

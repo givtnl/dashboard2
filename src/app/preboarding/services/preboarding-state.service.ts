@@ -4,6 +4,7 @@ import { CreateOrganisationContactCommand } from 'src/app/organisations/models/c
 import { CreatePreboardingAdditionalInformationCommand } from '../models/create-preboarding-additional-information.command';
 import { CreateCollectGroupUserCommand } from 'src/app/collect-groups/models/create-collect-group-user.command';
 import { PreboardingDetailModel } from '../models/preboarding-detail.model';
+import { OrganisationWithRulesDetail } from 'src/app/onboarding/organisation-details/models/organisation-with-rules-detail.model';
 
 @Injectable({
   providedIn: 'root'
@@ -74,5 +75,15 @@ export class PreboardingStateService {
   public set organisationDetails(value: PreboardingDetailModel) {
     const key = 'PreboardingStateService.organisationDetails';
     this.storage.setItem(key, JSON.stringify(value));
+  }
+
+  public set organisationRelationship(value: OrganisationWithRulesDetail) {
+    const key = 'PreboardingStateService.organisationRelationship';
+    this.storage.setItem(key, JSON.stringify(value));
+  }
+
+  public get organisationRelationship() : OrganisationWithRulesDetail {
+    const key = 'PreboardingStateService.organisationRelationship';
+    return JSON.parse(this.storage.getItem(key));
   }
 }
