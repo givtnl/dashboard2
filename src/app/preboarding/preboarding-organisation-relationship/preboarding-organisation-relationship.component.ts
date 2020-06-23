@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { OrganisationWithRulesDetail } from 'src/app/onboarding/organisation-details/models/organisation-with-rules-detail.model';
 import { PreboardingStateService } from '../services/preboarding-state.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-preboarding-organisation-relationship',
@@ -18,7 +19,7 @@ export class PreboardingOrganisationRelationComponent implements OnInit {
 
     public providingOrganisations: OrganisationWithRulesDetail[] = [];
 
-    constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private preBoardingStateService: PreboardingStateService, private router: Router) {
+    constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private preBoardingStateService: PreboardingStateService, private router: Router, private translationService: TranslateService ) {
         
     }
 
@@ -26,13 +27,16 @@ export class PreboardingOrganisationRelationComponent implements OnInit {
         this.form = this.formBuilder.group({
             providingOrganisationId: [
                 null,
-                [
-                    Validators.required
-                ]
+                Validators.required
             ]
         });
 
         this.providingOrganisations = this.activatedRoute.snapshot.data.providingOrganisations;
+        this.providingOrganisations.unshift({
+            Id: null,
+            Name: "niet van toepassing",
+            RelationshipRules: []
+        })
     }
 
     submit() {
