@@ -6,9 +6,9 @@ import { TranslatableToastrService } from 'src/app/shared/services/translate-abl
 import { AddCharityDetailsToOrganisationCommand } from '../models/commands/add-charity-details-to-organisation.command';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { OrganisationRegulator } from 'src/app/organisations/models/organisation-regulator.model';
-import { UpdateOrganisationDetailsCommand } from '../models/commands/update-organisation-details.command';
 import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
 import { OrganisationRegistrationProgress } from 'src/app/organisations/models/organisaition-registration-progress';
+import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
 
 @Injectable({
   providedIn: 'root'
@@ -20,33 +20,36 @@ export class OnboardingOrganisationDetailsSendDataGuard implements CanActivate {
   constructor(
     private toastr: TranslatableToastrService,
     private onboardingOrganisationDetailsStateService: OnboardingOrganisationDetailsStateService,
-    private onboardingOrganisationDetailsService: OnboardingOrganisationDetailsService,
     private applicationStateService: ApplicationStateService,
-    private organisationService: OrganisationsService,
-    ) {
+    private organisationService: OrganisationsService
+  ) { }
 
-  }
 
-  
   async canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     try {
 
       if (!this.onboardingOrganisationDetailsStateService.isManualRegistration) {
-        var charity = this.onboardingOrganisationDetailsStateService.currentOrganisationCharityCommisionModel;
-        var command = new UpdateOrganisationDetailsCommand();
-        command.name = charity.Name;
-        command.addressLine1 = charity.AddressLineOne;
-        command.addressLine2 = charity.AddressLineTwo;
-        command.addressLine3 = charity.AddressLineThree;
-        command.addressLine4 = charity.AddressLineFour;
-        command.addressLine5 = charity.AddressLineFive;
-        command.postalCode = charity.PostCode;
-        command.charityCommissionNumber = this.onboardingOrganisationDetailsStateService.currentCharityNumber
-        command.regulator = OrganisationRegulator.Ccew;
+        var charityCommissionDetails = this.onboardingOrganisationDetailsStateService.currentOrganisationCharityCommisionModel;
+        var currentOrganisation = await this.organisationService.getById(this.applicationStateService.currentTokenModel.OrganisationAdmin).toPromise();
+        var command: UpdateOrganisationCommand = {
+          Name: charityCommissionDetails.Name,
+          AddressLine1: charityCommissionDetails.AddressLineOne,
+          AddressLine2: charityCommissionDetails.AddressLineTwo,
+          AddressLine3: charityCommissionDetails.AddressLineThree,
+          AddressLine4: charityCommissionDetails.AddressLineFour,
+          AddressLine5: charityCommissionDetails.AddressLineFive,
+          PostalCode: charityCommissionDetails.PostCode,
+          CharityCommissionNumber: this.onboardingOrganisationDetailsStateService.currentCharityNumber,
+          Regulator: OrganisationRegulator.Ccew,
+          Id: currentOrganisation.Guid,
+          Country: currentOrganisation.Country,
+          ParentId: currentOrganisation.ParentId,
+          CharityId: currentOrganisation.CharityId,
+          ReferenceWithParent: currentOrganisation.ReferenceWithParent
+        };
 
-        var organisationId = this.applicationStateService.currentTokenModel.OrganisationAdmin;
-        await this.onboardingOrganisationDetailsService.put(organisationId, command).toPromise();
-        await this.organisationService.changeProgress(organisationId, OrganisationRegistrationProgress.OrganisationDetailsDone).toPromise();
+        await this.organisationService.update(currentOrganisation.Guid, command).toPromise();
+        await this.organisationService.changeProgress(currentOrganisation.Guid, OrganisationRegistrationProgress.OrganisationDetailsDone).toPromise();
       }
 
       return true;

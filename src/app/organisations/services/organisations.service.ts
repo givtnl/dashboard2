@@ -8,17 +8,17 @@ import { stringify } from 'querystring';
 import { OrganisationRegistrationProgress } from '../models/organisaition-registration-progress';
 
 @Injectable({
-    providedIn:'root'
+    providedIn: 'root'
 })
 export class OrganisationsService {
-    constructor(private backendService: BackendService) {}
+    constructor(private backendService: BackendService) { }
 
     getById(id: string): Observable<OrganisationDetailModel> {
         return this.backendService.get<OrganisationDetailModel>(`v2/organisations/${id}`);
-    }   
+    }
     update(id: string, command: UpdateOrganisationCommand): Observable<object> {
         return this.backendService.put(`v2/organisations/${id}`, command);
-    } 
+    }
 
     //add contact
     addNote(id: string, title: string, contents: string): Observable<object> {
@@ -28,9 +28,8 @@ export class OrganisationsService {
             contents: contents
         });
     }
-
     //change the progress internally
-    changeProgress(id: string, progress: OrganisationRegistrationProgress): Observable<object>{
+    changeProgress(id: string, progress: OrganisationRegistrationProgress): Observable<object> {
         return this.backendService.patch(`v2/organisations/${id}/registration/progress/${progress}`, {});
     }
 }

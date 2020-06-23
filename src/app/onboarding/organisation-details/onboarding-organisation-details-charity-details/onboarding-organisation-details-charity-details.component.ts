@@ -31,9 +31,9 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
     this.hasParent = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.ParentId != null
 
     var regulator = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.Regulator;
-    var referenceWithRegulator = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.ReferenceWithRegulator;
+    var referenceWithRegulator = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.CharityCommissionNumber;
     var referenceWithParent = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.ReferenceWithParent;
-    var referenceWithHMRC = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.ReferenceWithHMRC;
+    var referenceWithHMRC = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.CharityId;
 
     if (this.hasParent) {
       this.form = this.formBuilder.group({
@@ -108,9 +108,9 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
     this.loading = true;
     var currentOrganisationRegistrationDetailModel: UpdateOrganisationCommand = this.onboardingStateService.currentOrganisationRegistrationDetailsModel
     currentOrganisationRegistrationDetailModel.Regulator = this.form.value.regulator;
-    currentOrganisationRegistrationDetailModel.ReferenceWithRegulator = this.form.value.referenceWithRegulator;
+    currentOrganisationRegistrationDetailModel.CharityCommissionNumber = this.form.value.referenceWithRegulator;
     currentOrganisationRegistrationDetailModel.ReferenceWithParent = this.form.value.referenceWithParent;
-    currentOrganisationRegistrationDetailModel.ReferenceWithHMRC = this.form.value.referenceWithHMRC;
+    currentOrganisationRegistrationDetailModel.CharityId = this.form.value.referenceWithHMRC;
     this.onboardingStateService.currentOrganisationRegistrationDetailsModel = currentOrganisationRegistrationDetailModel
     this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['complete'] } }]).finally(() => this.loading = false);
   }
