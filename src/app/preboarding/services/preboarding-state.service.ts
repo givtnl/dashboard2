@@ -5,7 +5,8 @@ import { CreatePreboardingAdditionalInformationCommand } from '../models/create-
 import { CreateCollectGroupUserCommand } from 'src/app/collect-groups/models/create-collect-group-user.command';
 import { PreboardingDetailModel } from '../models/preboarding-detail.model';
 import { OrganisationWithRulesDetail } from 'src/app/onboarding/organisation-details/models/organisation-with-rules-detail.model';
-import { CreateRelationshipCommand } from '../models/commands/create-relation-ship.command';
+import { CreateRelationshipCommand } from 'src/app/account/relationships/models/commands/create-relation-ship.command';
+
 
 @Injectable({
   providedIn: 'root'

@@ -16,8 +16,8 @@ import { PreboardingQueryParamsResolver } from './resolvers/preboarding-query-pa
 import { PreboardingOrganisationAdminContactResolver } from './resolvers/preboarding-organisation-admin-contact.resolver';
 import { PreboardingOrganisationTypeCheckGuard } from './guards/preboarding-organisation-type-check-guard';
 import { PreboardingAvailableStepsResolver } from './resolvers/preboarding-available-steps.resolver';
-import { PreboardingRelationShipProvidingOrganisationsResolver as PreboardingRelationshipProvidingOrganisationsResolver } from './resolvers/preboarding-relationship-providing-organisations.resolver';
 import { PreboardingOrganisationRelationComponent as PreboardingOrganisationRelationshipComponent } from './preboarding-organisation-relationship/preboarding-organisation-relationship.component';
+import { PreboardingRelationShipProvidingOrganisationsResolver } from '../account/relationships/resolvers/preboarding-relationship-providing-organisations.resolver';
 
 const routes: Routes = [
   {
@@ -41,7 +41,7 @@ const routes: Routes = [
       {
         path: 'relationship',
         component: PreboardingOrganisationRelationshipComponent,
-        resolve: { providingOrganisations: PreboardingRelationshipProvidingOrganisationsResolver }
+        resolve: { providingOrganisations: PreboardingRelationShipProvidingOrganisationsResolver }
       },
       {
         path: 'mail-box-address-details',

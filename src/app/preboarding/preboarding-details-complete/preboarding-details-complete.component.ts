@@ -5,7 +5,7 @@ import { CollectGroupsService } from 'src/app/collect-groups/services/collect-gr
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { OnboardingNewUsersService } from 'src/app/onboarding/new-users/services/onboarding-new-users.service';
 import { PreboardingStepListModel } from './models/preboarding-step-list.model';
-import { tap, switchMap, map, catchError, retry } from 'rxjs/operators';
+import { tap, switchMap,  catchError, retry } from 'rxjs/operators';
 import { of, Observable, EMPTY, forkJoin } from 'rxjs';
 import { CreatedCollectGroupResponse } from 'src/app/collect-groups/models/created-collect-group-response.model';
 import { CreatedResponseModel } from 'src/app/infrastructure/models/response.model';
@@ -13,7 +13,8 @@ import { CollectionMediumType } from 'src/app/collect-groups/models/collection-m
 import { OrganisationType } from '../models/organisation-type.enum';
 import { OrganisationRegistrationProgress } from 'src/app/organisations/models/organisaition-registration-progress';
 import { ActivatedRoute } from '@angular/router';
-import { RelationShipService } from '../services/relationship.service';
+import { RelationShipService } from 'src/app/account/relationships/services/relationship.service';
+
 
 @Component({
   selector: 'app-preboarding-details-complete',

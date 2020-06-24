@@ -3,6 +3,7 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { HttpErrorResponse } from '@angular/common/http';
 import { OnboardingNewUsersService } from '../services/onboarding-new-users.service';
 import { OnboardingNewUsersStateService } from '../services/onboarding-new-users-state.service';
+import { RelationShipService } from 'src/app/account/relationships/services/relationship.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,10 @@ import { OnboardingNewUsersStateService } from '../services/onboarding-new-users
 export class OnboardingCompleteCheckSuccessGuard implements CanActivate {
   constructor(
     private router: Router,
+    private relationshipService: RelationShipService,
     private onboardingService: OnboardingNewUsersService,
     private onboardingStateService: OnboardingNewUsersStateService
-  ) {}
+  ) { }
 
   async canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     try {
@@ -20,9 +22,17 @@ export class OnboardingCompleteCheckSuccessGuard implements CanActivate {
       const onboardingRequest = this.onboardingStateService.currentOnboardingRequest;
       // manually assign these values everytime as they might get wiped out
       registration.collectGroupId = onboardingRequest.collectGroupId;
-      // using a promise here for readability in the beginningngnging
-
+      // using a promise here for readability in the beginning
       await this.onboardingService.createUser(registration).toPromise();
+      // retrieve the current relationships
+      const relationships = await this.relationshipService.get(registration.organisationId).toPromise();
+      // get the distinct providing organisation ids
+      const providingOrganisations = [...new Set(relationships.map(x => x.ProvidingOrganisationId))];
+      // map them to promises and notify the providing organisations
+      const toExecuteCalls = providingOrganisations.map(x => this.relationshipService.notify(registration.organisationId, x))
+      
+      await Promise.all(toExecuteCalls);
+
     } catch (error) {
       if (error instanceof HttpErrorResponse) {
         switch (error.status) {
