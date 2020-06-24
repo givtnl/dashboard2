@@ -15,7 +15,7 @@ export class PreboardingOrganisationRelationComponent implements OnInit {
     public form: FormGroup;
     public providingOrganisations: OrganisationWithRulesDetail[] = [];
 
-    constructor(private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private preBoardingStateService: PreboardingStateService, private router: Router) {
+    constructor(private activatedRoute: ActivatedRoute,private  formBuilder: FormBuilder, private preBoardingStateService: PreboardingStateService, private router: Router) {
 
     }
 
@@ -32,7 +32,18 @@ export class PreboardingOrganisationRelationComponent implements OnInit {
     }
 
     submit() {
-        this.preBoardingStateService.organisationRelationship = this.form.value.providingOrganisation;
+        if (this.form.value.providingOrganisation) {
+            this.preBoardingStateService.organisationRelationship = this.form.value.providingOrganisation;
+            this.preBoardingStateService.currentCreateOrganisationshipRuleCommand = {
+                usingOrganisationId: this.preBoardingStateService.organisationDetails.organisationId,
+                providingOrganisationId: this.form.value.providingOrganisation.Id,
+                rules: this.rules().getRawValue().filter(x => x.selected).map(x => x.ruleType)
+            };
+        }else {
+            this.preBoardingStateService.organisationRelationship = null;
+            this.preBoardingStateService.currentCreateOrganisationshipRuleCommand = null;
+        }
+     
         this.router.navigate(["/preboarding/register/mail-box-address-details"]);
     }
 
@@ -44,7 +55,7 @@ f
         this.rules().clear();
         organisation.RelationshipRules.forEach(rule => {
             this.rules().push(this.formBuilder.group({
-                ruleType: rule.RelationshipType,
+                ruleType: rule.Rule,
                 optional: rule.Optional,
                 selected: [{
                     value: true,

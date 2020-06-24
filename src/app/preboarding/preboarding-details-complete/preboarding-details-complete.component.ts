@@ -13,6 +13,7 @@ import { CollectionMediumType } from 'src/app/collect-groups/models/collection-m
 import { OrganisationType } from '../models/organisation-type.enum';
 import { OrganisationRegistrationProgress } from 'src/app/organisations/models/organisaition-registration-progress';
 import { ActivatedRoute } from '@angular/router';
+import { RelationShipService } from '../services/relationship.service';
 
 @Component({
   selector: 'app-preboarding-details-complete',
@@ -34,6 +35,7 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
 
   constructor(private formattingService: PreboardingFormattingService,
     private activatedRoute: ActivatedRoute,
+    private relationshipService: RelationShipService,
     private organisationService: OrganisationsService,
     private collectGroupService: CollectGroupsService,
     private preboardingStateService: PreboardingStateService,
@@ -144,12 +146,25 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
         this.stepSeven();
       })
   }
+  stepSeven():void {
+    if (this.preboardingStateService.currentCreateOrganisationshipRuleCommand && this.preboardingStateService.organisationRelationship){
+      this.relationshipService.create(this.preboardingStateService.currentCreateOrganisationshipRuleCommand)
+      .pipe(catchError(() => this.genericError(6)))
+      .subscribe(x => {
+        this.handleStep(6);
+        this.stepEight();
+      });
+    }else {
+      this.handleStep(6);
+      this.stepEight();
+    }
+  }
   // Updates the progress in teamleader
-  stepSeven(): void {
+  stepEight(): void {
     this.organisationService
       .changeProgress(this.preboardingStateService.organisationDetails.organisationId, OrganisationRegistrationProgress.Preboarded)
-      .pipe(catchError(() => this.genericError(6)))
-      .subscribe(() => this.handleStep(6));
+      .pipe(catchError(() => this.genericError(7)))
+      .subscribe(() => this.handleStep(7));
   }
   private genericError(stepIndex: number): Observable<never> {
     this.handleStep(stepIndex, false);
