@@ -8,18 +8,16 @@
             </p>
 
             <select class="form-control" formControlName="providingOrganisation">
-                <option [ngValue]='null'></option>
-                <option  *ngFor="let providingOrganisation of providingOrganisations" [ngValue]='providingOrganisation'>
-               {{providingOrganisation.Name}}
+                <option [ngValue]='null'>{{'preboardingOrganisationRelationComponent.notApplicable' | translate}}
+                </option>
+                <option *ngFor="let providingOrganisation of providingOrganisations" [ngValue]='providingOrganisation'>
+                    {{providingOrganisation.Name}}
                 </option>
             </select>
 
         </div>
-        <button
-        data-target="#exampleModal"
-        [type]="form.value.providingOrganisation ? 'button' : 'submit'"
-        [attr.data-toggle]="form.value.providingOrganisation ? 'modal' : ''"
-        bottom  [translate]
+        <button data-target="#exampleModal" [type]="form.value.providingOrganisation ? 'button' : 'submit'"
+            [attr.data-toggle]="form.value.providingOrganisation ? 'modal' : ''" bottom [translate]
             class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
             <span class="text-white text-heavy-font" translate>
                 <i class="fas fa-spinner fa-spin mr-1" *ngIf="loading"></i>
@@ -28,38 +26,43 @@
         </button>
     </app-custom-card>
 
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title text-givt-purple" id="exampleModalLabel">Choose relationship settings</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p class="text-primary text-light-font text-givt-purple">The Organisation (providing) wants you to use their giftaid details</p>
-          <p class="text-primary text-light-font text-givt-purple">But their charity commission details are optional, please choose</p>
-   
-   
-          <div formArrayName="rules">
-            <div *ngFor="let rule of rules().controls; let i = index">
-                <div class="row no-gutters" [formGroupName]="i">
-                    <div class="custom-control custom-switch mt-1">
-                        <input type="checkbox" class="custom-control-input" formControlName="selected"  >
-                        <label class="text-light-font text-givt-purple custom-control-label" >{{i}}</label>
-                      </div>   
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-givt-purple" id="exampleModalLabel">Choose relationship settings</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-primary text-light-font text-givt-purple">The Organisation (providing) wants you to
+                        use their
+                        giftaid details</p>
+                    <p class="text-primary text-light-font text-givt-purple">But their charity commission details are
+                        optional,
+                        please choose</p>
+
+
+                    <div formArrayName="rules">
+                        <div *ngFor="let ruleControlGroup of rules().controls; let i = index">
+                            <div class="row no-gutters" [formGroupName]="i">
+                                <div class="custom-control custom-switch mt-1">
+                                    <input id={{i}} type="checkbox" class="custom-control-input"
+                                        formControlName="selected">
+                                    <label for="{{i}}" class="text-light-font text-givt-purple custom-control-label">
+                                        <span [translate]>{{'RelationshipType_' + ruleControlGroup.value.ruleType}}</span> <span *ngIf="ruleControlGroup.value.optional"> ( optional )</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-lg bg-givt-green text-white text-heavy-font" (click)="submit()">Continue</button>
                 </div>
             </div>
         </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-lg bg-givt-green text-white text-heavy-font">Continue</button>
-        </div>
-      </div>
     </div>
-  </div>
 </form>
-
-{{form.value | json}}
