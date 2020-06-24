@@ -9,29 +9,12 @@ import { RelationshipType } from 'src/app/organisations/enums/relationship-type.
     providedIn: 'root'
 })
 export class RelationShipService {
-    
+
     constructor(private backendService: BackendService) { }
 
     getAllRelationShipProvidingOrganisations(): Observable<OrganisationWithRulesDetail[]> {
         let httpParameters = new HttpParams();
-        httpParameters.append("hasRelationShipRules", "true"); //=> this has to be a string because it is a query parameter...
-        // return this.backendService.get(`v2/organisations`, httpParameters);
-
-        let org: OrganisationWithRulesDetail[] = [{
-            Id: "1",
-            Name: "prov org",
-            RelationshipRules: [
-                {
-                    Optional: false,
-                    RelationshipType: RelationshipType.UseBankAccount
-                },
-                {
-                    Optional: true,
-                    RelationshipType: RelationshipType.UseGiftAidSettings
-                }
-            ]
-        }];
-
-        return of(org);
+        httpParameters = httpParameters.append("hasRelationshipRules", "true"); 
+        return this.backendService.get<OrganisationWithRulesDetail[]>(`organisation`, httpParameters);
     }
 }
