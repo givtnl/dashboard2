@@ -43,6 +43,8 @@ export class PreboardingOrganisationRelationComponent implements OnInit {
         let currentOrganisationRelationship = this.form.get('providingOrganisationId') as FormArray;
         if (currentOrganisationRelationship.value != null)
             this.preBoardingStateService.organisationRelationship = this.activatedRoute.snapshot.data.providingOrganisations.find(org => org.Id == currentOrganisationRelationship.value);
+        else
+            this.preBoardingStateService.organisationRelationship = null
         this.router.navigate(["/preboarding/register/mail-box-address-details"])
     }
 }
