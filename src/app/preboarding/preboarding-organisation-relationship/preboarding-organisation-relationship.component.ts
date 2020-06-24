@@ -12,7 +12,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 
 export class PreboardingOrganisationRelationComponent implements OnInit {
-    
+
 
     public loading = false;
     public form: FormGroup;
@@ -25,18 +25,18 @@ export class PreboardingOrganisationRelationComponent implements OnInit {
 
     ngOnInit(): void {
         this.form = this.formBuilder.group({
-            providingOrganisationId: [
+            providingOrganisation: [
                 null,
                 Validators.required
-            ]
+            ],
+            rules: this.formBuilder.array([])
         });
-
-        this.providingOrganisations = this.activatedRoute.snapshot.data.providingOrganisations;
-        this.providingOrganisations.unshift({
+        /* Bjorn */ this.providingOrganisations.unshift({
             Id: null,
             Name: this.translationService.instant("preboardingOrganisationRelationComponent.notApplicable"),
             RelationshipRules: []
         })
+        /* Anthony */ this.form.get('providingOrganisation').valueChanges.subscribe(newValue => this.preFillRules(newValue));
     }
 
     submit() {
@@ -46,5 +46,23 @@ export class PreboardingOrganisationRelationComponent implements OnInit {
         else
             this.preBoardingStateService.organisationRelationship = null
         this.router.navigate(["/preboarding/register/mail-box-address-details"])
+    }
+
+    rules(): FormArray {
+        return this.form.get('rules') as FormArray;
+    }
+
+    preFillRules(organisation: OrganisationWithRulesDetail): void {
+        this.rules().clear();
+
+        organisation.RelationshipRules.forEach(rule => {
+            this.rules().push(this.formBuilder.group({
+                selected: [{
+                    value: !rule.Optional,
+                    disabled:!rule.Optional
+                }]
+              
+            }))
+        })
     }
 }

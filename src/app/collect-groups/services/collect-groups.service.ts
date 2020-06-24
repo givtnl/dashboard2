@@ -38,7 +38,6 @@ export class CollectGroupsService {
         })
     }
 
-
     exportCollectionMedium(organisationId: string, collectGroupId: string, collectionMediumId: string, language: string, email: string, organisationName: string, templateName: string, uploadFolder: string): Observable<object> {
         let queryParams = new HttpParams();
         if (email != null) {
@@ -53,13 +52,4 @@ export class CollectGroupsService {
 
         return this.backendService.get(`v2/organisations/${organisationId}/collectgroups/${collectGroupId}/collectionMediums/${collectionMediumId}/export/${language}`, queryParams);
     }
-
-    addAccountToCollectGroup(organisationId: string, accountId: number, collectGroupId: string): Observable<object> {
-        return this.backendService.post(`v2/organisations/${organisationId}/collectgroups/${collectGroupId}/accounts`, {
-            accountId,
-            collectGroupId
-        });
-    }
-
-
 }
