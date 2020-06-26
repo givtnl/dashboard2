@@ -116,7 +116,7 @@
     "buttonYes": "Yes",
     "buttonNo": "No",
     "onboardingBankAccountSigningIntroComponent.questionmarkTitle": "More info",
-    "onboardingBankAccountIntroComponent.questionmarkText": "You’re about to fill in the bank account details: the name of the account (This must be the name as shown on a bank statement!), the account number and the sort code. \n<br/><br/>\nNext, you will be asked to send a bank statement in order for us to verify the details asked above. \n<br/><br/>\nNext, you will be asked to fill in the first name, last name and the e-mail address of the person who will verify the bank account. This is the person who is authorised by the organisation to sign the Direct Debit Instruction on the bank account. We will send an e-mail with an invitation to sign the DD to the specified e-mail address.\n<br/><br/>\nFinally, this person checks the organisation details and the bank account details so the bank account can be verified. We will send a confirmation e-mail to you as soon as this is done. \nIn case of any inaccuracies, the person verifying the bank account will be able to notify you (an e-mail will be sent stating that there are still some inaccuracies).",
+    "onboardingBankAccountIntroComponent.questionmarkText": "You are about to provide the bank details of your organisation.\nThis will be done in several steps.\n<br/> <br/>\nTo start, we need to know the account name (as it appears on a bank statement), the account number and the sort code.\n<br/> <br/>\nTo verify the account, you choose the person who is authorised by the organisation to sign the Direct Debit instruction on the bank account. The chosen person will then be emailed with an invitation to sign the Direct Debit, after he/she checked all the entered data.\n<br/> <br/>\nOnce the Direct Debit has been signed, we will send you a confirmation by e-mail.\n<br/> <br/>\nWhy does Givt work with Direct Debit?\nThe donations are already collected through a Direct Debit, so we have chosen to use the same system for the payments.\nIt is important to know the following:\n<ul>\n<li>The mandate is part of the bank account verification.</li>\n<li>The one-time start-up costs are collected through this system.</li>\n<li>It allows us to settle the balance, in the unlikely case of a negative balance and no response is given to our request to settle this.</li>\n</ul>",
     "dashboardCompleteAccountWidgetComponent.AddBankAccountHolders.InProgress": "Awaiting response from the accountholders",
     "errorMessages.email-not-duplicate": "This e-mail address was already used to create a Givt account. Please check again.",
     "onboardingBankAccountInvitedHoldersComponent.State": "Status",
@@ -382,10 +382,11 @@
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.None": "None",
     "errorMessages.number-of-visitors-min_max": "Please fill in a number of unique visitors between 1 and 50,000.",
     "errorMessages.tempUser": "We see that you have already created a Givt account with this email address via the app. In order to proceed further on the dashboard, you must first complete your registration in the app.",
-    "preboardingOrganisationRelationComponent.description": "If you are part of a bigger organisation or denomination which is registered with Givt. And if you need to use details from these organisation (This could be the bank account, the Gift Aid details or the reference with which you are registered with a regulator). You can select the one you are part in the selection below. If you are not part of an organisation or denomination which is registered with Givt and has shared their details you can just continue.",
+    "preboardingOrganisationRelationComponent.description": "Is your organisation part of an organisation which is already registered with Givt, please tell us now. We might be able to use details provided by them, saving you work.",
     "preboardingOrganisationRelationComponent.nextButtonText": "Continue",
     "preboardingOrganisationRelationComponent.notApplicable": "Not applicable",
     "RelationshipType_0": "Use bank account",
     "RelationshipType_1": "Use regulator reference",
-    "RelationshipType_2": "Use gift aid settings"
+    "RelationshipType_2": "Use gift aid settings",
+    "PreboardingDetailsCompleteComponent.steps-notify-relationships": "Adding relationships if any were picked"
 }
