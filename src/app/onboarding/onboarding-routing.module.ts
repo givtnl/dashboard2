@@ -10,7 +10,7 @@ import { OnboardingPersonalDetailsComponent } from './new-users/onboarding-perso
 import { OnboardingRegisterGuard } from './new-users/guards/onboarding-register.guard';
 import { OnboardingRegisterCheckPasswordGuard } from './new-users/guards/onboarding-register-check-password.guard';
 import { OnboardingRegisterCheckPersonalDetailsRequiredGuard } from './new-users/guards/onboarding-register-check-personal-details-required.guard';
-import { OnboardingCompleteCheckSuccessGuard } from './new-users/guards/onboarding-complete-check-success.guard';
+import { OnboardingCompleteCheckSuccessGuard as OnboardingUserCompleteSuccessGuard } from './new-users/guards/onboarding-complete-check-success.guard';
 import { OnboardingChangeEmailComponent } from './new-users/onboarding-change-email/onboarding-change-email.component';
 import { OnboardingBankAccountIntroComponent } from './bank-account/onboarding-bank-account-intro/onboarding-bank-account-intro.component';
 import { OnboardingBankAccountAddComponent } from './bank-account/onboarding-bank-account-add/onboarding-bank-account-add.component';
@@ -105,7 +105,7 @@ const routes: Routes = [
             path: 'completed',
             component: OnboardingCompletedComponent,
             outlet: 'onboarding-outlet',
-            canActivate: [OnboardingCompleteCheckSuccessGuard],
+            canActivate: [OnboardingUserCompleteSuccessGuard],
             resolve: {
               organisation: OnboardingUserRegistrationOrganisationResolver
             }
