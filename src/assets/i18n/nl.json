@@ -388,5 +388,9 @@
     "RelationshipType_0": "Gebruik van bankgegevens",
     "RelationshipType_1": "Gebruik van regulator referentie",
     "RelationshipType_2": "Gebruik van Gift Aid instellingen",
-    "PreboardingDetailsCompleteComponent.steps-notify-relationships": "Koppeling maken met eventuele relaties"
+    "PreboardingDetailsCompleteComponent.steps-notify-relationships": "Koppeling maken met eventuele relaties",
+    "dashboardCompleteAccountWidgetComponent.BankAccountRelationshipVerification": "Bank gegevens van andere organisatie",
+    "dashboardCompleteAccountWidgetComponent.BankAccountRelationshipVerification.InProgress": "Verificatie afwachten",
+    "dashboardCompleteAccountWidgetComponent.GiftAidRelationshipVerification": "Gift Aid gegevens van andere organisatie",
+    "dashboardCompleteAccountWidgetComponent.GiftAidRelationshipVerification.InProgress": "Verificatie afwachten"
 }
