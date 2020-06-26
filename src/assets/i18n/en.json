@@ -389,8 +389,8 @@
     "RelationshipType_1": "Use regulator reference",
     "RelationshipType_2": "Use gift aid settings",
     "PreboardingDetailsCompleteComponent.steps-notify-relationships": "Adding relationships if any were picked",
-    "dashboardCompleteAccountWidgetComponent.BankAccountRelationshipVerification": "Using bank details from other organisation",
+    "dashboardCompleteAccountWidgetComponent.BankAccountRelationshipVerification": "Bank details from other organisation",
     "dashboardCompleteAccountWidgetComponent.BankAccountRelationshipVerification.InProgress": "Awaiting verification of your details",
-    "dashboardCompleteAccountWidgetComponent.GiftAidRelationshipVerification": "Using Gift Aid details from other organisation",
+    "dashboardCompleteAccountWidgetComponent.GiftAidRelationshipVerification": "Gift Aid details from other organisation",
     "dashboardCompleteAccountWidgetComponent.GiftAidRelationshipVerification.InProgress": "Awaiting verification of your details"
 }
