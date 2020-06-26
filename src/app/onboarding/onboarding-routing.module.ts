@@ -63,6 +63,7 @@ import { OnboardingOrganisationDetailsCharityDetailsComponent } from './organisa
 import { OnboardingOrganisationDetailsAddressComponent } from './organisation-details/onboarding-organisation-details-address/onboarding-organisation-details-address.component';
 import { OnboardingDetailsFetchOrganisationResolver } from './organisation-details/resolvers/onboarding-details-fetch-organisation.resolver';
 import { OnboardingOrganisationDetailsSendManualRegistrationDataGuard } from './organisation-details/guards/onboarding-organisation-details-send-manual-registration-data.guard';
+import { OnboardingDetailsFetchRelationshipRulesResolver } from './organisation-details/resolvers/onboarding-details-fetch-rules.resolver';
 
 const routes: Routes = [
   {
@@ -84,7 +85,10 @@ const routes: Routes = [
           {
             path: '',
             component: OnboardingWelcomeComponent,
-            outlet: 'onboarding-outlet'
+            outlet: 'onboarding-outlet',
+            resolve: {
+              relationships: OnboardingDetailsFetchRelationshipRulesResolver
+            }
           },
           {
             path: 'check-inbox',
@@ -127,7 +131,8 @@ const routes: Routes = [
       {
         path: '',
         outlet: 'onboarding-outlet',
-        component: OnboardingOrganisationDetailsIntroComponent
+        resolve: { relationshipRules: OnboardingDetailsFetchRelationshipRulesResolver },
+        component: OnboardingOrganisationDetailsIntroComponent,
       },
       {
         path: 'charity-number',
