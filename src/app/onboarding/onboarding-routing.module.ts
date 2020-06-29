@@ -63,6 +63,7 @@ import { OnboardingOrganisationDetailsCharityDetailsComponent } from './organisa
 import { OnboardingOrganisationDetailsAddressComponent } from './organisation-details/onboarding-organisation-details-address/onboarding-organisation-details-address.component';
 import { OnboardingDetailsFetchOrganisationResolver } from './organisation-details/resolvers/onboarding-details-fetch-organisation.resolver';
 import { OnboardingOrganisationDetailsSendManualRegistrationDataGuard } from './organisation-details/guards/onboarding-organisation-details-send-manual-registration-data.guard';
+import { OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent } from './bank-account-signing/onboarding-bank-account-signing-intro-direct-debit-guarantee/onboarding-bank-account-signing-intro-direct-debit-guarantee.component';
 
 const routes: Routes = [
   {
@@ -317,6 +318,11 @@ const routes: Routes = [
         outlet: 'onboarding-outlet',
         component: OnboardingBankAccountSigningDetailsIncorrectComponent,
         canActivate: [BankAccountSignInvitationRejectedGuard]
+      },
+      {
+        path: 'intro-direct-debit-guarantee',
+        outlet: 'onboarding-outlet',
+        component: OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent,
       },
       {
         path: 'direct-debit-guarantee',

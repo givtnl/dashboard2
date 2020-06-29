@@ -41,6 +41,7 @@ import { OnboardingOrganisationDetailsParentKnownComponent } from './organisatio
 import { OnboardingOrganisationDetailsVerifyOrganisationNameComponent } from './organisation-details/onboarding-organisation-details-verify-organisation-name/onboarding-organisation-details-verify-organisation-name.component';
 import { OnboardingOrganisationDetailsAddressComponent } from './organisation-details/onboarding-organisation-details-address/onboarding-organisation-details-address.component';
 import { OnboardingOrganisationDetailsCharityDetailsComponent } from './organisation-details/onboarding-organisation-details-charity-details/onboarding-organisation-details-charity-details.component';
+import { OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent } from './bank-account-signing/onboarding-bank-account-signing-intro-direct-debit-guarantee/onboarding-bank-account-signing-intro-direct-debit-guarantee.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { OnboardingOrganisationDetailsCharityDetailsComponent } from './organisa
     OnboardingOrganisationDetailsParentKnownComponent,
     OnboardingOrganisationDetailsVerifyOrganisationNameComponent,
     OnboardingOrganisationDetailsAddressComponent,
-    OnboardingOrganisationDetailsCharityDetailsComponent
+    OnboardingOrganisationDetailsCharityDetailsComponent,
+    OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent
   ],
   imports: [CommonModule, ReactiveFormsModule, SharedModule, OnboardingRoutingModule]
 })
