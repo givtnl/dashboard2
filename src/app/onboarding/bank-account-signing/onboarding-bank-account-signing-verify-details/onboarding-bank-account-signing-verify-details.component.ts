@@ -27,7 +27,7 @@ export class OnboardingBankAccountSigningVerifyDetailsComponent implements OnIni
     this.form.valueChanges.subscribe(x => {
       if (x.detailsCorrect) {
         this.router.navigate(
-          ['/', 'onboarding', 'bank-account-signing', { outlets: { 'onboarding-outlet': ['direct-debit-guarantee'] } }],
+          ['/', 'onboarding', 'bank-account-signing', { outlets: { 'onboarding-outlet': ['intro-direct-debit-guarantee'] } }],
           {
             queryParamsHandling: 'merge'
           }

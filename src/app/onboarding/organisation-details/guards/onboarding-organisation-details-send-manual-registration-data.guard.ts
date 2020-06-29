@@ -5,10 +5,10 @@ import { OnboardingOrganisationDetailsService } from '../services/onboarding-org
 import { TranslatableToastrService } from 'src/app/shared/services/translate-able-toastr.service';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
-import { UpdateOrganisationDetailsCommand } from '../models/commands/update-organisation-details.command';
 import { isNullOrUndefined } from 'util';
 import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
 import { OrganisationRegistrationProgress } from 'src/app/organisations/models/organisaition-registration-progress';
+import { OrganisationRegulator } from 'src/app/organisations/models/organisation-regulator.model';
 
 @Injectable({
   providedIn: 'root'
@@ -31,41 +31,39 @@ export class OnboardingOrganisationDetailsSendManualRegistrationDataGuard implem
       if (!this.onboardingOrganisationDetailsStateService.isManualRegistration)
         return true;
 
-      const charity: UpdateOrganisationCommand = this.onboardingOrganisationDetailsStateService.currentOrganisationRegistrationDetailsModel;
+      const currentEnteredOrganisationDetails = this.onboardingOrganisationDetailsStateService.currentOrganisationRegistrationDetailsModel;
 
-      let command = new UpdateOrganisationDetailsCommand();
-      command.name = charity.Name;
-      command.addressLine1 = charity.AddressLine1;
-      command.addressLine2 = charity.AddressLine2;
-      command.addressLine3 = charity.AddressLine3;
-      command.addressLine4 = charity.AddressLine4;
-      command.addressLine5 = charity.AddressLine5;
-      command.postalCode = charity.PostalCode;
-
+      let command: UpdateOrganisationCommand = {
+        Name: currentEnteredOrganisationDetails.Name,
+        AddressLine1: currentEnteredOrganisationDetails.AddressLine1,
+        AddressLine2: currentEnteredOrganisationDetails.AddressLine2,
+        AddressLine3: currentEnteredOrganisationDetails.AddressLine3,
+        AddressLine4: currentEnteredOrganisationDetails.AddressLine4,
+        AddressLine5: currentEnteredOrganisationDetails.AddressLine5,
+        PostalCode: currentEnteredOrganisationDetails.PostalCode,
+        CharityCommissionNumber: currentEnteredOrganisationDetails.CharityCommissionNumber,
+        Regulator: OrganisationRegulator.Ccew,
+        Id: currentEnteredOrganisationDetails.Id,
+        Country: currentEnteredOrganisationDetails.Country,
+        ParentId: currentEnteredOrganisationDetails.ParentId,
+        CharityId: currentEnteredOrganisationDetails.CharityId,
+        ReferenceWithParent: currentEnteredOrganisationDetails.ReferenceWithParent
+      };
       // getting organisation id from the token model
       const organisationId = this.applicationStateService.currentTokenModel.OrganisationAdmin;
 
       // check if we have parent or not
-      if (!isNullOrUndefined(charity.ParentId)) {
+      if (!isNullOrUndefined(command.ParentId)) {
         // retrieve the parent
-        var parentOrganisation = await this.organisationService.getById(charity.ParentId).toPromise();
-
+        var parentOrganisation = await this.organisationService.getById(command.ParentId).toPromise();
         // update reference with parent      
-        command.referenceWithParent = charity.ReferenceWithParent;
-        command.regulator = parentOrganisation.Regulator
-        command.charityId = parentOrganisation.CharityId;
-        command.charityCommissionNumber = parentOrganisation.CharityCommissionReference;
-        command.parentId = parentOrganisation.Guid;
-      } else {
-        // update regulator and reference with regulator / parentId
-        command.regulator = charity.Regulator;
-        command.charityCommissionNumber = charity.ReferenceWithRegulator;
-        command.charityId = charity.ReferenceWithHMRC;
-        command.parentId = null;
-        command.referenceWithParent = null;
+        command.Regulator = parentOrganisation.Regulator
+        command.CharityId = parentOrganisation.CharityId;
+        command.CharityCommissionNumber = parentOrganisation.CharityCommissionReference;
+        command.ParentId = parentOrganisation.Guid;
       }
       // update the organisation details
-      await this.onboardingOrganisationDetailsService.put(organisationId, command).toPromise();
+      await this.organisationService.update(organisationId, command).toPromise();
       await this.organisationService.changeProgress(organisationId, OrganisationRegistrationProgress.OrganisationDetailsDone).toPromise();
 
       return true;

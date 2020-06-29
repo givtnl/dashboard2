@@ -1,0 +1,19 @@
+<app-custom-card titleTranslationKey="" [showCloseButton]="true" iconBackgroundClass="circle-purple"
+    icon="fas fa-file-signature fa-4x"
+    questionMarkTitle="onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.questionmarkTitle"
+    questionMarkText="onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.questionmarkText">
+
+    <div body>
+        <p class="introduction-title text-primary text-center text-heavy-font text-givt-purple" translate>
+            onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.title</p>
+        <p class="text-givt-purple text-light-font text-center" translate>
+            onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.description</p>
+    </div>
+
+    <a bottom [translate]
+        class="btn btn-lg align-self-end bg-givt-green text-center text-white text-heavy-font bottom-button w-75"
+        [routerLink]="['/', 'onboarding', 'bank-account-signing', { outlets: { 'onboarding-outlet': ['direct-debit-guarantee'] } }]"
+        queryParamsHandling="merge">
+        onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.nextButtonText
+    </a>
+</app-custom-card>

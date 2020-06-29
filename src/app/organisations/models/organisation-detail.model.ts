@@ -25,4 +25,6 @@ export interface OrganisationDetailModel {
     Regulator: OrganisationRegulator;
     CharityCommissionReference: string;
     CharityId: string;
+    ParentId?: string | null;
+    ReferenceWithParent?: string | null;
 }

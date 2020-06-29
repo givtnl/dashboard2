@@ -44,7 +44,7 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
 
     this.loading = true;
     try {
-      var parent = await this.onboardingService.checkIfParentExists(this.form.value.charityNumber, this.applicationStateService.currentUserModel.organisationId).toPromise();
+      var parent = await this.onboardingService.checkIfParentExists(this.form.value.charityNumber, this.applicationStateService.currentTokenModel.OrganisationAdmin).toPromise();
       this.stateService.parentId = parent.Guid;
       this.stateService.isManualRegistration = true;
       // do a redirect to let the children fill in the contractform

@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
-    this.applicationStateService.clear();
+    sessionStorage.clear();
 
     this.form = this.fb.group({
       email: [null, [Validators.required, Validators.email]],

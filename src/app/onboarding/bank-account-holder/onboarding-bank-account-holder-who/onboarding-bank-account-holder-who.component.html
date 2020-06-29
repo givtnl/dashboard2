@@ -1,6 +1,8 @@
 <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="justify-content-center h-100 w-100">
   <app-custom-card titleTranslationKey="onboardingBankAccountHolderWhoComponent.title" [showCloseButton]="true"
-    iconBackgroundClass="circle-purple" icon="fas fa-file-signature fa-4x">
+    questionMarkTitle="onboardingBankAccountHolderWhoComponent.questionmarkTitle"
+    questionMarkText="onboardingBankAccountHolderWhoComponent.questionmarkText" iconBackgroundClass="circle-purple"
+    icon="fas fa-file-signature fa-4x">
 
     <div body>
       <div class="w-100 d-flex justify-content-between">
@@ -31,7 +33,7 @@
         onboardingBankAccountHolderWhoComponent.description
       </p>
     </div>
-    
+
     <button bottom type="submit" [translate] [disabled]="loading"
       class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
       <span class="text-white text-heavy-font" translate>
