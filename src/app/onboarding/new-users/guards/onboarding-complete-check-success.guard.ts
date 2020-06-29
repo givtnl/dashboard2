@@ -3,6 +3,7 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { HttpErrorResponse } from '@angular/common/http';
 import { OnboardingNewUsersService } from '../services/onboarding-new-users.service';
 import { OnboardingNewUsersStateService } from '../services/onboarding-new-users-state.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { OnboardingNewUsersStateService } from '../services/onboarding-new-users
 export class OnboardingCompleteCheckSuccessGuard implements CanActivate {
   constructor(
     private router: Router,
+    private translationService: TranslateService,
     private onboardingService: OnboardingNewUsersService,
     private onboardingStateService: OnboardingNewUsersStateService
   ) {}
@@ -20,6 +22,7 @@ export class OnboardingCompleteCheckSuccessGuard implements CanActivate {
       const onboardingRequest = this.onboardingStateService.currentOnboardingRequest;
       // manually assign these values everytime as they might get wiped out
       registration.collectGroupId = onboardingRequest.collectGroupId;
+      registration.appLanguage = this.translationService.getBrowserLang();
       // using a promise here for readability in the beginningngnging
 
       await this.onboardingService.createUser(registration).toPromise();
