@@ -18,7 +18,7 @@ export class RelationShipService {
         return this.backendService.get<RelationshipListModel[]>(`v2/organisations/${usingOrganisationId}/relationships`);
     }
 
-    notify(usingOrganisationId: string, providingOrganisationId: string) {
+    notify(usingOrganisationId: string, providingOrganisationId: string): Observable<Object> {
         return this.backendService.patch(`v2/organisations/${usingOrganisationId}/relationships/${providingOrganisationId}/notify`);
     }
 

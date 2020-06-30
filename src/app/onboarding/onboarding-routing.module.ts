@@ -64,6 +64,7 @@ import { OnboardingOrganisationDetailsAddressComponent } from './organisation-de
 import { OnboardingDetailsFetchOrganisationResolver } from './organisation-details/resolvers/onboarding-details-fetch-organisation.resolver';
 import { OnboardingOrganisationDetailsSendManualRegistrationDataGuard } from './organisation-details/guards/onboarding-organisation-details-send-manual-registration-data.guard';
 import { OnboardingDetailsFetchRelationshipRulesResolver } from './organisation-details/resolvers/onboarding-details-fetch-rules.resolver';
+import { OnboardingOrganisationDetailsNotifyRelationshipGuard } from './organisation-details/guards/onboarding-organisation-details-notify-relationship.guard';
 
 const routes: Routes = [
   {
@@ -166,7 +167,8 @@ const routes: Routes = [
         outlet: 'onboarding-outlet',
         canActivate: [
           OnboardingOrganisationDetailsSendDataGuard,
-          OnboardingOrganisationDetailsSendManualRegistrationDataGuard
+          OnboardingOrganisationDetailsSendManualRegistrationDataGuard,
+          OnboardingOrganisationDetailsNotifyRelationshipGuard
         ],
         component: OnboardingOrganisationDetailsCompleteComponent
       },
