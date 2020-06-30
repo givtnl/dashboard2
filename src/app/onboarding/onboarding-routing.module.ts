@@ -65,6 +65,7 @@ import { OnboardingDetailsFetchOrganisationResolver } from './organisation-detai
 import { OnboardingOrganisationDetailsSendManualRegistrationDataGuard } from './organisation-details/guards/onboarding-organisation-details-send-manual-registration-data.guard';
 import { OnboardingDetailsFetchRelationshipRulesResolver } from './organisation-details/resolvers/onboarding-details-fetch-rules.resolver';
 import { OnboardingOrganisationDetailsNotifyRelationshipGuard } from './organisation-details/guards/onboarding-organisation-details-notify-relationship.guard';
+import { OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent } from './bank-account-signing/onboarding-bank-account-signing-intro-direct-debit-guarantee/onboarding-bank-account-signing-intro-direct-debit-guarantee.component';
 
 const routes: Routes = [
   {
@@ -318,6 +319,11 @@ const routes: Routes = [
         path: 'verify-details',
         outlet: 'onboarding-outlet',
         component: OnboardingBankAccountSigningVerifyDetailsComponent
+      },
+      {
+        path: 'intro-direct-debit-guarantee',
+        outlet: 'onboarding-outlet',
+        component: OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent,
       },
       {
         path: 'details-incorrect',
