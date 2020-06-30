@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, forkJoin } from 'rxjs';
@@ -9,6 +9,7 @@ import { tap, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { postCodeBACSValidator } from 'src/app/shared/validators/postcode-BACS.validator';
 import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
+import { RelationshipType } from 'src/app/organisations/enums/relationship-type.model';
 
 @Component({
   selector: 'app-onboarding-organisation-details-address',
@@ -23,7 +24,8 @@ export class OnboardingOrganisationDetailsAddressComponent implements OnInit {
     private formBuilder: FormBuilder,
     private onboardingStateService: OnboardingOrganisationDetailsStateService,
     private router: Router,
-    private translationService: TranslateService
+    private translationService: TranslateService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -98,6 +100,9 @@ export class OnboardingOrganisationDetailsAddressComponent implements OnInit {
     currentOrganisationRegistrationDetailModel.PostalCode = this.form.value.postcode;
     currentOrganisationRegistrationDetailModel.Country = this.form.value.country;
     this.onboardingStateService.currentOrganisationRegistrationDetailsModel = currentOrganisationRegistrationDetailModel
-    this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['charity-details'] } }])
+    if (this.route.snapshot.data.relationshipRules.filter(rule => rule.Type == RelationshipType.UseRegulatorReference))
+      this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['complete'] } }])
+    else
+      this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['charity-details'] } }])
   }
 }

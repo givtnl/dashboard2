@@ -148,7 +148,8 @@ const routes: Routes = [
       {
         path: 'address-details',
         outlet: 'onboarding-outlet',
-        component: OnboardingOrganisationDetailsAddressComponent
+        component: OnboardingOrganisationDetailsAddressComponent,
+        resolve: { relationshipRules: OnboardingDetailsFetchRelationshipRulesResolver },
       },
       {
         path: 'charity-details',
@@ -238,7 +239,9 @@ const routes: Routes = [
   {
     path: 'giftaid',
     component: OnboardingRootComponent,
-    resolve: { giftAidSettings: OnboardingGiftAidPreparationResolver },
+    resolve: { 
+      giftAidSettings: OnboardingGiftAidPreparationResolver
+     },
     children: [
       {
         path: '',
