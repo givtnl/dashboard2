@@ -85,10 +85,7 @@ const routes: Routes = [
           {
             path: '',
             component: OnboardingWelcomeComponent,
-            outlet: 'onboarding-outlet',
-            resolve: {
-              relationships: OnboardingDetailsFetchRelationshipRulesResolver
-            }
+            outlet: 'onboarding-outlet'
           },
           {
             path: 'check-inbox',
