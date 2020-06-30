@@ -1,9 +1,10 @@
 import { Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { OrganisationWithRulesDetail } from 'src/app/onboarding/organisation-details/models/organisation-with-rules-detail.model';
 import { RelationShipService as PreboardingRelationshipService } from '../services/relationship.service';
 import { catchErrorStatus } from 'src/app/shared/extensions/observable-extensions';
+import { catchError } from 'rxjs/operators';
 
 
 @Injectable({
@@ -19,6 +20,7 @@ export class PreboardingRelationShipProvidingOrganisationsResolver implements Re
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
     ): OrganisationWithRulesDetail[] | Observable<OrganisationWithRulesDetail[]> | Promise<OrganisationWithRulesDetail[]> {
-        return this.preboardingRelationshipService.getAllRelationShipProvidingOrganisations().pipe((catchErrorStatus(404, () => { return null })));
+        return this.preboardingRelationshipService.getAllRelationShipProvidingOrganisations()
+            .pipe(catchError(error => of([])));
     }
 }
