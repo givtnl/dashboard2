@@ -39,6 +39,10 @@ export class PreboardingAvailableStepsResolver implements Resolve<PreboardingSte
             },
             {
                 loading: true,
+                term: 'PreboardingDetailsCompleteComponent.steps-notify-relationships'
+            },
+            {
+                loading: true,
                 term: 'PreboardingDetailsCompleteComponent.steps-update-teamleader-progress'
             }];
     }

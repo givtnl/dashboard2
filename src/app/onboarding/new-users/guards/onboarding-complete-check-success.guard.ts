@@ -3,7 +3,7 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { HttpErrorResponse } from '@angular/common/http';
 import { OnboardingNewUsersService } from '../services/onboarding-new-users.service';
 import { OnboardingNewUsersStateService } from '../services/onboarding-new-users-state.service';
-import { TranslateService } from '@ngx-translate/core';
+import { RelationShipService } from 'src/app/account/relationships/services/relationship.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +11,10 @@ import { TranslateService } from '@ngx-translate/core';
 export class OnboardingCompleteCheckSuccessGuard implements CanActivate {
   constructor(
     private router: Router,
-    private translationService: TranslateService,
+    private relationshipService: RelationShipService,
     private onboardingService: OnboardingNewUsersService,
     private onboardingStateService: OnboardingNewUsersStateService
-  ) {}
+  ) { }
 
   async canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     try {
@@ -22,10 +22,9 @@ export class OnboardingCompleteCheckSuccessGuard implements CanActivate {
       const onboardingRequest = this.onboardingStateService.currentOnboardingRequest;
       // manually assign these values everytime as they might get wiped out
       registration.collectGroupId = onboardingRequest.collectGroupId;
-      registration.appLanguage = this.translationService.getBrowserLang();
-      // using a promise here for readability in the beginningngnging
-
+      // using a promise here for readability in the beginning
       await this.onboardingService.createUser(registration).toPromise();
+
     } catch (error) {
       if (error instanceof HttpErrorResponse) {
         switch (error.status) {
