@@ -187,8 +187,8 @@ const routes: Routes = [
   {
     path: 'bank-account',
     component: OnboardingRootComponent,
-    //resolve: { bankaccount: OnboardingBankAccountRegistrationResolver },
-    //canActivate: [AuthenticationGuard],
+    resolve: { bankaccount: OnboardingBankAccountRegistrationResolver },
+    canActivate: [AuthenticationGuard],
     children: [
       {
         path: '',
@@ -217,8 +217,8 @@ const routes: Routes = [
   {
     path: 'bank-account-holder',
     component: OnboardingRootComponent,
-    //canActivate: [BankAccountIsVerifiedGuard],
-    //resolve: { bankAccount: OnboardingBankAccountHolderAccountResolver },
+    canActivate: [BankAccountIsVerifiedGuard],
+    resolve: { bankAccount: OnboardingBankAccountHolderAccountResolver },
     children: [
       {
         path: '',
