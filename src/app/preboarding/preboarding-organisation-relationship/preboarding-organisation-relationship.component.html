@@ -31,20 +31,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-givt-purple" id="exampleModalLabel">Choose relationship settings</h5>
+                    <h5 class="modal-title text-givt-purple" id="exampleModalLabel">{{'preboardingOrganisationRelationship.modal-title' | translate}}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p class="text-primary text-light-font text-givt-purple">The Organisation (providing) wants you to
-                        use their
-                        giftaid details</p>
-                    <p class="text-primary text-light-font text-givt-purple">But their charity commission details are
-                        optional,
-                        please choose</p>
-
-
+                    <p class="text-primary text-light-font text-givt-purple">{{'preboardingOrganisationRelationship.modal-description' | translate}}</p>
+                    
                     <div formArrayName="rules">
                         <div *ngFor="let ruleControlGroup of rules().controls; let i = index">
                             <div class="row no-gutters" [formGroupName]="i">
@@ -52,14 +46,14 @@
                                     <input id={{i}} type="checkbox" class="custom-control-input"
                                         formControlName="selected">
                                     <label for="{{i}}" class="text-light-font text-givt-purple custom-control-label">
-                                        <span [translate]>{{'RelationshipType_' + ruleControlGroup.value.ruleType}}</span> <span *ngIf="ruleControlGroup.value.optional"> ( optional )</span></label>
+                                        <span [translate]>{{'RelationshipType_' + ruleControlGroup.value.ruleType}}</span> <span *ngIf="ruleControlGroup.value.optional">{{'preboardingOrganisationRelationship.modal-optional' | translate }}</span></label>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" data-dismiss="modal" class="btn btn-lg bg-givt-green text-white text-heavy-font" (click)="submit()">Continue</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-lg bg-givt-green text-white text-heavy-font" translate (click)="submit()">preboardingOrganisationRelationComponent.nextButtonText</button>
                 </div>
             </div>
         </div>
