@@ -88,7 +88,7 @@
     "onboardingBankAccountIntroComponent.what2": "Afgeven van een machtiging op de bankrekening of iemand daartoe uitnodigen",
     "onboardingBankAccountIntroComponent.what3": "Ten slotte zal deze persoon alle gegevens nakijken en de bankrekening verifiëren door het tekenen van de digitale machtiging. Als dat achter de rug is, sturen we hiervan nog een bevestiging via e-mail.",
     "onboardingBankAccountSigningIntroComponent.title": "Teken de machtiging",
-    "onboardingBankAccountSigningIntroComponent.description": "As the bank account holder, you are going to complete the verification process of this bank account. Please thoroughly review the specified details in the following screens.",
+    "onboardingBankAccountSigningIntroComponent.description": "As the bank account holder, you are going to complete the verification process of this bank account. Please review the specified details in the following screens thoroughly.",
     "onboardingBankAccountSigningIntroComponent.nextButtonText": "Volgende",
     "onboardingBankAccountSigningVerifyDetailsComponent.title": "Check the details",
     "onboardingBankAccountSigningVerifyDetailsComponent.description": "NO DESCRIPTION HERE",
@@ -398,6 +398,9 @@
     "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.questionmarkTitle": "Meer info",
     "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.questionmarkText": "Why does Givt work with Direct Debit?\n<br/><br/>\nThe donations are already collected through a Direct Debit, so we have chosen to use the same system for the payments.\nIt is important to know the following:\n<br/>\n<ul>\n<li>The mandate is part of the bank account verification.</li>\n<li>The one-time start-up costs are collected through this system.</li>\n<li>It allows us to settle the balance, in the unlikely case of a negative balance and no response is given to our request to settle this.</li>\n</ul>",
     "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.title": "Intro Direct Debit Guarantee",
-    "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.description": "Next, after agreeing the Direct Debit Guarantee , a Direct Debit will be automatically created, so the payments can be enabled. The usage of this Direct Debit system has multiple advantages (See more at the info-button).\nTo enable the payments, Givt uses the Direct Debit system.",
-    "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.nextButtonText": "Next"
+    "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.description": "Next, after agreeing the Direct Debit Guarantee, a Direct Debit will be automatically created, so the payments can be enabled. The usage of this Direct Debit system has multiple advantages (See more at the info-button).\nTo enable the payments, Givt uses the Direct Debit system.",
+    "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.nextButtonText": "Next",
+    "preboardingOrganisationRelationship.modal-title": "Kies de relatie-voorwaarden",
+    "preboardingOrganisationRelationship.modal-description": "De overkoepelende organisatie wil dat je sommige instellingen overneemt. \n<br>\nSommige instellingen zijn optioneel. Gelieve hieronder te kiezen:",
+    "preboardingOrganisationRelationship.modal-optional": "(optioneel)"
 }
