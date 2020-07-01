@@ -37,7 +37,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p class="text-primary text-light-font text-givt-purple">{{'preboardingOrganisationRelationship.modal-description' | translate}}</p>
+                    <p class="text-primary text-light-font text-givt-purple"   innerHTML="{{'preboardingOrganisationRelationship.modal-description' | translate }}"></p>
                     
                     <div formArrayName="rules">
                         <div *ngFor="let ruleControlGroup of rules().controls; let i = index">
