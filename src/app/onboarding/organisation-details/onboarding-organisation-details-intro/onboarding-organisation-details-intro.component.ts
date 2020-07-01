@@ -40,4 +40,8 @@ export class OnboardingOrganisationDetailsIntroComponent implements OnInit {
         })
     }
 
+    public hasRegulatorReferenceRelationship() : boolean {
+        return this.relationshipRules && this.relationshipRules.some(rule => rule.Type == RelationshipType.UseRegulatorReference);
+    }
+
 }
