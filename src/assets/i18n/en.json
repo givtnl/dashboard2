@@ -88,7 +88,7 @@
     "onboardingBankAccountIntroComponent.what2": "Verify the bank account or invite the person who will verify the bank account.",
     "onboardingBankAccountIntroComponent.what3": "Finally, this person will check the organisation details and the bank account details and the bank account will be verified. We will send a confirmation e-mail to you as soon as this is done.",
     "onboardingBankAccountSigningIntroComponent.title": "Verify bank account",
-    "onboardingBankAccountSigningIntroComponent.description": "As the bank account holder, you are going to complete the verification process of this bank account. Please thoroughly review the specified details in the following screens.",
+    "onboardingBankAccountSigningIntroComponent.description": "As the bank account holder, you are going to complete the verification process of this bank account. Please review the specified details in the following screens thoroughly.",
     "onboardingBankAccountSigningIntroComponent.nextButtonText": "Next",
     "onboardingBankAccountSigningVerifyDetailsComponent.title": "Check the details",
     "onboardingBankAccountSigningVerifyDetailsComponent.description": "NO DESCRIPTION HERE",
@@ -398,6 +398,9 @@
     "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.questionmarkTitle": "More info",
     "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.questionmarkText": "Why does Givt work with Direct Debit?<br/><br/>The donations are already collected through a Direct Debit, so we have chosen to use the same system for the payments. It is important to know the following:<br/><ul><li>The mandate is part of the bank account verification.</li><li>The one-time start-up costs are collected through this system.</li><li>It allows us to settle the balance, in the unlikely case of a negative balance and no response is given to our request to settle this.</li></ul>",
     "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.title": "Intro Direct Debit Guarantee",
-    "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.description": "Next, after agreeing the Direct Debit Guarantee , a Direct Debit will be automatically created, so the payments can be enabled. The usage of this Direct Debit system has multiple advantages (See more at the info-button).\nTo enable the payments, Givt uses the Direct Debit system.",
-    "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.nextButtonText": "Next"
+    "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.description": "Next, after agreeing the Direct Debit Guarantee, a Direct Debit will be automatically created, so the payments can be enabled. The usage of this Direct Debit system has multiple advantages (See more at the info-button).\nTo enable the payments, Givt uses the Direct Debit system.",
+    "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.nextButtonText": "Next",
+    "preboardingOrganisationRelationship.modal-title": "Choose relationship settings",
+    "preboardingOrganisationRelationship.modal-description": "The Organisation (providing) wants you to use some of their details.\n<br> \nSome of the details are mandatory, some are optional. Please choose:",
+    "preboardingOrganisationRelationship.modal-optional": "(optional)"
 }
