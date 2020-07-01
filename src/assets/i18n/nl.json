@@ -402,5 +402,5 @@
     "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.nextButtonText": "Next",
     "preboardingOrganisationRelationship.modal-title": "Kies de relatie-voorwaarden",
     "preboardingOrganisationRelationship.modal-description": "De overkoepelende organisatie wil dat je sommige instellingen overneemt. \n<br>\nSommige instellingen zijn optioneel. Gelieve hieronder te kiezen:",
-    "preboardingOrganisationRelationship.modal-optional": "(optioneel)"
+    "preboardingOrganisationRelationship.modal-optional": " (optioneel)"
 }
