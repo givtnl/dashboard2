@@ -402,5 +402,5 @@
     "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.nextButtonText": "Next",
     "preboardingOrganisationRelationship.modal-title": "Choose relationship settings",
     "preboardingOrganisationRelationship.modal-description": "The Organisation (providing) wants you to use some of their details.\n<br> \nSome of the details are mandatory, some are optional. Please choose:",
-    "preboardingOrganisationRelationship.modal-optional": "(optional)"
+    "preboardingOrganisationRelationship.modal-optional": " (optional)"
 }
