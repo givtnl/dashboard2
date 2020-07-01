@@ -3,7 +3,7 @@ import { CompleteAccountWidgetService } from './services/complete-account-widget
 import { CompleteAccountWidgetModel } from './models/complete-account-widget.model';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { Router } from '@angular/router';
-import { OrganisationRegistrationStatus } from './enums/organisationregistrationstatus.enum';
+import { OrganisationRegistrationStatus } from '../../../organisations/enums/organisationregistrationstatus.enum';
 
 @Component({
   selector: 'app-dashboard-complete-account-widget',

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { OrganisationDetailModel } from '../models/organisation-detail.model';
 import { UpdateOrganisationCommand } from '../models/commands/update-organisation.command';
 import { OrganisationRegistrationProgress } from '../models/organisaition-registration-progress';
+import { OrganisationRegistrationStep } from '../models/organisation-registration-step';
 
 @Injectable({
     providedIn: 'root'
@@ -29,5 +30,9 @@ export class OrganisationsService {
     //change the progress internally
     changeProgress(id: string, progress: OrganisationRegistrationProgress): Observable<object> {
         return this.backendService.patch(`v2/organisations/${id}/registration/progress/${progress}`, {});
+    }
+
+    getRegistrationStatus(id: string): Observable<OrganisationRegistrationStep[]> {
+        return this.backendService.get<OrganisationRegistrationStep[]>(`v2/organisations/${id}/registration`);
     }
 }

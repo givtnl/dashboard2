@@ -1,6 +1,6 @@
-import { OrganisationRegistrationStatus } from '../../../../organisations/enums/organisationregistrationstatus.enum';
+import { OrganisationRegistrationStatus } from '../enums/organisationregistrationstatus.enum';
 
-export interface CompleteAccountWidgetModel {
+export class OrganisationRegistrationStep {
     DisplayOrder: number;
     Finished: boolean;
     InProgress: boolean;
