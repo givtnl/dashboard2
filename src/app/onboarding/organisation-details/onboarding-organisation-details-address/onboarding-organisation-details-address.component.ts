@@ -100,7 +100,7 @@ export class OnboardingOrganisationDetailsAddressComponent implements OnInit {
     currentOrganisationRegistrationDetailModel.PostalCode = this.form.value.postcode;
     currentOrganisationRegistrationDetailModel.Country = this.form.value.country;
     this.onboardingStateService.currentOrganisationRegistrationDetailsModel = currentOrganisationRegistrationDetailModel
-    if (this.route.snapshot.data.relationshipRules.filter(rule => rule.Type == RelationshipType.UseRegulatorReference))
+    if (this.route.snapshot.data.relationshipRules.some(rule => rule.Type == RelationshipType.UseRegulatorReference))
       this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['complete'] } }])
     else
       this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['charity-details'] } }])
