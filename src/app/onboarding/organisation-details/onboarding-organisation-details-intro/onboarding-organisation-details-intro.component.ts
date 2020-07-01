@@ -24,7 +24,7 @@ export class OnboardingOrganisationDetailsIntroComponent implements OnInit {
 
     
     continue() {
-        if (this.relationshipRules.filter(rule => rule.Type == RelationshipType.UseRegulatorReference))
+        if (this.relationshipRules && this.relationshipRules.some(rule => rule.Type == RelationshipType.UseRegulatorReference))
             this.gotoManualEntry();
         else {
             this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['charity-number'] } }], {
