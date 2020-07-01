@@ -5,9 +5,6 @@
             onboardingOrganisationDetailsIntroComponent.title</p>
         <p class="text-givt-purple text-light-font" translate>
             onboardingOrganisationDetailsIntroComponent.description</p>
-        <a *ngIf="!hasRegulatorReferenceRelationship()" class="text-givt-purple text-light-font no-charity-number-link" (click)="gotoManualEntry()">
-            <u>{{'onboardingOrganisationDetailsIntroComponent.dontHaveCharityNumber' | translate}}</u>
-        </a>
     </div>
 
     <a bottom [translate] class="btn btn-lg align-self-end bg-givt-green text-center text-white text-heavy-font bottom-button w-75" (click)="continue()">
