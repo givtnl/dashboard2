@@ -5,7 +5,7 @@ import { CollectGroupsService } from 'src/app/collect-groups/services/collect-gr
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { OnboardingNewUsersService } from 'src/app/onboarding/new-users/services/onboarding-new-users.service';
 import { PreboardingStepListModel } from './models/preboarding-step-list.model';
-import { tap, switchMap, map, catchError, retry } from 'rxjs/operators';
+import { tap, switchMap,  catchError, retry } from 'rxjs/operators';
 import { of, Observable, EMPTY, forkJoin } from 'rxjs';
 import { CreatedCollectGroupResponse } from 'src/app/collect-groups/models/created-collect-group-response.model';
 import { CreatedResponseModel } from 'src/app/infrastructure/models/response.model';
@@ -13,6 +13,8 @@ import { CollectionMediumType } from 'src/app/collect-groups/models/collection-m
 import { OrganisationType } from '../models/organisation-type.enum';
 import { OrganisationRegistrationProgress } from 'src/app/organisations/models/organisaition-registration-progress';
 import { ActivatedRoute } from '@angular/router';
+import { RelationShipService } from 'src/app/account/relationships/services/relationship.service';
+
 
 @Component({
   selector: 'app-preboarding-details-complete',
@@ -34,6 +36,7 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
 
   constructor(private formattingService: PreboardingFormattingService,
     private activatedRoute: ActivatedRoute,
+    private relationshipService: RelationShipService,
     private organisationService: OrganisationsService,
     private collectGroupService: CollectGroupsService,
     private preboardingStateService: PreboardingStateService,
@@ -144,12 +147,25 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
         this.stepSeven();
       })
   }
+  stepSeven():void {
+    if (this.preboardingStateService.currentCreateOrganisationshipRuleCommand && this.preboardingStateService.organisationRelationship){
+      this.relationshipService.create(this.preboardingStateService.currentCreateOrganisationshipRuleCommand)
+      .pipe(catchError(() => this.genericError(6)))
+      .subscribe(x => {
+        this.handleStep(6);
+        this.stepEight();
+      });
+    }else {
+      this.handleStep(6);
+      this.stepEight();
+    }
+  }
   // Updates the progress in teamleader
-  stepSeven(): void {
+  stepEight(): void {
     this.organisationService
       .changeProgress(this.preboardingStateService.organisationDetails.organisationId, OrganisationRegistrationProgress.Preboarded)
-      .pipe(catchError(() => this.genericError(6)))
-      .subscribe(() => this.handleStep(6));
+      .pipe(catchError(() => this.genericError(7)))
+      .subscribe(() => this.handleStep(7));
   }
   private genericError(stepIndex: number): Observable<never> {
     this.handleStep(stepIndex, false);

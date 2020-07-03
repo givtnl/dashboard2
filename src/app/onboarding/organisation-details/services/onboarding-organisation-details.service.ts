@@ -7,7 +7,7 @@ import { AddChildOrganisationToParentOrganisationCommand } from '../models/comma
 import { OrganisationDetailModel } from 'src/app/organisations/models/organisation-detail.model';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class OnboardingOrganisationDetailsService {
   constructor(private backendService: BackendService) {}

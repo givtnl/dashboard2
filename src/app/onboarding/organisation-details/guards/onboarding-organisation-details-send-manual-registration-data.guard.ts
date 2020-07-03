@@ -42,7 +42,7 @@ export class OnboardingOrganisationDetailsSendManualRegistrationDataGuard implem
         AddressLine5: currentEnteredOrganisationDetails.AddressLine5,
         PostalCode: currentEnteredOrganisationDetails.PostalCode,
         CharityCommissionNumber: currentEnteredOrganisationDetails.CharityCommissionNumber,
-        Regulator: OrganisationRegulator.Ccew,
+        Regulator: currentEnteredOrganisationDetails.Regulator,
         Id: currentEnteredOrganisationDetails.Id,
         Country: currentEnteredOrganisationDetails.Country,
         ParentId: currentEnteredOrganisationDetails.ParentId,

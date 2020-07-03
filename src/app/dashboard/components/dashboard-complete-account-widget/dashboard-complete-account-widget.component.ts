@@ -3,6 +3,7 @@ import { CompleteAccountWidgetService } from './services/complete-account-widget
 import { CompleteAccountWidgetModel } from './models/complete-account-widget.model';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { Router } from '@angular/router';
+import { OrganisationRegistrationStatus } from '../../../organisations/enums/organisationregistrationstatus.enum';
 
 @Component({
   selector: 'app-dashboard-complete-account-widget',
@@ -50,15 +51,15 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
 
   public getRouterLinks(record: CompleteAccountWidgetModel): Array<any> {
     switch (record.OrganisationRegistrationStatus) {
-      case 1:
+      case OrganisationRegistrationStatus.CompleteOrganisationDetails:
         return ['/', 'onboarding', 'organisation-details'];
-      case 3:
+      case OrganisationRegistrationStatus.AddBankAccount:
         return !record.InProgress ? ['/', 'onboarding', 'bank-account'] : ['/', 'dashboard'];
-      case 4:
+      case OrganisationRegistrationStatus.AddBankAccountHolders:
         return record.InProgress
           ? ['/', 'onboarding', 'bank-account', { outlets: { 'onboarding-outlet': ['already-invited'] } }]
           : ['/', 'onboarding', 'bank-account-holder'];
-      case 6: 
+      case OrganisationRegistrationStatus.AddGiftAidSettings: 
         return !record.InProgress ? ['/', 'onboarding', 'giftaid'] : ['/', 'dashboard']
       default:
         break;

@@ -10,7 +10,7 @@ import { OnboardingPersonalDetailsComponent } from './new-users/onboarding-perso
 import { OnboardingRegisterGuard } from './new-users/guards/onboarding-register.guard';
 import { OnboardingRegisterCheckPasswordGuard } from './new-users/guards/onboarding-register-check-password.guard';
 import { OnboardingRegisterCheckPersonalDetailsRequiredGuard } from './new-users/guards/onboarding-register-check-personal-details-required.guard';
-import { OnboardingCompleteCheckSuccessGuard } from './new-users/guards/onboarding-complete-check-success.guard';
+import { OnboardingCompleteCheckSuccessGuard as OnboardingUserCompleteSuccessGuard } from './new-users/guards/onboarding-complete-check-success.guard';
 import { OnboardingChangeEmailComponent } from './new-users/onboarding-change-email/onboarding-change-email.component';
 import { OnboardingBankAccountIntroComponent } from './bank-account/onboarding-bank-account-intro/onboarding-bank-account-intro.component';
 import { OnboardingBankAccountAddComponent } from './bank-account/onboarding-bank-account-add/onboarding-bank-account-add.component';
@@ -63,6 +63,8 @@ import { OnboardingOrganisationDetailsCharityDetailsComponent } from './organisa
 import { OnboardingOrganisationDetailsAddressComponent } from './organisation-details/onboarding-organisation-details-address/onboarding-organisation-details-address.component';
 import { OnboardingDetailsFetchOrganisationResolver } from './organisation-details/resolvers/onboarding-details-fetch-organisation.resolver';
 import { OnboardingOrganisationDetailsSendManualRegistrationDataGuard } from './organisation-details/guards/onboarding-organisation-details-send-manual-registration-data.guard';
+import { OnboardingDetailsFetchRelationshipRulesResolver } from './organisation-details/resolvers/onboarding-details-fetch-rules.resolver';
+import { OnboardingOrganisationDetailsNotifyRelationshipGuard } from './organisation-details/guards/onboarding-organisation-details-notify-relationship.guard';
 import { OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent } from './bank-account-signing/onboarding-bank-account-signing-intro-direct-debit-guarantee/onboarding-bank-account-signing-intro-direct-debit-guarantee.component';
 
 const routes: Routes = [
@@ -106,7 +108,7 @@ const routes: Routes = [
             path: 'completed',
             component: OnboardingCompletedComponent,
             outlet: 'onboarding-outlet',
-            canActivate: [OnboardingCompleteCheckSuccessGuard],
+            canActivate: [OnboardingUserCompleteSuccessGuard],
             resolve: {
               organisation: OnboardingUserRegistrationOrganisationResolver
             }
@@ -128,7 +130,8 @@ const routes: Routes = [
       {
         path: '',
         outlet: 'onboarding-outlet',
-        component: OnboardingOrganisationDetailsIntroComponent
+        resolve: { relationshipRules: OnboardingDetailsFetchRelationshipRulesResolver },
+        component: OnboardingOrganisationDetailsIntroComponent,
       },
       {
         path: 'charity-number',
@@ -147,7 +150,8 @@ const routes: Routes = [
       {
         path: 'address-details',
         outlet: 'onboarding-outlet',
-        component: OnboardingOrganisationDetailsAddressComponent
+        component: OnboardingOrganisationDetailsAddressComponent,
+        resolve: { relationshipRules: OnboardingDetailsFetchRelationshipRulesResolver },
       },
       {
         path: 'charity-details',
@@ -164,7 +168,8 @@ const routes: Routes = [
         outlet: 'onboarding-outlet',
         canActivate: [
           OnboardingOrganisationDetailsSendDataGuard,
-          OnboardingOrganisationDetailsSendManualRegistrationDataGuard
+          OnboardingOrganisationDetailsSendManualRegistrationDataGuard,
+          OnboardingOrganisationDetailsNotifyRelationshipGuard
         ],
         component: OnboardingOrganisationDetailsCompleteComponent
       },
@@ -237,7 +242,9 @@ const routes: Routes = [
   {
     path: 'giftaid',
     component: OnboardingRootComponent,
-    resolve: { giftAidSettings: OnboardingGiftAidPreparationResolver },
+    resolve: { 
+      giftAidSettings: OnboardingGiftAidPreparationResolver
+     },
     children: [
       {
         path: '',
@@ -314,15 +321,15 @@ const routes: Routes = [
         component: OnboardingBankAccountSigningVerifyDetailsComponent
       },
       {
+        path: 'intro-direct-debit-guarantee',
+        outlet: 'onboarding-outlet',
+        component: OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent,
+      },
+      {
         path: 'details-incorrect',
         outlet: 'onboarding-outlet',
         component: OnboardingBankAccountSigningDetailsIncorrectComponent,
         canActivate: [BankAccountSignInvitationRejectedGuard]
-      },
-      {
-        path: 'intro-direct-debit-guarantee',
-        outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent,
       },
       {
         path: 'direct-debit-guarantee',
