@@ -5,7 +5,7 @@ import { CollectGroupsService } from 'src/app/collect-groups/services/collect-gr
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { OnboardingNewUsersService } from 'src/app/onboarding/new-users/services/onboarding-new-users.service';
 import { PreboardingStepListModel } from './models/preboarding-step-list.model';
-import { tap, switchMap,  catchError, retry } from 'rxjs/operators';
+import { tap, switchMap,  catchError, retry, delayWhen } from 'rxjs/operators';
 import { of, Observable, EMPTY, forkJoin } from 'rxjs';
 import { CreatedCollectGroupResponse } from 'src/app/collect-groups/models/created-collect-group-response.model';
 import { CreatedResponseModel } from 'src/app/infrastructure/models/response.model';
@@ -75,6 +75,7 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
       .pipe(tap(results => results.length > 0 ? this.handleStep(2) : EMPTY))
       .pipe(switchMap(results => results.length === 0 ? 
         this.collectGroupService.addCollectionMedium(this.preboardingStateService.organisationDetails.organisationId, createdOrRetrievedCollectGroup.Result.Id)
+        .pipe(delayWhen(createdQrCode => this.collectGroupService.exportCollectionMedium(this.preboardingStateService.organisationDetails.organisationId, createdOrRetrievedCollectGroup.Result.Id,createdQrCode.Result, this.preboardingStateService.organisationDetails.language,null,null,null,"cdn/qr")))
         .pipe(catchError(() => this.genericError(1)))
         : of({
         Result: results[0].MediumId
