@@ -37,10 +37,4 @@ export class OnboardingOrganisationDetailsStateService {
   public set isManualRegistration(value: boolean) {
     this.storage.setItem('OnboardingOrganisationDetailsStateService.ManualRegistration', value.toString());
   }
-  public get parentId(): string {
-    return this.storage.getItem('OnboardingOrganisationDetailsStateService.ParentId');
-  }
-  public set parentId(value: string) {
-    this.storage.setItem('OnboardingOrganisationDetailsStateService.ParentId', value);
-  }
 }

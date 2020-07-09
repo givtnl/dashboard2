@@ -21,10 +21,8 @@ export interface OrganisationDetailModel {
     AccountHolderFirstName: string;
     AccountHolderLastName: string;
     GiftAidEnabled?: boolean | null;
-    AlreadyKnownParent: boolean;
     Regulator: OrganisationRegulator;
     CharityCommissionReference: string;
     CharityId: string;
-    ParentId?: string | null;
     ReferenceWithParent?: string | null;
 }

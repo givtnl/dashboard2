@@ -173,12 +173,7 @@ const routes: Routes = [
         path: 'incorrect',
         outlet: 'onboarding-outlet',
         component: OnboardingOrganisationDetailsIncorrectComponent
-      },
-      // {
-      //   path: 'parent-known',
-      //   outlet: 'onboarding-outlet',
-      //   component: OnboardingOrganisationDetailsParentKnownComponent
-      // },
+      }
     ]
   },
   {
