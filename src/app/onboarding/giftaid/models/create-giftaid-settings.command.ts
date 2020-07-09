@@ -10,16 +10,4 @@ export interface CreateGiftAidSettingsCommand {
   charityAddressLineFour?:string|null;
   charityAddressZipCode: string;
   charityAddressCountry: string;
-  authorisedOfficialFirstName:string;
-  authorisedOfficialMiddleName?:string | null;
-  authorisedOfficialLastName: string;
-  authorisedOfficialPhoneNumber:string;
-  authorisedOfficialHomeAddressLineOne:string;
-  authorisedOfficialHomeAddressLineTwo:string;
-  authorisedOfficialHomeAddressLineThree:string;
-  authorisedOfficialHomeAddressLineFour?:string;
-  authorisedOfficialHomeAddressZipCode:string;
-  authorisedOfficialHomeAddressCountry:string;
-  nationalInsuranceNumber?:string | null;
-  nationalIdentityCardNumber?:string | null;
 }

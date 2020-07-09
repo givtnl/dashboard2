@@ -32,7 +32,7 @@ export class GiftaidVerifyOrganisationDetailsComponent implements OnInit {
     this.form.valueChanges.subscribe(value => {
       this.loading = true;
       this.router.navigate(['/', 'onboarding', 'giftaid',
-        { outlets: { 'onboarding-outlet': [value.detailsCorrect ? 'verify-personal-details' : 'organisation-charity-details'] } }],
+        { outlets: { 'onboarding-outlet': [value.detailsCorrect ? 'completed' : 'organisation-charity-details'] } }],
         { queryParamsHandling: 'merge' }
       ).finally(() => this.loading = false)
     })

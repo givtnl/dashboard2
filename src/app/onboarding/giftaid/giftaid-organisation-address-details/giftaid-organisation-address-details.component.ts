@@ -117,6 +117,6 @@ export class GiftaidOrganisationAddressDetailsComponent implements OnInit {
     this.giftAidStateService.currentGiftAidSettings = currentSettings;
     this.giftAidStateService.validatedAndCompletedStepThree = true;
     // todo implement the route
-    this.router.navigate(['/', 'onboarding','giftaid', {outlets: {'onboarding-outlet': ['authorised-official-details']}}]);
+    this.router.navigate(['/', 'onboarding','giftaid', {outlets: {'onboarding-outlet': ['verify-organisation-details']}}]);
   }
 }
