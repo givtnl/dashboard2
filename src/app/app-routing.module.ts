@@ -3,11 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthenticationGuard } from './infrastructure/guards/authentication.guard';
 import { environment } from 'src/environments/environment';
 import { TempUserGuard } from './infrastructure/guards/tempuser.guard';
+import { ForbiddenForSepaGuard } from './infrastructure/guards/forbiddenforsepa.guard';
 
 const routes: Routes = [
     {
-        path:'account',
-        loadChildren:() => import('./account/account.module').then(mod => mod.AccountModule)
+        path: 'account',
+        loadChildren: () => import('./account/account.module').then(mod => mod.AccountModule)
     },
     {
         path: 'preboarding',
@@ -24,21 +25,21 @@ const routes: Routes = [
     {
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule),
-        canActivate: [AuthenticationGuard, TempUserGuard]
+        canActivate: [AuthenticationGuard, TempUserGuard, ForbiddenForSepaGuard]
     },
     {
-        path:'',
-        redirectTo:'account/login',
-        pathMatch:'full'
+        path: '',
+        redirectTo: 'account/login',
+        pathMatch: 'full'
     },
-     {
-         path: '**',
-         redirectTo: 'system/root'
-     }
+    {
+        path: '**',
+        redirectTo: 'system/root'
+    }
 ];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
