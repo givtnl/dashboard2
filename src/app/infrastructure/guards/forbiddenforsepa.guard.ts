@@ -14,14 +14,13 @@ import { OrganisationsService } from 'src/app/organisations/services/organisatio
 export class ForbiddenForSepaGuard implements CanActivate {
   constructor(private router: Router, private applicationStateService: ApplicationStateService, private organisationService: OrganisationsService) { }
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  async canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     var bacsCountries = ["GB", "GG", "JE"];
     var returnValue = true;
     var currentToken = this.applicationStateService.currentTokenModel;
-    var Organisation = this.organisationService.getById(currentToken.OrganisationAdmin);
-    Organisation.forEach(x => {
-      if (!bacsCountries.contains(x.Country)) returnValue = false
-    });
+
+    var Organisation = await this.organisationService.getById(currentToken.OrganisationAdmin).toPromise();
+    if (!bacsCountries.contains(Organisation.Country)) returnValue = false;
 
     if (!returnValue) {
       console.error('Failed to satisfy the authentication guard');
