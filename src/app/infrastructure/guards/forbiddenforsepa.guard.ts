@@ -19,10 +19,12 @@ export class ForbiddenForSepaGuard implements CanActivate {
     var returnValue = true;
 
     var currentToken = this.applicationStateService.currentTokenModel;
-    var Organisation = await this.organisationService.getById(currentToken.OrganisationAdmin).toPromise();
+    if (currentToken.OrganisationAdmin) {
+      var Organisation = await this.organisationService.getById(currentToken.OrganisationAdmin).toPromise();
 
-    if (!(bacsCountries.indexOf(Organisation.Country) > -1))
-      returnValue = false;
+      if (!(bacsCountries.indexOf(Organisation.Country) > -1))
+        returnValue = false;
+    }
 
     if (!returnValue) {
       console.error('Failed to satisfy the authentication guard');
