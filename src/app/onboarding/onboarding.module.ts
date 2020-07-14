@@ -33,7 +33,6 @@ import { GiftaidCompletedComponent } from './giftaid/giftaid-completed/giftaid-c
 import { GiftaidOrganisationDetailsCharityNumberComponent } from './giftaid/giftaid-organisation-charity-details/giftaid-organisation-charity-details.component';
 import { GiftaidOrganisationAddressDetailsComponent } from './giftaid/giftaid-organisation-address-details/giftaid-organisation-address-details.component';
 import { GiftaidVerifyOrganisationDetailsComponent } from './giftaid/giftaid-verify-organisation-details/giftaid-verify-organisation-details.component';
-import { OnboardingOrganisationDetailsParentKnownComponent } from './organisation-details/onboarding-organisation-details-parent-known/onboarding-organisation-details-parent-known.component';
 import { OnboardingOrganisationDetailsVerifyOrganisationNameComponent } from './organisation-details/onboarding-organisation-details-verify-organisation-name/onboarding-organisation-details-verify-organisation-name.component';
 import { OnboardingOrganisationDetailsAddressComponent } from './organisation-details/onboarding-organisation-details-address/onboarding-organisation-details-address.component';
 import { OnboardingOrganisationDetailsCharityDetailsComponent } from './organisation-details/onboarding-organisation-details-charity-details/onboarding-organisation-details-charity-details.component';
@@ -71,7 +70,6 @@ import { OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent } from '
     GiftaidOrganisationDetailsCharityNumberComponent,
     GiftaidOrganisationAddressDetailsComponent,
     GiftaidVerifyOrganisationDetailsComponent,
-    OnboardingOrganisationDetailsParentKnownComponent,
     OnboardingOrganisationDetailsVerifyOrganisationNameComponent,
     OnboardingOrganisationDetailsAddressComponent,
     OnboardingOrganisationDetailsCharityDetailsComponent,

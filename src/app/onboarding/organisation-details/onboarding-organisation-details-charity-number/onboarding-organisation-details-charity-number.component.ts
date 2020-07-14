@@ -6,9 +6,8 @@ import { tap, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
-import { OnboardingOrganisationDetailsService } from '../services/onboarding-organisation-details.service';
-import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
+import { OnboardingOrganisationDetailsService } from '../services/onboarding-organisation-details.service';
 
 @Component({
     selector: 'app-onboarding-organisation-details-charity-number',
@@ -25,7 +24,6 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
         private translationService: TranslateService,
         private onboardingService: OnboardingOrganisationDetailsService,
         private router: Router,
-        private applicationStateService: ApplicationStateService,
         private stateService: OnboardingOrganisationDetailsStateService) { }
 
     ngOnInit() {
