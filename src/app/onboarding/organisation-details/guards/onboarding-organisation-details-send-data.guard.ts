@@ -1,9 +1,7 @@
 import { Injectable } from "@angular/core";
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
-import { OnboardingOrganisationDetailsService } from '../services/onboarding-organisation-details.service';
 import { TranslatableToastrService } from 'src/app/shared/services/translate-able-toastr.service';
-import { AddCharityDetailsToOrganisationCommand } from '../models/commands/add-charity-details-to-organisation.command';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { OrganisationRegulator } from 'src/app/organisations/models/organisation-regulator.model';
 import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
@@ -43,7 +41,6 @@ export class OnboardingOrganisationDetailsSendDataGuard implements CanActivate {
           Regulator: OrganisationRegulator.Ccew,
           Id: currentOrganisation.Guid,
           Country: currentOrganisation.Country,
-          ParentId: currentOrganisation.ParentId,
           CharityId: currentOrganisation.CharityId,
           ReferenceWithParent: currentOrganisation.ReferenceWithParent
         };

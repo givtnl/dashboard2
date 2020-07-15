@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PreparedGiftAidSettings } from '../models/prepared-giftaid-settings.model';
 import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-state.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { OnboardingOrganisationDetailsService } from '../../organisation-details/services/onboarding-organisation-details.service';
-import { map, catchError, tap, switchMap } from 'rxjs/operators';
-import { of, Observable, forkJoin } from 'rxjs';
+import { tap, switchMap } from 'rxjs/operators';
+import { Observable, forkJoin } from 'rxjs';
 import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
 import { OrganisationRegulator } from 'src/app/organisations/models/organisation-regulator.model';
 
@@ -63,10 +63,10 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
     if (this.form.get('charityCommissionReference').valid && this.charityCommissionReferenceRequired) {
       // check our api if such a number exists
       this.onboardingOrganisationDetailsService.get(this.form.getRawValue().charityCommissionReference)
-        .subscribe(success => {
+        .subscribe(() => {
           // we got a valid call from the database, the on complete handler will call the validate for us
           this.validate();
-         }, error => {
+         }, () => {
            // we received an error in our api, mark this control as invalid
           this.form.get('charityCommissionReference').setErrors({
             invalid: true

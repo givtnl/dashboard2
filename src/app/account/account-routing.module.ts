@@ -8,11 +8,16 @@ import { PasswordForgottenNewPasswordComponent } from './password-forgotten-new-
 import { PasswordForgottenNewPasswordRequiredQueryParamsGuard } from './password-forgotten-new-password-required-queryparams.guard';
 import { PasswordForgottenNewPasswordResolver } from './resolvers/password-forgotten-new-password.resolver';
 import { PasswordForgottenCompletedComponent } from './password-forgotten-completed/password-forgotten-completed.component';
+import { RedirectComponent } from './redirect/redirect.component';
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'redirect',
+    component: RedirectComponent
   },
   {
     path: 'password-forgotten',
@@ -43,4 +48,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AccountRoutingModule {}
+export class AccountRoutingModule { }

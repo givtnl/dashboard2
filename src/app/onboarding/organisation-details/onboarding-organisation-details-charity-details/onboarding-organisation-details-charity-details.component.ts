@@ -18,7 +18,6 @@ import { noSpacesValidator } from 'src/app/shared/validators/no-spaces.validator
 export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnInit {
   public form: FormGroup
   public loading = false;
-  public hasParent: boolean = undefined
   constructor(
     private formBuilder: FormBuilder,
     private onboardingStateService: OnboardingOrganisationDetailsStateService,
@@ -28,18 +27,10 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
   ) { }
 
   ngOnInit() {
-    this.hasParent = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.ParentId != null
-
-    var regulator = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.Regulator;
+     var regulator = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.Regulator;
     var referenceWithRegulator = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.CharityCommissionNumber;
-    var referenceWithParent = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.ReferenceWithParent;
-    var referenceWithHMRC = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.CharityId;
+     var referenceWithHMRC = this.onboardingStateService.currentOrganisationRegistrationDetailsModel.CharityId;
 
-    if (this.hasParent) {
-      this.form = this.formBuilder.group({
-        referenceWithParent: [referenceWithParent ? referenceWithParent : null, [Validators.required, Validators.maxLength(100)]],
-      });
-    } else {
       this.form = this.formBuilder.group({
         regulator: [regulator ? regulator : null, [Validators.required]],
         referenceWithRegulator: [{ value: referenceWithRegulator ? referenceWithRegulator : null, disabled: true }, [Validators.required, Validators.maxLength(30), notNullOrEmptyValidator()]],
@@ -51,7 +42,7 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
       // else it could be the field is disabled, but the user could fill it in ?
       // so re-evaulate the controls
       this.onChangeRegulator(this.form.value.regulator);
-    }
+    
 
   }
   submit() {
@@ -65,14 +56,6 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
     let errorMessages = new Array<Observable<string>>();
     let resolvedErrorMessages = new Array<string>();
 
-    if (this.hasParent) {
-      const referenceWithParentErrors = this.form.get('referenceWithParent').errors;
-      if (referenceWithParentErrors) {
-        if (referenceWithParentErrors.required) {
-          errorMessages.push(this.translationService.get('errorMessages.parent-reference-required'));
-        }
-      }
-    } else {
       const regulatorErrors = this.form.get('regulator').errors;
       const referenceWithRegulatorErrors = this.form.get('referenceWithRegulator').errors;
       const referenceWithHMRCErrors = this.form.get('referenceWithHMRC').errors;
@@ -92,7 +75,7 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
           errorMessages.push(this.translationService.get('errorMessages.hmrc-reference-required'));
         }
       }
-    }
+    
 
     forkJoin(errorMessages)
       .pipe(tap(results => (resolvedErrorMessages = results)))
