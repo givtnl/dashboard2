@@ -8,7 +8,7 @@ import { CharityCommisionOrganisationDetailModel } from '../models/charity-commi
 })
 export class OnboardingOrganisationDetailsService {
   constructor(private backendService: BackendService) {}
-  get(charityNumber: number): Observable<CharityCommisionOrganisationDetailModel> {
+  get(charityNumber: string): Observable<CharityCommisionOrganisationDetailModel> {
     return this.backendService.get<CharityCommisionOrganisationDetailModel>(`v2/charities/${charityNumber}`);
   }
 }
