@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-redirect',
@@ -11,8 +10,7 @@ import { Router } from '@angular/router';
 export class RedirectComponent implements OnInit {
   public redirectUrl = environment.oldDashboardUrl;
 
-  constructor(private applicationStateService: ApplicationStateService,
-    private router: Router) { }
+  constructor(private applicationStateService: ApplicationStateService) { }
 
   ngOnInit() {
     var currentToken = this.applicationStateService.currentTokenModel;

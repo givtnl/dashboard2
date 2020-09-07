@@ -102,8 +102,7 @@ export class LoginComponent implements OnInit {
   }
   handleInvalidForm() {
     const emailErrors = this.form.get('email').errors;
-    const passwordErrors = this.form.get('password').errors;
-
+    
     if (emailErrors) {
       if (emailErrors.required) {
         this.errorMessages.push(this.translationService.get('errorMessages.email-required'));
