@@ -290,7 +290,7 @@
     "preboardingMailboxAddressDetailsComponent.placeholderCity": "City/Town",
     "preboardingMailboxAddressDetailsComponent.placeholderZipcode": "Postcode",
     "preboardingMailboxAddressDetailsComponent.nextButtonText": "Next",
-    "preboardingOrganisationAdminDetailsComponent.description": "Fill in one or more e-mail addresses from the admins who will have access to the dashboard of your organisation.",
+    "preboardingOrganisationAdminDetailsComponent.description": "Fill in one or more e-mail addresses (including your own) who need access to the dashboard of your organisation to enter additional organisational details and track donations.",
     "preboardingOrganisationAdminDetailsComponent.placeholdersOrganisatorEmail": "E-mail address",
     "preboardingOrganisationAdminDetailsComponent.nextButtonText": "Next",
     "preboardingCollectionMediumDetails.description": "During a collection service, there can be baskets, plates and other objects used. We would like to know what you use, and how many of them so we can get an idea of your collection.",
