@@ -5,7 +5,7 @@ export interface BankAccountHolderDetailModel {
   LastName: string;
   EmailAddress: number;
   SortCode: string;
-  AccountNumber: string;
+  DetailLineOne: string;
   AccountName: string;
   OrganisationId: string;
   OrganisationName: string;
