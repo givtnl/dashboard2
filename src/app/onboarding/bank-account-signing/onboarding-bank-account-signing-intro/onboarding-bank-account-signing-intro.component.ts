@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PaymentProvider } from '../models/payment-provider.enum';
 import { OnboardingBankAccountSigningStateService } from '../services/onboarding-bank-account-signing-state.service';
 
 @Component({
@@ -11,9 +12,12 @@ export class OnboardingBankAccountSigningIntroComponent implements OnInit {
 
   constructor(private stateService: OnboardingBankAccountSigningStateService, private route: ActivatedRoute) { }
 
+  paymentProvider: PaymentProvider;
+
   ngOnInit() {
     const currentAccountHolder = this.route.parent.snapshot.data.bankAccountHolder;
     this.stateService.currentBankAccountHolderDetailModel = currentAccountHolder;
+    this.paymentProvider = currentAccountHolder.PaymentProvider;
   }
 
 }
