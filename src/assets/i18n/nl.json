@@ -90,7 +90,7 @@
     "onboardingBankAccountSigningIntroComponent.title": "Teken de machtiging",
     "onboardingBankAccountSigningIntroComponent.description": "As the bank account holder, you are going to complete the verification process of this bank account. Please review the specified details in the following screens thoroughly.",
     "onboardingBankAccountSigningIntroComponent.nextButtonText": "Volgende",
-    "onboardingBankAccountSigningVerifyDetailsComponent.title": "Check the details",
+    "onboardingBankAccountSigningVerifyDetailsComponent.title": "Controleer de gegevens",
     "onboardingBankAccountSigningVerifyDetailsComponent.description": "NO DESCRIPTION HERE",
     "onboardingBankAccountSigningVerifyDetailsComponent.yesNoQuestion": "Zijn deze gegevens correct?",
     "onboardingBankAccountSigningDirectDebitGuaranteeComponent.title": "Tekenen Direct debit guarantee",
@@ -168,7 +168,7 @@
     "dashboardCompleteAccountWidgetComponent.CompleteOrganisationDetails": "Add organisation details",
     "onboardingOrganisationDetailsIntroComponent.dontHaveCharityNumber": "Klik hier als je geen Charity Commission reference hebt",
     "dashboardCompleteAccountWidgetComponent.AddBankAccount.InProgress": "In afwachting van verificatie via bank-afschrijving",
-    "onboardingBankAccountSigningIntroComponent.questionmarkText": "Verification happens in 2 parts.\n<br/><br/>\nIn this first part, we ask you to manually verify the provided bank account details.\nIt is important that this step will be taken with utmost care.\n<br/><br/>\nIn the second part, we will automatically create a Direct Debit, so the payments can be enabled. The usage of this Direct Debit system has multiple advantages.\nTo enable the payments, Givt uses the Direct Debit system. \n<br/><br/>\nWhy does Givt work with Direct Debit?\n<br/><br/>\nThe donations are already collected through a Direct Debit, so we have chosen to use the same system for the payments.\nIt is important to know the following:\n<br/>\n<ul>\n<li>The mandate is part of the bank account verification.</li>\n<li>The one-time start-up costs are collected through this system.</li>\n<li>It allows us to settle the balance, in the unlikely case of a negative balance and no response is given to our request to settle this.</li>\n</ul>\nThe letter of agreement agrees to this.",
+    "onboardingBankAccountSigningIntroComponent.questionmarkText.BACS": "Verification happens in 2 parts.\n<br/><br/>\nIn this first part, we ask you to manually verify the provided bank account details.\nIt is important that this step will be taken with utmost care.\n<br/><br/>\nIn the second part, we will automatically create a Direct Debit, so the payments can be enabled. The usage of this Direct Debit system has multiple advantages.\nTo enable the payments, Givt uses the Direct Debit system. \n<br/><br/>\nWhy does Givt work with Direct Debit?\n<br/><br/>\nThe donations are already collected through a Direct Debit, so we have chosen to use the same system for the payments.\nIt is important to know the following:\n<br/>\n<ul>\n<li>The mandate is part of the bank account verification.</li>\n<li>The one-time start-up costs are collected through this system.</li>\n<li>It allows us to settle the balance, in the unlikely case of a negative balance and no response is given to our request to settle this.</li>\n</ul>\nThe letter of agreement agrees to this.",
     "onboardingBankAccountIntroComponent.questionmarkTitle": "Meer info",
     "errorMessages.bankAccountHolderInvitationLinkExpired": "De uitnodigingslink is vervallen, gelieve je beheerder te contacteren",
     "errorPageComponent.description": "Er ging iets mis tijdens het verwerken van de aanvraag, probeer het later even opnieuw",
@@ -379,7 +379,7 @@
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.CompaniesHouse": "Companies house",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.None": "Geen",
     "errorMessages.number-of-visitors-min_max": "Gelieve een bezoekersaantal tussen 1 en 50.000 te kiezen.",
-    "errorMessages.tempUser": "Wij hebben gezien dat je met dit mail-adres al reeds een Givt-account hebt aangemaakt via de app. Om verder op het dashboard te kunnen gaan is het nodig dat je eerst in de app je registratie voltooid.",
+    "errorMessages.tempUser": "Wij hebben gezien dat je met dit mail-adres al een Givt-account hebt aangemaakt via de app. Om verder op het dashboard te kunnen gaan is het nodig dat je eerst in de app je registratie voltooid.",
     "preboardingOrganisationRelationComponent.description": "Indien je onderdeel bent van een organisatie of denominatie die reeds aangesloten is bij Givt en waarvan je gegevens nodig hebt, dan kun je deze selecteren in onderstaande selectie. Indien dit niet van toepassing is of de organisatie staat niet in de lijst, kun je gewoon verder gaan met de registratie van je organisatie.",
     "preboardingOrganisationRelationComponent.nextButtonText": "Ga verder",
     "preboardingOrganisationRelationComponent.notApplicable": "Niet van toepassing",
@@ -393,8 +393,9 @@
     "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.questionmarkText": "Why does Givt work with Direct Debit?\n<br/><br/>\nThe donations are already collected through a Direct Debit, so we have chosen to use the same system for the payments.\nIt is important to know the following:\n<br/>\n<ul>\n<li>The mandate is part of the bank account verification.</li>\n<li>The one-time start-up costs are collected through this system.</li>\n<li>It allows us to settle the balance, in the unlikely case of a negative balance and no response is given to our request to settle this.</li>\n</ul>",
     "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.title": "Intro Direct Debit Guarantee",
     "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.description": "Next, after agreeing the Direct Debit Guarantee, a Direct Debit will be automatically created, so the payments can be enabled. The usage of this Direct Debit system has multiple advantages (See more at the info-button).\nTo enable the payments, Givt uses the Direct Debit system.",
-    "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.nextButtonText": "Next",
+    "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.nextButtonText": "Volgende",
     "preboardingOrganisationRelationship.modal-title": "Kies de relatie-voorwaarden",
     "preboardingOrganisationRelationship.modal-description": "De overkoepelende organisatie wil dat je sommige instellingen overneemt. \n<br>\nSommige instellingen zijn optioneel. Gelieve hieronder te kiezen:",
-    "preboardingOrganisationRelationship.modal-optional": " (optioneel)"
+    "preboardingOrganisationRelationship.modal-optional": " (optioneel)",
+    "onboardingBankAccountSigningIntroComponent.questionmarkText.SEPA": ""
 }
