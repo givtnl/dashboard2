@@ -138,7 +138,7 @@
     "action.goToDashboard": "Dashboard",
     "action.signout": "Sign out",
     "onboardingBankAccountInvitedHoldersComponent.closeButton": "Close",
-    "onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch": "I have read the Direct Debit Guarantee and I agree",
+    "onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch.BACS": "I have read the Direct Debit Guarantee and I agree",
     "onboardingBankAccountSigningDirectDebitGuaranteeComponent.signLoading": "Please wait, this might take a while...",
     "onboardingOrganisationDetailsCompleteComponent.title": "The organisations details are complete",
     "onboardingOrganisationDetailsCompleteComponent.description": "We have received and saved the necessary information.",
@@ -401,5 +401,6 @@
     "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.title.SEPA": "Intro SEPA Mandates",
     "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.description.SEPA": "Next, after agreeing the SEPA mandate, a mandate will be automatically created, so the payments can be enabled. The usage of this SEPA system has multiple advantages (See more at the info-button).<br /><br />\nTo enable the payments, Givt uses the SEPA direct debit system.",
     "onboardingBankAccountSigningDirectDebitGuaranteeComponent.description.SEPA": "By signing this mandate, you authorise (A) GIVT B.V. to send instructions to your bank to debit your account and (B) your bank to debit your account in accordance with the instructions from GIVT B.V..<br/><br/>\nAs part of your rights, you are entitled to a refund from your bank under the terms and conditions of your agreement with your bank. A refund must be claimed within 8 weeks starting from the date on which your account was debited. Your rights regarding the mandate are explained in a statement that you can obtain from your bank.",
-    "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.questionmarkText.SEPA": "Why is the signing of this digital mandate important?\n<ul><li>Our paymentprovider SlimPay does a check whether the given account number is truly connected to the organisation;</li>\n<li>Givt also checks the correctness of the account by debiting the startup-fee.</li>\n<li>When an invoice can not be debited, Givt has the right to debit whenever the balance is sufficient again. When signing the letter of agreement, there was given permission for this.</li></ul>\n<br />"
+    "onboardingBankAccountSigningIntroDirectDebitGuaranteeComponent.questionmarkText.SEPA": "Why is the signing of this digital mandate important?\n<ul><li>Our paymentprovider SlimPay does a check whether the given account number is truly connected to the organisation;</li>\n<li>Givt also checks the correctness of the account by debiting the startup-fee.</li>\n<li>When an invoice can not be debited, Givt has the right to debit whenever the balance is sufficient again. When signing the letter of agreement, there was given permission for this.</li></ul>\n<br />",
+    "onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch.SEPA": "I have read the above and I agree"
 }
