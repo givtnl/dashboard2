@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PaymentProvider } from '../models/payment-provider.enum';
+import { OnboardingBankAccountSigningStateService } from '../services/onboarding-bank-account-signing-state.service';
 
 @Component({
   selector: 'app-onboarding-bank-account-signing-direct-debit-guarantee',
@@ -9,17 +11,19 @@ import { Router } from '@angular/router';
 })
 export class OnboardingBankAccountSigningDirectDebitGuaranteeComponent implements OnInit {
   public loading = false;
-  public form: FormGroup
+  public form: FormGroup;
+  paymentProvider: PaymentProvider;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private stateService: OnboardingBankAccountSigningStateService) { 
+    this.paymentProvider = stateService.currentBankAccountHolderDetailModel.PaymentProvider
+  }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
       acceptedDirectDebitGuarantee: [null, [Validators.requiredTrue]]
     });
-
-    
   }
+
   handleAcceptOrRefusal(): void {
     this.loading = true;
     if (this.form.value.acceptedDirectDebitGuarantee){
