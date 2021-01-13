@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OnboardingBankAccountSigningStateService } from '../services/onboarding-bank-account-signing-state.service';
 import { BankAccountHolderDetailModel } from '../models/bank-account-holder-detail.model';
+import { PaymentProvider } from '../models/payment-provider.enum';
 
 @Component({
   selector: 'app-onboarding-bank-account-signing-verify-details',
@@ -12,10 +13,13 @@ import { BankAccountHolderDetailModel } from '../models/bank-account-holder-deta
 export class OnboardingBankAccountSigningVerifyDetailsComponent implements OnInit {
   public form: FormGroup;
   public accountHolderDetails: BankAccountHolderDetailModel;
-
+  public paymentProvider: PaymentProvider;
   public isLoading = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, public stateService: OnboardingBankAccountSigningStateService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, public stateService: OnboardingBankAccountSigningStateService) { 
+    this.paymentProvider = stateService.currentBankAccountHolderDetailModel.PaymentProvider
+
+  }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
