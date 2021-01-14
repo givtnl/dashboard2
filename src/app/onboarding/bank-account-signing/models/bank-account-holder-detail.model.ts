@@ -1,3 +1,5 @@
+import { PaymentProvider } from "./payment-provider.enum";
+
 export interface BankAccountHolderDetailModel {
   Id: string;
   AccountId: number;
@@ -5,7 +7,7 @@ export interface BankAccountHolderDetailModel {
   LastName: string;
   EmailAddress: number;
   SortCode: string;
-  AccountNumber: string;
+  DetailLineOne: string;
   AccountName: string;
   OrganisationId: string;
   OrganisationName: string;
@@ -17,4 +19,5 @@ export interface BankAccountHolderDetailModel {
   OrganisationZipCode: string;
   InvitationExpiredDateTime: Date;
   InvitationIsExpired: boolean;
+  PaymentProvider: PaymentProvider;
 }

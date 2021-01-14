@@ -1,6 +1,6 @@
 <app-custom-card titleTranslationKey="" [showCloseButton]="true" iconBackgroundClass="circle-purple"
     icon="fas fa-file-signature fa-4x" questionMarkTitle="onboardingBankAccountSigningIntroComponent.questionmarkTitle"
-    questionMarkText="onboardingBankAccountSigningIntroComponent.questionmarkText">
+    questionMarkText="{{ paymentProvider == 0 ? 'onboardingBankAccountSigningIntroComponent.questionmarkText.SEPA' : 'onboardingBankAccountSigningIntroComponent.questionmarkText.BACS'}}">
 
     <div body>
         <p class="introduction-title text-primary text-center text-heavy-font text-givt-purple" translate>
