@@ -88,7 +88,7 @@
     "onboardingBankAccountIntroComponent.what2": "Afgeven van een machtiging op de bankrekening of iemand daartoe uitnodigen",
     "onboardingBankAccountIntroComponent.what3": "Ten slotte zal deze persoon alle gegevens nakijken en de bankrekening verifiëren door het tekenen van de digitale machtiging. Als dat achter de rug is, sturen we hiervan nog een bevestiging via e-mail.",
     "onboardingBankAccountSigningIntroComponent.title": "Teken de machtiging",
-    "onboardingBankAccountSigningIntroComponent.description": "As the bank account holder, you are going to complete the verification process of this bank account. Please review the specified details in the following screens thoroughly.",
+    "onboardingBankAccountSigningIntroComponent.description": "Als de gemachtigde van deze organisatie ga je nu het verificatie process afronden. Gelieve alle gegevens te controlleren.",
     "onboardingBankAccountSigningIntroComponent.nextButtonText": "Volgende",
     "onboardingBankAccountSigningVerifyDetailsComponent.title": "Controleer de gegevens",
     "onboardingBankAccountSigningVerifyDetailsComponent.description": "NO DESCRIPTION HERE",
