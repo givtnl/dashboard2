@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BackendService } from 'src/app/infrastructure/services/backend.service';
 import { Observable } from 'rxjs';
-
+import { InviteBankAccountHolderToSignMandateCommand } from '../models/invite-bank-account-holder-to-sign-mandate.command';
 @Injectable({
   providedIn: 'root'
 })

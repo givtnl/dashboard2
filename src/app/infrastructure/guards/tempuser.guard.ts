@@ -1,10 +1,8 @@
-import { Router, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate } from '@angular/router';
 import { ApplicationStateService } from '../services/application-state.service';
-import { isNullOrUndefined } from 'util';
 import { Injectable } from '@angular/core';
 import { throwError, Observable, of } from 'rxjs';
 import { ErrorMessages } from '../enums/error-messages.enum';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'

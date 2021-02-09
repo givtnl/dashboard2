@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AccountService } from 'src/app/account/services/account.service';
 import { Router } from '@angular/router';
 import * as pkg from './../../../../../package.json';
-import { environment } from 'src/environments/environment.js';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-side-bar',
