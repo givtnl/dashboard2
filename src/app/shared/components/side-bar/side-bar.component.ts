@@ -5,29 +5,30 @@ import * as pkg from './../../../../../package.json';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-side-bar',
-  templateUrl: './side-bar.component.html',
-  styleUrls: ['./side-bar.component.scss']
+    selector: 'app-side-bar',
+    templateUrl: './side-bar.component.html',
+    styleUrls: ['./side-bar.component.scss']
 })
 export class SideBarComponent {
-  versionNumber = "";
-  
-  @Input()
-  public showCloseButton = false;
+    versionNumber = "";
 
-  @Output()
-  public closeButtonClicked = new EventEmitter();
+    @Input()
+    public showCloseButton = false;
+    public currentCollectGroup: string | null = "Testkerk Maarten"
 
-  constructor(private accountService: AccountService, private router: Router) {
-    if (!environment.production) this.versionNumber = pkg['version'];
-  }
+    @Output()
+    public closeButtonClicked = new EventEmitter();
 
-  public closeMenu(): void {
-    this.closeButtonClicked.emit();
-  }
+    constructor(private accountService: AccountService, private router: Router) {
+        if (!environment.production) this.versionNumber = pkg['version'];
+    }
 
-  logOut(): void {
-    this.accountService.logOut();
-    this.router.navigate(['/', 'account', 'login']);
-  }
+    public closeMenu(): void {
+        this.closeButtonClicked.emit();
+    }
+
+    logOut(): void {
+        this.accountService.logOut();
+        this.router.navigate(['/', 'account', 'login']);
+    }
 }

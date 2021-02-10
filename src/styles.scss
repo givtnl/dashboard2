@@ -37,10 +37,12 @@
 /* You can add global styles to this file, and also import other style files */
 $givt-purple-color: rgb(46,41,87);
 $givt-green-color:rgb(6,178,107);
+$givt-green-color-alpha10: rgba(65,201,142,0.1);
 
 $theme-colors: (
   "primary": $givt-purple-color ,
-  "success": $givt-green-color
+  "success": $givt-green-color,
+  "sidebar": $givt-green-color-alpha10
 );
 
 $color-secondary:rgb(65,201,142);
@@ -70,6 +72,10 @@ $box-shadow-color: rgb(226, 226, 226);
 
 .bg-givt-green {
   background-color: theme-color('success') !important;
+}
+
+.bg-sidebar {
+    background-color: theme-color('sidebar') !important
 }
 
 .text-heavy-font {
