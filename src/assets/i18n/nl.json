@@ -405,5 +405,6 @@
     "onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch.SEPA": "Ik heb bovenstaande gelezen en ga akkoord",
     "onboardingBankAccountSigningCompleteComponent.description.SEPA": "Nu de machtiging getekend is, kunnen we de opstartkosten incasseren en de giften uitbetalen op deze rekening. We hebben een e-mail gestuurd met de machtiging in de bijlage.",
     "collectGroupDashboardHomeComponent.whosWhoButtonText": "Vertel ons wie wie is",
-    "sideBarComponent.whosWhoMenuItemText": "Wie is wie"
+    "sideBarComponent.whosWhoMenuItemText": "Wie is wie",
+    "collectGroupDashboardHomeComponent.redirectButtonText": "Financieel overzicht"
 }
