@@ -7,7 +7,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class DashboardTileWidgetComponent {
   @Output()
-  public tileClicked = new EventEmitter<Event>();
+  public tileClicked = new EventEmitter<string>();
 
   @Input()
   public title: string;
@@ -21,7 +21,7 @@ export class DashboardTileWidgetComponent {
   @Input()
   public icon: string;
 
-  tileClick(event: Event) {
-    this.tileClicked.emit(event);
+  tileClick() {
+    this.tileClicked.emit(this.title);
   }
 }

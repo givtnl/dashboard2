@@ -1,5 +1,5 @@
 export interface CollectGroupDashboardListModel{
-    GUID: number;
+    GUID: string;
     Name:string;
     CollectGroupType:number;
     CollectGroupTypeDescription:string;
