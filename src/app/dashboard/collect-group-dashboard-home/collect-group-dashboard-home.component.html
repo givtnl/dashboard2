@@ -1,8 +1,18 @@
 <div class="container-fluid h-100 d-flex flex-column">
+    <div class="row pt-5">
+        <div class="col-12">
+          <h2 class="text-font-light text-givt-purple">
+            {{ collectGroupName }}</h2>
+        </div>
+    </div>
     <div class="my-5 d-flex flex-grow-1">
         <div class="col-xl-2 col-sm-7 col-lg-4 col-md-5 mb-3 col-8">
             <app-dashboard-link-button text="{{ 'collectGroupDashboardHomeComponent.whosWhoButtonText'| translate }}"
                 [route]="['/', 'onboarding', 'giftaid']" icon="fas fa-user mr-3"></app-dashboard-link-button>
+        </div>
+        <div class="col-xl-2 col-sm-7 col-lg-4 col-md-5 mb-3 col-8">
+            <app-dashboard-link-button text="{{ 'collectGroupDashboardHomeComponent.redirectButtonText' | translate }}"
+                [route]="[]" [params]="{redirect:'true'}"icon="fas fa-chart-pie mr-3"></app-dashboard-link-button>
         </div>
     </div>
 </div>

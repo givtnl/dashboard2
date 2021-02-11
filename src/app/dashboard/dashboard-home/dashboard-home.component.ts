@@ -29,12 +29,14 @@ export class DashboardHomeComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.loading = true;
-        this.dashboardService
-            .getCollectGroups()
-            .subscribe(x => (this.collectGroups = x))
-            .add(() => (this.loading = false));
-        this.determineIfGiftAidShouldBeEnabled();
+        // this.loading = true;
+        // this.dashboardService
+        //     .getCollectGroups()
+        //     .subscribe(x => (this.collectGroups = x))
+        //     .add(() => (this.loading = false));
+        // this.determineIfGiftAidShouldBeEnabled();
+        
+        this.collectGroups.push({"CollectGroupType": 0, "Name": "Testkerk Maarten", "GUID": "d02630fc-3c1d-41f4-8fa4-293c28416e6e", "CollectGroupTypeDescription": "Church"})
     }
 
     getIconForCollectGroupType(collectGroupType: number): string {
