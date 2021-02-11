@@ -405,5 +405,6 @@
     "onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch.SEPA": "I have read the above and I agree",
     "onboardingBankAccountSigningCompleteComponent.description.SEPA": "Now that these details are verified, a SEPA mandate will be set up for the account. Once this is set up, we can debit any outstanding fees and pay out the money which is donated to the organisation. We will sent you an e-mail with the signed SEPA mandate as attachment.",
     "collectGroupDashboardHomeComponent.whosWhoButtonText": "Tell us who's who",
-    "sideBarComponent.whosWhoMenuItemText": "Who's who"
+    "sideBarComponent.whosWhoMenuItemText": "Who's who",
+    "collectGroupDashboardHomeComponent.redirectButtonText": "Financial overview"
 }
