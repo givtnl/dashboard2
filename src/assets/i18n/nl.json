@@ -406,5 +406,18 @@
     "onboardingBankAccountSigningCompleteComponent.description.SEPA": "Nu de machtiging getekend is, kunnen we de opstartkosten incasseren en de giften uitbetalen op deze rekening. We hebben een e-mail gestuurd met de machtiging in de bijlage.",
     "collectGroupDashboardHomeComponent.whosWhoButtonText": "Vertel ons wie wie is",
     "sideBarComponent.whosWhoMenuItemText": "Wie is wie",
-    "collectGroupDashboardHomeComponent.redirectButtonText": "Financieel overzicht"
+    "collectGroupDashboardHomeComponent.redirectButtonText": "Financieel overzicht",
+    "contactRegistrationIntroComponent.title": "Vertel ons wie wie is",
+    "contactRegistrationIntroComponent.introText": "Met de volgende twee schermen kun je ons vertellen welke rol iemand opneemt in jullie kerk of organisatie. Hoe meer je ons vertelt over wie welke rol opneemt, hoe beter we jullie kunnen helpen om Givt te laten werken voor jullie.",
+    "contactRegistrationIntro.nextButton": "Volgende",
+    "contactRegistrationRoleComponent.title": "Welke rol heeft deze persoon?",
+    "contactRegistrationRoleComponent.chooseRoleOption": "Kies rol",
+    "contactRegistrationRoleComponent.otherOption": "Anders...",
+    "contactRegistrationDetailsComponent.title": "Wie is deze persoon?",
+    "contactRegistrationDetailsComponent.firstName": "Voornaam",
+    "contactRegistrationDetailsComponent.lastName": "Achternaam",
+    "contactRegistrationDetailsComponent.email": "E-mail",
+    "contactRegistrationDetailsComponent.telephone": "Telefoon (optioneel)",
+    "contactRegistrationDoneComponent.title": "Gelukt!",
+    "contactRegistrationDoneComponent.text": "Het is gelukt om de contactgegevens op te slaan"
 }
