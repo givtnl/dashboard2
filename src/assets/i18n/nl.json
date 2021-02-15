@@ -409,7 +409,7 @@
     "collectGroupDashboardHomeComponent.redirectButtonText": "Financieel overzicht",
     "contactRegistrationIntroComponent.title": "Vertel ons wie wie is",
     "contactRegistrationIntroComponent.introText": "Met de volgende twee schermen kun je ons vertellen welke rol iemand opneemt in jullie kerk of organisatie. Hoe meer je ons vertelt over wie welke rol opneemt, hoe beter we jullie kunnen helpen om Givt te laten werken voor jullie.",
-    "contactRegistrationIntro.nextButton": "Volgende",
+    "contactRegistration.nextButton": "Volgende",
     "contactRegistrationRoleComponent.title": "Welke rol heeft deze persoon?",
     "contactRegistrationRoleComponent.chooseRoleOption": "Kies rol",
     "contactRegistrationRoleComponent.otherOption": "Anders...",
