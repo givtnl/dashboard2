@@ -409,7 +409,7 @@
     "collectGroupDashboardHomeComponent.redirectButtonText": "Financial overview",
     "contactRegistrationIntroComponent.title": "Tell us who's who",
     "contactRegistrationIntroComponent.introText": "In the following two screens you will be able to tell us which role someone is taking up in your church or organisation and what their name and e-mail address is. The more you tell us about who's taking up which role, the better we can help you in making Givt work for you.",
-    "contactRegistrationIntro.nextButton": "Next",
+    "contactRegistration.nextButton": "Next",
     "contactRegistrationRoleComponent.title": "What role does this person have?",
     "contactRegistrationRoleComponent.chooseRoleOption": "Choose role",
     "contactRegistrationRoleComponent.otherOption": "Other...",
