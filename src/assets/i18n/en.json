@@ -419,5 +419,6 @@
     "contactRegistrationDetailsComponent.email": "Email",
     "contactRegistrationDetailsComponent.telephone": "Telephone (optional)",
     "contactRegistrationDoneComponent.title": "Success!",
-    "contactRegistrationDoneComponent.text": "We've successfully registered the contact person."
+    "contactRegistrationDoneComponent.text": "We've successfully registered the contact person.",
+    "contactRegistrationDoneComponent.finishButton": "Ready"
 }
