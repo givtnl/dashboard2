@@ -6,14 +6,14 @@
                 <div class="form-group col-7">
                     <select class="givt-drop-down form-control mb-3 shadow text-givt-purple" formControlName="roleType" (change)="roleOptionChange($event.target.value)">
                         <option translate value="null" disabled>contactRegistrationRoleComponent.chooseRoleOption</option>
-                        <option translate value="1">Treasurer</option>
+                        <option *ngFor="let role of roles" translate value="{{role.key}}">{{role.value}}</option>
                         <option translate value="0">contactRegistrationRoleComponent.otherOption</option>
                     </select>
                 </div>
             </div>
             <div *ngIf="showChoose" class="form-row justify-content-center">
                 <div class="form-group col-7">
-                    <input type="text" class="form-control mb-3 shadow text-givt-purple" formControlName="chosenRoleInput">
+                    <input type="text" class="form-control mb-3 shadow text-givt-purple" formControlName="chosenRoleInput" >
                 </div>
             </div>
         </div>
