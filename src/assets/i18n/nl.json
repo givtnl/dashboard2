@@ -419,5 +419,6 @@
     "contactRegistrationDetailsComponent.email": "E-mail",
     "contactRegistrationDetailsComponent.telephone": "Telefoon (optioneel)",
     "contactRegistrationDoneComponent.title": "Gelukt!",
-    "contactRegistrationDoneComponent.text": "Het is gelukt om de contactgegevens op te slaan"
+    "contactRegistrationDoneComponent.text": "Het is gelukt om de contactgegevens op te slaan",
+    "contactRegistrationDoneComponent.finishButton": "Klaar"
 }
