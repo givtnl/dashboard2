@@ -8,7 +8,7 @@
     <div class="my-5 d-flex flex-grow-1">
         <div class="col-xl-2 col-sm-7 col-lg-4 col-md-5 mb-3 col-8">
             <app-dashboard-link-button text="{{ 'collectGroupDashboardHomeComponent.whosWhoButtonText'| translate }}"
-                [route]="['/', 'onboarding', 'giftaid']" icon="fas fa-user mr-3"></app-dashboard-link-button>
+                [route]="['/', 'dashboard', 'root', { outlets: { 'dashboard-outlet': ['collect-group-people'] } }]" icon="fas fa-user mr-3"></app-dashboard-link-button>
         </div>
         <div class="col-xl-2 col-sm-7 col-lg-4 col-md-5 mb-3 col-8">
             <app-dashboard-link-button text="{{ 'collectGroupDashboardHomeComponent.redirectButtonText' | translate }}"

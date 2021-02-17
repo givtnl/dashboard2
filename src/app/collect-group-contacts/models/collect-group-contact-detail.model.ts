@@ -1,7 +1,7 @@
-export interface CreateContactCommand {
+export interface CollectGroupContactDetailModel {
     role: string;
     firstName: string;
     lastName: string;
     email: string;
-    telephone: string | null;
+    phone: string;
 }

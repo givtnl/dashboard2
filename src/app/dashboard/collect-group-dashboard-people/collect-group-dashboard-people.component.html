@@ -1,0 +1,50 @@
+<div class="container-fluid h-100 d-flex flex-column">
+    <div class="row pt-5">
+        <div class="col-12">
+            <h2 class="text-font-light text-givt-purple">
+                {{ pageTitle }}</h2>
+        </div>
+    </div>
+    <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="ml-3 my-4">
+        <div class="form-row">
+            <div class="px-3 text-givt-purple text-heavy-font d-flex col-2 border-right">
+                Role
+            </div>
+            <div class="px-3 text-givt-purple text-heavy-font d-flex col-2 border-right">
+                First name
+            </div>
+            <div class="px-3 text-givt-purple text-heavy-font d-flex col-2 border-right">
+                Last name
+            </div>
+            <div class="px-3 text-givt-purple text-heavy-font d-flex col-2 border-right">
+                Email
+            </div>
+            <div class="px-3 text-givt-purple text-heavy-font d-flex col-2">
+                Telephone
+            </div>
+        </div>
+        <div formArrayName="contactPersons">
+            <div *ngFor="let item of contactPersons.controls; let contactIndex=index" [formGroupName]="contactIndex" class="form-row">
+                <div class="px-3 py-1 text-givt-purple d-flex col-2 border-right">
+                    {{ item.value.role }}
+                </div>
+                <div class="px-3 py-1 text-givt-purple d-flex col-2 border-right">
+                    {{ item.value.firstName }}
+                </div>
+                <div class="px-3 py-1 text-givt-purple d-flex col-2 border-right">
+                    {{ item.value.lastName }}
+                </div>
+                <div class="px-3 py-1 text-givt-purple d-flex col-2 border-right">
+                    {{ item.value.email }}
+                </div>
+                <div class="px-3 py-1 text-givt-purple d-flex col-2">
+                    {{ item.value.phone }}
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="col-xl-2 col-sm-7 col-lg-4 col-md-5 mb-3 col-8">
+        <app-dashboard-link-button text="Add contact person"
+            [route]="['/', 'contact-registration']" icon="fas fa-plus mr-3"></app-dashboard-link-button>
+    </div>    
+</div>

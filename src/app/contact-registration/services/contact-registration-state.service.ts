@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { CreateContactCommand } from "src/app/contacts/commands/create-contact.command";
+import { CreateCollectGroupContactCommand } from "src/app/collect-group-contacts/commands/create-collect-group-contact.command";
 
 @Injectable({
     providedIn: 'root'
@@ -7,7 +7,7 @@ import { CreateContactCommand } from "src/app/contacts/commands/create-contact.c
 export class ContactRegistrationStateService {
     private storage = sessionStorage;
 
-    public get currentContactRegistrationInformation(): CreateContactCommand {
+    public get currentContactRegistrationInformation(): CreateCollectGroupContactCommand {
         const key = 'ContactRegistrationStateService.currentContactRegistrationInformation';
         const serializedRequest = JSON.parse(this.storage.getItem(key));
         return serializedRequest || {
@@ -19,7 +19,7 @@ export class ContactRegistrationStateService {
         };
     }
 
-    public set currentContactRegistrationInformation(value: CreateContactCommand) {
+    public set currentContactRegistrationInformation(value: CreateCollectGroupContactCommand) {
         const key = 'ContactRegistrationStateService.currentContactRegistrationInformation';
         this.storage.setItem(key, JSON.stringify(value));
     }

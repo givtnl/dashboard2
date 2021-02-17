@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { ToastrService } from "ngx-toastr";
-import { CreateContactCommand } from "src/app/contacts/commands/create-contact.command";
+import { CreateCollectGroupContactCommand } from "src/app/collect-group-contacts/commands/create-collect-group-contact.command";
 import { ContactRegistrationStateService } from "../services/contact-registration-state.service";
 
 
@@ -14,7 +14,7 @@ import { ContactRegistrationStateService } from "../services/contact-registratio
 })
 export class ContactRegistrationDetailsComponent implements OnInit {
     public form: FormGroup;
-    private command: CreateContactCommand
+    private command: CreateCollectGroupContactCommand
 
     constructor(private formBuilder: FormBuilder,
         private stateService: ContactRegistrationStateService,

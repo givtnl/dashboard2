@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { DashboardRootComponent } from './dashboard-root/dashboard-root.component';
 import { CollectGroupDashboardHomeComponent } from './collect-group-dashboard-home/collect-group-dashboard-home.component';
+import { CollectGroupDashboardPeopleComponent } from './collect-group-dashboard-people/collect-group-dashboard-people.component';
+import { CollectGroupContactsResolver } from './resolvers/collect-group-contacts.resolver';
 
 const routes: Routes = [
     {
@@ -28,6 +30,12 @@ const routes: Routes = [
                 path: 'collect-group-home',
                 component: CollectGroupDashboardHomeComponent,
                 outlet: 'dashboard-outlet'
+            },
+            {
+                path: 'collect-group-people',
+                component: CollectGroupDashboardPeopleComponent,
+                outlet: 'dashboard-outlet',
+                resolve: { contacts: CollectGroupContactsResolver }
             }
         ]
     }

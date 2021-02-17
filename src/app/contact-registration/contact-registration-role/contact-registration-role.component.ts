@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { ContactRegistrationStateService } from "../services/contact-registration-state.service";
-import { CreateContactCommand } from "src/app/contacts/commands/create-contact.command";
+import { CreateCollectGroupContactCommand } from "src/app/collect-group-contacts/commands/create-collect-group-contact.command";
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { TranslateService } from "@ngx-translate/core";
@@ -21,7 +21,7 @@ export class ContactRegistrationRoleComponent implements OnInit {
     public form: FormGroup;
     public showChoose = false;
 
-    private command: CreateContactCommand
+    private command: CreateCollectGroupContactCommand
 
     constructor(private formBuilder: FormBuilder,
         private stateService: ContactRegistrationStateService,
