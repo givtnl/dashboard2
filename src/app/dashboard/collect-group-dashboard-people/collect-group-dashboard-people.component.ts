@@ -16,7 +16,7 @@ export class CollectGroupDashboardPeopleComponent implements OnInit {
     constructor(private dashboardService: DashboardService, private formBuilder: FormBuilder, private route: ActivatedRoute) { }
 
     ngOnInit(): void {
-        this.pageTitle = `${this.dashboardService.currentCollectGroup.Name} > People`;
+        this.pageTitle = `${this.dashboardService.currentCollectGroup.Name} > Who's who`;
         this.form = this.formBuilder.group({
             contactPersons: this.formBuilder.array(this.route.snapshot.data.contacts)
         });

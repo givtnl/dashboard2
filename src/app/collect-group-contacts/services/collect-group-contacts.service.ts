@@ -11,8 +11,10 @@ export class CollectGroupContactsService {
 
     getContacts(collectGroupId: string): Observable<CollectGroupContactDetailModel[]> {
         return new Observable(obs => {
-            obs.next([{ role: "Dashboard user", firstName: "Maarten", lastName: "Vergouwe2", email: "maarten@givtapp.net", phone: "+324978098511" }, 
-                { role: "Dashboard user", firstName: "Maarten", lastName: "Vergouwe", email: "maarten@givtapp.net", phone: "+32497809851" }]);
+            obs.next([{ role: "Dashboard user", firstName: "Mike", lastName: "Pattyn", email: "mike@givtapp.net", phone: null }, 
+                { role: "Treasurer", firstName: "Maarten", lastName: "Vergouwe", email: "maarten@givtapp.net", phone: "+3249780985" },
+                { role: "Marketeer", firstName: "Rowena", lastName: "Veeke", email: "rowena@givtapp.net", phone: "06484874038" },
+                { role: "Cleaning lady", firstName: "Sjoerd", lastName: "van Oort", email: "sjoerd@givtapp.net", phone: null}]);
             obs.complete();
         });
         //return this.backendService.get<CollectGroupContactDetailModel[]>(`v2/collectgroups/${collectGroupId}/contacts`);

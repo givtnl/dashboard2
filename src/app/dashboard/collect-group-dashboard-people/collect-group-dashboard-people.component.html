@@ -5,39 +5,40 @@
                 {{ pageTitle }}</h2>
         </div>
     </div>
-    <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="ml-3 my-4">
-        <div class="form-row">
-            <div class="px-3 text-givt-purple text-heavy-font d-flex col-2 border-right">
+    <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="mx-4 my-4">
+        <div class="py-3 form-row background-gradient-blue rounded-top-right">
+            <div class="px-3 text-white text-heavy-font d-flex col-2">
                 Role
             </div>
-            <div class="px-3 text-givt-purple text-heavy-font d-flex col-2 border-right">
+            <div class="px-3 text-white text-heavy-font d-flex col-2">
                 First name
             </div>
-            <div class="px-3 text-givt-purple text-heavy-font d-flex col-2 border-right">
+            <div class="px-3 text-white text-heavy-font d-flex col-2">
                 Last name
             </div>
-            <div class="px-3 text-givt-purple text-heavy-font d-flex col-2 border-right">
+            <div class="px-3 text-white text-heavy-font d-flex col-2">
                 Email
             </div>
-            <div class="px-3 text-givt-purple text-heavy-font d-flex col-2">
+            <div class="px-3 text-white text-heavy-font d-flex col-2">
                 Telephone
             </div>
         </div>
         <div formArrayName="contactPersons">
-            <div *ngFor="let item of contactPersons.controls; let contactIndex=index" [formGroupName]="contactIndex" class="form-row">
-                <div class="px-3 py-1 text-givt-purple d-flex col-2 border-right">
+            <div *ngFor="let item of contactPersons.controls; let contactIndex=index" [formGroupName]="contactIndex" 
+                [ngClass]="{'bg-grey': contactIndex % 2 == 0, 'bg-white': contactIndex % 2 == 1}" class="border-bottom form-row py-3">
+                <div class="px-3 text-givt-purple d-flex col-2">
                     {{ item.value.role }}
                 </div>
-                <div class="px-3 py-1 text-givt-purple d-flex col-2 border-right">
+                <div class="px-3 text-givt-purple d-flex col-2">
                     {{ item.value.firstName }}
                 </div>
-                <div class="px-3 py-1 text-givt-purple d-flex col-2 border-right">
+                <div class="px-3 text-givt-purple d-flex col-2">
                     {{ item.value.lastName }}
                 </div>
-                <div class="px-3 py-1 text-givt-purple d-flex col-2 border-right">
+                <div class="px-3 text-givt-purple d-flex col-2">
                     {{ item.value.email }}
                 </div>
-                <div class="px-3 py-1 text-givt-purple d-flex col-2">
+                <div class="px-3 text-givt-purple d-flex col-2">
                     {{ item.value.phone }}
                 </div>
             </div>
