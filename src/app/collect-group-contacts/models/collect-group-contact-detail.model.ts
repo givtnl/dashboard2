@@ -1,7 +1,7 @@
 export interface CollectGroupContactDetailModel {
-    role: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
+    Role: string;
+    FirstName: string;
+    LastName: string;
+    Email: string;
+    Telephone: string;
 }

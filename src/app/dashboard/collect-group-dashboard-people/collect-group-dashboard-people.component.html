@@ -27,19 +27,19 @@
             <div *ngFor="let item of contactPersons.controls; let contactIndex=index" [formGroupName]="contactIndex" 
                 [ngClass]="{'bg-grey': contactIndex % 2 == 0, 'bg-white': contactIndex % 2 == 1}" class="border-bottom form-row py-3">
                 <div class="px-3 text-givt-purple d-flex col-2">
-                    {{ item.value.role }}
+                    {{ item.value.Role }}
                 </div>
                 <div class="px-3 text-givt-purple d-flex col-2">
-                    {{ item.value.firstName }}
+                    {{ item.value.FirstName }}
                 </div>
                 <div class="px-3 text-givt-purple d-flex col-2">
-                    {{ item.value.lastName }}
+                    {{ item.value.LastName }}
                 </div>
                 <div class="px-3 text-givt-purple d-flex col-2">
-                    {{ item.value.email }}
+                    {{ item.value.Email }}
                 </div>
                 <div class="px-3 text-givt-purple d-flex col-2">
-                    {{ item.value.phone }}
+                    {{ item.value.Telephone }}
                 </div>
             </div>
         </div>
