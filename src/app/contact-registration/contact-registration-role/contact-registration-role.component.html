@@ -7,7 +7,7 @@
                     <select class="givt-drop-down form-control mb-3 shadow text-givt-purple" formControlName="roleType" (change)="roleOptionChange($event.target.value)">
                         <option translate value="null" disabled>contactRegistrationRoleComponent.chooseRoleOption</option>
                         <option *ngFor="let role of roles" translate value="{{role.key}}">{{role.value}}</option>
-                        <option translate value="0">contactRegistrationRoleComponent.otherOption</option>
+                        <!--<option translate value="0">contactRegistrationRoleComponent.otherOption</option>-->
                     </select>
                 </div>
             </div>
