@@ -16,7 +16,7 @@ export class CollectGroupDashboardHomeComponent implements OnInit {
     constructor(private route: ActivatedRoute, private dashboardService: DashboardService) { }
 
     ngOnInit() {
-        this.collectGroupName = this.dashboardService.currentCollectGroup.Name;
+        this.collectGroupName = this.dashboardService.currentCollectGroup?.Name;
         this.dashboardService.currentCollectGroupChange.subscribe(x => this.collectGroupName = x.Name);
         this.route.queryParams.subscribe(params => {
             if (params['redirect'] !== null && params['redirect'] !== undefined && params['redirect'] == 'true') {

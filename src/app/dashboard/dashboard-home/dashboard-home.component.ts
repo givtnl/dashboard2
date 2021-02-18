@@ -30,6 +30,7 @@ export class DashboardHomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.loading = true;
+        this.dashboardService.currentCollectGroup = null;
         this.dashboardService
             .getCollectGroups()
             .subscribe(x => (this.collectGroups = x))

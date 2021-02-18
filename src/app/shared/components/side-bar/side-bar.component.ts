@@ -23,7 +23,7 @@ export class SideBarComponent {
 
     constructor(private accountService: AccountService, private dashboardService: DashboardService, private router: Router) {
         if (!environment.production) this.versionNumber = pkg['version'];
-        dashboardService.currentCollectGroupChange.subscribe(x => this.currentCollectGroup = x.Name);
+        dashboardService.currentCollectGroupChange.subscribe(x => this.currentCollectGroup = x?.Name);
     }
 
     public closeMenu(): void {

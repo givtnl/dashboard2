@@ -19,7 +19,6 @@ const routes: Routes = [
                 path: '',
                 redirectTo: 'home',
                 outlet: 'dashboard-outlet'
-
             },
             {
                 path: 'home',
