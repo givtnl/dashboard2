@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DashboardService } from 'src/app/shared/services/dashboard.service';
 import { environment } from 'src/environments/environment';
@@ -10,7 +10,8 @@ import { environment } from 'src/environments/environment';
 })
 export class CollectGroupDashboardHomeComponent implements OnInit {
 
-    public collectGroupName: string
+    public collectGroupName: string;
+    public loading = false;
 
     constructor(private route: ActivatedRoute, private dashboardService: DashboardService) { }
 
@@ -22,5 +23,9 @@ export class CollectGroupDashboardHomeComponent implements OnInit {
                 window.location.href = environment.oldDashboardUrl;
             }
         });
+    }
+
+    peopleClicked(): void {
+        this.loading = true;
     }
 }

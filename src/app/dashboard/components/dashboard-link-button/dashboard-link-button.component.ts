@@ -20,4 +20,7 @@ export class DashboardLinkButtonComponent {
 
     @Input()
     public params: {};
+
+    @Input()
+    public click: Event
 }
