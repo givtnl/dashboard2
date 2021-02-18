@@ -7,9 +7,15 @@ import { ContactRegistrationDoneComponent } from "./contact-registration-done/co
 import { ContactRegistrationIntroComponent } from "./contact-registration-intro/contact-registration-intro.component";
 import { ContactRegistrationRoleComponent } from "./contact-registration-role/contact-registration-role.component";
 import { ContactRegistrationRoutingModule } from "./contact-registration-routing.module";
+import { CreateCollectGroupContactGuard } from "./guards/create-collect-group-contact.guard";
 
 @NgModule({
-    declarations: [ContactRegistrationRoleComponent, ContactRegistrationIntroComponent, ContactRegistrationDetailsComponent, ContactRegistrationDoneComponent],
+    declarations: [
+        ContactRegistrationRoleComponent,
+        ContactRegistrationIntroComponent,
+        ContactRegistrationDetailsComponent,
+        ContactRegistrationDoneComponent
+    ],
     imports: [
         ContactRegistrationRoutingModule,
         CommonModule,

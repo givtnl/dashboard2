@@ -47,7 +47,7 @@ export class ContactRegistrationRoleComponent implements OnInit {
             return;
         }
 
-        this.command.role = this.form.value.chosenRoleInput?.length > 0 ? this.form.value.chosenRoleInput : this.roles.find(x => x.key == this.form.value.roleType).value
+        this.command.Role = this.form.value.chosenRoleInput?.length > 0 ? this.form.value.chosenRoleInput : this.roles.find(x => x.key == this.form.value.roleType).value
         this.stateService.currentContactRegistrationInformation = this.command
         this.router.navigate(['/','contact-registration','details'])
     }

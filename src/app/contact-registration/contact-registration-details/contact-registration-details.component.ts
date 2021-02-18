@@ -39,10 +39,10 @@ export class ContactRegistrationDetailsComponent implements OnInit {
             return;
         }
 
-        this.command.email = this.form.value.email;
-        this.command.firstName = this.form.value.firstName;
-        this.command.lastName = this.form.value.lastName;
-        this.command.telephone = this.form.value.telephone?.length > 0 ? this.form.value.telephone : null;
+        this.command.Email = this.form.value.email;
+        this.command.FirstName = this.form.value.firstName;
+        this.command.LastName = this.form.value.lastName;
+        this.command.Telephone = this.form.value.telephone?.length > 0 ? this.form.value.telephone : null;
         this.stateService.currentContactRegistrationInformation = this.command;
 
         this.router.navigate(['/', 'contact-registration', 'done']);

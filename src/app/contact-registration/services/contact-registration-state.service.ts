@@ -11,11 +11,11 @@ export class ContactRegistrationStateService {
         const key = 'ContactRegistrationStateService.currentContactRegistrationInformation';
         const serializedRequest = JSON.parse(this.storage.getItem(key));
         return serializedRequest || {
-            role: "",
-            firstName: "",
-            lastName: "",
-            email: "",
-            telephone: null
+            Role: "",
+            FirstName: "",
+            LastName: "",
+            Email: "",
+            Telephone: null
         };
     }
 

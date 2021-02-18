@@ -4,6 +4,7 @@ import { ContactRegistrationDetailsComponent } from "./contact-registration-deta
 import { ContactRegistrationDoneComponent } from "./contact-registration-done/contact-registration-done.component";
 import { ContactRegistrationIntroComponent } from "./contact-registration-intro/contact-registration-intro.component";
 import { ContactRegistrationRoleComponent } from "./contact-registration-role/contact-registration-role.component";
+import { CreateCollectGroupContactGuard } from "./guards/create-collect-group-contact.guard";
 
 const routes: Routes = [
     {
@@ -20,7 +21,8 @@ const routes: Routes = [
     },
     {
         path: 'done',
-        component: ContactRegistrationDoneComponent
+        component: ContactRegistrationDoneComponent,
+        canActivate: [CreateCollectGroupContactGuard]
     }
 ];
 

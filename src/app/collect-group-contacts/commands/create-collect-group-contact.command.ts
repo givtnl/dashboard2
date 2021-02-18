@@ -1,7 +1,7 @@
 export interface CreateCollectGroupContactCommand {
-    role: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    telephone: string | null;
+    Role: string;
+    FirstName: string;
+    LastName: string;
+    Email: string;
+    Telephone: string | null;
 }
