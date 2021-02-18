@@ -15,7 +15,9 @@ import { whenVisibleValidator } from "src/app/shared/validators/when-visible.val
 })
 export class ContactRegistrationRoleComponent implements OnInit {
     public roles = [
-        { key: 1, value: "Treasurer" }
+        { key: 1, value: "Financial" },
+        { key: 2, value: "Facilitating" },
+        { key: 3, value: "Communication" }
     ]
 
     public form: FormGroup;

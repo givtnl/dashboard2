@@ -10,13 +10,19 @@ import { EventEmitter } from '@angular/core';
     providedIn: 'root'
 })
 export class DashboardService {
+    private storage = sessionStorage;
+
     public currentCollectGroupChange = new EventEmitter<CollectGroupDashboardListModel>();
     
-    #currentCollectGroup: CollectGroupDashboardListModel = null;
-    get currentCollectGroup(): CollectGroupDashboardListModel { return this.#currentCollectGroup; }
+    get currentCollectGroup(): CollectGroupDashboardListModel {
+        const key = 'DashboardService.CurrentCollectGroup';
+        const serializedRequest = JSON.parse(this.storage.getItem(key));
+        return serializedRequest;
+    }
     set currentCollectGroup(collectGroup: CollectGroupDashboardListModel) {
-        this.#currentCollectGroup = collectGroup;
-        this.currentCollectGroupChange.emit(this.#currentCollectGroup);
+        const key = 'DashboardService.CurrentCollectGroup';
+        this.storage.setItem(key, JSON.stringify(collectGroup));
+        this.currentCollectGroupChange.emit(collectGroup);
     }
         
     constructor(private backendService: BackendService) { }

@@ -22,5 +22,13 @@ export class DashboardLinkButtonComponent {
     public params: {};
 
     @Input()
-    public click: Event
+    public caller: any;
+
+    @Input()
+    public click: (caller: any) => void
+
+    onClick() {
+        if (this.click !== null && this.click !== undefined )
+            this.click(this.caller);
+    }
 }
