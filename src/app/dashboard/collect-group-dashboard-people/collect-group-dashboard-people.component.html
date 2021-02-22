@@ -7,20 +7,20 @@
     </div>
     <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="mx-4 my-4">
         <div class="py-3 form-row background-gradient-blue rounded-top-right">
-            <div class="px-3 text-white text-heavy-font d-flex col-2">
-                Role
+            <div class="px-3 text-white text-heavy-font d-flex col-2" translate>
+                collectGroupDashboardPeopleComponent.columnHeaderOne
             </div>
-            <div class="px-3 text-white text-heavy-font d-flex col-2">
-                First name
+            <div class="px-3 text-white text-heavy-font d-flex col-2" translate>
+                collectGroupDashboardPeopleComponent.columnHeaderTwo
             </div>
-            <div class="px-3 text-white text-heavy-font d-flex col-2">
-                Last name
+            <div class="px-3 text-white text-heavy-font d-flex col-2" translate>
+                collectGroupDashboardPeopleComponent.columnHeaderThree
             </div>
-            <div class="px-3 text-white text-heavy-font d-flex col-2">
-                Email
+            <div class="px-3 text-white text-heavy-font d-flex col-2" translate>
+                collectGroupDashboardPeopleComponent.columnHeaderFour
             </div>
-            <div class="px-3 text-white text-heavy-font d-flex col-2">
-                Telephone
+            <div class="px-3 text-white text-heavy-font d-flex col-2" translate>
+                collectGroupDashboardPeopleComponent.columnHeaderFive
             </div>
         </div>
         <div formArrayName="contactPersons">
@@ -45,7 +45,7 @@
         </div>
     </form>
     <div class="col-xl-2 col-sm-7 col-lg-4 col-md-5 mb-3 col-8">
-        <app-dashboard-link-button text="Add contact person"
+        <app-dashboard-link-button text="{{ 'collectGroupDashboardPeopleComponent.addContactButtonText' | translate }}"
             [route]="['/', 'contact-registration']" icon="fas fa-plus mr-3"></app-dashboard-link-button>
     </div>    
 </div>
