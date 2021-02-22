@@ -420,5 +420,12 @@
     "contactRegistrationDetailsComponent.telephone": "Telephone (optional)",
     "contactRegistrationDoneComponent.title": "Success!",
     "contactRegistrationDoneComponent.text": "We've successfully registered the contact person.",
-    "contactRegistrationDoneComponent.finishButton": "Ready"
+    "contactRegistrationDoneComponent.finishButton": "Ready",
+    "collectGroupDashboardPeopleComponent.columnHeaderOne": "Role",
+    "collectGroupDashboardPeopleComponent.columnHeaderTwo": "First name",
+    "collectGroupDashboardPeopleComponent.columnHeaderThree": "Last name",
+    "collectGroupDashboardPeopleComponent.columnHeaderFour": "Email",
+    "collectGroupDashboardPeopleComponent.columnHeaderFive": "Telephone",
+    "collectGroupDashboardPeopleComponent.pageTitle": "Who's who",
+    "collectGroupDashboardPeopleComponent.addContactButtonText": "Add contact person"
 }
