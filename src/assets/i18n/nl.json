@@ -420,5 +420,12 @@
     "contactRegistrationDetailsComponent.telephone": "Telefoon (optioneel)",
     "contactRegistrationDoneComponent.title": "Gelukt!",
     "contactRegistrationDoneComponent.text": "Het is gelukt om de contactgegevens op te slaan",
-    "contactRegistrationDoneComponent.finishButton": "Klaar"
+    "contactRegistrationDoneComponent.finishButton": "Klaar",
+    "collectGroupDashboardPeopleComponent.columnHeaderOne": "Rol",
+    "collectGroupDashboardPeopleComponent.columnHeaderTwo": "Voornaam",
+    "collectGroupDashboardPeopleComponent.columnHeaderThree": "Achternaam",
+    "collectGroupDashboardPeopleComponent.columnHeaderFour": "E-mail",
+    "collectGroupDashboardPeopleComponent.columnHeaderFive": "Telefoon",
+    "collectGroupDashboardPeopleComponent.pageTitle": "Wie is wie",
+    "collectGroupDashboardPeopleComponent.addContactButtonText": "Contactpersoon toevoegen"
 }
