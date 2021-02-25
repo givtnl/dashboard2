@@ -88,7 +88,7 @@
     "onboardingBankAccountIntroComponent.what2": "Verify the bank account or invite the person who will verify the bank account.",
     "onboardingBankAccountIntroComponent.what3": "Finally, this person will check the organisation details and the bank account details and the bank account will be verified. We will send a confirmation e-mail to you as soon as this is done.",
     "onboardingBankAccountSigningIntroComponent.title": "Verify bank account",
-    "onboardingBankAccountSigningIntroComponent.description": "As the bank account holder, you are going to complete the verification process of this bank account. Please review the specified details in the following screens thoroughly.",
+    "onboardingBankAccountSigningIntroComponent.description": "As the representative of this organisation, you will be completing the agreement on engaging with Givt and the verification process for this bank account. Please review the details in the following screens thoroughly.",
     "onboardingBankAccountSigningIntroComponent.nextButtonText": "Next",
     "onboardingBankAccountSigningVerifyDetailsComponent.title": "Check the details",
     "onboardingBankAccountSigningVerifyDetailsComponent.description": "NO DESCRIPTION HERE",
@@ -427,5 +427,10 @@
     "collectGroupDashboardPeopleComponent.columnHeaderFour": "Email",
     "collectGroupDashboardPeopleComponent.columnHeaderFive": "Telephone",
     "collectGroupDashboardPeopleComponent.pageTitle": "Who's who",
-    "collectGroupDashboardPeopleComponent.addContactButtonText": "Add contact person"
+    "collectGroupDashboardPeopleComponent.addContactButtonText": "Add contact person",
+    "onboardingBankAccountSigningAgreementComponent.title": "Agree on terms and conditions",
+    "onboardingBankAccountSigningAgreementComponent.description": "When you click the following button, a window will open with the terms and conditions of the agreement on engaging with Givt. Please read and download them.",
+    "onboardingBankAccountSigningAgreementComponent.nextButtonText": "Next",
+    "onboardingBankAccountSigningAgreementComponent.viewTermsButtonText": "View terms",
+    "onboardingBankAccountSigningAgreementComponent.agreeCheckBoxLabel": "I have read and agree to the terms"
 }
