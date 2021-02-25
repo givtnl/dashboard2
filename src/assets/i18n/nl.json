@@ -88,7 +88,7 @@
     "onboardingBankAccountIntroComponent.what2": "Afgeven van een machtiging op de bankrekening of iemand daartoe uitnodigen",
     "onboardingBankAccountIntroComponent.what3": "Ten slotte zal deze persoon alle gegevens nakijken en de bankrekening verifiëren door het tekenen van de digitale machtiging. Als dat achter de rug is, sturen we hiervan nog een bevestiging via e-mail.",
     "onboardingBankAccountSigningIntroComponent.title": "Teken de machtiging",
-    "onboardingBankAccountSigningIntroComponent.description": "Als de gemachtigde van deze organisatie ga je nu het verificatieproces afronden. Gelieve alle gegevens te controleren.",
+    "onboardingBankAccountSigningIntroComponent.description": "Als de gemachtigde van deze organisatie ga je nu akkoord geven voor de samenwerking met Givt en het verificatieproces afronden. Gelieve alle gegevens te controleren.",
     "onboardingBankAccountSigningIntroComponent.nextButtonText": "Volgende",
     "onboardingBankAccountSigningVerifyDetailsComponent.title": "Controleer de gegevens",
     "onboardingBankAccountSigningVerifyDetailsComponent.description": "NO DESCRIPTION HERE",
@@ -427,5 +427,10 @@
     "collectGroupDashboardPeopleComponent.columnHeaderFour": "E-mail",
     "collectGroupDashboardPeopleComponent.columnHeaderFive": "Telefoon",
     "collectGroupDashboardPeopleComponent.pageTitle": "Wie is wie",
-    "collectGroupDashboardPeopleComponent.addContactButtonText": "Contactpersoon toevoegen"
+    "collectGroupDashboardPeopleComponent.addContactButtonText": "Contactpersoon toevoegen",
+    "onboardingBankAccountSigningAgreementComponent.title": "Akkoord gaan met algemene voorwaarden",
+    "onboardingBankAccountSigningAgreementComponent.description": "Wanneer je op onderstaande knop klikt, zal er een scherm openen met de algemene voorwaarden voor de samenwerking met Givt. Lees aub zorgvuldig en download een kopie op je computer.",
+    "onboardingBankAccountSigningAgreementComponent.nextButtonText": "Volgende",
+    "onboardingBankAccountSigningAgreementComponent.viewTermsButtonText": "Voorwaarden bekijken",
+    "onboardingBankAccountSigningAgreementComponent.agreeCheckBoxLabel": "Ik heb de voorwaarden gelezen en ga akkoord"
 }
