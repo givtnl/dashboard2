@@ -432,5 +432,11 @@
     "onboardingBankAccountSigningAgreementComponent.description": "Wanneer je op onderstaande knop klikt, zal er een scherm openen met de algemene voorwaarden en tarieven voor de samenwerking met Givt. Lees aub zorgvuldig en download een kopie op je computer.",
     "onboardingBankAccountSigningAgreementComponent.nextButtonText": "Volgende",
     "onboardingBankAccountSigningAgreementComponent.viewTermsButtonText": "Voorwaarden bekijken",
-    "onboardingBankAccountSigningAgreementComponent.agreeCheckBoxLabel": "Ik heb de voorwaarden gelezen en ga akkoord"
+    "onboardingBankAccountSigningAgreementComponent.agreeCheckBoxLabel": "Ik heb de voorwaarden gelezen en ga akkoord",
+    "contactRegistrationRoleComponent.firstOption": "Facilitair",
+    "contactRegistrationRoleComponent.firstOptionExplanation": "Dit zijn de mensen die zorgen voor Givt op jullie locatie of evenement. Deze mensen benaderen we als we bijvoorbeeld vragen hebben over de zenders of over jullie locatie.",
+    "contactRegistrationRoleComponent.secondOption": "Financieel",
+    "contactRegistrationRoleComponent.secondOptionExplanation": "Dit zijn de mensen die zorgen voor het financiële plaatje binnen jullie organisatie. Als er bijvoorbeeld iets verandert op het Givt-dashboard willen deze mensen dat weten.",
+    "contactRegistrationRoleComponent.thirdOption": "Communicatie",
+    "contactRegistrationRoleComponent.thirdOptionExplanation": "Dit zijn de mensen die zich bezighouden met de communicatie met jullie bezoekers of doelgroep. Denk hierbij aan jullie website, nieuwsblad of het organiseren van samenkomsten. Als we bijvoorbeeld tips & tricks hebben voor het organiseren van de collecte of fondsenwerving kunnen deze mensen daarmee aan de slag."
 }
