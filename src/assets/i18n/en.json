@@ -432,5 +432,11 @@
     "onboardingBankAccountSigningAgreementComponent.description": "When you click the following button, a window will open with the terms and pricing of the agreement on engaging with Givt. Please read and download them.",
     "onboardingBankAccountSigningAgreementComponent.nextButtonText": "Next",
     "onboardingBankAccountSigningAgreementComponent.viewTermsButtonText": "View terms",
-    "onboardingBankAccountSigningAgreementComponent.agreeCheckBoxLabel": "I have read and agree to the terms"
+    "onboardingBankAccountSigningAgreementComponent.agreeCheckBoxLabel": "I have read and agree to the terms",
+    "contactRegistrationRoleComponent.firstOption": "Facilitating",
+    "contactRegistrationRoleComponent.firstOptionExplanation": "These are the people who will take care of Givt on your location or event. We will contact these people if we f.i. have questions about beacons or your location.",
+    "contactRegistrationRoleComponent.secondOption": "Financial",
+    "contactRegistrationRoleComponent.secondOptionExplanation": "These are the people who take care of the financials in your organisation. If something changes on the Givt dashboard, these people will want to know.",
+    "contactRegistrationRoleComponent.thirdOption": "Communications",
+    "contactRegistrationRoleComponent.thirdOptionExplanation": "These are the people who are responsible for the communication with your visitors or your target audience. Think f.i. website, newsletter or organising events. These people will easily get started with our tips & tricks for organising giving moments or fundraising."
 }
