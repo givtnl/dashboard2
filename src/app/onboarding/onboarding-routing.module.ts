@@ -274,8 +274,8 @@ const routes: Routes = [
     {
         path: 'bank-account-signing',
         component: OnboardingRootComponent,
-        //canActivate: [BankAccountSignInvitationIdRequiredGuard, BankAccountSignInvitationIdNotExpiredGuard],
-        //resolve: { bankAccountHolder: OnboardingBankAccountHolderDetailResolver },
+        canActivate: [BankAccountSignInvitationIdRequiredGuard, BankAccountSignInvitationIdNotExpiredGuard],
+        resolve: { bankAccountHolder: OnboardingBankAccountHolderDetailResolver },
         children: [
             {
                 path: '',
