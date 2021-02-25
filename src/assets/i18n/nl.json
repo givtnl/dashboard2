@@ -428,8 +428,8 @@
     "collectGroupDashboardPeopleComponent.columnHeaderFive": "Telefoon",
     "collectGroupDashboardPeopleComponent.pageTitle": "Wie is wie",
     "collectGroupDashboardPeopleComponent.addContactButtonText": "Contactpersoon toevoegen",
-    "onboardingBankAccountSigningAgreementComponent.title": "Akkoord gaan met algemene voorwaarden",
-    "onboardingBankAccountSigningAgreementComponent.description": "Wanneer je op onderstaande knop klikt, zal er een scherm openen met de algemene voorwaarden voor de samenwerking met Givt. Lees aub zorgvuldig en download een kopie op je computer.",
+    "onboardingBankAccountSigningAgreementComponent.title": "Voorwaarden en tarieven",
+    "onboardingBankAccountSigningAgreementComponent.description": "Wanneer je op onderstaande knop klikt, zal er een scherm openen met de algemene voorwaarden en tarieven voor de samenwerking met Givt. Lees aub zorgvuldig en download een kopie op je computer.",
     "onboardingBankAccountSigningAgreementComponent.nextButtonText": "Volgende",
     "onboardingBankAccountSigningAgreementComponent.viewTermsButtonText": "Voorwaarden bekijken",
     "onboardingBankAccountSigningAgreementComponent.agreeCheckBoxLabel": "Ik heb de voorwaarden gelezen en ga akkoord"
