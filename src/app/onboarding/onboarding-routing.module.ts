@@ -62,263 +62,269 @@ import { OnboardingOrganisationDetailsSendManualRegistrationDataGuard } from './
 import { OnboardingDetailsFetchRelationshipRulesResolver } from './organisation-details/resolvers/onboarding-details-fetch-rules.resolver';
 import { OnboardingOrganisationDetailsNotifyRelationshipGuard } from './organisation-details/guards/onboarding-organisation-details-notify-relationship.guard';
 import { OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent } from './bank-account-signing/onboarding-bank-account-signing-intro-direct-debit-guarantee/onboarding-bank-account-signing-intro-direct-debit-guarantee.component';
+import { OnboardingBankAccountSigningAgreementComponent } from './bank-account-signing/onboarding-bank-account-signing-agreement/onboarding-bank-account-signing-agreement.component';
 
 const routes: Routes = [
-  {
-    path: 'welcome',
-    children: [
-      {
-        path: '',
-        redirectTo: 'new-users'
-      },
-      {
-        path: 'new-users',
+    {
+        path: 'welcome',
+        children: [
+            {
+                path: '',
+                redirectTo: 'new-users'
+            },
+            {
+                path: 'new-users',
+                component: OnboardingRootComponent,
+                resolve: {
+                    request: OnboardingRequestResolver,
+                    preparation: OnboardingUserRegistrationPreparationResolver
+                },
+                canActivate: [OnboardingGuard],
+                children: [
+                    {
+                        path: '',
+                        component: OnboardingWelcomeComponent,
+                        outlet: 'onboarding-outlet'
+                    },
+                    {
+                        path: 'check-inbox',
+                        component: OnboardingCheckInboxComponent,
+                        outlet: 'onboarding-outlet'
+                    },
+                    {
+                        path: 'register',
+                        outlet: 'onboarding-outlet',
+                        component: OnboardingPersonalDetailsComponent,
+                        canActivate: [
+                            OnboardingRegisterGuard,
+                            OnboardingRegisterCheckPasswordGuard,
+                            OnboardingRegisterCheckPersonalDetailsRequiredGuard
+                        ]
+                    },
+                    {
+                        path: 'completed',
+                        component: OnboardingCompletedComponent,
+                        outlet: 'onboarding-outlet',
+                        canActivate: [OnboardingUserCompleteSuccessGuard],
+                        resolve: {
+                            organisation: OnboardingUserRegistrationOrganisationResolver
+                        }
+                    },
+                    {
+                        path: 'change-email',
+                        outlet: 'onboarding-outlet',
+                        component: OnboardingChangeEmailComponent
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        path: 'organisation-details',
+        component: OnboardingRootComponent,
+        canActivate: [AuthenticationGuard],
+        children: [
+            {
+                path: '',
+                outlet: 'onboarding-outlet',
+                resolve: { relationshipRules: OnboardingDetailsFetchRelationshipRulesResolver },
+                component: OnboardingOrganisationDetailsIntroComponent,
+            },
+            {
+                path: 'charity-number',
+                outlet: 'onboarding-outlet',
+                resolve: { charityErrorBaseText: TranslatedValueResolver },
+                data: { toResolveTranslationKey: 'onboardingOrganisationDetailsCharityNumberComponent.charityErrorDescription' },
+                component: OnboardingOrganisationDetailsCharityNumberComponent
+            },
+
+            {
+                path: 'verify-organisation-name',
+                outlet: 'onboarding-outlet',
+                resolve: { currentOrganisation: OnboardingDetailsFetchOrganisationResolver },
+                component: OnboardingOrganisationDetailsVerifyOrganisationNameComponent
+            },
+            {
+                path: 'address-details',
+                outlet: 'onboarding-outlet',
+                component: OnboardingOrganisationDetailsAddressComponent,
+                resolve: { relationshipRules: OnboardingDetailsFetchRelationshipRulesResolver },
+            },
+            {
+                path: 'charity-details',
+                outlet: 'onboarding-outlet',
+                component: OnboardingOrganisationDetailsCharityDetailsComponent
+            },
+            {
+                path: 'check-details',
+                outlet: 'onboarding-outlet',
+                component: OnboardingOrganisationDetailsVerifyComponent
+            },
+            {
+                path: 'complete',
+                outlet: 'onboarding-outlet',
+                canActivate: [
+                    OnboardingOrganisationDetailsSendDataGuard,
+                    OnboardingOrganisationDetailsSendManualRegistrationDataGuard,
+                    OnboardingOrganisationDetailsNotifyRelationshipGuard
+                ],
+                component: OnboardingOrganisationDetailsCompleteComponent
+            },
+            {
+                path: 'incorrect',
+                outlet: 'onboarding-outlet',
+                component: OnboardingOrganisationDetailsIncorrectComponent
+            }
+        ]
+    },
+    {
+        path: 'bank-account',
+        component: OnboardingRootComponent,
+        resolve: { bankaccount: OnboardingBankAccountRegistrationResolver },
+        canActivate: [AuthenticationGuard],
+        children: [
+            {
+                path: '',
+                outlet: 'onboarding-outlet',
+                component: OnboardingBankAccountIntroComponent
+            },
+            {
+                path: 'add',
+                outlet: 'onboarding-outlet',
+                component: OnboardingBankAccountAddComponent
+            },
+            {
+                path: 'completed',
+                outlet: 'onboarding-outlet',
+                component: OnboardingBankAccountCompletedComponent,
+                canActivate: [OnboardingBankAccountCompleteCheckSuccessGuard]
+            },
+            {
+                path: 'already-invited',
+                outlet: 'onboarding-outlet',
+                component: OnboardingBankAccountInvitedHoldersComponent,
+                resolve: { accountHolders: OnboardingBankAccountInvitedHoldersResolver }
+            }
+        ]
+    },
+    {
+        path: 'bank-account-holder',
+        component: OnboardingRootComponent,
+        canActivate: [BankAccountIsVerifiedGuard],
+        resolve: { bankAccount: OnboardingBankAccountHolderAccountResolver },
+        children: [
+            {
+                path: '',
+                outlet: 'onboarding-outlet',
+                component: OnboardingBankAccountHolderIntroComponent
+            },
+            {
+                path: 'who',
+                outlet: 'onboarding-outlet',
+                component: OnboardingBankAccountHolderWhoComponent
+            },
+            {
+                path: 'completed',
+                outlet: 'onboarding-outlet',
+                component: OnboardingBankAccountHolderCompletedComponent,
+                canActivate: [InviteBankAccountHolderCompleteCheckSuccessGuard]
+            }
+        ]
+    },
+    {
+        path: 'giftaid',
         component: OnboardingRootComponent,
         resolve: {
-          request: OnboardingRequestResolver,
-          preparation: OnboardingUserRegistrationPreparationResolver
+            giftAidSettings: OnboardingGiftAidPreparationResolver
         },
-        canActivate: [OnboardingGuard],
         children: [
-          {
-            path: '',
-            component: OnboardingWelcomeComponent,
-            outlet: 'onboarding-outlet'
-          },
-          {
-            path: 'check-inbox',
-            component: OnboardingCheckInboxComponent,
-            outlet: 'onboarding-outlet'
-          },
-          {
-            path: 'register',
-            outlet: 'onboarding-outlet',
-            component: OnboardingPersonalDetailsComponent,
-            canActivate: [
-              OnboardingRegisterGuard,
-              OnboardingRegisterCheckPasswordGuard,
-              OnboardingRegisterCheckPersonalDetailsRequiredGuard
-            ]
-          },
-          {
-            path: 'completed',
-            component: OnboardingCompletedComponent,
-            outlet: 'onboarding-outlet',
-            canActivate: [OnboardingUserCompleteSuccessGuard],
-            resolve: {
-              organisation: OnboardingUserRegistrationOrganisationResolver
+            {
+                path: '',
+                outlet: 'onboarding-outlet',
+                component: GiftaidIntroComponent
+            },
+            {
+                path: 'organisation-charity-details',
+                outlet: 'onboarding-outlet',
+                component: GiftaidOrganisationDetailsCharityNumberComponent
+            },
+            {
+                path: 'organisation-details',
+                outlet: 'onboarding-outlet',
+                component: GiftaidOrganisationDetailsComponent
+            },
+            {
+                path: 'organisation-address-details',
+                outlet: 'onboarding-outlet',
+                component: GiftaidOrganisationAddressDetailsComponent
+            },
+            {
+                path: 'verify-organisation-details',
+                outlet: 'onboarding-outlet',
+                component: GiftaidVerifyOrganisationDetailsComponent
+            },
+            {
+                path: 'completed',
+                outlet: 'onboarding-outlet',
+                component: GiftaidCompletedComponent,
+                canActivate: [OnboardingGiftAidCompleteCheckSuccessGuard]
             }
-          },
-          {
-            path: 'change-email',
-            outlet: 'onboarding-outlet',
-            component: OnboardingChangeEmailComponent
-          }
         ]
-      }
-    ]
-  },
-  {
-    path: 'organisation-details',
-    component: OnboardingRootComponent,
-    canActivate: [AuthenticationGuard],
-    children: [
-      {
-        path: '',
-        outlet: 'onboarding-outlet',
-        resolve: { relationshipRules: OnboardingDetailsFetchRelationshipRulesResolver },
-        component: OnboardingOrganisationDetailsIntroComponent,
-      },
-      {
-        path: 'charity-number',
-        outlet: 'onboarding-outlet',
-        resolve: { charityErrorBaseText: TranslatedValueResolver },
-        data: { toResolveTranslationKey: 'onboardingOrganisationDetailsCharityNumberComponent.charityErrorDescription' },
-        component: OnboardingOrganisationDetailsCharityNumberComponent
-      },
-
-      {
-        path: 'verify-organisation-name',
-        outlet: 'onboarding-outlet',
-        resolve: { currentOrganisation: OnboardingDetailsFetchOrganisationResolver },
-        component: OnboardingOrganisationDetailsVerifyOrganisationNameComponent
-      },
-      {
-        path: 'address-details',
-        outlet: 'onboarding-outlet',
-        component: OnboardingOrganisationDetailsAddressComponent,
-        resolve: { relationshipRules: OnboardingDetailsFetchRelationshipRulesResolver },
-      },
-      {
-        path: 'charity-details',
-        outlet: 'onboarding-outlet',
-        component: OnboardingOrganisationDetailsCharityDetailsComponent
-      },
-      {
-        path: 'check-details',
-        outlet: 'onboarding-outlet',
-        component: OnboardingOrganisationDetailsVerifyComponent
-      },
-      {
-        path: 'complete',
-        outlet: 'onboarding-outlet',
-        canActivate: [
-          OnboardingOrganisationDetailsSendDataGuard,
-          OnboardingOrganisationDetailsSendManualRegistrationDataGuard,
-          OnboardingOrganisationDetailsNotifyRelationshipGuard
-        ],
-        component: OnboardingOrganisationDetailsCompleteComponent
-      },
-      {
-        path: 'incorrect',
-        outlet: 'onboarding-outlet',
-        component: OnboardingOrganisationDetailsIncorrectComponent
-      }
-    ]
-  },
-  {
-    path: 'bank-account',
-    component: OnboardingRootComponent,
-    resolve: { bankaccount: OnboardingBankAccountRegistrationResolver },
-    canActivate: [AuthenticationGuard],
-    children: [
-      {
-        path: '',
-        outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountIntroComponent
-      },
-      {
-        path: 'add',
-        outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountAddComponent
-      },
-      {
-        path: 'completed',
-        outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountCompletedComponent,
-        canActivate: [OnboardingBankAccountCompleteCheckSuccessGuard]
-      },
-      {
-        path: 'already-invited',
-        outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountInvitedHoldersComponent,
-        resolve: { accountHolders: OnboardingBankAccountInvitedHoldersResolver }
-      }
-    ]
-  },
-  {
-    path: 'bank-account-holder',
-    component: OnboardingRootComponent,
-    canActivate: [BankAccountIsVerifiedGuard],
-    resolve: { bankAccount: OnboardingBankAccountHolderAccountResolver },
-    children: [
-      {
-        path: '',
-        outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountHolderIntroComponent
-      },
-      {
-        path: 'who',
-        outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountHolderWhoComponent
-      },
-      {
-        path: 'completed',
-        outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountHolderCompletedComponent,
-        canActivate: [InviteBankAccountHolderCompleteCheckSuccessGuard]
-      }
-    ]
-  },
-  {
-    path: 'giftaid',
-    component: OnboardingRootComponent,
-    resolve: { 
-      giftAidSettings: OnboardingGiftAidPreparationResolver
-     },
-    children: [
-      {
-        path: '',
-        outlet: 'onboarding-outlet',
-        component: GiftaidIntroComponent
-      },
-      {
-        path: 'organisation-charity-details',
-        outlet: 'onboarding-outlet',
-        component: GiftaidOrganisationDetailsCharityNumberComponent
-      },
-      {
-        path: 'organisation-details',
-        outlet: 'onboarding-outlet',
-        component: GiftaidOrganisationDetailsComponent
-      },
-      {
-        path: 'organisation-address-details',
-        outlet: 'onboarding-outlet',
-        component: GiftaidOrganisationAddressDetailsComponent
-      },
-      {
-        path: 'verify-organisation-details',
-        outlet: 'onboarding-outlet',
-        component: GiftaidVerifyOrganisationDetailsComponent
-      },
-      {
-        path: 'completed',
-        outlet: 'onboarding-outlet',
-        component: GiftaidCompletedComponent,
-        canActivate: [OnboardingGiftAidCompleteCheckSuccessGuard]
-      }
-    ]
-  },
-  {
-    path: 'bank-account-signing',
-    component: OnboardingRootComponent,
-    canActivate: [BankAccountSignInvitationIdRequiredGuard, BankAccountSignInvitationIdNotExpiredGuard],
-    resolve: { bankAccountHolder: OnboardingBankAccountHolderDetailResolver },
-    children: [
-      {
-        path: '',
-        outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountSigningIntroComponent
-      },
-      {
-        path: 'verify-personal-details',
-        outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountSigningVerifyPersonalDetailsComponent
-      },
-      {
-        path: 'verify-details',
-        outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountSigningVerifyDetailsComponent
-      },
-      {
-        path: 'intro-direct-debit-guarantee',
-        outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent,
-      },
-      {
-        path: 'details-incorrect',
-        outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountSigningDetailsIncorrectComponent,
-        canActivate: [BankAccountSignInvitationRejectedGuard]
-      },
-      {
-        path: 'direct-debit-guarantee',
-        outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountSigningDirectDebitGuaranteeComponent
-      },
-      {
-        path: 'completed',
-        outlet: 'onboarding-outlet',
-        component: OnboardingBankAccountSigningCompleteComponent,
-        canActivate: [BankAccountSignInvitationAcceptedGuard]
-      }
-    ]
-  }
+    },
+    {
+        path: 'bank-account-signing',
+        component: OnboardingRootComponent,
+        //canActivate: [BankAccountSignInvitationIdRequiredGuard, BankAccountSignInvitationIdNotExpiredGuard],
+        //resolve: { bankAccountHolder: OnboardingBankAccountHolderDetailResolver },
+        children: [
+            {
+                path: '',
+                outlet: 'onboarding-outlet',
+                component: OnboardingBankAccountSigningIntroComponent
+            },
+            {
+                path: 'verify-personal-details',
+                outlet: 'onboarding-outlet',
+                component: OnboardingBankAccountSigningVerifyPersonalDetailsComponent
+            },
+            {
+                path: 'verify-details',
+                outlet: 'onboarding-outlet',
+                component: OnboardingBankAccountSigningVerifyDetailsComponent
+            },
+            {
+                path: 'sign-agreement',
+                outlet: 'onboarding-outlet',
+                component: OnboardingBankAccountSigningAgreementComponent
+            },
+            {
+                path: 'intro-direct-debit-guarantee',
+                outlet: 'onboarding-outlet',
+                component: OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent,
+            },
+            {
+                path: 'details-incorrect',
+                outlet: 'onboarding-outlet',
+                component: OnboardingBankAccountSigningDetailsIncorrectComponent,
+                canActivate: [BankAccountSignInvitationRejectedGuard]
+            },
+            {
+                path: 'direct-debit-guarantee',
+                outlet: 'onboarding-outlet',
+                component: OnboardingBankAccountSigningDirectDebitGuaranteeComponent
+            },
+            {
+                path: 'completed',
+                outlet: 'onboarding-outlet',
+                component: OnboardingBankAccountSigningCompleteComponent,
+                canActivate: [BankAccountSignInvitationAcceptedGuard]
+            }
+        ]
+    }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
 })
 export class OnboardingRoutingModule { }
