@@ -1,28 +1,28 @@
 <form autocomplete="off" [formGroup]="form" class="justify-content-center w-100 h-100">
-    <app-custom-card titleTranslationKey="Agree on terms and conditions" iconBackgroundClass="circle-purple"
+    <app-custom-card titleTranslationKey="onboardingBankAccountSigningAgreementComponent.title" iconBackgroundClass="circle-purple"
         icon="fas fa-file-signature fa-4x" [showPreviousButton]="true" [showCloseButton]="true">
         <div body>
             <div class="form-row ml-2">
-                <p class="text-givt-purple text-light-font">
-                    When you click the following button, a window will open with the terms and conditions of the agreement on engaging with Givt. Please read and download them.
+                <p class="text-givt-purple text-light-font" translate>
+                    onboardingBankAccountSigningAgreementComponent.description
                 </p>
             </div>
             <div class="form-row justify-content-center">
-                <button (click)="showTerms()"
-                    class="btn align-self-end btn-lg bg-givt-purple text-white bottom-button">View terms</button>
+                <button (click)="showTerms()" translate
+                    class="btn align-self-end btn-lg bg-givt-purple text-white bottom-button">onboardingBankAccountSigningAgreementComponent.viewTermsButtonText</button>
             </div>
             <div class="form-row my-4 ml-2">
                 <div class="custom-control custom-switch">
                     <input type="checkbox" formControlName="acceptedTerms" class="custom-control-input"
                         id="acceptedTerms">
-                    <label class="pl-2 custom-control-label text-givt-purple text-heavy-font" for="acceptedTerms">
-                        I have read and agree to the terms</label>
+                    <label class="pl-2 custom-control-label text-givt-purple text-heavy-font" for="acceptedTerms" translate>
+                        onboardingBankAccountSigningAgreementComponent.agreeCheckBoxLabel</label>
                 </div>
             </div>
         </div>
         <button bottom (click)="handleAccept()" [disabled]="!form.value.acceptedTerms" [translate]
             class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
-            Next
+            onboardingBankAccountSigningAgreementComponent.nextButtonText
         </button>
     </app-custom-card>
 </form>
