@@ -15,13 +15,20 @@ import { whenVisibleValidator } from "src/app/shared/validators/when-visible.val
 })
 export class ContactRegistrationRoleComponent implements OnInit {
     public roles = [
-        { key: 1, value: "Financial" },
-        { key: 2, value: "Facilitating" },
-        { key: 3, value: "Communication" }
+        { key: 1, value: "contactRegistrationRoleComponent.firstOption" },
+        { key: 2, value: "contactRegistrationRoleComponent.secondOption" },
+        { key: 3, value: "contactRegistrationRoleComponent.thirdOption" }
+    ]
+
+    private roleExplanations = [
+        { key: 1, value: "contactRegistrationRoleComponent.firstOptionExplanation" },
+        { key: 2, value: "contactRegistrationRoleComponent.secondOptionExplanation" },
+        { key: 3, value: "contactRegistrationRoleComponent.thirdOptionExplanation" }
     ]
 
     public form: FormGroup;
     public showChoose = false;
+    public optionExplanation: string;
 
     private command: CreateCollectGroupContactCommand
 
@@ -39,7 +46,8 @@ export class ContactRegistrationRoleComponent implements OnInit {
     resetForm(roleType: number | null = null) {
         this.form = this.formBuilder.group({
             roleType: roleType,
-            chosenRoleInput: [null, [whenVisibleValidator(this.showChoose)]]
+            chosenRoleInput: [null, [whenVisibleValidator(this.showChoose)]],
+
         });
     }
 
@@ -57,6 +65,11 @@ export class ContactRegistrationRoleComponent implements OnInit {
     roleOptionChange(value: number) {
         this.showChoose = value == 0;
         this.resetForm(value);
+        if (value > 0) {
+            this.optionExplanation = this.roleExplanations.find(x => x.key == value).value;
+        } else {
+            this.optionExplanation = "";
+        }
     }
 
     handleInvalidForm() {
