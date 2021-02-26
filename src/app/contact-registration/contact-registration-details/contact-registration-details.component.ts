@@ -14,6 +14,7 @@ import { ContactRegistrationStateService } from "../services/contact-registratio
 })
 export class ContactRegistrationDetailsComponent implements OnInit {
     public form: FormGroup;
+    public loading: boolean;
     private command: CreateCollectGroupContactCommand
 
     constructor(private formBuilder: FormBuilder,
@@ -23,6 +24,7 @@ export class ContactRegistrationDetailsComponent implements OnInit {
         private toastr: ToastrService) { }
 
     ngOnInit(): void {
+        this.loading = false;
         this.command = this.stateService.currentContactRegistrationInformation
         this.form = this.formBuilder.group({
             firstName: [null, [Validators.required, Validators.minLength(1)]],
@@ -38,7 +40,7 @@ export class ContactRegistrationDetailsComponent implements OnInit {
                 .subscribe(msg => this.toastr.warning(msg));
             return;
         }
-
+        this.loading = true;
         this.command.Email = this.form.value.email;
         this.command.FirstName = this.form.value.firstName;
         this.command.LastName = this.form.value.lastName;

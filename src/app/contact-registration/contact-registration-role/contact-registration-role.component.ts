@@ -51,15 +51,17 @@ export class ContactRegistrationRoleComponent implements OnInit {
         });
     }
 
-    submit() { 
+    async submit() { 
         if (this.form.invalid) {
             this.handleInvalidForm();
             return;
         }
 
-        this.command.Role = this.form.value.chosenRoleInput?.length > 0 ? this.form.value.chosenRoleInput : this.roles.find(x => x.key == this.form.value.roleType).value
-        this.stateService.currentContactRegistrationInformation = this.command
-        this.router.navigate(['/','contact-registration','details'])
+        this.command.Role = this.form.value.chosenRoleInput?.length > 0
+            ? this.form.value.chosenRoleInput
+            : await this.translationService.get(this.roles.find(x => x.key == this.form.value.roleType).value).toPromise();
+        this.stateService.currentContactRegistrationInformation = this.command;
+        this.router.navigate(['/', 'contact-registration', 'details']);
     }
 
     roleOptionChange(value: number) {
