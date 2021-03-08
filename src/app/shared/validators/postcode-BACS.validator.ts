@@ -1,9 +1,8 @@
 import { ValidatorFn, AbstractControl } from '@angular/forms';
-import { isNullOrUndefined } from 'util';
 
 export function postCodeBACSValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: boolean } | null => {
-    if (isNullOrUndefined(control.value))
+    if (control.value === null || control.value === undefined)
       return { invalidPostCode: true };
     let enteredValue = control.value.trim();
     if (enteredValue == "" || !enteredValue.includes(" ") || !isValidBACSPostCode(enteredValue))

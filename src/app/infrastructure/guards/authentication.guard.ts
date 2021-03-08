@@ -1,6 +1,5 @@
 import { Router, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate } from '@angular/router';
 import { ApplicationStateService } from '../services/application-state.service';
-import { isNullOrUndefined } from 'util';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -10,8 +9,8 @@ export class AuthenticationGuard implements CanActivate {
     constructor(private router: Router, private applicationStateService: ApplicationStateService) { }
 
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        var authenticated = !isNullOrUndefined(this.applicationStateService.currentTokenModel)
-            && !isNullOrUndefined(this.applicationStateService.currentUserModel);
+        var authenticated = this.applicationStateService.currentTokenModel !== null && this.applicationStateService.currentTokenModel !== undefined
+            && !this.applicationStateService.currentUserModel !== null && this.applicationStateService.currentUserModel !== undefined;
 
         if (!authenticated) {
             console.error('Failed to satisfy the authentication guard');

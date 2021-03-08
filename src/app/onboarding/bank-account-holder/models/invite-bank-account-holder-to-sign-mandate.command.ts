@@ -1,4 +1,4 @@
-interface InviteBankAccountHolderToSignMandateCommand {
+export interface InviteBankAccountHolderToSignMandateCommand {
     firstName:string;
     lastName:string;
     emailAddress:string;

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { AddBankAccountToOrganisationCommand } from '../models/add-bank-account-to-organisation.command';
 @Injectable({
     providedIn: 'root'
 })
@@ -10,7 +10,6 @@ export class OnboardingBankAccountStateService {
         this.storage.removeItem('OnboardingBankAccountStateService.currentBankAccountModel');
     }
 
-    
     public get currentBankAccountModel(): AddBankAccountToOrganisationCommand {
         const key = 'OnboardingBankAccountStateService.currentBankAccountModel';
         const serializedRequest = JSON.parse(this.storage.getItem(key));

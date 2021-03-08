@@ -8,16 +8,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardCompleteAccountWidgetComponent } from './components/dashboard-complete-account-widget/dashboard-complete-account-widget.component';
 import { DashboardTileWidgetComponent } from './components/dashboard-tile-widget/dashboard-tile-widget.component';
 import { DashboardLinkButtonComponent } from './components/dashboard-link-button/dashboard-link-button.component';
-
-
-
+import { CollectGroupDashboardHomeComponent } from './collect-group-dashboard-home/collect-group-dashboard-home.component';
+import { CollectGroupDashboardPeopleComponent } from './collect-group-dashboard-people/collect-group-dashboard-people.component';
 @NgModule({
-  declarations: [ DashboardHomeComponent, DashboardRootComponent, DashboardCompleteAccountWidgetComponent,  DashboardTileWidgetComponent, DashboardLinkButtonComponent],
-  imports: [
-    DashboardRoutingModule,
-    CommonModule,
-    ReactiveFormsModule,
-    SharedModule
-  ]
+    declarations: [
+        CollectGroupDashboardHomeComponent,
+        CollectGroupDashboardPeopleComponent,
+        DashboardHomeComponent,
+        DashboardRootComponent,
+        DashboardCompleteAccountWidgetComponent,
+        DashboardTileWidgetComponent,
+        DashboardLinkButtonComponent
+    ],
+    imports: [ DashboardRoutingModule, CommonModule, ReactiveFormsModule, SharedModule ]
 })
 export class DashboardModule { }

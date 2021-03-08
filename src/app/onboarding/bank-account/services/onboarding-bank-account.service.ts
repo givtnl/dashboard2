@@ -3,6 +3,7 @@ import { BackendService } from 'src/app/infrastructure/services/backend.service'
 import { Observable } from 'rxjs';
 import { OnboardingBankAccountRegistrationResponseModel } from '../models/onboarding-bank-account-registration-response.model';
 import { CreatedResponseModel } from 'src/app/infrastructure/models/response.model';
+import { AddBankAccountToOrganisationCommand } from '../models/add-bank-account-to-organisation.command';
 
 @Injectable({
     providedIn:'root'

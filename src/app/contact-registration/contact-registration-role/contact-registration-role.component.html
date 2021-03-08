@@ -1,0 +1,29 @@
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'>
+    <app-custom-card [showCloseButton]="true" titleTranslationKey="contactRegistrationRoleComponent.title" [showPreviousButton]="true"
+        iconBackgroundClass="circle-yellow" icon="fas fa-user-tag fa-5x">
+        <div body>
+            <div class="form-row justify-content-center">
+                <div class="form-group col-7">
+                    <select class="givt-drop-down form-control mb-3 shadow text-givt-purple" formControlName="roleType" (change)="roleOptionChange($event.target.value)">
+                        <option translate value="null" disabled>contactRegistrationRoleComponent.chooseRoleOption</option>
+                        <option *ngFor="let role of roles" translate value="{{role.key}}">{{role.value}}</option>
+                        <!--<option translate value="0">contactRegistrationRoleComponent.otherOption</option>-->
+                    </select>
+                </div>
+            </div>
+            <div *ngIf="showChoose" class="form-row justify-content-center">
+                <div class="form-group col-7">
+                    <input type="text" class="form-control mb-3 shadow text-givt-purple" formControlName="chosenRoleInput" >
+                </div>
+            </div>
+            <div class="form-row justify-content-center mx-4 text-givt-purple text-justify" translate>
+                {{ optionExplanation }}
+            </div>
+        </div>
+        <button bottom type="submit" class="btn btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
+            <span class="text-white text-heavy-font" translate>
+                contactRegistration.nextButton
+            </span>
+        </button>
+    </app-custom-card>
+</form>

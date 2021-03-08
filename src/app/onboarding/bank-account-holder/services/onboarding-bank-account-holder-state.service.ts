@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BankAccountListModel } from 'src/app/bank-accounts/models/bank-account-list.model';
-
-
+import { InviteBankAccountHolderToSignMandateCommand } from '../models/invite-bank-account-holder-to-sign-mandate.command';
 @Injectable({
     providedIn: 'root'
 })

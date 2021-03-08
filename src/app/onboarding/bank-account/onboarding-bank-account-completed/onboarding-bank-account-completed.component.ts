@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { AddBankAccountToOrganisationCommand } from '../models/add-bank-account-to-organisation.command';
 import { OnboardingBankAccountStateService } from '../services/onboarding-bank-account-state.service';
 
 @Component({

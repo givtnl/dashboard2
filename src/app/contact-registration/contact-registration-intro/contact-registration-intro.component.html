@@ -1,0 +1,12 @@
+<app-custom-card [showCloseButton]="true" titleTranslationKey="contactRegistrationIntroComponent.title" [showPreviousButton]="true"  iconBackgroundClass="circle-yellow" icon="fas fa-user-tag fa-5x">
+    <div body>
+        <div class="row justify-content-center">
+            <div class="col-md-9 text-givt-purple" translate>contactRegistrationIntroComponent.introText
+            </div>
+        </div>
+    </div>
+    <a bottom [translate] class="btn btn-lg bg-givt-green text-white text-heavy-font w-75 m-0"
+        [routerLink]="['/', 'contact-registration', 'role']">
+        contactRegistration.nextButton
+    </a>
+</app-custom-card>

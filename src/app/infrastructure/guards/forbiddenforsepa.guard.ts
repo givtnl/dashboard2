@@ -1,11 +1,6 @@
 import { Router, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate } from '@angular/router';
 import { ApplicationStateService } from '../services/application-state.service';
-import { isNullOrUndefined } from 'util';
 import { Injectable } from '@angular/core';
-import { throwError, Observable, of } from 'rxjs';
-import { ErrorMessages } from '../enums/error-messages.enum';
-import { environment } from 'src/environments/environment';
-import { CollectGroupsService } from 'src/app/collect-groups/services/collect-groups.service';
 import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
 
 @Injectable({

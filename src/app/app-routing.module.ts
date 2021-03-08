@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthenticationGuard } from './infrastructure/guards/authentication.guard';
-import { environment } from 'src/environments/environment';
 import { TempUserGuard } from './infrastructure/guards/tempuser.guard';
-import { ForbiddenForSepaGuard } from './infrastructure/guards/forbiddenforsepa.guard';
 
 const routes: Routes = [
     {
@@ -23,9 +21,13 @@ const routes: Routes = [
         loadChildren: () => import('./system/system.module').then(mod => mod.SystemModule)
     },
     {
+        path: 'contact-registration',
+        loadChildren: () => import('./contact-registration/contact-registration.module').then(mod => mod.ContactRegistrationModule)
+    },
+    {
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule),
-        canActivate: [AuthenticationGuard, TempUserGuard, ForbiddenForSepaGuard]
+        canActivate: [AuthenticationGuard, TempUserGuard]
     },
     {
         path: '',
@@ -39,7 +41,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,0 +1,51 @@
+<div class="container-fluid h-100 d-flex flex-column">
+    <div class="row pt-5">
+        <div class="col-12">
+            <h2 class="text-font-light text-givt-purple">
+                {{ pageTitle }}</h2>
+        </div>
+    </div>
+    <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="mx-4 my-4">
+        <div class="py-3 form-row background-gradient-blue rounded-top-right">
+            <div class="px-3 text-white text-heavy-font d-flex col-2" translate>
+                collectGroupDashboardPeopleComponent.columnHeaderOne
+            </div>
+            <div class="px-3 text-white text-heavy-font d-flex col-2" translate>
+                collectGroupDashboardPeopleComponent.columnHeaderTwo
+            </div>
+            <div class="px-3 text-white text-heavy-font d-flex col-2" translate>
+                collectGroupDashboardPeopleComponent.columnHeaderThree
+            </div>
+            <div class="px-3 text-white text-heavy-font d-flex col-2" translate>
+                collectGroupDashboardPeopleComponent.columnHeaderFour
+            </div>
+            <div class="px-3 text-white text-heavy-font d-flex col-2" translate>
+                collectGroupDashboardPeopleComponent.columnHeaderFive
+            </div>
+        </div>
+        <div formArrayName="contactPersons">
+            <div *ngFor="let item of contactPersons.controls; let contactIndex=index" [formGroupName]="contactIndex" 
+                [ngClass]="{'bg-grey': contactIndex % 2 == 0, 'bg-white': contactIndex % 2 == 1}" class="border-bottom form-row py-3">
+                <div class="px-3 text-givt-purple d-flex col-2">
+                    {{ item.value.Role }}
+                </div>
+                <div class="px-3 text-givt-purple d-flex col-2">
+                    {{ item.value.FirstName }}
+                </div>
+                <div class="px-3 text-givt-purple d-flex col-2">
+                    {{ item.value.LastName }}
+                </div>
+                <div class="px-3 text-givt-purple d-flex col-2">
+                    {{ item.value.Email }}
+                </div>
+                <div class="px-3 text-givt-purple d-flex col-2">
+                    {{ item.value.Telephone }}
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="col-xl-2 col-sm-7 col-lg-4 col-md-5 mb-3 col-8">
+        <app-dashboard-link-button text="{{ 'collectGroupDashboardPeopleComponent.addContactButtonText' | translate }}"
+            [route]="['/', 'contact-registration']" icon="fas fa-plus mr-3"></app-dashboard-link-button>
+    </div>    
+</div>

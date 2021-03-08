@@ -1,0 +1,12 @@
+<app-custom-card [showCloseButton]="true" titleTranslationKey="contactRegistrationDoneComponent.title"
+    iconBackgroundClass="circle-green" icon="fas fa-check fa-5x">
+    <div body>
+        <div class="row justify-content-center">
+            <div translate class="text-givt-purple">contactRegistrationDoneComponent.text</div>
+        </div>
+    </div>
+    <a bottom translate class="btn btn-lg bg-givt-green text-white text-heavy-font w-75 m-0"
+        [routerLink]="['/', 'dashboard', 'root', { outlets: { 'dashboard-outlet': ['collect-group-people']}}]">
+        contactRegistrationDoneComponent.finishButton
+    </a>
+</app-custom-card>
