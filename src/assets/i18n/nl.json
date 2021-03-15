@@ -336,9 +336,9 @@
     "onboardingOrganisationDetailsAddressComponent.labels.address": "Straat en huisnummer",
     "onboardingOrganisationDetailsAddressComponent.labels.city": "Stad",
     "onboardingOrganisationDetailsAddressComponent.labels.postcode": "Postcode",
-    "onboardingOrganisationDetailsAddressComponent.countrys.GB": "Verenigd Koninkrijk",
-    "onboardingOrganisationDetailsAddressComponent.countrys.GG": "Guernsey",
-    "onboardingOrganisationDetailsAddressComponent.countrys.JE": "Jersey",
+    "onboardingOrganisationDetailsAddressComponent.countries.GB": "Verenigd Koninkrijk",
+    "onboardingOrganisationDetailsAddressComponent.countries.GG": "Guernsey",
+    "onboardingOrganisationDetailsAddressComponent.countries.JE": "Jersey",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.selectRegulator": "Selecteer regulator",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.referenceWithRegulator": "Referentie met regulator",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.referenceWithParent": "Referentie met hoofd organisatie",
@@ -438,5 +438,8 @@
     "contactRegistrationRoleComponent.secondOption": "Financieel",
     "contactRegistrationRoleComponent.secondOptionExplanation": "Dit zijn de mensen die zorgen voor het financiële plaatje binnen jullie organisatie. Als er bijvoorbeeld iets verandert op het Givt-dashboard willen deze mensen dat weten. Het toevoegen van deze rol zorgt ervoor dat deze persoon automatisch een uitnodiging voor het Givt-dashboard krijgt.",
     "contactRegistrationRoleComponent.thirdOption": "Communicatie",
-    "contactRegistrationRoleComponent.thirdOptionExplanation": "Dit zijn de mensen die zich bezighouden met de communicatie met jullie bezoekers of doelgroep. Denk hierbij aan jullie website, nieuwsblad of het organiseren van samenkomsten. Als we bijvoorbeeld tips & tricks hebben voor het organiseren van de collecte of fondsenwerving kunnen deze mensen daarmee aan de slag."
+    "contactRegistrationRoleComponent.thirdOptionExplanation": "Dit zijn de mensen die zich bezighouden met de communicatie met jullie bezoekers of doelgroep. Denk hierbij aan jullie website, nieuwsblad of het organiseren van samenkomsten. Als we bijvoorbeeld tips & tricks hebben voor het organiseren van de collecte of fondsenwerving kunnen deze mensen daarmee aan de slag.",
+    "onboardingOrganisationDetailsAddressComponent.countries.BE": "België",
+    "onboardingOrganisationDetailsAddressComponent.countries.NL": "Nederland",
+    "onboardingOrganisationDetailsAddressComponent.countries.DE": "Duitsland"
 }
