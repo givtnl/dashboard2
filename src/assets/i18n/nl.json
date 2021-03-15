@@ -349,9 +349,9 @@
     "onboardingOrganisationDetailsVerifyOrganisationNameComponent.next": "Volgende",
     "onboardingOrganisationDetailsAddressComponent.title": "Adres van de organisatie",
     "onboardingOrganisationDetailsAddressComponent.subtitle": "Om de organisatie met succes aan te sluiten, hebben we jullie officiële adres nodig.",
-    "onboardingOrganisationDetailsAddressComponent.placeholders.address": "Bv.: Noordersluisweg 27",
-    "onboardingOrganisationDetailsAddressComponent.placeholders.city": "Bv.: Lelystad",
-    "onboardingOrganisationDetailsAddressComponent.placeholders.postcode": "Bv.: 8243 PR",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.address": "Straat en nummer",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.city": "Stad",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.postcode": "Postcode",
     "onboardingOrganisationDetailsCharityDetailsComponent.title": "Charity details",
     "onboardingOrganisationDetailsCharityDetailsComponent.subtitle": "Als laatste hebben we ook nog even je charity-details nodig.\nDit omvat o.a. de regulator waarbij jullie zijn aangesloten en eventuele referenties met andere organisaties.",
     "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithHMRC": "HMRC reference (Charity Id)",
@@ -441,5 +441,6 @@
     "contactRegistrationRoleComponent.thirdOptionExplanation": "Dit zijn de mensen die zich bezighouden met de communicatie met jullie bezoekers of doelgroep. Denk hierbij aan jullie website, nieuwsblad of het organiseren van samenkomsten. Als we bijvoorbeeld tips & tricks hebben voor het organiseren van de collecte of fondsenwerving kunnen deze mensen daarmee aan de slag.",
     "onboardingOrganisationDetailsAddressComponent.countries.BE": "België",
     "onboardingOrganisationDetailsAddressComponent.countries.NL": "Nederland",
-    "onboardingOrganisationDetailsAddressComponent.countries.DE": "Duitsland"
+    "onboardingOrganisationDetailsAddressComponent.countries.DE": "Duitsland",
+    "onboardingOrganisationDetailsAddressComponent.countries.IE": "Ierland"
 }
