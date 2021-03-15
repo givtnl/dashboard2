@@ -50,10 +50,9 @@
         </div>
         <div class="card-footer border-0 bg-transparent pb-4 px-4 d-flex justify-content-end">
           <button bottom type="submit" [translate]
-            class="px-4 btn btn-lg bg-givt-purple text-white text-heavy-font bottom-button px-5">
-            <!-- [disabled]="loading" -->
+            class="px-4 btn btn-lg bg-givt-purple text-white text-heavy-font bottom-button px-5" [disabled]="loading">
             <span class="text-white text-heavy-font" translate>
-              <!-- <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i> -->
+              <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
               onboardingOrganisationDetailsVerifyOrganisationNameComponent.next
             </span>
           </button>

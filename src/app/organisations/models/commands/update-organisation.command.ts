@@ -9,9 +9,11 @@ export interface UpdateOrganisationCommand {
     AddressLine4: string; // ????
     AddressLine5: string; // ????
     PostalCode: string;
-    CharityCommissionNumber: string;
+    CharityCommissionNumber?: string;
     Country?: string;
     Regulator?: OrganisationRegulator;
     ReferenceWithParent?: string;
     CharityId?: string | null;
+    RSIN?: string;
+    TaxDeductable?: boolean;
 }

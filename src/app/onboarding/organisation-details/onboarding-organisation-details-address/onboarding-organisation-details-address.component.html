@@ -1,5 +1,6 @@
 <form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()'>
-    <app-custom-card-v2 titleTranslationKey="onboardingOrganisationDetailsAddressComponent.title" description="onboardingOrganisationDetailsAddressComponent.subtitle" showPreviousButton="true">
+    <app-custom-card-v2 titleTranslationKey="onboardingOrganisationDetailsAddressComponent.title" description="onboardingOrganisationDetailsAddressComponent.subtitle" 
+        showPreviousButton="true" [loading]="loading">
         <div body>
             <div class="form-row">
                 <div class="form-group col-md-12">
@@ -16,16 +17,11 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-5">
-                    <select class="form-control form-control-lg shadow text-givt-purple" formControlName="country">
+                    <select class="givt-drop-down form-control form-control-lg shadow text-givt-purple" formControlName="country">
                         <option value="null" disabled>
                             {{'onboardingOrganisationDetailsAddressComponent.labels.selectCountry' | translate}}
                         </option>
-                        <option translate value="GB">onboardingOrganisationDetailsAddressComponent.countrys.GB
-                        </option>
-                        <option translate value="GG">onboardingOrganisationDetailsAddressComponent.countrys.GG
-                        </option>
-                        <option translate value="JE">onboardingOrganisationDetailsAddressComponent.countrys.JE
-                        </option>
+                        <option *ngFor="let c of countries" value="{{c[1]}}">{{c[0]}}</option>
                     </select>
                 </div>
             </div>

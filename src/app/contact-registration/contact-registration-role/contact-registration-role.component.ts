@@ -5,7 +5,7 @@ import { CreateCollectGroupContactCommand } from "src/app/collect-group-contacts
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { TranslateService } from "@ngx-translate/core";
-import { whenVisibleValidator } from "src/app/shared/validators/when-visible.validator";
+import { onConditionValidator } from "src/app/shared/validators/on-condition.validator";
 
 
 @Component({
@@ -46,7 +46,7 @@ export class ContactRegistrationRoleComponent implements OnInit {
     resetForm(roleType: number | null = null) {
         this.form = this.formBuilder.group({
             roleType: roleType,
-            chosenRoleInput: [null, [whenVisibleValidator(this.showChoose)]],
+            chosenRoleInput: [null, [onConditionValidator(this.showChoose)]],
 
         });
     }

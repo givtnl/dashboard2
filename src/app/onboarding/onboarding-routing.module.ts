@@ -63,6 +63,7 @@ import { OnboardingDetailsFetchRelationshipRulesResolver } from './organisation-
 import { OnboardingOrganisationDetailsNotifyRelationshipGuard } from './organisation-details/guards/onboarding-organisation-details-notify-relationship.guard';
 import { OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent } from './bank-account-signing/onboarding-bank-account-signing-intro-direct-debit-guarantee/onboarding-bank-account-signing-intro-direct-debit-guarantee.component';
 import { OnboardingBankAccountSigningAgreementComponent } from './bank-account-signing/onboarding-bank-account-signing-agreement/onboarding-bank-account-signing-agreement.component';
+import { OnboardingOrganisationDetailsAnbiComponent } from './organisation-details/onboarding-organisation-details-anbi/onboarding-organisation-details-anbi.component';
 
 const routes: Routes = [
     {
@@ -127,7 +128,7 @@ const routes: Routes = [
             {
                 path: '',
                 outlet: 'onboarding-outlet',
-                resolve: { relationshipRules: OnboardingDetailsFetchRelationshipRulesResolver },
+                resolve: { relationshipRules: OnboardingDetailsFetchRelationshipRulesResolver, currentOrganisation: OnboardingDetailsFetchOrganisationResolver },
                 component: OnboardingOrganisationDetailsIntroComponent,
             },
             {
@@ -141,7 +142,6 @@ const routes: Routes = [
             {
                 path: 'verify-organisation-name',
                 outlet: 'onboarding-outlet',
-                resolve: { currentOrganisation: OnboardingDetailsFetchOrganisationResolver },
                 component: OnboardingOrganisationDetailsVerifyOrganisationNameComponent
             },
             {
@@ -154,6 +154,11 @@ const routes: Routes = [
                 path: 'charity-details',
                 outlet: 'onboarding-outlet',
                 component: OnboardingOrganisationDetailsCharityDetailsComponent
+            },
+            {
+                path: 'anbi',
+                outlet: 'onboarding-outlet',
+                component: OnboardingOrganisationDetailsAnbiComponent
             },
             {
                 path: 'check-details',
