@@ -349,9 +349,9 @@
     "onboardingOrganisationDetailsVerifyOrganisationNameComponent.next": "Next",
     "onboardingOrganisationDetailsAddressComponent.title": "Organisation address",
     "onboardingOrganisationDetailsAddressComponent.subtitle": "To fully join your organisation, we need to know the registered address of your local organisation.",
-    "onboardingOrganisationDetailsAddressComponent.placeholders.address": "E.g.: Givt Ltd., Blackthorne House, 2 St Pauls Square",
-    "onboardingOrganisationDetailsAddressComponent.placeholders.city": "E.g.: St Albans",
-    "onboardingOrganisationDetailsAddressComponent.placeholders.postcode": "E.g.: AL1 3LF",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.address": "Strasse und Hausnummer",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.city": "Stadt",
+    "onboardingOrganisationDetailsAddressComponent.placeholders.postcode": "Postleitzahl",
     "onboardingOrganisationDetailsCharityDetailsComponent.title": "Charity details",
     "onboardingOrganisationDetailsCharityDetailsComponent.subtitle": "In this final step, we need you to fill in your charity-details.\nThese include, among others, the regulator and any references with other organisations.",
     "onboardingOrganisationDetailsCharityDetailsComponent.placeholders.referenceWithHMRC": "HMRC reference no. (Gift Aid)",
@@ -441,5 +441,6 @@
     "contactRegistrationRoleComponent.thirdOptionExplanation": "These are the people who are responsible for the communication with your visitors or your target audience. Think f.i. website, newsletter or organising events. These people will easily get started with our tips & tricks for organising giving moments or fundraising.",
     "onboardingOrganisationDetailsAddressComponent.countries.BE": "Belgien",
     "onboardingOrganisationDetailsAddressComponent.countries.NL": "Die Niederlande",
-    "onboardingOrganisationDetailsAddressComponent.countries.DE": "Deutschland"
+    "onboardingOrganisationDetailsAddressComponent.countries.DE": "Deutschland",
+    "onboardingOrganisationDetailsAddressComponent.countries.IE": "Irland"
 }
