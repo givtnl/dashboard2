@@ -1,23 +1,83 @@
 .border-radius-40 {
     border-radius: 40px;
+    border-style: none;
 }
 
-.widget-background-1 {
-    background: rgb(89, 86, 140); /* Old browsers */
-    background: -moz-linear-gradient(-180deg, rgb(89, 86, 140) 0%, rgb(75, 145, 203) 100%); /* FF3.6-15 */
+.widget-background-church {
+    background: #59568c; /* Old browsers */
+    background: -moz-linear-gradient(-180deg,#59568c 0%, #4b91cb 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(
         -180deg,
-        rgb(89, 86, 140) 0%,
-        rgb(75, 145, 203) 100%
+        #59568c 0%,
+        #4b91cb 100%
     ); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(
         20deg,
-        rgb(89, 86, 140) 0%,
-        rgb(75, 145, 203) 100%
+        #59568c 0%,
+        #4b91cb 100%
     ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--background-grey)', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#59568c', endColorstr='#4b91cb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.widget-background-charity {
+    background: #5A5387; /* Old browsers */
+    background: -moz-linear-gradient(-180deg,#5A5387 0%, #D43D4C 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+        -180deg,
+        #5A5387 0%,
+        #D43D4C 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+        20deg,
+        #5A5387 0%,
+        #D43D4C 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5A5387', endColorstr='#D43D4C',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.widget-background-artist {
+    background: #1DA96C; /* Old browsers */
+    background: -moz-linear-gradient(-180deg,#1DA96C 0%, #F4BF63 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+        -180deg,
+        #1DA96C 0%,
+        #F4BF63 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+        20deg,
+        #1DA96C 0%,
+        #F4BF63 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1DA96C', endColorstr='#F4BF63',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.widget-background-campaign {
+    background: #F17057; /* Old browsers */
+    background: -moz-linear-gradient(-180deg,#F17057 0%, #FFB12A 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+        -180deg,
+        #F17057 0%,
+        #FFB12A 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+        20deg,
+        #F17057 0%,
+        #FFB12A 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5A5387', endColorstr='#FFB12A',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.widget-background-image {
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 30%;
 }
 
 .card:hover {
     cursor: pointer;
+    opacity: 70%;
+}
+
+.card {
+    opacity: 100%;
 }
