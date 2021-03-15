@@ -336,9 +336,9 @@
     "onboardingOrganisationDetailsAddressComponent.labels.address": "House number and street",
     "onboardingOrganisationDetailsAddressComponent.labels.city": "City/Town",
     "onboardingOrganisationDetailsAddressComponent.labels.postcode": "Postcode",
-    "onboardingOrganisationDetailsAddressComponent.countrys.GB": "United Kingdom",
-    "onboardingOrganisationDetailsAddressComponent.countrys.GG": "Guernsey",
-    "onboardingOrganisationDetailsAddressComponent.countrys.JE": "Jersey",
+    "onboardingOrganisationDetailsAddressComponent.countries.GB": "United Kingdom",
+    "onboardingOrganisationDetailsAddressComponent.countries.GG": "Guernsey",
+    "onboardingOrganisationDetailsAddressComponent.countries.JE": "Jersey",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.selectRegulator": "Select regulator",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.referenceWithRegulator": "Reference with regulator",
     "onboardingOrganisationDetailsCharityDetailsComponent.labels.referenceWithParent": "Reference with parent",
@@ -438,5 +438,8 @@
     "contactRegistrationRoleComponent.secondOption": "Financial",
     "contactRegistrationRoleComponent.secondOptionExplanation": "These are the people who take care of the financials in your organisation. If something changes on the Givt dashboard, these people will want to know. The person you add for this role will automatically receive an invite to login on the Givt dashboard.",
     "contactRegistrationRoleComponent.thirdOption": "Communications",
-    "contactRegistrationRoleComponent.thirdOptionExplanation": "These are the people who are responsible for the communication with your visitors or your target audience. Think f.i. website, newsletter or organising events. These people will easily get started with our tips & tricks for organising giving moments or fundraising."
+    "contactRegistrationRoleComponent.thirdOptionExplanation": "These are the people who are responsible for the communication with your visitors or your target audience. Think f.i. website, newsletter or organising events. These people will easily get started with our tips & tricks for organising giving moments or fundraising.",
+    "onboardingOrganisationDetailsAddressComponent.countries.BE": "Belgium",
+    "onboardingOrganisationDetailsAddressComponent.countries.NL": "The Netherlands",
+    "onboardingOrganisationDetailsAddressComponent.countries.DE": "Germany"
 }
