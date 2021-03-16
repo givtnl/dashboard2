@@ -445,5 +445,6 @@
     "onboardingOrganisationDetailsAddressComponent.countries.IE": "Ireland",
     "dashboardTileWidgetComponent.goToDashboard": "Go to dashboard of",
     "onboardingOrganisationDetailsAnbiComponent.description": "Does your organisation have the ANBI status?",
-    "onboardingOrganisationDetailsAnbiComponent.title": "ANBI status"
+    "onboardingOrganisationDetailsAnbiComponent.title": "ANBI status",
+    "onboardingOrganisationDetailsAnbiComponent.errorRSIN": "Please fill in the RSIN number."
 }
