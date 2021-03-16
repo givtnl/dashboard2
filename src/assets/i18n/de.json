@@ -442,5 +442,6 @@
     "onboardingOrganisationDetailsAddressComponent.countries.BE": "Belgien",
     "onboardingOrganisationDetailsAddressComponent.countries.NL": "Die Niederlande",
     "onboardingOrganisationDetailsAddressComponent.countries.DE": "Deutschland",
-    "onboardingOrganisationDetailsAddressComponent.countries.IE": "Irland"
+    "onboardingOrganisationDetailsAddressComponent.countries.IE": "Irland",
+    "dashboardTileWidgetComponent.goToDashboard": "Go to dashboard of"
 }
