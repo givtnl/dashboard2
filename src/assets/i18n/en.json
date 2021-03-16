@@ -146,7 +146,7 @@
     "onboardingOrganisationDetailsVerifyComponent.title": "Check the details",
     "onboardingOrganisationDetailsVerifyComponent.orgDetails": "Organisation details",
     "onboardingOrganisationDetailsVerifyComponent.yesNoQuestion": "Are the details correct?",
-    "onboardingOrganisationDetailsIntroComponent.title": "Verify the organisation details",
+    "onboardingOrganisationDetailsIntroComponent.title": "Check and add the organisation details",
     "onboardingOrganisationDetailsIntroComponent.description": "In the following screens you will need to enter your organisation details. This can be done through a charity commission reference (if not using from another organisation) or by entering the details of your organisation manually.",
     "onboardingOrganisationDetailsIntroComponent.startButtonText": "Start",
     "onboardingOrganisationDetailsIncorrectComponent.title": "You marked some organisation details as incorrect.",
@@ -443,5 +443,7 @@
     "onboardingOrganisationDetailsAddressComponent.countries.NL": "The Netherlands",
     "onboardingOrganisationDetailsAddressComponent.countries.DE": "Germany",
     "onboardingOrganisationDetailsAddressComponent.countries.IE": "Ireland",
-    "dashboardTileWidgetComponent.goToDashboard": "Go to dashboard of"
+    "dashboardTileWidgetComponent.goToDashboard": "Go to dashboard of",
+    "onboardingOrganisationDetailsAnbiComponent.description": "Does your organisation have the ANBI status?",
+    "onboardingOrganisationDetailsAnbiComponent.title": "ANBI status"
 }
