@@ -38,7 +38,7 @@ export class OnboardingOrganisationDetailsAnbiComponent implements OnInit {
 
     submit(): void {
         if (this.form.invalid) {
-            this.translationService.get("Please fill in the RSIN number.")
+            this.translationService.get("onboardingOrganisationDetailsAnbiComponent.errorRSIN")
                 .subscribe(msg => this.toastr.warning(msg));
             return;
         }
