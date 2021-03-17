@@ -37,7 +37,7 @@
     "errorMessages.accountnumber-length": "Je hebt een ongeldig accountnummer ingevuld.\nEen accountnummer bestaat uit 8 tekens.",
     "errorMessages.accountname-required": "Gelieve de naam van de rekening op te geven",
     "placeholders.bankAccountNumberIBAN": "IBAN-rekeningnummer",
-    "placeholders.bankAccountName": "Accountnaam zoals op een bank afschrift",
+    "placeholders.bankAccountName": "Naam van de rekeninghouder zoals op een bankafschrift",
     "placeholders.sortCode": "Sort code",
     "placeholders.accountNumber": "Account nummer",
     "onboardingBankAccountIntroComponent.title": "Bankrekening toevoegen",
@@ -445,5 +445,7 @@
     "onboardingOrganisationDetailsAddressComponent.countries.IE": "Ierland",
     "dashboardTileWidgetComponent.goToDashboard": "Ga naar dashboard van",
     "onboardingOrganisationDetailsAnbiComponent.description": "Heeft jullie organisatie de ANBI-status?",
-    "onboardingOrganisationDetailsAnbiComponent.title": "ANBI-status"
+    "onboardingOrganisationDetailsAnbiComponent.title": "ANBI-status",
+    "onboardingOrganisationDetailsAnbiComponent.errorRSIN": "Vul aub het RSIN-nummer in.",
+    "errorMessages.iban-checksum": "Dit IBAN is niet geldig."
 }
