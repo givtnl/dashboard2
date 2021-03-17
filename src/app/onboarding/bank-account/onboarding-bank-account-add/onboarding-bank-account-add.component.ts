@@ -7,7 +7,7 @@ import { tap, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { fixedLengthValidator } from '../../../shared/validators/fixed-length.validator';
 import { OnboardingBankAccountStateService } from '../services/onboarding-bank-account-state.service';
-import { OnboardingBankAccountRegistrationResponseModel } from '../models/onboarding-bank-account-registration-response.model';
+import { BankAccountListModel } from 'src/app/bank-accounts/models/bank-account-list.model';
 
 @Component({
   selector: 'app-onboarding-bank-account-add',
@@ -28,7 +28,7 @@ export class OnboardingBankAccountAddComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const currentBankDetails = this.route.parent.snapshot.data.bankaccount as OnboardingBankAccountRegistrationResponseModel;
+    const currentBankDetails = this.route.parent.snapshot.data.bankaccount as BankAccountListModel;
 
     this.form = this.formBuilder.group({
       sortCode: [currentBankDetails == null ? null : currentBankDetails.SortCode, [Validators.required, fixedLengthValidator(6)]],

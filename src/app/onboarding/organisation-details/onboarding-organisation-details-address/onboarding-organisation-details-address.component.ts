@@ -10,7 +10,8 @@ import { ToastrService } from 'ngx-toastr';
 import { postCodeBACSValidator } from 'src/app/shared/validators/postcode-BACS.validator';
 import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
 import { RelationshipType } from 'src/app/organisations/enums/relationship-type.model';
-import { DirectDebitType } from 'src/app/shared/enums/DirectDebitType';
+import { DirectDebitType } from 'src/app/organisations/enums/direct-debit.type';
+import { DirectDebitTypeHelper } from 'src/app/organisations/helpers/direct-debit-type.helper';
 
 @Component({
     selector: 'app-onboarding-organisation-details-address',
@@ -137,9 +138,9 @@ export class OnboardingOrganisationDetailsAddressComponent implements OnInit {
             this.loading = true;
             this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['complete'] } }])
         }
-        else if (this.onboardingStateService.currentOrganisationFinancialType == DirectDebitType.BACS)
+        else if (DirectDebitTypeHelper.fromOrganisationDetailModel(currentOrganisationRegistrationDetailModel) == DirectDebitType.BACS)
             this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['charity-details'] } }])
-        else if (this.onboardingStateService.currentOrganisationFinancialType == DirectDebitType.SEPA) {
+        else if (DirectDebitTypeHelper.fromOrganisationDetailModel(currentOrganisationRegistrationDetailModel) == DirectDebitType.SEPA) {
             if ((currentOrganisationRegistrationDetailModel.Country ?? "") == "NL")
                 this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['anbi'] } }])
             else {

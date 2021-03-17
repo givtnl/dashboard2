@@ -11,11 +11,15 @@
                 {{'placeholders.bankAccountName' | translate}}:
                 {{accountName}}
             </p>
-            <p class="introduction-title text-primary text-light-font text-givt-purple mb-0">
+            <p *ngIf="iban.length > 0" class="introduction-title text-primary text-light-font text-givt-purple mb-0">
+                IBAN:
+                {{iban}}
+            </p>
+            <p *ngIf="sortCode.length > 0" class="introduction-title text-primary text-light-font text-givt-purple mb-0">
                 {{'placeholders.sortCode' | translate}}:
                 {{sortCode}}
             </p>
-            <p class="introduction-title text-primary text-light-font text-givt-purple mb-0">
+            <p *ngIf="accountNumber.length > 0" class="introduction-title text-primary text-light-font text-givt-purple mb-0">
                 {{'placeholders.accountNumber' | translate}}:
                 {{accountNumber}}
             </p>

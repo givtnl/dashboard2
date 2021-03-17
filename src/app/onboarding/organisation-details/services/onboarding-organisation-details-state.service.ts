@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CharityCommisionOrganisationDetailModel } from '../models/charity-commision-organisation-detail.model';
 import { CurrentOrganisationRegistrationDetailsModel } from '../models/current-organisation-registration-details-model';
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
-import { DirectDebitType } from 'src/app/shared/enums/DirectDebitType';
+import { DirectDebitType } from 'src/app/organisations/enums/direct-debit.type';
 
 @Injectable({
     providedIn: 'root'
@@ -44,16 +44,5 @@ export class OnboardingOrganisationDetailsStateService {
 
     public set isManualRegistration(value: boolean) {
         this.storage.setItem('OnboardingOrganisationDetailsStateService.ManualRegistration', value.toString());
-    }
-
-    public get currentOrganisationFinancialType() : DirectDebitType {
-        switch (this.currentOrganisationRegistrationDetailsModel.Country ?? "") {
-            case "GB":
-            case "GG":
-            case "JE":
-                return DirectDebitType.BACS;
-            default:
-                return DirectDebitType.SEPA;
-        }
     }
 }
