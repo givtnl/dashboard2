@@ -450,5 +450,6 @@
     "errorMessages.iban-checksum": "Dit IBAN is niet geldig.",
     "preboardingWelcomeDetailsComponent.privacyLink": "https://www.givtapp.net/privacyverklaringgivt-service/",
     "errorMessages.telephone-required": "Telefoonnummer is verplicht",
-    "errorMessages.telephone-invalid": "Controleer het telefoonnummer"
+    "errorMessages.telephone-invalid": "Controleer het telefoonnummer",
+    "preboardingMailboxAddressDetailsComponent.placeholderTelephone": "Telefoon (voor Track & Trace)"
 }
