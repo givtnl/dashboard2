@@ -448,5 +448,7 @@
     "onboardingOrganisationDetailsAnbiComponent.title": "ANBI status",
     "onboardingOrganisationDetailsAnbiComponent.errorRSIN": "Please fill in the RSIN number.",
     "errorMessages.iban-checksum": "This IBAN is not valid.",
-    "preboardingWelcomeDetailsComponent.privacyLink": "https://www.givtapp.net/en/privacystatementgivt-service/"
+    "preboardingWelcomeDetailsComponent.privacyLink": "https://www.givtapp.net/en/privacystatementgivt-service/",
+    "errorMessages.telephone-required": "Telephone number is required",
+    "errorMessages.telephone-invalid": "Check the telephone number"
 }
