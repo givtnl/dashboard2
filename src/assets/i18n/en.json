@@ -278,7 +278,7 @@
     "onboardingOrganisationDetailsParentKnownComponent.buttonText": "Take me there",
     "onboardingOrganisationDetailsCharityNumberComponent.charityErrorDescription": "<p class=\"mb-0\">We did not found your charity at CCEW, this could be because:</p>      <ul>                        <li>Incorrect input, please check again</li>                        <li>Your organisation is regulated with another regulator (CCNI,OSCR)</li>                        <li>Your organisation is an exempt charity</li>                    </ul>                    <p class=\"mb-0\">If this is the case, please click <a href=\"[LINK]\">here</a></p>",
     "preboardingWelcomeDetailsComponent.title": "Hello.",
-    "preboardingWelcomeDetailsComponent.description": "You are about to register your organisation with Givt. In the following steps we will ask a few organisation details so your organisation can start collecting as soon as possible.",
+    "preboardingWelcomeDetailsComponent.description": "<p>You are about to register your organisation with Givt. In the following steps we will ask you for a few details, so your organisation can start receiving donations as soon as possible.</p>\n<p>When you continue, you automatically agree to <a href=\\\"https://www.givtapp.net/en/privacystatementgivt-service/\\\">the privacy statement</a> of Givt B.V.</p>",
     "preboardingWelcomeDetailsComponent.startButtonText": "Start",
     "preboardingNameInAppComponent.title": "Let's go",
     "preboardingNameInAppComponent.description": "Make sure givers will recognise your organisation in the app by choosing a unique name. Add (an abbreviation of) the City/Town of the organisation to it. (E.g. Charity Sir. Example B'gham)",
