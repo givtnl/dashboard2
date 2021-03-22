@@ -1,6 +1,4 @@
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import 'src/styles.scss';
+@import 'functions', 'variables';
 
 .border-radius-20 {
   border-radius: 20px;
@@ -18,7 +16,7 @@ p {
 
 .btn-givt:hover:not(:disabled),
 .btn-givt.active {
-  @extend .bg-givt-purple;
+  @extend .bg-givt-purple !optional;
   color: white !important;
 }
 
