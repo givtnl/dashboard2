@@ -1,22 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DirectDebitType } from 'src/app/organisations/enums/direct-debit.type';
+import { DirectDebitTypeHelper } from 'src/app/organisations/helpers/direct-debit-type.helper';
+import { OrganisationDetailModel } from 'src/app/organisations/models/organisation-detail.model';
 
 @Component({
-  selector: 'app-onboarding-bank-account-intro',
-  templateUrl: './onboarding-bank-account-intro.component.html',
-  styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-intro.component.scss']
+    selector: 'app-onboarding-bank-account-intro',
+    templateUrl: './onboarding-bank-account-intro.component.html',
+    styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-intro.component.scss']
 })
 export class OnboardingBankAccountIntroComponent implements OnInit {
 
-  constructor(private router: Router) {}
+    constructor(private router: Router, private route: ActivatedRoute) { }
 
-  ngOnInit() {
+    ngOnInit() {
 
-  }
+    }
 
-  startBankAccount() {
-    this.router.navigate(['/', 'onboarding', 'bank-account', { outlets: { 'onboarding-outlet': ['add'] } }], {
-      queryParamsHandling: 'merge'
-    });
-  }
+    startBankAccount() {
+        const currentOrganisation = this.route.parent.snapshot.data.currentOrganisation as OrganisationDetailModel;
+        if (DirectDebitTypeHelper.fromOrganisationDetailModel(currentOrganisation) == DirectDebitType.SEPA)
+            this.router.navigate(['/', 'onboarding', 'bank-account', { outlets: { 'onboarding-outlet': ['add-sepa'] } }], {
+                queryParamsHandling: 'merge'
+            });
+        else 
+            this.router.navigate(['/', 'onboarding', 'bank-account', { outlets: { 'onboarding-outlet': ['add'] } }], {
+                queryParamsHandling: 'merge'
+            });
+    }
 }

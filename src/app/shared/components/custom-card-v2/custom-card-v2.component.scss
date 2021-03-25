@@ -1,7 +1,4 @@
-@import '~bootstrap/scss/bootstrap';
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/mixins';
+@import 'functions', 'variables', 'mixins';
 
 .h-100px {
   height: 100px;

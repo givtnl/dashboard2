@@ -1,16 +1,20 @@
-<div class="card border-radius-40 widget-background-1" (click)="tileClick()">
-  <div class="row no-gutters">
-    <div class="col-8">
-      <div class="card-body">
-        <div class="card-title text-white-50" *ngIf="icon"><i [class]="icon"></i></div>
-        <h5 class="card-title" *ngIf="title">{{ title }}</h5>
-        <div *ngIf="footer" class="card-footer border-0 bg-transparent px-0">
-          {{ footer }}
-        </div>
-      </div>
+<div class="card border-radius-40 shadow-lg" (click)="tileClick()"
+    [ngClass]="{'widget-background-church': backgroundType == 'church', 
+    'widget-background-charity': backgroundType == 'charity',
+    'widget-background-artist': backgroundType == 'artist',
+    'widget-background-campaign': backgroundType == 'campaign'}">
+    <div class="row no-gutters widget-background-image" [ngStyle]="{'background-image': 'url(' + image + ')'}">
+        <div class="card-body my-3">
+            <div class="row">
+                <div class="ml-2 col-3 text-white-70" *ngIf="icon"><i [class]="icon"></i></div>
+                <div class="col-7">
+                    <div class="row" translate>dashboardTileWidgetComponent.goToDashboard</div>
+                    <h4 class="row card-title" *ngIf="title">{{ title }}</h4>
+                </div>
+            </div>
+            <div *ngIf="footer" class="row card-footer border-0 bg-transparent px-0">
+                {{ footer }}
+            </div>
     </div>
-    <div class="col-4 align-self-end" *ngIf="image">
-      <img class="card-img " [src]="image" />
     </div>
-  </div>
 </div>

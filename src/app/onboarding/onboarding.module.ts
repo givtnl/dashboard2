@@ -38,6 +38,8 @@ import { OnboardingOrganisationDetailsAddressComponent } from './organisation-de
 import { OnboardingOrganisationDetailsCharityDetailsComponent } from './organisation-details/onboarding-organisation-details-charity-details/onboarding-organisation-details-charity-details.component';
 import { OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent } from './bank-account-signing/onboarding-bank-account-signing-intro-direct-debit-guarantee/onboarding-bank-account-signing-intro-direct-debit-guarantee.component';
 import { OnboardingBankAccountSigningAgreementComponent } from './bank-account-signing/onboarding-bank-account-signing-agreement/onboarding-bank-account-signing-agreement.component';
+import { OnboardingOrganisationDetailsAnbiComponent } from './organisation-details/onboarding-organisation-details-anbi/onboarding-organisation-details-anbi.component';
+import { OnboardingBankAccountAddSepaComponent } from './bank-account/onboarding-bank-account-add-sepa/onboarding-bank-account-add-sepa.component';
 
 @NgModule({
     declarations: [
@@ -74,8 +76,10 @@ import { OnboardingBankAccountSigningAgreementComponent } from './bank-account-s
         OnboardingOrganisationDetailsVerifyOrganisationNameComponent,
         OnboardingOrganisationDetailsAddressComponent,
         OnboardingOrganisationDetailsCharityDetailsComponent,
+        OnboardingOrganisationDetailsAnbiComponent,
         OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent,
-        OnboardingBankAccountSigningAgreementComponent
+        OnboardingBankAccountSigningAgreementComponent,
+        OnboardingBankAccountAddSepaComponent
     ],
     imports: [CommonModule, ReactiveFormsModule, SharedModule, OnboardingRoutingModule]
 })

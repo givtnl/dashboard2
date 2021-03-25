@@ -53,6 +53,21 @@ export class DashboardHomeComponent implements OnInit {
         }
     }
 
+    getBackgroundForCollectGroupType(collectGroupType: number): string {
+        switch (collectGroupType) {
+            case 0:
+                return 'church';
+            case 1:
+                return 'campaign';
+            case 2:
+                return 'artist';
+            case 3:
+                return 'charity';
+            default:
+                return 'charity';
+        }
+    }
+
     tileClicked(tileName: string) {
         this.dashboardService.currentCollectGroup = this.collectGroups.find(x => x.Name == tileName);
         this.router.navigate(['/','dashboard', 'root', { outlets: { 'dashboard-outlet': ['collect-group-home'] } }])

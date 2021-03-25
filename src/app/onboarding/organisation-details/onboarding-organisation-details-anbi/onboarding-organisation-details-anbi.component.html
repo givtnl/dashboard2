@@ -1,0 +1,16 @@
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()'>
+    <app-custom-card-v2 titleTranslationKey="onboardingOrganisationDetailsAnbiComponent.title"
+        description="onboardingOrganisationDetailsAnbiComponent.description" showPreviousButton="true" showSideInfo="true" [loading]="loading">
+        <div body>
+            <div class="form-row">
+                <div class="form-group custom-control custom-switch my-1 ml-1">
+                    <input type="checkbox" formControlName="taxDeductable" class="custom-control-input" id="taxDeductableCheck" (change)="taxDeductableChanged($event.currentTarget.checked)">
+                    <label class="pl-2 custom-control-label text-givt-purple text-heavy-font" for="taxDeductableCheck">ANBI?</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <input type="text" placeholder="RSIN" formControlName="rsinNumber" class="form-control form-control my-3 shadow text-givt-purple" />
+            </div>
+        </div>
+    </app-custom-card-v2>
+</form>
