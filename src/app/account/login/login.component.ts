@@ -9,107 +9,103 @@ import { ApplicationStateService } from 'src/app/infrastructure/services/applica
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  public form: FormGroup;
-  public submitted = false;
-  public loading = false;
-  public isValidEmail = false;
-  public isValidPassword = false;
+    public form: FormGroup;
+    public submitted = false;
+    public loading = false;
+    public isValidEmail = false;
+    public isValidPassword = false;
 
-  public errorMessages = null;
+    public errorMessages = null;
 
-  constructor(
-    private fb: FormBuilder,
-    private translationService: TranslateService,
-    private accountService: AccountService,
-    private router: Router,
-    private applicationStateService: ApplicationStateService
-  ) { }
+    constructor(
+        private fb: FormBuilder,
+        private translationService: TranslateService,
+        private accountService: AccountService,
+        private router: Router,
+        private applicationStateService: ApplicationStateService
+    ) { }
 
-  ngOnInit() {
+    ngOnInit() {
 
-    sessionStorage.clear();
+        sessionStorage.clear();
 
-    this.form = this.fb.group({
-      email: [null, [Validators.required, Validators.email]],
-      password: [null, [Validators.required]]
-    });
-  }
-
-  submit() {
-    this.submitted = this.form.invalid;
-
-    this.isValidEmail = this.form.get('email').valid;
-    this.isValidPassword = this.form.get('password').valid;
-
-    this.errorMessages = new Array<Observable<string>>();
-
-    if (this.form.invalid) {
-      this.handleInvalidForm();
-      return;
-    } else {
-      this.loading = true;
-      this.submitted = false;
-      this.accountService
-        .login(this.form.value.email, this.form.value.password)
-        .pipe(catchErrorStatus(400, x => this.handleInvalidLogin(x.error.error.error_status || ErrorMessages.UnExpectedError)))
-        .subscribe(resp =>
-          this.router
-            .navigate(['/', 'dashboard', 'root', { outlets: { 'dashboard-outlet': ['home'] } }])
-            .catch(error => this.handleInvalidLogin(error.error_status || ErrorMessages.UnExpectedError))
-            .finally(() => (this.loading = false))
-        ).add(() => this.loading = false);
+        this.form = this.fb.group({
+            email: [null, [Validators.required, Validators.email]],
+            password: [null, [Validators.required]]
+        });
     }
-  }
-  handleInvalidLogin(errorNumber: number) {
-    this.loading = false;
-    switch (errorNumber) {
-      case ErrorMessages.AccountDisabled:
-        {
-          this.errorMessages.push(this.translationService.get('errorMessages.accountDisabled'));
+
+    submit() {
+        this.submitted = this.form.invalid;
+
+        this.isValidEmail = this.form.get('email').valid;
+        this.isValidPassword = this.form.get('password').valid;
+
+        this.errorMessages = new Array<string>();
+
+        if (this.form.invalid) {
+            this.handleInvalidForm();
+            return;
+        } else {
+            this.loading = true;
+            this.submitted = false;
+            this.accountService
+                .login(this.form.value.email, this.form.value.password)
+                .pipe(catchErrorStatus(400, x => this.handleInvalidLogin(x.error.error.error_status || ErrorMessages.UnExpectedError)))
+                .subscribe(resp =>
+                    this.router
+                        .navigate(['/', 'dashboard', 'root', { outlets: { 'dashboard-outlet': ['home'] } }])
+                        .catch(error => this.handleInvalidLogin(error.error_status || ErrorMessages.UnExpectedError))
+                        .finally(() => (this.loading = false))
+                ).add(() => this.loading = false);
         }
-        break;
-      case ErrorMessages.LockedOut:
-        {
-          this.errorMessages.push(this.translationService.get('errorMessages.lockedOut'));
-        }
-        break;
-      case ErrorMessages.OneAttemptLeft:
-        {
-          this.errorMessages.push(this.translationService.get('errorMessages.wrongEmailOrPassword'));
-          this.errorMessages.push(this.translationService.get('errorMessages.oneAttemptLeft'));
-        }
-        break;
-      case ErrorMessages.TwoAttemptsLeft:
-        {
-          this.errorMessages.push(this.translationService.get('errorMessages.wrongEmailOrPassword'));
-          this.errorMessages.push(this.translationService.get('errorMessages.twoAttemptLeft'));
-        }
-        break;
-      case ErrorMessages.TempUser:
-        {
-          this.errorMessages.push(this.translationService.get('errorMessages.tempUser'));
-        }
-        break;
-      default:
-        this.errorMessages.push(this.translationService.get('errorMessages.wrongEmailOrPassword'));
-        return;
     }
-  }
-  handleInvalidForm() {
-    const emailErrors = this.form.get('email').errors;
-    
-    if (emailErrors) {
-      if (emailErrors.required) {
-        this.errorMessages.push(this.translationService.get('errorMessages.email-required'));
-      }
-      if (emailErrors.email) {
-        this.errorMessages.push(this.translationService.get('errorMessages.email-not-an-email'));
-      }
+
+    async handleInvalidLogin(errorNumber: number) {
+        this.loading = false;
+        switch (errorNumber) {
+            case ErrorMessages.AccountDisabled:
+                this.errorMessages.push(await this.translationService.get('errorMessages.accountDisabled').toPromise());
+                break;
+            case ErrorMessages.LockedOut:
+                this.errorMessages.push(await this.translationService.get('errorMessages.lockedOut').toPromise());
+                break;
+            case ErrorMessages.OneAttemptLeft:
+                {
+                    this.errorMessages.push(await this.translationService.get('errorMessages.wrongEmailOrPassword').toPromise());
+                    this.errorMessages.push(await this.translationService.get('errorMessages.oneAttemptLeft').toPromise());
+                }
+                break;
+            case ErrorMessages.TwoAttemptsLeft:
+                {
+                    this.errorMessages.push(await this.translationService.get('errorMessages.wrongEmailOrPassword').toPromise());
+                    this.errorMessages.push(await this.translationService.get('errorMessages.twoAttemptLeft').toPromise());
+                }
+                break;
+            case ErrorMessages.TempUser:
+                this.errorMessages.push(await this.translationService.get('errorMessages.tempUser').toPromise());
+                break;
+            default:
+                this.errorMessages.push(await this.translationService.get('errorMessages.wrongEmailOrPassword').toPromise());
+                return;
+        }
     }
-  }
+
+    async handleInvalidForm() {
+        const emailErrors = this.form.get('email').errors;
+
+        if (emailErrors) {
+            if (emailErrors.required) {
+                this.errorMessages.push(await this.translationService.get('errorMessages.email-required').toPromise());
+            }
+            if (emailErrors.email) {
+                this.errorMessages.push(await this.translationService.get('errorMessages.email-not-an-email').toPromise());
+            }
+        }
+    }
 }
