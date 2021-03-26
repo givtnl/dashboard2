@@ -15,9 +15,6 @@ export class OnboardingOrganisationDetailsNotifyRelationshipGuard implements Can
         private applicationStateService: ApplicationStateService
     ) { }
 
-
-
-
     async canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
         try {
             let organisationId = this.applicationStateService.currentTokenModel.OrganisationAdmin;
