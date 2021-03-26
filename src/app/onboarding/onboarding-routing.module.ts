@@ -65,6 +65,7 @@ import { OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent } from '
 import { OnboardingBankAccountSigningAgreementComponent } from './bank-account-signing/onboarding-bank-account-signing-agreement/onboarding-bank-account-signing-agreement.component';
 import { OnboardingOrganisationDetailsAnbiComponent } from './organisation-details/onboarding-organisation-details-anbi/onboarding-organisation-details-anbi.component';
 import { OnboardingBankAccountAddSepaComponent } from './bank-account/onboarding-bank-account-add-sepa/onboarding-bank-account-add-sepa.component';
+import { CompositeCanActivateGuard } from '../shared/guards/composite-canactivate.guard';
 
 const routes: Routes = [
     {
@@ -169,10 +170,10 @@ const routes: Routes = [
             {
                 path: 'complete',
                 outlet: 'onboarding-outlet',
+                data: { routeGuards: [OnboardingOrganisationDetailsSendManualRegistrationDataGuard, OnboardingOrganisationDetailsNotifyRelationshipGuard] },
                 canActivate: [
                     OnboardingOrganisationDetailsSendDataGuard,
-                    OnboardingOrganisationDetailsSendManualRegistrationDataGuard,
-                    OnboardingOrganisationDetailsNotifyRelationshipGuard
+                    CompositeCanActivateGuard
                 ],
                 component: OnboardingOrganisationDetailsCompleteComponent
             },
