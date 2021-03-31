@@ -53,7 +53,7 @@ import { GiftaidOrganisationAddressDetailsComponent } from './giftaid/giftaid-or
 import { GiftaidVerifyOrganisationDetailsComponent } from './giftaid/giftaid-verify-organisation-details/giftaid-verify-organisation-details.component';
 import { GiftaidCompletedComponent } from './giftaid/giftaid-completed/giftaid-completed.component';
 import { OnboardingGiftAidCompleteCheckSuccessGuard } from './giftaid/guards/onboarding-giftaid-complete-check-success.guard';
-import { TranslatedValueResolver } from '../shared/guards/translated-value.resolver';
+import { TranslatedValueResolver } from '../shared/resolvers/translated-value.resolver';
 import { OnboardingOrganisationDetailsVerifyOrganisationNameComponent } from './organisation-details/onboarding-organisation-details-verify-organisation-name/onboarding-organisation-details-verify-organisation-name.component';
 import { OnboardingOrganisationDetailsCharityDetailsComponent } from './organisation-details/onboarding-organisation-details-charity-details/onboarding-organisation-details-charity-details.component';
 import { OnboardingOrganisationDetailsAddressComponent } from './organisation-details/onboarding-organisation-details-address/onboarding-organisation-details-address.component';
@@ -65,6 +65,7 @@ import { OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent } from '
 import { OnboardingBankAccountSigningAgreementComponent } from './bank-account-signing/onboarding-bank-account-signing-agreement/onboarding-bank-account-signing-agreement.component';
 import { OnboardingOrganisationDetailsAnbiComponent } from './organisation-details/onboarding-organisation-details-anbi/onboarding-organisation-details-anbi.component';
 import { OnboardingBankAccountAddSepaComponent } from './bank-account/onboarding-bank-account-add-sepa/onboarding-bank-account-add-sepa.component';
+import { CompositeCanActivateGuard } from '../shared/guards/composite-canactivate.guard';
 
 const routes: Routes = [
     {
@@ -169,10 +170,10 @@ const routes: Routes = [
             {
                 path: 'complete',
                 outlet: 'onboarding-outlet',
+                data: { routeGuards: [OnboardingOrganisationDetailsSendManualRegistrationDataGuard, OnboardingOrganisationDetailsNotifyRelationshipGuard] },
                 canActivate: [
                     OnboardingOrganisationDetailsSendDataGuard,
-                    OnboardingOrganisationDetailsSendManualRegistrationDataGuard,
-                    OnboardingOrganisationDetailsNotifyRelationshipGuard
+                    CompositeCanActivateGuard
                 ],
                 component: OnboardingOrganisationDetailsCompleteComponent
             },
