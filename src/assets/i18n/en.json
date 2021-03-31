@@ -452,7 +452,7 @@
     "errorMessages.telephone-invalid": "Check the telephone number",
     "preboardingMailboxAddressDetailsComponent.placeholderTelephone": "Telephone (for Track & Trace)",
     "dashboardCompleteAccountWidgetComponent.UploadBankStatement": "Upload a bank statement",
-    "dashboardCompleteAccountWidgetComponent.UploadBankStatement.InProgress\n": "Bank statement verification in progress",
+    "dashboardCompleteAccountWidgetComponent.UploadBankStatement.InProgress": "Awaiting verification",
     "bankStatementUploadComponent.title": "Upload bank statement",
     "bankStatementUploadComponent.helpText": "Through this page you can send a bank statement to Givt. We will compare the bank account information as entered through the dashboard with this bank statement. This verification is necessary to make sure your organisation is owner of the bank account. After we have verified the bank statement, it will be possible to invite the bank account holder to verify the account and accept a direct debit on the account.",
     "bankStatementUploadComponent.dropScan": "Drop a file here",
