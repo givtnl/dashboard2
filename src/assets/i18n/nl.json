@@ -452,7 +452,7 @@
     "errorMessages.telephone-invalid": "Controleer het telefoonnummer",
     "preboardingMailboxAddressDetailsComponent.placeholderTelephone": "Telefoon (voor Track & Trace)",
     "dashboardCompleteAccountWidgetComponent.UploadBankStatement": "Een bankafschrift uploaden",
-    "dashboardCompleteAccountWidgetComponent.UploadBankStatement.InProgress": "Verificatie bankafschrift bezig",
+    "dashboardCompleteAccountWidgetComponent.UploadBankStatement.InProgress": "Wachten op verificatie",
     "bankStatementUploadComponent.title": "Bankafschrift uploaden",
     "bankStatementUploadComponent.helpText": "Met deze pagina kun je een bankafschrift naar Givt versturen. Wij zullen de gegevens die werden ingevoerd via het dashboard bij het invoeren van de bankrekening dan aan de hand van dit afschrift controleren. Deze controle is nodig om er zeker van te zijn dat jullie organisatie eigenaar is van de bankrekening. Na dit process kan de gemachtigde worden uitgenodigd om een de verificatie van de bankrekening af te ronden.",
     "bankStatementUploadComponent.dropScan": "Zet hier een bestand neer",
