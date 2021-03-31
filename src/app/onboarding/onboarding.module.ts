@@ -40,6 +40,8 @@ import { OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent } from '
 import { OnboardingBankAccountSigningAgreementComponent } from './bank-account-signing/onboarding-bank-account-signing-agreement/onboarding-bank-account-signing-agreement.component';
 import { OnboardingOrganisationDetailsAnbiComponent } from './organisation-details/onboarding-organisation-details-anbi/onboarding-organisation-details-anbi.component';
 import { OnboardingBankAccountAddSepaComponent } from './bank-account/onboarding-bank-account-add-sepa/onboarding-bank-account-add-sepa.component';
+import { BankStatementUploadComponent } from './bank-statement/bank-statement-upload/bank-statement-upload.component';
+import { BankStatementUploadCompleteComponent } from './bank-statement/bank-statement-upload-complete/bank-statement-upload-complete.component';
 
 @NgModule({
     declarations: [
@@ -79,7 +81,9 @@ import { OnboardingBankAccountAddSepaComponent } from './bank-account/onboarding
         OnboardingOrganisationDetailsAnbiComponent,
         OnboardingBankAccountSigningIntroDirectDebitGuaranteeComponent,
         OnboardingBankAccountSigningAgreementComponent,
-        OnboardingBankAccountAddSepaComponent
+        OnboardingBankAccountAddSepaComponent,
+        BankStatementUploadComponent,
+        BankStatementUploadCompleteComponent
     ],
     imports: [CommonModule, ReactiveFormsModule, SharedModule, OnboardingRoutingModule]
 })

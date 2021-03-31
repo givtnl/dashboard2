@@ -1,0 +1,17 @@
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="justify-content-center h-100 w-100">
+<app-custom-card titleTranslationKey="bankStatementUploadComponent.title" showCloseButton="true" iconBackgroundClass="circle-blue"
+    icon="fas fa-upload fa-5x" questionMarkTitle="bankStatementUploadComponent.helpTitle" questionMarkText="bankStatementUploadComponent.helpText">
+    <div body class="upload-box">
+        <h3 class="text-givt-purple my-4" translate>bankStatementUploadComponent.dropScan</h3>
+        <h3 class="text-givt-purple my-4" translate>bankStatementUploadComponent.dropScanOr</h3>
+        <label for="uploadFileBox" class="btn bg-givt-purple text-white shadow mt-2" translate>bankStatementUploadComponent.browseForFile</label>
+        <input type="file" id="uploadFileBox" formControlName="uploadFile" (change)="handleFileInputChange($event.target.files)">
+        <div *ngIf="errorMessage" class="text-red mt-2">{{errorMessage}}</div>
+        <div *ngIf="fileName" class="text-givt-purple mt-2"><span translate>bankStatementUploadComponent.selectedFile</span> {{fileName}}</div>
+    </div>
+    <button type="submit" bottom translate [disabled]="form.invalid" 
+        class="btn btn-lg bg-givt-green text-center shadow text-white text-heavy-font bottom-button w-50 mt-3">
+        bankStatementUploadComponent.uploadButton
+    </button>
+</app-custom-card>
+</form>

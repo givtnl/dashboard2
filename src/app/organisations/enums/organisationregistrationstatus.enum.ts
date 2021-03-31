@@ -4,5 +4,6 @@ export enum OrganisationRegistrationStatus
     CompleteOrganisationDetails,
     AddBankAccount,
     AddBankAccountHolders,
-    AddGiftAidSettings
+    AddGiftAidSettings,
+    UploadBankStatement
 }

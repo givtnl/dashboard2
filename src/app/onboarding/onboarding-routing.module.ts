@@ -66,6 +66,9 @@ import { OnboardingBankAccountSigningAgreementComponent } from './bank-account-s
 import { OnboardingOrganisationDetailsAnbiComponent } from './organisation-details/onboarding-organisation-details-anbi/onboarding-organisation-details-anbi.component';
 import { OnboardingBankAccountAddSepaComponent } from './bank-account/onboarding-bank-account-add-sepa/onboarding-bank-account-add-sepa.component';
 import { CompositeCanActivateGuard } from '../shared/guards/composite-canactivate.guard';
+import { BankStatementUploadComponent } from './bank-statement/bank-statement-upload/bank-statement-upload.component';
+import { BankStatementUploadCompleteComponent } from './bank-statement/bank-statement-upload-complete/bank-statement-upload-complete.component';
+import { UploadStatementGuard } from './bank-statement/guards/do-upload.guard';
 
 const routes: Routes = [
     {
@@ -326,10 +329,27 @@ const routes: Routes = [
                 component: OnboardingBankAccountSigningDirectDebitGuaranteeComponent
             },
             {
-                path: 'completed',
+                path: '',
                 outlet: 'onboarding-outlet',
                 component: OnboardingBankAccountSigningCompleteComponent,
                 canActivate: [BankAccountSignInvitationAcceptedGuard]
+            }
+        ]
+    },
+    {
+        path: 'bank-statement',
+        component: OnboardingRootComponent,
+        children: [
+            {
+                path: '',
+                outlet: 'onboarding-outlet',
+                component: BankStatementUploadComponent
+            },
+            {
+                path: 'complete',
+                outlet: 'onboarding-outlet',
+                canActivate: [UploadStatementGuard],
+                component: BankStatementUploadCompleteComponent
             }
         ]
     }
