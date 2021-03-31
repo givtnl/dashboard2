@@ -14,6 +14,7 @@ export class BankStatementUploadComponent implements OnInit {
     public form: FormGroup;
     public errorMessage: string = null;
     public fileName: string = null;
+    public loading: boolean = false;
 
     constructor(private formBuilder: FormBuilder,
         private bankStatementStateService: BankStatementStateService,
@@ -42,7 +43,7 @@ export class BankStatementUploadComponent implements OnInit {
             this.toastr.show(await this.translateService.get("You should really select a file.").toPromise());
             return;
         }
-
+        this.loading = true;
         this.router.navigate(['/', 'onboarding', 'bank-statement', { outlets: { 'onboarding-outlet': ['complete'] } }]);
     }
 }
