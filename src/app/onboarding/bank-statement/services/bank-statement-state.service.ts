@@ -15,6 +15,10 @@ export class BankStatementStateService {
         return true;
     }
 
+    getFile(): File {
+        return this.file;
+    }
+
     async getFileAsBase64String(): Promise<string> {
         let bytes = new Uint8Array(await this.file.arrayBuffer());
         var binary = "";

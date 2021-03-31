@@ -16,7 +16,8 @@ export class UploadStatementGuard implements CanActivate {
 
     async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
         let command: ExportBankAccountStatementCommand = {
-            BankStatement: await this.bankStatementStateService.getFileAsBase64String()
+            BankStatement: await this.bankStatementStateService.getFileAsBase64String(),
+            ContentType: this.bankStatementStateService.getFile().type
         };
         await this.bankAccountService.uploadStatement(this.applicationStateService.currentTokenModel.OrganisationAdmin, command);
         return true;
