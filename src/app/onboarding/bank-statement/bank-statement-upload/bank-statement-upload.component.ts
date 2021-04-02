@@ -28,9 +28,9 @@ export class BankStatementUploadComponent implements OnInit {
         });
     }
 
-    handleFileInputChange(files: FileList) {
+    async handleFileInputChange(files: FileList) {
         if (!this.bankStatementStateService.setFile(files[0])) {
-            this.errorMessage = "File size too big";
+            this.errorMessage = await this.translateService.get("bankStatementUploadComponent.errorFileTooBig").toPromise();
             this.fileName = null;
         } else {
             this.errorMessage = null;
@@ -40,7 +40,7 @@ export class BankStatementUploadComponent implements OnInit {
 
     async submit() {
         if (this.form.invalid || this.fileName === null || this.fileName === undefined) {
-            this.toastr.show(await this.translateService.get("You should really select a file.").toPromise());
+            this.toastr.warning(await this.translateService.get("bankStatementUploadComponent.errorPleaseSelectFile").toPromise());
             return;
         }
         this.loading = true;
