@@ -29,6 +29,12 @@ export class BankStatementUploadComponent implements OnInit {
     }
 
     async handleFileInputChange(files: FileList) {
+        if (files.length < 1) {
+            this.errorMessage = null;
+            this.fileName = null;
+            return;
+        }
+        
         if (!this.bankStatementStateService.setFile(files[0])) {
             this.errorMessage = await this.translateService.get("bankStatementUploadComponent.errorFileTooBig").toPromise();
             this.fileName = null;
