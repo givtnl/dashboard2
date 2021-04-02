@@ -56,7 +56,7 @@
     "onboardingBankAccountAuthorizedComponent.questionAuthorizedPersonSmallText": "We vragen diegene per e-mail om de bankrekening te verifiëren.",
     "onboardingBankAccountAuthorizedComponent.okButtonText": "Afronden",
     "onboardingBankAccountCompletedComponent.title": "We zijn goed op weg",
-    "onboardingBankAccountCompletedComponent.description": "Zodra de bankrekening is geverifieerd, voegen we deze toe aan je dashboard.",
+    "onboardingBankAccountCompletedComponent.description": "De gegevens van jullie bankrekening zijn toegevoegd. De volgende stap is het uploaden van een bankafschrift zodat we de gegevens kunnen verifiëren. Als je nu geen bankafschrift bij de hand hebt, kun je ook later terugkeren naar het dashboard en deze stap voltooien.",
     "errorPageComponent.title": "Oeps, er ging iets fout. Probeer het even opnieuw of neem contact op met ons.",
     "underConstructionComponent.title": "Oeps",
     "underConstructionComponent.description": "We werken aan deze pagina om het Givt-dashboard nog beter te maken voor je!",
@@ -465,5 +465,6 @@
     "bankStatementUploadCompleteComponent.title": "Upload succes!",
     "bankStatementUploadCompleteComponent.goToDashboard": "Ga naar dashboard",
     "bankStatementUploadCompleteComponent.body": "Het bestand is succesvol verstuurd naar Givt. Eens wij de gegevens hebben gecontroleerd, kan de gemachtigde worden uitgenodigd de laatste controle te doen op de bankrekening en de machtiging af te geven.",
-    "bankStatementUploadComponent.errorPleaseSelectFile": "We hebben echt een bestand nodig."
+    "bankStatementUploadComponent.errorPleaseSelectFile": "We hebben echt een bestand nodig.",
+    "onboardingBankAccountCompletedComponent.toBankStatementUpload": "Upload bankafschrift"
 }
