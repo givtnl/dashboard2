@@ -458,7 +458,7 @@
     "bankStatementUploadComponent.dropScan": "Drop a file here",
     "bankStatementUploadComponent.dropScanOr": "or",
     "bankStatementUploadComponent.browseForFile": "Choose file",
-    "bankStatementUploadComponent.errorFileTooBig": "File is too big (> 4 MB)",
+    "bankStatementUploadComponent.errorFileTooBig": "File is too big (> 8 MB)",
     "bankStatementUploadComponent.selectedFile": "Selected file:",
     "bankStatementUploadComponent.uploadButton": "Upload",
     "bankStatementUploadComponent.helpTitle": "Why a bank statement?",
