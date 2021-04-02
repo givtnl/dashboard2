@@ -56,7 +56,7 @@
     "onboardingBankAccountAuthorizedComponent.questionAuthorizedPersonSmallText": "We will invite the person by e-mail to verify the bank account.",
     "onboardingBankAccountAuthorizedComponent.okButtonText": "Complete",
     "onboardingBankAccountCompletedComponent.title": "We are well on our way",
-    "onboardingBankAccountCompletedComponent.description": "We add the bank account of the organisation to your dashboard when it is fully verified.",
+    "onboardingBankAccountCompletedComponent.description": "Your bank account details are now registered. The next step is to upload a bank statement so that we can verify these details. If you don't have a bank statement at hand right now, you can always come back to the dashboard later to finish this step.",
     "errorPageComponent.title": "Whoops, something went wrong. Please try again or contact us if you require assistance.",
     "underConstructionComponent.title": "Whoops",
     "underConstructionComponent.description": "We are working on this page to make the Givt dashboard even better for you!",
@@ -465,5 +465,6 @@
     "bankStatementUploadCompleteComponent.title": "Upload success!",
     "bankStatementUploadCompleteComponent.goToDashboard": "Go to dashboard",
     "bankStatementUploadCompleteComponent.body": "The file has been sent to Givt successfully! Once we have verified the details on the statement, you will be able to invite the account holder to sign the mandate on the bank account.",
-    "bankStatementUploadComponent.errorPleaseSelectFile": "We really need a file."
+    "bankStatementUploadComponent.errorPleaseSelectFile": "We really need a file.",
+    "onboardingBankAccountCompletedComponent.toBankStatementUpload": "Upload bank statement"
 }
