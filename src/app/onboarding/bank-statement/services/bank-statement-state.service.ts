@@ -7,8 +7,8 @@ export class BankStatementStateService {
     private file: File;
 
     setFile(file: File): boolean {
-        // File should not be bigger than 4 Mb
-        if (file.size > 4 * 1024 * 1024)
+        // File should not be bigger than 8 Mb
+        if (file.size > 8 * 1024 * 1024)
             return false;
         
         this.file = file;
