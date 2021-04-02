@@ -464,5 +464,6 @@
     "bankStatementUploadComponent.helpTitle": "Waarom een bankafschrift?",
     "bankStatementUploadCompleteComponent.title": "Upload succes!",
     "bankStatementUploadCompleteComponent.goToDashboard": "Ga naar dashboard",
-    "bankStatementUploadCompleteComponent.body": "Het bestand is succesvol verstuurd naar Givt. Eens wij de gegevens hebben gecontroleerd, kan de gemachtigde worden uitgenodigd de laatste controle te doen op de bankrekening en de machtiging af te geven."
+    "bankStatementUploadCompleteComponent.body": "Het bestand is succesvol verstuurd naar Givt. Eens wij de gegevens hebben gecontroleerd, kan de gemachtigde worden uitgenodigd de laatste controle te doen op de bankrekening en de machtiging af te geven.",
+    "bankStatementUploadComponent.errorPleaseSelectFile": "We hebben echt een bestand nodig."
 }
