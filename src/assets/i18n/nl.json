@@ -458,7 +458,7 @@
     "bankStatementUploadComponent.dropScan": "Zet hier een bestand neer",
     "bankStatementUploadComponent.dropScanOr": "of",
     "bankStatementUploadComponent.browseForFile": "Kies bestand",
-    "bankStatementUploadComponent.errorFileTooBig": "Bestand is te groot (> 4 MB)",
+    "bankStatementUploadComponent.errorFileTooBig": "Bestand is te groot (> 8 MB)",
     "bankStatementUploadComponent.selectedFile": "Geselecteerd bestand:",
     "bankStatementUploadComponent.uploadButton": "Upload",
     "bankStatementUploadComponent.helpTitle": "Waarom een bankafschrift?",
