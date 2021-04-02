@@ -464,5 +464,6 @@
     "bankStatementUploadComponent.helpTitle": "Why a bank statement?",
     "bankStatementUploadCompleteComponent.title": "Upload success!",
     "bankStatementUploadCompleteComponent.goToDashboard": "Go to dashboard",
-    "bankStatementUploadCompleteComponent.body": "The file has been sent to Givt successfully! Once we have verified the details on the statement, you will be able to invite the account holder to sign the mandate on the bank account."
+    "bankStatementUploadCompleteComponent.body": "The file has been sent to Givt successfully! Once we have verified the details on the statement, you will be able to invite the account holder to sign the mandate on the bank account.",
+    "bankStatementUploadComponent.errorPleaseSelectFile": "We really need a file."
 }
