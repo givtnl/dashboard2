@@ -1,14 +1,15 @@
 @import 'functions', 'variables';
+@import "src/globals.scss";
 
 .btn-givt:hover:not(:disabled),
 .btn-givt.active {
-  @extend .bg-givt-purple !optional;
+  @extend .bg-givt-purple;
   color: white !important;
 }
 
 .btn-givt-green:hover:not(:disabled),
 .btn-givt-green.active {
-  @extend .bg-givt-green !optional;
+  @extend .bg-givt-green;
 }
 
 .btn-givt:disabled {

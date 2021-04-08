@@ -1,0 +1,126 @@
+$givt-purple-color: rgb(46, 41, 87);
+$givt-green-color: rgb(6, 178, 107);
+$givt-green-color-alpha10: rgba(65, 201, 142, 0.1);
+
+$theme-colors: (
+    "primary": $givt-purple-color,
+    "success": $givt-green-color,
+    "sidebar": $givt-green-color-alpha10,
+);
+
+$color-secondary: rgb(65, 201, 142);
+$box-shadow-color: rgb(226, 226, 226);
+
+:root {
+    --background-grey: #f5f5f5;
+}
+
+.text-givt-purple {
+    color: theme-color("primary") !important;
+}
+
+.text-red {
+    color: red;
+}
+
+.introduction-title {
+    font-size: large;
+}
+
+.bg-givt-purple {
+    background-color: theme-color("primary") !important;
+}
+
+.bg-givt-green {
+    background-color: theme-color("success") !important;
+}
+
+.bg-sidebar {
+    background-color: theme-color("sidebar") !important;
+}
+
+.text-heavy-font {
+    font-family: "Avenir_Black";
+}
+
+.text-light-font {
+    font-family: "Avenir_Light";
+}
+
+.text-medium-font {
+    font-family: "Avenir_Medium";
+}
+
+.text-size-normal {
+    font-size: medium;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.givt-drop-down {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: 96%/5% no-repeat #fff url('assets/icons/ic_dropdown.png');
+}
+
+app-custom-card,
+app-custom-card-v2 {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+}
+
+.mt-2rem {
+    margin-top: 2rem;
+}
+
+.rounded-top-right {
+    border-top-right-radius: 1.5em;
+}
+
+input.givt-control:-internal-autofill-selected {
+    background-color: #fff !important;
+    background-image: none !important;
+    color: $givt-purple-color;
+}
+
+.circle-red {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#41c98e+87,f4bf63+100 */
+    background: red; /* Old browsers */
+    background: -moz-linear-gradient(45deg, red 30%, #f4bf63 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, red 30%, #f4bf63 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, red 30%, #f4bf63 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='red', endColorstr='#f4bf63',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    display: flex;
+    align-items: center;
+}
+
+.circle-green {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#41c98e+87,f4bf63+100 */
+    background: #41c98e; /* Old browsers */
+    background: -moz-linear-gradient(45deg, #41c98e 30%, #f4bf63 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #41c98e 30%, #f4bf63 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+        45deg,
+        #41c98e 30%,
+        #f4bf63 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#41c98e', endColorstr='#f4bf63',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    display: flex;
+    align-items: center;
+}

@@ -1,4 +1,5 @@
 @import 'functions', 'variables';
+@import "src/globals.scss";
 
 .border-radius-20 {
   border-radius: 20px;
@@ -16,7 +17,7 @@ p {
 
 .btn-givt:hover:not(:disabled),
 .btn-givt.active {
-  @extend .bg-givt-purple !optional;
+  @extend .bg-givt-purple;
   color: white !important;
 }
 
