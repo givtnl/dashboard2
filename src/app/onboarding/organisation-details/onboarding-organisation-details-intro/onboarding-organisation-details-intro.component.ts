@@ -3,8 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
 import { RelationshipListModel } from 'src/app/account/relationships/models/relation-ship-list.model';
 import { RelationshipType } from 'src/app/organisations/enums/relationship-type.model';
-import { DirectDebitType } from 'src/app/organisations/enums/direct-debit.type';
-import { DirectDebitTypeHelper } from 'src/app/organisations/helpers/direct-debit-type.helper';
+import { DirectDebitType } from 'src/app/shared/enums/direct-debit.type';
+import { DirectDebitTypeHelper } from 'src/app/shared/helpers/direct-debit-type.helper';
 
 @Component({
     selector: 'app-onboarding-organisation-details-intro',

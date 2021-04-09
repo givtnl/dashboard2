@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { DirectDebitType } from 'src/app/shared/enums/direct-debit.type';
+import { DirectDebitTypeHelper } from 'src/app/shared/helpers/direct-debit-type.helper';
+import { PreboardingStateService } from '../services/preboarding-state.service';
 
 
 @Component({
@@ -9,12 +12,20 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class PreboardingWelcomeDetailsComponent implements OnInit{
 
-    constructor(private translateService: TranslateService) { }
+    constructor(private translateService: TranslateService, private preboardingStateService: PreboardingStateService) { }
 
     public description: string
     
     async ngOnInit(): Promise<void> {
         let description = await this.translateService.get("preboardingWelcomeDetailsComponent.description").toPromise() as string;
-        this.description = description.replace("[LINK]", await this.translateService.get("preboardingWelcomeDetailsComponent.privacyLink").toPromise());
+        if (DirectDebitTypeHelper.fromPreboardingDetailModel(this.preboardingStateService.organisationDetails) == DirectDebitType.BACS) {
+            this.description = description
+                .replace("[LINK]", await this.translateService.get("preboardingWelcomeDetailsComponent.privacyLinkGB").toPromise())
+                .replace("[LEGALNAME]", await this.translateService.get("preboardingWelcomeDetailsComponent.legalNameGB").toPromise());
+        } else {
+            this.description = description
+                .replace("[LINK]", await this.translateService.get("preboardingWelcomeDetailsComponent.privacyLink").toPromise())
+                .replace("[LEGALNAME]", await this.translateService.get("preboardingWelcomeDetailsComponent.legalName").toPromise());
+        }
     }
 }

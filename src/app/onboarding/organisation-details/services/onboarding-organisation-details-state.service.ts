@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CharityCommisionOrganisationDetailModel } from '../models/charity-commision-organisation-detail.model';
 import { CurrentOrganisationRegistrationDetailsModel } from '../models/current-organisation-registration-details-model';
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
-import { DirectDebitType } from 'src/app/organisations/enums/direct-debit.type';
+import { DirectDebitType } from 'src/app/shared/enums/direct-debit.type';
 
 @Injectable({
     providedIn: 'root'
