@@ -329,7 +329,7 @@ const routes: Routes = [
                 component: OnboardingBankAccountSigningDirectDebitGuaranteeComponent
             },
             {
-                path: '',
+                path: 'completed',
                 outlet: 'onboarding-outlet',
                 component: OnboardingBankAccountSigningCompleteComponent,
                 canActivate: [BankAccountSignInvitationAcceptedGuard]
