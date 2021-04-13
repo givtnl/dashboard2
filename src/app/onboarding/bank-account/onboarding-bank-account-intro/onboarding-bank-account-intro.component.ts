@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DirectDebitType } from 'src/app/organisations/enums/direct-debit.type';
-import { DirectDebitTypeHelper } from 'src/app/organisations/helpers/direct-debit-type.helper';
+import { DirectDebitType } from 'src/app/shared/enums/direct-debit.type';
+import { DirectDebitTypeHelper } from 'src/app/shared/helpers/direct-debit-type.helper';
 import { OrganisationDetailModel } from 'src/app/organisations/models/organisation-detail.model';
 
 @Component({

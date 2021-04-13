@@ -1,0 +1,21 @@
+@import "~bootstrap/scss/bootstrap";
+@import "~ngx-toastr/toastr.css";
+
+.btn-givt {
+    background: white;
+    border: 1px solid rgba(206, 212, 218, 0.3);
+    @extend .shadow;
+}
+
+input.show-validation.ng-valid.ng-touched {
+    @extend .is-valid;
+}
+
+input.show-validation.ng-invalid.ng-touched {
+    @extend .is-invalid;
+}
+
+app-header-image {
+    @extend .pt-4;
+    @extend .pb-4;
+}

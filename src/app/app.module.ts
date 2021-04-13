@@ -16,65 +16,71 @@ import { UnauthorizedTokenInterceptor } from './shared/interceptors/unauthorized
 import { ErrorTermInterceptor } from './shared/interceptors/error-term.interceptor';
 import { ForbiddenInterceptor } from './shared/interceptors/forbidden.interceptor';
 import { EncodeHttpParamsInterceptor } from './infrastructure/interceptors/http-params.interceptor';
+import { InternalServerErrorInterceptor } from './shared/interceptors/internal-server-error.interceptor';
 
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ToastrModule.forRoot({
-      preventDuplicates: true
-    }),
-    TranslateModule.forRoot({
-      missingTranslationHandler: { provide: MissingTranslationHandler, useClass: MissingFileTranslationsHandler },
-      loader: {
-        provide: TranslateLoader,
-        useFactory: httpClient => new TranslateHttpLoader(httpClient),
-        deps: [HttpClient]
-      }
-    }),
-    SharedModule
-  ],
-  bootstrap: [AppComponent],
-  providers: [
-    {
-      provide:HTTP_INTERCEPTORS,
-      useClass:UnauthorizedTokenInterceptor,
-      multi:true
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: EncodeHttpParamsInterceptor,
-      multi: true
-    },
-    {
-      provide:HTTP_INTERCEPTORS,
-      useClass:ValidationErrorInterceptor,
-      multi:true
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: CurrentUserTokenInterceptor,
-      multi: true
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: OnboardingInterceptor,
-      multi: true
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ErrorTermInterceptor,
-      multi: true
-    },
-    {
-        provide: HTTP_INTERCEPTORS,
-        useClass: ForbiddenInterceptor,
-        multi: true
-    }
-  ]
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ToastrModule.forRoot({
+            preventDuplicates: true
+        }),
+        TranslateModule.forRoot({
+            missingTranslationHandler: { provide: MissingTranslationHandler, useClass: MissingFileTranslationsHandler },
+            loader: {
+                provide: TranslateLoader,
+                useFactory: httpClient => new TranslateHttpLoader(httpClient),
+                deps: [HttpClient]
+            }
+        }),
+        SharedModule
+    ],
+    bootstrap: [AppComponent],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: UnauthorizedTokenInterceptor,
+            multi: true
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: EncodeHttpParamsInterceptor,
+            multi: true
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: ValidationErrorInterceptor,
+            multi: true
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: CurrentUserTokenInterceptor,
+            multi: true
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: OnboardingInterceptor,
+            multi: true
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: ErrorTermInterceptor,
+            multi: true
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: ForbiddenInterceptor,
+            multi: true
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: InternalServerErrorInterceptor,
+            multi: true
+        }
+    ]
 })
-export class AppModule {}
+export class AppModule { }

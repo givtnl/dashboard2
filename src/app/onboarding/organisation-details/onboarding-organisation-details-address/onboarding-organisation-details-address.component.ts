@@ -10,8 +10,8 @@ import { ToastrService } from 'ngx-toastr';
 import { postCodeBACSValidator } from 'src/app/shared/validators/postcode-BACS.validator';
 import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
 import { RelationshipType } from 'src/app/organisations/enums/relationship-type.model';
-import { DirectDebitType } from 'src/app/organisations/enums/direct-debit.type';
-import { DirectDebitTypeHelper } from 'src/app/organisations/helpers/direct-debit-type.helper';
+import { DirectDebitType } from 'src/app/shared/enums/direct-debit.type';
+import { DirectDebitTypeHelper } from 'src/app/shared/helpers/direct-debit-type.helper';
 
 @Component({
     selector: 'app-onboarding-organisation-details-address',
