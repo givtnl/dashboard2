@@ -26,8 +26,7 @@ export class LoginComponent implements OnInit {
         private fb: FormBuilder,
         private translationService: TranslateService,
         private accountService: AccountService,
-        private router: Router,
-        private applicationStateService: ApplicationStateService
+        private router: Router
     ) { }
 
     ngOnInit() {
