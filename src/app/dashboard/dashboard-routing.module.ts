@@ -5,6 +5,7 @@ import { DashboardRootComponent } from './dashboard-root/dashboard-root.componen
 import { CollectGroupDashboardHomeComponent } from './collect-group-dashboard-home/collect-group-dashboard-home.component';
 import { CollectGroupDashboardPeopleComponent } from './collect-group-dashboard-people/collect-group-dashboard-people.component';
 import { CollectGroupContactsResolver } from './resolvers/collect-group-contacts.resolver';
+import { DashboardSelectOrganisationComponent } from './select-organisation/select-organisation.component';
 
 const routes: Routes = [
     {
@@ -35,6 +36,10 @@ const routes: Routes = [
                 component: CollectGroupDashboardPeopleComponent,
                 outlet: 'dashboard-outlet',
                 resolve: { contacts: CollectGroupContactsResolver }
+            },
+            {
+                path: 'select-organisation',
+                component: DashboardSelectOrganisationComponent
             }
         ]
     }
