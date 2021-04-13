@@ -3,7 +3,7 @@ import { BackendService } from 'src/app/infrastructure/services/backend.service'
 import { Observable } from 'rxjs';
 import { OrganisationDetailModel } from '../models/organisation-detail.model';
 import { UpdateOrganisationCommand } from '../models/commands/update-organisation.command';
-import { OrganisationRegistrationProgress } from '../models/organisaition-registration-progress';
+import { OrganisationRegistrationProgress } from '../models/organisation-registration-progress';
 import { OrganisationRegistrationStep } from '../models/organisation-registration-step';
 
 @Injectable({
@@ -35,4 +35,6 @@ export class OrganisationsService {
     getRegistrationStatus(id: string): Observable<OrganisationRegistrationStep[]> {
         return this.backendService.get<OrganisationRegistrationStep[]>(`v2/organisations/${id}/registration`);
     }
+
+    getAll(userId: string): Observable<
 }
