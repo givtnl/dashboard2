@@ -6,6 +6,7 @@ import { CollectGroupDashboardHomeComponent } from './collect-group-dashboard-ho
 import { CollectGroupDashboardPeopleComponent } from './collect-group-dashboard-people/collect-group-dashboard-people.component';
 import { CollectGroupContactsResolver } from './resolvers/collect-group-contacts.resolver';
 import { DashboardSelectOrganisationComponent } from './select-organisation/select-organisation.component';
+import { RetrieveOrganisationsGuard } from './guards/retrieve-organisations.guard';
 
 const routes: Routes = [
     {
@@ -25,6 +26,7 @@ const routes: Routes = [
                 path: 'home',
                 component: DashboardHomeComponent,
                 outlet: 'dashboard-outlet',
+                canActivate: [RetrieveOrganisationsGuard]
             },
             {
                 path: 'collect-group-home',
@@ -37,11 +39,11 @@ const routes: Routes = [
                 outlet: 'dashboard-outlet',
                 resolve: { contacts: CollectGroupContactsResolver }
             },
-            {
-                path: 'select-organisation',
-                component: DashboardSelectOrganisationComponent
-            }
         ]
+    },
+    {
+        path: 'select-organisation',
+        component: DashboardSelectOrganisationComponent
     }
 ];
 

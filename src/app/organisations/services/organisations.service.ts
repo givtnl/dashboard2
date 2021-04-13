@@ -5,6 +5,7 @@ import { OrganisationDetailModel } from '../models/organisation-detail.model';
 import { UpdateOrganisationCommand } from '../models/commands/update-organisation.command';
 import { OrganisationRegistrationProgress } from '../models/organisation-registration-progress';
 import { OrganisationRegistrationStep } from '../models/organisation-registration-step';
+import { OrganisationListModel } from '../models/organisation-list.model';
 
 @Injectable({
     providedIn: 'root'
@@ -36,5 +37,7 @@ export class OrganisationsService {
         return this.backendService.get<OrganisationRegistrationStep[]>(`v2/organisations/${id}/registration`);
     }
 
-    getAll(userId: string): Observable<
+    getAll(userId: string): Observable<OrganisationListModel[]> {
+        return this.backendService.get<OrganisationListModel[]>(`v2/users/${userId}/organisations`);
+    }
 }
