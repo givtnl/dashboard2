@@ -38,6 +38,6 @@ export class OrganisationsService {
     }
 
     getAll(userId: string): Observable<OrganisationListModel[]> {
-        return this.backendService.get<OrganisationListModel[]>(`v2/users/${userId}/organisations`);
+        return this.backendService.getCached<OrganisationListModel[]>(`v2/users/${userId}/organisations`);
     }
 }
