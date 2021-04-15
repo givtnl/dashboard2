@@ -7,6 +7,7 @@ import { CollectGroupDashboardPeopleComponent } from './collect-group-dashboard-
 import { CollectGroupContactsResolver } from './resolvers/collect-group-contacts.resolver';
 import { DashboardSelectOrganisationComponent } from './select-organisation/select-organisation.component';
 import { RetrieveOrganisationsGuard } from './guards/retrieve-organisations.guard';
+import { OrganisationsResolver } from './resolvers/organisations.resolver';
 
 const routes: Routes = [
     {
@@ -43,7 +44,8 @@ const routes: Routes = [
     },
     {
         path: 'select-organisation',
-        component: DashboardSelectOrganisationComponent
+        component: DashboardSelectOrganisationComponent,
+        resolve: { organisations: OrganisationsResolver }
     }
 ];
 

@@ -8,14 +8,22 @@ import { OrganisationsService } from "src/app/organisations/services/organisatio
     providedIn: 'root'
 }) export class RetrieveOrganisationsGuard implements CanActivate {
     constructor(private organisationsService: OrganisationsService,
-        private applicationStateService: ApplicationStateService,
+        private applicationStateService: ApplicationStateService, 
         private router: Router) { }
 
     async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean | UrlTree> {
-        const organisations = await this.organisationsService.getAll(this.applicationStateService.currentTokenModel.GUID).toPromise();
+        if (route.queryParamMap.has('organisationId')) {
+            var token = this.applicationStateService.currentTokenModel;
+            token.OrganisationAdmin = route.queryParamMap.get('organisationId');
+            this.applicationStateService.currentTokenModel = token;
+            return true;
+        }
+
+        const organisations = await this.organisationsService.getAll(this.applicationStateService.currentTokenModel.GUID).toPromise();        
         if (organisations === null || organisations === undefined || organisations.length < 2)
             return true;
-        else
+        else {
             return this.router.createUrlTree(['/', 'dashboard', 'select-organisation']);
+        }
     }
 }
