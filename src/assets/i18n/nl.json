@@ -469,5 +469,7 @@
     "onboardingBankAccountCompletedComponent.toBankStatementUpload": "Upload bankafschrift",
     "preboardingWelcomeDetailsComponent.legalName": "Givt B.V.",
     "preboardingWelcomeDetailsComponent.legalNameGB": "Givt Ltd.",
-    "preboardingWelcomeDetailsComponent.privacyLinkGB": "https://www.givtapp.net/en-gb/privacystatementgivt-service/"
+    "preboardingWelcomeDetailsComponent.privacyLinkGB": "https://www.givtapp.net/en-gb/privacystatementgivt-service/",
+    "dashboardSelectOrganisationComponent.tile": "Selecteer organisatie",
+    "dashboardSelectOrganisationComponent.description": "Je hebt toegang tot de dashboards van verschillende organisaties. Hieronder kun je de organisatie kiezen waarvan je het dashboard wil openen."
 }
