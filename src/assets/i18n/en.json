@@ -470,6 +470,6 @@
     "preboardingWelcomeDetailsComponent.legalName": "Givt B.V.",
     "preboardingWelcomeDetailsComponent.legalNameGB": "Givt Ltd.",
     "preboardingWelcomeDetailsComponent.privacyLinkGB": "https://www.givtapp.net/en-gb/privacystatementgivt-service/",
-    "dashboardSelectOrganisationComponent.tile": "Select organisation",
+    "dashboardSelectOrganisationComponent.title": "Select organisation",
     "dashboardSelectOrganisationComponent.description": "You have access to the dashboards of multiple organisations. Below you can select the organisation for which you'd like to open the dashboard."
 }
