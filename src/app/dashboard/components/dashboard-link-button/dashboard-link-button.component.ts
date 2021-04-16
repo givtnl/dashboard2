@@ -16,7 +16,7 @@ export class DashboardLinkButtonComponent {
     public disabled = false;
 
     @Input()
-    public route: Array<string>;
+    public route: any[] | string[];
 
     @Input()
     public params: {};

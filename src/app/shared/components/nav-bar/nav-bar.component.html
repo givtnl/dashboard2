@@ -16,7 +16,7 @@
 <div class="row h-100 side-bar-host bg-white" *ngIf="showSideBar">
   <div>
     <div class=" h-100" id="navbarSupportedContent">
-      <app-side-bar (closeButtonClicked)="showSideBar = !showSideBar" showCloseButton="true"></app-side-bar>
+      <app-side-bar (closeButtonClicked)="showSideBar = !showSideBar" [showCloseButton]="true"></app-side-bar>
     </div>
   </div>
 </div>

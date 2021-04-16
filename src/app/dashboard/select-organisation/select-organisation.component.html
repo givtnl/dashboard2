@@ -1,0 +1,14 @@
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="justify-content-center h-100 w-100">
+    <app-custom-card [showCloseButton]="false" iconBackgroundClass="circle-red" icon="far fa-building fa-5x" titleTranslationKey="Select organisation">  
+      <div body class="flex text-givt-purple justify-content-center">
+          <div class="flex text-center mb-4">You have access to the dashboards of multiple organisations. Please select the one you'd like to open.</div>
+          <select class="flex form-control form-contol-lg givt-drop-down" formControlName="organisationSelector">
+              <option *ngFor="let org of organisations" value="{{ org.Id }}">{{ org.Name }}</option>
+          </select>
+      </div>
+      <button bottom type="submit" translate class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
+        loginComponent.loginButtonText
+      </button>  
+    </app-custom-card>
+  </form>
+  

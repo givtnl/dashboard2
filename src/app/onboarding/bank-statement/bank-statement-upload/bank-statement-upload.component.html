@@ -1,5 +1,5 @@
 <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="justify-content-center h-100 w-100">
-<app-custom-card titleTranslationKey="bankStatementUploadComponent.title" showCloseButton="true" iconBackgroundClass="circle-blue"
+<app-custom-card titleTranslationKey="bankStatementUploadComponent.title" [showCloseButton]="true" iconBackgroundClass="circle-blue"
     icon="fas fa-upload fa-5x" questionMarkTitle="bankStatementUploadComponent.helpTitle" questionMarkText="bankStatementUploadComponent.helpText">
     <div body class="upload-box">
         <h3 class="text-givt-purple my-4" translate>bankStatementUploadComponent.dropScan</h3>

@@ -29,7 +29,7 @@ export class PreboardingQueryParamsResolver implements Resolve<PreboardingDetail
         };
         
         this.preboardingStateService.organisationDetails = preboardingDetails;
-        this.applicationService.currentTokenModel = { access_token: preboardingDetails.token, refresh_token: null, OrganisationAdmin: null}
+        this.applicationService.currentTokenModel = { access_token: preboardingDetails.token, refresh_token: null, OrganisationAdmin: null, GUID: null }
         return preboardingDetails;
     }
 }
