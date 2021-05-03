@@ -5,7 +5,7 @@ import { TranslatableToastrService } from 'src/app/shared/services/translate-abl
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
 import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
-import { OrganisationRegistrationProgress } from 'src/app/organisations/models/organisaition-registration-progress';
+import { OrganisationRegistrationProgress } from 'src/app/organisations/models/organisation-registration-progress';
 
 @Injectable({
     providedIn: 'root'

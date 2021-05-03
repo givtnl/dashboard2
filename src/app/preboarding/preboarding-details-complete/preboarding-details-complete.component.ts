@@ -11,7 +11,7 @@ import { CreatedCollectGroupResponse } from 'src/app/collect-groups/models/creat
 import { CreatedResponseModel } from 'src/app/infrastructure/models/response.model';
 import { CollectionMediumType } from 'src/app/collect-groups/models/collection-medium-list.model';
 import { OrganisationType } from '../models/organisation-type.enum';
-import { OrganisationRegistrationProgress } from 'src/app/organisations/models/organisaition-registration-progress';
+import { OrganisationRegistrationProgress } from 'src/app/organisations/models/organisation-registration-progress';
 import { ActivatedRoute } from '@angular/router';
 import { RelationShipService } from 'src/app/account/relationships/services/relationship.service';
 
