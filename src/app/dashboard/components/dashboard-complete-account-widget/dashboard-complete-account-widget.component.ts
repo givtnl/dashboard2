@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CompleteAccountWidgetService } from './services/complete-account-widget.service';
-import { CompleteAccountWidgetModel } from './models/complete-account-widget.model';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { Router } from '@angular/router';
 import { OrganisationRegistrationStatus } from '../../../organisations/enums/organisationregistrationstatus.enum';
+import { OrganisationRegistrationStep } from 'src/app/organisations/models/organisation-registration-step';
+import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
 
 @Component({
     selector: 'app-dashboard-complete-account-widget',
@@ -12,17 +12,17 @@ import { OrganisationRegistrationStatus } from '../../../organisations/enums/org
 })
 export class DashboardCompleteAccountWidgetComponent implements OnInit {
     public loading = false;
-    public records = new Array<CompleteAccountWidgetModel>();
+    public records = new Array<OrganisationRegistrationStep>();
     constructor(
-        private service: CompleteAccountWidgetService,
+        private organisationService: OrganisationsService,
         private router: Router,
         private applicationStateService: ApplicationStateService
     ) { }
 
     ngOnInit(): void {
         this.loading = true;
-        this.service
-            .get(this.applicationStateService.currentTokenModel.OrganisationAdmin)
+        this.organisationService
+            .getRegistrationStatus(this.applicationStateService.currentTokenModel.OrganisationAdmin)
             .subscribe(x => (this.records = x))
             .add(() => (this.loading = false));
     }
@@ -39,7 +39,7 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
         return (toCalculatePercentage / 100) * 360;
     }
 
-    public async navigate(record: CompleteAccountWidgetModel): Promise<void> {
+    public async navigate(record: OrganisationRegistrationStep): Promise<void> {
         const toNavigateRouterLinks = this.getRouterLinks(record);
         if (toNavigateRouterLinks && toNavigateRouterLinks.length > 0) {
             this.loading = true;
@@ -49,7 +49,7 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
         }
     }
 
-    public getRouterLinks(record: CompleteAccountWidgetModel): Array<any> {
+    public getRouterLinks(record: OrganisationRegistrationStep): Array<any> {
         switch (record.OrganisationRegistrationStatus) {
             case OrganisationRegistrationStatus.CompleteOrganisationDetails:
                 return ['/', 'onboarding', 'organisation-details'];
