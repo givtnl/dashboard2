@@ -19,23 +19,12 @@
             <span class="ml-2 text-givt-purple text-heavy-font">{{currentCollectGroup}}</span>
         </li>
         <li class="mr-2 ml-4 my-2 nav-item">
-            <a class="nav-link text-givt-purple"
-                [routerLink]="['/','dashboard','root', { outlets: { 'dashboard-outlet': ['collect-group-people'] } }]"
-                translate>
+            <a class="nav-link text-givt-purple" [routerLink]="['/','dashboard','root', { outlets: { 'dashboard-outlet': ['collect-group-people'] } }]" [translate]>
                 <i class="fas fa-user mr-2"></i>
                 sideBarComponent.whosWhoMenuItemText
             </a>
         </li>
     </div>
-    <li *ngIf="currentCollectGroup == null" class="mr-2 my-2 nav-item">
-        <a class="nav-link text-givt-purple"
-            [routerLink]="['/','dashboard','root', { outlets: { 'dashboard-outlet': ['users'] } }]"
-            translate
-        >
-            <i class="fas fa-users mr-2"></i>
-            Users
-        </a>
-    </li>
     <!-- <li class="mr-2 my-2 nav-item">
         <a class="nav-link text-givt-purple" href="#">
           <i class="fas fa-money-check mr-2"></i>
@@ -46,6 +35,12 @@
         <a class="nav-link text-givt-purple" href="#">
           <i class="fas fa-arrow-circle-down mr-2"></i>
           Betalingen
+        </a>
+      </li>
+      <li class="mr-2 my-2 nav-item">
+        <a class="nav-link text-givt-purple" href="#">
+          <i class="fas fa-users mr-2"></i>
+          Gebruikers
         </a>
       </li>
 

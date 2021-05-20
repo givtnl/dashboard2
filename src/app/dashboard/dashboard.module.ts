@@ -11,7 +11,6 @@ import { DashboardLinkButtonComponent } from './components/dashboard-link-button
 import { CollectGroupDashboardHomeComponent } from './collect-group-dashboard-home/collect-group-dashboard-home.component';
 import { CollectGroupDashboardPeopleComponent } from './collect-group-dashboard-people/collect-group-dashboard-people.component';
 import { DashboardSelectOrganisationComponent } from './select-organisation/select-organisation.component';
-import { DashboardUsersComponent } from './dashboard-users/dashboard-users.component';
 @NgModule({
     declarations: [
         CollectGroupDashboardHomeComponent,
@@ -21,8 +20,7 @@ import { DashboardUsersComponent } from './dashboard-users/dashboard-users.compo
         DashboardCompleteAccountWidgetComponent,
         DashboardTileWidgetComponent,
         DashboardLinkButtonComponent,
-        DashboardSelectOrganisationComponent,
-        DashboardUsersComponent
+        DashboardSelectOrganisationComponent
     ],
     imports: [ DashboardRoutingModule, CommonModule, ReactiveFormsModule, SharedModule ]
 })

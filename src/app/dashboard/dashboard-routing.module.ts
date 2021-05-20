@@ -8,8 +8,6 @@ import { CollectGroupContactsResolver } from './resolvers/collect-group-contacts
 import { DashboardSelectOrganisationComponent } from './select-organisation/select-organisation.component';
 import { RetrieveOrganisationsGuard } from './guards/retrieve-organisations.guard';
 import { OrganisationsResolver } from './resolvers/organisations.resolver';
-import { DashboardUsersComponent } from './dashboard-users/dashboard-users.component';
-import { DashboardUsersResolver } from './resolvers/dashboard-users.resolver';
 
 const routes: Routes = [
     {
@@ -30,12 +28,6 @@ const routes: Routes = [
                 component: DashboardHomeComponent,
                 outlet: 'dashboard-outlet',
                 canActivate: [RetrieveOrganisationsGuard]
-            },
-            {
-                path: 'users',
-                component: DashboardUsersComponent,
-                outlet: 'dashboard-outlet',
-                resolve: { users: DashboardUsersResolver }
             },
             {
                 path: 'collect-group-home',

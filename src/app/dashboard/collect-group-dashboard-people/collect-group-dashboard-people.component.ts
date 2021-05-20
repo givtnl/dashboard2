@@ -8,7 +8,7 @@ import { DashboardService } from "src/app/shared/services/dashboard.service";
 @Component({
     selector: 'app-collect-group-dashboard-people',
     templateUrl: './collect-group-dashboard-people.component.html',
-    styleUrls: ['./collect-group-dashboard-people.component.scss', '../dashboard.module.scss']
+    styleUrls: ['./collect-group-dashboard-people.component.scss']
 })
 export class CollectGroupDashboardPeopleComponent implements OnInit {
     public form: FormGroup;
