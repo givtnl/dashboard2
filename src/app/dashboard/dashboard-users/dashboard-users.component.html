@@ -1,0 +1,43 @@
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="container-fluid h-100 d-flex flex-column">
+        <div class="ml-3 row pt-5">
+            <h2 class="text-font-light text-givt-purple">
+                Dashboard users</h2>
+        </div>
+        <div class="ml-3 py-4 row col col-6 d-flex flex-column">
+            <div class="row py-2 background-gradient-blue rounded-top-right align-items-center">
+                <div class="px-3 text-white text-heavy-font col col-3" translate>
+                    First name
+                </div>
+                <div class="px-3 text-white text-heavy-font col col-3" translate>
+                    Last name
+                </div>
+                <div class="px-3 text-white text-heavy-font col col-auto" translate>
+                    Email
+                </div>
+                <div class="pl-3 text-white text-heavy-font col col-auto" translate>
+                </div>
+            </div>
+            <div *ngFor="let item of users.controls; let userIndex=index" [formGroupName]="userIndex"
+                [ngClass]="{'bg-grey': userIndex % 2 == 0, 'bg-white': userIndex % 2 == 1}"
+                class="row border-bottom py-2 align-items-center">
+                <div class="px-3 text-givt-purple col col-3">
+                    {{ item.value.FirstName }}
+                </div>
+                <div class="px-3 text-givt-purple col col-3">
+                    {{ item.value.LastName }}
+                </div>
+                <div class="px-3 text-givt-purple col col-auto">
+                    {{ item.value.EmailAddress }}
+                </div>
+                <div class="pr-4 text-givt-purple col text-right">
+                    <a class="action" (click)="deleteUser()"><i class="fas fa-trash"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="ml-2 row col-xl-2 col-sm-7 col-lg-4 col-md-5 mb-3">
+            <app-dashboard-link-button text="{{ 'Add user' | translate }}" [route]="['/', 'contact-registration']"
+                icon="fas fa-plus mr-3"></app-dashboard-link-button>
+        </div>
+    </div>
+</form>
