@@ -8,6 +8,7 @@ import { CollectGroupsService } from 'src/app/collect-groups/services/collect-gr
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { map } from 'rxjs/operators';
 import { CollectGroupType } from '../enums/collect-group-type.enum';
+import { OrganisationListModel } from 'src/app/organisations/models/organisation-list.model';
 
 
 @Injectable({
@@ -17,7 +18,20 @@ export class DashboardService {
     private storage = sessionStorage;
 
     public currentCollectGroupChange = new EventEmitter<CollectGroupDashboardListModel>();
-    
+    public currentOrganisationChange = new EventEmitter<OrganisationListModel>();
+
+    get currentOrganisation(): OrganisationListModel {
+        const key = 'DashboardService.CurrentOrganisation';
+        const serializedRequest = JSON.parse(this.storage.getItem(key));
+        return serializedRequest;
+    }
+
+    set currentOrganisation(organisation: OrganisationListModel) {
+        const key = 'DashboardService.CurrentOrganisation';
+        this.storage.setItem(key, JSON.stringify(organisation));
+        this.currentOrganisationChange.emit(organisation);
+    }
+
     get currentCollectGroup(): CollectGroupDashboardListModel {
         const key = 'DashboardService.CurrentCollectGroup';
         const serializedRequest = JSON.parse(this.storage.getItem(key));
