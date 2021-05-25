@@ -30,6 +30,7 @@
     <li *ngIf="currentCollectGroup == null" class="mr-2 my-2 nav-item">
         <a class="nav-link text-givt-purple"
             [routerLink]="['/','dashboard','root', { outlets: { 'dashboard-outlet': ['users'] } }]"
+            queryParamsHandling="merge"
             translate
         >
             <i class="fas fa-users mr-2"></i>

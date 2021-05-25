@@ -1,4 +1,5 @@
-<app-custom-card [showCloseButton]="true" titleTranslationKey="dashboardUserRegistrationIntroComponent.title" [showPreviousButton]="true"  iconBackgroundClass="circle-yellow" icon="fas fa-user-tag fa-5x">
+<app-custom-card [showCloseButton]="true" titleTranslationKey="dashboardUserRegistrationIntroComponent.title"
+    [showPreviousButton]="true" iconBackgroundClass="circle-yellow" icon="fas fa-user-tag fa-5x">
     <div body>
         <div class="row justify-content-center">
             <div class="col-md-9 text-givt-purple" translate>dashboardUserRegistrationIntroComponent.introText
@@ -6,7 +7,7 @@
         </div>
     </div>
     <a bottom [translate] class="btn btn-lg bg-givt-green text-white text-heavy-font w-75 m-0"
-        [routerLink]="['/', 'dashboard-user-registration', 'details']">
+        [routerLink]="['/', 'dashboard-user-registration', 'details']" queryParamsHandling="merge">
         dashboardUserRegistrationIntroComponent.nextButton
     </a>
 </app-custom-card>

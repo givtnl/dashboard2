@@ -57,4 +57,7 @@ export class BackendService {
 	public patch<T>(path:string, body: Object = null): Observable<T>{
 		return this.http.patch<T>(`${this.baseUrl}${path}`, body);
 	}
+    public delete(path:string): Observable<object>{
+		return this.http.delete(`${this.baseUrl}${path}`);
+	}
 }

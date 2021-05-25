@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { ToastrService } from "ngx-toastr";
-import { CreateCollectGroupContactCommand } from "src/app/collect-group-contacts/commands/create-collect-group-contact.command";
-import { ContactRegistrationStateService } from "src/app/contact-registration/services/contact-registration-state.service";
+import { CollectGroupListModel } from "src/app/collect-groups/models/collect-group-list.model";
+import { OrganisationUserInviteStateService } from "../guards/organisation-user-invite-state.service";
 
 @Component({
   selector: "app-dashboard-user-registration-details",
@@ -14,44 +14,39 @@ import { ContactRegistrationStateService } from "src/app/contact-registration/se
 export class DashboardUserRegistrationDetailsComponent implements OnInit {
   public form: FormGroup;
   public loading: boolean;
-  private command: CreateCollectGroupContactCommand;
+  public collectGroups: CollectGroupListModel[] = this.route.snapshot.data.collectGroups;
 
   constructor(
     private formBuilder: FormBuilder,
-    private stateService: ContactRegistrationStateService,
+    private route: ActivatedRoute,
     private router: Router,
+    private stateService: OrganisationUserInviteStateService,
     private translationService: TranslateService,
     private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
     this.loading = false;
-    this.command = this.stateService.currentContactRegistrationInformation;
     this.form = this.formBuilder.group({
-      firstName: [null, [Validators.required, Validators.minLength(1)]],
-      lastName: [null, [Validators.required, Validators.minLength(3)]],
-      email: [null, [Validators.required, Validators.email]],
-      telephone: null
+      organisationId:[this.stateService.currentOrganisationUserInvite?.organisationId || this.route.snapshot.queryParams.organisationId, [Validators.required]],
+      collectGroupId:[this.stateService.currentOrganisationUserInvite?.collectGroupId || this.collectGroups[0].Id,[Validators.required]],
+      firstName: [this.stateService.currentOrganisationUserInvite?.firstName, [Validators.required, Validators.minLength(1)]],
+      lastName: [this.stateService.currentOrganisationUserInvite?.lastName, [Validators.required, Validators.minLength(3)]],
+      email: [this.stateService.currentOrganisationUserInvite?.email , [Validators.required, Validators.email]],
     });
   }
 
   submit() {
-    // if (this.form.invalid) {
-    //   this.translationService
-    //     .get("errorMessages.validation-errors")
-    //     .subscribe((msg) => this.toastr.warning(msg));
-    //   return;
-    // }
-    // this.loading = true;
-    // this.command.Email = this.form.value.email;
-    // this.command.FirstName = this.form.value.firstName;
-    // this.command.LastName = this.form.value.lastName;
-    // this.command.Telephone =
-    //   this.form.value.telephone?.length > 0 ? this.form.value.telephone : null;
-    // this.stateService.currentContactRegistrationInformation = this.command;
-
+    if (this.form.invalid) {
+      this.translationService
+        .get("errorMessages.validation-errors")
+        .subscribe((msg) => this.toastr.warning(msg));
+      return;
+    }
+    this.loading = true;
+    this.stateService.currentOrganisationUserInvite = this.form.getRawValue();
     this.router
-      .navigate(["/", "dashboard-user-registration", "done"])
+      .navigate(["/", "dashboard-user-registration", "done"], {queryParamsHandling:'merge'})
       .then((x) => (this.loading = false));
   }
 }

@@ -2,7 +2,17 @@
     <app-custom-card [showCloseButton]="true" titleTranslationKey="dashboardUserRegistrationDetailsComponent.title" [showPreviousButton]="true"
         iconBackgroundClass="circle-yellow" icon="fas fa-user-tag fa-5x">
         <div body>
-            <div class="form-row justify-content-center">
+            <div class="form-row" *ngIf="collectGroups && collectGroups.length > 1">
+                <div class="form-group col-5">
+                    <label for="lastName" class="pl-1 text-givt-purple" translate>dashboardUserRegistrationDetailsComponent.collectGroup</label>
+                 <select class="form-control" formControlName="collectGroupId">
+                     <option *ngFor="let collectGroup of collectGroups" [value]="collectGroup.Id">
+                         {{collectGroup.Name}}
+                     </option>
+                 </select>
+                </div>
+            </div>
+            <div class="form-row">
                 <div class="form-group col-5">
                     <label for="firstName" class="pl-1 text-givt-purple" translate>dashboardUserRegistrationDetailsComponent.firstName</label>
                     <input type="text" class="form-control shadow text-givt-purple" id="firstName" formControlName="firstName">
@@ -12,7 +22,7 @@
                     <input ype="text" class="form-control shadow text-givt-purple" id="lastName" formControlName="lastName">
                 </div>
             </div>
-            <div class="form-row justify-content-center">
+            <div class="form-row ">
                 <div class="form-group col-6">
                     <label for="email" class="pl-1 text-givt-purple" translate>dashboardUserRegistrationDetailsComponent.email</label>
                     <input type="email" class="form-control shadow text-givt-purple" id="email" formControlName="email">
@@ -27,3 +37,5 @@
         </button>
     </app-custom-card>
 </form>
+
+{{form.value | json}}

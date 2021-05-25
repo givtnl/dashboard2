@@ -4,6 +4,7 @@ import { DashboardUserRegistrationDetailsComponent } from "./dashboard-user-regi
 import { DashboardUserRegistrationDoneComponent } from "./dashboard-user-registration-done/dashboard-user-registration-done.component";
 import { DashboardUserRegistrationIntroComponent } from "./dashboard-user-registration-intro/dashboard-user-registration-intro.component";
 import { CreateDashboardUserGuard } from "./guards/create-dashboard-user.guard";
+import { CollectGroupListResolver } from "./resolvers/collect-group-list.resolver";
 
 const routes: Routes = [
     {
@@ -12,7 +13,8 @@ const routes: Routes = [
     },
     {
         path: 'details',
-        component: DashboardUserRegistrationDetailsComponent
+        component: DashboardUserRegistrationDetailsComponent,
+        resolve: {collectGroups: CollectGroupListResolver}
     },
     {
         path: 'done',
