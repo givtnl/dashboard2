@@ -10,6 +10,9 @@ export class DashboardUsersService {
     constructor(private backendService: BackendService) { }
 
     getUsers(organisationId: string): Observable<DashboardUserDetailModel[]> {
-        return this.backendService.get<DashboardUserDetailModel[]>(`v2/organisations/${organisationId}/users`)
+        return this.backendService.get<DashboardUserDetailModel[]>(`v2/organisations/${organisationId}/users`);
+    }
+    delete(organisationId: string, userId: string): Observable<object> {
+        return this.backendService.delete(`v2/organisations/${organisationId}/users/${userId}`);
     }
 }

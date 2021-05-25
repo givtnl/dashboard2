@@ -20,7 +20,8 @@ export class CreateDashboardUserGuard implements CanActivate {
         try {
             await this.service
                 .create(this.stateService.currentOrganisationUserInvite)
-                .toPromise();
+                .toPromise()
+                this.stateService.clear();
                 return true;
         } catch (error) {
             return this.HandleFailure(next);

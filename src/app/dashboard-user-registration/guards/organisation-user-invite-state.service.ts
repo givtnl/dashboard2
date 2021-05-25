@@ -7,6 +7,9 @@ import { CreateOrganisationUserInviteCommand } from "../models/create-organisati
 export class OrganisationUserInviteStateService {
     private storage = sessionStorage;
 
+    public clear():void {
+        this.storage.removeItem('OrganisationUserInvitesService.currentOrganisationUserInvite');
+    }
     public get currentOrganisationUserInvite(): CreateOrganisationUserInviteCommand {
         const key = 'OrganisationUserInvitesService.currentOrganisationUserInvite';
         return JSON.parse(this.storage.getItem(key));

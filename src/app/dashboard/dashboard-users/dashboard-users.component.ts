@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { FormArray, FormBuilder, FormGroup } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { OrganisationUserInviteListModel } from "src/app/dashboard-user-registration/models/organisation-user-invite-list.model";
 import { OrganisationUserInviteService } from "src/app/dashboard-user-registration/services/organisation-user-invite.service";
+import { ApplicationStateService } from "src/app/infrastructure/services/application-state.service";
 import { DashboardUserDetailModel } from "src/app/users/models/dashboard-user-detail.model";
+import { DashboardUsersService } from "src/app/users/services/dashboard-users.service";
 
 @Component({
   selector: "app-dashboard-users",
@@ -18,10 +19,15 @@ export class DashboardUsersComponent implements OnInit {
   public invites: OrganisationUserInviteListModel[] = [];
 
   constructor(
+    private stateService: ApplicationStateService,
     private route: ActivatedRoute,
-    private service: OrganisationUserInviteService
+    private service: OrganisationUserInviteService,
+    private dashboardService: DashboardUsersService
   ) {}
 
+  canDeleteUser(userId: string): boolean {
+    return this.stateService.currentUserModel.GUID !== userId;
+  }
   ngOnInit(): void {
     this.users = this.route.snapshot.data.users as DashboardUserDetailModel[];
     this.invites = this.route.snapshot.data
@@ -29,11 +35,18 @@ export class DashboardUsersComponent implements OnInit {
   }
   deleteInvite(id: string, index: number): void {
     this.loading = true;
-    this.service.delete(this.route.snapshot.queryParams.organisationId, id)
-    .subscribe(x => this.invites.splice(index,1))
-    .add(() => this.loading = false);
+    this.service
+      .delete(this.route.snapshot.queryParams.organisationId, id)
+      .subscribe((x) => this.invites.splice(index, 1))
+      .add(() => (this.loading = false));
   }
   async submit(): Promise<void> {}
 
-  async deleteUser(): Promise<void> {}
+  deleteUser(id: string, index: number): void {
+    this.loading = true;
+    this.dashboardService
+      .delete(this.route.snapshot.queryParams.organisationId, id)
+      .subscribe((x) => this.users.splice(index, 1))
+      .add(() => (this.loading = false));
+  }
 }
