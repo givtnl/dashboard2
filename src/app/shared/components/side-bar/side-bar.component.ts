@@ -11,8 +11,6 @@ import { DashboardService } from '../../services/dashboard.service';
     styleUrls: ['./side-bar.component.scss']
 })
 export class SideBarComponent {
-    versionNumber = "";
-    
     public currentCollectGroup: string;
     
     @Input()
@@ -22,7 +20,6 @@ export class SideBarComponent {
     public closeButtonClicked = new EventEmitter();
 
     constructor(private accountService: AccountService, private dashboardService: DashboardService, private router: Router) {
-        if (!environment.production) this.versionNumber = pkg['version'];
         this.currentCollectGroup = dashboardService.currentCollectGroup?.Name;
         dashboardService.currentCollectGroupChange.subscribe(x => this.currentCollectGroup = x?.Name);
     }
