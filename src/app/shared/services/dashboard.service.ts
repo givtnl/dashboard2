@@ -36,14 +36,11 @@ export class DashboardService {
 
     public getCollectGroups(): Observable<CollectGroupDashboardListModel[]> {
         return this.collectGroupsService.getAll(this.applicationStateService.currentTokenModel.OrganisationAdmin)
-            .pipe(map(x => x.map(y => {
-                const a: CollectGroupDashboardListModel = {
+            .pipe(map(x => x.map(y => ({                    
                     GUID: y.Id,
                     CollectGroupType: y.Type,
                     CollectGroupTypeDescription: CollectGroupType[y.Type],
                     Name: y.Name
-                };
-                return a;
-            })));
+            }))));
     }
 }
