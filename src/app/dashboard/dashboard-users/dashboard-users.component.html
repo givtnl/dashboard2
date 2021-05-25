@@ -1,4 +1,4 @@
-<form autocomplete="off"  (ngSubmit)="submit()">
+<form autocomplete="off" (ngSubmit)="submit()">
     <div class="container-fluid h-100 d-flex flex-column">
         <div class="ml-3 row pt-5">
             <h2 class="text-font-light text-givt-purple">
@@ -15,7 +15,7 @@
                 <div class="pl-3 text-white text-heavy-font col col-auto" translate>
                 </div>
             </div>
-            <div *ngFor="let item of users; let userIndex=index" 
+            <div *ngFor="let item of users; let userIndex=index"
                 [ngClass]="{'bg-grey': userIndex % 2 == 0, 'bg-white': userIndex % 2 == 1}"
                 class="row border-bottom py-2 align-items-center">
                 <div class="px-3 text-givt-purple col col-3">
@@ -25,27 +25,35 @@
                     {{ item.EmailAddress }}
                 </div>
                 <div class="pr-4 text-givt-purple col text-right">
-                    <a class="action" *ngIf="canDeleteUser(item.Id)" (click)="deleteUser(item.Id, userIndex)"><i class="fas fa-trash"></i></a>
+                    <a class="action" *ngIf="canDeleteUser(item.Id)" (click)="deleteUser(item.Id, userIndex)"><i
+                            class="fas fa-trash"></i></a>
                 </div>
             </div>
-            <div *ngFor="let item of invites; let i=index" 
-            [ngClass]="{'bg-grey': i % 2 == 0, 'bg-white': i % 2 == 1}"
-            class="row border-bottom py-2 align-items-center">
-            <div class="px-3 text-givt-purple col col-3">
-                {{ item.FirstName }}&nbsp;{{ item.LastName }}
-            </div>
-            <div class="px-3 text-givt-purple col col-auto">
-                {{ item.Email }}
-            </div>
-            <div class="pr-4 text-givt-purple col text-right">
-                <a class="action" (click)="deleteInvite(item.Id, i)"><i class="fas fa-trash"></i></a>
-            </div>
-        </div>
+            <ng-container *ngFor="let item of invites; let i=index">
+                <div [ngClass]="{'bg-grey': i % 2 == 0, 'bg-white': i % 2 == 1}"
+                    class="row pt-2   align-items-center">
+                    <div class="px-3 text-givt-purple col col-3">
+                        {{ item.FirstName }}&nbsp;{{ item.LastName }}<br />
+                    </div>
+                    <div class="px-3 text-givt-purple col col-auto">
+                        {{ item.Email }}
+                    </div>
+                    <div class="pr-4 text-givt-purple col text-right">
+                        <a class="action" (click)="deleteInvite(item.Id, i)"><i class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+                <div class="row pb-1  border-bottom align-items-center">
+                    <div class="col col-auto">
+                        <small class="font-italic">Invitation sent {{item.CreationDate | date:'longDate'}}</small>
+                    </div>
+                    
+                </div>
+            </ng-container>
+
         </div>
         <div class="ml-2 row col-xl-2 col-sm-7 col-lg-4 col-md-5 mb-3">
             <app-dashboard-link-button text="{{ 'Add user' | translate }}"
-             [route]="['/', 'dashboard-user-registration']"
-                icon="fas fa-plus mr-3"></app-dashboard-link-button>
+                [route]="['/', 'dashboard-user-registration']" icon="fas fa-plus mr-3"></app-dashboard-link-button>
         </div>
     </div>
 </form>

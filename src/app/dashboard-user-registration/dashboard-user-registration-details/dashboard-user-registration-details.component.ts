@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { ToastrService } from "ngx-toastr";
 import { CollectGroupListModel } from "src/app/collect-groups/models/collect-group-list.model";
+import { ApplicationStateService } from "src/app/infrastructure/services/application-state.service";
 import { OrganisationUserInviteStateService } from "../guards/organisation-user-invite-state.service";
 
 @Component({
@@ -20,6 +21,7 @@ export class DashboardUserRegistrationDetailsComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
+    private applicationState: ApplicationStateService,
     private stateService: OrganisationUserInviteStateService,
     private translationService: TranslateService,
     private toastr: ToastrService
@@ -33,6 +35,8 @@ export class DashboardUserRegistrationDetailsComponent implements OnInit {
       firstName: [this.stateService.currentOrganisationUserInvite?.firstName, [Validators.required, Validators.minLength(1)]],
       lastName: [this.stateService.currentOrganisationUserInvite?.lastName, [Validators.required, Validators.minLength(3)]],
       email: [this.stateService.currentOrganisationUserInvite?.email , [Validators.required, Validators.email]],
+      language:[this.applicationState.currentUserExtensionModel.AppLanguage || this.translationService.getBrowserLang()],
+      country:[this.applicationState.currentUserExtensionModel.Country || 'GB']
     });
   }
 
