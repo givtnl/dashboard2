@@ -1,5 +1,6 @@
 export interface CreateOrganisationUserInviteCommand
 {
+    country: string;
     organisationId: string;
     collectGroupId: string;
     firstName: string;

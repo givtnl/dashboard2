@@ -5,6 +5,7 @@ import { TranslateService } from "@ngx-translate/core";
 import { ToastrService } from "ngx-toastr";
 import { CollectGroupListModel } from "src/app/collect-groups/models/collect-group-list.model";
 import { ApplicationStateService } from "src/app/infrastructure/services/application-state.service";
+import { DashboardService } from "src/app/shared/services/dashboard.service";
 import { OrganisationUserInviteStateService } from "../guards/organisation-user-invite-state.service";
 
 @Component({
@@ -23,6 +24,7 @@ export class DashboardUserRegistrationDetailsComponent implements OnInit {
     private router: Router,
     private applicationState: ApplicationStateService,
     private stateService: OrganisationUserInviteStateService,
+    private dashboardService: DashboardService,
     private translationService: TranslateService,
     private toastr: ToastrService
   ) {}
@@ -30,13 +32,12 @@ export class DashboardUserRegistrationDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.loading = false;
     this.form = this.formBuilder.group({
-      organisationId:[this.stateService.currentOrganisationUserInvite?.organisationId || this.route.snapshot.queryParams.organisationId, [Validators.required]],
+      organisationId:[this.stateService.currentOrganisationUserInvite?.organisationId || this.dashboardService.currentOrganisation.Id, [Validators.required]],
       collectGroupId:[this.stateService.currentOrganisationUserInvite?.collectGroupId || this.collectGroups[0].Id,[Validators.required]],
       firstName: [this.stateService.currentOrganisationUserInvite?.firstName, [Validators.required, Validators.minLength(1)]],
       lastName: [this.stateService.currentOrganisationUserInvite?.lastName, [Validators.required, Validators.minLength(3)]],
       email: [this.stateService.currentOrganisationUserInvite?.email , [Validators.required, Validators.email]],
-      language:[this.applicationState.currentUserExtensionModel.AppLanguage || this.translationService.getBrowserLang()],
-      country:[this.applicationState.currentUserExtensionModel.Country || 'GB']
+      country:[this.applicationState.currentUserExtensionModel.Country || this.dashboardService.currentOrganisation.Country]
     });
   }
 
