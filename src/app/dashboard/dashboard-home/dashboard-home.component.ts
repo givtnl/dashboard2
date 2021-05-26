@@ -7,10 +7,11 @@ import { OrganisationsService } from 'src/app/organisations/services/organisatio
 import { Observable, of } from 'rxjs';
 import { OnboardingGiftAidService } from 'src/app/onboarding/giftaid/services/onboarding-giftaid.service';
 import { switchMap, map } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DirectDebitTypeHelper } from 'src/app/shared/helpers/direct-debit-type.helper';
 import { OrganisationRegistrationStep } from 'src/app/organisations/models/organisation-registration-step';
 import { OrganisationRegistrationStatus } from 'src/app/organisations/enums/organisationregistrationstatus.enum';
+import { OrganisationListModel } from 'src/app/organisations/models/organisation-list.model';
 
 @Component({
     selector: 'app-dashboard-home',
@@ -28,11 +29,13 @@ export class DashboardHomeComponent implements OnInit {
         private organisationService: OrganisationsService,
         private giftAidService: OnboardingGiftAidService,
         private dashboardService: DashboardService,
-        private router: Router
+        private router: Router,
+        private route: ActivatedRoute
     ) { }
 
     async ngOnInit(): Promise<void> {
         this.loading = true;
+        this.dashboardService.currentOrganisation = this.route.snapshot.data.organisation;
         this.dashboardService.currentCollectGroup = null;
         this.dashboardService
             .getCollectGroups()
