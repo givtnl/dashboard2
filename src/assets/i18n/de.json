@@ -476,5 +476,8 @@
     "sideBarComponent.termsAndPricing": "Bedingungen und Preise",
     "dashboardUserRegistrationIntroComponent.title": "Dashboard-Benutzer registrieren",
     "dashboardUserRegistrationIntroComponent.introText": "Über den nächsten Bildschirm kann ein Dashboard-Benutzer eingeladen werden. Sie werden nach dem Vor- und Nachnamen sowie der E-Mail-Adresse der Person gefragt, die Sie einladen möchten.",
-    "dashboardUserRegistrationDoneComponent.text": "Wir haben den Dashboard-Benutzer erfolgreich eingeladen."
+    "dashboardUserRegistrationDoneComponent.text": "Wir haben den Dashboard-Benutzer erfolgreich eingeladen.",
+    "dashboardUsersComponent.title": "Dashboard-Benutzer",
+    "dashboardUsersComponent.name": "Name",
+    "dashboardUsersComponent.invitationSent": "Eingeladen"
 }
