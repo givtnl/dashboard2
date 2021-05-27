@@ -473,5 +473,8 @@
     "dashboardSelectOrganisationComponent.title": "Organisation auswählen",
     "dashboardSelectOrganisationComponent.description": "Du hast Zugriff auf die Dashboards mehrerer Organisationen. Unten kannst du die Organisation auswählen, für die du das Dashboard öffnen möchtest.",
     "sideBarComponent.privacyStatement": "Datenschutzerklärung",
-    "sideBarComponent.termsAndPricing": "Bedingungen und Preise"
+    "sideBarComponent.termsAndPricing": "Bedingungen und Preise",
+    "dashboardUserRegistrationIntroComponent.title": "Dashboard-Benutzer registrieren",
+    "dashboardUserRegistrationIntroComponent.introText": "Über den nächsten Bildschirm kann ein Dashboard-Benutzer eingeladen werden. Sie werden nach dem Vor- und Nachnamen sowie der E-Mail-Adresse der Person gefragt, die Sie einladen möchten.",
+    "dashboardUserRegistrationDoneComponent.text": "Wir haben den Dashboard-Benutzer erfolgreich eingeladen."
 }
