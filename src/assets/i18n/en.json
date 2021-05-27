@@ -473,5 +473,8 @@
     "dashboardSelectOrganisationComponent.title": "Select organisation",
     "dashboardSelectOrganisationComponent.description": "You have access to the dashboards of multiple organisations. Below you can select the organisation for which you'd like to open the dashboard.",
     "sideBarComponent.privacyStatement": "Privacy statement",
-    "sideBarComponent.termsAndPricing": "Terms and pricing"
+    "sideBarComponent.termsAndPricing": "Terms and pricing",
+    "dashboardUserRegistrationIntroComponent.title": "Register dashboard user",
+    "dashboardUserRegistrationIntroComponent.introText": "By filling out the form on the next page, you can invite someone to the dashboard. You will be asked for the first name, last name and email address of the person you want to invite.",
+    "dashboardUserRegistrationDoneComponent.text": "We've successfully sent and invitation to the dashboard user."
 }
