@@ -16,7 +16,6 @@ import { OrganisationUserInviteStateService } from "../guards/organisation-user-
 export class DashboardUserRegistrationDetailsComponent implements OnInit {
   public form: FormGroup;
   public loading: boolean;
-  public collectGroups: CollectGroupListModel[] = this.route.snapshot.data.collectGroups;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,7 +32,6 @@ export class DashboardUserRegistrationDetailsComponent implements OnInit {
     this.loading = false;
     this.form = this.formBuilder.group({
       organisationId:[this.stateService.currentOrganisationUserInvite?.organisationId || this.dashboardService.currentOrganisation.Id, [Validators.required]],
-      collectGroupId:[this.stateService.currentOrganisationUserInvite?.collectGroupId || this.collectGroups[0].Id,[Validators.required]],
       firstName: [this.stateService.currentOrganisationUserInvite?.firstName, [Validators.required, Validators.minLength(1)]],
       lastName: [this.stateService.currentOrganisationUserInvite?.lastName, [Validators.required, Validators.minLength(3)]],
       email: [this.stateService.currentOrganisationUserInvite?.email , [Validators.required, Validators.email]],

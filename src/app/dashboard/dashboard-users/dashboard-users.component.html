@@ -24,7 +24,7 @@
                 <div class="px-3 text-givt-purple col col-auto">
                     {{ item.EmailAddress }}
                 </div>
-                <div class="pr-4 text-givt-purple col text-right">
+                <div class="pr-4 text-givt-purple col col-auto text-right">
                     <a class="action" *ngIf="canDeleteUser(item.Id)" (click)="deleteUser(item.Id, userIndex)"><i
                             class="fas fa-trash"></i></a>
                 </div>
@@ -38,7 +38,7 @@
                     <div class="px-3 text-givt-purple col col-auto">
                         {{ item.Email }}
                     </div>
-                    <div class="pr-4 text-givt-purple col text-right">
+                    <div class="pr-4 text-givt-purple col col-auto text-right">
                         <a class="action" (click)="deleteInvite(item.Id, i)"><i class="fas fa-trash"></i></a>
                     </div>
                 </div>
