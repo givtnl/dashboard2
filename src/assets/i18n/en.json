@@ -476,5 +476,8 @@
     "sideBarComponent.termsAndPricing": "Terms and pricing",
     "dashboardUserRegistrationIntroComponent.title": "Register dashboard user",
     "dashboardUserRegistrationIntroComponent.introText": "By filling out the form on the next page, you can invite someone to the dashboard. You will be asked for the first name, last name and email address of the person you want to invite.",
-    "dashboardUserRegistrationDoneComponent.text": "We've successfully sent and invitation to the dashboard user."
+    "dashboardUserRegistrationDoneComponent.text": "We've successfully sent and invitation to the dashboard user.",
+    "dashboardUsersComponent.title": "Dashboard users",
+    "dashboardUsersComponent.name": "Name",
+    "dashboardUsersComponent.invitationSent": "Invitation sent"
 }
