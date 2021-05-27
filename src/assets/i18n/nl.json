@@ -473,5 +473,8 @@
     "dashboardSelectOrganisationComponent.title": "Selecteer organisatie",
     "dashboardSelectOrganisationComponent.description": "Je hebt toegang tot de dashboards van verschillende organisaties. Hieronder kun je de organisatie kiezen waarvan je het dashboard wil openen.",
     "sideBarComponent.privacyStatement": "Privacy-verklaring",
-    "sideBarComponent.termsAndPricing": "Voorwaarden en tarieven"
+    "sideBarComponent.termsAndPricing": "Voorwaarden en tarieven",
+    "dashboardUserRegistrationIntroComponent.title": "Dashboardgebruiker registreren",
+    "dashboardUserRegistrationIntroComponent.introText": "Via het volgende scherm is het mogelijk om een dashboardgebruiker uit te nodigen. Je wordt gevraagd om de voornaam, achternaam en het email-adres van de persoon die je wil uitnodigen.",
+    "dashboardUserRegistrationDoneComponent.text": "Het is gelukt om de dashboardgebruiker uit te nodigen."
 }
