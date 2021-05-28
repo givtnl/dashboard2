@@ -3,5 +3,5 @@ export interface OrganisationUserInviteListModel {
     FirstName: string;
     CreationDate: Date;
     LastName: string;
-    Email:string;
+    Email: string;
 }

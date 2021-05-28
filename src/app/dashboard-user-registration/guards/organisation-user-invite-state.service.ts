@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { CreateOrganisationUserInviteCommand } from "../models/create-organisatiion-user-invite-command.model";
+import { CreateOrganisationUserInviteCommand } from "../models/create-organisation-user-invite-command.model";
 
 @Injectable({
     providedIn: 'root'

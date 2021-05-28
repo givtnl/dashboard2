@@ -1,13 +1,9 @@
-import { OrganisationUserInviteStatus } from "./organisation-user-invite-status.enum";
-
 export interface OrganisationUserInviteDetailModel {
-  Id: string;
-  CollectGroupId: string;
-  OrganisationId: string;
-  InvitationUserId: string;
-  CreationDate: Date;
-  Status: OrganisationUserInviteStatus;
-  FirstName: string;
-  LastName: string;
-  Email: string;
+    Id: string;
+    OrganisationId: string;
+    InvitationUserId: string;
+    CreationDate: Date;
+    FirstName: string;
+    LastName: string;
+    Email: string;
 }
