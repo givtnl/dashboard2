@@ -1,3 +1,16 @@
 a.action:hover {
     cursor: pointer
 }
+
+.user-row:nth-of-type(odd) {
+    background: #f1f5f8;
+}
+
+.user-row:nth-of-type(even) {
+    background: white;
+}
+
+.modal-body .container-fluid {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
