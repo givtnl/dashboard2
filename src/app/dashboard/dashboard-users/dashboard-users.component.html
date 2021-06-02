@@ -54,25 +54,24 @@
                     </div>
                     <div class="modal-body">
                         <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-5 text-givt-purple text-heavy-font" translate>
+                            <div class="row mb-2">
+                                <div class="col-3 text-givt-purple font-weight-bold" translate>
                                     dashboardUsersComponent.name
                                 </div>
-                                <div class="col-7 text-givt-purple text-heavy-font" translate>
-                                    contactRegistrationDetailsComponent.email
+                                <div class="col-9 text-givt-purple d-flex align-items-center">
+                                    {{ modalItem.FirstName}}&nbsp;{{ modalItem.LastName }}
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-5 text-givt-purple">
-                                    {{ modalItem.FirstName}}&nbsp;{{ modalItem.LastName }}
+                                <div class="col-3 text-givt-purple font-weight-bold d-flex align-items-center" translate>
+                                    contactRegistrationDetailsComponent.email
                                 </div>
-                                <div class="col-7 text-givt-purple" style="word-break: break-all;">
+                                <div class="col-9 text-givt-purple d-flex align-items-center" style="word-break: break-all;">
                                     {{ modalItem.Email}}    
                                 </div>
                             </div>
                             <div class="row m-4">
-                                <div class="col-6"></div>
-                                <div class="col-6 d-flex align-items-center justify-content-center">
+                                <div class="col-12 d-flex align-items-center justify-content-center">
                                     <a class="action" (click)="deleteUser(modalItemIndex)" data-dismiss="modal">
                                         <i class="fas fa-trash fa-2x"></i>
                                     </a>
