@@ -12,10 +12,10 @@ export class AppComponent {
 	public isProduction = environment.production;
 
 	constructor(languageService: TranslateService) {
-		languageService.addLangs([ 'en', 'nl' ]);
+		languageService.addLangs([ 'en', 'nl', 'de' ]);
 		languageService.setDefaultLang('en');
 
 		const browserLang = languageService.getBrowserLang();
-		languageService.use(browserLang.match(/en|nl/) ? browserLang : 'en');
+		languageService.use(browserLang.match(/en|nl|de/) ? browserLang : 'en');
 	}
 }

@@ -18,6 +18,9 @@ export class OnboardingBankAccountStateService {
 
     public set currentBankAccountModel(value: AddBankAccountToOrganisationCommand) {
         const key = 'OnboardingBankAccountStateService.currentBankAccountModel';
+        value.accountNumber = value.accountNumber?.replace(" ", "");
+        value.iban = value.iban?.replace(" ", "");
+        value.sortCode = value.sortCode?.replace(" ", "");
         this.storage.setItem(key, JSON.stringify(value));
     }
 }

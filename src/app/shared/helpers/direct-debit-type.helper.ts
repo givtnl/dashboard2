@@ -2,9 +2,10 @@ import { DirectDebitType } from "../enums/direct-debit.type";
 import { UpdateOrganisationCommand } from "../../organisations/models/commands/update-organisation.command";
 import { OrganisationDetailModel } from "../../organisations/models/organisation-detail.model";
 import { PreboardingDetailModel } from "src/app/preboarding/models/preboarding-detail.model";
+import { OrganisationListModel } from "src/app/organisations/models/organisation-list.model";
 
 export class DirectDebitTypeHelper {
-    static fromOrganisationDetailModel(model: OrganisationDetailModel | UpdateOrganisationCommand) : DirectDebitType {
+    static fromOrganisationDetailModel(model: OrganisationDetailModel | UpdateOrganisationCommand | OrganisationListModel) : DirectDebitType {
         return this.CountryToDirectDebitType(model.Country ?? "");
     }
 

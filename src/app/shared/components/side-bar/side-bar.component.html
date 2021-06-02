@@ -1,4 +1,4 @@
-<ul [class.h-100]="showCloseButton" class="nav  flex-column text-medium-font  border-1">
+<ul class="h-100 nav flex-column text-medium-font border-1">
     <li *ngIf="showCloseButton" class="mr-2 my-2 nav-item">
         <a href="javascript:void(0)" (click)="closeMenu()" class="nav-link">
             <i class="fas fa-arrow-left mr-2"></i>
@@ -62,7 +62,9 @@
             {{ 'action.signOut' | translate }}
         </a>
     </li>
-    <li class='mr-2 my-2 nav-item menu-list-bottom'>
-        <p>{{versionNumber}}</p>
+    <li class="text-size-small text-givt-purple d-flex mx-3 my-2 flex-grow-1 align-items-end givt-essentials">
+        &copy; Givt 2016-{{ now | date: 'YYYY'}} <br>
+        <a translate target="_blank" rel="noreferrer noopener" href="{{privacyLink}}">sideBarComponent.privacyStatement</a> <br>
+        <a translate target="_blank" rel="noreferrer noopener" href="{{termsLink}}">sideBarComponent.termsAndPricing</a> <br />
     </li>
 </ul>

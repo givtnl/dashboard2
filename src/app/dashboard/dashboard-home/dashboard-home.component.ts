@@ -7,7 +7,11 @@ import { OrganisationsService } from 'src/app/organisations/services/organisatio
 import { Observable, of } from 'rxjs';
 import { OnboardingGiftAidService } from 'src/app/onboarding/giftaid/services/onboarding-giftaid.service';
 import { switchMap, map } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DirectDebitTypeHelper } from 'src/app/shared/helpers/direct-debit-type.helper';
+import { OrganisationRegistrationStep } from 'src/app/organisations/models/organisation-registration-step';
+import { OrganisationRegistrationStatus } from 'src/app/organisations/enums/organisationregistrationstatus.enum';
+import { OrganisationListModel } from 'src/app/organisations/models/organisation-list.model';
 
 @Component({
     selector: 'app-dashboard-home',
@@ -25,17 +29,19 @@ export class DashboardHomeComponent implements OnInit {
         private organisationService: OrganisationsService,
         private giftAidService: OnboardingGiftAidService,
         private dashboardService: DashboardService,
-        private router: Router
+        private router: Router,
+        private route: ActivatedRoute
     ) { }
 
-    ngOnInit(): void {
+    async ngOnInit(): Promise<void> {
         this.loading = true;
+        this.dashboardService.currentOrganisation = this.route.snapshot.data.organisation;
         this.dashboardService.currentCollectGroup = null;
         this.dashboardService
             .getCollectGroups()
             .subscribe(x => (this.collectGroups = x))
             .add(() => (this.loading = false));
-        this.determineIfGiftAidShouldBeEnabled();
+        await this.determineIfGiftAidShouldBeEnabled();
     }
 
     getIconForCollectGroupType(collectGroupType: number): string {
@@ -73,9 +79,14 @@ export class DashboardHomeComponent implements OnInit {
         this.router.navigate(['/','dashboard', 'root', { outlets: { 'dashboard-outlet': ['collect-group-home'] } }])
     }
 
-    determineIfGiftAidShouldBeEnabled(): void {
+    async determineIfGiftAidShouldBeEnabled(): Promise<void> {
         const currentOrganisationId = this.applicationStateService.currentTokenModel.OrganisationAdmin;
-        this.giftAidService
+        let registrationStatus = await this.organisationService.getRegistrationStatus(currentOrganisationId).toPromise();
+        if (!registrationStatus.some(x => x.OrganisationRegistrationStatus == OrganisationRegistrationStatus.AddGiftAidSettings)) {
+            this.showGiftAidButton = false;
+            return
+        } else {
+            this.giftAidService
             .isGiftAidEligble(currentOrganisationId)
             // if we could enable gift aid, means we are UK and a valid organisation
             .pipe(
@@ -87,5 +98,6 @@ export class DashboardHomeComponent implements OnInit {
                 )
             )
             .subscribe(enabled => (this.showGiftAidButton = enabled));
+        }
     }
 }

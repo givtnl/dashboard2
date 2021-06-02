@@ -277,7 +277,7 @@
     "onboardingOrganisationDetailsParentKnownComponent.buttonText": "Take me there",
     "onboardingOrganisationDetailsCharityNumberComponent.charityErrorDescription": "<p class=\"mb-0\">We did not found your charity at CCEW, this could be because:</p>      <ul>                        <li>Incorrect input, please check again</li>                        <li>Your organisation is regulated with another regulator (CCNI,OSCR)</li>                        <li>Your organisation is an exempt charity</li>                    </ul>                    <p class=\"mb-0\">If this is the case, please click <a href=\"[LINK]\">here</a></p>",
     "preboardingWelcomeDetailsComponent.title": "Hello.",
-    "preboardingWelcomeDetailsComponent.description": "<p>You are about to register your organisation with Givt. In the following steps we will ask you for a few details, so your organisation can start receiving donations as soon as possible.</p>\n<p>When you continue, you automatically agree to <a href=\"[LINK]\">the privacy statement</a> of [LEGALNAME]</p>",
+    "preboardingWelcomeDetailsComponent.description": "<p>You are about to register your organisation with Givt. In the following steps we will ask you for a few details, so your organisation can start receiving donations as soon as possible.</p>\n<p>When you continue, you automatically agree to <a href=\"[LINK]\" target=\"_blank\" rel=\"noreferrer noopener\">the privacy statement</a> of [LEGALNAME]</p>",
     "preboardingWelcomeDetailsComponent.startButtonText": "Start",
     "preboardingNameInAppComponent.title": "Let's go",
     "preboardingNameInAppComponent.description": "Make sure givers will recognise your organisation in the app by choosing a unique name. Add (an abbreviation of) the City/Town of the organisation to it. (E.g. Charity Sir. Example B'gham)",
@@ -471,5 +471,13 @@
     "preboardingWelcomeDetailsComponent.legalNameGB": "Givt Ltd.",
     "preboardingWelcomeDetailsComponent.privacyLinkGB": "https://www.givtapp.net/en-gb/privacystatementgivt-service/",
     "dashboardSelectOrganisationComponent.title": "Select organisation",
-    "dashboardSelectOrganisationComponent.description": "You have access to the dashboards of multiple organisations. Below you can select the organisation for which you'd like to open the dashboard."
+    "dashboardSelectOrganisationComponent.description": "You have access to the dashboards of multiple organisations. Below you can select the organisation for which you'd like to open the dashboard.",
+    "sideBarComponent.privacyStatement": "Privacy statement",
+    "sideBarComponent.termsAndPricing": "Terms and pricing",
+    "dashboardUserRegistrationIntroComponent.title": "Register dashboard user",
+    "dashboardUserRegistrationIntroComponent.introText": "By filling out the form on the next page, you can invite someone to the dashboard. You will be asked for the first name, last name and email address of the person you want to invite.",
+    "dashboardUserRegistrationDoneComponent.text": "We've successfully sent and invitation to the dashboard user.",
+    "dashboardUsersComponent.title": "Dashboard users",
+    "dashboardUsersComponent.name": "Name",
+    "dashboardUsersComponent.invitationSent": "Invitation sent"
 }
