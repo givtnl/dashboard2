@@ -480,5 +480,6 @@
     "dashboardUsersComponent.title": "Dashboardgebruikers",
     "dashboardUsersComponent.name": "Naam",
     "dashboardUsersComponent.invitationSent": "Uitgenodigd",
-    "dashboardUsersComponent.addUser": "Gebruiker toevoegen"
+    "dashboardUsersComponent.addUser": "Gebruiker toevoegen",
+    "sideBarComponent.users": "Gebruikers"
 }
