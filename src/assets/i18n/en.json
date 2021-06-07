@@ -480,5 +480,6 @@
     "dashboardUsersComponent.title": "Dashboard users",
     "dashboardUsersComponent.name": "Name",
     "dashboardUsersComponent.invitationSent": "Invitation sent",
-    "dashboardUsersComponent.addUser": "Add user"
+    "dashboardUsersComponent.addUser": "Add user",
+    "sideBarComponent.users": "Users"
 }
