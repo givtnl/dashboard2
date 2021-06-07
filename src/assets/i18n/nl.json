@@ -479,5 +479,6 @@
     "dashboardUserRegistrationDoneComponent.text": "Het is gelukt om de dashboardgebruiker uit te nodigen.",
     "dashboardUsersComponent.title": "Dashboardgebruikers",
     "dashboardUsersComponent.name": "Naam",
-    "dashboardUsersComponent.invitationSent": "Uitgenodigd"
+    "dashboardUsersComponent.invitationSent": "Uitgenodigd",
+    "dashboardUsersComponent.addUser": "Gebruiker toevoegen"
 }
