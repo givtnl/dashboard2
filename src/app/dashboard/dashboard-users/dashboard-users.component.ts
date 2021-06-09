@@ -3,6 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { OrganisationUserInviteListModel } from "src/app/dashboard-user-registration/models/organisation-user-invite-list.model";
 import { OrganisationUserInviteService } from "src/app/dashboard-user-registration/services/organisation-user-invite.service";
 import { ApplicationStateService } from "src/app/infrastructure/services/application-state.service";
+import { DashboardService } from "src/app/shared/services/dashboard.service";
 import { DashboardUserDetailModel } from "src/app/users/models/dashboard-user-detail.model";
 import { DashboardUsersService } from "src/app/users/services/dashboard-users.service";
 import { DashboardUserViewModel } from "./viewmodels/dashboard-user.viewmodel";
@@ -28,7 +29,8 @@ export class DashboardUsersComponent implements OnInit {
         private stateService: ApplicationStateService,
         private route: ActivatedRoute,
         private inviteService: OrganisationUserInviteService,
-        private dashboardService: DashboardUsersService
+        private dashboardUsersService: DashboardUsersService,
+        private dashboardService: DashboardService
     ) { }
 
     canDeleteUser(userId: string): boolean {
@@ -70,12 +72,12 @@ export class DashboardUsersComponent implements OnInit {
         this.loading = true;
         if (this.dashboardUsers[index].CreationDate !== null && this.dashboardUsers[index].CreationDate !== undefined) {
             this.inviteService
-            .delete(this.route.snapshot.queryParams.organisationId, this.dashboardUsers[index].Id)
+            .delete(this.dashboardService.currentOrganisation.Id, this.dashboardUsers[index].Id)
             .subscribe((x) => this.dashboardUsers.splice(index, 1))
             .add(() => (this.loading = false));
         } else {
-            this.dashboardService
-            .delete(this.route.snapshot.queryParams.organisationId, this.dashboardUsers[index].Id)
+            this.dashboardUsersService
+            .delete(this.dashboardService.currentOrganisation.Id, this.dashboardUsers[index].Id)
             .subscribe((x) => this.dashboardUsers.splice(index, 1))
             .add(() => (this.loading = false));
         }
