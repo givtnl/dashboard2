@@ -61,5 +61,7 @@ export class AccountService {
 
     public logOut(): void {
         this.applicationStateService.clear();
+        mixpanel.track("signout");
+        mixpanel.identify();
     }
 }
