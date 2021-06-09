@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import mixpanel from 'mixpanel-browser';
 import { AddBankAccountToOrganisationCommand } from '../models/add-bank-account-to-organisation.command';
 import { OnboardingBankAccountStateService } from '../services/onboarding-bank-account-state.service';
 
@@ -19,6 +20,7 @@ export class OnboardingBankAccountCompletedComponent implements OnInit, OnDestro
     iban: string
 
     ngOnInit() {
+        mixpanel.track("bankAccountAdd:end");
         const currentBankDetails = this.stateService.currentBankAccountModel as AddBankAccountToOrganisationCommand;
         this.accountName = currentBankDetails.accountName ? currentBankDetails.accountName : '';
         this.sortCode = currentBankDetails.sortCode ? currentBankDetails.sortCode : '';

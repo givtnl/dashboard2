@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
+import * as mixpanel from 'mixpanel-browser'
 
 @Component({
 	selector: 'app-root',
@@ -16,6 +17,9 @@ export class AppComponent {
 		languageService.setDefaultLang('en');
 
 		const browserLang = languageService.getBrowserLang();
-		languageService.use(browserLang.match(/en|nl|de/) ? browserLang : 'en');
+        languageService.use(browserLang.match(/en|nl|de/) ? browserLang : 'en');
+        
+        mixpanel.init("90a430d734b14dbe1393430682a103a1", { ignore_dnt: true });
+        mixpanel.track('starting up', { 'story': 'app' });
 	}
 }

@@ -12,6 +12,7 @@ import { DirectDebitTypeHelper } from 'src/app/shared/helpers/direct-debit-type.
 import { OrganisationRegistrationStep } from 'src/app/organisations/models/organisation-registration-step';
 import { OrganisationRegistrationStatus } from 'src/app/organisations/enums/organisationregistrationstatus.enum';
 import { OrganisationListModel } from 'src/app/organisations/models/organisation-list.model';
+import mixpanel from 'mixpanel-browser';
 
 @Component({
     selector: 'app-dashboard-home',

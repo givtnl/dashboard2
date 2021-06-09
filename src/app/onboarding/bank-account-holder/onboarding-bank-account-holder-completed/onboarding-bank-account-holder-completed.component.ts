@@ -5,6 +5,7 @@ import { of } from 'rxjs';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
 import { OrganisationRegistrationStatus } from 'src/app/organisations/enums/organisationregistrationstatus.enum';
+import mixpanel from 'mixpanel-browser';
 
 @Component({
     selector: 'app-onboarding-bank-account-holder-completed',
@@ -21,6 +22,7 @@ export class OnboardingBankAccountHolderCompletedComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        mixpanel.track("accountHolderAdd:end");
         const currentOrganisationId = this.applicationStateService.currentTokenModel.OrganisationAdmin;
         // if organisation has already giftaid completed because of using it from a parent, this button should not be enabled                
         this.organisationService.getRegistrationStatus(currentOrganisationId)

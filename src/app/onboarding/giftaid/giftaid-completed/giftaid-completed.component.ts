@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import mixpanel from 'mixpanel-browser';
 
 @Component({
-  selector: 'app-giftaid-completed',
-  templateUrl: './giftaid-completed.component.html',
-  styleUrls: ['./giftaid-completed.component.scss']
+    selector: 'app-giftaid-completed',
+    templateUrl: './giftaid-completed.component.html',
+    styleUrls: ['./giftaid-completed.component.scss']
 })
 export class GiftaidCompletedComponent implements OnInit {
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
-
+    ngOnInit() {
+        mixpanel.track("giftAid:end");
+    }
 }

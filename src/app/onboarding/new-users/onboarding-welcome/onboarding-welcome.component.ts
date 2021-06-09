@@ -6,6 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { OnboardingNewUsersStateService } from '../services/onboarding-new-users-state.service';
+import mixpanel from 'mixpanel-browser';
 
 
 @Component({
@@ -36,6 +37,9 @@ export class OnboardingWelcomeComponent implements OnInit {
     ngOnInit() {
         this.stateService.currentPreparationModel = this.route.parent.snapshot.data.preparation;
         this.stateService.currentOnboardingRequest = this.route.parent.snapshot.data.request;
+
+        mixpanel.identify(this.stateService.currentOnboardingRequest.emailAddress);
+        mixpanel.track("onboarding:begin");
 
         this.form = this.formBuilder.group({
             email: [{

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
+import mixpanel from "mixpanel-browser";
 import { ToastrModule, ToastrService } from "ngx-toastr";
 import { BankStatementStateService } from "../services/bank-statement-state.service";
 
@@ -23,6 +24,7 @@ export class BankStatementUploadComponent implements OnInit {
         private translateService: TranslateService) { }
 
     ngOnInit(): void {
+        mixpanel.track("bankStatementUpload:begin");
         this.form = this.formBuilder.group({
             uploadFile: [null, Validators.required]
         });
