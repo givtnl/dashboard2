@@ -1,14 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AccountService } from 'src/app/account/services/account.service';
 import { Router } from '@angular/router';
-import * as pkg from './../../../../../package.json';
-import { environment } from 'src/environments/environment';
 import { DashboardService } from '../../services/dashboard.service';
 import { DirectDebitTypeHelper } from '../../helpers/direct-debit-type.helper';
 import { DirectDebitType } from '../../enums/direct-debit.type';
 import { TranslateService } from '@ngx-translate/core';
 import { BackendService } from 'src/app/infrastructure/services/backend.service';
 import { OrganisationListModel } from 'src/app/organisations/models/organisation-list.model';
+import { DashboardPage } from '../../enums/dashboard-page.enum';
 
 @Component({
     selector: 'app-side-bar',
@@ -22,6 +21,10 @@ export class SideBarComponent implements OnInit {
     public termsLink: string;
     
     get now() { return new Date(); }
+
+    private currentActivePage: DashboardPage;
+    get isDashboardActive() { return this.currentActivePage == DashboardPage.Dashboard };
+    get isUsersActive() { return this.currentActivePage == DashboardPage.Users };
 
     @Input()
     public showCloseButton = false;
@@ -41,10 +44,21 @@ export class SideBarComponent implements OnInit {
         this.dashboardService.currentOrganisationChange.subscribe(x => this.currentOrganisationChange(x));
         if (this.dashboardService.currentOrganisation != null)
             await this.currentOrganisationChange(this.dashboardService.currentOrganisation);
+        this.currentActivePage = this.dashboardService.currentDashboardPage;
     }
 
     public closeMenu(): void {
         this.closeButtonClicked.emit();
+    }
+
+    public usersClicked(): void {
+        this.currentActivePage = DashboardPage.Users;
+        this.dashboardService.currentDashboardPage = this.currentActivePage;
+    }
+
+    public dashboardClicked(): void {
+        this.currentActivePage = DashboardPage.Dashboard;
+        this.dashboardService.currentDashboardPage = this.currentActivePage;
     }
 
     logOut(): void {

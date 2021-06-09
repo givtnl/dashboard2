@@ -9,6 +9,7 @@ import { ApplicationStateService } from 'src/app/infrastructure/services/applica
 import { map } from 'rxjs/operators';
 import { CollectGroupType } from '../enums/collect-group-type.enum';
 import { OrganisationListModel } from 'src/app/organisations/models/organisation-list.model';
+import { DashboardPage } from '../enums/dashboard-page.enum';
 
 
 @Injectable({
@@ -37,12 +38,24 @@ export class DashboardService {
         const serializedRequest = JSON.parse(this.storage.getItem(key));
         return serializedRequest;
     }
+
     set currentCollectGroup(collectGroup: CollectGroupDashboardListModel) {
         const key = 'DashboardService.CurrentCollectGroup';
         this.storage.setItem(key, JSON.stringify(collectGroup));
         this.currentCollectGroupChange.emit(collectGroup);
     }
         
+    set currentDashboardPage(page: DashboardPage) {
+        const key = 'DashboardService.CurrentDashboardPage';
+        this.storage.setItem(key, JSON.stringify(page));
+    }
+
+    get currentDashboardPage(): DashboardPage {
+        const key = 'DashboardService.CurrentDashboardPage';
+        const serializedRequest = JSON.parse(this.storage.getItem(key));
+        return serializedRequest === undefined || serializedRequest === null ? DashboardPage.Dashboard : serializedRequest;
+    }
+
     constructor(private backendService: BackendService,
         private collectGroupsService: CollectGroupsService,
         private applicationStateService: ApplicationStateService
