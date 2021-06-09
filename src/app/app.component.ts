@@ -20,6 +20,5 @@ export class AppComponent {
         languageService.use(browserLang.match(/en|nl|de/) ? browserLang : 'en');
         
         mixpanel.init("90a430d734b14dbe1393430682a103a1", { ignore_dnt: true });
-        mixpanel.track('starting up', { 'story': 'app' });
 	}
 }
