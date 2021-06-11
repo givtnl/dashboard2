@@ -1,22 +1,29 @@
 <form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'>
-    <app-custom-card [showCloseButton]="true" titleTranslationKey="dashboardUserRegistrationIntroComponent.title" [showPreviousButton]="true"
-        iconBackgroundClass="circle-yellow" icon="fas fa-user-tag fa-5x">
+    <app-custom-card [showCloseButton]="true" titleTranslationKey="dashboardUserRegistrationIntroComponent.title" [showPreviousButton]="true" iconBackgroundClass="circle-yellow" icon="fas fa-user-tag fa-5x">
         <div body>
             <div class="form-row">
-                <div class="form-group col-5">
+                <div class="col-2"></div>
+                <div class="form-group col-8">
                     <label for="firstName" class="pl-1 text-givt-purple" translate>contactRegistrationDetailsComponent.firstName</label>
                     <input type="text" class="form-control shadow text-givt-purple" id="firstName" formControlName="firstName">
                 </div>
-                <div class="form-group col-5">
+                <div class="col-2"></div>
+            </div>
+            <div class="form-row">
+                <div class="col-2"></div>
+                <div class="form-group col-8">
                     <label for="lastName" class="pl-1 text-givt-purple" translate>contactRegistrationDetailsComponent.lastName</label>
                     <input ype="text" class="form-control shadow text-givt-purple" id="lastName" formControlName="lastName">
                 </div>
+                <div class="col-2"></div>
             </div>
             <div class="form-row ">
-                <div class="form-group col-6">
+                <div class="col-2"></div>
+                <div class="form-group col-8">
                     <label for="email" class="pl-1 text-givt-purple" translate>contactRegistrationDetailsComponent.email</label>
                     <input type="email" class="form-control shadow text-givt-purple" id="email" formControlName="email">
                 </div>
+                <div class="col-2"></div>
             </div>
         </div>
         <button bottom type="submit" class="btn btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
