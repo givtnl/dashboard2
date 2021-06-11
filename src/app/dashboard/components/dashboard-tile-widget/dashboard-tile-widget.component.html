@@ -1,13 +1,12 @@
-<div class="card border-radius-40 shadow-lg" (click)="tileClick()"
-    [ngClass]="{'widget-background-church': backgroundType == 'church', 
+<div class="card border-radius-40 shadow-lg" (click)="tileClick()" [ngClass]="{'widget-background-church': backgroundType == 'church', 
     'widget-background-charity': backgroundType == 'charity',
     'widget-background-artist': backgroundType == 'artist',
     'widget-background-campaign': backgroundType == 'campaign'}">
     <div class="row no-gutters widget-background-image" [ngStyle]="{'background-image': 'url(' + image + ')'}">
         <div class="card-body my-3">
             <div class="row">
-                <div class="ml-2 col-3 text-white-70" *ngIf="icon"><i [class]="icon"></i></div>
-                <div class="col-7">
+                <div class="ml-2 col-3 text-white-70 mr-4 pt-3" *ngIf="icon"><i [class]="icon"></i></div>
+                <div class="col-7 pt-2 ml-2">
                     <div class="row" translate>dashboardTileWidgetComponent.goToDashboard</div>
                     <h4 class="row card-title" *ngIf="title">{{ title }}</h4>
                 </div>
@@ -15,6 +14,6 @@
             <div *ngIf="footer" class="row card-footer border-0 bg-transparent px-0">
                 {{ footer }}
             </div>
-    </div>
+        </div>
     </div>
 </div>
