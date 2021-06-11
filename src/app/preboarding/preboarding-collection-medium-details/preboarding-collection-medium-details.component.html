@@ -1,33 +1,25 @@
-<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100'
-    #formDir="ngForm" [class.submitted]="formDir.submitted">
-    <app-custom-card [showCloseButton]="false" [showPreviousButton]="true"
-        titleTranslationKey='preboardingOrganisation.topTitle'>
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100' #formDir="ngForm" [class.submitted]="formDir.submitted">
+    <app-custom-card [showCloseButton]="false" [showPreviousButton]="true" titleTranslationKey='preboardingOrganisation.topTitle'>
         <div body>
             <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
-            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3 mb-4" translate>
                 preboardingCollectionMediumDetails.description
             </p>
 
             <div id="accordion">
                 <!-- Start of single collection card-->
-                <div id="singleCollectionParent" class="card"
-                    *ngIf="additionalInformationCommand.singleCollectionService.enabled">
-                    <div class="card-header" id="headingSingleCollectionService" data-toggle="collapse"
-                        data-target="#collapseSingleCollectionService" aria-expanded="true"
-                        aria-controls="collapseSingleCollectionService">
+                <div id="singleCollectionParent" class="card shadow" *ngIf="additionalInformationCommand.singleCollectionService.enabled">
+                    <div class="card-header" id="headingSingleCollectionService" data-toggle="collapse" data-target="#collapseSingleCollectionService" aria-expanded="true" aria-controls="collapseSingleCollectionService">
                         <span translate class="introduction-title text-primary text-light-font text-givt-purple">
                             preboardingCollections.labelSingleCollection
                         </span>
                     </div>
-                    <div id="collapseSingleCollectionService" class="collapse show medium-card-body"
-                        aria-labelledby="headingSingleCollectionService" data-parent="#singleCollectionParent">
+                    <div id="collapseSingleCollectionService" class="collapse show medium-card-body" aria-labelledby="headingSingleCollectionService" data-parent="#singleCollectionParent">
                         <div formArrayName="singleCollectionDetails">
                             <div *ngFor="let item of singleCollectionDetails().controls; let i=index">
                                 <div class="row no-gutters medium-control-row" [formGroupName]="i">
                                     <div class="col-8">
-                                        <select class="form-control form-control-sm"
-                                            [class.invalid-collection-type]="formSubmitted == true && item.value.collectionType == null"
-                                            formControlName="collectionType">
+                                        <select class="form-control form-control-sm" [class.invalid-collection-type]="formSubmitted == true && item.value.collectionType == null" formControlName="collectionType">
                                             <option translate [ngValue]="null">preboarding.selectMedium.select</option>
                                             <option translate [ngValue]="0">preboarding.selectMedium.bags</option>
                                             <option translate [ngValue]="1">preboarding.selectMedium.buckets</option>
@@ -36,24 +28,17 @@
                                         </select>
                                     </div>
                                     <div class="col-3">
-                                        <input class="form-control form-control-sm" formControlName="quantity"
-                                            type="number"
-                                            placeholder="{{'preboarding.selectMedium.amount' | translate}}" />
+                                        <input class="form-control form-control-sm" formControlName="quantity" type="number" placeholder="{{'preboarding.selectMedium.amount' | translate}}" />
                                     </div>
                                     <div class="col-1">
-                                        <button *ngIf="singleCollectionDetails().length > 1"
-                                            class="btn btn-light btn-sm" type="button"
-                                            (click)="singleCollectionDetails().removeAt(i)"><i
+                                        <button *ngIf="singleCollectionDetails().length > 1" class="btn btn-light btn-sm" type="button" (click)="singleCollectionDetails().removeAt(i)"><i
                                                 class="fa fa-trash fa-sm"></i></button>
                                     </div>
                                 </div>
-                                <div *ngIf="i+1 == singleCollectionDetails().length && i+1 < 4"
-                                    class="form-inline form-group-medium-btn">
-                                    <button id="addSingleCollectionMedium" type="button" class="btn  btn-primary btn-sm"
-                                        (click)="singleCollectionDetails().push(mapDetail())"><i
+                                <div *ngIf="i+1 == singleCollectionDetails().length && i+1 < 4" class="form-inline form-group-medium-btn">
+                                    <button id="addSingleCollectionMedium" type="button" class="btn  btn-primary btn-sm" (click)="singleCollectionDetails().push(mapDetail())"><i
                                             class="fa fa-plus fa-sm"></i></button>
-                                    <label translate
-                                        class="introduction-title text-primary text-light-font text-givt-purple">preboarding.selectMedium.addMedium</label>
+                                    <label translate class="introduction-title text-primary text-light-font text-givt-purple">preboarding.selectMedium.addMedium</label>
                                 </div>
                             </div>
                         </div>
@@ -61,24 +46,18 @@
                 </div>
                 <!-- End of single collection card-->
                 <!-- Start of single multiple card-->
-                <div id="multipleCollectionParent" class="card"
-                    *ngIf="additionalInformationCommand.multipleCollectionService.enabled">
-                    <div class="card-header" id="headingMultipleCollectionService" data-toggle="collapse"
-                        data-target="#collapseMultipleCollectionService" aria-expanded="true"
-                        aria-controls="collapseMultipleCollectionService">
+                <div id="multipleCollectionParent" class="card" *ngIf="additionalInformationCommand.multipleCollectionService.enabled">
+                    <div class="card-header" id="headingMultipleCollectionService" data-toggle="collapse" data-target="#collapseMultipleCollectionService" aria-expanded="true" aria-controls="collapseMultipleCollectionService">
                         <span translate class="introduction-title text-primary text-light-font text-givt-purple">
                             preboardingCollections.labelMultipleCollections
                         </span>
                     </div>
-                    <div id="collapseMultipleCollectionService" class="collapse show medium-card-body"
-                        aria-labelledby="headingMultipleCollectionService" data-parent="#multipleCollectionParent">
+                    <div id="collapseMultipleCollectionService" class="collapse show medium-card-body" aria-labelledby="headingMultipleCollectionService" data-parent="#multipleCollectionParent">
                         <div formArrayName="multipleCollectionDetails">
                             <div *ngFor="let item of multipleCollectionDetails().controls; let i=index">
                                 <div class="row no-gutters medium-control-row" [formGroupName]="i">
                                     <div class="col-8">
-                                        <select class="form-control form-control-sm"
-                                            [class.invalid-collection-type]="formSubmitted == true && item.value.collectionType == null"
-                                            formControlName="collectionType">
+                                        <select class="form-control form-control-sm" [class.invalid-collection-type]="formSubmitted == true && item.value.collectionType == null" formControlName="collectionType">
                                             <option translate [ngValue]="null">preboarding.selectMedium.select</option>
                                             <option translate [ngValue]="0">preboarding.selectMedium.bags</option>
                                             <option translate [ngValue]="1">preboarding.selectMedium.buckets</option>
@@ -87,24 +66,16 @@
                                         </select>
                                     </div>
                                     <div class="col-3">
-                                        <input class="form-control form-control-sm" formControlName="quantity"
-                                            type="number"
-                                            placeholder="{{'preboarding.selectMedium.amount' | translate}}" />
+                                        <input class="form-control form-control-sm" formControlName="quantity" type="number" placeholder="{{'preboarding.selectMedium.amount' | translate}}" />
                                     </div>
                                     <div class="col-1">
-                                        <button *ngIf="multipleCollectionDetails().length > 1"
-                                            class="btn btn-light btn-sm" type="button"
-                                            (click)="multipleCollectionDetails().removeAt(i)"><i
+                                        <button *ngIf="multipleCollectionDetails().length > 1" class="btn btn-light btn-sm" type="button" (click)="multipleCollectionDetails().removeAt(i)"><i
                                                 class="fa fa-trash fa-sm"></i></button>
                                     </div>
                                 </div>
-                                <div *ngIf="i+1 == multipleCollectionDetails().length && i+1 < 4"
-                                    class="form-inline form-group-medium-btn"
-                                    (click)="multipleCollectionDetails().push(mapDetail())">
-                                    <button id="addSingleCollectionMedium" type="button"
-                                        class="btn  btn-primary btn-sm"><i class="fa fa-plus fa-sm"></i></button>
-                                    <label translate
-                                        class="introduction-title text-primary text-light-font text-givt-purple">preboarding.selectMedium.addMedium</label>
+                                <div *ngIf="i+1 == multipleCollectionDetails().length && i+1 < 4" class="form-inline form-group-medium-btn" (click)="multipleCollectionDetails().push(mapDetail())">
+                                    <button id="addSingleCollectionMedium" type="button" class="btn  btn-primary btn-sm"><i class="fa fa-plus fa-sm"></i></button>
+                                    <label translate class="introduction-title text-primary text-light-font text-givt-purple">preboarding.selectMedium.addMedium</label>
                                 </div>
                             </div>
                         </div>
@@ -112,24 +83,18 @@
                 </div>
                 <!-- End of multiple collection card-->
                 <!-- Start of end of service collection card-->
-                <div id="endOfServiceCollectionParent" class="card"
-                    *ngIf="additionalInformationCommand.endOfServiceCollection.enabled">
-                    <div class="card-header" id="headingEndOfServiceCollection" data-toggle="collapse"
-                        data-target="#collapseEndOfServiceCollection" aria-expanded="true"
-                        aria-controls="collapseEndOfServiceCollection">
+                <div id="endOfServiceCollectionParent" class="card" *ngIf="additionalInformationCommand.endOfServiceCollection.enabled">
+                    <div class="card-header" id="headingEndOfServiceCollection" data-toggle="collapse" data-target="#collapseEndOfServiceCollection" aria-expanded="true" aria-controls="collapseEndOfServiceCollection">
                         <span translate class="introduction-title text-primary text-light-font text-givt-purple">
                             preboardingCollections.labelEndOfServiceCollection
                         </span>
                     </div>
-                    <div id="collapseEndOfServiceCollection" class="collapse show medium-card-body"
-                        aria-labelledby="headingEndOfServiceCollection" data-parent="#endOfServiceCollectionParent">
+                    <div id="collapseEndOfServiceCollection" class="collapse show medium-card-body" aria-labelledby="headingEndOfServiceCollection" data-parent="#endOfServiceCollectionParent">
                         <div formArrayName="endOfServiceCollectionDetails">
                             <div *ngFor="let item of endOfServiceCollectionDetails().controls; let i=index">
                                 <div class="row no-gutters medium-control-row" [formGroupName]="i">
                                     <div class="col-8">
-                                        <select class="form-control form-control-sm"
-                                            [class.invalid-collection-type]="formSubmitted == true && item.value.collectionType == null"
-                                            formControlName="collectionType">
+                                        <select class="form-control form-control-sm" [class.invalid-collection-type]="formSubmitted == true && item.value.collectionType == null" formControlName="collectionType">
                                             <option translate [ngValue]="null">preboarding.selectMedium.select</option>
                                             <option translate [ngValue]="0">preboarding.selectMedium.bags</option>
                                             <option translate [ngValue]="1">preboarding.selectMedium.buckets</option>
@@ -138,24 +103,16 @@
                                         </select>
                                     </div>
                                     <div class="col-3">
-                                        <input class="form-control form-control-sm" formControlName="quantity"
-                                            type="number"
-                                            placeholder="{{'preboarding.selectMedium.amount' | translate}}" />
+                                        <input class="form-control form-control-sm" formControlName="quantity" type="number" placeholder="{{'preboarding.selectMedium.amount' | translate}}" />
                                     </div>
                                     <div class="col-1">
-                                        <button *ngIf="endOfServiceCollectionDetails().length > 1"
-                                            class="btn btn-light btn-sm" type="button"
-                                            (click)="endOfServiceCollectionDetails().removeAt(i)"><i
+                                        <button *ngIf="endOfServiceCollectionDetails().length > 1" class="btn btn-light btn-sm" type="button" (click)="endOfServiceCollectionDetails().removeAt(i)"><i
                                                 class="fa fa-trash fa-sm"></i></button>
                                     </div>
                                 </div>
-                                <div *ngIf="i+1 == endOfServiceCollectionDetails().length && i+1 < 4"
-                                    class="form-inline form-group-medium-btn"
-                                    (click)="endOfServiceCollectionDetails().push(mapDetail())">
-                                    <button id="addSingleCollectionMedium" type="button"
-                                        class="btn  btn-primary btn-sm"><i class="fa fa-plus fa-sm"></i></button>
-                                    <label translate
-                                        class="introduction-title text-primary text-light-font text-givt-purple">preboarding.selectMedium.addMedium</label>
+                                <div *ngIf="i+1 == endOfServiceCollectionDetails().length && i+1 < 4" class="form-inline form-group-medium-btn" (click)="endOfServiceCollectionDetails().push(mapDetail())">
+                                    <button id="addSingleCollectionMedium" type="button" class="btn  btn-primary btn-sm"><i class="fa fa-plus fa-sm"></i></button>
+                                    <label translate class="introduction-title text-primary text-light-font text-givt-purple">preboarding.selectMedium.addMedium</label>
                                 </div>
                             </div>
                         </div>
@@ -163,24 +120,18 @@
                 </div>
                 <!-- End of end of service collection card-->
                 <!-- Start of end of service collection card-->
-                <div id="communionCollectionParent" class="card"
-                    *ngIf="additionalInformationCommand.communionCollection.enabled">
-                    <div class="card-header" id="headingCommunionCollection" data-toggle="collapse"
-                        data-target="#collapseCommunionCollection" aria-expanded="true"
-                        aria-controls="collapseCommunionCollection">
+                <div id="communionCollectionParent" class="card" *ngIf="additionalInformationCommand.communionCollection.enabled">
+                    <div class="card-header" id="headingCommunionCollection" data-toggle="collapse" data-target="#collapseCommunionCollection" aria-expanded="true" aria-controls="collapseCommunionCollection">
                         <span translate class="introduction-title text-primary text-light-font text-givt-purple">
                             preboardingCollections.labelCommunionCollection
                         </span>
                     </div>
-                    <div id="collapseCommunionCollection" class="collapse show medium-card-body"
-                        aria-labelledby="headingCommunionCollection" data-parent="#communionCollectionParent">
+                    <div id="collapseCommunionCollection" class="collapse show medium-card-body" aria-labelledby="headingCommunionCollection" data-parent="#communionCollectionParent">
                         <div formArrayName="communionCollectionDetails">
                             <div *ngFor="let item of communionCollectionDetails().controls; let i=index">
                                 <div class="row no-gutters medium-control-row" [formGroupName]="i">
                                     <div class="col-8">
-                                        <select class="form-control form-control-sm"
-                                            [class.invalid-collection-type]="formSubmitted == true && item.value.collectionType == null"
-                                            formControlName="collectionType">
+                                        <select class="form-control form-control-sm" [class.invalid-collection-type]="formSubmitted == true && item.value.collectionType == null" formControlName="collectionType">
                                             <option translate [ngValue]="null">preboarding.selectMedium.select</option>
                                             <option translate [ngValue]="0">preboarding.selectMedium.bags</option>
                                             <option translate [ngValue]="1">preboarding.selectMedium.buckets</option>
@@ -189,24 +140,16 @@
                                         </select>
                                     </div>
                                     <div class="col-3">
-                                        <input class="form-control form-control-sm" formControlName="quantity"
-                                            type="number"
-                                            placeholder="{{'preboarding.selectMedium.amount' | translate}}" />
+                                        <input class="form-control form-control-sm" formControlName="quantity" type="number" placeholder="{{'preboarding.selectMedium.amount' | translate}}" />
                                     </div>
                                     <div class="col-1">
-                                        <button *ngIf="communionCollectionDetails().length > 1"
-                                            class="btn btn-light btn-sm" type="button"
-                                            (click)="communionCollectionDetails().removeAt(i)"><i
+                                        <button *ngIf="communionCollectionDetails().length > 1" class="btn btn-light btn-sm" type="button" (click)="communionCollectionDetails().removeAt(i)"><i
                                                 class="fa fa-trash fa-sm"></i></button>
                                     </div>
                                 </div>
-                                <div *ngIf="i+1 == communionCollectionDetails().length && i+1 < 4"
-                                    class="form-inline form-group-medium-btn"
-                                    (click)="communionCollectionDetails().push(mapDetail())">
-                                    <button id="addSingleCollectionMedium" type="button"
-                                        class="btn  btn-primary btn-sm"><i class="fa fa-plus fa-sm"></i></button>
-                                    <label translate
-                                        class="introduction-title text-primary text-light-font text-givt-purple">preboarding.selectMedium.addMedium</label>
+                                <div *ngIf="i+1 == communionCollectionDetails().length && i+1 < 4" class="form-inline form-group-medium-btn" (click)="communionCollectionDetails().push(mapDetail())">
+                                    <button id="addSingleCollectionMedium" type="button" class="btn  btn-primary btn-sm"><i class="fa fa-plus fa-sm"></i></button>
+                                    <label translate class="introduction-title text-primary text-light-font text-givt-purple">preboarding.selectMedium.addMedium</label>
                                 </div>
                             </div>
                         </div>
@@ -214,24 +157,18 @@
                 </div>
                 <!-- End of end of service collection card-->
                 <!-- Start of candle collection collection card-->
-                <div id="candleCollectionParent" class="card"
-                    *ngIf="additionalInformationCommand.candleCollection.enabled">
-                    <div class="card-header" id="headingCandleCollection" data-toggle="collapse"
-                        data-target="#collapseCandleCollection" aria-expanded="true"
-                        aria-controls="collapseCandleCollection">
+                <div id="candleCollectionParent" class="card" *ngIf="additionalInformationCommand.candleCollection.enabled">
+                    <div class="card-header" id="headingCandleCollection" data-toggle="collapse" data-target="#collapseCandleCollection" aria-expanded="true" aria-controls="collapseCandleCollection">
                         <span translate class="introduction-title text-primary text-light-font text-givt-purple">
                             preboardingCollections.labelCandleCollection
                         </span>
                     </div>
-                    <div id="collapseCandleCollection" class="collapse show medium-card-body"
-                        aria-labelledby="headingCandleCollection" data-parent="#candleCollectionParent">
+                    <div id="collapseCandleCollection" class="collapse show medium-card-body" aria-labelledby="headingCandleCollection" data-parent="#candleCollectionParent">
                         <div formArrayName="candleCollectionDetails">
                             <div *ngFor="let item of candleCollectionDetails().controls; let i=index">
                                 <div class="row no-gutters medium-control-row" [formGroupName]="i">
                                     <div class="col-8">
-                                        <select class="form-control form-control-sm"
-                                            [class.invalid-collection-type]="formSubmitted == true && item.value.collectionType == null"
-                                            formControlName="collectionType">
+                                        <select class="form-control form-control-sm" [class.invalid-collection-type]="formSubmitted == true && item.value.collectionType == null" formControlName="collectionType">
                                             <option translate [ngValue]="null">preboarding.selectMedium.select</option>
                                             <option translate [ngValue]="0">preboarding.selectMedium.bags</option>
                                             <option translate [ngValue]="1">preboarding.selectMedium.buckets</option>
@@ -240,24 +177,16 @@
                                         </select>
                                     </div>
                                     <div class="col-3">
-                                        <input class="form-control form-control-sm" formControlName="quantity"
-                                            type="number"
-                                            placeholder="{{'preboarding.selectMedium.amount' | translate}}" />
+                                        <input class="form-control form-control-sm" formControlName="quantity" type="number" placeholder="{{'preboarding.selectMedium.amount' | translate}}" />
                                     </div>
                                     <div class="col-1">
-                                        <button *ngIf="candleCollectionDetails().length > 1"
-                                            class="btn btn-light btn-sm" type="button"
-                                            (click)="candleCollectionDetails().removeAt(i)"><i
+                                        <button *ngIf="candleCollectionDetails().length > 1" class="btn btn-light btn-sm" type="button" (click)="candleCollectionDetails().removeAt(i)"><i
                                                 class="fa fa-trash fa-sm"></i></button>
                                     </div>
                                 </div>
-                                <div *ngIf="i+1 == candleCollectionDetails().length && i+1 < 4"
-                                    class="form-inline form-group-medium-btn"
-                                    (click)="candleCollectionDetails().push(mapDetail())">
-                                    <button id="addSingleCollectionMedium" type="button"
-                                        class="btn btn-primary btn-sm"><i class="fa fa-plus fa-sm"></i></button>
-                                    <label translate
-                                        class="introduction-title text-primary text-light-font text-givt-purple">preboarding.selectMedium.addMedium</label>
+                                <div *ngIf="i+1 == candleCollectionDetails().length && i+1 < 4" class="form-inline form-group-medium-btn" (click)="candleCollectionDetails().push(mapDetail())">
+                                    <button id="addSingleCollectionMedium" type="button" class="btn btn-primary btn-sm"><i class="fa fa-plus fa-sm"></i></button>
+                                    <label translate class="introduction-title text-primary text-light-font text-givt-purple">preboarding.selectMedium.addMedium</label>
                                 </div>
                             </div>
                         </div>
@@ -266,8 +195,7 @@
                 <!-- End of candle collection card-->
             </div>
         </div>
-        <button bottom type="submit" [translate]
-            class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+        <button bottom type="submit" [translate] class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
             <span class="text-white text-heavy-font" translate>
                 preboardingCollectionMediumDetails.nextButtonText
             </span>
