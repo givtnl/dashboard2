@@ -7,6 +7,9 @@ import { DashboardService } from "src/app/shared/services/dashboard.service";
 import { DashboardUserDetailModel } from "src/app/users/models/dashboard-user-detail.model";
 import { DashboardUsersService } from "src/app/users/services/dashboard-users.service";
 import { DashboardUserViewModel } from "./viewmodels/dashboard-user.viewmodel";
+import { combineLatest } from "rxjs";
+import { map } from "rxjs/operators";
+
 @Component({
     selector: "app-dashboard-users",
     templateUrl: "./dashboard-users.component.html",
@@ -38,31 +41,37 @@ export class DashboardUsersComponent implements OnInit {
     }
     
     ngOnInit(): void {
-        this.dashboardUsers =
-            (this.route.snapshot.data.users as DashboardUserDetailModel[]).map(x => {
-                let model: DashboardUserViewModel = {
-                    Email: x.EmailAddress,
-                    FirstName: x.FirstName,
-                    Id: x.Id,
-                    LastName: x.LastName
-                }; return model;
-            }).concat(
-                (this.route.snapshot.data.invites as OrganisationUserInviteListModel[]).map(x => {
+        this.loading = true;
+        const users$ = this.dashboardUsersService.getUsers(this.stateService.currentTokenModel.OrganisationAdmin);
+        const invites$ = this.inviteService.getAll(this.stateService.currentTokenModel.OrganisationAdmin);
+        combineLatest([users$, invites$])
+            .subscribe(result => {
+                this.dashboardUsers = result[0].map(x => {
                     let model: DashboardUserViewModel = {
-                        Email: x.Email,
+                        Email: x.EmailAddress,
                         FirstName: x.FirstName,
                         Id: x.Id,
-                        LastName: x.LastName,
-                        CreationDate: x.CreationDate
+                        LastName: x.LastName
                     }; return model;
-                })
-            ).sort((el1, el2) => {
-                if (!this.canDeleteUser(el1.Id))
-                    return -1;
-                else if (!this.canDeleteUser(el2.Id))
-                    return 1;
-                else
-                    return el1.FirstName.localeCompare(el2.FirstName);
+                }).concat(
+                    result[1].map(x => {
+                        let model: DashboardUserViewModel = {
+                            Email: x.Email,
+                            FirstName: x.FirstName,
+                            Id: x.Id,
+                            LastName: x.LastName,
+                            CreationDate: x.CreationDate
+                        }; return model;
+                    })
+                ).sort((el1, el2) => {
+                    if (!this.canDeleteUser(el1.Id))
+                        return -1;
+                    else if (!this.canDeleteUser(el2.Id))
+                        return 1;
+                    else
+                        return el1.FirstName.localeCompare(el2.FirstName);
+                });
+                this.loading = false;
             });
     }
         

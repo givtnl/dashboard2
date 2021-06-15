@@ -9,8 +9,6 @@ import { DashboardSelectOrganisationComponent } from './select-organisation/sele
 import { RetrieveOrganisationsGuard } from './guards/retrieve-organisations.guard';
 import { OrganisationsResolver } from './resolvers/organisations.resolver';
 import { DashboardUsersComponent } from './dashboard-users/dashboard-users.component';
-import { DashboardUsersResolver } from './resolvers/dashboard-users.resolver';
-import { DashboardUserInvitesResolver } from './resolvers/dashboard-user-invites.resolver';
 import { OrganisationResolver } from './resolvers/organisation.resolver';
 
 const routes: Routes = [
@@ -37,8 +35,7 @@ const routes: Routes = [
             {
                 path: 'users',
                 component: DashboardUsersComponent,
-                outlet: 'dashboard-outlet',
-                resolve: { users: DashboardUsersResolver, invites: DashboardUserInvitesResolver }
+                outlet: 'dashboard-outlet'
             },
             {
                 path: 'collect-group-home',
