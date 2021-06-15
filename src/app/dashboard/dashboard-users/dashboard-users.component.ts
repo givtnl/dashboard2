@@ -30,7 +30,6 @@ export class DashboardUsersComponent implements OnInit {
 
     constructor(
         private stateService: ApplicationStateService,
-        private route: ActivatedRoute,
         private inviteService: OrganisationUserInviteService,
         private dashboardUsersService: DashboardUsersService,
         private dashboardService: DashboardService
