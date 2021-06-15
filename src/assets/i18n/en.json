@@ -295,7 +295,7 @@
     "preboardingCollectionMediumDetails.description": "We know churches use different collection methods for their giving, such as baskets, plates etc. We would like to know what you use, and how many of them so we can get an idea of your collection.",
     "preboardingCollectionMediumDetails.nextButtonText": "Next",
     "preboardingDetailsCompleteComponent.title": "Woohoo!",
-    "preboardingDetailsCompleteComponent.description": "Thanks for filling in all the data. You can now start collecting with Givt.",
+    "preboardingDetailsCompleteComponent.description": "You are ready to start collecting with Givt. Please check your mailbox if you've invited yourself to the dashboard.",
     "errorMessages.name-in-app-required": "Please fill in a name",
     "errorMessages.address-city-required": "Please fill in a city/town",
     "errorMessages.address-zipcode-required": "Please fill in the postal code",
