@@ -11,7 +11,6 @@
     <li class="mr-2 my-2 nav-item">
         <a class="nav-link text-givt-purple" 
             [ngClass]="{ 'active': isDashboardActive }" 
-            [routerLink]="['/','dashboard','root']"
             (click)="dashboardClicked()">
             <img src="assets/icons/icon_dashboard.svg" class="mr-2" width="24" height="24" />
             {{ 'action.goToDashboard' | translate }}

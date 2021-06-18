@@ -59,6 +59,7 @@ export class SideBarComponent implements OnInit {
     public dashboardClicked(): void {
         this.currentActivePage = DashboardPage.Dashboard;
         this.dashboardService.currentDashboardPage = this.currentActivePage;
+        this.router.navigate(['/', 'dashboard', 'root'], { queryParams: { organisationId: this.dashboardService.currentOrganisation.Id }, queryParamsHandling: 'merge' });
     }
 
     logOut(): void {
