@@ -10,14 +10,19 @@
     </div>
     <li class="mr-2 my-2 nav-item">
         <div class="d-flex justify-content-between align-items-center">
-        <a [ngClass]="{ 'active': isDashboardActive }" class="text-givt-purple nav-link" (click)="dashboardClicked()" translate>
-            <i class="fas fa-th-large fa-lg mr-2"></i>
-            action.goToDashboard
-        </a>
-        <a *ngIf="shouldShowSwitchButton" class="text-givt-purple nav-link" (click)="switchDashboardClicked()"><div class="switch-button pl-1 pr-1 rounded"><small class="mr-1"><i class="fas fa-exchange-alt ml-1"></i>Switch</small>
+            <a [ngClass]="{ 'active': isDashboardActive }" class="text-givt-purple nav-link"
+                (click)="dashboardClicked()" translate>
+                <i class="fas fa-th-large fa-lg mr-2"></i>
+                action.goToDashboard
+            </a>
+            <a *ngIf="shouldShowSwitchButton" class="text-givt-purple nav-link" (click)="switchDashboardClicked()">
+                <div class="switch-button pl-1 pr-1 rounded">
+                    <small translate class="mr-1"><i class="fas fa-exchange-alt ml-1"></i>
+                        sideBarComponent.switchDashboard
+                    </small>
+                </div>
+            </a>
         </div>
-    </a>
-    </div>
     </li>
     <div *ngIf="currentCollectGroup !== null && currentCollectGroup !== undefined" class="bg-sidebar">
         <li class="mr-2 my-3 nav-item">
@@ -33,12 +38,9 @@
         </li>
     </div>
     <li *ngIf="currentCollectGroup == null" class="mr-2 my-2 nav-item">
-        <a class="nav-link text-givt-purple" [ngClass]="{ 'active': isUsersActive }"
-            (click)="usersClicked()"
+        <a class="nav-link text-givt-purple" [ngClass]="{ 'active': isUsersActive }" (click)="usersClicked()"
             [routerLink]="['/','dashboard','root', { outlets: { 'dashboard-outlet': ['users'] } }]"
-            queryParamsHandling="merge"
-            translate
-        >
+            queryParamsHandling="merge" translate>
             <i class="fas fa-users fa-lg mr-2"></i>
             sideBarComponent.users
         </a>
@@ -51,7 +53,9 @@
     </li>
     <li class="text-size-small text-givt-purple d-flex mx-3 my-2 flex-grow-1 align-items-end givt-essentials">
         &copy; Givt 2016-{{ now | date: 'YYYY'}} <br>
-        <a translate target="_blank" rel="noreferrer noopener" href="{{privacyLink}}">sideBarComponent.privacyStatement</a> <br>
-        <a translate target="_blank" rel="noreferrer noopener" href="{{termsLink}}">sideBarComponent.termsAndPricing</a> <br />
+        <a translate target="_blank" rel="noreferrer noopener"
+            href="{{privacyLink}}">sideBarComponent.privacyStatement</a> <br>
+        <a translate target="_blank" rel="noreferrer noopener" href="{{termsLink}}">sideBarComponent.termsAndPricing</a>
+        <br />
     </li>
 </ul>
