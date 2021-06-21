@@ -481,5 +481,6 @@
     "dashboardUsersComponent.name": "Naam",
     "dashboardUsersComponent.invitationSent": "Uitgenodigd",
     "dashboardUsersComponent.addUser": "Gebruiker toevoegen",
-    "sideBarComponent.users": "Gebruikers"
+    "sideBarComponent.users": "Gebruikers",
+    "sideBarComponent.switchDashboard": "Wisselen"
 }
