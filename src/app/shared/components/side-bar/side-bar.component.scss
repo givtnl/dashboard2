@@ -1,29 +1,45 @@
 // Required
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/mixins';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 
-.flex-column .active {
-  border-left: 5px solid theme-color('success');
+.flex-column a {
+    border-left: 5px solid rgba(255,255,255,0)
 }
 
-.flex-column .active i,
-img {
-  margin-left: -5px;
+.flex-column .active {
+    border-left: 5px solid theme-color("success");
+}
+
+.flex-column i, img {
+    margin-left: -5px;
+}
+
+.flex-column li {
+    img, i {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.flex-column li {
+    a:hover {
+        cursor: pointer;
+    }
 }
 
 .image-holder img {
-  height: 50px;
+    height: 50px;
 }
 
 .menu-list-bottom {
-  list-style: none;
-  position: absolute;
-  bottom: 0;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  width: 100%
+    list-style: none;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
 }
 
 .givt-essentials a {

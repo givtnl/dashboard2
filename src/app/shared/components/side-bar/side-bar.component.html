@@ -5,15 +5,15 @@
             {{ 'action.close' | translate }}
         </a>
     </li>
-    <div *ngIf="!showCloseButton" class=" w-50 ml-4 image-holder mt-5 mb-5 justify-content-center">
+    <div *ngIf="!showCloseButton" class="w-50 ml-4 image-holder mt-5 mb-5 justify-content-center">
         <img src="/assets/images/givt-logo.svg" />
     </div>
     <li class="mr-2 my-2 nav-item">
         <a class="nav-link text-givt-purple" 
             [ngClass]="{ 'active': isDashboardActive }" 
-            (click)="dashboardClicked()">
-            <img src="assets/icons/icon_dashboard.svg" class="mr-2" width="24" height="24" />
-            {{ 'action.goToDashboard' | translate }}
+            (click)="dashboardClicked()" translate>
+            <img src="assets/icons/icon_dashboard.svg" class="mr-2" />
+            action.goToDashboard
         </a>
     </li>
     <div *ngIf="currentCollectGroup !== null && currentCollectGroup !== undefined" class="bg-sidebar">
@@ -40,31 +40,6 @@
             sideBarComponent.users
         </a>
     </li>
-    <!-- <li class="mr-2 my-2 nav-item">
-        <a class="nav-link text-givt-purple" href="#">
-          <i class="fas fa-money-check mr-2"></i>
-          Bankrekeningen
-        </a>
-      </li>
-      <li class="mr-2 my-2 nav-item">
-        <a class="nav-link text-givt-purple" href="#">
-          <i class="fas fa-arrow-circle-down mr-2"></i>
-          Betalingen
-        </a>
-      </li>
-
-      <li class="mr-2 my-2 nav-item">
-        <a class="nav-link text-givt-purple" href="#">
-          <i class="fas fa-cogs mr-2"></i>
-          Instellingen
-        </a>
-      </li>
-      <li class="mr-2 my-2 nav-item">
-        <a class="nav-link text-givt-purple active" href="#">
-          <i class="fas fa-book mr-2"></i>
-          Handboek
-        </a>
-      </li> -->
     <li class="mr-2 my-2 nav-item">
         <a (click)="logOut()" class="nav-link text-muted" href="javascript:void(0)">
             <i class="fas fa-sign-out-alt mr-2"></i>
