@@ -25,6 +25,7 @@ export class SideBarComponent implements OnInit {
     private currentActivePage: DashboardPage;
     get isDashboardActive() { return this.currentActivePage == DashboardPage.Dashboard };
     get isUsersActive() { return this.currentActivePage == DashboardPage.Users };
+    get shouldShowSwitchButton() { return this.dashboardService.hasMultipleOrganisations };
 
     @Input()
     public showCloseButton = false;
@@ -73,5 +74,9 @@ export class SideBarComponent implements OnInit {
         else
             this.privacyLink = await this.translateService.get("preboardingWelcomeDetailsComponent.privacyLink").toPromise();
         this.termsLink = `${this.backendService.baseUrl}v2/organisations/${organisation.Id}/terms`;
+    }
+
+    public switchDashboardClicked(): void {
+        this.router.navigate(['/', 'dashboard', 'select-organisation']);
     }
 }

@@ -3,12 +3,14 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { Observable } from "rxjs";
 import { ApplicationStateService } from "src/app/infrastructure/services/application-state.service";
 import { OrganisationsService } from "src/app/organisations/services/organisations.service";
+import { DashboardService } from "src/app/shared/services/dashboard.service";
 
 @Injectable({
     providedIn: 'root'
 }) export class RetrieveOrganisationsGuard implements CanActivate {
     constructor(private organisationsService: OrganisationsService,
-        private applicationStateService: ApplicationStateService, 
+        private applicationStateService: ApplicationStateService,
+        private dashboardService: DashboardService,
         private router: Router) { }
 
     async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean | UrlTree> {
@@ -20,9 +22,12 @@ import { OrganisationsService } from "src/app/organisations/services/organisatio
         }
 
         const organisations = await this.organisationsService.getAll(this.applicationStateService.currentTokenModel.GUID).toPromise();        
-        if (organisations === null || organisations === undefined || organisations.length < 2)
+        if (organisations === null || organisations === undefined || organisations.length < 2) {
+            this.dashboardService.hasMultipleOrganisations = false;
             return true;
+        }
         else {
+            this.dashboardService.hasMultipleOrganisations = true;
             return this.router.createUrlTree(['/', 'dashboard', 'select-organisation']);
         }
     }

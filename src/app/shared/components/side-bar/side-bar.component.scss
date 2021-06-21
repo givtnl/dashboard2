@@ -1,4 +1,5 @@
 // Required
+@import "../../../../globals.scss";
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
@@ -11,14 +12,13 @@
     border-left: 5px solid theme-color("success");
 }
 
-.flex-column i, img {
+.flex-column i {
     margin-left: -5px;
 }
 
 .flex-column li {
-    img, i {
+    i {
         width: 24px;
-        height: 24px;
     }
 }
 
@@ -44,4 +44,11 @@
 
 .givt-essentials a {
     display: contents;
+}
+
+.switch-button {
+    border: 2px solid;
+    background-color: theme-color("primary");
+    color:white;
+    margin-right: -0.5rem;
 }

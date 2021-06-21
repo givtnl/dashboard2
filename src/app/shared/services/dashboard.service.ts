@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-
-import { BackendService } from 'src/app/infrastructure/services/backend.service';
 import { Observable } from 'rxjs';
 import { CollectGroupDashboardListModel } from '../models/collect-group-side-bar-list.model';
 import { EventEmitter } from '@angular/core';
@@ -20,6 +18,17 @@ export class DashboardService {
 
     public currentCollectGroupChange = new EventEmitter<CollectGroupDashboardListModel>();
     public currentOrganisationChange = new EventEmitter<OrganisationListModel>();
+
+    get hasMultipleOrganisations(): boolean {
+        const key = 'DashboardService.HasMultipleOrganisations';
+        const serializedRequest = JSON.parse(this.storage.getItem(key));
+        return serializedRequest;
+    }
+    
+    set hasMultipleOrganisations(value: boolean) {
+        const key = 'DashboardService.HasMultipleOrganisations';
+        this.storage.setItem(key, JSON.stringify(value));
+    }
 
     get currentOrganisation(): OrganisationListModel {
         const key = 'DashboardService.CurrentOrganisation';
@@ -56,8 +65,7 @@ export class DashboardService {
         return serializedRequest === undefined || serializedRequest === null ? DashboardPage.Dashboard : serializedRequest;
     }
 
-    constructor(private backendService: BackendService,
-        private collectGroupsService: CollectGroupsService,
+    constructor(private collectGroupsService: CollectGroupsService,
         private applicationStateService: ApplicationStateService
         ) { }
 
