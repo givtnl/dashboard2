@@ -25,6 +25,10 @@ const routes: Routes = [
         loadChildren: () => import('./contact-registration/contact-registration.module').then(mod => mod.ContactRegistrationModule)
     },
     {
+        path: 'dashboard-user-registration',
+        loadChildren: () => import('./dashboard-user-registration/dashboard-user-registration.module').then(mod => mod.DashboardUserRegistrationModule)
+    },
+    {
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule),
         canActivate: [AuthenticationGuard, TempUserGuard]

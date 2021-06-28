@@ -1,0 +1,95 @@
+<form autocomplete="off" (ngSubmit)="submit()">
+    <div class="container-fluid h-100 d-flex flex-column">
+        <div class="ml-3 row pt-5">
+            <h2 class="text-font-light text-givt-purple" translate>
+                dashboardUsersComponent.title</h2>
+        </div>
+        <div class="row mt-5 mb-5" *ngIf="loading">
+            <div class="col-12 text-center">
+              <div class="d-flex  text-givt-purple justify-content-center">
+                <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div *ngIf="!loading" class="mx-3 py-4 d-flex d-lg-block flex-column">
+            <div class="d-flex d-lg-table-row py-2 background-gradient-blue rounded-top-right">
+                <div class="py-2 py-lg-3 px-3 text-white text-heavy-font d-table-cell flex-grow-1" translate>
+                    dashboardUsersComponent.name
+                </div>
+                <div class="px-3 text-white text-heavy-font d-lg-table-cell d-none" translate>
+                    contactRegistrationDetailsComponent.email
+                </div>
+                <div class="pl-3 text-white text-heavy-font d-flex d-lg-table-cell rounded-top-right" translate>
+                </div>
+            </div>
+            <div *ngFor="let item of dashboardUsers; let userIndex=index" class="user-row d-flex d-lg-table-row">
+                <div [ngClass]="item.CreationDate !== null && item.CreationDate !== undefined ? 'pb-1 pb-lg-2' : 'pb-2 pb-lg-3'" 
+                    class="pt-2 pt-lg-3 px-3 pr-lg-5 text-givt-purple d-table-cell border-bottom flex-grow-1">
+                    {{ item.FirstName }}&nbsp;{{ item.LastName }}
+                    <ng-container *ngIf="item.CreationDate !== null && item.CreationDate !== undefined">
+                        <br />
+                        <small class="font-italic"><span translate>dashboardUsersComponent.invitationSent</span>
+                            {{item.CreationDate | date:'longDate'}}</small>
+                    </ng-container>
+                </div>
+                <div class="pl-3 pr-md-3 pr-lg-5 text-givt-purple d-lg-table-cell d-none border-bottom">
+                    {{ item.Email }}
+                </div>
+                <div class="pr-4 pl-lg-4 text-givt-purple d-none d-lg-table-cell border-bottom">
+                    <a class="action" *ngIf="canDeleteUser(item.Id)" (click)="deleteUser(userIndex)"><i
+                            class="fas fa-trash"></i></a>
+                </div>
+                <div class="pr-4 pl-lg-4 text-givt-purple d-flex d-lg-none border-bottom align-items-center">
+                    <a class="action" *ngIf="canDeleteUser(item.Id)" data-toggle="modal" data-target="#userModal" (click)="setModalItem(userIndex)">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="ml-2 row col-xl-2 col-sm-7 col-lg-4 col-md-5 mb-3">
+            <app-dashboard-link-button text="{{ 'dashboardUsersComponent.addUser' | translate }}"
+                [route]="['/', 'dashboard-user-registration']" icon="fas fa-plus mr-3"></app-dashboard-link-button>
+        </div>
+
+        <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row mb-2">
+                                <div class="col-3 text-givt-purple font-weight-bold" translate>
+                                    dashboardUsersComponent.name
+                                </div>
+                                <div class="col-9 text-givt-purple d-flex align-items-center">
+                                    {{ modalItem.FirstName}}&nbsp;{{ modalItem.LastName }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 text-givt-purple font-weight-bold d-flex align-items-center" translate>
+                                    contactRegistrationDetailsComponent.email
+                                </div>
+                                <div class="col-9 text-givt-purple d-flex align-items-center" style="word-break: break-all;">
+                                    {{ modalItem.Email}}    
+                                </div>
+                            </div>
+                            <div class="row m-4">
+                                <div class="col-12 d-flex align-items-center justify-content-center">
+                                    <a class="action" (click)="deleteUser(modalItemIndex)" data-dismiss="modal">
+                                        <i class="fas fa-trash fa-2x"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DirectDebitType } from 'src/app/shared/enums/direct-debit.type';
 import { DirectDebitTypeHelper } from 'src/app/shared/helpers/direct-debit-type.helper';
 import { OrganisationDetailModel } from 'src/app/organisations/models/organisation-detail.model';
+import mixpanel from 'mixpanel-browser';
 
 @Component({
     selector: 'app-onboarding-bank-account-intro',
@@ -14,7 +15,7 @@ export class OnboardingBankAccountIntroComponent implements OnInit {
     constructor(private router: Router, private route: ActivatedRoute) { }
 
     ngOnInit() {
-
+        mixpanel.track("bankAccountAdd:begin");
     }
 
     startBankAccount() {

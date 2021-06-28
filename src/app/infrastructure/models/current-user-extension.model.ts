@@ -6,6 +6,8 @@ export interface CurrentUserExtensionModel {
     LastName:string;
     Email: string;
     IBAN: string;
+    AppLanguage: string;
     SortCode: string;
     AccountNumber: string;
+    Country: string;
 }

@@ -1,6 +1,6 @@
 {
   "name": "givt-dashboard",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -22,7 +22,9 @@
     "@angular/router": "~11.1.2",
     "@ngx-translate/core": "11.0.1",
     "@ngx-translate/http-loader": "4.0.0",
+    "@types/mixpanel-browser": "^2.35.6",
     "bootstrap": "^4.6.0",
+    "mixpanel-browser": "^2.41.0",
     "ngx-toastr": "^13.2.0",
     "rxjs": "~6.6.3",
     "tslib": "^2.1.0",

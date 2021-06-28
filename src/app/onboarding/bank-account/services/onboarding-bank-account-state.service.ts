@@ -20,7 +20,7 @@ export class OnboardingBankAccountStateService {
         const key = 'OnboardingBankAccountStateService.currentBankAccountModel';
         value.accountNumber = value.accountNumber?.replace(" ", "");
         value.iban = value.iban?.replace(" ", "");
-        value.sortCode = value.sortCode?.replace(" ", "");
+        value.sortCode = value.sortCode?.replace(" ", "").replace("-","");
         this.storage.setItem(key, JSON.stringify(value));
     }
 }

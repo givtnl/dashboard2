@@ -5,57 +5,46 @@
             {{ 'action.close' | translate }}
         </a>
     </li>
-    <div *ngIf="!showCloseButton" class=" w-50 ml-4 image-holder mt-5 mb-5 justify-content-center">
+    <div *ngIf="!showCloseButton" class="w-50 ml-4 image-holder mt-5 mb-5 justify-content-center">
         <img src="/assets/images/givt-logo.svg" />
     </div>
     <li class="mr-2 my-2 nav-item">
-        <a class="nav-link text-givt-purple active" [routerLink]="['/','dashboard','root']">
-            <img src="assets/icons/icon_dashboard.svg" class="mr-2" width="24" height="24" />
-            {{ 'action.goToDashboard' | translate }}
-        </a>
+        <div class="d-flex justify-content-between align-items-center">
+            <a [ngClass]="{ 'active': isDashboardActive }" class="text-givt-purple nav-link"
+                (click)="dashboardClicked()" translate>
+                <i class="fas fa-th-large fa-lg mr-2"></i>
+                action.goToDashboard
+            </a>
+            <a *ngIf="shouldShowSwitchButton" class="text-givt-purple nav-link" (click)="switchDashboardClicked()">
+                <div class="switch-button pl-1 pr-1 rounded">
+                    <small translate class="mr-1"><i class="fas fa-exchange-alt ml-1"></i>
+                        sideBarComponent.switchDashboard
+                    </small>
+                </div>
+            </a>
+        </div>
     </li>
     <div *ngIf="currentCollectGroup !== null && currentCollectGroup !== undefined" class="bg-sidebar">
         <li class="mr-2 my-3 nav-item">
             <span class="ml-2 text-givt-purple text-heavy-font">{{currentCollectGroup}}</span>
         </li>
         <li class="mr-2 ml-4 my-2 nav-item">
-            <a class="nav-link text-givt-purple" [routerLink]="['/','dashboard','root', { outlets: { 'dashboard-outlet': ['collect-group-people'] } }]" [translate]>
+            <a class="nav-link text-givt-purple"
+                [routerLink]="['/','dashboard','root', { outlets: { 'dashboard-outlet': ['collect-group-people'] } }]"
+                translate>
                 <i class="fas fa-user mr-2"></i>
                 sideBarComponent.whosWhoMenuItemText
             </a>
         </li>
     </div>
-    <!-- <li class="mr-2 my-2 nav-item">
-        <a class="nav-link text-givt-purple" href="#">
-          <i class="fas fa-money-check mr-2"></i>
-          Bankrekeningen
+    <li *ngIf="currentCollectGroup == null" class="mr-2 my-2 nav-item">
+        <a class="nav-link text-givt-purple" [ngClass]="{ 'active': isUsersActive }" (click)="usersClicked()"
+            [routerLink]="['/','dashboard','root', { outlets: { 'dashboard-outlet': ['users'] } }]"
+            queryParamsHandling="merge" translate>
+            <i class="fas fa-users fa-lg mr-2"></i>
+            sideBarComponent.users
         </a>
-      </li>
-      <li class="mr-2 my-2 nav-item">
-        <a class="nav-link text-givt-purple" href="#">
-          <i class="fas fa-arrow-circle-down mr-2"></i>
-          Betalingen
-        </a>
-      </li>
-      <li class="mr-2 my-2 nav-item">
-        <a class="nav-link text-givt-purple" href="#">
-          <i class="fas fa-users mr-2"></i>
-          Gebruikers
-        </a>
-      </li>
-
-      <li class="mr-2 my-2 nav-item">
-        <a class="nav-link text-givt-purple" href="#">
-          <i class="fas fa-cogs mr-2"></i>
-          Instellingen
-        </a>
-      </li>
-      <li class="mr-2 my-2 nav-item">
-        <a class="nav-link text-givt-purple active" href="#">
-          <i class="fas fa-book mr-2"></i>
-          Handboek
-        </a>
-      </li> -->
+    </li>
     <li class="mr-2 my-2 nav-item">
         <a (click)="logOut()" class="nav-link text-muted" href="javascript:void(0)">
             <i class="fas fa-sign-out-alt mr-2"></i>
@@ -64,7 +53,9 @@
     </li>
     <li class="text-size-small text-givt-purple d-flex mx-3 my-2 flex-grow-1 align-items-end givt-essentials">
         &copy; Givt 2016-{{ now | date: 'YYYY'}} <br>
-        <a translate target="_blank" rel="noreferrer noopener" href="{{privacyLink}}">sideBarComponent.privacyStatement</a> <br>
-        <a translate target="_blank" rel="noreferrer noopener" href="{{termsLink}}">sideBarComponent.termsAndPricing</a> <br />
+        <a translate target="_blank" rel="noreferrer noopener"
+            href="{{privacyLink}}">sideBarComponent.privacyStatement</a> <br>
+        <a translate target="_blank" rel="noreferrer noopener" href="{{termsLink}}">sideBarComponent.termsAndPricing</a>
+        <br />
     </li>
 </ul>

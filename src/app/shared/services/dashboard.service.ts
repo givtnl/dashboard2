@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-
-import { BackendService } from 'src/app/infrastructure/services/backend.service';
 import { Observable } from 'rxjs';
 import { CollectGroupDashboardListModel } from '../models/collect-group-side-bar-list.model';
 import { EventEmitter } from '@angular/core';
@@ -9,6 +7,7 @@ import { ApplicationStateService } from 'src/app/infrastructure/services/applica
 import { map } from 'rxjs/operators';
 import { CollectGroupType } from '../enums/collect-group-type.enum';
 import { OrganisationListModel } from 'src/app/organisations/models/organisation-list.model';
+import { DashboardPage } from '../enums/dashboard-page.enum';
 
 
 @Injectable({
@@ -19,6 +18,17 @@ export class DashboardService {
 
     public currentCollectGroupChange = new EventEmitter<CollectGroupDashboardListModel>();
     public currentOrganisationChange = new EventEmitter<OrganisationListModel>();
+
+    get hasMultipleOrganisations(): boolean {
+        const key = 'DashboardService.HasMultipleOrganisations';
+        const serializedRequest = JSON.parse(this.storage.getItem(key));
+        return serializedRequest;
+    }
+    
+    set hasMultipleOrganisations(value: boolean) {
+        const key = 'DashboardService.HasMultipleOrganisations';
+        this.storage.setItem(key, JSON.stringify(value));
+    }
 
     get currentOrganisation(): OrganisationListModel {
         const key = 'DashboardService.CurrentOrganisation';
@@ -37,27 +47,35 @@ export class DashboardService {
         const serializedRequest = JSON.parse(this.storage.getItem(key));
         return serializedRequest;
     }
+
     set currentCollectGroup(collectGroup: CollectGroupDashboardListModel) {
         const key = 'DashboardService.CurrentCollectGroup';
         this.storage.setItem(key, JSON.stringify(collectGroup));
         this.currentCollectGroupChange.emit(collectGroup);
     }
         
-    constructor(private backendService: BackendService,
-        private collectGroupsService: CollectGroupsService,
+    set currentDashboardPage(page: DashboardPage) {
+        const key = 'DashboardService.CurrentDashboardPage';
+        this.storage.setItem(key, JSON.stringify(page));
+    }
+
+    get currentDashboardPage(): DashboardPage {
+        const key = 'DashboardService.CurrentDashboardPage';
+        const serializedRequest = JSON.parse(this.storage.getItem(key));
+        return serializedRequest === undefined || serializedRequest === null ? DashboardPage.Dashboard : serializedRequest;
+    }
+
+    constructor(private collectGroupsService: CollectGroupsService,
         private applicationStateService: ApplicationStateService
         ) { }
 
     public getCollectGroups(): Observable<CollectGroupDashboardListModel[]> {
         return this.collectGroupsService.getAll(this.applicationStateService.currentTokenModel.OrganisationAdmin)
-            .pipe(map(x => x.map(y => {
-                const a: CollectGroupDashboardListModel = {
+            .pipe(map(x => x.map(y => ({                    
                     GUID: y.Id,
                     CollectGroupType: y.Type,
                     CollectGroupTypeDescription: CollectGroupType[y.Type],
                     Name: y.Name
-                };
-                return a;
-            })));
+            }))));
     }
 }

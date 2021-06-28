@@ -14,6 +14,7 @@ import { OrganisationType } from '../models/organisation-type.enum';
 import { OrganisationRegistrationProgress } from 'src/app/organisations/models/organisation-registration-progress';
 import { ActivatedRoute } from '@angular/router';
 import { RelationShipService } from 'src/app/account/relationships/services/relationship.service';
+import mixpanel from 'mixpanel-browser';
 
 
 @Component({
@@ -185,7 +186,10 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
         this.steps[stepIndex].success = success;
         this.steps[stepIndex].failed = !success;
         // mark the next step(s) as inconslusive ( we wont process it )
-        if (success === false && this.steps.length > stepIndex + 1) {
+        if (this.steps.length == stepIndex + 1) {
+            mixpanel.track(`preboarding:end${success ? "Success" : "Fail"}`);
+        }
+        else if (this.steps.length > stepIndex + 1 && !success) {
             this.steps.filter((step, index) => index > stepIndex).forEach(step => step.loading = false);
         }
     }

@@ -289,13 +289,13 @@
     "preboardingMailboxAddressDetailsComponent.placeholderCity": "Stad",
     "preboardingMailboxAddressDetailsComponent.placeholderZipcode": "Postcode",
     "preboardingMailboxAddressDetailsComponent.nextButtonText": "Volgende",
-    "preboardingOrganisationAdminDetailsComponent.description": "Vul hier één of meerdere e-mailadres(sen) van de admins die toegang zullen hebben tot het dashboard van je organisatie.",
+    "preboardingOrganisationAdminDetailsComponent.description": "Vul hier één of meerdere e-mailadres(sen) van de admins die toegang zullen hebben tot het dashboard van je organisatie. (Vul je eigen adres in als je ook toegang wil.)",
     "preboardingOrganisationAdminDetailsComponent.placeholdersOrganisatorEmail": "E-mailadres",
     "preboardingOrganisationAdminDetailsComponent.nextButtonText": "Volgende",
     "preboardingCollectionMediumDetails.description": "Iedere collecte kan met verschillende collectemiddelen gebeuren. Geef aan met welke middelen en hoeveel ervan jullie collecteren. We voorzien meestal alleen zenders voor de eerste collecte-ronde (meerdere collectes stel je in de app in). Je hoeft geen rekening te houden met reserve-zenders (neem contact met ons op en wij lossen het op binnen een week).",
     "preboardingCollectionMediumDetails.nextButtonText": "Volgende",
     "preboardingDetailsCompleteComponent.title": "Wohooo!",
-    "preboardingDetailsCompleteComponent.description": "Bedankt om alle gegevens in te vullen. Jullie kunnen alvast beginnen met collecteren met Givt.",
+    "preboardingDetailsCompleteComponent.description": "Jullie zijn klaar om te beginnen collecteren met Givt. Kijk even in je mailbox als je jezelf hebt uitgenodigd voor het dashboard.",
     "errorMessages.name-in-app-required": "Gelieve een naam in te vullen",
     "errorMessages.address-city-required": "Gelieve een stad in te vullen",
     "errorMessages.address-zipcode-required": "Gelieve de postcode in te vullen",
@@ -479,5 +479,8 @@
     "dashboardUserRegistrationDoneComponent.text": "Het is gelukt om de dashboardgebruiker uit te nodigen.",
     "dashboardUsersComponent.title": "Dashboardgebruikers",
     "dashboardUsersComponent.name": "Naam",
-    "dashboardUsersComponent.invitationSent": "Uitgenodigd"
+    "dashboardUsersComponent.invitationSent": "Uitgenodigd",
+    "dashboardUsersComponent.addUser": "Gebruiker toevoegen",
+    "sideBarComponent.users": "Gebruikers",
+    "sideBarComponent.switchDashboard": "Wisselen"
 }

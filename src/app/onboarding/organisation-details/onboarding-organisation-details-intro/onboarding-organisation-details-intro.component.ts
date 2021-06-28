@@ -5,6 +5,7 @@ import { RelationshipListModel } from 'src/app/account/relationships/models/rela
 import { RelationshipType } from 'src/app/organisations/enums/relationship-type.model';
 import { DirectDebitType } from 'src/app/shared/enums/direct-debit.type';
 import { DirectDebitTypeHelper } from 'src/app/shared/helpers/direct-debit-type.helper';
+import mixpanel from 'mixpanel-browser';
 
 @Component({
     selector: 'app-onboarding-organisation-details-intro',
@@ -21,9 +22,9 @@ export class OnboardingOrganisationDetailsIntroComponent implements OnInit {
         private route: ActivatedRoute) { }
 
     ngOnInit(): void {
+        mixpanel.track('organisationDetails:begin');
         this.relationshipRules = this.route.snapshot.data.relationshipRules;
     }
-
     
     continue() {
         this.service.currentOrganisationRegistrationDetailsModel = {

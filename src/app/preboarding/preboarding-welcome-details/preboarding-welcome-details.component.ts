@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import mixpanel from 'mixpanel-browser';
 import { DirectDebitType } from 'src/app/shared/enums/direct-debit.type';
 import { DirectDebitTypeHelper } from 'src/app/shared/helpers/direct-debit-type.helper';
 import { PreboardingStateService } from '../services/preboarding-state.service';
@@ -17,6 +18,8 @@ export class PreboardingWelcomeDetailsComponent implements OnInit{
     public description: string
     
     async ngOnInit(): Promise<void> {
+        mixpanel.identify(this.preboardingStateService.organisationDetails.organisationId);
+        mixpanel.track("preboarding:begin");
         let description = await this.translateService.get("preboardingWelcomeDetailsComponent.description").toPromise() as string;
         if (DirectDebitTypeHelper.fromPreboardingDetailModel(this.preboardingStateService.organisationDetails) == DirectDebitType.BACS) {
             this.description = description

@@ -295,7 +295,7 @@
     "preboardingCollectionMediumDetails.description": "Während eines Gottesdienstes können Klingelbeutel, Körbe, Teller und andere Gegenstände verwendet werden. Wir möchten wissen, was du verwendest und wie viel, damit wir uns ein genaues Bild deiner Kollekte machen können.",
     "preboardingCollectionMediumDetails.nextButtonText": "Weiter",
     "preboardingDetailsCompleteComponent.title": "Wohooo!",
-    "preboardingDetailsCompleteComponent.description": "Vielen Dank, dass du alle Daten eingegeben hast. Du kannst jetzt mit dem Sammeln beginnen.",
+    "preboardingDetailsCompleteComponent.description": "Du bist bereit, dass mit Givt gespendet werden kann. Sehe bitte in deinem Postfach nach, ob du dich selbst zum Dashboard eingeladen hast.",
     "errorMessages.name-in-app-required": "Bitte gib einen Namen ein",
     "errorMessages.address-city-required": "Bitte gib eine Stadt an",
     "errorMessages.address-zipcode-required": "Bitte gib die Postleitzahl an",
@@ -479,5 +479,8 @@
     "dashboardUserRegistrationDoneComponent.text": "Wir haben den Dashboard-Benutzer erfolgreich eingeladen.",
     "dashboardUsersComponent.title": "Dashboard-Benutzer",
     "dashboardUsersComponent.name": "Name",
-    "dashboardUsersComponent.invitationSent": "Eingeladen"
+    "dashboardUsersComponent.invitationSent": "Eingeladen",
+    "dashboardUsersComponent.addUser": "Benutzer zufügen",
+    "sideBarComponent.users": "Benutzer",
+    "sideBarComponent.switchDashboard": "Wechseln"
 }

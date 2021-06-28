@@ -1,0 +1,10 @@
+<app-custom-card [showCloseButton]="true" titleTranslationKey="contactRegistrationDoneComponent.title" iconBackgroundClass="circle-green" icon="fas fa-check fa-5x">
+    <div body>
+        <div class="row justify-content-center">
+            <div translate class="text-givt-purple p-4">dashboardUserRegistrationDoneComponent.text</div>
+        </div>
+    </div>
+    <a bottom translate class="btn btn-lg bg-givt-green text-white text-heavy-font w-75 m-0" queryParamsHandling="merge" [routerLink]="['/', 'dashboard', 'root', { outlets: { 'dashboard-outlet': ['users']}}]">
+        contactRegistrationDoneComponent.finishButton
+    </a>
+</app-custom-card>

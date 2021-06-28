@@ -1,12 +1,10 @@
-<app-custom-card titleTranslationKey="bankStatementUploadCompleteComponent.title" [showCloseButton]="true"
-    iconBackgroundClass="circle-blue" icon="fas fa-upload fa-5x">
+<app-custom-card titleTranslationKey="bankStatementUploadCompleteComponent.title" [showCloseButton]="true" iconBackgroundClass="circle-blue" icon="fas fa-upload fa-5x">
     <div body class="row">
-        <div class="col-2"></div>
-        <div class="col-8 text-givt-purple" translate>bankStatementUploadCompleteComponent.body</div>
-        <div class="col-2"></div>
+        <div class="col-1"></div>
+        <div class="col-10 text-givt-purple text-center" translate>bankStatementUploadCompleteComponent.body</div>
+        <div class="col-1"></div>
     </div>
-    <a bottom translate class="btn btn-lg align-self-end bg-givt-green text-white text-heavy-font bottom-button w-75"
-        [routerLink]="['/', 'dashboard']">
+    <a bottom translate class="btn btn-lg align-self-end bg-givt-green text-white text-heavy-font bottom-button w-75" [routerLink]="['/', 'dashboard']">
         bankStatementUploadCompleteComponent.goToDashboard
     </a>
 </app-custom-card>
