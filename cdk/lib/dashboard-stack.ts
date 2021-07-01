@@ -129,9 +129,10 @@ export class DashboardStack extends cdk.Stack {
             }
         );
 
-        new BucketDeployment(this, new Date().getTime().toString(), {
+        new BucketDeployment(this, `StaticWebsiteDeployment${environmentName}`, {
             cacheControl: [CacheControl.maxAge(Duration.days(31))],
             destinationBucket: webhostingBucket,
+            distributionPaths: ['/*'],
             storageClass: StorageClass.ONEZONE_IA,
             distribution: cloudFrontDistribution,
             sources: [Source.asset(folderToDeploy)]
