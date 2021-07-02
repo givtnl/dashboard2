@@ -1,0 +1,41 @@
+@startuml
+!theme materia
+title Legal onboarding in the UK
+
+start
+:Preboarding;
+if (Chose parent organisation?) then (yes)
+    :System stores relationship;
+else (no)
+endif
+:Do rest of preboarding;
+:Preboarding completed;
+:Goto dashboard;
+:Start process of organisation detail completion;
+if (Does organisation have relationship for regulator reference?) then (yes)
+    :Enter organisation details manually;
+    :Providing organisation verifies details;
+else (no)
+    :Enter regulator information;
+    if (CCEW?) then (yes)
+        :Verify regulator information via charity commission API;
+        :Store details in Arango database;
+    else (no)
+    endif
+    :Store regulator details in SQL database;
+    :Complete organisation details;
+endif
+if (Using bank account from relationship organisation?) then (yes)
+else (no)
+:Enter bank account details;
+:Invite bank account holder;
+:Bank account holder signs DDI;
+endif
+if (Using GiftAid details from relationship organisation?) then (yes)
+else (no)
+:Enter GiftAid details (HMRC reference);
+endif
+:Onboarding completed;
+stop
+
+@enduml
