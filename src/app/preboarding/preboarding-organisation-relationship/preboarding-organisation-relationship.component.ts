@@ -50,7 +50,7 @@ export class PreboardingOrganisationRelationComponent implements OnInit {
     rules(): FormArray {
         return this.form.get('rules') as FormArray;
     }
-f
+
     preFillRules(organisation: OrganisationWithRulesDetail): void {
         this.rules().clear();
         organisation.RelationshipRules.forEach(rule => {
