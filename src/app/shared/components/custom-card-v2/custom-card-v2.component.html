@@ -19,7 +19,7 @@
                 [text]="questionMarkPictureText" [picturePath]="questionMarkPicturePath"
                 [pictureAlt]="questionMarkPictureAlt" class="card-titlebar-button">
               </app-questionmark-picture>
-              <a class="btn py-0" [routerLink]="['/', 'dashboard']" *ngIf="showCloseButton">
+              <a class="btn py-0" (click)="onClickClose()" *ngIf="showCloseButton">
                 <i class="fa fa-times align-self-center"></i>
               </a>
             </div>

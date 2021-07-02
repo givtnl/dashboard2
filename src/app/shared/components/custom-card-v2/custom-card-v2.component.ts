@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Location } from '@angular/common';
+import { DashboardService } from '../../services/dashboard.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-custom-card-v2',
@@ -24,11 +26,15 @@ export class CustomCardV2Component {
     /**
      *
      */
-    constructor(private location: Location) {
+    constructor(private location: Location, private dashboardService: DashboardService, private router: Router) {
 
     }
 
     public onClickPrevious(): void {
         this.location.back();
     }
+
+    public onClickClose(): void {
+        this.router.navigate(['/', 'dashboard', 'root'], { queryParams: { organisationId: this.dashboardService.currentOrganisation.Id }, queryParamsHandling: 'merge' });
+    }    
 }
