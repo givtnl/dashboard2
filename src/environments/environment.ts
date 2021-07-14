@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://givt-debug-api.azurewebsites.net',
+  apiUrl: 'https://apidebug.givtapp.net',
   oldDashboardUrl: 'https://givtdashboarddebug.azurewebsites.net'
 };
 

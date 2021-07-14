@@ -18,7 +18,7 @@
                 [text]="questionMarkPictureText" [picturePath]="questionMarkPicturePath"
                 [pictureAlt]="questionMarkPictureAlt" class="card-titlebar-button">
             </app-questionmark-picture>
-            <a class="card-titlebar-button" [routerLink]="['/', 'dashboard']" *ngIf="showCloseButton">
+            <a class="card-titlebar-button" (click)="onClickClose()" *ngIf="showCloseButton">
                 <i class="fas text-givt-purple fa-times"></i>
             </a>
         </div>

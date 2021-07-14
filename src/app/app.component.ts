@@ -19,6 +19,6 @@ export class AppComponent {
 		const browserLang = languageService.getBrowserLang();
         languageService.use(browserLang.match(/en|nl|de/) ? browserLang : 'en');
         
-        mixpanel.init("90a430d734b14dbe1393430682a103a1", { ignore_dnt: true });
+        mixpanel.init("90a430d734b14dbe1393430682a103a1", { ignore_dnt: true, ip: false });
 	}
 }
