@@ -65,6 +65,13 @@ export class DashboardService {
         return serializedRequest === undefined || serializedRequest === null ? DashboardPage.Dashboard : serializedRequest;
     }
 
+    public clear() {
+        this.storage.removeItem('DashboardService.CurrentCollectGroup');
+        this.storage.removeItem('DashboardService.CurrentDashboardPage');
+        this.storage.removeItem('DashboardService.CurrentOrganisation');
+        this.storage.removeItem('DashboardService.HasMultipleOrganisations');
+    }
+
     constructor(private collectGroupsService: CollectGroupsService,
         private applicationStateService: ApplicationStateService
         ) { }

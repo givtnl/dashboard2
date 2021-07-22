@@ -14,11 +14,18 @@ import { DashboardService } from "src/app/shared/services/dashboard.service";
         private router: Router) { }
 
     async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean | UrlTree> {
-        if (route.queryParamMap.has('organisationId')) {
+        let organisationId: string = null;
+
+        if (route.queryParamMap.has('organisationId'))
+            organisationId = route.queryParamMap.get('organisationId');
+        else if (this.dashboardService.currentOrganisation != undefined && this.dashboardService.currentOrganisation != null)
+            organisationId = this.dashboardService.currentOrganisation.Id;
+        
+        if  (organisationId != undefined && organisationId != null) {
             var token = this.applicationStateService.currentTokenModel;
-            token.OrganisationAdmin = route.queryParamMap.get('organisationId');
+            token.OrganisationAdmin = organisationId;
             this.applicationStateService.currentTokenModel = token;
-            return true;
+            return true;            
         }
 
         const organisations = await this.organisationsService.getAll(this.applicationStateService.currentTokenModel.GUID).toPromise();        
