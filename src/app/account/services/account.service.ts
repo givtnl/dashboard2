@@ -9,12 +9,13 @@ import { CurrentUserModel } from 'src/app/infrastructure/models/current-user.mod
 import { CurrentUserExtensionModel } from 'src/app/infrastructure/models/current-user-extension.model';
 import { PasswordForgottenConfirmPasswordCommand } from '../models/password-forgotten-confirm-password.command';
 import mixpanel from 'mixpanel-browser';
+import { DashboardService } from 'src/app/shared/services/dashboard.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AccountService {
-    constructor(private backendService: BackendService, private applicationStateService: ApplicationStateService) { }
+    constructor(private backendService: BackendService, private applicationStateService: ApplicationStateService, private dashboardService: DashboardService) { }
 
     private me(): Observable<CurrentUserModel> {
         mixpanel.track('signin');
@@ -61,6 +62,7 @@ export class AccountService {
 
     public logOut(): void {
         this.applicationStateService.clear();
+        this.dashboardService.clear();
         mixpanel.track("signout");
         mixpanel.identify();
     }
