@@ -482,5 +482,6 @@
     "dashboardUsersComponent.invitationSent": "Invitation sent",
     "dashboardUsersComponent.addUser": "Add user",
     "sideBarComponent.users": "Users",
-    "sideBarComponent.switchDashboard": "Switch"
+    "sideBarComponent.switchDashboard": "Switch",
+    "onboardingBankAccountInvitedHoldersComponent.changeButton": "Change / Resend"
 }
