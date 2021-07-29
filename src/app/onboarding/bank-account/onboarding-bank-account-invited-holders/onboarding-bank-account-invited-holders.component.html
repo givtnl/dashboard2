@@ -1,5 +1,5 @@
-<app-custom-card titleTranslationKey="onboardingBankAccountInvitedHoldersComponent.Title"
-    [showCloseButton]="true" iconBackgroundClass="circle-purple" icon="fas fa-tasks fa-5x">
+<app-custom-card titleTranslationKey="onboardingBankAccountInvitedHoldersComponent.Title" [showCloseButton]="true"
+    iconBackgroundClass="circle-purple" icon="fas fa-tasks fa-5x">
 
     <div body class="d-flex flex-column information-card information-card-big p-3 shadow w-100 mb-3"
         *ngFor="let accountHolder of accountHolders">
@@ -7,7 +7,8 @@
             <i class="far text-givt-purple fa-user-circle fa-5x mx-4 my-auto"></i>
             <p class="text-primary text-center text-heavy-font text-givt-purple mt-3 mb-0 lh-1">
                 {{ 'onboardingBankAccountInvitedHoldersComponent.State' | translate }}:
-                {{ 'onboardingBankAccountInvitedHoldersComponent.StateDescription.' + accountHolder.StatusDescription | translate}}
+                {{ 'onboardingBankAccountInvitedHoldersComponent.StateDescription.' + accountHolder.StatusDescription |
+                translate}}
             </p>
         </div>
         <div class="d-flex flex-column information-card-right pt-4 my-auto">
@@ -29,9 +30,15 @@
         </div>
     </div>
 
-    <a bottom [translate] class="btn btn-lg align-center bg-givt-purple text-white text-heavy-font bottom-button w-100"
-        [routerLink]="['/', 'dashboard']">
-        onboardingBankAccountInvitedHoldersComponent.closeButton
-    </a>
+    <div bottom class="w-100">
+        <a [translate] class="btn btn-lg align-center bg-givt-green text-white text-heavy-font bottom-button w-100"
+            (click)="changeResendClick()">
+            onboardingBankAccountInvitedHoldersComponent.changeButton
+        </a> 
+        <a [translate] class="btn btn-lg align-center bg-givt-purple text-white text-heavy-font bottom-button w-100"
+            [routerLink]="['/', 'dashboard']">
+            onboardingBankAccountInvitedHoldersComponent.closeButton
+        </a>
+    </div>
 
 </app-custom-card>

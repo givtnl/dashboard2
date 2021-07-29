@@ -5,16 +5,16 @@ import { BankAccountHolderListModel } from '../models/bank-account-holder-list.m
 import { UpdateBankAccountHolderCommand } from '../models/commands/update-bank-account-holder.command';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class BankAccountHolderService {
-  constructor(private backendService: BackendService) {}
+    constructor(private backendService: BackendService) { }
 
-  getByAccount(organisationId: string, accountId: number): Observable<BankAccountHolderListModel[]> {
-    return this.backendService.get<BankAccountHolderListModel[]>(`v2/organisations/${organisationId}/accounts/${accountId}/holders`);
-  }
+    getByAccount(organisationId: string, accountId: number): Observable<BankAccountHolderListModel[]> {
+        return this.backendService.get<BankAccountHolderListModel[]>(`v2/organisations/${organisationId}/accounts/${accountId}/holders`);
+    }
 
-  update(organisationId: string, command: UpdateBankAccountHolderCommand): Observable<object>{
-    return this.backendService.put(`v2/organisations/${organisationId}/accounts/${command.accountId}/holders/${command.id}`, command);
-  }
+    update(organisationId: string, command: UpdateBankAccountHolderCommand): Observable<object> {
+        return this.backendService.put(`v2/organisations/${organisationId}/accounts/${command.accountId}/holders/${command.id}`, command);
+    }
 }

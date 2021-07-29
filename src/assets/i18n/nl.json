@@ -482,5 +482,6 @@
     "dashboardUsersComponent.invitationSent": "Uitgenodigd",
     "dashboardUsersComponent.addUser": "Gebruiker toevoegen",
     "sideBarComponent.users": "Gebruikers",
-    "sideBarComponent.switchDashboard": "Wisselen"
+    "sideBarComponent.switchDashboard": "Wisselen",
+    "onboardingBankAccountInvitedHoldersComponent.changeButton": "Wijzig / Verstuur opnieuw"
 }
