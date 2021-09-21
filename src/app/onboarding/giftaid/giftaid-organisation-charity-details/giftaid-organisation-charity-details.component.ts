@@ -63,7 +63,7 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
         this.loading = true;
 
         // check if we have a valid charity commision number ( length and required )
-        if (this.form.get('charityCommissionReference').valid && this.charityCommissionReferenceRequired) {
+        if (this.form.get('charityCommissionReference').valid && this.charityCommissionReferenceRequired && this.currentSettings().regulator == OrganisationRegulator.Ccew) {
             // check our api if such a number exists
             this.onboardingOrganisationDetailsService.get(this.form.getRawValue().charityCommissionReference)
                 .subscribe(() => {
