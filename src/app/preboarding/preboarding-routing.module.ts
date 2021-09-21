@@ -18,6 +18,7 @@ import { PreboardingOrganisationTypeCheckGuard } from './guards/preboarding-orga
 import { PreboardingAvailableStepsResolver } from './resolvers/preboarding-available-steps.resolver';
 import { PreboardingOrganisationRelationComponent as PreboardingOrganisationRelationshipComponent } from './preboarding-organisation-relationship/preboarding-organisation-relationship.component';
 import { PreboardingRelationShipProvidingOrganisationsResolver } from '../account/relationships/resolvers/preboarding-relationship-providing-organisations.resolver';
+import { PreboardingLaunchDateComponent } from './preboarding-launch-date/preboarding-launch-date.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,11 @@ const routes: Routes = [
         path: 'visitors',
         component: PreboardingVisitorCountComponent,
         resolve: { collectGroup: PreboardingCurrentCollectGroupResolver }
+      },
+      {
+        canActivate: [PreboardingOrganisationTypeCheckGuard],
+        path: 'launch-date',
+        component: PreboardingLaunchDateComponent
       },
       {
         canActivate: [PreboardingOrganisationTypeCheckGuard],

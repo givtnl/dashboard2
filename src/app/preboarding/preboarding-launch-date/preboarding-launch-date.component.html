@@ -1,0 +1,26 @@
+<form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100' #formDir="ngForm" [class.submitted]="formDir.submitted">
+    <app-custom-card [showCloseButton]="false" [showPreviousButton]="true" titleTranslationKey='preboardingOrganisation.topTitle'>
+        <div body>
+            <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3">
+                Wanneer zou je willen starten met Givt?
+            </p>
+            <div class="d-flex flex-row justify-content-center md-3">
+                <select>
+                    <option>no fucking clue</option>
+                    <option>ASAP</option>
+                    <option>Selecteer een datum</option>
+                </select>
+            </div>
+        
+            <div class="d-flex flex-row justify-content-center">
+                <ngb-datepicker #d></ngb-datepicker>
+            </div>
+        </div>
+        <button bottom type="submit" [translate] class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+            <span class="text-white text-heavy-font" translate>
+              preboardingCollectionMediumDetails.nextButtonText
+            </span>
+        </button>
+    </app-custom-card>
+</form>

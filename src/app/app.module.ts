@@ -17,6 +17,7 @@ import { ErrorTermInterceptor } from './shared/interceptors/error-term.intercept
 import { ForbiddenInterceptor } from './shared/interceptors/forbidden.interceptor';
 import { EncodeHttpParamsInterceptor } from './infrastructure/interceptors/http-params.interceptor';
 import { InternalServerErrorInterceptor } from './shared/interceptors/internal-server-error.interceptor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { InternalServerErrorInterceptor } from './shared/interceptors/internal-s
                 deps: [HttpClient]
             }
         }),
-        SharedModule
+        SharedModule,
+        NgbModule
     ],
     bootstrap: [AppComponent],
     providers: [

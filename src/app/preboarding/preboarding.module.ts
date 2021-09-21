@@ -13,6 +13,8 @@ import { PreboardingMailBoxAddressDetailsComponent } from './preboarding-mail-bo
 import { PreboardingCollectionsComponent } from './preboarding-collections/preboarding-collections.component';
 import { PreboardingVisitorCountComponent } from './preboarding-visitor-count/preboarding-visitor-count.component';
 import { PreboardingOrganisationRelationComponent } from './preboarding-organisation-relationship/preboarding-organisation-relationship.component';
+import { PreboardingLaunchDateComponent } from './preboarding-launch-date/preboarding-launch-date.component';
+import { NgbCalendar, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,11 +27,13 @@ import { PreboardingOrganisationRelationComponent } from './preboarding-organisa
     PreboardingMailBoxAddressDetailsComponent,
     PreboardingCollectionsComponent,
     PreboardingVisitorCountComponent,
-    PreboardingOrganisationRelationComponent
+    PreboardingOrganisationRelationComponent,
+    PreboardingLaunchDateComponent
   ],
   imports: [
     CommonModule, ReactiveFormsModule, SharedModule,
-    PreboardingRoutingModule
+    PreboardingRoutingModule,
+    NgbModule,
   ]
 })
 export class PreboardingModule { }
