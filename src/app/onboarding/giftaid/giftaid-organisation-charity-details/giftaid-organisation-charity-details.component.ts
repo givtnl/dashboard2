@@ -7,10 +7,11 @@ import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { OnboardingOrganisationDetailsService } from '../../organisation-details/services/onboarding-organisation-details.service';
 import { tap, switchMap } from 'rxjs/operators';
-import { Observable, forkJoin } from 'rxjs';
+import { Observable, forkJoin, of } from 'rxjs';
 import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
 import { OrganisationRegulator } from 'src/app/organisations/models/organisation-regulator.model';
 import mixpanel from 'mixpanel-browser';
+import { oscrReferenceValidator } from 'src/app/shared/validators/scottish-regulator-reference-validator';
 
 @Component({
     selector: 'app-giftaid-organisation-charity-details',
@@ -43,7 +44,7 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
             charityCommissionReference: [
                 { value: this.currentSettings ? currentSettings.charityCommissionReference : null, disabled: currentSettings && currentSettings.charityCommissionReference && currentSettings.charityCommissionReference.length > 0 },
                 this.charityCommissionReferenceRequired ? [Validators.required, Validators.minLength(6), Validators.maxLength(15)] : []],
-            charityId: [this.currentSettings ? currentSettings.charityId : null, [Validators.required, notNullOrEmptyValidator(), Validators.maxLength(20)]],
+            charityId: [this.currentSettings ? currentSettings.charityId : null, [Validators.required, notNullOrEmptyValidator(), Validators.maxLength(20), OrganisationRegulator.Oscr ? oscrReferenceValidator(): null]],
         }, {
             updateOn: 'submit'
         });
@@ -62,7 +63,7 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
         this.loading = true;
 
         // check if we have a valid charity commision number ( length and required )
-        if (this.form.get('charityCommissionReference').valid && this.charityCommissionReferenceRequired) {
+        if (this.form.get('charityCommissionReference').valid && this.charityCommissionReferenceRequired && this.currentSettings().regulator == OrganisationRegulator.Ccew) {
             // check our api if such a number exists
             this.onboardingOrganisationDetailsService.get(this.form.getRawValue().charityCommissionReference)
                 .subscribe(() => {
@@ -117,6 +118,8 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
                 errorMessages.push(this.translationService.get('errorMessages.charity-number-minLength'));
             if (charityCommisionNumberErrors.maxlength)
                 errorMessages.push(this.translationService.get('errorMessages.charity-number-maxLength'));
+            if (charityCommisionNumberErrors.invalidOscrReference)
+                errorMessages.push(of("Please verify if the OSCR Charity Registration number is correct."));
         }
 
         if (charityIdErrors) {
