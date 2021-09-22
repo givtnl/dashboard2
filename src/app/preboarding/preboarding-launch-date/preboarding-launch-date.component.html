@@ -6,14 +6,14 @@
                 Wanneer zou je willen starten met Givt?
             </p>
             <div class="d-flex flex-row justify-content-center md-3">
-                <select>
-                    <option>no fucking clue</option>
-                    <option>ASAP</option>
-                    <option>Selecteer een datum</option>
+                <select formControlName='selector'>
+                    <option [ngValue]=0>no fucking clue</option>
+                    <option [ngValue]=1>ASAP</option>
+                    <option [ngValue]=2>Selecteer een datum</option>
                 </select>
             </div>
         
-            <div class="d-flex flex-row justify-content-center">
+            <div *ngIf="form.controls['selector'].value==2" class="d-flex flex-row justify-content-center">
                 <ngb-datepicker #d></ngb-datepicker>
             </div>
         </div>

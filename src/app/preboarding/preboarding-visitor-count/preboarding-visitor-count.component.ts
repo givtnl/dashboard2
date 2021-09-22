@@ -42,7 +42,7 @@ export class PreboardingVisitorCountComponent implements OnInit {
       return;
     }
     this.continue();
-    this.router.navigate(["/preboarding/register/launch-date"])
+    this.router.navigate(["/preboarding/register/collections"])
   }
 
   continue() {

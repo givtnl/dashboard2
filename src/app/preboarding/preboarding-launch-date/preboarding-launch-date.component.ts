@@ -18,6 +18,7 @@ export class PreboardingLaunchDateComponent implements OnInit {
     
     private collectGroup: CreateCollectGroupCommand
     public form: FormGroup
+    public selector: Number
 
     constructor(
         private route: ActivatedRoute,
@@ -31,6 +32,7 @@ export class PreboardingLaunchDateComponent implements OnInit {
         this.collectGroup = this.route.snapshot.data.collectGroup as CreateCollectGroupCommand;
 
         this.form = this.formBuilder.group({
+            selector: [this.selector],
             launchDate: [this.collectGroup ? this.collectGroup : null, [Validators.required]],
           });
     }
@@ -42,6 +44,10 @@ export class PreboardingLaunchDateComponent implements OnInit {
         }
         this.continue();
         this.router.navigate(["/preboarding/register/collections"])
+      }
+
+      onChange(event) {
+          console.log(this.selector)
       }
     
       continue() {

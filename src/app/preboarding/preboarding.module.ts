@@ -7,7 +7,7 @@ import { PreboardingDetailsCompleteComponent } from './preboarding-details-compl
 import { PreboardingRoutingModule } from './preboarding-routing.module';
 import { PreboardingRootComponent } from './preboarding-root/preboarding-root.component';
 import { PreboardingWelcomeDetailsComponent } from './preboarding-welcome-details/preboarding-welcome-details.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { PreboardingMailBoxAddressDetailsComponent } from './preboarding-mail-box-address-details/preboarding-mail-box-address-details.component';
 import { PreboardingCollectionsComponent } from './preboarding-collections/preboarding-collections.component';
@@ -34,6 +34,7 @@ import { NgbCalendar, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule, ReactiveFormsModule, SharedModule,
     PreboardingRoutingModule,
     NgbModule,
+    FormsModule
   ]
 })
 export class PreboardingModule { }
