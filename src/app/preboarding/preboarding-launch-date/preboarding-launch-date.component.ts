@@ -35,7 +35,10 @@ export class PreboardingLaunchDateComponent implements OnInit {
             selector: [this.selector],
             launchDate: [this.collectGroup ? this.collectGroup : null, [Validators.required]],
           });
+
+        this.form.controls['selector'].setValue(1, {onlySelf: true})
     }
+
 
     submit() {
         if (this.form.invalid) {
@@ -46,9 +49,6 @@ export class PreboardingLaunchDateComponent implements OnInit {
         this.router.navigate(["/preboarding/register/collections"])
       }
 
-      onChange(event) {
-          console.log(this.selector)
-      }
     
       continue() {
           // add the launch date to the organisation

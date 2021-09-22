@@ -3,15 +3,15 @@
         <div body>
             <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
             <p class="introduction-title text-primary text-light-font text-givt-purple mt-3">
-                Wanneer zou je willen starten met Givt?
+                When do you want to launch with Givt?
             </p>
-            <select formControlName='selector' class="form-control">
-                <option [ngValue]=0>no fucking clue</option>
-                <option [ngValue]=1>ASAP</option>
-                <option [ngValue]=2>Selecteer een datum</option>
+            <select formControlName='selector' class="form-control givt-drop-down">
+                <option [ngValue]=0>Don't know</option>
+                <option selected="selected" [ngValue]=1>Today</option>
+                <option [ngValue]=2>Select a date</option>
             </select>
         
-            <div *ngIf="form.controls['selector'].value==2" class="d-flex flex-row justify-content-center">
+            <div *ngIf="form.controls['selector'].value==2" class="d-flex flex-row justify-content-center my-3">
                 <ngb-datepicker #d></ngb-datepicker>
             </div>
         </div>
