@@ -6,6 +6,7 @@ import { CreateCollectGroupUserCommand } from 'src/app/collect-groups/models/cre
 import { PreboardingDetailModel } from '../models/preboarding-detail.model';
 import { OrganisationWithRulesDetail } from 'src/app/onboarding/organisation-details/models/organisation-with-rules-detail.model';
 import { CreateRelationshipCommand } from 'src/app/account/relationships/models/commands/create-relation-ship.command';
+import { SetLaunchDateCommand } from 'src/app/preboarding/models/set-launch-date.command';
 
 
 @Injectable({
@@ -96,6 +97,16 @@ export class PreboardingStateService {
 
   public get currentCreateOrganisationshipRuleCommand() : CreateRelationshipCommand {
     const key = 'PreboardingStateService.CreateRelationshipCommand';
+    return JSON.parse(this.storage.getItem(key));
+  }
+
+  public set currentSetLaunchDateCommand(value: SetLaunchDateCommand) {
+    const key = 'PreboardingStateService.SetLaunchDateCommand';
+    this.storage.setItem(key, JSON.stringify(value));
+  }
+
+  public get currentSetLaunchDateCommand() : SetLaunchDateCommand {
+    const key = 'PreboardingStateService.SetLaunchDateCommand';
     return JSON.parse(this.storage.getItem(key));
   }
 }

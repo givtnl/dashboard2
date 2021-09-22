@@ -6,6 +6,7 @@ import { ToastrService } from "ngx-toastr";
 import { forkJoin, Observable } from "rxjs";
 import { switchMap, tap } from "rxjs/operators";
 import { CreateCollectGroupCommand } from "src/app/collect-groups/models/create-collect-group.command";
+import { SetLaunchDateCommand } from "../models/set-launch-date.command";
 
 
 @Component({
@@ -15,7 +16,7 @@ import { CreateCollectGroupCommand } from "src/app/collect-groups/models/create-
 })
 export class PreboardingLaunchDateComponent implements OnInit {
     
-    private collectGroup: CreateCollectGroupCommand
+    private launchDate: SetLaunchDateCommand
     public form: FormGroup
     public selector: Number
     public minDate: Date
@@ -29,11 +30,11 @@ export class PreboardingLaunchDateComponent implements OnInit {
     
 
     ngOnInit(): void {
-        this.collectGroup = this.route.snapshot.data.collectGroup as CreateCollectGroupCommand;
+        this.launchDate = this.route.snapshot.data.launchDate as SetLaunchDateCommand;
 
         this.form = this.formBuilder.group({
             selector: [this.selector],
-            launchDate: [this.collectGroup],
+            launchDate: [this.launchDate],
           });
 
         this.form.controls['selector'].setValue(1, {onlySelf: true})
