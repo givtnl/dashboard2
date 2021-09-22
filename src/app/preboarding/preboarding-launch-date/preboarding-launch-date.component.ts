@@ -6,7 +6,6 @@ import { ToastrService } from "ngx-toastr";
 import { forkJoin, Observable } from "rxjs";
 import { switchMap, tap } from "rxjs/operators";
 import { CreateCollectGroupCommand } from "src/app/collect-groups/models/create-collect-group.command";
-import { PreboardingStateService } from "../services/preboarding-state.service";
 
 
 @Component({
@@ -19,6 +18,7 @@ export class PreboardingLaunchDateComponent implements OnInit {
     private collectGroup: CreateCollectGroupCommand
     public form: FormGroup
     public selector: Number
+    public minDate
 
     constructor(
         private route: ActivatedRoute,
@@ -37,6 +37,8 @@ export class PreboardingLaunchDateComponent implements OnInit {
           });
 
         this.form.controls['selector'].setValue(1, {onlySelf: true})
+        var today = new Date()
+        this.minDate = {year: today.getFullYear(), month: today.getMonth() + 1, day: today.getDate()}
     }
 
 

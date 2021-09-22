@@ -7,12 +7,12 @@
             </p>
             <select formControlName='selector' class="form-control givt-drop-down">
                 <option [ngValue]=0>Don't know</option>
-                <option selected="selected" [ngValue]=1>Today</option>
+                <option [ngValue]=1>Today</option>
                 <option [ngValue]=2>Select a date</option>
             </select>
         
             <div *ngIf="form.controls['selector'].value==2" class="d-flex flex-row justify-content-center my-3">
-                <ngb-datepicker #d></ngb-datepicker>
+                <ngb-datepicker [minDate]="this.minDate" #d></ngb-datepicker>
             </div>
         </div>
         <button bottom type="submit" [translate] class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
