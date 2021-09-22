@@ -14,7 +14,6 @@ import { PreboardingCollectionsComponent } from './preboarding-collections/prebo
 import { PreboardingVisitorCountComponent } from './preboarding-visitor-count/preboarding-visitor-count.component';
 import { PreboardingOrganisationRelationComponent } from './preboarding-organisation-relationship/preboarding-organisation-relationship.component';
 import { PreboardingLaunchDateComponent } from './preboarding-launch-date/preboarding-launch-date.component';
-import { NgbCalendar, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,6 @@ import { NgbCalendar, NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     CommonModule, ReactiveFormsModule, SharedModule,
     PreboardingRoutingModule,
-    NgbModule,
     FormsModule
   ]
 })

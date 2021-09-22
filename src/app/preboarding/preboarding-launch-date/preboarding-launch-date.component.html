@@ -12,7 +12,7 @@
             </select>
         
             <div *ngIf="form.controls['selector'].value==2" class="d-flex flex-row justify-content-center my-3">
-                <ngb-datepicker [minDate]="this.minDate" #d></ngb-datepicker>
+                <input class="form-control" type="date" min="{{minDate|date:'yyyy-MM-dd'}}">
             </div>
         </div>
         <button bottom type="submit" [translate] class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">

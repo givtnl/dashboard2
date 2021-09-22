@@ -18,7 +18,7 @@ export class PreboardingLaunchDateComponent implements OnInit {
     private collectGroup: CreateCollectGroupCommand
     public form: FormGroup
     public selector: Number
-    public minDate
+    public minDate: Date
 
     constructor(
         private route: ActivatedRoute,
@@ -33,12 +33,11 @@ export class PreboardingLaunchDateComponent implements OnInit {
 
         this.form = this.formBuilder.group({
             selector: [this.selector],
-            launchDate: [this.collectGroup ? this.collectGroup : null, [Validators.required]],
+            launchDate: [this.collectGroup],
           });
 
         this.form.controls['selector'].setValue(1, {onlySelf: true})
-        var today = new Date()
-        this.minDate = {year: today.getFullYear(), month: today.getMonth() + 1, day: today.getDate()}
+        this.minDate = new Date()
     }
 
 
