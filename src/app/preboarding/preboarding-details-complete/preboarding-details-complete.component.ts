@@ -151,8 +151,12 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
             .addNote(this.preboardingStateService.organisationDetails.organisationId, `Preboarding completed ${this.preboardingStateService.currentCollectGroupDetails.name}`,
                 `${this.formattingService.formatContact(this.preboardingStateService.currentOrganisationContact)}
     ${this.formattingService.formatInfo(this.preboardingStateService.currentAdditionalInformation)}`)
+            .pipe(tap(() => {
+                this.organisationService.addLaunchDate(this.preboardingStateService.organisationDetails.organisationId, this.preboardingStateService.currentSetLaunchDateCommand)
+                .subscribe(() => {
+                })
+            }))
             .pipe(catchError(() => this.genericError(5)))
-            .pipe(tap(() => this.organisationService.addLaunchDate(this.preboardingStateService.organisationDetails.organisationId, this.preboardingStateService.currentSetLaunchDateCommand)))
             .subscribe(() => {
                 this.handleStep(5);
                 this.stepSeven();
