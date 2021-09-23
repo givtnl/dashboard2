@@ -5,8 +5,8 @@ import { TranslateService } from "@ngx-translate/core";
 import { ToastrService } from "ngx-toastr";
 import { forkJoin, Observable } from "rxjs";
 import { switchMap, tap } from "rxjs/operators";
-import { CreateCollectGroupCommand } from "src/app/collect-groups/models/create-collect-group.command";
 import { SetLaunchDateCommand } from "../models/set-launch-date.command";
+import { PreboardingStateService } from "../services/preboarding-state.service";
 
 
 @Component({
@@ -26,18 +26,16 @@ export class PreboardingLaunchDateComponent implements OnInit {
         private formBuilder: FormBuilder,
         private translationService: TranslateService,
         private toastr: ToastrService,
+        private stateService: PreboardingStateService,
         private router: Router) { }
     
 
     ngOnInit(): void {
-        this.launchDate = this.route.snapshot.data.launchDate as SetLaunchDateCommand;
-
+        this.launchDate = this.route.snapshot.data.launchDate as SetLaunchDateCommand ?? new SetLaunchDateCommand();
         this.form = this.formBuilder.group({
-            selector: [this.selector],
-            launchDate: [this.launchDate],
+            selector: [this.launchDate.launchDate ? 2 : 0],
+            launchDate: [this.launchDate.launchDate ? this.launchDate.launchDate : null],
           });
-
-        this.form.controls['selector'].setValue(1, {onlySelf: true})
         this.minDate = new Date()
     }
 
@@ -53,6 +51,18 @@ export class PreboardingLaunchDateComponent implements OnInit {
 
     
       continue() {
+        switch (this.form.value.selector) {
+          case 1:
+            this.launchDate.launchDate = new Date().toISOString().slice(0,10) as any
+            break
+          case 2:
+            this.launchDate.launchDate = this.form.value.launchDate
+            break
+          default:
+            this.launchDate.launchDate = null
+        }
+        this.stateService.currentSetLaunchDateCommand = this.launchDate
+        console.log(this.stateService.currentSetLaunchDateCommand)
           // add the launch date to the organisation
       }
     

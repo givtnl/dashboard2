@@ -1,4 +1,4 @@
 
-export interface SetLaunchDateCommand {
+export class SetLaunchDateCommand {
     launchDate: Date;
 }
