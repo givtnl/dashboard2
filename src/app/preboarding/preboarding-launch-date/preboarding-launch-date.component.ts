@@ -62,8 +62,6 @@ export class PreboardingLaunchDateComponent implements OnInit {
             this.launchDate.launchDate = null
         }
         this.stateService.currentSetLaunchDateCommand = this.launchDate
-        console.log(this.stateService.currentSetLaunchDateCommand)
-          // add the launch date to the organisation
       }
     
       handleInvalidForm() {
