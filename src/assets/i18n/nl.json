@@ -483,5 +483,6 @@
     "dashboardUsersComponent.addUser": "Gebruiker toevoegen",
     "sideBarComponent.users": "Gebruikers",
     "sideBarComponent.switchDashboard": "Wisselen",
-    "onboardingBankAccountInvitedHoldersComponent.changeButton": "Wijzig / Verstuur opnieuw"
+    "onboardingBankAccountInvitedHoldersComponent.changeButton": "Wijzig / Verstuur opnieuw",
+    "errorMessages.past-date": "De datum moet in de toekomst liggen."
 }
