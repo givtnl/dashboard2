@@ -2,13 +2,13 @@
     <app-custom-card [showCloseButton]="false" [showPreviousButton]="true" titleTranslationKey='preboardingOrganisation.topTitle'>
         <div body>
             <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
-            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3">
-                When do you want to launch with Givt?
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
+                preboardingLaunchDateComponent.description
             </p>
             <select formControlName='selector' class="form-control givt-drop-down">
-                <option [ngValue]=0>Don't know</option>
-                <option [ngValue]=1>Today</option>
-                <option [ngValue]=2>Select a date</option>
+                <option [ngValue]=0 translate>preboardingLaunchDateComponent.dontKnow</option>
+                <option [ngValue]=1 translate>preboardingLaunchDateComponent.today</option>
+                <option [ngValue]=2 translate>preboardingLaunchDateComponent.selectDate</option>
             </select>
         
             <div *ngIf="form.controls['selector'].value==2" class="d-flex flex-row justify-content-center my-3">
@@ -17,7 +17,7 @@
         </div>
         <button bottom type="submit" [translate] class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
             <span class="text-white text-heavy-font" translate>
-              preboardingCollectionMediumDetails.nextButtonText
+              preboardingLaunchDateComponent.nextButtonText
             </span>
         </button>
     </app-custom-card>
