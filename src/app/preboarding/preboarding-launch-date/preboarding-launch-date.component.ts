@@ -54,9 +54,6 @@ export class PreboardingLaunchDateComponent implements OnInit {
   continue() {
     switch (this.form.value.selector) {
       case 1:
-        this.launchDate.launchDate = new Date().toISOString().slice(0, 10) as any
-        break
-      case 2:
         this.launchDate.launchDate = this.form.value.launchDate
         break
       default:

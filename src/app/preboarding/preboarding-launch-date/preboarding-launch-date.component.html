@@ -7,8 +7,7 @@
             </p>
             <select formControlName='selector' class="form-control givt-drop-down">
                 <option [ngValue]=0 translate>preboardingLaunchDateComponent.dontKnow</option>
-                <option [ngValue]=1 translate>preboardingLaunchDateComponent.today</option>
-                <option [ngValue]=2 translate>preboardingLaunchDateComponent.selectDate</option>
+                <option [ngValue]=1 translate>preboardingLaunchDateComponent.selectDate</option>
             </select>
         
             <div *ngIf="form.controls['selector'].value==2" class="d-flex flex-row justify-content-center my-3">
