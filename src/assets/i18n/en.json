@@ -483,5 +483,6 @@
     "dashboardUsersComponent.addUser": "Add user",
     "sideBarComponent.users": "Users",
     "sideBarComponent.switchDashboard": "Switch",
-    "onboardingBankAccountInvitedHoldersComponent.changeButton": "Change / Resend"
+    "onboardingBankAccountInvitedHoldersComponent.changeButton": "Change / Resend",
+    "errorMessages.past-date": "The date must be in the future."
 }
