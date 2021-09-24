@@ -484,5 +484,10 @@
     "sideBarComponent.users": "Gebruikers",
     "sideBarComponent.switchDashboard": "Wisselen",
     "onboardingBankAccountInvitedHoldersComponent.changeButton": "Wijzig / Verstuur opnieuw",
-    "errorMessages.past-date": "De datum moet in de toekomst liggen."
+    "errorMessages.past-date": "De datum moet in de toekomst liggen.",
+    "preboardingLaunchDateComponent.description": "Wanneer wil je van start met Givt?",
+    "preboardingLaunchDateComponent.nextButtonText": "Volgende",
+    "preboardingLaunchDateComponent.dontKnow": "Ik weet het nog niet",
+    "preboardingLaunchDateComponent.today": "Vandaag",
+    "preboardingLaunchDateComponent.selectDate": "Selecteer een datum"
 }
