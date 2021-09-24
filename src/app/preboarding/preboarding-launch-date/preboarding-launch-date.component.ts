@@ -1,10 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { ToastrService } from "ngx-toastr";
 import { forkJoin, Observable } from "rxjs";
 import { switchMap, tap } from "rxjs/operators";
+import { futureDateValidator } from "src/app/shared/validators/date.validator";
 import { SetLaunchDateCommand } from "../models/set-launch-date.command";
 import { PreboardingStateService } from "../services/preboarding-state.service";
 
@@ -34,13 +35,14 @@ export class PreboardingLaunchDateComponent implements OnInit {
     this.launchDate = this.route.snapshot.data.launchDate as SetLaunchDateCommand ?? new SetLaunchDateCommand();
     this.form = this.formBuilder.group({
       selector: [this.launchDate.launchDate ? 2 : 0],
-      launchDate: [this.launchDate.launchDate ? this.launchDate.launchDate : null],
+      launchDate: new FormControl(this.launchDate.launchDate ? this.launchDate.launchDate : null, futureDateValidator())
     });
     this.minDate = new Date()
   }
 
 
   submit() {
+    console.log('oi')
     if (this.form.invalid) {
       this.handleInvalidForm();
       return;
@@ -67,6 +69,15 @@ export class PreboardingLaunchDateComponent implements OnInit {
   handleInvalidForm() {
     let errorMessages = new Array<Observable<string>>();
     let resolvedErrorMessages = new Array<string>();
+
+    const dateErrors = this.form.get('launchDate').errors;
+
+    if (dateErrors) {
+      console.log(dateErrors)
+      if (dateErrors.datevalid) {
+        errorMessages.push(this.translationService.get('errorMessages.past-date'));
+      }
+    }
 
     forkJoin(errorMessages)
       .pipe(tap(results => (resolvedErrorMessages = results)))
