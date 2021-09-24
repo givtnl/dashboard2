@@ -42,7 +42,6 @@ export class PreboardingLaunchDateComponent implements OnInit {
 
 
   submit() {
-    console.log('oi')
     if (this.form.invalid) {
       this.handleInvalidForm();
       return;
@@ -73,7 +72,6 @@ export class PreboardingLaunchDateComponent implements OnInit {
     const dateErrors = this.form.get('launchDate').errors;
 
     if (dateErrors) {
-      console.log(dateErrors)
       if (dateErrors.datevalid) {
         errorMessages.push(this.translationService.get('errorMessages.past-date'));
       }
