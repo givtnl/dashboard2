@@ -484,5 +484,10 @@
     "sideBarComponent.users": "Users",
     "sideBarComponent.switchDashboard": "Switch",
     "onboardingBankAccountInvitedHoldersComponent.changeButton": "Change / Resend",
-    "errorMessages.past-date": "The date must be in the future."
+    "errorMessages.past-date": "The date must be in the future.",
+    "preboardingLaunchDateComponent.description": "When do you want to launch with Givt?",
+    "preboardingLaunchDateComponent.nextButtonText": "Next",
+    "preboardingLaunchDateComponent.dontKnow": "I don't know",
+    "preboardingLaunchDateComponent.today": "Today",
+    "preboardingLaunchDateComponent.selectDate": "Select a date"
 }
