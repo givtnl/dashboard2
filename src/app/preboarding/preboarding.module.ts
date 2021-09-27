@@ -7,12 +7,13 @@ import { PreboardingDetailsCompleteComponent } from './preboarding-details-compl
 import { PreboardingRoutingModule } from './preboarding-routing.module';
 import { PreboardingRootComponent } from './preboarding-root/preboarding-root.component';
 import { PreboardingWelcomeDetailsComponent } from './preboarding-welcome-details/preboarding-welcome-details.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { PreboardingMailBoxAddressDetailsComponent } from './preboarding-mail-box-address-details/preboarding-mail-box-address-details.component';
 import { PreboardingCollectionsComponent } from './preboarding-collections/preboarding-collections.component';
 import { PreboardingVisitorCountComponent } from './preboarding-visitor-count/preboarding-visitor-count.component';
 import { PreboardingOrganisationRelationComponent } from './preboarding-organisation-relationship/preboarding-organisation-relationship.component';
+import { PreboardingLaunchDateComponent } from './preboarding-launch-date/preboarding-launch-date.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +26,13 @@ import { PreboardingOrganisationRelationComponent } from './preboarding-organisa
     PreboardingMailBoxAddressDetailsComponent,
     PreboardingCollectionsComponent,
     PreboardingVisitorCountComponent,
-    PreboardingOrganisationRelationComponent
+    PreboardingOrganisationRelationComponent,
+    PreboardingLaunchDateComponent
   ],
   imports: [
     CommonModule, ReactiveFormsModule, SharedModule,
-    PreboardingRoutingModule
+    PreboardingRoutingModule,
+    FormsModule
   ]
 })
 export class PreboardingModule { }

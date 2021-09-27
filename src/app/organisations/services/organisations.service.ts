@@ -6,6 +6,7 @@ import { UpdateOrganisationCommand } from '../models/commands/update-organisatio
 import { OrganisationRegistrationProgress } from '../models/organisation-registration-progress';
 import { OrganisationRegistrationStep } from '../models/organisation-registration-step';
 import { OrganisationListModel } from '../models/organisation-list.model';
+import { SetLaunchDateCommand } from 'src/app/preboarding/models/set-launch-date.command';
 
 @Injectable({
     providedIn: 'root'
@@ -28,6 +29,11 @@ export class OrganisationsService {
             contents: contents
         });
     }
+
+    addLaunchDate(id: string, launchDate: SetLaunchDateCommand) {
+        return this.backendService.put(`v2/organisations/${id}/launchdate`, launchDate)
+    }
+
     //change the progress internally
     changeProgress(id: string, progress: OrganisationRegistrationProgress): Observable<object> {
         return this.backendService.patch(`v2/organisations/${id}/registration/progress/${progress}`, {});

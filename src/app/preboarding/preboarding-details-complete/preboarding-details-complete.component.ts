@@ -145,12 +145,17 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
             this.stepSix();
         })
     }
-    // Adds the note in teamleader
+    // Adds the note in teamleader and add the launch date to teamleader and the database
     stepSix(): void {
         this.organisationService
             .addNote(this.preboardingStateService.organisationDetails.organisationId, `Preboarding completed ${this.preboardingStateService.currentCollectGroupDetails.name}`,
                 `${this.formattingService.formatContact(this.preboardingStateService.currentOrganisationContact)}
     ${this.formattingService.formatInfo(this.preboardingStateService.currentAdditionalInformation)}`)
+            .pipe(tap(() => {
+                this.organisationService.addLaunchDate(this.preboardingStateService.organisationDetails.organisationId, this.preboardingStateService.currentSetLaunchDateCommand)
+                .subscribe(() => {
+                })
+            }))
             .pipe(catchError(() => this.genericError(5)))
             .subscribe(() => {
                 this.handleStep(5);
