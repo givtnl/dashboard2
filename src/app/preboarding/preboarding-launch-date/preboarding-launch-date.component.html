@@ -10,7 +10,7 @@
                 <option [ngValue]=1 translate>preboardingLaunchDateComponent.selectDate</option>
             </select>
         
-            <div *ngIf="form.controls['selector'].value==2" class="d-flex flex-row justify-content-center my-3">
+            <div *ngIf="form.controls['selector'].value==1" class="d-flex flex-row justify-content-center my-3">
                 <input class="form-control" type="date" formControlName='launchDate' min="{{minDate|date:'yyyy-MM-dd'}}">
             </div>
         </div>

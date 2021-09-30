@@ -34,7 +34,7 @@ export class PreboardingLaunchDateComponent implements OnInit {
   ngOnInit(): void {
     this.launchDate = this.route.snapshot.data.launchDate as SetLaunchDateCommand ?? new SetLaunchDateCommand();
     this.form = this.formBuilder.group({
-      selector: [this.launchDate.launchDate ? 2 : 0],
+      selector: [this.launchDate.launchDate ? 1 : 0],
       launchDate: new FormControl(this.launchDate.launchDate ? this.launchDate.launchDate : null, futureDateValidator())
     });
     this.minDate = new Date()
