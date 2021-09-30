@@ -42,7 +42,7 @@ export class PreboardingLaunchDateComponent implements OnInit {
 
 
   submit() {
-    if (this.form.invalid) {
+    if (this.form.invalid && this.form.get('selector').value == 1) {
       this.handleInvalidForm();
       return;
     }
