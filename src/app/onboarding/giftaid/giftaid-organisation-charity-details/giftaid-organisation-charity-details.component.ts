@@ -43,7 +43,7 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
 
             charityCommissionReference: [
                 { value: this.currentSettings ? currentSettings.charityCommissionReference : null, disabled: currentSettings && currentSettings.charityCommissionReference && currentSettings.charityCommissionReference.length > 0 },
-                this.charityCommissionReferenceRequired ? [Validators.required, Validators.minLength(6), Validators.maxLength(15), OrganisationRegulator.Oscr ? oscrReferenceValidator(): null] : []],
+                this.charityCommissionReferenceRequired ? [Validators.required, Validators.minLength(6), Validators.maxLength(15), currentSettings && currentSettings.regulator == OrganisationRegulator.Oscr ? oscrReferenceValidator(): null] : []],
             charityId: [this.currentSettings ? currentSettings.charityId : null, [Validators.required, notNullOrEmptyValidator(), Validators.maxLength(20)]],
         }, {
             updateOn: 'submit'
