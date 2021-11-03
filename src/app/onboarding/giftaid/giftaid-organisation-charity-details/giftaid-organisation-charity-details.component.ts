@@ -131,7 +131,6 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
 
         forkJoin(errorMessages)
             .pipe(tap(results => (resolvedErrorMessages = results)))
-            .pipe(tap(results => console.log(results)))
             .pipe(switchMap(() => this.translationService.get('errorMessages.validation-errors')))
             .subscribe(title =>
                 this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
