@@ -5,6 +5,8 @@ exports.handler = (event, context, callback) => {
     const response = event.Records[0].cf.response;
     const headers = response.headers;
 
+    // added this code snippet to prevent deployment bug introduced in https://github.com/serverless/serverless/issues/8392
+
     //Set new headers 
     headers['permissions-policy'] = [{ key: 'Permissions-Policy', value: `fullscreen=(self);` }]
     headers['strict-transport-security'] = [{ key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubdomains; preload' }];
