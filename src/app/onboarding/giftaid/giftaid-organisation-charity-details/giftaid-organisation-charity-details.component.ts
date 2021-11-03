@@ -38,16 +38,27 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
     ngOnInit() {
         mixpanel.track("giftAid:charityDetails");
         const currentSettings = this.currentSettings();
-        this.charityCommissionReferenceRequired = currentSettings.regulator != OrganisationRegulator.Exempt;
         this.form = this.formBuilder.group({
-
             charityCommissionReference: [
-                { value: this.currentSettings ? currentSettings.charityCommissionReference : null, disabled: currentSettings && currentSettings.charityCommissionReference && currentSettings.charityCommissionReference.length > 0 },
-                this.charityCommissionReferenceRequired ? [Validators.required, Validators.minLength(6), Validators.maxLength(15), OrganisationRegulator.Oscr ? oscrReferenceValidator(): null] : []],
-            charityId: [this.currentSettings ? currentSettings.charityId : null, [Validators.required, notNullOrEmptyValidator(), Validators.maxLength(20)]],
+                {
+                    value: currentSettings?.charityCommissionReference || null,
+                    disabled: currentSettings?.charityCommissionReference?.length > 0
+                }
+            ],
+            charityId: [currentSettings?.charityId || null, [Validators.required, notNullOrEmptyValidator(), Validators.maxLength(20)]],
         }, {
             updateOn: 'submit'
         });
+
+        if (currentSettings?.regulator != OrganisationRegulator.Exempt) {
+            let defaultValidators = [Validators.required, Validators.minLength(6), Validators.maxLength(15)];
+            if (currentSettings?.regulator == OrganisationRegulator.Oscr) {
+                defaultValidators.push(oscrReferenceValidator());
+            }
+            this.form.get('charityCommissionReference').setValidators(defaultValidators);
+        }
+
+
     }
     private currentSettings(): PreparedGiftAidSettings {
         // if we already did this step and the user returns to this screen, then load the previously entered settings
