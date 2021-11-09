@@ -5,7 +5,7 @@ import { CollectGroupsService } from 'src/app/collect-groups/services/collect-gr
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { OnboardingNewUsersService } from 'src/app/onboarding/new-users/services/onboarding-new-users.service';
 import { PreboardingStepListModel } from './models/preboarding-step-list.model';
-import { tap, switchMap, catchError, retry, delayWhen } from 'rxjs/operators';
+import { tap, switchMap, catchError, retry, delayWhen, concatMap } from 'rxjs/operators';
 import { of, Observable, EMPTY, forkJoin } from 'rxjs';
 import { CreatedCollectGroupResponse } from 'src/app/collect-groups/models/created-collect-group-response.model';
 import { CreatedResponseModel } from 'src/app/infrastructure/models/response.model';
@@ -151,11 +151,10 @@ export class PreboardingDetailsCompleteComponent implements OnInit {
             .addNote(this.preboardingStateService.organisationDetails.organisationId, `Preboarding completed ${this.preboardingStateService.currentCollectGroupDetails.name}`,
                 `${this.formattingService.formatContact(this.preboardingStateService.currentOrganisationContact)}
     ${this.formattingService.formatInfo(this.preboardingStateService.currentAdditionalInformation)}`)
-            .pipe(tap(() => {
+            .pipe(concatMap(() => this.preboardingStateService.currentSetLaunchDateCommand?.launchDate ?
                 this.organisationService.addLaunchDate(this.preboardingStateService.organisationDetails.organisationId, this.preboardingStateService.currentSetLaunchDateCommand)
-                .subscribe(() => {
-                })
-            }))
+                : of({})
+            ))
             .pipe(catchError(() => this.genericError(5)))
             .subscribe(() => {
                 this.handleStep(5);
