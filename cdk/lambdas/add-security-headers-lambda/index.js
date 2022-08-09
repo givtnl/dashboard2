@@ -3,7 +3,7 @@ exports.handler = (event, context, callback) => {
 
     //Get contents of response
     const response = event.Records[0].cf.response;
-    const headers = response.headers;
+    const headers = response.headers; 
 
     // added this code snippet to prevent deployment bug introduced in https://github.com/serverless/serverless/issues/8392
 
