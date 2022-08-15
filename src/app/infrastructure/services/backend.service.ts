@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { ApplicationStateService } from './application-state.service';
@@ -17,9 +17,25 @@ export class BackendService {
 	public currentUser = this.applicationStateService.currentUserModel;
 
     constructor(public http: HttpClient,
-        private applicationStateService: ApplicationStateService) {
-        this.baseUrl = environment.apiUrl + '/api/';
+        private applicationStateService: ApplicationStateService,
+        @Inject('BROWSER_LOCATION') private browserLocation: any) {
+        this.baseUrl = this.getApiUrl() + '/api/';
         this.cacheService = new CacheService(sessionStorage);
+    }
+
+    private getApiUrl(): String {
+        /**
+         * Based on the hostname, the backend is set for eu (givtapp.net) or us (givt.app)
+         * For local dev apiUrl remains used
+         */
+
+        if(environment.production) {
+            if(this.browserLocation.hostname.endsWith('givt.app'))
+                return environment.apiUrlUS;
+            else
+                return environment.apiUrlEU;
+        }
+        return environment.apiUrl;
     }
     
     public get<T>(path: string, params: HttpParams = null): Observable<T>{

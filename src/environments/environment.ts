@@ -5,6 +5,8 @@
 export const environment = {
   production: false,
   apiUrl: 'https://apidebug.givtapp.net',
+  apiUrlEU: 'https://api.givtapp.net',
+  apiUrlUS: 'https://api.givt.app',
   oldDashboardUrl: 'https://givtdashboarddebug.azurewebsites.net'
 };
 
