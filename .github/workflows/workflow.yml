@@ -31,7 +31,7 @@ jobs:
         run: |
           npm i
           npm install -g @angular/cli
-          ng build ${{ env.IS_MAIN_BRANCH == 'true' && '--prod' }}
+          ng build ${{ env.IS_MAIN_BRANCH == 'true' && '--prod' || ''}}
       - name: Bootstrap and run the Amazon CDK
         if: ${{ env.IS_MAIN_BRANCH == 'true' }} && ${{ env.IS_DEV_BRANCH == 'true' }}
         run: |
