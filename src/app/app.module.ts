@@ -17,6 +17,8 @@ import { ErrorTermInterceptor } from './shared/interceptors/error-term.intercept
 import { ForbiddenInterceptor } from './shared/interceptors/forbidden.interceptor';
 import { EncodeHttpParamsInterceptor } from './infrastructure/interceptors/http-params.interceptor';
 import { InternalServerErrorInterceptor } from './shared/interceptors/internal-server-error.interceptor';
+import { locationFactory } from './infrastructure/services/backend.service.provider';
+
 
 
 @NgModule({
@@ -80,6 +82,10 @@ import { InternalServerErrorInterceptor } from './shared/interceptors/internal-s
             provide: HTTP_INTERCEPTORS,
             useClass: InternalServerErrorInterceptor,
             multi: true
+        },
+        {
+            provide: 'BROWSER_LOCATION',
+            useFactory: locationFactory
         }
     ]
 })
