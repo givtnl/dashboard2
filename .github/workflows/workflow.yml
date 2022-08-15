@@ -2,7 +2,7 @@ name: Build and Deploy dashboard2 frontend
 on: 
   push:
     branches: [main, pre-main]
-  pull_reques:
+  pull_request:
 env:
   IS_MAIN_BRANCH: ${{ endsWith(github.ref, '/main')}}
   IS_DEV_BRANCH: ${{ endsWith(github.ref, '/develop')}}
