@@ -1,8 +1,11 @@
+name: Build and Deploy dashboard2 frontend
 on: 
   push:
-    branches:
-      - main
-name: Build and Deploy
+    branches: [main, pre-main]
+  pull_reques:
+env:
+  IS_MAIN_BRANCH: ${{ endsWith(github.ref, '/main')}}
+  IS_DEV_BRANCH: ${{ endsWith(github.ref, '/develop')}}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,8 +31,9 @@ jobs:
         run: |
           npm i
           npm install -g @angular/cli
-          ng build --prod
-      - name: Bootstrap and run the CDK
+          ng build ${{ env.IS_MAIN_BRANCH && '--prod' }}
+      - name: Bootstrap and run the Amazon CDK
+        if: ${{ env.IS_MAIN_BRANCH }} && ${{ env.IS_DEV_BRANCH }}
         run: |
           cd cdk
           npm install -g typescript
@@ -37,8 +41,8 @@ jobs:
           ./node_modules/aws-cdk/bin/cdk bootstrap
           ./node_modules/aws-cdk/bin/cdk deploy "*" --require-approval never          
         env:   
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_PRODUCTION }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_PRODUCTION }}
+          AWS_ACCESS_KEY_ID: ${{ env.IS_MAIN_BRANCH && secrets.AWS_ACCESS_KEY_ID_PRODUCTION || secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ env.IS_MAIN_BRANCH && secrets.AWS_SECRET_ACCESS_KEY_PRODUCTION || secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }} 
-          region: ${{ secrets.AWS_DEFAULT_REGION }}        
-          EnvironmentName: production  
+          region: ${{ secrets.AWS_DEFAULT_REGION }}
+          EnvironmentName: ${{ env.IS_MAIN_BRANCH && 'production' || 'development' }}
