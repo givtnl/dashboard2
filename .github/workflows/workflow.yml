@@ -32,8 +32,8 @@ jobs:
           npm i
           npm install -g @angular/cli
           ng build ${{ env.IS_MAIN_BRANCH == 'true' && '--prod' || ''}}
-      - name: Bootstrap and run the Amazon CDK
-        if: ${{ env.IS_MAIN_BRANCH == 'true' }} && ${{ env.IS_DEV_BRANCH == 'true' }}
+      - name: Bootstrap and deploy to AWS
+        if: env.IS_MAIN_BRANCH == 'true' || env.IS_DEV_BRANCH == 'true'
         run: |
           cd cdk
           npm install -g typescript
