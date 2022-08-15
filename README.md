@@ -2,6 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
 
+## Getting started
+This project requires version node 16.16 to run! You can use NVM with `nvm install 16`.
+To install dependencies, run
+1. `npm install --legacy-peer-deps`
+2. `ng serve`
+3. go to localhost:4200
+
+To do anything meaningful you need to have access to the API or run one locally.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
