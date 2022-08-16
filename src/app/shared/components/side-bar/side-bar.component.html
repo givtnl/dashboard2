@@ -24,19 +24,6 @@
             </a>
         </div>
     </li>
-    <div *ngIf="currentCollectGroup !== null && currentCollectGroup !== undefined" class="bg-sidebar">
-        <li class="mr-2 my-3 nav-item">
-            <span class="ml-2 text-givt-purple text-heavy-font">{{currentCollectGroup}}</span>
-        </li>
-        <li class="mr-2 ml-4 my-2 nav-item">
-            <a class="nav-link text-givt-purple"
-                [routerLink]="['/','dashboard','root', { outlets: { 'dashboard-outlet': ['collect-group-people'] } }]"
-                translate>
-                <i class="fas fa-user mr-2"></i>
-                sideBarComponent.whosWhoMenuItemText
-            </a>
-        </li>
-    </div>
     <li *ngIf="currentCollectGroup == null" class="mr-2 my-2 nav-item">
         <a class="nav-link text-givt-purple" [ngClass]="{ 'active': isUsersActive }" (click)="usersClicked()"
             [routerLink]="['/','dashboard','root', { outlets: { 'dashboard-outlet': ['users'] } }]"
