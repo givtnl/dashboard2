@@ -65,10 +65,12 @@ export class DashboardStack extends cdk.Stack {
             description:'Adds security headers to the responses from S3',
             code: Code.fromAsset('./lambdas/add-security-headers-lambda')
         });
-        this.deploy(isProduction ? 'dashboard.givtapp.net' : 'dashboarddebug.givtapp.net', environmentName, '../dist');
+        this.deploy(isProduction ? ['dashboard.givtapp.net', 'dashboard.givt.app'] : ['dashboarddebug.givtapp.net', 'dashboarddebug.givt.app'], 
+            environmentName, 
+            '../dist');
     }
 
-    private deploy(domainName: string, environmentName: string, folderToDeploy: string): void {
+    private deploy(domainNames: string[], environmentName: string, folderToDeploy: string): void {
         // The code that defines your stack goes here
         var webhostingBucket = new Bucket(this, `DashboardWebhostingBucket${environmentName}`, {
             accessControl: BucketAccessControl.PRIVATE,
@@ -112,7 +114,7 @@ export class DashboardStack extends cdk.Stack {
                         responsePagePath: "/index.html",
                     },
                 ],
-                domainNames: [domainName],
+                domainNames: domainNames,
                 defaultBehavior: {
                     edgeLambdas: [{
                         eventType: LambdaEdgeEventType.ORIGIN_RESPONSE,
