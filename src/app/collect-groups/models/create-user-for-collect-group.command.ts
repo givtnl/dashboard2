@@ -4,6 +4,8 @@ export interface CreateUserForCollectGroupCommand {
 	firstName?: string;
 	lastName?: string;
 	appLanguage?: string;
+	country?: string;
+	timezone?: string;  
 	collectGroupId?: string;
 	organisationId?: string;
 }
