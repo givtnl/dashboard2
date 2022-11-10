@@ -14,6 +14,7 @@ To do anything meaningful you need to have access to the API or run one locally.
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve --configuration=local` for a dev server connecting to a local API.
 
 ## Code scaffolding
 

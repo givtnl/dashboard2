@@ -35,7 +35,14 @@ export class BackendService {
             else
                 return environment.apiUrlEU;
         }
-        return environment.apiUrl;
+
+        if (this.browserLocation.hostname.endsWith('givt.app'))
+            return environment.apiUrlUS;
+        else if (this.browserLocation.hostname.endsWith('givtapp.net'))
+            return environment.apiUrlEU;
+        else 
+            return environment.apiUrl;
+        
     }
     
     public get<T>(path: string, params: HttpParams = null): Observable<T>{

@@ -47,6 +47,7 @@ export class OnboardingPersonalDetailsComponent implements OnInit {
     const currentRegisterModel = this.stateService.currentRegisterModel;
     currentRegisterModel.firstName = this.form.value.firstName;
     currentRegisterModel.lastName = this.form.value.lastName;
+    currentRegisterModel.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     currentRegisterModel.collectGroupId = this.stateService.currentOnboardingRequest.collectGroupId;
     this.stateService.currentRegisterModel = currentRegisterModel;
 
