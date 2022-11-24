@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -17,12 +17,12 @@ import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempt
 })
 export class PreboardingVisitorCountComponent implements OnInit {
 
-  public form: FormGroup
+  public form: UntypedFormGroup
   private collectGroup: CreateCollectGroupCommand;
 
   constructor(
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private translationService: TranslateService,
     private toastr: ToastrService,
     private preboardingStateService: PreboardingStateService,

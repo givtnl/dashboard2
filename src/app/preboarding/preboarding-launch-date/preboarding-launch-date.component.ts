@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { ToastrService } from "ngx-toastr";
@@ -18,13 +18,13 @@ import { PreboardingStateService } from "../services/preboarding-state.service";
 export class PreboardingLaunchDateComponent implements OnInit {
 
   private launchDate: SetLaunchDateCommand
-  public form: FormGroup
+  public form: UntypedFormGroup
   public selector: Number
   public minDate: Date
 
   constructor(
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private translationService: TranslateService,
     private toastr: ToastrService,
     private stateService: PreboardingStateService,
@@ -35,7 +35,7 @@ export class PreboardingLaunchDateComponent implements OnInit {
     this.launchDate = this.route.snapshot.data.launchDate as SetLaunchDateCommand ?? new SetLaunchDateCommand();
     this.form = this.formBuilder.group({
       selector: [this.launchDate.launchDate ? 1 : 0],
-      launchDate: new FormControl(this.launchDate.launchDate ? this.launchDate.launchDate : null, futureDateValidator())
+      launchDate: new UntypedFormControl(this.launchDate.launchDate ? this.launchDate.launchDate : null, futureDateValidator())
     });
     this.minDate = new Date()
   }

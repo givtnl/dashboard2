@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OnboardingGiftAidService } from '../services/onboarding-giftaid.service';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
@@ -11,10 +11,10 @@ import mixpanel from 'mixpanel-browser';
     styleUrls: ['./giftaid-intro.component.scss']
 })
 export class GiftaidIntroComponent implements OnInit {
-    public form: FormGroup;
+    public form: UntypedFormGroup;
     public loading = false;
 
-    constructor(private formBuilder: FormBuilder, private router: Router, private onboardingGiftAidService: OnboardingGiftAidService, private appStateService: ApplicationStateService) { }
+    constructor(private formBuilder: UntypedFormBuilder, private router: Router, private onboardingGiftAidService: OnboardingGiftAidService, private appStateService: ApplicationStateService) { }
 
     ngOnInit() {
         mixpanel.track("giftAid:begin");

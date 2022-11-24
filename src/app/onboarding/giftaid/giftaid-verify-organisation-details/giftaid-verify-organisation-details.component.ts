@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PreparedGiftAidSettings } from '../models/prepared-giftaid-settings.model';
 import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-state.service';
@@ -10,12 +10,12 @@ import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-st
     styleUrls: ['../../onboarding.module.scss', './giftaid-verify-organisation-details.component.scss']
 })
 export class GiftaidVerifyOrganisationDetailsComponent implements OnInit {
-    public form: FormGroup;
+    public form: UntypedFormGroup;
     public loading = false;
     public giftAidSettings: PreparedGiftAidSettings;
 
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private router: Router,
         public stateService: OnboardingGiftAidStateService) { }
 

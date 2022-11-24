@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -16,13 +16,13 @@ import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempt
     styleUrls: ['./preboarding-mail-box-address-details.component.scss', '../../preboarding/preboarding.module.scss']
 })
 export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
-    public form: FormGroup
+    public form: UntypedFormGroup
     public contact: CreateOrganisationContactCommand;
     private country: String;
 
     constructor(
         private route: ActivatedRoute,
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private translationService: TranslateService,
         private toastr: ToastrService,
         private preboardingStateService: PreboardingStateService,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
 import { CurrentOrganisationRegistrationDetailsModel } from '../models/current-organisation-registration-details-model';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -16,9 +16,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class OnboardingOrganisationDetailsVerifyOrganisationNameComponent implements OnInit {
 
-    public form: FormGroup
+    public form: UntypedFormGroup
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private onboardingStateService: OnboardingOrganisationDetailsStateService,
         private router: Router,
         private route: ActivatedRoute,

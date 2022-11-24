@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { ToastrService } from "ngx-toastr";
@@ -13,11 +13,11 @@ import { ContactRegistrationStateService } from "../services/contact-registratio
     styleUrls: ['./contact-registration-details.component.scss', '../contact-registration.module.scss']
 })
 export class ContactRegistrationDetailsComponent implements OnInit {
-    public form: FormGroup;
+    public form: UntypedFormGroup;
     public loading: boolean;
     private command: CreateCollectGroupContactCommand
 
-    constructor(private formBuilder: FormBuilder,
+    constructor(private formBuilder: UntypedFormBuilder,
         private stateService: ContactRegistrationStateService,
         private router: Router,
         private translationService: TranslateService,
