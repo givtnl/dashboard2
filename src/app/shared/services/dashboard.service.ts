@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CollectGroupDashboardListModel } from '../models/collect-group-side-bar-list.model';
 import { EventEmitter } from '@angular/core';
@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 import { CollectGroupType } from '../enums/collect-group-type.enum';
 import { OrganisationListModel } from 'src/app/organisations/models/organisation-list.model';
 import { DashboardPage } from '../enums/dashboard-page.enum';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -24,7 +25,7 @@ export class DashboardService {
         const serializedRequest = JSON.parse(this.storage.getItem(key));
         return serializedRequest;
     }
-    
+
     set hasMultipleOrganisations(value: boolean) {
         const key = 'DashboardService.HasMultipleOrganisations';
         this.storage.setItem(key, JSON.stringify(value));
@@ -53,7 +54,7 @@ export class DashboardService {
         this.storage.setItem(key, JSON.stringify(collectGroup));
         this.currentCollectGroupChange.emit(collectGroup);
     }
-        
+
     set currentDashboardPage(page: DashboardPage) {
         const key = 'DashboardService.CurrentDashboardPage';
         this.storage.setItem(key, JSON.stringify(page));
@@ -73,16 +74,33 @@ export class DashboardService {
     }
 
     constructor(private collectGroupsService: CollectGroupsService,
-        private applicationStateService: ApplicationStateService
-        ) { }
+        private applicationStateService: ApplicationStateService,
+        @Inject('BROWSER_LOCATION') private browserLocation: any
+    ) { }
 
     public getCollectGroups(): Observable<CollectGroupDashboardListModel[]> {
         return this.collectGroupsService.getAll(this.applicationStateService.currentTokenModel.OrganisationAdmin)
-            .pipe(map(x => x.map(y => ({                    
-                    GUID: y.Id,
-                    CollectGroupType: y.Type,
-                    CollectGroupTypeDescription: CollectGroupType[y.Type],
-                    Name: y.Name
+            .pipe(map(x => x.map(y => ({
+                GUID: y.Id,
+                CollectGroupType: y.Type,
+                CollectGroupTypeDescription: CollectGroupType[y.Type],
+                Name: y.Name
             }))));
+    }
+
+    public getOldDashboardUrl(): string {
+        if (environment.production) {
+            if (this.browserLocation.hostname.endsWith('givt.app'))
+                return environment.oldDashboardUrlUS;
+            else
+                return environment.oldDashboardUrlEU;
+        }
+
+        if (this.browserLocation.hostname.endsWith('givt.app'))
+            return environment.oldDashboardUrlUS;
+        else if (this.browserLocation.hostname.endsWith('givtapp.net'))
+            return environment.oldDashboardUrlEU;
+        else
+            return environment.oldDashboardUrlEU;
     }
 }
