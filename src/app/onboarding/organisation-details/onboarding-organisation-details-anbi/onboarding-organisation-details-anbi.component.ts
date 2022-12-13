@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { ToastrService } from "ngx-toastr";
@@ -12,10 +12,10 @@ import { OnboardingOrganisationDetailsStateService } from "../services/onboardin
     styleUrls: ['./onboarding-organisation-details-anbi.component.scss']
 })
 export class OnboardingOrganisationDetailsAnbiComponent implements OnInit {
-    public form: FormGroup;
+    public form: UntypedFormGroup;
     public loading: boolean;
 
-    constructor(private formBuilder: FormBuilder,
+    constructor(private formBuilder: UntypedFormBuilder,
         private translationService: TranslateService,
         private toastr: ToastrService,
         private organisationDetailsStateService: OnboardingOrganisationDetailsStateService,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PaymentProvider } from '../models/payment-provider.enum';
 import { OnboardingBankAccountSigningStateService } from '../services/onboarding-bank-account-signing-state.service';
@@ -11,10 +11,10 @@ import { OnboardingBankAccountSigningStateService } from '../services/onboarding
 })
 export class OnboardingBankAccountSigningDirectDebitGuaranteeComponent implements OnInit {
   public loading = false;
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   paymentProvider: PaymentProvider;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private stateService: OnboardingBankAccountSigningStateService) { 
+  constructor(private formBuilder: UntypedFormBuilder, private router: Router, private stateService: OnboardingBankAccountSigningStateService) { 
     this.paymentProvider = stateService.currentBankAccountHolderDetailModel.PaymentProvider
   }
 

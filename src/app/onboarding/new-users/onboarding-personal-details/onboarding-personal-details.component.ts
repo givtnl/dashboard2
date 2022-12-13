@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, Validators, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, forkJoin } from 'rxjs';
@@ -14,11 +14,11 @@ import { OnboardingNewUsersStateService } from '../services/onboarding-new-users
   styleUrls: ['../../onboarding.module.scss', './onboarding-personal-details.component.scss']
 })
 export class OnboardingPersonalDetailsComponent implements OnInit {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   public loading = false;
   constructor(
     private translationService: TranslateService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public stateService: OnboardingNewUsersStateService,
     private router: Router,
     private toastr: ToastrService

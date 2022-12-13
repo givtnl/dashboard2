@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Observable, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
@@ -19,7 +19,7 @@ import { CollectGroupsService } from 'src/app/collect-groups/services/collect-gr
 
 export class PreboardingNameInAppComponent implements OnInit {
 
-    public form: FormGroup
+    public form: UntypedFormGroup
     public questionMarkPicturePath: string;
 
     private collectGroup: CreateCollectGroupCommand;
@@ -27,7 +27,7 @@ export class PreboardingNameInAppComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private collectGroupService: CollectGroupsService,
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private translationService: TranslateService,
         private toastr: ToastrService,
         private preboardingStateService: PreboardingStateService,

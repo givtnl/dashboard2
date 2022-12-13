@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { OrganisationListModel } from "src/app/organisations/models/organisation-list.model";
 
@@ -9,11 +9,11 @@ import { OrganisationListModel } from "src/app/organisations/models/organisation
     styleUrls: ['./select-organisation.component.scss']
 })
 export class DashboardSelectOrganisationComponent implements OnInit {
-    public form: FormGroup
+    public form: UntypedFormGroup
 
     public organisations: OrganisationListModel[]
 
-    constructor(private formBuilder: FormBuilder,
+    constructor(private formBuilder: UntypedFormBuilder,
         private activatedRoute: ActivatedRoute,
         private router: Router) { }
 

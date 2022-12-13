@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, UntypedFormArray } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -18,9 +18,9 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
     public emails = ["Ah yeep", "Goedja?"]
     public loading = false;
 
-    form: FormGroup
+    form: UntypedFormGroup
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private translationService: TranslateService,
         private toastr: ToastrService,
         private preboardingStateService: PreboardingStateService,
@@ -37,16 +37,16 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
             this.inviteEmails().push(this.mapEmail())
         }
     }
-    mapEmail(email: string = null): FormGroup {
+    mapEmail(email: string = null): UntypedFormGroup {
         return this.formBuilder.group({
             email: [email ? email : null, [Validators.required, Validators.email]]
         })
     }
-    mapEmailsToArray(emails: CreateCollectGroupUserCommand[]): FormArray {
+    mapEmailsToArray(emails: CreateCollectGroupUserCommand[]): UntypedFormArray {
         return this.formBuilder.array(emails.map(x => this.mapEmail(x.email)))
     }
-    inviteEmails(): FormArray {
-        return this.form.get("inviteEmails") as FormArray
+    inviteEmails(): UntypedFormArray {
+        return this.form.get("inviteEmails") as UntypedFormArray
     }
 
     submit() {

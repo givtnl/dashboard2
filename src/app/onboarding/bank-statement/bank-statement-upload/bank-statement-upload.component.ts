@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import mixpanel from "mixpanel-browser";
@@ -12,12 +12,12 @@ import { BankStatementStateService } from "../services/bank-statement-state.serv
     styleUrls: ["./bank-statement-upload.component.scss"]
 })
 export class BankStatementUploadComponent implements OnInit {
-    public form: FormGroup;
+    public form: UntypedFormGroup;
     public errorMessage: string = null;
     public fileName: string = null;
     public loading: boolean = false;
 
-    constructor(private formBuilder: FormBuilder,
+    constructor(private formBuilder: UntypedFormBuilder,
         private bankStatementStateService: BankStatementStateService,
         private router: Router,
         private toastr: ToastrService,

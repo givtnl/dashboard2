@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
 import { Router } from '@angular/router';
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
@@ -16,10 +16,10 @@ import { noSpacesValidator } from 'src/app/shared/validators/no-spaces.validator
     styleUrls: ['./onboarding-organisation-details-charity-details.component.scss']
 })
 export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnInit {
-    public form: FormGroup
+    public form: UntypedFormGroup
     public loading = false;
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private onboardingStateService: OnboardingOrganisationDetailsStateService,
         private router: Router,
         private translationService: TranslateService,

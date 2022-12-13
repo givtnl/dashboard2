@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
@@ -15,7 +15,7 @@ import mixpanel from 'mixpanel-browser';
     styleUrls: ['../../onboarding.module.scss', './onboarding-welcome.component.scss']
 })
 export class OnboardingWelcomeComponent implements OnInit {
-    public form: FormGroup;
+    public form: UntypedFormGroup;
 
     public get showPassword(): boolean {
         return (
@@ -27,7 +27,7 @@ export class OnboardingWelcomeComponent implements OnInit {
 
     constructor(
         private translationService: TranslateService,
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private route: ActivatedRoute,
         private toastr: ToastrService,
         private router: Router,

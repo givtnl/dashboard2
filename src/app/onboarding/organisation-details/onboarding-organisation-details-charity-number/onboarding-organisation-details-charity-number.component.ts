@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Observable, forkJoin } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { tap, switchMap } from 'rxjs/operators';
@@ -15,11 +15,11 @@ import { OnboardingOrganisationDetailsService } from '../services/onboarding-org
     styleUrls: ['../../onboarding.module.scss', './onboarding-organisation-details-charity-number.component.scss']
 })
 export class OnboardingOrganisationDetailsCharityNumberComponent implements OnInit {
-    public form: FormGroup
+    public form: UntypedFormGroup
     public loading = false
     constructor(
         private activatedRoute: ActivatedRoute,
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private toastr: ToastrService,
         private translationService: TranslateService,
         private onboardingService: OnboardingOrganisationDetailsService,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { ToastrService } from "ngx-toastr";
@@ -14,11 +14,11 @@ import { OrganisationUserInviteStateService } from "../guards/organisation-user-
   styleUrls: ["./dashboard-user-registration-details.component.scss"]
 })
 export class DashboardUserRegistrationDetailsComponent implements OnInit {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   public loading: boolean;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private applicationState: ApplicationStateService,

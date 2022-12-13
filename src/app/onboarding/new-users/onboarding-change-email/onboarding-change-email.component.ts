@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { forkJoin, Observable } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
@@ -17,13 +17,13 @@ import { forbiddenValueValidator } from 'src/app/shared/validators/forbidden-val
   styleUrls: ['../../onboarding.module.scss', 'onboarding-change-email.component.scss']
 })
 export class OnboardingChangeEmailComponent implements OnInit {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   public loading = false;
   public request: OnboardingRequestModel;
 
   constructor(
     private translationService: TranslateService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private toastr: ToastrService,
     private service: OnboardingNewUsersService,
     private router: Router,
