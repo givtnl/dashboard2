@@ -22,9 +22,6 @@ export class CreateCollectGroupContactGuard implements CanActivate {
     async canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
         try {
             let contactInformation = this.contactRegistrationStateService.currentContactRegistrationInformation;
-            await this.collectGroupContactsService
-                .createContact(this.dashboardService.currentCollectGroup.GUID, contactInformation)
-                .toPromise();
             
             if (contactInformation.Role == await this.translateService.get("contactRegistrationRoleComponent.secondOption").toPromise()) {
                 // invite user to dashboard if the user has the financial role
