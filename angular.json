@@ -50,17 +50,9 @@
                             "src/assets"
                         ],
                         "styles": [
-                            "./node_modules/bootstrap/dist/css/bootstrap.css",
                             "src/styles.scss"
                         ],
-                        "stylePreprocessorOptions": {
-                            "includePaths": [
-                                "node_modules/bootstrap/scss"
-                            ]
-                        },
-                        "scripts": [
-                            "node_modules/bootstrap/dist/js/bootstrap.min.js"
-                        ]
+                        "scripts": []
                     },
                     "configurations": {
                         "production": {
