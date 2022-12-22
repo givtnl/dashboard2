@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:5000',
+  apiUrl: 'https://givt-debug-api.azurewebsites.net',
   apiUrlEU: 'https://givt-debug-api.azurewebsites.net',
   apiUrlUS: 'https://givt-debug-api-us.azurewebsites.net',
-  oldDashboardUrl: 'http://localhost:4200',
+  oldDashboardUrl: 'https://givtdashboarddebug.azurewebsites.net',
   oldDashboardUrlEU: 'https://clouddebug.givtapp.net',
   oldDashboardUrlUS: 'https://clouddebug.givt.app'
 };
