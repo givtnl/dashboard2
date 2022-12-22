@@ -489,5 +489,8 @@
     "preboardingLaunchDateComponent.nextButtonText": "Volgende",
     "preboardingLaunchDateComponent.dontKnow": "Ik weet het nog niet",
     "preboardingLaunchDateComponent.today": "Vandaag",
-    "preboardingLaunchDateComponent.selectDate": "Selecteer een datum"
+    "preboardingLaunchDateComponent.selectDate": "Selecteer een datum",
+    "dashboardCompleteAccountWidgetComponent.AddWePayKYCDetails": "Enter your organization details",
+    "dashboardCompleteAccountWidgetComponent.AddWePayPPAndTOS": "Accept Terms of Service",
+    "dashboardCompleteAccountWidgetComponent.AddWePayPayoutMethod": "Add your bank account"
 }
