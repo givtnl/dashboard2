@@ -10,7 +10,15 @@ exports.handler = (event, context, callback) => {
     //Set new headers 
     headers['permissions-policy'] = [{ key: 'Permissions-Policy', value: `fullscreen=(self);` }]
     headers['strict-transport-security'] = [{ key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubdomains; preload' }];
-    headers['content-security-policy'] = [{ key: 'Content-Security-Policy', value: "connect-src 'self' api-js.mixpanel.com givt-debug-api.azurewebsites.net api.givtapp.net givt-debug-api-us.azurewebsites.net api.givt.app www.google-analytics.com cdn.wepay.com t.wepay.com; default-src 'none';font-src 'self' use.fontawesome.com cdnjs.cloudflare.com cdn.wepay.com t.wepay.com; img-src 'self' data: www.google-analytics.com cdn.wepay.com t.wepay.com; script-src cdnjs.cloudflare.com code.jquery.com stackpath.bootstrapcdn.com cdn.wepay.com t.wepay.com www.gstatic.com www.googletagmanager.com www.google-analytics.com 'unsafe-eval' 'self'; style-src 'unsafe-inline' 'self' use.fontawesome.com cdnjs.cloudflare.com; object-src 'none';" }];
+    var connectSrc = "connect-src 'self' api-js.mixpanel.com givt-debug-api.azurewebsites.net api.givtapp.net givt-debug-api-us.azurewebsites.net api.givt.app www.google-analytics.com cdn.wepay.com t.wepay.com;";
+    var defaultSrc = "default-src 'none';";
+    var fontSrc = "font-src 'self' use.fontawesome.com cdnjs.cloudflare.com cdn.wepay.com t.wepay.com;";
+    var imgSrc = "img-src 'self' data: www.google-analytics.com cdn.wepay.com t.wepay.com;";
+    var scriptSrc = "script-src cdnjs.cloudflare.com code.jquery.com stackpath.bootstrapcdn.com cdn.wepay.com t.wepay.com www.gstatic.com www.googletagmanager.com www.google-analytics.com 'unsafe-eval' 'self';";
+    var styleSrc = "style-src 'unsafe-inline' 'self' use.fontawesome.com cdnjs.cloudflare.com;";
+    var objectSrc = "object-src 'none';";
+    var frameSrc = "frame-src cdn.wepay.com t.wepay.com;"
+    headers['content-security-policy'] = [{ key: 'Content-Security-Policy', value: `${connectSrc} ${defaultSrc} ${fontSrc} ${imgSrc} ${scriptSrc} ${styleSrc} ${objectSrc} ${frameSrc}` }];
     headers['x-content-type-options'] = [{ key: 'X-Content-Type-Options', value: 'nosniff' }];
     headers['x-frame-options'] = [{ key: 'X-Frame-Options', value: 'DENY' }];
     headers['x-xss-protection'] = [{ key: 'X-XSS-Protection', value: '1; mode=block' }];
