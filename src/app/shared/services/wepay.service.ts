@@ -30,7 +30,7 @@ export class WePayService {
       },
     };
     let headers = this.createHeaders();
-    let API_URL = `https://cors-anywhere.herokuapp.com/${environment.wePayApi}/legal_entities`;
+    let API_URL = `${environment.wePayApi}/legal_entities`;
     return this.httpClient
       .post<LegalEntity>(API_URL, JSON.stringify(data), { headers })
       .pipe(catchError(this.error));
@@ -38,13 +38,13 @@ export class WePayService {
 
   getWePayLegalEntityById(id:string): Observable<LegalEntity> {
     let headers = this.createHeaders();
-    let API_URL = `https://cors-anywhere.herokuapp.com/${environment.wePayApi}/legal_entities/${id}`;
+    let API_URL = `${environment.wePayApi}/legal_entities/${id}`;
     return this.httpClient.get<LegalEntity>(API_URL, { headers }).pipe(catchError(this.error));
   }
 
   updateLegalEntityProperties(legalEntityId: string,legalEntityProperties: any): Observable<LegalEntity> {
     let headers = this.createHeaders();
-    let API_URL = `https://cors-anywhere.herokuapp.com/${environment.wePayApi}/legal_entities/${legalEntityId}`;
+    let API_URL = `${environment.wePayApi}/legal_entities/${legalEntityId}`;
     return this.httpClient
       .post<LegalEntity>(API_URL, JSON.stringify(legalEntityProperties), { headers })
       .pipe(catchError(this.error));
@@ -52,7 +52,7 @@ export class WePayService {
 
   createAccount(accountObj: Account): Observable<Account> {
     let headers = this.createHeaders();
-    let API_URL = `https://cors-anywhere.herokuapp.com/${environment.wePayApi}/accounts`;
+    let API_URL = `${environment.wePayApi}/accounts`;
     return this.httpClient
       .post<Account>(API_URL, JSON.stringify(accountObj), { headers })
       .pipe(catchError(this.error));
@@ -60,7 +60,7 @@ export class WePayService {
 
   createPayoutMethod(payoutMethodObj: PayoutMethod): Observable<PayoutMethod> {
     let headers = this.createHeaders();
-    let API_URL = `https://cors-anywhere.herokuapp.com/${environment.wePayApi}/payout_methods`;
+    let API_URL = `${environment.wePayApi}/payout_methods`;
     return this.httpClient
       .post<PayoutMethod>(API_URL, JSON.stringify(payoutMethodObj), { headers })
       .pipe(catchError(this.error));
