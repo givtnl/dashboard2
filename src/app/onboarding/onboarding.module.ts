@@ -45,7 +45,7 @@ import { BankStatementUploadCompleteComponent } from "./bank-statement/bank-stat
 import { OnboardingOrganisationDetailsWePayIframeComponent } from "./organisation-details/onboarding-organisation-details-wepay-kyc-iframe/onboarding-organisation-details-wepay-kyc-iframe.component";
 import { OnboardingOrganisationDetailsWePayTermsAndConditionsComponent } from "./organisation-details/onboarding-organisation-details-wepay-terms-and-conditions/onboarding-organisation-details-wepay-terms-and-conditions.component";
 import { OnboardingOrganisationDetailsWePayPayoutDetailsComponent } from "./organisation-details/onboarding-organisation-details-wepay-payout-details/onboarding-organisation-details-wepay-payout-details.component";
-import { OnboardingOrganisationDetailsWepayCompleteComponent } from "./organisation-details/onboarding-organisation-details-wepay-complete /onboarding-organisation-details-wepay-complete.component";
+import { OnboardingOrganisationDetailsWepayCompleteComponent } from "./organisation-details/onboarding-organisation-details-wepay-complete/onboarding-organisation-details-wepay-complete.component";
 
 @NgModule({
   declarations: [
