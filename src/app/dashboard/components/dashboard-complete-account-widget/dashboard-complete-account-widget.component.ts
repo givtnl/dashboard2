@@ -6,6 +6,7 @@ import { OrganisationRegistrationStep } from 'src/app/organisations/models/organ
 import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
 import { DashboardService } from 'src/app/shared/services/dashboard.service';
 
+
 @Component({
     selector: 'app-dashboard-complete-account-widget',
     templateUrl: './dashboard-complete-account-widget.component.html',
