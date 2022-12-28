@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { OrganisationRegistrationStatus } from '../../../organisations/enums/organisationregistrationstatus.enum';
 import { OrganisationRegistrationStep } from 'src/app/organisations/models/organisation-registration-step';
 import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
+import { DashboardService } from 'src/app/shared/services/dashboard.service';
+
 
 @Component({
     selector: 'app-dashboard-complete-account-widget',
@@ -16,7 +18,8 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
     constructor(
         private organisationService: OrganisationsService,
         private router: Router,
-        private applicationStateService: ApplicationStateService
+        private applicationStateService: ApplicationStateService,
+        private dashboardService: DashboardService
     ) { }
 
     ngOnInit(): void {
@@ -63,8 +66,33 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
                     : ['/', 'onboarding', 'bank-account-holder'];
             case OrganisationRegistrationStatus.AddGiftAidSettings:
                 return !record.InProgress ? ['/', 'onboarding', 'giftaid'] : ['/', 'dashboard']
+            case OrganisationRegistrationStatus.WePayKYCDetails:
+                console.log()
+                return ['/', 'onboarding', 'organisation-details-us',{ outlets: {"onboarding-outlet": ["wepay-kyc"] }}];
+            case OrganisationRegistrationStatus.WePayTermsAndConditions:
+                return ['/', 'onboarding', 'organisation-details-us',{ outlets: {"onboarding-outlet": ["terms-and-conditions"] }}];
+            case OrganisationRegistrationStatus.WePayPayoutMethod:
+                return ['/', 'onboarding', 'organisation-details-us',{ outlets: {"onboarding-outlet": ["payout-details"] }}];
+                    
             default:
                 break;
+        }
+    }
+
+    hasFirstStepBeenCompletedForUSOrganisation(record: OrganisationRegistrationStep):boolean{
+        if(this.dashboardService.currentOrganisation.Country !== "US" ||
+        record.DisplayOrder === 1){
+            return true;
+        }
+        if(this.records.length > 0){
+          let stepOne = this.records.find(item=>{
+            return item.DisplayOrder === 1;
+          });
+          if(stepOne != undefined && stepOne.Finished){
+            return true;
+          } else{
+            return false;
+          }
         }
     }
 }

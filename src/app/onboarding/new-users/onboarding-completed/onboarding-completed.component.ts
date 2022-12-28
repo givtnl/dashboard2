@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import mixpanel from 'mixpanel-browser';
 import { OrganisationDetailModel } from 'src/app/organisations/models/organisation-detail.model';
 import { DashboardService } from 'src/app/shared/services/dashboard.service';
 import { environment } from 'src/environments/environment';
@@ -16,12 +15,9 @@ export class OnboardingCompletedComponent implements OnInit {
 
     public currentOrganisation: OrganisationDetailModel;
 
-    constructor(private route: ActivatedRoute, private stateService: OnboardingNewUsersStateService, private dashboardService: DashboardService) { }
+    constructor() { }
 
     ngOnInit(): void {
-        mixpanel.track("onboarding:end");
-        this.redirectUrl = this.dashboardService.getOldDashboardUrl();
-        this.currentOrganisation = this.route.snapshot.data.organisation;
-        this.stateService.clear();
+       
     }
 }

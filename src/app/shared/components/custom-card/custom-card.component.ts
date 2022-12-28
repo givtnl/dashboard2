@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
-import { DashboardService } from '../../services/dashboard.service';
 import { Router } from '@angular/router';
+import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
     selector: 'app-custom-card',
@@ -20,6 +20,8 @@ export class CustomCardComponent {
     @Input() public icon: string;
     @Input() public iconBackgroundClass: string;
     @Input() public showPreviousButton = false;
+    @Input() public width = "554px";
+    @Input() public height = "631px";
 
     /**
      *

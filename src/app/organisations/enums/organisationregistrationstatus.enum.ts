@@ -5,5 +5,8 @@ export enum OrganisationRegistrationStatus
     AddBankAccount,
     AddBankAccountHolders,
     AddGiftAidSettings,
-    UploadBankStatement
+    UploadBankStatement,
+    WePayKYCDetails,
+    WePayTermsAndConditions,
+    WePayPayoutMethod
 }

@@ -18,6 +18,7 @@ export interface OrganisationDetailModel {
     Email: string;
     SortCode: string;
     AccountNumber: string;
+    PaymentProviderIdentification:string;
     AccountHolderFirstName: string;
     AccountHolderLastName: string;
     GiftAidEnabled?: boolean | null;
