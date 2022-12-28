@@ -14,10 +14,10 @@ exports.handler = (event, context, callback) => {
     var defaultSrc = "default-src 'none';";
     var fontSrc = "font-src 'self' use.fontawesome.com cdnjs.cloudflare.com cdn.wepay.com t.wepay.com;";
     var imgSrc = "img-src 'self' data: www.google-analytics.com cdn.wepay.com t.wepay.com;";
-    var scriptSrc = "script-src cdnjs.cloudflare.com code.jquery.com stackpath.bootstrapcdn.com cdn.wepay.com t.wepay.com www.gstatic.com www.googletagmanager.com www.google-analytics.com 'unsafe-eval' 'self';";
+    var scriptSrc = "script-src 'self' cdnjs.cloudflare.com code.jquery.com stackpath.bootstrapcdn.com cdn.wepay.com t.wepay.com www.gstatic.com www.googletagmanager.com www.google-analytics.com 'unsafe-eval' 'self';";
     var styleSrc = "style-src 'unsafe-inline' 'self' use.fontawesome.com cdnjs.cloudflare.com;";
     var objectSrc = "object-src 'none';";
-    var frameSrc = "frame-src cdn.wepay.com t.wepay.com;"
+    var frameSrc = "frame-src 'self' cdn.wepay.com t.wepay.com;";
     headers['content-security-policy'] = [{ key: 'Content-Security-Policy', value: `${connectSrc} ${defaultSrc} ${fontSrc} ${imgSrc} ${scriptSrc} ${styleSrc} ${objectSrc} ${frameSrc}` }];
     headers['x-content-type-options'] = [{ key: 'X-Content-Type-Options', value: 'nosniff' }];
     headers['x-frame-options'] = [{ key: 'X-Frame-Options', value: 'DENY' }];
