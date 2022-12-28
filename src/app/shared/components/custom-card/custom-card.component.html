@@ -1,4 +1,4 @@
-<div class="custom-card shadow">
+<div class="custom-card shadow" [style.width]="width" [style.height]="height">
     <div class="card-titlebar">
         <div class="side-col w-{{getHeaderButtonsWidth()}}px">
             <a class="card-titlebar-button" *ngIf="showPreviousButton" (click)="onClickPrevious()">
