@@ -1,19 +1,17 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { AbstractControl, FormGroup, UntypedFormBuilder, UntypedFormGroup, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
 import { Subject } from "rxjs";
-import { finalize, map, switchMap, takeUntil, tap } from "rxjs/operators";
-import { ApplicationStateService } from "src/app/infrastructure/services/application-state.service";
+import { finalize, switchMap, takeUntil, tap } from "rxjs/operators";
 import { LegalEntity } from "src/app/onboarding/organisation-details/models/wepay-legal-entities.model";
 import { DashboardService } from "src/app/shared/services/dashboard.service";
 import { WePayService } from "src/app/shared/services/wepay.service";
-import { MatchValidator } from "src/app/shared/validators/match.validator";
 import Swal from 'sweetalert2';
 import { environment } from "src/environments/environment";
 import { PayoutMethod } from "../models/wepay-payout-method.model";
-import { OnboardingOrganisationDetailsWePayStateService } from "../services/onboarding-organisational-details-wepay-state.service";
 import { TranslateService } from "@ngx-translate/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { OnboardingOrganisationDetailsService } from "../services/onboarding-organisation-details.service";
+import { MatchValidator } from "src/app/shared/validators/match.validator";
 
 @Component({
   selector: "app-onboarding-organisation-details-wepay-payout-details",
@@ -29,12 +27,12 @@ export class OnboardingOrganisationDetailsWePayPayoutDetailsComponent
   loading: boolean = false;
   environment = environment.production ? "production" : "stage";
   apiVersion = "3.0";
-  form: UntypedFormGroup;
+  form: FormGroup;
   currentLegalEntity:LegalEntity;
   private ngUnsubscribe = new Subject<void>();
 
   constructor(
-    private formBuilder: UntypedFormBuilder,
+    private formBuilder: FormBuilder,
     private translationService: TranslateService,
     private wePayService: WePayService,
     private router: Router,

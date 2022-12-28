@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { CollectGroupDashboardListModel } from "../models/collect-group-side-bar-list.model";
 import { EventEmitter } from "@angular/core";
@@ -8,6 +8,7 @@ import { map } from "rxjs/operators";
 import { CollectGroupType } from "../enums/collect-group-type.enum";
 import { OrganisationListModel } from "src/app/organisations/models/organisation-list.model";
 import { DashboardPage } from "../enums/dashboard-page.enum";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root",
@@ -76,7 +77,8 @@ export class DashboardService {
 
   constructor(
     private collectGroupsService: CollectGroupsService,
-    private applicationStateService: ApplicationStateService
+    private applicationStateService: ApplicationStateService,
+    @Inject('BROWSER_LOCATION') private browserLocation: any
   ) {}
 
   public getCollectGroups(): Observable<CollectGroupDashboardListModel[]> {
@@ -93,4 +95,19 @@ export class DashboardService {
         )
       );
   }
+  public getOldDashboardUrl(): string {
+    if (environment.production) {
+        if (this.browserLocation.hostname.endsWith('givt.app'))
+            return environment.oldDashboardUrlUS;
+        else
+            return environment.oldDashboardUrlEU;
+    }
+
+    if (this.browserLocation.hostname.endsWith('givt.app'))
+        return environment.oldDashboardUrlUS;
+    else if (this.browserLocation.hostname.endsWith('givtapp.net'))
+        return environment.oldDashboardUrlEU;
+    else
+        return environment.oldDashboardUrlEU;
+}
 }
