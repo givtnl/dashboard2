@@ -69,7 +69,7 @@ export class WePayService {
   createHeaders():HttpHeaders {
     return new HttpHeaders({
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "http://localhost:4200",
+      "Access-Control-Allow-Origin": "*",
       "Api-Version": "3.0",
       "App-Id": environment.wePayAppId,
       "App-Token": environment.wePayAppToken,
