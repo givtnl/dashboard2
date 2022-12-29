@@ -5,17 +5,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [17.x]
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
 
-      - name: Setup Node ${{ matrix.node-version }}
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 16.x
 
       - name: Cache node modules
         uses: actions/cache@v1
@@ -28,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Install the Angular CLI
-        run: npm install -g @angular/cli
+        run: npm install -g @angular/cli@11.1.4
 
       # todo, this should become a headless test like described here: https://purple.telstra.com/blog/run-angular-unit-tests-in-gitlab-ci
       - name: Run tests
