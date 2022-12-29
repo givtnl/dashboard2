@@ -12,7 +12,7 @@ exports.handler = (event, context, callback) => {
     headers['strict-transport-security'] = [{ key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubdomains; preload' }];
     var connectSrc = "connect-src 'self' api-js.mixpanel.com givt-debug-api.azurewebsites.net api.givtapp.net givt-debug-api-us.azurewebsites.net api.givt.app www.google-analytics.com cdn.wepay.com t.wepay.com;";
     var defaultSrc = "default-src 'none';";
-    var fontSrc = "font-src 'self' use.fontawesome.com cdnjs.cloudflare.com cdn.wepay.com t.wepay.com;";
+    var fontSrc = "font-src 'self' fonts.gstatic.com use.fontawesome.com cdnjs.cloudflare.com cdn.wepay.com t.wepay.com;";
     var imgSrc = "img-src 'self' data: www.google-analytics.com cdn.wepay.com t.wepay.com;";
     var scriptSrc = "script-src 'self' cdnjs.cloudflare.com code.jquery.com stackpath.bootstrapcdn.com cdn.wepay.com t.wepay.com www.gstatic.com www.googletagmanager.com www.google-analytics.com 'unsafe-eval' 'self';";
     var styleSrc = "style-src 'unsafe-inline' 'self' use.fontawesome.com cdnjs.cloudflare.com;";
