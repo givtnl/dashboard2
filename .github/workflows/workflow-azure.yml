@@ -37,11 +37,11 @@ jobs:
 
       - name: Build the Angular webapp
         if: ${{endsWith(github.ref, '/develop')}}
-        run: ng build --configuration=debug
+        run: ng build 
 
       - name: Build the Angular webapp for production
         if: ${{endsWith(github.ref, '/main')}}
-        run: ng build
+        run: ng build --configuration=production
 
   # TODO: Hand over de dist folder from previous job to next one.
   # deploy:
