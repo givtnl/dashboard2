@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { Router } from '@angular/router';
 import { OrganisationRegistrationStatus } from '../../../organisations/enums/organisationregistrationstatus.enum';
 import { OrganisationRegistrationStep } from 'src/app/organisations/models/organisation-registration-step';
 import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
 import { DashboardService } from 'src/app/shared/services/dashboard.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 
 @Component({
@@ -12,9 +14,10 @@ import { DashboardService } from 'src/app/shared/services/dashboard.service';
     templateUrl: './dashboard-complete-account-widget.component.html',
     styleUrls: ['./dashboard-complete-account-widget.component.scss']
 })
-export class DashboardCompleteAccountWidgetComponent implements OnInit {
+export class DashboardCompleteAccountWidgetComponent implements OnInit,OnDestroy {
     public loading = false;
     public records = new Array<OrganisationRegistrationStep>();
+    private ngUnsubscribe = new Subject<void>();
     constructor(
         private organisationService: OrganisationsService,
         private router: Router,
@@ -26,6 +29,7 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
         this.loading = true;
         this.organisationService
             .getRegistrationStatus(this.applicationStateService.currentTokenModel.OrganisationAdmin)
+            .pipe(takeUntil(this.ngUnsubscribe))
             .subscribe(x => (this.records = x))
             .add(() => (this.loading = false));
     }
@@ -94,5 +98,10 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit {
             return false;
           }
         }
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Observable, forkJoin } from 'rxjs';
+import { Observable, forkJoin, Subject } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
-import { tap, switchMap } from 'rxjs/operators';
+import { tap, switchMap, takeUntil } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
@@ -14,9 +14,10 @@ import { OnboardingOrganisationDetailsService } from '../services/onboarding-org
     templateUrl: './onboarding-organisation-details-charity-number.component.html',
     styleUrls: ['../../onboarding.module.scss', './onboarding-organisation-details-charity-number.component.scss']
 })
-export class OnboardingOrganisationDetailsCharityNumberComponent implements OnInit {
+export class OnboardingOrganisationDetailsCharityNumberComponent implements OnInit, OnDestroy {
     public form: FormGroup
     public loading = false
+    private ngUnsubscribe = new Subject<void>();
     constructor(
         private activatedRoute: ActivatedRoute,
         private formBuilder: FormBuilder,
@@ -68,12 +69,19 @@ export class OnboardingOrganisationDetailsCharityNumberComponent implements OnIn
         }
 
         forkJoin(errorMessages)
-            .pipe(tap(results => (resolvedErrorMessages = results)))
-            .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+            .pipe(
+                takeUntil(this.ngUnsubscribe),
+                tap(results => (resolvedErrorMessages = results)),
+                switchMap(_ => this.translationService.get('errorMessages.validation-errors')))
             .subscribe(title =>
                 this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
                     enableHtml: true
                 })
             );
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { CollectGroupDashboardListModel } from '../../shared/models/collect-group-side-bar-list.model';
 import { DashboardService } from '../../shared/services/dashboard.service';
 import { environment } from 'src/environments/environment';
 import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { OnboardingGiftAidService } from 'src/app/onboarding/giftaid/services/onboarding-giftaid.service';
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap, map, takeUntil } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DirectDebitTypeHelper } from 'src/app/shared/helpers/direct-debit-type.helper';
 import { OrganisationRegistrationStep } from 'src/app/organisations/models/organisation-registration-step';
@@ -19,10 +19,10 @@ import mixpanel from 'mixpanel-browser';
     templateUrl: './dashboard-home.component.html',
     styleUrls: ['./dashboard-home.component.scss']
 })
-export class DashboardHomeComponent implements OnInit {
+export class DashboardHomeComponent implements OnInit,OnDestroy {
     public loading = false;
     public collectGroups = new Array<CollectGroupDashboardListModel>();
-
+    private ngUnsubscribe = new Subject<void>();
     public showGiftAidButton = false;
 
     constructor(
@@ -40,6 +40,7 @@ export class DashboardHomeComponent implements OnInit {
         this.dashboardService.currentCollectGroup = null;
         this.dashboardService
             .getCollectGroups()
+            .pipe(takeUntil(this.ngUnsubscribe))
             .subscribe(x => (this.collectGroups = x))
             .add(() => (this.loading = false));
         await this.determineIfGiftAidShouldBeEnabled();
@@ -98,7 +99,12 @@ export class DashboardHomeComponent implements OnInit {
                         : of(false)
                 )
             )
+            .pipe(takeUntil(this.ngUnsubscribe))
             .subscribe(enabled => (this.showGiftAidButton = enabled));
         }
+    }
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

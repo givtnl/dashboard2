@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { OrganisationWithRulesDetail } from 'src/app/onboarding/organisation-details/models/organisation-with-rules-detail.model';
 import { PreboardingStateService } from '../services/preboarding-state.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'app-preboarding-organisation-relationship',
@@ -10,11 +12,11 @@ import { PreboardingStateService } from '../services/preboarding-state.service';
     styleUrls: ['./preboarding-organisation-relationship.component.scss']
 })
 
-export class PreboardingOrganisationRelationComponent implements OnInit {
+export class PreboardingOrganisationRelationComponent implements OnInit,OnDestroy {
 
     public form: FormGroup;
     public providingOrganisations: OrganisationWithRulesDetail[] = [];
-
+    private ngUnsubscribe = new Subject<void>();
     constructor(private activatedRoute: ActivatedRoute,private  formBuilder: FormBuilder, private preBoardingStateService: PreboardingStateService, private router: Router) {
 
     }
@@ -28,7 +30,9 @@ export class PreboardingOrganisationRelationComponent implements OnInit {
             rules: this.formBuilder.array([])
         });
         this.providingOrganisations = this.activatedRoute.snapshot.data.providingOrganisations;
-        this.form.get('providingOrganisation').valueChanges.subscribe(newValue => this.preFillRules(newValue));
+        this.form.get('providingOrganisation').valueChanges
+            .pipe(takeUntil(this.ngUnsubscribe))
+            .subscribe(newValue => this.preFillRules(newValue));
     }
 
     submit() {
@@ -63,5 +67,10 @@ export class PreboardingOrganisationRelationComponent implements OnInit {
                 }]
             }))
         })
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

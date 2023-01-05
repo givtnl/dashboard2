@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PreparedGiftAidSettings } from '../models/prepared-giftaid-settings.model';
 import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-state.service';
@@ -6,8 +6,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { OnboardingOrganisationDetailsService } from '../../organisation-details/services/onboarding-organisation-details.service';
-import { tap, switchMap } from 'rxjs/operators';
-import { Observable, forkJoin, of } from 'rxjs';
+import { tap, switchMap, takeUntil } from 'rxjs/operators';
+import { Observable, forkJoin, of, Subject } from 'rxjs';
 import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
 import { OrganisationRegulator } from 'src/app/organisations/models/organisation-regulator.model';
 import mixpanel from 'mixpanel-browser';
@@ -18,13 +18,13 @@ import { oscrReferenceValidator } from 'src/app/shared/validators/scottish-regul
     templateUrl: './giftaid-organisation-charity-details.component.html',
     styleUrls: ['../../onboarding.module.scss', './giftaid-organisation-charity-details.component.scss']
 })
-export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit {
+export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit,OnDestroy {
 
     public form: FormGroup;
     public loading = false;
     public isInValidCharityCommissionReference = false;
     public charityCommissionReferenceRequired = true;
-
+    private ngUnsubscribe = new Subject<void>();
     constructor(
         private formBuilder: FormBuilder,
         private activatedRoute: ActivatedRoute,
@@ -77,6 +77,7 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
         if (this.form.get('charityCommissionReference').valid && this.charityCommissionReferenceRequired && this.currentSettings().regulator == OrganisationRegulator.Ccew) {
             // check our api if such a number exists
             this.onboardingOrganisationDetailsService.get(this.form.getRawValue().charityCommissionReference)
+                .pipe(takeUntil(this.ngUnsubscribe))
                 .subscribe(() => {
                     // we got a valid call from the database, the on complete handler will call the validate for us
                     this.validate();
@@ -141,12 +142,19 @@ export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit 
         }
 
         forkJoin(errorMessages)
-            .pipe(tap(results => (resolvedErrorMessages = results)))
-            .pipe(switchMap(() => this.translationService.get('errorMessages.validation-errors')))
+            .pipe(
+                takeUntil(this.ngUnsubscribe),
+                tap(results => (resolvedErrorMessages = results)),
+                switchMap(() => this.translationService.get('errorMessages.validation-errors')))
             .subscribe(title =>
                 this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
                     enableHtml: true
                 })
             );
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

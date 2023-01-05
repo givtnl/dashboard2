@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
 import { CharityCommisionOrganisationDetailModel } from '../models/charity-commision-organisation-detail.model';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-onboarding-organisation-details-verify',
   templateUrl: './onboarding-organisation-details-verify.component.html',
   styleUrls: ['../../onboarding.module.scss', './onboarding-organisation-details-verify.component.scss']
 })
-export class OnboardingOrganisationDetailsVerifyComponent implements OnInit {
+export class OnboardingOrganisationDetailsVerifyComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public loading = false;
   public organisationDetails: CharityCommisionOrganisationDetailModel;
-
+  private ngUnsubscribe = new Subject<void>();
   constructor(private formBuilder: FormBuilder, private router: Router, public stateService: OnboardingOrganisationDetailsStateService) { }
 
   ngOnInit() {
@@ -23,7 +25,9 @@ export class OnboardingOrganisationDetailsVerifyComponent implements OnInit {
 
     this.organisationDetails = this.stateService.currentOrganisationCharityCommisionModel;
 
-    this.form.valueChanges.subscribe(answer => {
+    this.form.valueChanges
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(answer => {
       this.loading = true;
       this.router
         .navigate(
@@ -39,5 +43,10 @@ export class OnboardingOrganisationDetailsVerifyComponent implements OnInit {
         )
         .finally(() => (this.loading = false));
     });
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 }

@@ -1,25 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { AccountService } from '../services/account.service';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { catchErrorStatus } from 'src/app/shared/extensions/observable-extensions';
 import { ErrorMessages } from 'src/app/infrastructure/enums/error-messages.enum';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { Router } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit,OnDestroy {
     public form: FormGroup;
     public submitted = false;
     public loading = false;
     public isValidEmail = false;
     public isValidPassword = false;
-
+    private ngUnsubscribe = new Subject<void>();
     public errorMessages = null;
 
     constructor(
@@ -55,7 +56,9 @@ export class LoginComponent implements OnInit {
             this.submitted = false;
             this.accountService
                 .login(this.form.value.email, this.form.value.password)
-                .pipe(catchErrorStatus(400, x => this.handleInvalidLogin(x.error.error.error_status || ErrorMessages.UnExpectedError)))
+                .pipe(
+                    catchErrorStatus(400, x => this.handleInvalidLogin(x.error.error.error_status || ErrorMessages.UnExpectedError)),
+                    takeUntil(this.ngUnsubscribe))
                 .subscribe(resp =>
                     this.router
                         .navigate(['/', 'dashboard', 'root', { outlets: { 'dashboard-outlet': ['home'] } }])
@@ -106,5 +109,10 @@ export class LoginComponent implements OnInit {
                 this.errorMessages.push(await this.translationService.get('errorMessages.email-not-an-email').toPromise());
             }
         }
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

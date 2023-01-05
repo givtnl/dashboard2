@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { OnboardingBankAccountSigningStateService } from '../services/onboarding-bank-account-signing-state.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable, forkJoin } from 'rxjs';
+import { Observable, forkJoin, Subject } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
-import { tap, switchMap } from 'rxjs/operators';
+import { tap, switchMap, takeUntil } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { BankAccountHolderService } from 'src/app/bank-account-holders/services/bank-account-holder.service';
 
@@ -13,10 +13,10 @@ import { BankAccountHolderService } from 'src/app/bank-account-holders/services/
   templateUrl: './onboarding-bank-account-signing-verify-personal-details.component.html',
   styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-signing-verify-personal-details.component.scss']
 })
-export class OnboardingBankAccountSigningVerifyPersonalDetailsComponent implements OnInit {
+export class OnboardingBankAccountSigningVerifyPersonalDetailsComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public loading = false;
-
+  private ngUnsubscribe = new Subject<void>();
   constructor(
     private route: ActivatedRoute,
     private toastr: ToastrService,
@@ -48,7 +48,9 @@ export class OnboardingBankAccountSigningVerifyPersonalDetailsComponent implemen
 
     this.bankAccountHolderService
       .update(this.route.snapshot.queryParams.organisationId, this.form.getRawValue())
-      .pipe(tap(x => this.updateValuesInStateService()))
+      .pipe(
+        takeUntil(this.ngUnsubscribe),
+        tap(x => this.updateValuesInStateService()))
       .subscribe(x => this.continue());
   }
 
@@ -99,12 +101,19 @@ export class OnboardingBankAccountSigningVerifyPersonalDetailsComponent implemen
     }
 
     forkJoin(errorMessages)
-      .pipe(tap(results => (resolvedErrorMessages = results)))
-      .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+      .pipe(
+        takeUntil(this.ngUnsubscribe),
+        tap(results => (resolvedErrorMessages = results)),
+        switchMap(_ => this.translationService.get('errorMessages.validation-errors')))
       .subscribe(title =>
         this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
           enableHtml: true
         })
       );
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 }

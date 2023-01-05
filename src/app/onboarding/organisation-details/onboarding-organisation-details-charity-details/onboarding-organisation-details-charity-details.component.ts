@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
 import { Router } from '@angular/router';
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable, forkJoin } from 'rxjs';
-import { tap, switchMap } from 'rxjs/operators';
+import { Observable, forkJoin, Subject } from 'rxjs';
+import { tap, switchMap, takeUntil } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
 import { noSpacesValidator } from 'src/app/shared/validators/no-spaces.validator';
@@ -15,9 +15,10 @@ import { noSpacesValidator } from 'src/app/shared/validators/no-spaces.validator
     templateUrl: './onboarding-organisation-details-charity-details.component.html',
     styleUrls: ['./onboarding-organisation-details-charity-details.component.scss']
 })
-export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnInit {
+export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnInit, OnDestroy {
     public form: FormGroup
     public loading = false;
+    private ngUnsubscribe = new Subject<void>();
     constructor(
         private formBuilder: FormBuilder,
         private onboardingStateService: OnboardingOrganisationDetailsStateService,
@@ -77,8 +78,10 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
 
 
         forkJoin(errorMessages)
-            .pipe(tap(results => (resolvedErrorMessages = results)))
-            .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+            .pipe(
+                takeUntil(this.ngUnsubscribe),
+                tap(results => (resolvedErrorMessages = results)),
+                switchMap(_ => this.translationService.get('errorMessages.validation-errors')))
             .subscribe(title =>
                 this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
                     enableHtml: true
@@ -130,5 +133,10 @@ export class OnboardingOrganisationDetailsCharityDetailsComponent implements OnI
         // this way, we cannot have unexpected input ( for example HMRC ID when the field was disabled )
         this.form.get('referenceWithRegulator').reset();
         this.form.get('referenceWithHMRC').reset();
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }
