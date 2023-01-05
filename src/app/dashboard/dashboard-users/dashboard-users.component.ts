@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { OrganisationUserInviteListModel } from "src/app/dashboard-user-registration/models/organisation-user-invite-list.model";
 import { OrganisationUserInviteService } from "src/app/dashboard-user-registration/services/organisation-user-invite.service";
@@ -7,15 +7,15 @@ import { DashboardService } from "src/app/shared/services/dashboard.service";
 import { DashboardUserDetailModel } from "src/app/users/models/dashboard-user-detail.model";
 import { DashboardUsersService } from "src/app/users/services/dashboard-users.service";
 import { DashboardUserViewModel } from "./viewmodels/dashboard-user.viewmodel";
-import { combineLatest } from "rxjs";
-import { map } from "rxjs/operators";
+import { combineLatest, Subject } from "rxjs";
+import { map, takeUntil } from "rxjs/operators";
 
 @Component({
     selector: "app-dashboard-users",
     templateUrl: "./dashboard-users.component.html",
     styleUrls: ["./dashboard-users.component.scss", "../dashboard.module.scss"]
 })
-export class DashboardUsersComponent implements OnInit {
+export class DashboardUsersComponent implements OnInit,OnDestroy {
 
     @ViewChild('userModal') userModal;
 
@@ -27,7 +27,7 @@ export class DashboardUsersComponent implements OnInit {
 
     public modalItemIndex: number = 0;
     public modalItem: DashboardUserViewModel = { Id: "", FirstName: "", LastName: "", Email: ""};
-
+    private ngUnsubscribe = new Subject<void>();
     constructor(
         private stateService: ApplicationStateService,
         private inviteService: OrganisationUserInviteService,
@@ -44,6 +44,7 @@ export class DashboardUsersComponent implements OnInit {
         const users$ = this.dashboardUsersService.getUsers(this.stateService.currentTokenModel.OrganisationAdmin);
         const invites$ = this.inviteService.getAll(this.stateService.currentTokenModel.OrganisationAdmin);
         combineLatest([users$, invites$])
+            .pipe(takeUntil(this.ngUnsubscribe))
             .subscribe(result => {
                 this.dashboardUsers = result[0].map(x => {
                     let model: DashboardUserViewModel = {
@@ -81,11 +82,13 @@ export class DashboardUsersComponent implements OnInit {
         if (this.dashboardUsers[index].CreationDate !== null && this.dashboardUsers[index].CreationDate !== undefined) {
             this.inviteService
             .delete(this.dashboardService.currentOrganisation.Id, this.dashboardUsers[index].Id)
+            .pipe(takeUntil(this.ngUnsubscribe))
             .subscribe((x) => this.dashboardUsers.splice(index, 1))
             .add(() => (this.loading = false));
         } else {
             this.dashboardUsersService
             .delete(this.dashboardService.currentOrganisation.Id, this.dashboardUsers[index].Id)
+            .pipe(takeUntil(this.ngUnsubscribe))
             .subscribe((x) => this.dashboardUsers.splice(index, 1))
             .add(() => (this.loading = false));
         }
@@ -97,5 +100,9 @@ export class DashboardUsersComponent implements OnInit {
     setModalItem(index: number): void {
         this.modalItem = this.dashboardUsers[index];
         this.modalItemIndex = index;
+    }
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

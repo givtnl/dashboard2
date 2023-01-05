@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OnboardingGiftAidService } from '../services/onboarding-giftaid.service';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import mixpanel from 'mixpanel-browser';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'app-giftaid-intro',
     templateUrl: './giftaid-intro.component.html',
     styleUrls: ['./giftaid-intro.component.scss']
 })
-export class GiftaidIntroComponent implements OnInit {
+export class GiftaidIntroComponent implements OnInit,OnDestroy {
     public form: FormGroup;
     public loading = false;
-
+    private ngUnsubscribe = new Subject<void>();
     constructor(private formBuilder: FormBuilder, private router: Router, private onboardingGiftAidService: OnboardingGiftAidService, private appStateService: ApplicationStateService) { }
 
     ngOnInit() {
@@ -22,7 +24,9 @@ export class GiftaidIntroComponent implements OnInit {
             answer: [null, [Validators.required]]
         });
 
-        this.form.valueChanges.subscribe(async (x) => {
+        this.form.valueChanges
+            .pipe(takeUntil(this.ngUnsubscribe))
+            .subscribe(async (x) => {
             if (x.answer) {
                 this.loading = true
                 this.router.navigate(['/', 'onboarding', 'giftaid', { outlets: { 'onboarding-outlet': ['organisation-charity-details'] } }], {
@@ -37,5 +41,10 @@ export class GiftaidIntroComponent implements OnInit {
                 }).finally(() => this.loading = false)
             }
         });
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

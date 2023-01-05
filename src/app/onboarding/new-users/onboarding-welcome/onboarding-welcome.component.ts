@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable, forkJoin } from 'rxjs';
-import { tap, switchMap } from 'rxjs/operators';
+import { Observable, forkJoin, Subject } from 'rxjs';
+import { tap, switchMap, takeUntil } from 'rxjs/operators';
 import { OnboardingNewUsersStateService } from '../services/onboarding-new-users-state.service';
 import mixpanel from 'mixpanel-browser';
 
@@ -14,9 +14,9 @@ import mixpanel from 'mixpanel-browser';
     templateUrl: './onboarding-welcome.component.html',
     styleUrls: ['../../onboarding.module.scss', './onboarding-welcome.component.scss']
 })
-export class OnboardingWelcomeComponent implements OnInit {
+export class OnboardingWelcomeComponent implements OnInit, OnDestroy {
     public form: FormGroup;
-
+    private ngUnsubscribe = new Subject<void>();
     public get showPassword(): boolean {
         return (
             this.stateService.currentPreparationModel &&
@@ -92,12 +92,19 @@ export class OnboardingWelcomeComponent implements OnInit {
 
         }
         forkJoin(errorMessages)
-            .pipe(tap(results => (resolvedErrorMessages = results)))
-            .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+            .pipe(
+                takeUntil(this.ngUnsubscribe),
+                tap(results => (resolvedErrorMessages = results)),
+                switchMap(_ => this.translationService.get('errorMessages.validation-errors')))
             .subscribe(title =>
                 this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
                     enableHtml: true
                 })
             );
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

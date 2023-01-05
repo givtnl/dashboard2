@@ -1,8 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { ToastrService } from "ngx-toastr";
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 import { CollectGroupListModel } from "src/app/collect-groups/models/collect-group-list.model";
 import { ApplicationStateService } from "src/app/infrastructure/services/application-state.service";
 import { DashboardService } from "src/app/shared/services/dashboard.service";
@@ -13,10 +15,10 @@ import { OrganisationUserInviteStateService } from "../guards/organisation-user-
   templateUrl: "./dashboard-user-registration-details.component.html",
   styleUrls: ["./dashboard-user-registration-details.component.scss"]
 })
-export class DashboardUserRegistrationDetailsComponent implements OnInit {
+export class DashboardUserRegistrationDetailsComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public loading: boolean;
-
+  private ngUnsubscribe = new Subject<void>();
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -43,6 +45,7 @@ export class DashboardUserRegistrationDetailsComponent implements OnInit {
     if (this.form.invalid) {
       this.translationService
         .get("errorMessages.validation-errors")
+        .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((msg) => this.toastr.warning(msg));
       return;
     }
@@ -52,4 +55,9 @@ export class DashboardUserRegistrationDetailsComponent implements OnInit {
       .navigate(["/", "dashboard-user-registration", "done"], {queryParamsHandling:'merge'})
       .then((x) => (this.loading = false));
   }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+}
 }

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable, forkJoin } from 'rxjs';
-import { tap, switchMap } from 'rxjs/operators';
+import { Observable, forkJoin, Subject } from 'rxjs';
+import { tap, switchMap, takeUntil } from 'rxjs/operators';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { CreateCollectGroupUserCommand } from 'src/app/collect-groups/models/create-collect-group-user.command';
 
@@ -13,11 +13,11 @@ import { CreateCollectGroupUserCommand } from 'src/app/collect-groups/models/cre
     templateUrl: './preboarding-organisation-admin-details.component.html',
     styleUrls: ['./preboarding-organisation-admin-details.component.scss', '../../preboarding/preboarding.module.scss']
 })
-export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
+export class PreboardingOrganisationAdminDetailsComponent implements OnInit, OnDestroy {
     private orgAdmins: CreateCollectGroupUserCommand[];
     public emails = ["Ah yeep", "Goedja?"]
     public loading = false;
-
+    private ngUnsubscribe = new Subject<void>();
     form: FormGroup
     constructor(
         private formBuilder: FormBuilder,
@@ -82,12 +82,19 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
         }
 
         forkJoin(errorMessages)
-            .pipe(tap(results => (resolvedErrorMessages = results)))
-            .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+            .pipe(
+                takeUntil(this.ngUnsubscribe),
+                tap(results => (resolvedErrorMessages = results)),
+                switchMap(_ => this.translationService.get('errorMessages.validation-errors')))
             .subscribe(title =>
                 this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
                     enableHtml: true
                 })
             );
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }
