@@ -1,124 +1,31 @@
-
-<form class="vh-100" autocomplete='off' [formGroup]='form' (ngSubmit)='submit()'>
-    <app-custom-card
-        titleTranslationKey="OnboardingOrganisationDetailsWePayPayoutDetailsComponent.title"  
-        [showPreviousButton]="false"
-        [showCloseButton]="true"
-        width="800px"
-        height="800px"
-        iconBackgroundClass="circle-yellow"
-        icon="fa fa-credit-card fa-3x">
-        <div body class="text-center">
-            <div class="col-12 p-0">
-                <p class="text-givt-purple text-light-font text-center" [translate]>
-                    OnboardingOrganisationDetailsWePayPayoutDetailsComponent.subtitle
-                </p>
-              </div>
-              <div class="row mt-2">
-                <div class="col-md-6">
-                    <label [translate]="'OnboardingOrganisationDetailsWePayPayoutDetailsComponent.bankName'"
-                    class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></label>
-                    <input type="text" formControlName="bankName"
-                    class="form-control form-control-lg mb-3 shadow text-givt-purple mt-1" />
-                    <div *ngIf="form.get('bankName').errors && 
-                    (form.get('bankName').dirty || form.get('bankName').touched)" class="mt-3">
-                        <small *ngIf="form.get('bankName').hasError('required')" [translate] class="form-text text-red">
-                            OnboardingOrganisationDetailsWePayPayoutDetailsComponent.ErrorRequired
-                        </small>
-                    </div>
-            
-                </div>  
-                <div class="col-md-6">
-                    <label [translate]="'OnboardingOrganisationDetailsWePayPayoutDetailsComponent.accountType'"
-                    class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></label>
-                    <select id="inputState" formControlName="accountType" 
-                    class="form-control form-control-lg mb-3 shadow text-givt-purple mt-1">
-                        <option selected value="checking">Checking</option>
-                        <option value="savings">Savings</option>
-                      </select>
-                      <div *ngIf="form.get('accountType').errors && 
-                    (form.get('accountType').dirty || form.get('accountType').touched)" class="mt-3">
-                        <small *ngIf="form.get('accountType').hasError('required')" [translate] class="form-text text-red">
-                            OnboardingOrganisationDetailsWePayPayoutDetailsComponent.ErrorRequired
-                        </small>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <label [translate]="'OnboardingOrganisationDetailsWePayPayoutDetailsComponent.routingNumber'"
-                    class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></label>
-                    <input type="text" formControlName="routingNumber"
-                    class="form-control form-control-lg mb-3 shadow text-givt-purple mt-1" />
-                    <div *ngIf="form.get('routingNumber').errors && 
-                    (form.get('routingNumber').dirty || form.get('routingNumber').touched)" class="mt-3">
-                        <small *ngIf="form.get('routingNumber').hasError('required')" [translate] class="form-text text-red">
-                            OnboardingOrganisationDetailsWePayPayoutDetailsComponent.ErrorRequired
-                        </small>
-                        <small *ngIf="form.get('routingNumber').hasError('pattern')" [translate] class="form-text text-red">
-                            OnboardingOrganisationDetailsWePayPayoutDetailsComponent.RoutingNumberErrorPattern
-                        </small>
-                    </div>
-            
-                </div>  
-                <div class="col-md-6">
-                    <label [translate]="'OnboardingOrganisationDetailsWePayPayoutDetailsComponent.routingNumberReEnter'"
-                    class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></label>
-                    <input type="text" formControlName="routingNumber2"
-                    class="form-control form-control-lg mb-3 shadow text-givt-purple mt-1" />
-                    <div *ngIf="form.get('routingNumber2').invalid && 
-                    form.get('routingNumber2').errors && 
-                    (form.get('routingNumber2').dirty || form.get('routingNumber2').touched)" class="mt-3">
-                        <small *ngIf="form.get('routingNumber2').hasError('matchValidator')" [translate] class="form-text text-red">
-                            OnboardingOrganisationDetailsWePayPayoutDetailsComponent.ErrorNotSame
-                        </small>
-                    </div>
-            
-                </div>  
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <label [translate]="'OnboardingOrganisationDetailsWePayPayoutDetailsComponent.accountNumber'"
-                    class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></label>
-                    <input type="text" formControlName="accountNumber"
-                    class="form-control form-control-lg mb-3 shadow text-givt-purple mt-1" />
-                    <div *ngIf="form.get('accountNumber').errors && 
-                    (form.get('accountNumber').dirty || form.get('accountNumber').touched)" class="mt-3">
-                        <small *ngIf="form.get('accountNumber').hasError('required')" [translate] class="form-text text-red">
-                            OnboardingOrganisationDetailsWePayPayoutDetailsComponent.ErrorRequired
-                        </small>
-                        <small *ngIf="form.get('accountNumber').hasError('pattern')" [translate] class="form-text text-red">
-                            OnboardingOrganisationDetailsWePayPayoutDetailsComponent.AccountNumberErrorPattern
-                        </small>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <label [translate]="'OnboardingOrganisationDetailsWePayPayoutDetailsComponent.accountNumberReEnter'"
-                    class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></label>
-                    <input type="text" formControlName="accountNumber2"
-                    class="form-control form-control-lg mb-3 shadow text-givt-purple mt-1" />
-                    <div *ngIf="form.get('accountNumber2').invalid && 
-                    form.get('accountNumber2').errors && 
-                    (form.get('accountNumber2').dirty || form.get('accountNumber2').touched)" class="mt-3">
-                        <small *ngIf="form.get('accountNumber2').hasError('matchValidator')" [translate] class="form-text text-red">
-                            OnboardingOrganisationDetailsWePayPayoutDetailsComponent.ErrorNotSame
-                        </small>
-                    </div>
-            
-                </div>  
+<app-custom-card
+    titleTranslationKey="OnboardingOrganisationDetailsWePayPayoutDetailsComponent.title"
+    height="700px"
+    [showPreviousButton]="false"
+    [showCloseButton]="true">
+    <div body class="text-center">
+        <div id="payout-method-iframe"></div>
+        <div *ngIf="hasConfigurationError">
+            <p translate="OnboardingOrganisationDetailsWePayIframeComponent.error"
+                class="text-red text-center p-0 m-0">
+            </p>
+        </div>
+        <div *ngIf="hasCreationError">
+            <p translate="OnboardingOrganisationDetailsWePayIframeComponent.creationError"
+                class="text-red text-center p-0 m-0">
+            </p>
+        </div>
+        
+    </div>
+    <div bottom>
+        <div class="row mt-3 mb-2">
+            <div class="col-md-12">
+                <button bottom [disabled]="loading" type="submit" [translate]
+                class="btn btn-lg bg-givt-green text-white text-heavy-font w-100 mt-1" id="submit-payout-method-button">
+                <i class="fas fa-spinner fa-spin mr-1" *ngIf="loading"></i>
+                OnboardingOrganisationDetailsWePayIframeComponent.btnText
+            </button>
             </div>
         </div>
-        <div bottom>
-            <div class="row mt-3 mb-2">
-                <div class="col-md-12">
-                    <button bottom [disabled]="!form.valid || loading" type="submit" [translate]
-                 class="btn btn-lg bg-givt-green text-white text-heavy-font w-100 mt-1">
-                    <i class="fas fa-spinner fa-spin mr-1" *ngIf="loading"></i>
-                    OnboardingOrganisationDetailsWePayIframeComponent.btnText
-                </button>
-                </div>
-            </div>
-        </div>
-
-    </app-custom-card>
-</form>
+    </div>
+</app-custom-card>
