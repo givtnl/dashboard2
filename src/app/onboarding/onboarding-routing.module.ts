@@ -73,7 +73,6 @@ import { OnboardingOrganisationDetailsWePayIframeComponent } from "./organisatio
 import { OnboardingOrganisationDetailsWePayTermsAndConditionsComponent } from "./organisation-details/onboarding-organisation-details-wepay-terms-and-conditions/onboarding-organisation-details-wepay-terms-and-conditions.component";
 import { OnboardingOrganisationDetailsWePayPayoutDetailsComponent } from "./organisation-details/onboarding-organisation-details-wepay-payout-details/onboarding-organisation-details-wepay-payout-details.component";
 import { OnboardingOrganisationDetailsWepayCompleteComponent } from "./organisation-details/onboarding-organisation-details-wepay-complete/onboarding-organisation-details-wepay-complete.component";
-import { OnboardingDetailsWePayLegalEntityResolver } from "./organisation-details/resolvers/onboarding-details-wepay-legal-entity.resolver";
 
 const routes: Routes = [
   {
@@ -145,18 +144,12 @@ const routes: Routes = [
         outlet: "onboarding-outlet",
         component:
           OnboardingOrganisationDetailsWePayTermsAndConditionsComponent,
-        resolve: {
-          legalEntity: OnboardingDetailsWePayLegalEntityResolver,
-        },
       },
       {
         path: "payout-details",
         outlet: "onboarding-outlet",
         component:
           OnboardingOrganisationDetailsWePayPayoutDetailsComponent,
-        resolve: {
-          legalEntity: OnboardingDetailsWePayLegalEntityResolver,
-        },
       },
       {
         path: "complete",
