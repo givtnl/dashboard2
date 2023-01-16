@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
 import { CurrentOrganisationRegistrationDetailsModel } from '../models/current-organisation-registration-details-model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
-import { Observable, forkJoin } from 'rxjs';
-import { tap, switchMap } from 'rxjs/operators';
+import { Observable, forkJoin, Subject } from 'rxjs';
+import { tap, switchMap, takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 
@@ -14,8 +14,8 @@ import { ToastrService } from 'ngx-toastr';
     templateUrl: './onboarding-organisation-details-verify-organisation-name.component.html',
     styleUrls: ['./onboarding-organisation-details-verify-organisation-name.component.scss']
 })
-export class OnboardingOrganisationDetailsVerifyOrganisationNameComponent implements OnInit {
-
+export class OnboardingOrganisationDetailsVerifyOrganisationNameComponent implements OnInit, OnDestroy {
+    private ngUnsubscribe = new Subject<void>();
     public form: FormGroup
     constructor(
         private formBuilder: FormBuilder,
@@ -53,8 +53,10 @@ export class OnboardingOrganisationDetailsVerifyOrganisationNameComponent implem
         }
 
         forkJoin(errorMessages)
-            .pipe(tap(results => (resolvedErrorMessages = results)))
-            .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+            .pipe(
+                takeUntil(this.ngUnsubscribe),
+                tap(results => (resolvedErrorMessages = results)),
+                switchMap(_ => this.translationService.get('errorMessages.validation-errors')))
             .subscribe(title =>
                 this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
                     enableHtml: true
@@ -67,5 +69,10 @@ export class OnboardingOrganisationDetailsVerifyOrganisationNameComponent implem
         currentOrganisationRegistrationDetailModel.Name = this.form.value.organisationName;
         this.onboardingStateService.currentOrganisationRegistrationDetailsModel = currentOrganisationRegistrationDetailModel;
         this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['address-details'] } }]);
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

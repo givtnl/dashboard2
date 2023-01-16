@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { ContactRegistrationStateService } from "../services/contact-registration-state.service";
 import { CreateCollectGroupContactCommand } from "src/app/collect-group-contacts/commands/create-collect-group-contact.command";
@@ -6,6 +6,8 @@ import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { TranslateService } from "@ngx-translate/core";
 import { onConditionValidator } from "src/app/shared/validators/on-condition.validator";
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 
 @Component({
@@ -13,7 +15,7 @@ import { onConditionValidator } from "src/app/shared/validators/on-condition.val
     templateUrl: './contact-registration-role.component.html',
     styleUrls: ['./contact-registration-role.component.scss', '../contact-registration.module.scss']
 })
-export class ContactRegistrationRoleComponent implements OnInit {
+export class ContactRegistrationRoleComponent implements OnInit, OnDestroy {
     public roles = [
         { key: 1, value: "contactRegistrationRoleComponent.firstOption" },
         { key: 2, value: "contactRegistrationRoleComponent.secondOption" },
@@ -29,7 +31,7 @@ export class ContactRegistrationRoleComponent implements OnInit {
     public form: FormGroup;
     public showChoose = false;
     public optionExplanation: string;
-
+    private ngUnsubscribe = new Subject<void>();
     private command: CreateCollectGroupContactCommand
 
     constructor(private formBuilder: FormBuilder,
@@ -75,7 +77,13 @@ export class ContactRegistrationRoleComponent implements OnInit {
     }
 
     handleInvalidForm() {
-        this.translationService.get("errorMessages.validation-errors")
-            .subscribe(msg => this.toastr.warning(msg));
+        this.translationService.get("errorMessages.validation-errors").pipe(
+            takeUntil(this.ngUnsubscribe)
+        ).subscribe(msg => this.toastr.warning(msg));
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

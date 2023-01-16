@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable, forkJoin } from 'rxjs';
-import { tap, switchMap } from 'rxjs/operators';
+import { Observable, forkJoin, Subject } from 'rxjs';
+import { tap, switchMap, takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -17,8 +17,8 @@ import { CollectGroupsService } from 'src/app/collect-groups/services/collect-gr
     styleUrls: ['./preboarding-name-in-app.component.scss', '../../preboarding/preboarding.module.scss']
 })
 
-export class PreboardingNameInAppComponent implements OnInit {
-
+export class PreboardingNameInAppComponent implements OnInit, OnDestroy {
+    private ngUnsubscribe = new Subject<void>();
     public form: FormGroup
     public questionMarkPicturePath: string;
 
@@ -83,12 +83,19 @@ export class PreboardingNameInAppComponent implements OnInit {
         }
 
         forkJoin(errorMessages)
-            .pipe(tap(results => (resolvedErrorMessages = results)))
-            .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+            .pipe(
+                takeUntil(this.ngUnsubscribe),
+                tap(results => (resolvedErrorMessages = results)),
+                switchMap(_ => this.translationService.get('errorMessages.validation-errors')))
             .subscribe(title =>
                 this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
                     enableHtml: true
                 })
             );
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

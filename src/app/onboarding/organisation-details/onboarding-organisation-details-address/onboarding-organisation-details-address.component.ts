@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable, forkJoin } from 'rxjs';
-import { tap, switchMap } from 'rxjs/operators';
+import { Observable, forkJoin, Subject } from 'rxjs';
+import { tap, switchMap, takeUntil } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { postCodeBACSValidator } from 'src/app/shared/validators/postcode-BACS.validator';
 import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
@@ -18,8 +18,8 @@ import { DirectDebitTypeHelper } from 'src/app/shared/helpers/direct-debit-type.
     templateUrl: './onboarding-organisation-details-address.component.html',
     styleUrls: ['./onboarding-organisation-details-address.component.scss']
 })
-export class OnboardingOrganisationDetailsAddressComponent implements OnInit {
-
+export class OnboardingOrganisationDetailsAddressComponent implements OnInit, OnDestroy {
+    private ngUnsubscribe = new Subject<void>();
     public _countries: [string, string][]
     public get countries(): [string, string][] {
         if (this._countries !== null && this._countries !== undefined)
@@ -118,9 +118,10 @@ export class OnboardingOrganisationDetailsAddressComponent implements OnInit {
             }
         }
         forkJoin(errorMessages)
-            .pipe(tap(results => (resolvedErrorMessages = results)))
-            .pipe(tap(results => console.log(results)))
-            .pipe(switchMap(() => this.translationService.get('errorMessages.validation-errors')))
+            .pipe(
+                takeUntil(this.ngUnsubscribe),
+                tap(results => (resolvedErrorMessages = results)),
+                switchMap(() => this.translationService.get('errorMessages.validation-errors')))
             .subscribe(title =>
                 this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
                     enableHtml: true
@@ -148,5 +149,9 @@ export class OnboardingOrganisationDetailsAddressComponent implements OnInit {
                 this.router.navigate(['/', 'onboarding', 'organisation-details', { outlets: { 'onboarding-outlet': ['complete'] } }])
             }
         }
+    }
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

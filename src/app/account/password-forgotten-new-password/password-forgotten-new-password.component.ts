@@ -1,21 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { AccountService } from '../services/account.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-password-forgotten-new-password',
   templateUrl: './password-forgotten-new-password.component.html',
   styleUrls: ['./password-forgotten-new-password.component.scss']
 })
-export class PasswordForgottenNewPasswordComponent implements OnInit {
+export class PasswordForgottenNewPasswordComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public submitted = false;
   public loading = false;
   public isValidPassword = false;
-
+  private ngUnsubscribe = new Subject<void>();
   public errorMessages = null;
 
   constructor(
@@ -54,7 +55,9 @@ export class PasswordForgottenNewPasswordComponent implements OnInit {
     } else {
       this.loading = true;
       this.submitted = false;
-      this.accountService.passwordResetConfirm(this.form.getRawValue()).subscribe(
+      this.accountService.passwordResetConfirm(this.form.getRawValue()).pipe(
+        takeUntil(this.ngUnsubscribe)
+      ).subscribe(
         () => this.router.navigate(['/', 'account', 'password-forgotten', 'completed']),
         error =>
           this.router
@@ -80,4 +83,9 @@ export class PasswordForgottenNewPasswordComponent implements OnInit {
       }
     }
   }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+}
 }

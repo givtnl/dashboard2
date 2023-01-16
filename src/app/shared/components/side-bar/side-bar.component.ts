@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { AccountService } from 'src/app/account/services/account.service';
 import { Router } from '@angular/router';
 import { DashboardService } from '../../services/dashboard.service';
@@ -8,15 +8,17 @@ import { TranslateService } from '@ngx-translate/core';
 import { BackendService } from 'src/app/infrastructure/services/backend.service';
 import { OrganisationListModel } from 'src/app/organisations/models/organisation-list.model';
 import { DashboardPage } from '../../enums/dashboard-page.enum';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'app-side-bar',
     templateUrl: './side-bar.component.html',
     styleUrls: ['./side-bar.component.scss']
 })
-export class SideBarComponent implements OnInit {
+export class SideBarComponent implements OnInit,OnDestroy {
     public currentCollectGroup: string;
-
+    private ngUnsubscribe = new Subject<void>();
     public privacyLink: string;
     public termsLink: string;
     
@@ -41,8 +43,12 @@ export class SideBarComponent implements OnInit {
 
     async ngOnInit(): Promise<void> {
         this.currentCollectGroup = this.dashboardService.currentCollectGroup?.Name;
-        this.dashboardService.currentCollectGroupChange.subscribe(x => this.currentCollectGroup = x?.Name);
-        this.dashboardService.currentOrganisationChange.subscribe(x => this.currentOrganisationChange(x));
+        this.dashboardService.currentCollectGroupChange
+            .pipe(takeUntil(this.ngUnsubscribe))
+            .subscribe(x => this.currentCollectGroup = x?.Name);
+        this.dashboardService.currentOrganisationChange
+            .pipe(takeUntil(this.ngUnsubscribe))
+            .subscribe(x => this.currentOrganisationChange(x));
         if (this.dashboardService.currentOrganisation != null)
             await this.currentOrganisationChange(this.dashboardService.currentOrganisation);
         this.currentActivePage = this.dashboardService.currentDashboardPage;
@@ -78,5 +84,10 @@ export class SideBarComponent implements OnInit {
 
     public switchDashboardClicked(): void {
         this.router.navigate(['/', 'dashboard', 'select-organisation']);
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

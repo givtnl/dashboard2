@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { AccountService } from '../services/account.service';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'app-password-forgotten',
     templateUrl: './password-forgotten.component.html',
     styleUrls: ['./password-forgotten.component.scss']
 })
-export class PasswordForgottenComponent implements OnInit {
+export class PasswordForgottenComponent implements OnInit, OnDestroy {
     public form: FormGroup;
     public submitted = false;
     public loading = false;
     public isValidEmail = false;
     public isValidPassword = false;
-
+    private ngUnsubscribe = new Subject<void>();
     public errorMessages: Array<string>;
 
     constructor(
@@ -46,7 +47,9 @@ export class PasswordForgottenComponent implements OnInit {
             this.loading = true;
             this.submitted = false;
             this.accountService
-                .passwordReset(this.form.value.email)
+                .passwordReset(this.form.value.email).pipe(
+                    takeUntil(this.ngUnsubscribe)
+                )
                 .subscribe(
                     _ => this.router.navigate(['/', 'account', 'password-forgotten', 'mail-sent']),
                     async _ => this.errorMessages.push(await this.translationService.get('errorMessages.email-not-known').toPromise()))
@@ -65,5 +68,10 @@ export class PasswordForgottenComponent implements OnInit {
                 this.errorMessages.push(await this.translationService.get('errorMessages.email-not-an-email').toPromise());
             }
         }
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

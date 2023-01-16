@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Observable, forkJoin } from 'rxjs';
+import { Observable, forkJoin, Subject } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
-import { tap, switchMap } from 'rxjs/operators';
+import { tap, switchMap, takeUntil, finalize } from 'rxjs/operators';
 import { OnboardingNewUsersStateService } from '../services/onboarding-new-users-state.service';
 
 
@@ -13,9 +13,10 @@ import { OnboardingNewUsersStateService } from '../services/onboarding-new-users
   templateUrl: './onboarding-personal-details.component.html',
   styleUrls: ['../../onboarding.module.scss', './onboarding-personal-details.component.scss']
 })
-export class OnboardingPersonalDetailsComponent implements OnInit {
+export class OnboardingPersonalDetailsComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public loading = false;
+  private ngUnsubscribe = new Subject<void>();
   constructor(
     private translationService: TranslateService,
     private formBuilder: FormBuilder,
@@ -90,14 +91,20 @@ export class OnboardingPersonalDetailsComponent implements OnInit {
     }
     this.loading = true;
     forkJoin(errorMessages)
-      .pipe(tap(results => (resolvedErrorMessages = results)))
-      .pipe(tap(results => console.log(results)))
-      .pipe(switchMap(() => this.translationService.get('errorMessages.validation-errors')))
+      .pipe(
+        takeUntil(this.ngUnsubscribe),
+        tap(results => (resolvedErrorMessages = results)),
+        switchMap(_ => this.translationService.get('errorMessages.validation-errors')),
+        finalize(() => this.loading = false))
       .subscribe(title =>
         this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
           enableHtml: true
         })
       )
-      .add(() => (this.loading = false));
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 }
