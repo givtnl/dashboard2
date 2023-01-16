@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Subject } from "rxjs";
 import { finalize, map, switchMap, takeUntil } from "rxjs/operators";
 import { LegalEntity } from "src/app/onboarding/organisation-details/models/wepay-legal-entities.model";
+import { DashboardService } from "src/app/shared/services/dashboard.service";
 import { IPAdressService } from "src/app/shared/services/ip-address.service";
 import { notNullOrFalseValidator } from "src/app/shared/validators/notnullorfalse.validator";
 import { environment } from "src/environments/environment";
@@ -32,6 +33,7 @@ export class OnboardingOrganisationDetailsWePayTermsAndConditionsComponent
     private ipAdressService:IPAdressService,
     private router: Router,
     private route: ActivatedRoute,
+    private dashboardService: DashboardService,
     private onboardingOrganisationDetailsService: OnboardingOrganisationDetailsService,
   ) {}
 
@@ -48,6 +50,7 @@ export class OnboardingOrganisationDetailsWePayTermsAndConditionsComponent
   submit(){
     this.loading = true;
     let acceptanceTime = Math.floor(Date.now() / 1000);
+    let organisationId = this.dashboardService.currentOrganisation.Id
     this.ipAdressService.getMyIpAddress().pipe(
       takeUntil(this.ngUnsubscribe),
       map((ipAddressObj:any)=>{
@@ -57,7 +60,7 @@ export class OnboardingOrganisationDetailsWePayTermsAndConditionsComponent
         }
       }),
       switchMap((termsAndConditionsObj:any)=>{
-        return this.onboardingOrganisationDetailsService.acceptWePayTermsAndConditions(termsAndConditionsObj);
+        return this.onboardingOrganisationDetailsService.acceptWePayTermsAndConditions(organisationId,termsAndConditionsObj);
       }),
       finalize(() => {
         this.loading = false;

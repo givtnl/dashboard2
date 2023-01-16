@@ -1,14 +1,11 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { TranslateService } from "@ngx-translate/core";
 import { Subject } from "rxjs";
 import { finalize, takeUntil, tap } from "rxjs/operators";
-import { LegalEntity } from "src/app/onboarding/organisation-details/models/wepay-legal-entities.model";
 import { environment } from "src/environments/environment";
-import Swal from "sweetalert2";
-import { OnboardingOrganisationDetailsWePayStateService } from "../services/onboarding-organisational-details-wepay-state.service";
 import { OnboardingOrganisationDetailsService } from "../services/onboarding-organisation-details.service";
 import { DashboardService } from "src/app/shared/services/dashboard.service";
+import { TranslatableToastrService } from "src/app/shared/services/translate-able-toastr.service";
 
 @Component({
   selector: "app-onboarding-organisation-details-wepay-kyc-iframe",
@@ -31,10 +28,9 @@ export class OnboardingOrganisationDetailsWePayIframeComponent
 
   constructor(
     private router: Router,
-    private translationService: TranslateService,
-    private onboardingWePayStateService: OnboardingOrganisationDetailsWePayStateService,
     private onboardingOrganisationDetailsService: OnboardingOrganisationDetailsService,
-    private dashboardService: DashboardService
+    private dashboardService: DashboardService,
+    private toastr: TranslatableToastrService
   ) {}
 
   ngOnInit(): void {
@@ -78,6 +74,7 @@ export class OnboardingOrganisationDetailsWePayIframeComponent
         })
         .catch((_)=> {
           this.showErrorMessage();
+          this.loading = false;
         });
     });
   }
@@ -88,10 +85,9 @@ export class OnboardingOrganisationDetailsWePayIframeComponent
     let organisationId = this.dashboardService.currentOrganisation.Id
     this.onboardingOrganisationDetailsService.saveWePayKYCDetails(kycToken,organisationId).pipe(
       takeUntil(this.ngUnsubscribe),
-      tap((legalEntity: LegalEntity)=>{this.onboardingWePayStateService.currentWePayLegalEntity = legalEntity}),
       finalize(() => {
         this.loading = false;
-      })
+      }),
     ).subscribe(
       (_) => {
         this.router.navigate([
@@ -104,9 +100,6 @@ export class OnboardingOrganisationDetailsWePayIframeComponent
             },
           },
         ]);
-      },
-      (error) => {
-        this.showErrorMessage();
       }
     );
   }
@@ -119,13 +112,7 @@ export class OnboardingOrganisationDetailsWePayIframeComponent
   }
 
   async showErrorMessage() {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: await this.translationService
-        .get("OnboardingOrganisationDetailsWePayIframeComponent.submitError")
-        .toPromise(),
-    });
+    this.toastr.warning('OnboardingOrganisationDetailsWePayComponent.submitErrorTitle', 'OnboardingOrganisationDetailsWePayComponent.submitErrorSubTitle')
   }
 
   ngOnDestroy() {
