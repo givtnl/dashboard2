@@ -1,74 +1,65 @@
-# name: Build and deploy
-# on:
-#   push:
-#     branches: [ main, develop ]
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout source code
-#         uses: actions/checkout@v3
+name: Build and deploy
+on:
+  push:
+    branches: [ main, develop ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
 
-#       - name: Setup Node
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: 16.x
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
 
-#       - name: Cache node modules
-#         uses: actions/cache@v3
-#         with:
-#           path: ~/.npm
-#           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-#           restore-keys: |
-#             ${{ runner.os }}-node-
-#       - name: Installing NPM packages
-#         run: npm install
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Installing NPM packages
+        run: npm install
 
-#       - name: Install the Angular CLI
-#         run: npm install -g @angular/cli@11.1.4
+      - name: Install the Angular CLI
+        run: npm install -g @angular/cli@11.1.4
 
-#       # todo, this should become a headless test like described here: https://purple.telstra.com/blog/run-angular-unit-tests-in-gitlab-ci
-#       - name: Run tests
-#         run: echo "No tests executed"
-#         # ng test
+      # todo, this should become a headless test like described here: https://purple.telstra.com/blog/run-angular-unit-tests-in-gitlab-ci
+      - name: Run tests
+        run: echo "No tests executed"
+        # ng test
 
-#       - name: Build the Angular webapp
-#         if: ${{endsWith(github.ref, '/develop')}}
-#         run: ng build 
+      - name: Build the Angular webapp
+        if: ${{endsWith(github.ref, '/develop')}}
+        run: ng build 
 
-#       - name: Build the Angular webapp for production
-#         if: ${{endsWith(github.ref, '/main')}}
-#         run: ng build --configuration=production
+      - name: Build the Angular webapp for production
+        if: ${{endsWith(github.ref, '/main')}}
+        run: ng build --configuration=production
 
-#   # TODO: Hand over de dist folder from previous job to next one.
-#   # deploy:
-#   #   needs: build
-#   #   if: ${{ endsWith(github.ref, '/main')}} && ${{ endsWith(github.ref, '/pre-main')}}
-#   #   runs-on: ubuntu-latest
-#   #   steps:
-#   #     - name: Checkout source code
-#   #       uses: actions/checkout@v2
+      - name: Login to Docker Hub
+        if: ${{ endsWith(github.ref, '/main')}} && ${{ endsWith(github.ref, '/develop')}}
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-#       - name: Login to Docker Hub
-#         if: ${{ endsWith(github.ref, '/main')}} && ${{ endsWith(github.ref, '/develop')}}
-#         uses: docker/login-action@v2
-#         with:
-#           username: ${{ secrets.DOCKER_HUB_USERNAME }}
-#           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      - name: Set up Docker Buildx
+        if: ${{ endsWith(github.ref, '/main')}} && ${{ endsWith(github.ref, '/develop')}}
+        id: buildx
+        uses: docker/setup-buildx-action@v2
 
-#       - name: Set up Docker Buildx
-#         if: ${{ endsWith(github.ref, '/main')}} && ${{ endsWith(github.ref, '/develop')}}
-#         id: buildx
-#         uses: docker/setup-buildx-action@v2
-
-#       - name: Build and push
-#         if: ${{ endsWith(github.ref, '/main')}} && ${{ endsWith(github.ref, '/develop')}}
-#         id: docker_build
-#         uses: docker/build-push-action@v3
-#         with:
-#           context: ./
-#           file: ./Dockerfile
-#           push: true
-#           tags: |
-#             ${{ secrets.DOCKER_HUB_USERNAME }}/dashboard-two:${{ endsWith(github.ref, '/main') && 'production' || 'development' }}
-#             ${{ secrets.DOCKER_HUB_USERNAME }}/dashboard-two:${{ github.run_number }}.${{ github.run_attempt }}.${{ steps.vars.outputs.sha_short }}
+      - name: Build and push
+        if: ${{ endsWith(github.ref, '/main')}} && ${{ endsWith(github.ref, '/develop')}}
+        id: docker_build
+        uses: docker/build-push-action@v3
+        with:
+          context: ./
+          file: ./Dockerfile
+          push: true
+          tags: |
+            ${{ secrets.DOCKER_HUB_USERNAME }}/dashboard-two:${{ endsWith(github.ref, '/main') && 'production' || 'development' }}
+            ${{ secrets.DOCKER_HUB_USERNAME }}/dashboard-two:${{ github.run_number }}.${{ github.run_attempt }}.${{ steps.vars.outputs.sha_short }}
