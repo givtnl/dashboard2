@@ -16,7 +16,7 @@ exports.handler = (event, context, callback) => {
     var imgSrc = "img-src 'self' data: www.google-analytics.com *.wepay.com;";
     var scriptSrc = "script-src 'self' cdnjs.cloudflare.com code.jquery.com stackpath.bootstrapcdn.com *.wepay.com www.gstatic.com www.googletagmanager.com www.google-analytics.com 'unsafe-eval' 'self';";
     var styleSrc = "style-src 'unsafe-inline' 'self' use.fontawesome.com cdnjs.cloudflare.com;";
-    var objectSrc = "object-src *.wepay.com;";
+    var objectSrc = "object-src 'self' *.wepay.com;";
     var frameSrc = "frame-src 'self' *.wepay.com;";
     headers['content-security-policy'] = [{ key: 'Content-Security-Policy', value: `${connectSrc} ${defaultSrc} ${fontSrc} ${imgSrc} ${scriptSrc} ${styleSrc} ${objectSrc} ${frameSrc}` }];
     headers['x-content-type-options'] = [{ key: 'X-Content-Type-Options', value: 'nosniff' }];
