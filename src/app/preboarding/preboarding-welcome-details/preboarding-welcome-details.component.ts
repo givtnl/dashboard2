@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import mixpanel from 'mixpanel-browser';
 import { DirectDebitType } from 'src/app/shared/enums/direct-debit.type';
@@ -15,7 +16,8 @@ export class PreboardingWelcomeDetailsComponent implements OnInit{
 
     constructor(private translateService: TranslateService, private preboardingStateService: PreboardingStateService) { }
 
-    public description: string
+    public description: string;
+    accepted: FormControl = new FormControl('');
     
     async ngOnInit(): Promise<void> {
         mixpanel.identify(this.preboardingStateService.organisationDetails.organisationId);

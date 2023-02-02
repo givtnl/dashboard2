@@ -42,11 +42,18 @@ export class PreboardingNameInAppComponent implements OnInit, OnDestroy {
         });
         switch (this.translationService.currentLang) {
             case "nl":
-                this.questionMarkPicturePath = "../../../../assets/images/organisation-name-example-nl.png"
+                this.questionMarkPicturePath = "../../../../assets/images/organisation-name-example1-nl.png"
                 break;
             default:
-                this.questionMarkPicturePath = "../../../../assets/images/organisation-name-example-en.png"
+                this.questionMarkPicturePath = "../../../../assets/images/organisation-name-example1-en.png"
         }
+        // Set up a word count underneath the input text field
+        document.getElementById('count_message').innerText = `0/30`;
+        this.form.get('inAppOrgName').valueChanges
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe(text=>{
+            document.getElementById('count_message').innerText = `${text.length}/30`;
+        })
     }
 
     submit() {

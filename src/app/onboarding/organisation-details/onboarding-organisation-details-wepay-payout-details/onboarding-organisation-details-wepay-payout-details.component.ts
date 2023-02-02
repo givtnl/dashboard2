@@ -32,7 +32,7 @@ export class OnboardingOrganisationDetailsWePayPayoutDetailsComponent
     private dashboardService: DashboardService,
     private router: Router,
     private toastr: TranslatableToastrService,
-    private onboardingOrganisationDetailsService: OnboardingOrganisationDetailsService,
+    private onboardingOrganisationDetailsService: OnboardingOrganisationDetailsService
   ) {}
 
   ngOnInit(): void {
@@ -64,53 +64,59 @@ export class OnboardingOrganisationDetailsWePayPayoutDetailsComponent
     this.initialiseEventListenerOnSubmitBtn(payoutIframe);
   }
 
-  initialiseEventListenerOnSubmitBtn(payoutIframe){
+  initialiseEventListenerOnSubmitBtn(payoutIframe) {
     document
-    .getElementById("submit-payout-method-button")
-    .addEventListener("click", (event) => {
-      this.loading = true;
-      payoutIframe
-        .tokenize()
-        .then((response) => {
-          this.handleSubmitButtonClick(response);
+      .getElementById("submit-payout-method-button")
+      .addEventListener("click", (event) => {
+        this.loading = true;
+        payoutIframe
+          .tokenize()
+          .then((response) => {
+            this.handleSubmitButtonClick(response);
+          })
+          .catch((_) => {
+            this.showErrorMessage();
+            this.loading = false;
+          });
+      });
+  }
+
+  handleSubmitButtonClick(token) {
+    let payoutMethodToken = token.id;
+    let organisationId = this.dashboardService.currentOrganisation.Id;
+    this.onboardingOrganisationDetailsService
+      .saveWePayPayoutMethod(payoutMethodToken, organisationId)
+      .pipe(
+        takeUntil(this.ngUnsubscribe),
+        finalize(() => {
+          this.loading = false;
         })
-        .catch((_)=> {
+      )
+      .subscribe(
+        (_) => {
+          this.router.navigate([
+            "/",
+            "onboarding",
+            "organisation-details-us",
+            {
+              outlets: {
+                "onboarding-outlet": ["complete"],
+              },
+            },
+          ]);
+        },
+        (_) => {
           this.showErrorMessage();
           this.loading = false;
-        });
-    });
-  }
-  
-
-  handleSubmitButtonClick(token){
-    let payoutMethodToken = token.id;
-    let organisationId = this.dashboardService.currentOrganisation.Id
-    this.onboardingOrganisationDetailsService.saveWePayPayoutMethod(payoutMethodToken,organisationId).pipe(
-      takeUntil(this.ngUnsubscribe),
-      finalize(() => {
-        this.loading = false;
-      }),
-    ).subscribe(
-      (_) => {
-        this.router.navigate([
-          "/",
-          "onboarding",
-          "organisation-details-us",
-          {
-            outlets: {
-              "onboarding-outlet": ["complete"],
-            },
-          },
-        ]);
-      },(_) => {
-        this.showErrorMessage();
-        this.loading = false;
-      }
-    );
+        }
+      );
   }
 
   async showErrorMessage() {
-    this.toastr.warning('OnboardingOrganisationDetailsWePayComponent.submitErrorTitle', 'OnboardingOrganisationDetailsWePayComponent.submitErrorSubTitle')
+    this.toastr.warning(
+      "OnboardingOrganisationDetailsWePayComponent.submitErrorTitle",
+      "OnboardingOrganisationDetailsWePayComponent.submitErrorSubTitle"
+    );
   }
 
   ngOnDestroy() {

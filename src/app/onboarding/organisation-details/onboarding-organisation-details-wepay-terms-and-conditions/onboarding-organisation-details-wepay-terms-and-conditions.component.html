@@ -12,7 +12,7 @@
                 <div class="col-md-12">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" formControlName="termsOfService">
                     <label class="form-check-label" for="defaultCheck1">
-                        I accept and agree to <a href="https://go.wepay.com/terms-of-service">WePay Terms of Service</a>
+                        I accept and agree to <a class="text-link" (click)="goToLink('https://go.wepay.com/terms-of-service')">WePay Terms of Service</a>
                     </label>
                 </div>  
             </div>
@@ -20,7 +20,7 @@
                 <div class="col-md-12">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" formControlName="privacyPolicy">
                     <label class="form-check-label" for="defaultCheck2">
-                        I accept and agree to <a href="https://go.wepay.com/privacy-policy">WePay Privacy Policy</a>
+                        I accept and agree to <a class="text-link" (click)="goToLink('https://go.wepay.com/privacy-policy')">WePay Privacy Policy</a>
                     </label>
                 </div>
             </div>
@@ -29,7 +29,7 @@
             <div class="row mt-3 mb-2">
                 <div class="col-md-12">
                     <button bottom [disabled]="!form.valid || loading" type="submit" [translate] id="submit-kyc-button"
-                        class="btn btn-lg bg-givt-green text-white text-heavy-font w-100 m-0">
+                        class="btn btn-lg bg-givt-purple text-white text-heavy-font w-100 m-0">
                             <i class="fas fa-spinner fa-spin mr-1" *ngIf="loading"></i>
                             OnboardingOrganisationDetailsWePayTermsAndConditionsComponent.btnText
                     </button>

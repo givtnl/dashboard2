@@ -6,7 +6,7 @@ import { PreboardingStateService } from '../services/preboarding-state.service';
 import { OnboardingNewUsersService } from 'src/app/onboarding/new-users/services/onboarding-new-users.service';
 import { PreboardingStepListModel } from './models/preboarding-step-list.model';
 import { tap, switchMap, catchError, retry, delayWhen, concatMap, takeUntil } from 'rxjs/operators';
-import { of, Observable, EMPTY, forkJoin, Subject } from 'rxjs';
+import { of, Observable, EMPTY, forkJoin, Subject, fromEvent } from 'rxjs';
 import { CreatedCollectGroupResponse } from 'src/app/collect-groups/models/created-collect-group-response.model';
 import { CreatedResponseModel } from 'src/app/infrastructure/models/response.model';
 import { CollectionMediumType } from 'src/app/collect-groups/models/collection-medium-list.model';
@@ -15,6 +15,7 @@ import { OrganisationRegistrationProgress } from 'src/app/organisations/models/o
 import { ActivatedRoute } from '@angular/router';
 import { RelationShipService } from 'src/app/account/relationships/services/relationship.service';
 import mixpanel from 'mixpanel-browser';
+import { LocationStrategy } from '@angular/common';
 
 
 @Component({
@@ -40,13 +41,28 @@ export class PreboardingDetailsCompleteComponent implements OnInit, OnDestroy {
         private relationshipService: RelationShipService,
         private organisationService: OrganisationsService,
         private collectGroupService: CollectGroupsService,
+        private location: LocationStrategy,
         private preboardingStateService: PreboardingStateService,
-        private onboardingNewUserService: OnboardingNewUsersService) { }
+        private onboardingNewUserService: OnboardingNewUsersService) { 
+            history.pushState(null, null, window.location.href);
+        }
 
 
     ngOnInit(): void {
+        console.log('fired222')
+        this.disableBrowserBackwardsNavigation();
+        
         this.steps = this.activatedRoute.snapshot.data.steps;
         this.start();
+    }
+
+    disableBrowserBackwardsNavigation(){
+        
+        // check if back or forward button is pressed.
+        this.location.onPopState(() => {
+            history.pushState(null, null, window.location.href);
+            console.log('fired')
+        });
     }
     // Gets the current collectgroup, or creates one if none does exist
     start(): void {

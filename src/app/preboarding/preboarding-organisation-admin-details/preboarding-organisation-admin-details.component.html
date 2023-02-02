@@ -1,9 +1,14 @@
 <form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100' #formDir="ngForm" [class.submitted]="formDir.submitted">
-    <app-custom-card [showCloseButton]="false" [showPreviousButton]="true" titleTranslationKey='preboardingOrganisation.topTitle'>
+    <app-custom-card 
+    height="700px"
+    [showCloseButton]="false" [showPreviousButton]="true">
         <div body>
             <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
             <p class="introduction-title text-primary text-light-font text-givt-purple mt-3 text-center" translate>
                 preboardingOrganisationAdminDetailsComponent.description
+            </p>
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3 text-center" translate>
+                preboardingOrganisationAdminDetailsComponent.hint
             </p>
             <div class="inviteEmails" formArrayName="inviteEmails">
                 <div *ngFor="let email of inviteEmails().controls; let i = index">
@@ -28,7 +33,7 @@
                 <label translate class="introduction-title text-primary text-light-font text-givt-purple" translate>preboardingOrganisationAdminDetailsComponent.buttonText</label>
             </div>
         </div>
-        <button bottom type="submit" [translate] [disabled]="this.inviteEmails().length === 0" class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+        <button bottom type="submit" [translate] [disabled]="this.inviteEmails().length === 0" class="btn align-self-center btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
             <span class="text-white text-heavy-font" translate>
                 <i class="fas fa-spinner fa-spin mr-1" *ngIf="loading"></i>
                 preboardingOrganisationAdminDetailsComponent.nextButtonText

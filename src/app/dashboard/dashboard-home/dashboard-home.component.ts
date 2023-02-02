@@ -24,6 +24,7 @@ export class DashboardHomeComponent implements OnInit,OnDestroy {
     public collectGroups = new Array<CollectGroupDashboardListModel>();
     private ngUnsubscribe = new Subject<void>();
     public showGiftAidButton = false;
+    public onboardingStepsComplete:boolean = false;
 
     constructor(
         public applicationStateService: ApplicationStateService,
@@ -103,6 +104,11 @@ export class DashboardHomeComponent implements OnInit,OnDestroy {
             .subscribe(enabled => (this.showGiftAidButton = enabled));
         }
     }
+
+    isOnboardingComplete(event){
+        this.onboardingStepsComplete = event;
+    }
+
     ngOnDestroy() {
         this.ngUnsubscribe.next();
         this.ngUnsubscribe.complete();

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -18,7 +18,7 @@ import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempt
 export class PreboardingMailBoxAddressDetailsComponent implements OnInit, OnDestroy {
     public form: FormGroup
     public contact: CreateOrganisationContactCommand;
-    private country: String;
+    public country: String;
     private ngUnsubscribe = new Subject<void>();
     constructor(
         private route: ActivatedRoute,
@@ -43,6 +43,9 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit, OnDest
             mailBoxTelephone: [this.contact ? this.contact.telephone : null, [Validators.required, notNullOrEmptyValidator(), Validators.minLength(6)]],
             mailBoxComments: [this.contact ? this.contact.comments : null]
         });
+        if(this.country === 'US'){
+            this.form.addControl('mailBoxState', new FormControl(null, Validators.required));
+        }
     }
 
 
@@ -62,6 +65,9 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit, OnDest
             this.contact.comments = this.form.value.mailBoxComments.trim();
         this.contact.postCode = this.form.value.mailBoxZipCode.trim();
         this.contact.telephone = this.form.value.mailBoxTelephone.trim();
+        if(this.country === 'US'){
+            this.contact.state = this.form.value.mailBoxState.trim();
+        }
         this.preboardingStateService.currentOrganisationContact = this.contact;
     }
 
@@ -73,6 +79,7 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit, OnDest
         const mailBoxCityErrors = this.form.get('mailBoxCity').errors;
         const mailBoxZipcodeErrors = this.form.get('mailBoxZipCode').errors;
         const mailBoxTelephoneErrors = this.form.get('mailBoxTelephone').errors;
+        const mailBoxStateErrors = (this.country === 'US') ? this.form.get('state').errors: null
 
         if (mailBoxAddressErrors) {
             if (mailBoxAddressErrors.trimEmptyValue || mailBoxAddressErrors.required) {
@@ -97,6 +104,12 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit, OnDest
                 errorMessages.push(this.translationService.get('errorMessages.telephone-required'));
             } else if (mailBoxTelephoneErrors.minlength) {
                 errorMessages.push(this.translationService.get('errorMessages.telephone-invalid'));
+            }
+        }
+
+        if(this.country === 'US' && mailBoxStateErrors){
+            if (mailBoxStateErrors.trimEmptyValue || mailBoxStateErrors.required) {
+                errorMessages.push(this.translationService.get('errorMessages.address-state-required'));
             }
         }
 

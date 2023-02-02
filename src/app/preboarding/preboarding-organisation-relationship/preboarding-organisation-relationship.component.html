@@ -1,6 +1,5 @@
 <form class="formGroup" (ngSubmit)='submit()' class='justify-content-center w-100 h-100' [formGroup]="form">
-    <app-custom-card [showCloseButton]="false" [showPreviousButton]="true"
-        titleTranslationKey='preboardingOrganisation.topTitle'>
+    <app-custom-card [showCloseButton]="false" [showPreviousButton]="true">
         <div body>
             <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
             <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
@@ -18,7 +17,7 @@
         </div>
         <button data-target="#exampleModal" [type]="form.value.providingOrganisation ? 'button' : 'submit'"
             [attr.data-toggle]="form.value.providingOrganisation ? 'modal' : ''" bottom [translate]
-            class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+            class="btn align-self-center btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
             <span class="text-white text-heavy-font" translate>
                 preboardingOrganisationRelationComponent.nextButtonText
             </span>

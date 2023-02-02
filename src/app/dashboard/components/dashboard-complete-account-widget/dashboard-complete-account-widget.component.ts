@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { Router } from '@angular/router';
 import { OrganisationRegistrationStatus } from '../../../organisations/enums/organisationregistrationstatus.enum';
@@ -6,7 +6,7 @@ import { OrganisationRegistrationStep } from 'src/app/organisations/models/organ
 import { OrganisationsService } from 'src/app/organisations/services/organisations.service';
 import { DashboardService } from 'src/app/shared/services/dashboard.service';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, tap } from 'rxjs/operators';
 
 
 @Component({
@@ -18,6 +18,9 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit,OnDestroy
     public loading = false;
     public records = new Array<OrganisationRegistrationStep>();
     private ngUnsubscribe = new Subject<void>();
+
+    @Output() isStepsComplete = new EventEmitter<boolean>();
+
     constructor(
         private organisationService: OrganisationsService,
         private router: Router,
@@ -29,7 +32,9 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit,OnDestroy
         this.loading = true;
         this.organisationService
             .getRegistrationStatus(this.applicationStateService.currentTokenModel.OrganisationAdmin)
-            .pipe(takeUntil(this.ngUnsubscribe))
+            .pipe(
+                tap((steps)=>{this.isOnboardingComplete(steps)}),
+                takeUntil(this.ngUnsubscribe))
             .subscribe(x => (this.records = x))
             .add(() => (this.loading = false));
     }
@@ -83,10 +88,30 @@ export class DashboardCompleteAccountWidgetComponent implements OnInit,OnDestroy
         }
     }
 
+    isOnboardingComplete(records: Array<OrganisationRegistrationStep>){
+        const orgCountry = this.dashboardService.currentOrganisation.Country;
+        if(orgCountry !== 'US'){
+            this.isStepsComplete.emit(true);
+            return;
+        }
+        // For US organisations, it checks to see if all the onboarding steps have been completed
+        const unfinishedStep = records.find(element =>{
+            return element.Finished === false;
+        })
+        if(!unfinishedStep){
+            this.isStepsComplete.emit(true);
+        }else{
+            this.isStepsComplete.emit(false);
+        }
+    }
+
     hasFirstStepBeenCompletedForUSOrganisation(record: OrganisationRegistrationStep):boolean{
-        if(this.dashboardService.currentOrganisation.Country !== "US" ||
-        record.DisplayOrder === 1){
-            return true;
+        if (
+          (this.dashboardService.currentOrganisation &&
+            this.dashboardService.currentOrganisation.Country !== "US") ||
+          record.DisplayOrder === 1
+        ) {
+          return true;
         }
         if(this.records.length > 0){
           let stepOne = this.records.find(item=>{

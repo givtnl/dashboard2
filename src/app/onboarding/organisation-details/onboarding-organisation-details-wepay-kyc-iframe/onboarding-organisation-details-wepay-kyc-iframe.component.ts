@@ -62,34 +62,35 @@ export class OnboardingOrganisationDetailsWePayIframeComponent
     this.initialiseEventListenerOnSubmitBtn(kycIframe);
   }
 
-  initialiseEventListenerOnSubmitBtn(kycIframe){
+  initialiseEventListenerOnSubmitBtn(kycIframe) {
     document
-    .getElementById("submit-kyc-button")
-    .addEventListener("click", (event) => {
-      this.loading = true;
-      kycIframe
-        .tokenize()
-        .then((response) => {
-          this.handleSubmitButtonClick(response);
-        })
-        .catch((_)=> {
-          this.showErrorMessage();
-          this.loading = false;
-        });
-    });
+      .getElementById("submit-kyc-button")
+      .addEventListener("click", (event) => {
+        this.loading = true;
+        kycIframe
+          .tokenize()
+          .then((response) => {
+            this.handleSubmitButtonClick(response);
+          })
+          .catch((_) => {
+            this.showErrorMessage();
+            this.loading = false;
+          });
+      });
   }
 
-  handleSubmitButtonClick(token){
+  handleSubmitButtonClick(token) {
     this.loading = true;
-    let kycToken = token.id;
-    let organisationId = this.dashboardService.currentOrganisation.Id
-    this.onboardingOrganisationDetailsService.saveWePayKYCDetails(kycToken,organisationId).pipe(
-      takeUntil(this.ngUnsubscribe),
-      finalize(() => {
-        this.loading = false;
-      }),
-    ).subscribe(
-      (_) => {
+    let organisationId = this.dashboardService.currentOrganisation.Id;
+    this.onboardingOrganisationDetailsService
+      .saveWePayKYCDetails(token.id, organisationId)
+      .pipe(
+        takeUntil(this.ngUnsubscribe),
+        finalize(() => {
+          this.loading = false;
+        })
+      )
+      .subscribe((_) => {
         this.router.navigate([
           "/",
           "onboarding",
@@ -100,19 +101,20 @@ export class OnboardingOrganisationDetailsWePayIframeComponent
             },
           },
         ]);
-      }
-    );
+      });
   }
 
-  initIframeLoader(){
-    setTimeout(()=>{
+  initIframeLoader() {
+    setTimeout(() => {
       this.iframeLoading = false;
-    },1500)
-
+    }, 1500);
   }
 
   async showErrorMessage() {
-    this.toastr.warning('OnboardingOrganisationDetailsWePayComponent.submitErrorTitle', 'OnboardingOrganisationDetailsWePayComponent.submitErrorSubTitle')
+    this.toastr.warning(
+      "OnboardingOrganisationDetailsWePayComponent.submitErrorTitle",
+      "OnboardingOrganisationDetailsWePayComponent.submitErrorSubTitle"
+    );
   }
 
   ngOnDestroy() {

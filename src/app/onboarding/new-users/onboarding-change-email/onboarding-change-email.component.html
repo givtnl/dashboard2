@@ -2,18 +2,18 @@
   <app-custom-card [showCloseButton]="false" [showPreviousButton]="true">
     <div body>
       <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
-      <p [translate]="'onboardingWelcomeComponent.title'"
+      <p [translate]="'onboardingWelcomeComponent.titlelogin'"
         [translateParams]="{ name: stateService.currentOnboardingRequest.companyName }"
         class="introduction-title text-primary text-light-font text-givt-purple text-center mt-3"></p>
       <input type="email" autocomplete="new-password" placeholder="{{ 'placeholders.email' | translate }}"
         formControlName="email" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
-      <app-password-input formControlName="password"></app-password-input>
+      <app-password-input [showPasswordHint]="false" formControlName="password"></app-password-input>
     </div>
     <button bottom type="submit" [translate]
-      class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+      class="btn align-self-center btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
       <span class="text-white text-heavy-font" translate>
         <i *ngIf="loading" class="fas fa-spinner fa-spin mr-2"></i>
-        onboardingPersonalDetailsComponent.nextButtonText
+        onboardingPersonalDetailsComponent.logInButtonText
       </span>
     </button>
   </app-custom-card>
