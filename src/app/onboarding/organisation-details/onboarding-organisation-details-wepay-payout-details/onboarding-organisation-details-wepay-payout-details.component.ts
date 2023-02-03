@@ -4,9 +4,9 @@ import { DashboardService } from "src/app/shared/services/dashboard.service";
 import { environment } from "src/environments/environment";
 import { TranslateService } from "@ngx-translate/core";
 import { Router } from "@angular/router";
-import { OnboardingOrganisationDetailsService } from "../services/onboarding-organisation-details.service";
 import { finalize, takeUntil } from "rxjs/operators";
 import { TranslatableToastrService } from "src/app/shared/services/translate-able-toastr.service";
+import { OnboardingWePayService } from "../services/onboarding-wepay.service";
 
 @Component({
   selector: "app-onboarding-organisation-details-wepay-payout-details",
@@ -32,7 +32,7 @@ export class OnboardingOrganisationDetailsWePayPayoutDetailsComponent
     private dashboardService: DashboardService,
     private router: Router,
     private toastr: TranslatableToastrService,
-    private onboardingOrganisationDetailsService: OnboardingOrganisationDetailsService
+    private onboardingWePayService: OnboardingWePayService
   ) {}
 
   ngOnInit(): void {
@@ -84,7 +84,7 @@ export class OnboardingOrganisationDetailsWePayPayoutDetailsComponent
   handleSubmitButtonClick(token) {
     let payoutMethodToken = token.id;
     let organisationId = this.dashboardService.currentOrganisation.Id;
-    this.onboardingOrganisationDetailsService
+    this.onboardingWePayService
       .saveWePayPayoutMethod(payoutMethodToken, organisationId)
       .pipe(
         takeUntil(this.ngUnsubscribe),

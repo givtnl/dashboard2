@@ -3,9 +3,9 @@ import { Router } from "@angular/router";
 import { Subject } from "rxjs";
 import { finalize, takeUntil, tap } from "rxjs/operators";
 import { environment } from "src/environments/environment";
-import { OnboardingOrganisationDetailsService } from "../services/onboarding-organisation-details.service";
 import { DashboardService } from "src/app/shared/services/dashboard.service";
 import { TranslatableToastrService } from "src/app/shared/services/translate-able-toastr.service";
+import { OnboardingWePayService } from "../services/onboarding-wepay.service";
 
 @Component({
   selector: "app-onboarding-organisation-details-wepay-kyc-iframe",
@@ -28,7 +28,7 @@ export class OnboardingOrganisationDetailsWePayIframeComponent
 
   constructor(
     private router: Router,
-    private onboardingOrganisationDetailsService: OnboardingOrganisationDetailsService,
+    private onboardingWePayService: OnboardingWePayService,
     private dashboardService: DashboardService,
     private toastr: TranslatableToastrService
   ) {}
@@ -82,7 +82,7 @@ export class OnboardingOrganisationDetailsWePayIframeComponent
   handleSubmitButtonClick(token) {
     this.loading = true;
     let organisationId = this.dashboardService.currentOrganisation.Id;
-    this.onboardingOrganisationDetailsService
+    this.onboardingWePayService
       .saveWePayKYCDetails(token.id, organisationId)
       .pipe(
         takeUntil(this.ngUnsubscribe),

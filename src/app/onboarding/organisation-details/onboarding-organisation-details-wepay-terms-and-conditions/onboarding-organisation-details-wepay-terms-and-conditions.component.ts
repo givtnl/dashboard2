@@ -9,7 +9,7 @@ import { IPAdressService } from "src/app/shared/services/ip-address.service";
 import { notNullOrFalseValidator } from "src/app/shared/validators/notnullorfalse.validator";
 import { environment } from "src/environments/environment";
 import { TermsOfService } from "../models/wepay-terms-of-service.model";
-import { OnboardingOrganisationDetailsService } from "../services/onboarding-organisation-details.service";
+import { OnboardingWePayService } from "../services/onboarding-wepay.service";
 
 @Component({
   selector: "app-onboarding-organisation-details-wepay-terms-and-conditions",
@@ -35,7 +35,7 @@ export class OnboardingOrganisationDetailsWePayTermsAndConditionsComponent
     private router: Router,
     private route: ActivatedRoute,
     private dashboardService: DashboardService,
-    private onboardingOrganisationDetailsService: OnboardingOrganisationDetailsService
+    private onboardingWePayService: OnboardingWePayService
   ) {}
 
   ngOnInit(): void {
@@ -63,7 +63,7 @@ export class OnboardingOrganisationDetailsWePayTermsAndConditionsComponent
           };
         }),
         switchMap((termsAndConditionsObj: any) => {
-          return this.onboardingOrganisationDetailsService.acceptWePayTermsAndConditions(
+          return this.onboardingWePayService.acceptWePayTermsAndConditions(
             organisationId,
             termsAndConditionsObj
           );
