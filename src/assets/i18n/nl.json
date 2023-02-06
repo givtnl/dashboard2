@@ -507,5 +507,6 @@
   "preboardingLaunchDateComponent.selectDate": "Selecteer een datum",
   "dashboardCompleteAccountWidgetComponent.AddWePayKYCDetails": "Enter your organization details",
   "dashboardCompleteAccountWidgetComponent.AddWePayPPAndTOS": "Accept Terms of Service",
-  "dashboardCompleteAccountWidgetComponent.AddWePayPayoutMethod": "Add your bank account"
+  "dashboardCompleteAccountWidgetComponent.AddWePayPayoutMethod": "Add your bank account",
+  "dashboardCompleteAccountWidgetComponent.AddGivtPricingConditions": "Accept Givt Terms and Pricing"
 }

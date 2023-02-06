@@ -539,5 +539,6 @@
   "preboardingLaunchDateComponent.nextButtonText": "Next",
   "preboardingLaunchDateComponent.dontKnow": "Not sure",
   "preboardingLaunchDateComponent.today": "Today",
-  "preboardingLaunchDateComponent.selectDate": "Select a date"
+  "preboardingLaunchDateComponent.selectDate": "Select a date",
+  "dashboardCompleteAccountWidgetComponent.AddGivtPricingConditions": "Givt Terms and Pricing"
 }
