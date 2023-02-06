@@ -15,7 +15,10 @@
           <label translate class="introduction-title text-primary text-light-font text-givt-purple " >
             <input class="form-check-input" type="checkbox"  [formControl]="accepted">
              preboardingWelcomeDetailsComponent.acceptanceText &nbsp;
-              <a title="{{'preboardingWelcomeDetailsComponent.infoText' | translate}}" href="https://go.wepay.com/terms-of-service"><i class="fas fa-info-circle text-givt-purple"></i></a>
+              <a title="{{'preboardingWelcomeDetailsComponent.infoText' | translate}}" 
+              href="{{privacyLink}}">
+                <i class="fas fa-info-circle text-givt-purple"></i>
+              </a>
           </label>
    
         

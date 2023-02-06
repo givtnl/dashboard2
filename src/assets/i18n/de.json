@@ -463,6 +463,7 @@
   "onboardingOrganisationDetailsAnbiComponent.errorRSIN": "Please fill in the RSIN number.",
   "errorMessages.iban-checksum": "Die IBAN ist nicht gültig.",
   "preboardingWelcomeDetailsComponent.privacyLink": "https://givtapp.de/datenschutz-service",
+  "preboardingWelcomeDetailsComponent.privacyLinkUS": "https://givt.app/privacy-policy/",
   "errorMessages.telephone-required": "Telefonnummer erforderlich",
   "errorMessages.telephone-invalid": "Überprüfe die Telefonnummer",
   "preboardingMailboxAddressDetailsComponent.placeholderTelephone": "Telefon (für Track & Trace)",
