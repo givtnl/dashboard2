@@ -8,7 +8,7 @@ import { TermsOfService } from "../models/wepay-terms-of-service.model";
   providedIn: "root",
 })
 export class OnboardingWePayService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   completePreboarding(organisationId: string) {
     return this.http.post<any>(
@@ -41,11 +41,11 @@ export class OnboardingWePayService {
   }
 
   saveWePayPayoutMethod(
-    wePayPayoutMethodId: string,
+    payoutMethodToken: string,
     organisationId: any
   ): Observable<any> {
     const obj = {
-      wePayPayoutMethodId,
+      payoutMethodToken,
     };
     return this.http.post<any>(
       `${environment.wePayApi}/organizations/${organisationId}/payout-method`,
