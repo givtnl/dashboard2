@@ -12,82 +12,127 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
-    selector: 'app-side-bar',
-    templateUrl: './side-bar.component.html',
-    styleUrls: ['./side-bar.component.scss']
+  selector: "app-side-bar",
+  templateUrl: "./side-bar.component.html",
+  styleUrls: ["./side-bar.component.scss"],
 })
-export class SideBarComponent implements OnInit,OnDestroy {
-    public currentCollectGroup: string;
-    private ngUnsubscribe = new Subject<void>();
-    public privacyLink: string;
-    public termsLink: string;
-    
-    get now() { return new Date(); }
+export class SideBarComponent implements OnInit, OnDestroy {
+  public currentCollectGroup: string;
+  private ngUnsubscribe = new Subject<void>();
+  public privacyLink: string;
+  public termsLink: string;
+  public startYear: number;
 
-    private currentActivePage: DashboardPage;
-    get isDashboardActive() { return this.currentActivePage == DashboardPage.Dashboard };
-    get isUsersActive() { return this.currentActivePage == DashboardPage.Users };
-    get shouldShowSwitchButton() { return this.dashboardService.hasMultipleOrganisations };
+  get now() {
+    return new Date();
+  }
 
-    @Input()
-    public showCloseButton = false;
+  private currentActivePage: DashboardPage;
+  get isDashboardActive() {
+    return this.currentActivePage == DashboardPage.Dashboard;
+  }
+  get isUsersActive() {
+    return this.currentActivePage == DashboardPage.Users;
+  }
+  get shouldShowSwitchButton() {
+    return this.dashboardService.hasMultipleOrganisations;
+  }
 
-    @Output()
-    public closeButtonClicked = new EventEmitter();
+  @Input()
+  public showCloseButton = false;
 
-    constructor(private accountService: AccountService,
-        private dashboardService: DashboardService,
-        private router: Router,
-        private translateService: TranslateService,
-        private backendService: BackendService) { }
+  @Output()
+  public closeButtonClicked = new EventEmitter();
 
-    async ngOnInit(): Promise<void> {
-        this.currentCollectGroup = this.dashboardService.currentCollectGroup?.Name;
-        this.dashboardService.currentCollectGroupChange
-            .pipe(takeUntil(this.ngUnsubscribe))
-            .subscribe(x => this.currentCollectGroup = x?.Name);
-        this.dashboardService.currentOrganisationChange
-            .pipe(takeUntil(this.ngUnsubscribe))
-            .subscribe(x => this.currentOrganisationChange(x));
-        if (this.dashboardService.currentOrganisation != null)
-            await this.currentOrganisationChange(this.dashboardService.currentOrganisation);
-        this.currentActivePage = this.dashboardService.currentDashboardPage;
+  constructor(
+    private accountService: AccountService,
+    private dashboardService: DashboardService,
+    private router: Router,
+    private translateService: TranslateService,
+    private backendService: BackendService
+  ) {}
+
+  async ngOnInit(): Promise<void> {
+    this.currentCollectGroup = this.dashboardService.currentCollectGroup?.Name;
+    this.dashboardService.currentCollectGroupChange
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe((x) => (this.currentCollectGroup = x?.Name));
+    this.dashboardService.currentOrganisationChange
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe((x) => this.currentOrganisationChange(x));
+    if (this.dashboardService.currentOrganisation != null)
+      await this.currentOrganisationChange(
+        this.dashboardService.currentOrganisation
+      );
+    this.currentActivePage = this.dashboardService.currentDashboardPage;
+    this.startYear = this.getStartYear();
+  }
+
+  public closeMenu(): void {
+    this.closeButtonClicked.emit();
+  }
+
+  public usersClicked(): void {
+    this.currentActivePage = DashboardPage.Users;
+    this.dashboardService.currentDashboardPage = this.currentActivePage;
+  }
+
+  public dashboardClicked(): void {
+    this.currentActivePage = DashboardPage.Dashboard;
+    this.dashboardService.currentDashboardPage = this.currentActivePage;
+    this.router.navigate(["/", "dashboard", "root"], {
+      queryParams: {
+        organisationId: this.dashboardService.currentOrganisation.Id,
+      },
+      queryParamsHandling: "merge",
+    });
+  }
+
+  getStartYear(): number {
+    if (
+      this.dashboardService.currentOrganisation &&
+      this.dashboardService.currentOrganisation.Country.toLocaleLowerCase() ===
+        "us"
+    ) {
+      return 2020;
+    } else if (
+      this.dashboardService.currentOrganisation &&
+      this.dashboardService.currentOrganisation.Country.toLocaleLowerCase() ===
+        "nl"
+    ) {
+      return 2016;
     }
+    return 2018;
+  }
 
-    public closeMenu(): void {
-        this.closeButtonClicked.emit();
-    }
+  logOut(): void {
+    this.accountService.logOut();
+    this.router.navigate(["/", "account", "login"]);
+  }
 
-    public usersClicked(): void {
-        this.currentActivePage = DashboardPage.Users;
-        this.dashboardService.currentDashboardPage = this.currentActivePage;
-    }
+  async currentOrganisationChange(
+    organisation: OrganisationListModel
+  ): Promise<void> {
+    if (
+      DirectDebitTypeHelper.fromOrganisationDetailModel(organisation) ==
+      DirectDebitType.BACS
+    )
+      this.privacyLink = await this.translateService
+        .get("preboardingWelcomeDetailsComponent.privacyLinkGB")
+        .toPromise();
+    else
+      this.privacyLink = await this.translateService
+        .get("preboardingWelcomeDetailsComponent.privacyLink")
+        .toPromise();
+    this.termsLink = `${this.backendService.baseUrl}v2/organisations/${organisation.Id}/terms`;
+  }
 
-    public dashboardClicked(): void {
-        this.currentActivePage = DashboardPage.Dashboard;
-        this.dashboardService.currentDashboardPage = this.currentActivePage;
-        this.router.navigate(['/', 'dashboard', 'root'], { queryParams: { organisationId: this.dashboardService.currentOrganisation.Id }, queryParamsHandling: 'merge' });
-    }
+  public switchDashboardClicked(): void {
+    this.router.navigate(["/", "dashboard", "select-organisation"]);
+  }
 
-    logOut(): void {
-        this.accountService.logOut();
-        this.router.navigate(['/', 'account', 'login']);
-    }
-
-    async currentOrganisationChange(organisation: OrganisationListModel): Promise<void> {
-        if (DirectDebitTypeHelper.fromOrganisationDetailModel(organisation) == DirectDebitType.BACS)
-            this.privacyLink = await this.translateService.get("preboardingWelcomeDetailsComponent.privacyLinkGB").toPromise();
-        else
-            this.privacyLink = await this.translateService.get("preboardingWelcomeDetailsComponent.privacyLink").toPromise();
-        this.termsLink = `${this.backendService.baseUrl}v2/organisations/${organisation.Id}/terms`;
-    }
-
-    public switchDashboardClicked(): void {
-        this.router.navigate(['/', 'dashboard', 'select-organisation']);
-    }
-
-    ngOnDestroy() {
-        this.ngUnsubscribe.next();
-        this.ngUnsubscribe.complete();
-    }
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
 }

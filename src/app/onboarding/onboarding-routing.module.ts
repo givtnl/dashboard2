@@ -73,6 +73,7 @@ import { OnboardingOrganisationDetailsWePayIframeComponent } from "./organisatio
 import { OnboardingOrganisationDetailsWePayTermsAndConditionsComponent } from "./organisation-details/onboarding-organisation-details-wepay-terms-and-conditions/onboarding-organisation-details-wepay-terms-and-conditions.component";
 import { OnboardingOrganisationDetailsWePayPayoutDetailsComponent } from "./organisation-details/onboarding-organisation-details-wepay-payout-details/onboarding-organisation-details-wepay-payout-details.component";
 import { OnboardingOrganisationDetailsWepayCompleteComponent } from "./organisation-details/onboarding-organisation-details-wepay-complete/onboarding-organisation-details-wepay-complete.component";
+import { OnboardingOrganisationDetailsTermsAndPricingComponent } from "./organisation-details/onboarding-organisation-details-terms-and-pricing/onboarding-organisation-details-terms-and-pricing.component";
 
 const routes: Routes = [
   {
@@ -132,8 +133,13 @@ const routes: Routes = [
   {
     path: "organisation-details-us",
     component: OnboardingRootComponent,
-    //canActivate: [AuthenticationGuard],
+    canActivate: [AuthenticationGuard],
     children: [
+      {
+        path: "terms-and-pricing",
+        outlet: "onboarding-outlet",
+        component: OnboardingOrganisationDetailsTermsAndPricingComponent,
+      },
       {
         path: "wepay-kyc",
         outlet: "onboarding-outlet",
@@ -148,14 +154,12 @@ const routes: Routes = [
       {
         path: "payout-details",
         outlet: "onboarding-outlet",
-        component:
-          OnboardingOrganisationDetailsWePayPayoutDetailsComponent,
+        component: OnboardingOrganisationDetailsWePayPayoutDetailsComponent,
       },
       {
         path: "complete",
         outlet: "onboarding-outlet",
-        component:
-          OnboardingOrganisationDetailsWepayCompleteComponent,
+        component: OnboardingOrganisationDetailsWepayCompleteComponent,
       },
     ],
   },

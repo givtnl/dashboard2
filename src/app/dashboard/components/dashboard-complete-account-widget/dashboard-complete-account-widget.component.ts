@@ -10,123 +10,164 @@ import { takeUntil, tap } from 'rxjs/operators';
 
 
 @Component({
-    selector: 'app-dashboard-complete-account-widget',
-    templateUrl: './dashboard-complete-account-widget.component.html',
-    styleUrls: ['./dashboard-complete-account-widget.component.scss']
+  selector: "app-dashboard-complete-account-widget",
+  templateUrl: "./dashboard-complete-account-widget.component.html",
+  styleUrls: ["./dashboard-complete-account-widget.component.scss"],
 })
-export class DashboardCompleteAccountWidgetComponent implements OnInit,OnDestroy {
-    public loading = false;
-    public records = new Array<OrganisationRegistrationStep>();
-    private ngUnsubscribe = new Subject<void>();
+export class DashboardCompleteAccountWidgetComponent
+  implements OnInit, OnDestroy
+{
+  public loading = false;
+  public records = new Array<OrganisationRegistrationStep>();
+  private ngUnsubscribe = new Subject<void>();
 
-    @Output() isStepsComplete = new EventEmitter<boolean>();
+  @Output() isStepsComplete = new EventEmitter<boolean>();
 
-    constructor(
-        private organisationService: OrganisationsService,
-        private router: Router,
-        private applicationStateService: ApplicationStateService,
-        private dashboardService: DashboardService
-    ) { }
+  constructor(
+    private organisationService: OrganisationsService,
+    private router: Router,
+    private applicationStateService: ApplicationStateService,
+    private dashboardService: DashboardService
+  ) {}
 
-    ngOnInit(): void {
-        this.loading = true;
-        this.organisationService
-            .getRegistrationStatus(this.applicationStateService.currentTokenModel.OrganisationAdmin)
-            .pipe(
-                tap((steps)=>{this.isOnboardingComplete(steps)}),
-                takeUntil(this.ngUnsubscribe))
-            .subscribe(x => (this.records = x))
-            .add(() => (this.loading = false));
+  ngOnInit(): void {
+    this.loading = true;
+    this.organisationService
+      .getRegistrationStatus(
+        this.applicationStateService.currentTokenModel.OrganisationAdmin
+      )
+      .pipe(
+        tap((steps) => {
+          this.isOnboardingComplete(steps);
+        }),
+        takeUntil(this.ngUnsubscribe)
+      )
+      .subscribe((x) => (this.records = x))
+      .add(() => (this.loading = false));
+  }
+
+  public percentageComplete(): number {
+    if (this.records && this.records.length > 0) {
+      const totalNumberOfRecords = this.records.length;
+      return (
+        (100 / totalNumberOfRecords) *
+        this.records.filter((x) => x.Finished).length
+      );
     }
+    return 0;
+  }
 
-    public percentageComplete(): number {
-        if (this.records && this.records.length > 0) {
-            const totalNumberOfRecords = this.records.length;
-            return (100 / totalNumberOfRecords) * this.records.filter(x => x.Finished).length;
-        }
-        return 0;
-    }
+  public percentageDegrees(toCalculatePercentage: number): number {
+    return (toCalculatePercentage / 100) * 360;
+  }
 
-    public percentageDegrees(toCalculatePercentage: number): number {
-        return (toCalculatePercentage / 100) * 360;
+  public async navigate(record: OrganisationRegistrationStep): Promise<void> {
+    const toNavigateRouterLinks = this.getRouterLinks(record);
+    if (toNavigateRouterLinks && toNavigateRouterLinks.length > 0) {
+      this.loading = true;
+      await this.router
+        .navigate(toNavigateRouterLinks)
+        .catch((error) => console.log(error))
+        .finally(() => (this.loading = false));
     }
+  }
 
-    public async navigate(record: OrganisationRegistrationStep): Promise<void> {
-        const toNavigateRouterLinks = this.getRouterLinks(record);
-        if (toNavigateRouterLinks && toNavigateRouterLinks.length > 0) {
-            this.loading = true;
-            await this.router.navigate(toNavigateRouterLinks)
-                .catch(error => console.log(error))
-                .finally(() => (this.loading = false));
-        }
-    }
+  public getRouterLinks(record: OrganisationRegistrationStep): Array<any> {
+    switch (record.OrganisationRegistrationStatus) {
+      case OrganisationRegistrationStatus.CompleteOrganisationDetails:
+        return ["/", "onboarding", "organisation-details"];
+      case OrganisationRegistrationStatus.AddBankAccount:
+        return ["/", "onboarding", "bank-account"];
+      case OrganisationRegistrationStatus.UploadBankStatement:
+        return !record.InProgress
+          ? ["/", "onboarding", "bank-statement"]
+          : ["/", "dashboard"];
+      case OrganisationRegistrationStatus.AddBankAccountHolders:
+        return record.InProgress
+          ? [
+              "/",
+              "onboarding",
+              "bank-account",
+              { outlets: { "onboarding-outlet": ["already-invited"] } },
+            ]
+          : ["/", "onboarding", "bank-account-holder"];
+      case OrganisationRegistrationStatus.AddGiftAidSettings:
+        return !record.InProgress
+          ? ["/", "onboarding", "giftaid"]
+          : ["/", "dashboard"];
+      case OrganisationRegistrationStatus.AddGivtPricingConditions:
+        return [
+          "/",
+          "onboarding",
+          "organisation-details-us",
+          { outlets: { "onboarding-outlet": ["terms-and-pricing"] } },
+        ];
+      case OrganisationRegistrationStatus.WePayKYCDetails:
+        return [
+          "/",
+          "onboarding",
+          "organisation-details-us",
+          { outlets: { "onboarding-outlet": ["wepay-kyc"] } },
+        ];
+      case OrganisationRegistrationStatus.WePayTermsAndConditions:
+        return [
+          "/",
+          "onboarding",
+          "organisation-details-us",
+          { outlets: { "onboarding-outlet": ["terms-and-conditions"] } },
+        ];
+      case OrganisationRegistrationStatus.WePayPayoutMethod:
+        return [
+          "/",
+          "onboarding",
+          "organisation-details-us",
+          { outlets: { "onboarding-outlet": ["payout-details"] } },
+        ];
 
-    public getRouterLinks(record: OrganisationRegistrationStep): Array<any> {
-        switch (record.OrganisationRegistrationStatus) {
-            case OrganisationRegistrationStatus.CompleteOrganisationDetails:
-                return ['/', 'onboarding', 'organisation-details'];
-            case OrganisationRegistrationStatus.AddBankAccount:
-                return ['/', 'onboarding', 'bank-account']
-            case OrganisationRegistrationStatus.UploadBankStatement:
-                return !record.InProgress ? ['/', 'onboarding', 'bank-statement'] : ['/', 'dashboard'];
-            case OrganisationRegistrationStatus.AddBankAccountHolders:
-                return record.InProgress
-                    ? ['/', 'onboarding', 'bank-account', { outlets: { 'onboarding-outlet': ['already-invited'] } }]
-                    : ['/', 'onboarding', 'bank-account-holder'];
-            case OrganisationRegistrationStatus.AddGiftAidSettings:
-                return !record.InProgress ? ['/', 'onboarding', 'giftaid'] : ['/', 'dashboard']
-            case OrganisationRegistrationStatus.WePayKYCDetails:
-                console.log()
-                return ['/', 'onboarding', 'organisation-details-us',{ outlets: {"onboarding-outlet": ["wepay-kyc"] }}];
-            case OrganisationRegistrationStatus.WePayTermsAndConditions:
-                return ['/', 'onboarding', 'organisation-details-us',{ outlets: {"onboarding-outlet": ["terms-and-conditions"] }}];
-            case OrganisationRegistrationStatus.WePayPayoutMethod:
-                return ['/', 'onboarding', 'organisation-details-us',{ outlets: {"onboarding-outlet": ["payout-details"] }}];
-                    
-            default:
-                break;
-        }
+      default:
+        break;
     }
+  }
 
-    isOnboardingComplete(records: Array<OrganisationRegistrationStep>){
-        const orgCountry = this.dashboardService.currentOrganisation.Country;
-        if(orgCountry !== 'US'){
-            this.isStepsComplete.emit(true);
-            return;
-        }
-        // For US organisations, it checks to see if all the onboarding steps have been completed
-        const unfinishedStep = records.find(element =>{
-            return element.Finished === false;
-        })
-        if(!unfinishedStep){
-            this.isStepsComplete.emit(true);
-        }else{
-            this.isStepsComplete.emit(false);
-        }
+  isOnboardingComplete(records: Array<OrganisationRegistrationStep>) {
+    const orgCountry = this.dashboardService.currentOrganisation.Country;
+    if (orgCountry !== "US") {
+      this.isStepsComplete.emit(true);
+      return;
     }
+    // For US organisations, it checks to see if all the onboarding steps have been completed
+    const unfinishedStep = records.find((element) => {
+      return element.Finished === false;
+    });
+    if (!unfinishedStep) {
+      this.isStepsComplete.emit(true);
+    } else {
+      this.isStepsComplete.emit(false);
+    }
+  }
 
-    hasFirstStepBeenCompletedForUSOrganisation(record: OrganisationRegistrationStep):boolean{
-        if (
-          (this.dashboardService.currentOrganisation &&
-            this.dashboardService.currentOrganisation.Country !== "US") ||
-          record.DisplayOrder === 1
-        ) {
-          return true;
-        }
-        if(this.records.length > 0){
-          let stepOne = this.records.find(item=>{
-            return item.DisplayOrder === 1;
-          });
-          if(stepOne != undefined && stepOne.Finished){
-            return true;
-          } else{
-            return false;
-          }
-        }
+  hasFirstAndSecondStepBeenCompletedForUSOrganisation(
+    record: OrganisationRegistrationStep
+  ): boolean {
+    if (
+      this.dashboardService.currentOrganisation &&
+      this.dashboardService.currentOrganisation.Country !== "US"
+    )
+      return true;
+    // following checks is for US organisations only
+    if (this.records.length > 0) {
+      let stepOne = this.records.find((item) => {
+        return item.DisplayOrder === 1;
+      });
+      if (record.DisplayOrder === 1) return true;
+      if (record.DisplayOrder === 2 && stepOne != undefined && stepOne.Finished)
+        return true;
     }
+    return false;
+  }
 
-    ngOnDestroy() {
-        this.ngUnsubscribe.next();
-        this.ngUnsubscribe.complete();
-    }
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
 }

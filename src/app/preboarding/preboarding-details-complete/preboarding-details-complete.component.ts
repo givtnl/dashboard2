@@ -15,8 +15,7 @@ import { OrganisationRegistrationProgress } from 'src/app/organisations/models/o
 import { ActivatedRoute } from '@angular/router';
 import { RelationShipService } from 'src/app/account/relationships/services/relationship.service';
 import mixpanel from 'mixpanel-browser';
-import { LocationStrategy } from '@angular/common';
-import { OnboardingWePayService } from "src/app/onboarding/organisation-details/services/onboarding-wepay.service";
+import { LocationStrategy } from "@angular/common";
 
 @Component({
   selector: "app-preboarding-details-complete",
@@ -53,8 +52,7 @@ export class PreboardingDetailsCompleteComponent implements OnInit, OnDestroy {
     private collectGroupService: CollectGroupsService,
     private location: LocationStrategy,
     private preboardingStateService: PreboardingStateService,
-    private onboardingNewUserService: OnboardingNewUsersService,
-    private onboardingWePayService: OnboardingWePayService
+    private onboardingNewUserService: OnboardingNewUsersService
   ) {
     history.pushState(null, null, window.location.href);
   }
@@ -302,29 +300,6 @@ export class PreboardingDetailsCompleteComponent implements OnInit, OnDestroy {
         this.preboardingStateService.organisationDetails.organisationId,
         OrganisationRegistrationProgress.Preboarded
       )
-      .pipe(
-        takeUntil(this.ngUnsubscribe),
-        catchError(() => this.genericError(7))
-      )
-      .subscribe((_) => {
-        if (
-          this.preboardingStateService.organisationDetails.country &&
-          this.preboardingStateService.organisationDetails.country.toLowerCase() ===
-            "us"
-        ) {
-          this.handlePreboardingWrapUpStepForUS();
-        } else {
-          this.handleStep(7);
-        }
-      });
-  }
-  // Create a legal entity and account with WePay which
-  // triggers account creation in our database
-  handlePreboardingWrapUpStepForUS() {
-    const organisationId =
-      this.preboardingStateService.organisationDetails.organisationId;
-    this.onboardingWePayService
-      .completePreboarding(organisationId)
       .pipe(
         takeUntil(this.ngUnsubscribe),
         catchError(() => this.genericError(7))

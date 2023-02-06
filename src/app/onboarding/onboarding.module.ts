@@ -46,6 +46,7 @@ import { OnboardingOrganisationDetailsWePayIframeComponent } from "./organisatio
 import { OnboardingOrganisationDetailsWePayTermsAndConditionsComponent } from "./organisation-details/onboarding-organisation-details-wepay-terms-and-conditions/onboarding-organisation-details-wepay-terms-and-conditions.component";
 import { OnboardingOrganisationDetailsWePayPayoutDetailsComponent } from "./organisation-details/onboarding-organisation-details-wepay-payout-details/onboarding-organisation-details-wepay-payout-details.component";
 import { OnboardingOrganisationDetailsWepayCompleteComponent } from "./organisation-details/onboarding-organisation-details-wepay-complete/onboarding-organisation-details-wepay-complete.component";
+import { OnboardingOrganisationDetailsTermsAndPricingComponent } from "./organisation-details/onboarding-organisation-details-terms-and-pricing/onboarding-organisation-details-terms-and-pricing.component";
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { OnboardingOrganisationDetailsWepayCompleteComponent } from "./organisat
     OnboardingOrganisationDetailsWePayTermsAndConditionsComponent,
     OnboardingOrganisationDetailsWePayPayoutDetailsComponent,
     OnboardingOrganisationDetailsWepayCompleteComponent,
+    OnboardingOrganisationDetailsTermsAndPricingComponent,
     GiftaidOrganisationDetailsComponent,
     GiftaidIntroComponent,
     GiftaidCompletedComponent,

@@ -8,12 +8,21 @@ import { TermsOfService } from "../models/wepay-terms-of-service.model";
   providedIn: "root",
 })
 export class OnboardingWePayService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   completePreboarding(organisationId: string) {
     return this.http.post<any>(
       `${environment.wePayApi}/organizations/${organisationId}/preboard`,
       {}
+    );
+  }
+
+  acceptTermsAndPricing(organisationId: string) {
+    return this.http.post(
+      `${environment.wePayApi}/organizations/${organisationId}/accept`,
+      {
+        accepted: true,
+      }
     );
   }
 
