@@ -94,7 +94,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
       this.dashboardService.currentOrganisation.Country.toLocaleLowerCase() ===
         "us"
     ) {
-      return 2020;
+      return 2021;
     } else if (
       this.dashboardService.currentOrganisation &&
       this.dashboardService.currentOrganisation.Country.toLocaleLowerCase() ===
