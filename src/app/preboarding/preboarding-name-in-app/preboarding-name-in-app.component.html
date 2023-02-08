@@ -12,7 +12,8 @@
       </p>
       <div class="d-flex flex-row justify-content-center align-items-center">
         <input formControlName="inAppOrgName" type="text" placeholder="{{ 'placeholders.inAppOrgName' | translate }}"
-           class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
+           class="my-3 form-control form-control-lg text-primary mb-3 shadow text-givt-purple" 
+           [ngClass]="{'is-invalid ': !isFormControlValid('inAppOrgName')}"/>
         <a class="pl-3" title="{{'preboardingWelcomeDetailsComponent.infoText' | translate}}" 
         [routerLink]="" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-question-circle text-givt-purple"></i></a>
       </div>
