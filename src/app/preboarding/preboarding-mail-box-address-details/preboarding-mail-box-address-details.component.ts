@@ -44,7 +44,13 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit, OnDest
             mailBoxComments: [this.contact ? this.contact.comments : null]
         });
         if(this.country === 'US'){
-            this.form.addControl('mailBoxState', new FormControl(null, Validators.required));
+            this.form.addControl(
+              "mailBoxState",
+              new FormControl(this.contact ? this.contact.state : null, [
+                Validators.required,
+                notNullOrEmptyValidator(),
+              ])
+            );
         }
     }
 
