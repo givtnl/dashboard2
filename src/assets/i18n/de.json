@@ -393,6 +393,7 @@
   "onboardingOrganisationDetailsCharityDetailsComponent.labels.CompaniesHouse": "Companies house",
   "onboardingOrganisationDetailsCharityDetailsComponent.labels.None": "None",
   "errorMessages.number-of-visitors-min_max": "Bitte gib die Anzahl der einzelnen Besucher zwischen 1 und 50.000 ein.",
+  "errorMessages.number-of-visitors-min_max-US": "Bitte gib die Anzahl der einzelnen Besucher zwischen 1 und 100.000 ein.",
   "errorMessages.tempUser": "Wir sehen, dass du bereits ein Givt-Konto mit dieser E-Mail-Adresse über die App erstellt hast. Um mit dem Dashboard fortzufahren, musst du zuerst deine Registrierung in der App abschließen.",
   "preboardingOrganisationRelationComponent.description": "Ist deine Organisation Teil einer anderen Organisation, welche bereits bei Givt registriert ist, dann teile uns dies bitte jetzt mit. Möglicherweise können wir deren bereitgestellte Angaben verwenden, um dir Arbeit zu ersparen.",
   "preboardingOrganisationRelationComponent.nextButtonText": "Fortsetzen",

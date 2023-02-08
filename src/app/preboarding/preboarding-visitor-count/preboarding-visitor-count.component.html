@@ -5,10 +5,14 @@
             <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
                 preboardingVisitorCount.description
             </p>
-            <input formControlName="numberOfVisitors" type="number" min="0" max="10000" placeholder="{{'preboardingCollectionMediumDetails.placeholderNumberOfVisitors' | translate }}" class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple"
-            />
+            <div class="row mt-5">
+                <div class="col-12">
+                    <input formControlName="numberOfVisitors" type="text" placeholder="{{'preboardingCollectionMediumDetails.placeholderNumberOfVisitors' | translate }}" class="form-control form-control-lg show-validation text-primary shadow text-givt-purple"
+                    />
+                </div>
+            </div>
         </div>
-        <button bottom type="submit" [translate] class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+        <button bottom type="submit" [translate] class="btn align-self-center btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
             <span class="text-white text-heavy-font" translate>
               preboardingCollectionMediumDetails.nextButtonText
             </span>

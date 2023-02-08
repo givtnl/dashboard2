@@ -8,17 +8,21 @@ import { tap, switchMap, takeUntil } from 'rxjs/operators';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { CreateCollectGroupCommand } from 'src/app/collect-groups/models/create-collect-group.command';
 import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
-
+import { wholeNumberValidator } from "src/app/shared/validators/whole-number.validator";
 
 @Component({
-  selector: 'app-preboarding-visitor-count',
-  templateUrl: './preboarding-visitor-count.component.html',
-  styleUrls: ['./preboarding-visitor-count.component.scss', '../../preboarding/preboarding.module.scss']
+  selector: "app-preboarding-visitor-count",
+  templateUrl: "./preboarding-visitor-count.component.html",
+  styleUrls: [
+    "./preboarding-visitor-count.component.scss",
+    "../../preboarding/preboarding.module.scss",
+  ],
 })
-export class PreboardingVisitorCountComponent implements OnInit,OnDestroy {
+export class PreboardingVisitorCountComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
-  public form: FormGroup
+  public form: FormGroup;
   private collectGroup: CreateCollectGroupCommand;
+  private country: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,13 +30,27 @@ export class PreboardingVisitorCountComponent implements OnInit,OnDestroy {
     private translationService: TranslateService,
     private toastr: ToastrService,
     private preboardingStateService: PreboardingStateService,
-    private router: Router) { }
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    this.collectGroup = this.route.snapshot.data.collectGroup as CreateCollectGroupCommand;
+    if (this.preboardingStateService.organisationDetails)
+      this.country = this.preboardingStateService.organisationDetails.country;
+    else this.country = "NL";
+    this.collectGroup = this.route.snapshot.data
+      .collectGroup as CreateCollectGroupCommand;
 
     this.form = this.formBuilder.group({
-      numberOfVisitors: [this.collectGroup ? this.collectGroup.visitorCount : null, [Validators.required, Validators.min(1), Validators.max(50000)]],
+      numberOfVisitors: [
+        this.collectGroup ? this.collectGroup.visitorCount : null,
+        [
+          Validators.required,
+          Validators.min(1),
+          this.country === "US"
+            ? wholeNumberValidator(1, 100000)
+            : wholeNumberValidator(1, 50000),
+        ],
+      ],
     });
   }
 
@@ -42,11 +60,11 @@ export class PreboardingVisitorCountComponent implements OnInit,OnDestroy {
       return;
     }
     this.continue();
-    this.router.navigate(["/preboarding/register/launch-date"])
+    this.router.navigate(["/preboarding/register/launch-date"]);
   }
 
   continue() {
-    this.collectGroup.visitorCount = this.form.value.numberOfVisitors;
+    this.collectGroup.visitorCount = parseInt(this.form.value.numberOfVisitors);
     this.preboardingStateService.currentCollectGroupDetails = this.collectGroup;
   }
 
@@ -54,25 +72,36 @@ export class PreboardingVisitorCountComponent implements OnInit,OnDestroy {
     let errorMessages = new Array<Observable<string>>();
     let resolvedErrorMessages = new Array<string>();
 
-    const numberOfVisitorsErrors = this.form.get('numberOfVisitors').errors;
+    const numberOfVisitorsErrors = this.form.get("numberOfVisitors").errors;
 
     if (numberOfVisitorsErrors) {
       if (numberOfVisitorsErrors.required) {
-        errorMessages.push(this.translationService.get('errorMessages.number-of-visitors-required'));
+        errorMessages.push(
+          this.translationService.get(
+            "errorMessages.number-of-visitors-required"
+          )
+        );
       }
-      if (numberOfVisitorsErrors.min || numberOfVisitorsErrors.max) {
-        errorMessages.push(this.translationService.get('errorMessages.number-of-visitors-min_max'));
+      if (numberOfVisitorsErrors.wholeNumber) {
+        let errorTranslationText =
+          this.country === "US"
+            ? "errorMessages.number-of-visitors-min_max-US"
+            : "errorMessages.number-of-visitors-min_max";
+        errorMessages.push(this.translationService.get(errorTranslationText));
       }
     }
 
     forkJoin(errorMessages)
       .pipe(
         takeUntil(this.ngUnsubscribe),
-        tap(results => (resolvedErrorMessages = results)),
-        switchMap(_ => this.translationService.get('errorMessages.validation-errors')))
-      .subscribe(title =>
-        this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
-          enableHtml: true
+        tap((results) => (resolvedErrorMessages = results)),
+        switchMap((_) =>
+          this.translationService.get("errorMessages.validation-errors")
+        )
+      )
+      .subscribe((title) =>
+        this.toastr.warning(resolvedErrorMessages.join("<br>"), title, {
+          enableHtml: true,
         })
       );
   }
@@ -81,5 +110,4 @@ export class PreboardingVisitorCountComponent implements OnInit,OnDestroy {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
-
 }
