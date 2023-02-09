@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
   // for testing purposes
-  apiUrl: "https://givt-debug-api.azurewebsites.net",
+  apiUrl: "https://givt-debug-api-us.azurewebsites.net",
   apiUrlEU: "https://givt-debug-api.azurewebsites.net",
   apiUrlUS: "https://givt-debug-api-us.azurewebsites.net",
   oldDashboardUrl: "https://givtdashboarddebug.azurewebsites.net",
