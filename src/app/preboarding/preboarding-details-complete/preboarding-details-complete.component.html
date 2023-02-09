@@ -7,11 +7,11 @@
       <i *ngIf="hasFailedSteps()" class="fa fa-times fa-5x text-white"></i>
       <i *ngIf="isCompleted()" class="fa fa-check fa-5x text-white"></i>
     </div>
-    <p *ngIf="isCompleted()" class="text-primary text-givt-purple text-center mt-5"
+    <h3 *ngIf="isCompleted()" class="text-primary text-givt-purple text-center mt-5"
       translate>
-      preboardingDetailsCompleteComponent.title
-    </p>
-    <p *ngIf="isCompleted()" class="text-givt-purple text-heavy-font text-center" translate>
+      preboardingDetailsCompleteComponent.title <span>🎉</span>
+    </h3>
+    <p *ngIf="isCompleted()" class="text-givt-purple text-heavy-font text-center mt-3" translate>
       preboardingDetailsCompleteComponent.description</p>
     <ul *ngIf="!isCompleted()" class="list-group list-group-flush">
       <li *ngFor="let step of steps; let i = index"

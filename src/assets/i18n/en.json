@@ -313,7 +313,7 @@
   "preboardingCollectionMediumDetails.description": "We know churches use different collection methods for their giving, such as baskets, plates etc. We would like to know what you use, and how many of them so we can get an idea of your collection.",
   "preboardingCollectionMediumDetails.nextButtonText": "Next",
   "preboardingDetailsCompleteComponent.title": "Success!",
-  "preboardingDetailsCompleteComponent.description": "Please check your e-mail for a link that will allow you to log in to your dashboard.",
+  "preboardingDetailsCompleteComponent.description": "We have sent a link to your e-mail address that will allow you to log in to your dashboard. You may now close the browser window",
   "errorMessages.name-in-app-required": "Please fill in a name",
   "errorMessages.address-city-required": "Please fill in a city/town",
   "errorMessages.address-zipcode-required": "Please fill in the postal code",

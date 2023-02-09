@@ -311,7 +311,7 @@
   "preboardingCollectionMediumDetails.description": "Iedere collecte kan met verschillende collectemiddelen gebeuren. Geef aan met welke middelen en hoeveel ervan jullie collecteren. We voorzien meestal alleen zenders voor de eerste collecte-ronde (meerdere collectes stel je in de app in). Je hoeft geen rekening te houden met reserve-zenders (neem contact met ons op en wij lossen het op binnen een week).",
   "preboardingCollectionMediumDetails.nextButtonText": "Volgende",
   "preboardingDetailsCompleteComponent.title": "Wohooo!",
-  "preboardingDetailsCompleteComponent.description": "Controleer uw e-mail voor een link waarmee u kunt inloggen op uw dashboard.",
+  "preboardingDetailsCompleteComponent.description": "We hebben een link naar je e-mailadres gestuurd waarmee je kunt inloggen op je dashboard. U kunt nu het browservenster sluiten",
   "errorMessages.name-in-app-required": "Gelieve een naam in te vullen",
   "errorMessages.address-city-required": "Gelieve een stad in te vullen",
   "errorMessages.address-zipcode-required": "Gelieve de postcode in te vullen",
