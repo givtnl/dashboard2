@@ -304,6 +304,7 @@
   "preboardingMailboxAddressDetailsComponent.placeholderCity": "Stad",
   "preboardingMailboxAddressDetailsComponent.placeholderZipcode": "Postcode",
   "preboardingMailboxAddressDetailsComponent.nextButtonText": "Volgende",
+  "preboardingOrganisationAdminDetailsComponent.hint": "Zodra u toegang heeft tot het dashboard, kunt u extra gebruikers uitnodigen voor het dashboard van uw organisatie.",
   "preboardingOrganisationAdminDetailsComponent.description": "Vul hier één of meerdere e-mailadres(sen) van de admins die toegang zullen hebben tot het dashboard van je organisatie. (Vul je eigen adres in als je ook toegang wil.)",
   "preboardingOrganisationAdminDetailsComponent.placeholdersOrganisatorEmail": "E-mailadres",
   "preboardingOrganisationAdminDetailsComponent.nextButtonText": "Volgende",

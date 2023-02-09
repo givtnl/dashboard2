@@ -304,6 +304,7 @@
   "preboardingMailboxAddressDetailsComponent.placeholderCity": "Stadt",
   "preboardingMailboxAddressDetailsComponent.placeholderZipcode": "Postleitzahl",
   "preboardingMailboxAddressDetailsComponent.nextButtonText": "Weiter",
+  "preboardingOrganisationAdminDetailsComponent.hint": "Sobald Sie Zugriff auf das Dashboard haben, können Sie weitere Benutzer zum Dashboard Ihrer Organisation einladen.",
   "preboardingOrganisationAdminDetailsComponent.description": "Gib eine oder mehrere E-Mail-Adressen ein, die Zugriff auf das Dashboard deiner Organisation erhalten, um zusätzliche Organisationsangaben eingeben und Spenden verfolgen zu können . (Gib auch deine eigene an, falls du ebenfalls Zugang benötigst).",
   "preboardingOrganisationAdminDetailsComponent.placeholdersOrganisatorEmail": "E-Mail-Adresse",
   "preboardingOrganisationAdminDetailsComponent.nextButtonText": "Weiter",

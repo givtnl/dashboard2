@@ -306,7 +306,7 @@
   "preboardingMailboxAddressDetailsComponent.placeholderZipcode": "Zip code",
   "preboardingMailboxAddressDetailsComponent.placeholderPostalcode": "Postal code",
   "preboardingMailboxAddressDetailsComponent.nextButtonText": "Next",
-  "preboardingOrganisationAdminDetailsComponent.hint": "Tip: Do you need other people to have access to your oganisations dashboard, either to enter additional organisational details or to recive insights into your organisations donations and payouts? If so, enter their e-mail address details below as well.",
+  "preboardingOrganisationAdminDetailsComponent.hint": "Once you have access to the dashboard, you will be able to invite additional users to your organisations' dashboard.",
   "preboardingOrganisationAdminDetailsComponent.description": "Please enter your e-mail address below in order to gain access to your organisations dashboard",
   "preboardingOrganisationAdminDetailsComponent.placeholdersOrganisatorEmail": "E-mail address",
   "preboardingOrganisationAdminDetailsComponent.nextButtonText": "Next",

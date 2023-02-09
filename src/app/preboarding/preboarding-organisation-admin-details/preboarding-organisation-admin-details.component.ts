@@ -28,27 +28,18 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit, OnD
         private route: ActivatedRoute) { }
 
     ngOnInit() {
-        this.orgAdmins = this.route.snapshot.data.orgAdmins;
+      // this.orgAdmins = this.route.snapshot.data.orgAdmins;
 
-        this.form = this.formBuilder.group({
-            inviteEmails: this.mapEmailsToArray(this.orgAdmins && this.orgAdmins.length > 0 ? this.orgAdmins : [])
-        })
-        if (this.orgAdmins.length == 0) {
-            this.inviteEmails().push(this.mapEmail())
-        }
+      this.form = this.formBuilder.group({
+        email: [
+          this.orgAdmins && this.orgAdmins.length > 0
+            ? this.orgAdmins[0].email
+            : null,
+          [Validators.required, Validators.email],
+        ],
+      });
     }
-    mapEmail(email: string = null): FormGroup {
-        return this.formBuilder.group({
-            email: [email ? email : null, [Validators.required, Validators.email]]
-        })
-    }
-    mapEmailsToArray(emails: CreateCollectGroupUserCommand[]): FormArray {
-        return this.formBuilder.array(emails.map(x => this.mapEmail(x.email)))
-    }
-    inviteEmails(): FormArray {
-        return this.form.get("inviteEmails") as FormArray
-    }
-
+    
     submit() {
         if (this.form.invalid) {
             this.handleInvalidForm();
@@ -60,17 +51,19 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit, OnD
     }
 
     continue() {
-        this.preboardingStateService.currentOrganisationAdminContact = this.form.value.inviteEmails.map(x => {
-            return { email: x.email.trim().replace("\n","").replace("\r",""), language: this.preboardingStateService.organisationDetails.language }
-        })
-
+        this.preboardingStateService.currentOrganisationAdminContact = [
+          {
+            email: this.form.get("email").value,
+            language: this.preboardingStateService.organisationDetails.language,
+          },
+        ]; 
     }
 
     handleInvalidForm() {
         let errorMessages = new Array<Observable<string>>();
         let resolvedErrorMessages = new Array<string>();
 
-        const organisatorEmailErrors = this.form.get('organisatorEmail').errors;
+        const organisatorEmailErrors = this.form.get("email").errors;
 
         if (organisatorEmailErrors) {
             if (organisatorEmailErrors.required) {
