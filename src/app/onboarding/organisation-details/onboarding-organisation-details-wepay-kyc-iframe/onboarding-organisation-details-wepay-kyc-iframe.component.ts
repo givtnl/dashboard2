@@ -66,6 +66,7 @@ export class OnboardingOrganisationDetailsWePayIframeComponent
     document
       .getElementById("submit-kyc-button")
       .addEventListener("click", (event) => {
+        console.log("fired");
         this.loading = true;
         kycIframe
           .tokenize()
