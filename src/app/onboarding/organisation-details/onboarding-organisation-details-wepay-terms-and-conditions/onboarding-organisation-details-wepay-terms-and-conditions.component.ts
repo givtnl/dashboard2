@@ -75,11 +75,11 @@ export class OnboardingOrganisationDetailsWePayTermsAndConditionsComponent
       .subscribe((_) => {
         this.router.navigate([
           "/",
-          "onboarding",
-          "organisation-details-us",
+          "dashboard",
+          "root",
           {
             outlets: {
-              "onboarding-outlet": ["payout-details"],
+              "dashboard-outlet": ["home"],
             },
           },
         ]);

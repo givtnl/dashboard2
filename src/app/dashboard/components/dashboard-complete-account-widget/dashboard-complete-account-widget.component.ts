@@ -152,16 +152,25 @@ export class DashboardCompleteAccountWidgetComponent
     if (
       this.dashboardService.currentOrganisation &&
       this.dashboardService.currentOrganisation.Country !== "US"
-    )
+    ) {
       return true;
+    }
+
     // following checks is for US organisations only
     if (this.records.length > 0) {
       let stepOne = this.records.find((item) => {
         return item.DisplayOrder === 1;
       });
-      if (record.DisplayOrder === 1) return true;
-      if (record.DisplayOrder === 2 && stepOne != undefined && stepOne.Finished)
+      if (record.DisplayOrder === 1) {
         return true;
+      }
+      if (
+        record.DisplayOrder === 2 &&
+        stepOne != undefined &&
+        stepOne.Finished
+      ) {
+        return true;
+      }
     }
     return false;
   }

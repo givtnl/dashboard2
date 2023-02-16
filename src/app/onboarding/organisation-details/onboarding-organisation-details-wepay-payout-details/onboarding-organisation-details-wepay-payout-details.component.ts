@@ -96,11 +96,11 @@ export class OnboardingOrganisationDetailsWePayPayoutDetailsComponent
         (_) => {
           this.router.navigate([
             "/",
-            "onboarding",
-            "organisation-details-us",
+            "dashboard",
+            "root",
             {
               outlets: {
-                "onboarding-outlet": ["complete"],
+                "dashboard-outlet": ["home"],
               },
             },
           ]);

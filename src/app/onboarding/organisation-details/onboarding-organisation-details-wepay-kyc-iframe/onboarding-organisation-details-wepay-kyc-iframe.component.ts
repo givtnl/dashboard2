@@ -94,11 +94,11 @@ export class OnboardingOrganisationDetailsWePayIframeComponent
       .subscribe((_) => {
         this.router.navigate([
           "/",
-          "onboarding",
-          "organisation-details-us",
+          "dashboard",
+          "root",
           {
             outlets: {
-              "onboarding-outlet": ["terms-and-conditions"],
+              "dashboard-outlet": ["home"],
             },
           },
         ]);

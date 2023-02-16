@@ -58,14 +58,14 @@ export class OnboardingOrganisationDetailsTermsAndPricingComponent
           this.loading = false;
         })
       )
-      .subscribe((res) => {
+      .subscribe((_) => {
         this.router.navigate([
           "/",
-          "onboarding",
-          "organisation-details-us",
+          "dashboard",
+          "root",
           {
             outlets: {
-              "onboarding-outlet": ["wepay-kyc"],
+              "dashboard-outlet": ["home"],
             },
           },
         ]);
