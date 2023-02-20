@@ -71,7 +71,6 @@ export class OnboardingOrganisationDetailsWepayCompleteComponent
   ngOnInit(): void {
     this.disableBrowserBackwardsNavigation();
     this.steps = this.activatedRoute.snapshot.data.steps;
-    console.log({ steps: this.steps });
     this.start();
   }
 
@@ -92,7 +91,6 @@ export class OnboardingOrganisationDetailsWepayCompleteComponent
             (this.collectGroupModel = results[0])
         ),
         map((results: CollectGroupListModel[]) => {
-          console.log(results);
           return {
             Result: {
               Id: results[0].Id,
@@ -108,9 +106,6 @@ export class OnboardingOrganisationDetailsWepayCompleteComponent
   }
   // gets or creates collectionMediums and optionally created church service missed codes
   stepTwo(createdOrRetrievedCollectGroup): void {
-    console.log(createdOrRetrievedCollectGroup);
-    console.log(this.dashboardService.currentOrganisation.Id);
-    console.log(this.collectGroupModel);
     this.collectGroupService
       .getCollectionMediums(
         this.dashboardService.currentOrganisation.Id,

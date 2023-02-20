@@ -61,13 +61,9 @@ export class OnboardingOrganisationDetailsTermsAndPricingComponent
       .subscribe((_) => {
         this.router.navigate([
           "/",
-          "dashboard",
-          "root",
-          {
-            outlets: {
-              "dashboard-outlet": ["home"],
-            },
-          },
+          "onboarding",
+          "organisation-details-us",
+          { outlets: { "onboarding-outlet": ["wepay-kyc"] } },
         ]);
       });
   }

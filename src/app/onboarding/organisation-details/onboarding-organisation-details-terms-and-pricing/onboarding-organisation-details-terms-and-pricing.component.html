@@ -29,7 +29,7 @@
         <div bottom>
             <div class="row mt-3 mb-2">
                 <div class="col-md-12">
-                    <button bottom [disabled]="!form.valid || loading" type="submit" [translate] id="submit-kyc-button"
+                    <button #submitkycbutton bottom [disabled]="!form.valid || loading" type="submit" [translate]
                         class="btn btn-lg bg-givt-purple text-white text-heavy-font w-100 m-0">
                             <i class="fas fa-spinner fa-spin mr-1" *ngIf="loading"></i>
                             OnboardingOrganisationDetailsWePayTermsAndConditionsComponent.btnText

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, NgZone, OnDestroy, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Subject } from "rxjs";
 import { finalize, takeUntil, tap } from "rxjs/operators";
@@ -24,18 +24,20 @@ export class OnboardingOrganisationDetailsWePayIframeComponent
   iframeLoading: boolean = true;
   environment = environment.production ? "production" : "stage";
   apiVersion = "3.0";
+  kycIframe: any;
   private ngUnsubscribe = new Subject<void>();
 
   constructor(
     private router: Router,
     private onboardingWePayService: OnboardingWePayService,
     private dashboardService: DashboardService,
-    private toastr: TranslatableToastrService
+    private toastr: TranslatableToastrService,
+    private zone: NgZone
   ) {}
 
   ngOnInit(): void {
-    this.initialiseIframe();
     this.initIframeLoader();
+    this.initialiseIframe();
   }
 
   initialiseIframe() {
@@ -51,24 +53,22 @@ export class OnboardingOrganisationDetailsWePayIframeComponent
     var iframe_container_id = "kyc-iframe";
     var country = "US";
     var ssn4_enabled = true;
-    var kycIframe = window["WePay"].createKycIframe(iframe_container_id, {
+    this.kycIframe = window["WePay"].createKycIframe(iframe_container_id, {
       country_code: country.toUpperCase(),
       ssn4_enabled: ssn4_enabled,
     });
-    if (kycIframe.error_code) {
+    if (this.kycIframe.error_code) {
       this.hasCreationError = true;
       return;
     }
-    this.initialiseEventListenerOnSubmitBtn(kycIframe);
   }
 
-  initialiseEventListenerOnSubmitBtn(kycIframe) {
+  initialiseEventListenerOnSubmitBtn() {
     document
       .getElementById("submit-kyc-button")
       .addEventListener("click", (event) => {
-        console.log("fired");
         this.loading = true;
-        kycIframe
+        this.kycIframe
           .tokenize()
           .then((response) => {
             this.handleSubmitButtonClick(response);
@@ -94,13 +94,9 @@ export class OnboardingOrganisationDetailsWePayIframeComponent
       .subscribe((_) => {
         this.router.navigate([
           "/",
-          "dashboard",
-          "root",
-          {
-            outlets: {
-              "dashboard-outlet": ["home"],
-            },
-          },
+          "onboarding",
+          "organisation-details-us",
+          { outlets: { "onboarding-outlet": ["terms-and-conditions"] } },
         ]);
       });
   }
@@ -108,7 +104,8 @@ export class OnboardingOrganisationDetailsWePayIframeComponent
   initIframeLoader() {
     setTimeout(() => {
       this.iframeLoading = false;
-    }, 1500);
+      this.initialiseEventListenerOnSubmitBtn();
+    }, 2000);
   }
 
   async showErrorMessage() {
