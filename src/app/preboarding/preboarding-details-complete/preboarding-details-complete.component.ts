@@ -28,6 +28,7 @@ import { LocationStrategy } from "@angular/common";
 export class PreboardingDetailsCompleteComponent implements OnInit, OnDestroy {
   public steps = new Array<PreboardingStepListModel>();
   private ngUnsubscribe = new Subject<void>();
+  public country: string;
   public hasFailedSteps(): boolean {
     return (
       this.steps && this.steps.some((x) => x.loading === false && x.failed)
@@ -59,7 +60,7 @@ export class PreboardingDetailsCompleteComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.disableBrowserBackwardsNavigation();
-
+    this.country = this.preboardingStateService.organisationDetails.country;
     this.steps = this.activatedRoute.snapshot.data.steps;
     this.start();
   }
@@ -98,7 +99,9 @@ export class PreboardingDetailsCompleteComponent implements OnInit, OnDestroy {
       )
       .subscribe((createdOrRetrievedCollectGroupResponse) => {
         this.handleStep(0);
-        this.stepTwo(createdOrRetrievedCollectGroupResponse);
+        this.country && this.country.toLowerCase() === "us"
+          ? this.stepFive(createdOrRetrievedCollectGroupResponse)
+          : this.stepTwo(createdOrRetrievedCollectGroupResponse);
       });
   }
   // gets or creates collectionMediums and optionally created church service missed codes
@@ -235,7 +238,9 @@ export class PreboardingDetailsCompleteComponent implements OnInit, OnDestroy {
           )
       )
     ).subscribe(() => {
-      this.handleStep(4);
+      let stepIndex =
+        this.country && this.country.toLowerCase() === "us" ? 1 : 4;
+      this.handleStep(stepIndex);
       this.stepSix();
     });
   }
@@ -267,7 +272,9 @@ export class PreboardingDetailsCompleteComponent implements OnInit, OnDestroy {
         catchError(() => this.genericError(5))
       )
       .subscribe(() => {
-        this.handleStep(5);
+        let stepIndex =
+          this.country && this.country.toLowerCase() === "us" ? 2 : 5;
+        this.handleStep(stepIndex);
         this.stepSeven();
       });
   }
@@ -289,7 +296,9 @@ export class PreboardingDetailsCompleteComponent implements OnInit, OnDestroy {
           this.stepEight();
         });
     } else {
-      this.handleStep(6);
+      let stepIndex =
+        this.country && this.country.toLowerCase() === "us" ? 3 : 6;
+      this.handleStep(stepIndex);
       this.stepEight();
     }
   }
@@ -305,7 +314,9 @@ export class PreboardingDetailsCompleteComponent implements OnInit, OnDestroy {
         catchError(() => this.genericError(7))
       )
       .subscribe((_) => {
-        this.handleStep(7);
+        let stepIndex =
+          this.country && this.country.toLowerCase() === "us" ? 4 : 7;
+        this.handleStep(stepIndex);
       });
   }
 

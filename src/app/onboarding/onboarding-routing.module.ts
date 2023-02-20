@@ -74,6 +74,7 @@ import { OnboardingOrganisationDetailsWePayTermsAndConditionsComponent } from ".
 import { OnboardingOrganisationDetailsWePayPayoutDetailsComponent } from "./organisation-details/onboarding-organisation-details-wepay-payout-details/onboarding-organisation-details-wepay-payout-details.component";
 import { OnboardingOrganisationDetailsWepayCompleteComponent } from "./organisation-details/onboarding-organisation-details-wepay-complete/onboarding-organisation-details-wepay-complete.component";
 import { OnboardingOrganisationDetailsTermsAndPricingComponent } from "./organisation-details/onboarding-organisation-details-terms-and-pricing/onboarding-organisation-details-terms-and-pricing.component";
+import { OnboardingAvailableStepsResolver } from "./resolvers/onboarding-available-steps.resolver";
 
 const routes: Routes = [
   {
@@ -159,6 +160,7 @@ const routes: Routes = [
       {
         path: "complete",
         outlet: "onboarding-outlet",
+        resolve: { steps: OnboardingAvailableStepsResolver },
         component: OnboardingOrganisationDetailsWepayCompleteComponent,
       },
     ],
