@@ -19,6 +19,8 @@ export class DashboardCompleteAccountWidgetComponent
 {
   public loading = false;
   public records = new Array<OrganisationRegistrationStep>();
+  public stepOne: OrganisationRegistrationStep;
+  public stepTwo: OrganisationRegistrationStep;
   private ngUnsubscribe = new Subject<void>();
 
   @Output() isStepsComplete = new EventEmitter<boolean>();
@@ -42,7 +44,15 @@ export class DashboardCompleteAccountWidgetComponent
         }),
         takeUntil(this.ngUnsubscribe)
       )
-      .subscribe((x) => (this.records = x))
+      .subscribe((records) => {
+        this.records = records;
+        this.stepOne = this.records.find((item) => {
+          return item.DisplayOrder === 1;
+        });
+        this.stepTwo = this.records.find((item) => {
+          return item.DisplayOrder === 2;
+        });
+      })
       .add(() => (this.loading = false));
   }
 
@@ -158,16 +168,22 @@ export class DashboardCompleteAccountWidgetComponent
 
     // following checks is for US organisations only
     if (this.records.length > 0) {
-      let stepOne = this.records.find((item) => {
-        return item.DisplayOrder === 1;
-      });
       if (record.DisplayOrder === 1) {
         return true;
       }
       if (
         record.DisplayOrder === 2 &&
-        stepOne != undefined &&
-        stepOne.Finished
+        this.stepOne != undefined &&
+        this.stepOne.Finished
+      ) {
+        return true;
+      }
+      if (
+        record.DisplayOrder > 2 &&
+        this.stepOne != undefined &&
+        this.stepOne.Finished &&
+        this.stepTwo != undefined &&
+        this.stepTwo.Finished
       ) {
         return true;
       }
