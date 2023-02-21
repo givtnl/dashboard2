@@ -1,10 +1,12 @@
 export const environment = {
   production: false,
   // for testing purposes
-  apiUrl: 'http://localhost:5000',
-  apiUrlEU: 'http://localhost:5000',
-  apiUrlUS: 'http://localhost:5001',
-  oldDashboardUrl: 'http://localhost:4200',
-  oldDashboardUrlEU: 'https://clouddebug.givtapp.net',
-  oldDashboardUrlUS: 'https://clouddebug.givt.app'
+  apiUrl: "https://givt-debug-api-us.azurewebsites.net",
+  apiUrlEU: "https://givt-debug-api.azurewebsites.net",
+  apiUrlUS: "https://givt-debug-api-us.azurewebsites.net",
+  oldDashboardUrl: "https://givtdashboarddebug.azurewebsites.net",
+  oldDashboardUrlEU: "https://clouddebug.givtapp.net",
+  oldDashboardUrlUS: "https://clouddebug.givt.app",
+  wePayApi: "https://debug-wepay-api.givt.app",
+  wePayAppId: "537744",
 };

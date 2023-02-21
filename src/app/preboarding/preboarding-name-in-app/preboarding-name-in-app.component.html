@@ -1,25 +1,29 @@
 <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()" class="justify-content-center w-100 h-100">
-  <app-custom-card [showCloseButton]="false"
-    questionMarkPictureTitle="preboardingNameInAppComponent.questionmarkPictureTitle"
-    questionMarkPictureText="preboardingNameInAppComponent.questionmarkPictureText"
-    [questionMarkPicturePath]="questionMarkPicturePath"
-    questionMarkPictureAlt="preboardingNameInAppComponent.questionmarkPictureAlt"
-    titleTranslationKey='preboardingOrganisation.topTitle'>
+  <app-custom-card  height="660px" [showCloseButton]="false">
     <div body>
       <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
       <h1 [translate]="'preboardingNameInAppComponent.title'"
-        class="text-primary text-light-font text-givt-purple text-center mt-5"></h1>
-      <p class="text-givt-purple text-light-font text-center" translate>
+        class="text-primary text-light-font text-givt-purple text-center mt-3"></h1>
+      <p class="text-givt-purple text-light-font text-center mt-3" translate>
         preboardingNameInAppComponent.description
       </p>
-      <input formControlName="inAppOrgName" type="text" placeholder="{{ 'placeholders.inAppOrgName' | translate }}"
-        class="my-3 form-control form-control-lg show-validation text-primary mb-3 shadow text-givt-purple" />
+      <p class="text-givt-purple text-light-font text-center mt-5" translate>
+        preboardingNameInAppComponent.tipText
+      </p>
+      <div class="d-flex flex-row justify-content-center align-items-center">
+        <input formControlName="inAppOrgName" type="text" placeholder="{{ 'placeholders.inAppOrgName' | translate }}"
+           class="my-3 form-control form-control-lg text-primary mb-3 shadow text-givt-purple" 
+           [ngClass]="{'is-invalid ': !isFormControlValid('inAppOrgName')}"/>
+        <a class="pl-3" title="{{'preboardingWelcomeDetailsComponent.infoText' | translate}}" 
+        [routerLink]="" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-question-circle text-givt-purple"></i></a>
+      </div>
+      <span class="d-flex justify-content-end text-light-font label-default" id="count_message"></span>
       <p *ngIf="form.status === 'PENDING'"><i class="fa fa-spin fa-spinner"></i>&nbsp;{{'preboardingNameInAppComponent.collectGroupPendingStatus' | translate}}</p>
     </div>
 
     <button bottom type="submit" [translate] 
     [disabled]="form.status === 'PENDING'"
-      class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+      class="btn align-self-center btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
       <span class="text-white text-heavy-font" translate>
         preboardingNameInAppComponent.nextButtonText
       </span>
@@ -27,3 +31,27 @@
 
   </app-custom-card>
 </form>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-givt-purple text-heavy-font" id="help-modalLabel">{{ 'preboardingNameInAppComponent.questionmarkPictureTitle' | translate }}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <p translate>preboardingNameInAppComponent.modalDescription</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <img src={{questionMarkPicturePath}} height="600" width="325"
+             alt="{{'preboardingNameInAppComponent.questionmarkPictureAlt' | translate}}" />
+      </div>
+      
+      
+    </div>
+  </div>
+</div>

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable, forkJoin } from 'rxjs';
-import { tap, switchMap } from 'rxjs/operators';
+import { Observable, forkJoin, Subject } from 'rxjs';
+import { tap, switchMap, takeUntil } from 'rxjs/operators';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { CreateOrganisationContactCommand } from 'src/app/organisations/models/commands/create-organisation-contact.command';
 import { postCodeBACSValidator } from 'src/app/shared/validators/postcode-BACS.validator';
@@ -15,11 +15,11 @@ import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempt
     templateUrl: './preboarding-mail-box-address-details.component.html',
     styleUrls: ['./preboarding-mail-box-address-details.component.scss', '../../preboarding/preboarding.module.scss']
 })
-export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
+export class PreboardingMailBoxAddressDetailsComponent implements OnInit, OnDestroy {
     public form: FormGroup
     public contact: CreateOrganisationContactCommand;
-    private country: String;
-
+    public country: String;
+    private ngUnsubscribe = new Subject<void>();
     constructor(
         private route: ActivatedRoute,
         private formBuilder: FormBuilder,
@@ -43,6 +43,15 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
             mailBoxTelephone: [this.contact ? this.contact.telephone : null, [Validators.required, notNullOrEmptyValidator(), Validators.minLength(6)]],
             mailBoxComments: [this.contact ? this.contact.comments : null]
         });
+        if(this.country === 'US'){
+            this.form.addControl(
+              "mailBoxState",
+              new FormControl(this.contact ? this.contact.state : null, [
+                Validators.required,
+                notNullOrEmptyValidator(),
+              ])
+            );
+        }
     }
 
 
@@ -62,6 +71,9 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
             this.contact.comments = this.form.value.mailBoxComments.trim();
         this.contact.postCode = this.form.value.mailBoxZipCode.trim();
         this.contact.telephone = this.form.value.mailBoxTelephone.trim();
+        if(this.country === 'US'){
+            this.contact.state = this.form.value.mailBoxState.trim();
+        }
         this.preboardingStateService.currentOrganisationContact = this.contact;
     }
 
@@ -73,6 +85,7 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
         const mailBoxCityErrors = this.form.get('mailBoxCity').errors;
         const mailBoxZipcodeErrors = this.form.get('mailBoxZipCode').errors;
         const mailBoxTelephoneErrors = this.form.get('mailBoxTelephone').errors;
+        const mailBoxStateErrors = (this.country === 'US') ? this.form.get('state').errors: null
 
         if (mailBoxAddressErrors) {
             if (mailBoxAddressErrors.trimEmptyValue || mailBoxAddressErrors.required) {
@@ -100,15 +113,28 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit {
             }
         }
 
+        if(this.country === 'US' && mailBoxStateErrors){
+            if (mailBoxStateErrors.trimEmptyValue || mailBoxStateErrors.required) {
+                errorMessages.push(this.translationService.get('errorMessages.address-state-required'));
+            }
+        }
+
 
         forkJoin(errorMessages)
-            .pipe(tap(results => (resolvedErrorMessages = results)))
-            .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+            .pipe(
+                takeUntil(this.ngUnsubscribe),
+                tap(results => (resolvedErrorMessages = results)),
+                switchMap(_ => this.translationService.get('errorMessages.validation-errors')))
             .subscribe(title =>
                 this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
                     enableHtml: true
                 })
             );
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 
 }

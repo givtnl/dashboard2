@@ -1,0 +1,31 @@
+<app-custom-card
+    titleTranslationKey="OnboardingOrganisationDetailsWePayPayoutDetailsComponent.title"
+    width="700px"
+    height="700px"
+    [showPreviousButton]="false"
+    [showCloseButton]="true">
+    <div body class="text-center">
+        <div id="payout-method-iframe"></div>
+        <div *ngIf="hasConfigurationError">
+            <p translate="OnboardingOrganisationDetailsWePayIframeComponent.error"
+                class="text-red text-center p-0 m-0">
+            </p>
+        </div>
+        <div *ngIf="hasCreationError">
+            <p translate="OnboardingOrganisationDetailsWePayIframeComponent.creationError"
+                class="text-red text-center p-0 m-0">
+            </p>
+        </div>
+    </div>
+    <div bottom>
+        <div class="row mt-3 mb-2">
+            <div class="col-md-12">
+                <button bottom [disabled]="loading" type="submit" [translate]
+                class="btn btn-lg bg-givt-green text-white text-heavy-font w-100 mt-1" id="submit-payout-method-button">
+                <i class="fas fa-spinner fa-spin mr-1" *ngIf="loading"></i>
+                OnboardingOrganisationDetailsWePayIframeComponent.btnText
+            </button>
+            </div>
+        </div>
+    </div>
+</app-custom-card>

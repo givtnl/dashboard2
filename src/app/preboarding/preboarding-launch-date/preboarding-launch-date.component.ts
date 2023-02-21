@@ -1,10 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { ToastrService } from "ngx-toastr";
-import { forkJoin, Observable } from "rxjs";
-import { switchMap, tap } from "rxjs/operators";
+import { forkJoin, Observable, Subject } from "rxjs";
+import { switchMap, takeUntil, tap } from "rxjs/operators";
 import { futureDateValidator } from "src/app/shared/validators/date.validator";
 import { SetLaunchDateCommand } from "../models/set-launch-date.command";
 import { PreboardingStateService } from "../services/preboarding-state.service";
@@ -15,13 +15,13 @@ import { PreboardingStateService } from "../services/preboarding-state.service";
   templateUrl: './preboarding-launch-date.component.html',
   styleUrls: ['./preboarding-launch-date.component.scss']
 })
-export class PreboardingLaunchDateComponent implements OnInit {
+export class PreboardingLaunchDateComponent implements OnInit, OnDestroy {
 
   private launchDate: SetLaunchDateCommand
   public form: FormGroup
   public selector: Number
   public minDate: Date
-
+  private ngUnsubscribe = new Subject<void>();
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -75,13 +75,20 @@ export class PreboardingLaunchDateComponent implements OnInit {
     }
 
     forkJoin(errorMessages)
-      .pipe(tap(results => (resolvedErrorMessages = results)))
-      .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+      .pipe(
+        takeUntil(this.ngUnsubscribe),
+        tap(results => (resolvedErrorMessages = results)),
+        switchMap(_ => this.translationService.get('errorMessages.validation-errors')))
       .subscribe(title =>
         this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
           enableHtml: true
         })
       );
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 
 }

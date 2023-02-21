@@ -7,31 +7,31 @@ import { SystemRootComponent } from './system-root/system-root.component';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
 const routes: Routes = [
   {
-    path: 'root',
+    path: "root",
     component: SystemRootComponent,
     children: [
       {
-        path: '',
-        component: NotFoundComponent,
-        outlet: 'system-outlet'
-      },
-      {
-        path: 'error',
+        path: "",
         component: ErrorPageComponent,
-        outlet: 'system-outlet'
+        outlet: "system-outlet",
       },
       {
-        path: 'not-found',
+        path: "error",
+        component: ErrorPageComponent,
+        outlet: "system-outlet",
+      },
+      {
+        path: "not-found",
         component: NotFoundComponent,
-        outlet: 'system-outlet'
+        outlet: "system-outlet",
       },
       {
-        path: 'under-construction',
+        path: "under-construction",
         component: UnderConstructionComponent,
-        outlet: 'system-outlet'
-      }
-    ]
-  }
+        outlet: "system-outlet",
+      },
+    ],
+  },
 ];
 
 @NgModule({

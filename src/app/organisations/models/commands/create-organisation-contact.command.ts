@@ -4,4 +4,5 @@ export interface CreateOrganisationContactCommand {
     postCode: string;
     telephone: string;
     comments:string;
+    state:string
 }

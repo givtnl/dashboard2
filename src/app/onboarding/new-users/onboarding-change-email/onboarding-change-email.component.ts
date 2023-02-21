@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { forkJoin, Observable } from 'rxjs';
-import { tap, switchMap } from 'rxjs/operators';
+import { forkJoin, Observable, Subject } from 'rxjs';
+import { tap, switchMap, takeUntil } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { OnboardingRequestModel } from '../models/onboarding-request.model';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -16,11 +16,11 @@ import { forbiddenValueValidator } from 'src/app/shared/validators/forbidden-val
   templateUrl: 'onboarding-change-email.component.html',
   styleUrls: ['../../onboarding.module.scss', 'onboarding-change-email.component.scss']
 })
-export class OnboardingChangeEmailComponent implements OnInit {
+export class OnboardingChangeEmailComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public loading = false;
   public request: OnboardingRequestModel;
-
+  private ngUnsubscribe = new Subject<void>();
   constructor(
     private translationService: TranslateService,
     private formBuilder: FormBuilder,
@@ -58,6 +58,7 @@ export class OnboardingChangeEmailComponent implements OnInit {
         password: this.form.value.password,
         language: this.translationService.currentLang
       })
+      .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(x =>
         this.router.navigate(['/', 'onboarding', 'welcome', 'new-users', { outlets: { 'onboarding-outlet': ['check-inbox'] } }])
       )
@@ -92,13 +93,19 @@ export class OnboardingChangeEmailComponent implements OnInit {
       }
     }
     forkJoin(errorMessages)
-      .pipe(tap(results => (resolvedErrorMessages = results)))
-      .pipe(tap(results => console.log(results)))
-      .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+      .pipe(
+        takeUntil(this.ngUnsubscribe),
+        tap(results => (resolvedErrorMessages = results)),
+        switchMap(_ => this.translationService.get('errorMessages.validation-errors')))
       .subscribe(title =>
         this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
           enableHtml: true
         })
       );
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 }

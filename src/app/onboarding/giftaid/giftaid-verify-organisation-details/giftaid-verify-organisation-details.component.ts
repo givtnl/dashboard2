@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { PreparedGiftAidSettings } from '../models/prepared-giftaid-settings.model';
 import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-state.service';
 
@@ -9,11 +11,11 @@ import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-st
     templateUrl: './giftaid-verify-organisation-details.component.html',
     styleUrls: ['../../onboarding.module.scss', './giftaid-verify-organisation-details.component.scss']
 })
-export class GiftaidVerifyOrganisationDetailsComponent implements OnInit {
+export class GiftaidVerifyOrganisationDetailsComponent implements OnInit,OnDestroy {
     public form: FormGroup;
     public loading = false;
     public giftAidSettings: PreparedGiftAidSettings;
-
+    private ngUnsubscribe = new Subject<void>();
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
@@ -29,7 +31,9 @@ export class GiftaidVerifyOrganisationDetailsComponent implements OnInit {
         this.giftAidSettings = this.currentSettings;
 
         // listen to value change
-        this.form.valueChanges.subscribe(value => {
+        this.form.valueChanges
+            .pipe(takeUntil(this.ngUnsubscribe))
+            .subscribe(value => {
             this.loading = true;
             this.router.navigate(['/', 'onboarding', 'giftaid',
                 { outlets: { 'onboarding-outlet': [value.detailsCorrect ? 'completed' : 'organisation-charity-details'] } }],
@@ -39,5 +43,10 @@ export class GiftaidVerifyOrganisationDetailsComponent implements OnInit {
     }
     private get currentSettings(): PreparedGiftAidSettings {
         return this.stateService.currentGiftAidSettings as PreparedGiftAidSettings;
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

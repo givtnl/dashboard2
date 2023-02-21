@@ -11,6 +11,9 @@ export class PreboardingFormattingService {
         let result = 'Contact info \n';
         result += `Address: ${command.address}\n`;
         result += `City: ${command.city}\n`;
+        if (command.state != null) {
+            result += `State: ${command.state}`
+        }
         result += `Postcode: ${command.postCode}\n`;
         result += `Telephone: ${command.telephone}\n`;
         result += `Note: ${command.comments}\n`;

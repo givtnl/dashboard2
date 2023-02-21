@@ -8,7 +8,8 @@
         class="introduction-title text-primary text-light-font text-givt-purple text-center mt-4"></p>
       <input type="email" autocomplete="new-password" placeholder="{{ 'placeholders.email' | translate }}"
         formControlName="email" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
-      <small class="text-left form-text pb-3">
+      <app-password-input *ngIf="showPassword" formControlName="password"></app-password-input>
+      <small class="text-center form-text mt-5">
         <a class="text-givt-purple text-light-font"
           [routerLink]="['/', 'onboarding', 'welcome', 'new-users', { outlets: { 'onboarding-outlet': ['change-email'] } }]"
           queryParamsHandling="merge">
@@ -17,10 +18,9 @@
           </u>
         </a>
       </small>
-      <app-password-input *ngIf="showPassword" formControlName="password"></app-password-input>
     </div>
 
-    <button bottom type="submit" [translate] class="btn align-self-end btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
+    <button bottom type="submit" [translate] class="btn align-self-center btn-lg bg-givt-green text-white text-heavy-font bottom-button w-75">
       onboardingWelcomeComponent.registerButtonText
     </button>
 

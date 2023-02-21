@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
-import { Observable, forkJoin } from 'rxjs';
-import { tap, switchMap } from 'rxjs/operators';
+import { Observable, forkJoin, Subject } from 'rxjs';
+import { tap, switchMap, takeUntil } from 'rxjs/operators';
 import { OnboardingBankAccountHolderStateService } from '../services/onboarding-bank-account-holder-state.service';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 
@@ -13,10 +13,10 @@ import { ApplicationStateService } from 'src/app/infrastructure/services/applica
     templateUrl: './onboarding-bank-account-holder-who.component.html',
     styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-holder-who.component.scss']
 })
-export class OnboardingBankAccountHolderWhoComponent implements OnInit {
+export class OnboardingBankAccountHolderWhoComponent implements OnInit,OnDestroy {
     public form: FormGroup;
     public loading = false;
-    
+    private ngUnsubscribe = new Subject<void>();
     private isExistingAccountHolder = false;
 
     /**
@@ -113,12 +113,19 @@ export class OnboardingBankAccountHolderWhoComponent implements OnInit {
         }
 
         forkJoin(errorMessages)
-            .pipe(tap(results => (resolvedErrorMessages = results)))
-            .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+            .pipe(
+                takeUntil(this.ngUnsubscribe),
+                tap(results => (resolvedErrorMessages = results)),
+                switchMap(_ => this.translationService.get('errorMessages.validation-errors')))
             .subscribe(title =>
                 this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
                     enableHtml: true
                 })
             );
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

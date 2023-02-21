@@ -1,22 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CreatePreboardingAdditionalInformationCommand } from '../models/create-preboarding-additional-information.command';
-import { Observable, forkJoin } from 'rxjs';
-import { tap, switchMap } from 'rxjs/operators';
+import { Observable, forkJoin, Subject } from 'rxjs';
+import { tap, switchMap, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-preboarding-collections',
   templateUrl: './preboarding-collections.component.html',
   styleUrls: ['./preboarding-collections.component.scss']
 })
-export class PreboardingCollectionsComponent implements OnInit {
+export class PreboardingCollectionsComponent implements OnInit, OnDestroy {
   public form: FormGroup
   private additionalInformationCommand: CreatePreboardingAdditionalInformationCommand;
-
+  private ngUnsubscribe = new Subject<void>();
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -68,8 +68,10 @@ export class PreboardingCollectionsComponent implements OnInit {
     }
 
     forkJoin(errorMessages)
-      .pipe(tap(results => (resolvedErrorMessages = results)))
-      .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+      .pipe(
+        takeUntil(this.ngUnsubscribe),
+        tap(results => (resolvedErrorMessages = results)),
+        switchMap(_ => this.translationService.get('errorMessages.validation-errors')))
       .subscribe(title =>
         this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
           enableHtml: true
@@ -83,5 +85,10 @@ export class PreboardingCollectionsComponent implements OnInit {
     this.additionalInformationCommand.communionCollection.enabled = this.form.value.communionCollection;
     this.additionalInformationCommand.candleCollection.enabled = this.form.value.candleCollection;
     this.preboardingStateService.currentAdditionalInformation = this.additionalInformationCommand;
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 }

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable, forkJoin } from 'rxjs';
-import { tap, switchMap } from 'rxjs/operators';
+import { Observable, forkJoin, Subject } from 'rxjs';
+import { tap, switchMap, takeUntil } from 'rxjs/operators';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { CreateCollectGroupUserCommand } from 'src/app/collect-groups/models/create-collect-group-user.command';
 
@@ -13,11 +13,11 @@ import { CreateCollectGroupUserCommand } from 'src/app/collect-groups/models/cre
     templateUrl: './preboarding-organisation-admin-details.component.html',
     styleUrls: ['./preboarding-organisation-admin-details.component.scss', '../../preboarding/preboarding.module.scss']
 })
-export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
+export class PreboardingOrganisationAdminDetailsComponent implements OnInit, OnDestroy {
     private orgAdmins: CreateCollectGroupUserCommand[];
     public emails = ["Ah yeep", "Goedja?"]
     public loading = false;
-
+    private ngUnsubscribe = new Subject<void>();
     form: FormGroup
     constructor(
         private formBuilder: FormBuilder,
@@ -28,27 +28,18 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
         private route: ActivatedRoute) { }
 
     ngOnInit() {
-        this.orgAdmins = this.route.snapshot.data.orgAdmins;
+      // this.orgAdmins = this.route.snapshot.data.orgAdmins;
 
-        this.form = this.formBuilder.group({
-            inviteEmails: this.mapEmailsToArray(this.orgAdmins && this.orgAdmins.length > 0 ? this.orgAdmins : [])
-        })
-        if (this.orgAdmins.length == 0) {
-            this.inviteEmails().push(this.mapEmail())
-        }
+      this.form = this.formBuilder.group({
+        email: [
+          this.orgAdmins && this.orgAdmins.length > 0
+            ? this.orgAdmins[0].email
+            : null,
+          [Validators.required, Validators.email],
+        ],
+      });
     }
-    mapEmail(email: string = null): FormGroup {
-        return this.formBuilder.group({
-            email: [email ? email : null, [Validators.required, Validators.email]]
-        })
-    }
-    mapEmailsToArray(emails: CreateCollectGroupUserCommand[]): FormArray {
-        return this.formBuilder.array(emails.map(x => this.mapEmail(x.email)))
-    }
-    inviteEmails(): FormArray {
-        return this.form.get("inviteEmails") as FormArray
-    }
-
+    
     submit() {
         if (this.form.invalid) {
             this.handleInvalidForm();
@@ -60,17 +51,19 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
     }
 
     continue() {
-        this.preboardingStateService.currentOrganisationAdminContact = this.form.value.inviteEmails.map(x => {
-            return { email: x.email.trim().replace("\n","").replace("\r",""), language: this.preboardingStateService.organisationDetails.language }
-        })
-
+        this.preboardingStateService.currentOrganisationAdminContact = [
+          {
+            email: this.form.get("email").value,
+            language: this.preboardingStateService.organisationDetails.language,
+          },
+        ]; 
     }
 
     handleInvalidForm() {
         let errorMessages = new Array<Observable<string>>();
         let resolvedErrorMessages = new Array<string>();
 
-        const organisatorEmailErrors = this.form.get('organisatorEmail').errors;
+        const organisatorEmailErrors = this.form.get("email").errors;
 
         if (organisatorEmailErrors) {
             if (organisatorEmailErrors.required) {
@@ -82,12 +75,19 @@ export class PreboardingOrganisationAdminDetailsComponent implements OnInit {
         }
 
         forkJoin(errorMessages)
-            .pipe(tap(results => (resolvedErrorMessages = results)))
-            .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+            .pipe(
+                takeUntil(this.ngUnsubscribe),
+                tap(results => (resolvedErrorMessages = results)),
+                switchMap(_ => this.translationService.get('errorMessages.validation-errors')))
             .subscribe(title =>
                 this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
                     enableHtml: true
                 })
             );
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 }

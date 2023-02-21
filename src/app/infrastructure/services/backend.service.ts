@@ -77,8 +77,10 @@ export class BackendService {
 		} );
 	}
 
-	public patch<T>(path:string, body: Object = null): Observable<T>{
-		return this.http.patch<T>(`${this.baseUrl}${path}`, body);
+	public patch<T>(path:string, body: Object = null, headers: HttpHeaders = null): Observable<T>{
+		return this.http.patch<T>(`${this.baseUrl}${path}`, body, {
+			headers: headers
+		});
 	}
     public delete(path:string): Observable<object>{
 		return this.http.delete(`${this.baseUrl}${path}`);

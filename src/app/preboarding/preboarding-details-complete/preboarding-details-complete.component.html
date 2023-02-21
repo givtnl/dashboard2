@@ -1,19 +1,19 @@
 <app-custom-card [showCloseButton]="false">
   <div body>
-    <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
+    <app-header-image class="d-flex flex-row  justify-content-center"></app-header-image>
     <div [class.circle-red]="hasFailedSteps()" [class.circle-green]="hasLoadingSteps() || isCompleted()"
       class=" w-150px h-150px d-flex justify-content-center align-items-center shadow mb-3 mx-auto">
       <i *ngIf="hasLoadingSteps()" class="fas fa-spinner fa-spin fa-5x text-white"></i>
       <i *ngIf="hasFailedSteps()" class="fa fa-times fa-5x text-white"></i>
       <i *ngIf="isCompleted()" class="fa fa-check fa-5x text-white"></i>
     </div>
-    <p *ngIf="isCompleted()" class="introduction-title text-primary text-heavy-font text-givt-purple text-center"
+    <h3 *ngIf="isCompleted()" class="text-primary text-givt-purple text-center mt-5"
       translate>
-      preboardingDetailsCompleteComponent.title
-    </p>
-    <p *ngIf="isCompleted()" class="text-givt-purple text-light-font text-center" translate>
+      preboardingDetailsCompleteComponent.title <span>🎉</span>
+    </h3>
+    <p *ngIf="isCompleted()" class="text-givt-purple text-heavy-font text-center mt-3" translate>
       preboardingDetailsCompleteComponent.description</p>
-    <ul class="list-group list-group-flush">
+    <ul *ngIf="!isCompleted()" class="list-group list-group-flush">
       <li *ngFor="let step of steps; let i = index"
         class="list-group-item d-flex justify-content-between align-items-center p-1">{{step.term | translate}}
         <i *ngIf="step.loading" class="fa fa-spinner fa-spin"></i>

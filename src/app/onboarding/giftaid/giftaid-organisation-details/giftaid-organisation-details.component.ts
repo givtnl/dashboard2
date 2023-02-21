@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-state.service';
 import { PreparedGiftAidSettings } from '../models/prepared-giftaid-settings.model';
-import { Observable, forkJoin } from 'rxjs';
-import { tap, switchMap } from 'rxjs/operators';
+import { Observable, forkJoin, Subject } from 'rxjs';
+import { tap, switchMap, takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempty.validator';
@@ -14,9 +14,9 @@ import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempt
   templateUrl: './giftaid-organisation-details.component.html',
   styleUrls: ['../../onboarding.module.scss', './giftaid-organisation-details.component.scss']
 })
-export class GiftaidOrganisationDetailsComponent implements OnInit {
+export class GiftaidOrganisationDetailsComponent implements OnInit, OnDestroy {
   public form: FormGroup;
-
+  private ngUnsubscribe = new Subject<void>();
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -93,13 +93,19 @@ export class GiftaidOrganisationDetailsComponent implements OnInit {
     
 
     forkJoin(errorMessages)
-      .pipe(tap(results => (resolvedErrorMessages = results)))
-      .pipe(tap(results => console.log(results)))
-      .pipe(switchMap(() => this.translationService.get('errorMessages.validation-errors')))
+      .pipe(
+        takeUntil(this.ngUnsubscribe),
+        tap(results => (resolvedErrorMessages = results)),
+        switchMap(() => this.translationService.get('errorMessages.validation-errors')))
       .subscribe(title =>
         this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
           enableHtml: true
         })
       );
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 }

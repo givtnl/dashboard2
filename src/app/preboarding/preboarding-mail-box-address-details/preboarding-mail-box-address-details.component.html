@@ -1,25 +1,62 @@
 <form autocomplete='off' [formGroup]='form' (ngSubmit)='submit()' class='justify-content-center w-100 h-100' #formDir="ngForm" [class.submitted]="formDir.submitted">
-    <app-custom-card [showCloseButton]="false" [showPreviousButton]="true" titleTranslationKey='preboardingOrganisation.topTitle'>
+    <app-custom-card 
+    height="855px"
+    [showCloseButton]="false" 
+    [showPreviousButton]="true">
         <div body>
-            <app-header-image class="d-flex flex-row justify-content-center"></app-header-image>
+            <app-header-image 
+             [class.custom-header]="country == 'US'"
+             class="d-flex flex-row justify-content-center"></app-header-image>
+            
             <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
                 preboardingMailboxAddressDetailsComponent.description
+               <a class="pl-1" title="{{'preboardingMailboxAddressDetailsComponent.infoText' | translate}}" 
+                  [routerLink]="" data-toggle="modal" data-target="#starterKitHelpModal"><i class="fas fa-question-circle text-givt-purple"></i></a>
+            </p>
+                
+         
+            <p class="introduction-title text-primary text-light-font text-givt-purple mt-3" translate>
+                preboardingMailboxAddressDetailsComponent.tipText
             </p>
 
             <input type="text" placeholder="{{'preboardingMailboxAddressDetailsComponent.placeholderAddress' | translate}}" formControlName="mailBoxAddress" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
             <input type="text" placeholder="{{'preboardingMailboxAddressDetailsComponent.placeholderCity' | translate}}" formControlName="mailBoxCity" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-            <input type="text" placeholder="{{'preboardingMailboxAddressDetailsComponent.placeholderZipcode' | translate}}" formControlName="mailBoxZipCode" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+            <input *ngIf="country == 'US'" type="text" placeholder="{{'preboardingMailboxAddressDetailsComponent.placeholderState' | translate}}" formControlName="mailBoxState" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
+
+            <input type="text" placeholder="{{((country == 'US')?'preboardingMailboxAddressDetailsComponent.placeholderZipcode':'preboardingMailboxAddressDetailsComponent.placeholderPostalcode') | translate}}" formControlName="mailBoxZipCode" 
+              class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
             <input type="text" placeholder="{{'preboardingMailboxAddressDetailsComponent.placeholderTelephone' | translate}}" formControlName="mailBoxTelephone" class="form-control form-control-lg mb-3 shadow text-givt-purple" />
 
-            <textarea formControlName="mailBoxComments" class="form-control rounded-3 shadow" placeholder="{{'preboardingMailboxAddressDetailsComponent.placeholderComments' | translate}}" rows="3"></textarea>
+            <textarea formControlName="mailBoxComments" class="form-control textarea text-givt-purple text rounded-3 shadow" placeholder="{{'preboardingMailboxAddressDetailsComponent.placeholderComments' | translate}}" rows="3"></textarea>
         </div>
-        <button bottom type="submit" [translate] class="btn align-self-end btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
+        <button bottom type="submit" [translate] class="btn align-self-center btn-lg bg-givt-purple text-white text-heavy-font bottom-button w-75">
             <span class="text-white text-heavy-font" translate>
                 preboardingMailboxAddressDetailsComponent.nextButtonText
             </span>
         </button>
     </app-custom-card>
 </form>
+
+<div class="modal fade" id="starterKitHelpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-givt-purple text-heavy-font" id="help-modalLabel">{{ 'preboardingMailboxAddressDetailsComponent.infoText' | translate }}
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+          <p translate>preboardingMailboxAddressDetailsComponent.modalText</p>
+        </div>
+       
+        
+        
+      </div>
+    </div>
+  </div>

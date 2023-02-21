@@ -27,7 +27,7 @@ import { PreboardingLaunchDateComponent } from './preboarding-launch-date/preboa
     PreboardingCollectionsComponent,
     PreboardingVisitorCountComponent,
     PreboardingOrganisationRelationComponent,
-    PreboardingLaunchDateComponent
+    PreboardingLaunchDateComponent,
   ],
   imports: [
     CommonModule, ReactiveFormsModule, SharedModule,

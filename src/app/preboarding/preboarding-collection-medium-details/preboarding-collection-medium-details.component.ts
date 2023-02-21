@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable, forkJoin } from 'rxjs';
-import { tap, switchMap } from 'rxjs/operators';
+import { Observable, forkJoin, Subject } from 'rxjs';
+import { tap, switchMap, takeUntil } from 'rxjs/operators';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { CreatePreboardingAdditionalInformationCommand, PreboardingCollectionDetail } from '../models/create-preboarding-additional-information.command';
 
@@ -13,8 +13,8 @@ import { CreatePreboardingAdditionalInformationCommand, PreboardingCollectionDet
   templateUrl: './preboarding-collection-medium-details.component.html',
   styleUrls: ['./preboarding-collection-medium-details.component.scss', '../../preboarding/preboarding.module.scss',]
 })
-export class PreboardingCollectionMediumDetailsComponent implements OnInit {
-
+export class PreboardingCollectionMediumDetailsComponent implements OnInit,OnDestroy {
+  private ngUnsubscribe = new Subject<void>();
   public form: FormGroup
   public additionalInformationCommand: CreatePreboardingAdditionalInformationCommand;
   formSubmitted = false;
@@ -83,8 +83,10 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
       errorMessages.push(this.translationService.get('errorMessages.fill-in-all-details'));
 
     forkJoin(errorMessages)
-      .pipe(tap(results => (resolvedErrorMessages = results)))
-      .pipe(switchMap(results => this.translationService.get('errorMessages.validation-errors')))
+      .pipe(
+        takeUntil(this.ngUnsubscribe),
+        tap(results => (resolvedErrorMessages = results)),
+        switchMap(results => this.translationService.get('errorMessages.validation-errors')))
       .subscribe(title =>
         this.toastr.warning(resolvedErrorMessages.join('<br>'), title, {
           enableHtml: true
@@ -127,5 +129,8 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit {
       return null;
     }
   }
-
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
 }
