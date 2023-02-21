@@ -1,4 +1,4 @@
-name: Build and Deploy dashboard2 frontend
+name: Build and deploy to AWS
 on: 
   push:
     branches: [main, develop]
