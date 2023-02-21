@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 [![Build and deploy to Azure](https://github.com/givtnl/dashboard2/actions/workflows/workflow-azure.yml/badge.svg)](https://github.com/givtnl/dashboard2/actions/workflows/workflow-azure.yml)
 
-[![Build and Deploy to AWS](https://github.com/givtnl/dashboard2/actions/workflows/workflow.yml/badge.svg)](https://github.com/givtnl/dashboard2/actions/workflows/workflow.yml)
+[![Build and Deploy to AWS](https://github.com/givtnl/dashboard2/actions/workflows/workflow-aws.yml/badge.svg)](https://github.com/givtnl/dashboard2/actions/workflows/workflow-aws.yml)
 
 ## Getting started
 This project requires version node 16.16 to run! You can use NVM with `nvm install 16`.
