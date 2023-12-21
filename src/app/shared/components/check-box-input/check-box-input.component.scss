@@ -1,5 +1,8 @@
-@import 'functions', 'variables';
-@import "src/globals.scss";
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+
+@import '../../../../globals.scss';
 
 .btn-givt:hover:not(:disabled),
 .btn-givt.active {

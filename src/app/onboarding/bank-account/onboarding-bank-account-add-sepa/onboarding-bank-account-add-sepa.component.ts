@@ -12,7 +12,7 @@ import { BankAccountListModel } from 'src/app/bank-accounts/models/bank-account-
 @Component({
     selector: 'app-onboarding-bank-account-add-sepa',
     templateUrl: './onboarding-bank-account-add-sepa.component.html',
-    styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-add-sepa.component.scss']
+    styleUrls: ['../../onboarding.scss', './onboarding-bank-account-add-sepa.component.scss']
 })
 export class OnboardingBankAccountAddSepaComponent implements OnInit, OnDestroy {
     public loading = false;

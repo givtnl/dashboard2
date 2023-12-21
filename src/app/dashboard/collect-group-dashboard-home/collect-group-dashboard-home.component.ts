@@ -1,11 +1,9 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ApplicationStateService } from 'src/app/infrastructure/services/application-state.service';
 import { DashboardService } from 'src/app/shared/services/dashboard.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-collect-group-dashboard-home',

@@ -37,7 +37,7 @@
         <p [translate] class="text-givt-purple text-heavy-font m-0 text-center">
             onboardingBankAccountSigningVerifyDetailsComponent.yesNoQuestion
         </p>
-        <app-check-box-input formControlName="detailsCorrect" [(loading)]="loading"></app-check-box-input>
+        <app-check-box-input formControlName="detailsCorrect" (loading)="loading"></app-check-box-input>
     </div>
 
 </app-custom-card>

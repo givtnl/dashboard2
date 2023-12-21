@@ -11,7 +11,7 @@ import { CreatePreboardingAdditionalInformationCommand, PreboardingCollectionDet
 @Component({
   selector: 'app-preboarding-collection-medium-details',
   templateUrl: './preboarding-collection-medium-details.component.html',
-  styleUrls: ['./preboarding-collection-medium-details.component.scss', '../../preboarding/preboarding.module.scss',]
+  styleUrls: ['./preboarding-collection-medium-details.component.scss', '../../preboarding/preboarding.scss',]
 })
 export class PreboardingCollectionMediumDetailsComponent implements OnInit,OnDestroy {
   private ngUnsubscribe = new Subject<void>();

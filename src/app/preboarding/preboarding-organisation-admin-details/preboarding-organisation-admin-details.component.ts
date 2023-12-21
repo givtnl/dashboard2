@@ -11,7 +11,7 @@ import { CreateCollectGroupUserCommand } from 'src/app/collect-groups/models/cre
 @Component({
     selector: 'app-preboarding-organisation-admin-details',
     templateUrl: './preboarding-organisation-admin-details.component.html',
-    styleUrls: ['./preboarding-organisation-admin-details.component.scss', '../../preboarding/preboarding.module.scss']
+    styleUrls: ['./preboarding-organisation-admin-details.component.scss', '../../preboarding/preboarding.scss']
 })
 export class PreboardingOrganisationAdminDetailsComponent implements OnInit, OnDestroy {
     private orgAdmins: CreateCollectGroupUserCommand[];

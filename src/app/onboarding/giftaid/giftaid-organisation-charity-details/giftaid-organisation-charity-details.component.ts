@@ -16,7 +16,7 @@ import { oscrReferenceValidator } from 'src/app/shared/validators/scottish-regul
 @Component({
     selector: 'app-giftaid-organisation-charity-details',
     templateUrl: './giftaid-organisation-charity-details.component.html',
-    styleUrls: ['../../onboarding.module.scss', './giftaid-organisation-charity-details.component.scss']
+    styleUrls: ['../../onboarding.scss', './giftaid-organisation-charity-details.component.scss']
 })
 export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit,OnDestroy {
 

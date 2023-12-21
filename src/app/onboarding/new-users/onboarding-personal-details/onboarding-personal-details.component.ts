@@ -11,7 +11,7 @@ import { OnboardingNewUsersStateService } from '../services/onboarding-new-users
 @Component({
   selector: 'app-onboarding-personal-details',
   templateUrl: './onboarding-personal-details.component.html',
-  styleUrls: ['../../onboarding.module.scss', './onboarding-personal-details.component.scss']
+  styleUrls: ['../../onboarding.scss', './onboarding-personal-details.component.scss']
 })
 export class OnboardingPersonalDetailsComponent implements OnInit, OnDestroy {
   public form: FormGroup;

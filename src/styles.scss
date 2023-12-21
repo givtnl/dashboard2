@@ -1,36 +1,38 @@
-@import "extensions.scss";
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
 @import "globals.scss";
 
 @font-face {
     font-family: "Avenir_Black";
-    src: url("/assets/fonts/AvenirLTStd-Black.otf");
-    src: url("/assets/fonts/AvenirLTStd-Black.ttf");
+    src: url("./assets/fonts/AvenirLTStd-Black.otf");
+    src: url("./assets/fonts/AvenirLTStd-Black.ttf");
 }
 
 @font-face {
     font-family: "Avenir_Light";
-    src: url("/assets/fonts/AvenirLTStd-Light.otf");
+    src: url("./assets/fonts/AvenirLTStd-Light.otf");
 }
 
 @font-face {
     font-family: "Avenir_Roman";
-    src: url("/assets/fonts/AvenirLTStd-Roman.otf");
+    src: url("./assets/fonts/AvenirLTStd-Roman.otf");
 }
 
 @font-face {
     font-family: "Avenir_Heavy";
-    src: url("/assets/fonts/AvenirLTStd-Heavy.otf");
+    src: url("./assets/fonts/AvenirLTStd-Heavy.otf");
 }
 
 @font-face {
     font-family: "Avenir_Medium";
-    src: url("/assets/fonts/AvenirLTStd-Medium.otf");
+    src: url("./assets/fonts/AvenirLTStd-Medium.otf");
 }
 @font-face {
     font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
-    src: url("/assets/fonts/roboto-v15-latin-regular.woff") format("woff");
+    src: url("./assets/fonts/roboto-v15-latin-regular.woff") format("woff");
 }
 
 /* Change Autocomplete styles in Chrome*/
@@ -50,7 +52,5 @@ select:-webkit-autofill:focus {
     transition: background-color 5000s ease-in-out 0s, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-
-
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import '../node_modules/bootstrap/scss/bootstrap.scss';

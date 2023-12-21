@@ -7,7 +7,7 @@ import { OnboardingBankAccountStateService } from '../services/onboarding-bank-a
 @Component({
     selector: 'app-onboarding-bank-account-completed',
     templateUrl: './onboarding-bank-account-completed.component.html',
-    styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-completed.component.scss']
+    styleUrls: ['../../onboarding.scss', './onboarding-bank-account-completed.component.scss']
 })
 export class OnboardingBankAccountCompletedComponent implements OnInit, OnDestroy {
 

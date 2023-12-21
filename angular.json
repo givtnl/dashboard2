@@ -1,7 +1,7 @@
 {
     "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
     "cli": {
-      "analytics": "83f85c24-de55-4119-86e3-5b186b1cdec7"
+        "analytics": "83f85c24-de55-4119-86e3-5b186b1cdec7"
     },
     "version": 1,
     "newProjectRoot": "projects",
@@ -42,22 +42,25 @@
                         "outputPath": "dist",
                         "index": "src/index.html",
                         "main": "src/main.ts",
-                        "polyfills": "src/polyfills.ts",
+                        "polyfills": [
+                          "zone.js"
+                        ],
                         "tsConfig": "tsconfig.app.json",
                         "aot": true,
                         "assets": [
                             "src/favicon.ico",
-                            "src/assets"
+                            {
+                                "glob": "**/*",
+                                "input": "src/assets/",
+                                "ignore": [
+                                    "**/*.scss"
+                                ],
+                                "output": "/assets/"
+                            }
                         ],
                         "styles": [
-                            "node_modules/bootstrap/scss/bootstrap.scss",
                             "src/styles.scss"
                         ],
-                        "stylePreprocessorOptions": {
-                            "includePaths": [
-                                "node_modules/bootstrap/scss"
-                            ]
-                        },
                         "scripts": []
                     },
                     "configurations": {
@@ -68,7 +71,7 @@
                                     "with": "src/environments/environment.prod.ts"
                                 }
                             ],
-                            "optimization": true,
+                            "optimization": false,
                             "outputHashing": "all",
                             "sourceMap": false,
                             "namedChunks": false,
@@ -95,13 +98,13 @@
                                     "with": "src/environments/environment.local.ts"
                                 }
                             ],
-                            "optimization": true,
+                            "optimization": false,
                             "outputHashing": "all",
                             "sourceMap": false,
                             "namedChunks": false,
                             "extractLicenses": true,
                             "vendorChunk": false,
-                            "buildOptimizer": true,
+                            "buildOptimizer": false,
                             "budgets": [
                                 {
                                     "type": "initial",
@@ -120,25 +123,24 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "onboarding-app:build"
+                        "buildTarget": "onboarding-app:build"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "onboarding-app:build:production"
+                            "buildTarget": "onboarding-app:build:production"
                         },
                         "local": {
-                            "browserTarget": "onboarding-app:build:local"
+                            "buildTarget": "onboarding-app:build:local"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "onboarding-app:build"
+                        "buildTarget": "onboarding-app:build"
                     }
                 }
             }
         }
-    },
-    "defaultProject": "onboarding-app"
+    }
 }

@@ -11,7 +11,7 @@ import { ApplicationStateService } from 'src/app/infrastructure/services/applica
 @Component({
     selector: 'app-onboarding-bank-account-holder-who',
     templateUrl: './onboarding-bank-account-holder-who.component.html',
-    styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-holder-who.component.scss']
+    styleUrls: ['../../onboarding.scss', './onboarding-bank-account-holder-who.component.scss']
 })
 export class OnboardingBankAccountHolderWhoComponent implements OnInit,OnDestroy {
     public form: FormGroup;

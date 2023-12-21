@@ -10,7 +10,7 @@ import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-onboarding-bank-account-signing-verify-details',
   templateUrl: './onboarding-bank-account-signing-verify-details.component.html',
-  styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-signing-verify-details.component.scss']
+  styleUrls: ['../../onboarding.scss', './onboarding-bank-account-signing-verify-details.component.scss']
 })
 export class OnboardingBankAccountSigningVerifyDetailsComponent implements OnInit, OnDestroy {
   public form: FormGroup;

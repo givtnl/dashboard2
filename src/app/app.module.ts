@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr'; 
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader, MissingTranslationHandler } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -18,8 +18,6 @@ import { ForbiddenInterceptor } from './shared/interceptors/forbidden.intercepto
 import { EncodeHttpParamsInterceptor } from './infrastructure/interceptors/http-params.interceptor';
 import { InternalServerErrorInterceptor } from './shared/interceptors/internal-server-error.interceptor';
 import { locationFactory } from './infrastructure/services/backend.service.provider';
-
-
 
 @NgModule({
     declarations: [AppComponent],

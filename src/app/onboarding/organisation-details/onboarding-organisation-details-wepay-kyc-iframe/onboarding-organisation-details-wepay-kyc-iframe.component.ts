@@ -32,7 +32,6 @@ export class OnboardingOrganisationDetailsWePayIframeComponent
     private onboardingWePayService: OnboardingWePayService,
     private dashboardService: DashboardService,
     private toastr: TranslatableToastrService,
-    private zone: NgZone
   ) {}
 
   ngOnInit(): void {

@@ -7,18 +7,19 @@ import { CacheService } from 'src/app/shared/services/cache.service';
 import { map } from 'rxjs/operators';
 
 @Injectable({
-	providedIn: 'root'
+    providedIn: 'root'
 })
 export class BackendService {
     private cacheService: CacheService
-    
-	public baseUrl: String;
 
-	public currentUser = this.applicationStateService.currentUserModel;
+    public baseUrl: String;
+
+    public currentUser;
 
     constructor(public http: HttpClient,
         private applicationStateService: ApplicationStateService,
         @Inject('BROWSER_LOCATION') private browserLocation: any) {
+        this.applicationStateService.currentUserModel
         this.baseUrl = this.getApiUrl() + '/api/';
         this.cacheService = new CacheService(sessionStorage);
     }
@@ -29,8 +30,8 @@ export class BackendService {
          * For local dev apiUrl remains used
          */
 
-        if(environment.production) {
-            if(this.browserLocation.hostname.endsWith('givt.app'))
+        if (environment.production) {
+            if (this.browserLocation.hostname.endsWith('givt.app'))
                 return environment.apiUrlUS;
             else
                 return environment.apiUrlEU;
@@ -40,15 +41,15 @@ export class BackendService {
             return environment.apiUrlUS;
         else if (this.browserLocation.hostname.endsWith('givtapp.net'))
             return environment.apiUrlEU;
-        else 
+        else
             return environment.apiUrl;
-        
+
     }
-    
-    public get<T>(path: string, params: HttpParams = null): Observable<T>{
+
+    public get<T>(path: string, params: HttpParams = null): Observable<T> {
         return this.http.get<T>(`${this.baseUrl}${path}`, {
-			params
-		});
+            params
+        });
     }
 
     public getCached<T>(path: string, params: HttpParams = null): Observable<T> {
@@ -59,7 +60,7 @@ export class BackendService {
                     this.cacheService.setItem(path, x, 30);
                     return x;
                 })
-            );            
+            );
         }
         return new Observable<T>(observer => {
             observer.next(result as T);
@@ -67,22 +68,22 @@ export class BackendService {
         });
     }
 
-	public put<T>(path: string, body: Object): Observable<T> {
-		return this.http.put<T>(`${this.baseUrl}${path}`, body);
-	}
+    public put<T>(path: string, body: Object): Observable<T> {
+        return this.http.put<T>(`${this.baseUrl}${path}`, body);
+    }
 
-	public post<T>(path: string, body: Object, headers: HttpHeaders = null): Observable<T> {
-		return this.http.post<T>(`${this.baseUrl}${path}`, body, {
-			headers: headers
-		} );
-	}
+    public post<T>(path: string, body: Object, headers: HttpHeaders = null): Observable<T> {
+        return this.http.post<T>(`${this.baseUrl}${path}`, body, {
+            headers: headers
+        });
+    }
 
-	public patch<T>(path:string, body: Object = null, headers: HttpHeaders = null): Observable<T>{
-		return this.http.patch<T>(`${this.baseUrl}${path}`, body, {
-			headers: headers
-		});
-	}
-    public delete(path:string): Observable<object>{
-		return this.http.delete(`${this.baseUrl}${path}`);
-	}
+    public patch<T>(path: string, body: Object = null, headers: HttpHeaders = null): Observable<T> {
+        return this.http.patch<T>(`${this.baseUrl}${path}`, body, {
+            headers: headers
+        });
+    }
+    public delete(path: string): Observable<object> {
+        return this.http.delete(`${this.baseUrl}${path}`);
+    }
 }

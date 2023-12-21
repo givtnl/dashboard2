@@ -11,7 +11,7 @@ import { BankAccountListModel } from 'src/app/bank-accounts/models/bank-account-
 @Component({
     selector: 'app-onboarding-bank-account-add',
     templateUrl: './onboarding-bank-account-add.component.html',
-    styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-add.component.scss']
+    styleUrls: ['../../onboarding.scss', './onboarding-bank-account-add.component.scss']
 })
 export class OnboardingBankAccountAddComponent implements OnInit, OnDestroy {
     public loading = false;

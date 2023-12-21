@@ -15,7 +15,7 @@ import { wholeNumberValidator } from "src/app/shared/validators/whole-number.val
   templateUrl: "./preboarding-visitor-count.component.html",
   styleUrls: [
     "./preboarding-visitor-count.component.scss",
-    "../../preboarding/preboarding.module.scss",
+    "../../preboarding/preboarding.scss",
   ],
 })
 export class PreboardingVisitorCountComponent implements OnInit, OnDestroy {

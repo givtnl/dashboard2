@@ -12,7 +12,7 @@ import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempt
 @Component({
   selector: 'app-giftaid-organisation-details',
   templateUrl: './giftaid-organisation-details.component.html',
-  styleUrls: ['../../onboarding.module.scss', './giftaid-organisation-details.component.scss']
+  styleUrls: ['../../onboarding.scss', './giftaid-organisation-details.component.scss']
 })
 export class GiftaidOrganisationDetailsComponent implements OnInit, OnDestroy {
   public form: FormGroup;

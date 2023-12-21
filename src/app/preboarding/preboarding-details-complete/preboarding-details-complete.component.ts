@@ -22,7 +22,7 @@ import { LocationStrategy } from "@angular/common";
   templateUrl: "./preboarding-details-complete.component.html",
   styleUrls: [
     "./preboarding-details-complete.component.scss",
-    "../../preboarding/preboarding.module.scss",
+    "../../preboarding/preboarding.scss",
   ],
 })
 export class PreboardingDetailsCompleteComponent implements OnInit, OnDestroy {

@@ -13,7 +13,7 @@ import { takeUntil } from "rxjs/operators";
 @Component({
     selector: 'app-contact-registration-role',
     templateUrl: './contact-registration-role.component.html',
-    styleUrls: ['./contact-registration-role.component.scss', '../contact-registration.module.scss']
+    styleUrls: ['./contact-registration-role.component.scss']
 })
 export class ContactRegistrationRoleComponent implements OnInit, OnDestroy {
     public roles = [
