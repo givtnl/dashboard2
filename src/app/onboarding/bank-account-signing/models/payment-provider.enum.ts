@@ -1,4 +1,7 @@
 export enum PaymentProvider {
     Slimpay,
-    EazyCollect
+    EazyCollect,
+    Cardknox,
+    Fondsen,
+    Stripe
 }
