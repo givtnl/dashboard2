@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ValidatorFn, ValidationErrors } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { PreboardingStateService } from '../services/preboarding-state.service';
@@ -14,12 +14,12 @@ import { tap, switchMap, takeUntil } from 'rxjs/operators';
   styleUrls: ['./preboarding-collections.component.scss']
 })
 export class PreboardingCollectionsComponent implements OnInit, OnDestroy {
-  public form: FormGroup
+  public form: UntypedFormGroup
   private additionalInformationCommand: CreatePreboardingAdditionalInformationCommand;
   private ngUnsubscribe = new Subject<void>();
   constructor(
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private translationService: TranslateService,
     private toastr: ToastrService,
     private preboardingStateService: PreboardingStateService,
@@ -39,7 +39,7 @@ export class PreboardingCollectionsComponent implements OnInit, OnDestroy {
   }
 
   public atleastOneIsCheckedValidator(): ValidatorFn {
-    return (group: FormGroup): ValidationErrors => {
+    return (group: UntypedFormGroup): ValidationErrors => {
       if (!Object.values(group.controls).some(control => control.value))
         return { noCollectionsSelected: true }
       return;

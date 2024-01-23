@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, UntypedFormArray } from '@angular/forms';
 import { OrganisationWithRulesDetail } from 'src/app/onboarding/organisation-details/models/organisation-with-rules-detail.model';
 import { PreboardingStateService } from '../services/preboarding-state.service';
 import { Subject } from 'rxjs';
@@ -14,10 +14,10 @@ import { takeUntil } from 'rxjs/operators';
 
 export class PreboardingOrganisationRelationComponent implements OnInit,OnDestroy {
 
-    public form: FormGroup;
+    public form: UntypedFormGroup;
     public providingOrganisations: OrganisationWithRulesDetail[] = [];
     private ngUnsubscribe = new Subject<void>();
-    constructor(private activatedRoute: ActivatedRoute,private  formBuilder: FormBuilder, private preBoardingStateService: PreboardingStateService, private router: Router) {
+    constructor(private activatedRoute: ActivatedRoute,private  formBuilder: UntypedFormBuilder, private preBoardingStateService: PreboardingStateService, private router: Router) {
 
     }
 
@@ -51,8 +51,8 @@ export class PreboardingOrganisationRelationComponent implements OnInit,OnDestro
         this.router.navigate(["/preboarding/register/mail-box-address-details"]);
     }
 
-    rules(): FormArray {
-        return this.form.get('rules') as FormArray;
+    rules(): UntypedFormArray {
+        return this.form.get('rules') as UntypedFormArray;
     }
 
     preFillRules(organisation: OrganisationWithRulesDetail): void {

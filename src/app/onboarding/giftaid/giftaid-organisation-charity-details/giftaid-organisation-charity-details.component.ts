@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { PreparedGiftAidSettings } from '../models/prepared-giftaid-settings.model';
 import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-state.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -20,13 +20,13 @@ import { oscrReferenceValidator } from 'src/app/shared/validators/scottish-regul
 })
 export class GiftaidOrganisationDetailsCharityNumberComponent implements OnInit,OnDestroy {
 
-    public form: FormGroup;
+    public form: UntypedFormGroup;
     public loading = false;
     public isInValidCharityCommissionReference = false;
     public charityCommissionReferenceRequired = true;
     private ngUnsubscribe = new Subject<void>();
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private activatedRoute: ActivatedRoute,
         private giftAidStateService: OnboardingGiftAidStateService,
         private toastr: ToastrService,

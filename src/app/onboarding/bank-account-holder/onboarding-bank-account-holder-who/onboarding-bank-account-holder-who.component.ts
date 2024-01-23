@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
@@ -14,7 +14,7 @@ import { ApplicationStateService } from 'src/app/infrastructure/services/applica
     styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-holder-who.component.scss']
 })
 export class OnboardingBankAccountHolderWhoComponent implements OnInit,OnDestroy {
-    public form: FormGroup;
+    public form: UntypedFormGroup;
     public loading = false;
     private ngUnsubscribe = new Subject<void>();
     private isExistingAccountHolder = false;
@@ -25,7 +25,7 @@ export class OnboardingBankAccountHolderWhoComponent implements OnInit,OnDestroy
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private applicationStateService: ApplicationStateService,
         private onboardingBankAccountHolderStateService: OnboardingBankAccountHolderStateService,
         private translationService: TranslateService,

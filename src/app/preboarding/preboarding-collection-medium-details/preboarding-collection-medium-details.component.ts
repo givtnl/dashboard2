@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray, ValidatorFn, ValidationErrors } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, UntypedFormArray, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -15,13 +15,13 @@ import { CreatePreboardingAdditionalInformationCommand, PreboardingCollectionDet
 })
 export class PreboardingCollectionMediumDetailsComponent implements OnInit,OnDestroy {
   private ngUnsubscribe = new Subject<void>();
-  public form: FormGroup
+  public form: UntypedFormGroup
   public additionalInformationCommand: CreatePreboardingAdditionalInformationCommand;
   formSubmitted = false;
 
   constructor(
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private translationService: TranslateService,
     private toastr: ToastrService,
     private preboardingStateService: PreboardingStateService,
@@ -94,36 +94,36 @@ export class PreboardingCollectionMediumDetailsComponent implements OnInit,OnDes
       );
   }
 
-  mapDetail(detail: PreboardingCollectionDetail = null): FormGroup {
+  mapDetail(detail: PreboardingCollectionDetail = null): UntypedFormGroup {
     return this.formBuilder.group({
       quantity: [detail ? detail.quantity : null, [Validators.required, Validators.min(0)]],
       collectionType: [detail ? detail.collectionType : null, [Validators.required, this.collectionTypeSelectionChanged()]]
     })
   }
 
-  mapDetailsToFormArray(details: PreboardingCollectionDetail[]): FormArray {
+  mapDetailsToFormArray(details: PreboardingCollectionDetail[]): UntypedFormArray {
     return this.formBuilder.array(details.map(x => this.mapDetail(x)));
   }
 
-  singleCollectionDetails(): FormArray {
-    return this.form.get('singleCollectionDetails') as FormArray;
+  singleCollectionDetails(): UntypedFormArray {
+    return this.form.get('singleCollectionDetails') as UntypedFormArray;
   }
-  multipleCollectionDetails(): FormArray {
-    return this.form.get('multipleCollectionDetails') as FormArray;
+  multipleCollectionDetails(): UntypedFormArray {
+    return this.form.get('multipleCollectionDetails') as UntypedFormArray;
   }
-  endOfServiceCollectionDetails(): FormArray {
-    return this.form.get('endOfServiceCollectionDetails') as FormArray;
+  endOfServiceCollectionDetails(): UntypedFormArray {
+    return this.form.get('endOfServiceCollectionDetails') as UntypedFormArray;
   }
-  communionCollectionDetails(): FormArray {
-    return this.form.get('communionCollectionDetails') as FormArray;
+  communionCollectionDetails(): UntypedFormArray {
+    return this.form.get('communionCollectionDetails') as UntypedFormArray;
   }
-  candleCollectionDetails(): FormArray {
-    return this.form.get('candleCollectionDetails') as FormArray;
+  candleCollectionDetails(): UntypedFormArray {
+    return this.form.get('candleCollectionDetails') as UntypedFormArray;
   }
   private collectionTypeSelectionChanged(): ValidatorFn {
     /* To prevent submitting the form */
     /* Showing red border around dropdown when invalid happens in html. */
-    return (group: FormGroup): ValidationErrors => {
+    return (group: UntypedFormGroup): ValidationErrors => {
       if (group.value == null)
         return { collectionTypeNotSelected: true }
       return null;

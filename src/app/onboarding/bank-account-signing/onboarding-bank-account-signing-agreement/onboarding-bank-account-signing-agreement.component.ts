@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
 import { BackendService } from "src/app/infrastructure/services/backend.service";
 import { OnboardingBankAccountSigningStateService } from "../services/onboarding-bank-account-signing-state.service";
@@ -10,9 +10,9 @@ import { OnboardingBankAccountSigningStateService } from "../services/onboarding
     styleUrls: ['./onboarding-bank-account-signing-agreement.component.scss']
 })
 export class OnboardingBankAccountSigningAgreementComponent implements OnInit {
-    public form: FormGroup;
+    public form: UntypedFormGroup;
     
-    constructor(private formBuilder: FormBuilder,
+    constructor(private formBuilder: UntypedFormBuilder,
         private onboardingBankAccountSigningStateService: OnboardingBankAccountSigningStateService,
         private backendService: BackendService,
         private router: Router) { }

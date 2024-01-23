@@ -1,7 +1,7 @@
-import { ValidatorFn, FormControl } from "@angular/forms";
+import { ValidatorFn, UntypedFormControl } from "@angular/forms";
 
 export function wholeNumberValidator(min: number, max: number): ValidatorFn {
-  return (control: FormControl): { [key: string]: any } | null => {
+  return (control: UntypedFormControl): { [key: string]: any } | null => {
     const num = parseInt(control.value, 10);
     if (
       isNaN(num) ||

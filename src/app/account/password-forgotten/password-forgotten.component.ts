@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { AccountService } from '../services/account.service';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { takeUntil } from 'rxjs/operators';
     styleUrls: ['./password-forgotten.component.scss']
 })
 export class PasswordForgottenComponent implements OnInit, OnDestroy {
-    public form: FormGroup;
+    public form: UntypedFormGroup;
     public submitted = false;
     public loading = false;
     public isValidEmail = false;
@@ -21,7 +21,7 @@ export class PasswordForgottenComponent implements OnInit, OnDestroy {
     public errorMessages: Array<string>;
 
     constructor(
-        private fb: FormBuilder,
+        private fb: UntypedFormBuilder,
         private translationService: TranslateService,
         private accountService: AccountService,
         private router: Router

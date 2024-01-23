@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -20,13 +20,13 @@ import { wholeNumberValidator } from "src/app/shared/validators/whole-number.val
 })
 export class PreboardingVisitorCountComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   private collectGroup: CreateCollectGroupCommand;
   private country: string;
 
   constructor(
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private translationService: TranslateService,
     private toastr: ToastrService,
     private preboardingStateService: PreboardingStateService,

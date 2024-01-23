@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UpdateOrganisationCommand } from 'src/app/organisations/models/commands/update-organisation.command';
@@ -39,12 +39,12 @@ export class OnboardingOrganisationDetailsAddressComponent implements OnInit, On
         this._countries = value;
     }
     
-    public form: FormGroup
+    public form: UntypedFormGroup
     public loading: boolean;
 
     constructor(
         private toastr: ToastrService,
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private onboardingStateService: OnboardingOrganisationDetailsStateService,
         private router: Router,
         private translationService: TranslateService,
