@@ -12,7 +12,8 @@ import { OrganisationResolver } from './resolvers/organisation.resolver';
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'root'
+        redirectTo: 'root',
+        pathMatch: 'full'
     },
     {
         path: 'root',
@@ -21,7 +22,8 @@ const routes: Routes = [
             {
                 path: '',
                 redirectTo: 'home',
-                outlet: 'dashboard-outlet'
+                outlet: 'dashboard-outlet',
+                pathMatch: 'full',
             },
             {
                 path: 'home',

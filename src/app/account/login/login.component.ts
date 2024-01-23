@@ -14,7 +14,7 @@ import { takeUntil } from 'rxjs/operators';
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit,OnDestroy {
+export class LoginComponent implements OnInit, OnDestroy {
     public form: UntypedFormGroup;
     public submitted = false;
     public loading = false;
@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit,OnDestroy {
                 .subscribe(resp =>
                     this.router
                         .navigate(['/', 'dashboard', 'root', { outlets: { 'dashboard-outlet': ['home'] } }])
-                        .catch(error => this.handleInvalidLogin(error.error_status || ErrorMessages.UnExpectedError))
+                        .catch(error => { console.log(error); this.handleInvalidLogin(error.error_status || ErrorMessages.UnExpectedError); })
                         .finally(() => (this.loading = false))
                 ).add(() => this.loading = false);
         }

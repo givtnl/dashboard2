@@ -24,7 +24,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: PasswordForgottenComponent
+        component: PasswordForgottenComponent,
+        pathMatch: 'full',
       },
       {
         path: 'mail-sent',

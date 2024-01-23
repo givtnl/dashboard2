@@ -9,12 +9,13 @@ import { CollectGroupListResolver } from "./resolvers/collect-group-list.resolve
 const routes: Routes = [
     {
         path: '',
-        component: DashboardUserRegistrationIntroComponent
+        component: DashboardUserRegistrationIntroComponent,
+        pathMatch: 'full',
     },
     {
         path: 'details',
         component: DashboardUserRegistrationDetailsComponent,
-        resolve: {collectGroups: CollectGroupListResolver}
+        resolve: { collectGroups: CollectGroupListResolver }
     },
     {
         path: 'done',

@@ -14,6 +14,7 @@ const routes: Routes = [
         path: "",
         component: ErrorPageComponent,
         outlet: "system-outlet",
+        pathMatch: 'full',
       },
       {
         path: "error",
@@ -38,4 +39,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SystemRoutingModule {}
+export class SystemRoutingModule { }

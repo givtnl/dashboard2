@@ -83,6 +83,7 @@ const routes: Routes = [
       {
         path: "",
         redirectTo: "new-users",
+        pathMatch: 'full'
       },
       {
         path: "new-users",

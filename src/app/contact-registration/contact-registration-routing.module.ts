@@ -9,7 +9,8 @@ import { CreateCollectGroupContactGuard } from "./guards/create-collect-group-co
 const routes: Routes = [
     {
         path: '',
-        component: ContactRegistrationIntroComponent
+        component: ContactRegistrationIntroComponent,
+        pathMatch: 'full',
     },
     {
         path: 'role',

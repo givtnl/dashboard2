@@ -28,12 +28,13 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'welcome'
+        redirectTo: 'welcome',
+        pathMatch: 'full',
       },
       {
         path: 'welcome',
         component: PreboardingWelcomeDetailsComponent,
-        resolve: {queryParams: PreboardingQueryParamsResolver}
+        resolve: { queryParams: PreboardingQueryParamsResolver }
       },
       {
         path: 'name-in-app',
@@ -66,22 +67,22 @@ const routes: Routes = [
         canActivate: [PreboardingOrganisationTypeCheckGuard],
         path: 'collections',
         component: PreboardingCollectionsComponent,
-        resolve: {additionalInformation: PreboardingCurrentAdditionalInformationResolver}
+        resolve: { additionalInformation: PreboardingCurrentAdditionalInformationResolver }
       },
       {
         canActivate: [PreboardingOrganisationTypeCheckGuard],
         path: 'collection-medium-details',
         component: PreboardingCollectionMediumDetailsComponent,
-        resolve: {additionalInformation: PreboardingCurrentAdditionalInformationResolver}
+        resolve: { additionalInformation: PreboardingCurrentAdditionalInformationResolver }
       },
       {
         path: 'organisation-admin-details',
         component: PreboardingOrganisationAdminDetailsComponent,
-        resolve: {orgAdmins: PreboardingOrganisationAdminContactResolver}
+        resolve: { orgAdmins: PreboardingOrganisationAdminContactResolver }
       },
       {
         path: 'complete',
-        resolve:{steps: PreboardingAvailableStepsResolver},
+        resolve: { steps: PreboardingAvailableStepsResolver },
         component: PreboardingDetailsCompleteComponent
       }
     ]
