@@ -7,7 +7,7 @@ import { OnboardingBankAccountSigningStateService } from '../services/onboarding
 @Component({
     selector: 'app-onboarding-bank-account-signing-complete',
     templateUrl: './onboarding-bank-account-signing-complete.component.html',
-    styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-signing-complete.component.scss']
+    styleUrls: ['../../onboarding.scss', './onboarding-bank-account-signing-complete.component.scss']
 })
 export class OnboardingBankAccountSigningCompleteComponent {
 

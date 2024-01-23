@@ -9,7 +9,7 @@ import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-st
 @Component({
     selector: 'app-giftaid-verify-organisation-details',
     templateUrl: './giftaid-verify-organisation-details.component.html',
-    styleUrls: ['../../onboarding.module.scss', './giftaid-verify-organisation-details.component.scss']
+    styleUrls: ['../../onboarding.scss', './giftaid-verify-organisation-details.component.scss']
 })
 export class GiftaidVerifyOrganisationDetailsComponent implements OnInit,OnDestroy {
     public form: UntypedFormGroup;

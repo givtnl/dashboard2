@@ -14,7 +14,7 @@ import { forbiddenValueValidator } from 'src/app/shared/validators/forbidden-val
 @Component({
   selector: 'app-onboarding-change-email',
   templateUrl: 'onboarding-change-email.component.html',
-  styleUrls: ['../../onboarding.module.scss', 'onboarding-change-email.component.scss']
+  styleUrls: ['../../onboarding.scss', 'onboarding-change-email.component.scss']
 })
 export class OnboardingChangeEmailComponent implements OnInit, OnDestroy {
   public form: UntypedFormGroup;

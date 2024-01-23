@@ -7,7 +7,7 @@ import { OnboardingBankAccountSigningStateService } from '../services/onboarding
 @Component({
     selector: 'app-onboarding-bank-account-signing-intro',
     templateUrl: './onboarding-bank-account-signing-intro.component.html',
-    styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-signing-intro.component.scss']
+    styleUrls: ['../../onboarding.scss', './onboarding-bank-account-signing-intro.component.scss']
 })
 export class OnboardingBankAccountSigningIntroComponent implements OnInit {
 

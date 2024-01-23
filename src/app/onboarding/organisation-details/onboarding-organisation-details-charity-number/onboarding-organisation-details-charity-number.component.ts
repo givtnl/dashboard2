@@ -12,7 +12,7 @@ import { OnboardingOrganisationDetailsService } from '../services/onboarding-org
 @Component({
     selector: 'app-onboarding-organisation-details-charity-number',
     templateUrl: './onboarding-organisation-details-charity-number.component.html',
-    styleUrls: ['../../onboarding.module.scss', './onboarding-organisation-details-charity-number.component.scss']
+    styleUrls: ['../../onboarding.scss', './onboarding-organisation-details-charity-number.component.scss']
 })
 export class OnboardingOrganisationDetailsCharityNumberComponent implements OnInit, OnDestroy {
     public form: UntypedFormGroup

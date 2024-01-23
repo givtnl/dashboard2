@@ -12,7 +12,7 @@ import { ContactRegistrationStateService } from "../services/contact-registratio
 @Component({
     selector: 'app-contact-registration-details',
     templateUrl: './contact-registration-details.component.html',
-    styleUrls: ['./contact-registration-details.component.scss', '../contact-registration.module.scss']
+    styleUrls: ['./contact-registration-details.component.scss', '../contact-registration.scss']
 })
 export class ContactRegistrationDetailsComponent implements OnInit, OnDestroy {
     public form: UntypedFormGroup;

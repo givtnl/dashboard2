@@ -12,7 +12,7 @@ import mixpanel from 'mixpanel-browser';
 @Component({
     selector: 'app-onboarding-welcome',
     templateUrl: './onboarding-welcome.component.html',
-    styleUrls: ['../../onboarding.module.scss', './onboarding-welcome.component.scss']
+    styleUrls: ['../../onboarding.scss', './onboarding-welcome.component.scss']
 })
 export class OnboardingWelcomeComponent implements OnInit, OnDestroy {
     public form: UntypedFormGroup;

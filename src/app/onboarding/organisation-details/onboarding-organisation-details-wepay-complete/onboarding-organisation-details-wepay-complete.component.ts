@@ -30,7 +30,7 @@ import { OnboardingStepListModel } from "../models/onboarding-step-list.model";
   templateUrl:
     "./onboarding-organisation-details-wepay-complete.component.html",
   styleUrls: [
-    "../../onboarding.module.scss",
+    "../../onboarding.scss",
     "./onboarding-organisation-details-wepay-complete.component.scss",
   ],
 })

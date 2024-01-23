@@ -16,7 +16,7 @@ import { CollectGroupsService } from 'src/app/collect-groups/services/collect-gr
   templateUrl: "./preboarding-name-in-app.component.html",
   styleUrls: [
     "./preboarding-name-in-app.component.scss",
-    "../../preboarding/preboarding.module.scss",
+    "../../preboarding/preboarding.scss",
   ],
 })
 export class PreboardingNameInAppComponent implements OnInit, OnDestroy {

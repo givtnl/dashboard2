@@ -13,7 +13,7 @@ import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempt
 @Component({
     selector: 'app-preboarding-mail-box-address-details',
     templateUrl: './preboarding-mail-box-address-details.component.html',
-    styleUrls: ['./preboarding-mail-box-address-details.component.scss', '../../preboarding/preboarding.module.scss']
+    styleUrls: ['./preboarding-mail-box-address-details.component.scss', '../../preboarding/preboarding.scss']
 })
 export class PreboardingMailBoxAddressDetailsComponent implements OnInit, OnDestroy {
     public form: UntypedFormGroup

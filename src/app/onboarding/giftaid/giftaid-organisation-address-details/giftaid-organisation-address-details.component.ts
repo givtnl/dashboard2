@@ -13,7 +13,7 @@ import { postCodeBACSValidator } from 'src/app/shared/validators/postcode-BACS.v
 @Component({
   selector: 'app-giftaid-organisation-address-details',
   templateUrl: './giftaid-organisation-address-details.component.html',
-  styleUrls: ['../../onboarding.module.scss','./giftaid-organisation-address-details.component.scss']
+  styleUrls: ['../../onboarding.scss','./giftaid-organisation-address-details.component.scss']
 })
 export class GiftaidOrganisationAddressDetailsComponent implements OnInit {
   public form: UntypedFormGroup;

@@ -9,7 +9,7 @@ import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-onboarding-organisation-details-verify',
   templateUrl: './onboarding-organisation-details-verify.component.html',
-  styleUrls: ['../../onboarding.module.scss', './onboarding-organisation-details-verify.component.scss']
+  styleUrls: ['../../onboarding.scss', './onboarding-organisation-details-verify.component.scss']
 })
 export class OnboardingOrganisationDetailsVerifyComponent implements OnInit, OnDestroy {
   public form: UntypedFormGroup;

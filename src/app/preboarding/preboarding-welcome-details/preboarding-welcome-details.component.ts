@@ -11,7 +11,7 @@ import { PreboardingStateService } from "../services/preboarding-state.service";
   templateUrl: "./preboarding-welcome-details.component.html",
   styleUrls: [
     "./preboarding-welcome-details.component.scss",
-    "../../preboarding/preboarding.module.scss",
+    "../../preboarding/preboarding.scss",
   ],
 })
 export class PreboardingWelcomeDetailsComponent implements OnInit {

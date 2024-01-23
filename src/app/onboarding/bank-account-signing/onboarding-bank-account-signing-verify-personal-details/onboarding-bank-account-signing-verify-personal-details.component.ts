@@ -11,7 +11,7 @@ import { BankAccountHolderService } from 'src/app/bank-account-holders/services/
 @Component({
   selector: 'app-onboarding-bank-account-signing-verify-personal-details',
   templateUrl: './onboarding-bank-account-signing-verify-personal-details.component.html',
-  styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-signing-verify-personal-details.component.scss']
+  styleUrls: ['../../onboarding.scss', './onboarding-bank-account-signing-verify-personal-details.component.scss']
 })
 export class OnboardingBankAccountSigningVerifyPersonalDetailsComponent implements OnInit, OnDestroy {
   public form: UntypedFormGroup;
