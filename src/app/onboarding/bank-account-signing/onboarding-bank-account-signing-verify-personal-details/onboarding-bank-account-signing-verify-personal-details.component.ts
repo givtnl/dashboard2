@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { OnboardingBankAccountSigningStateService } from '../services/onboarding-bank-account-signing-state.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, forkJoin, Subject } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
@@ -11,10 +11,10 @@ import { BankAccountHolderService } from 'src/app/bank-account-holders/services/
 @Component({
   selector: 'app-onboarding-bank-account-signing-verify-personal-details',
   templateUrl: './onboarding-bank-account-signing-verify-personal-details.component.html',
-  styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-signing-verify-personal-details.component.scss']
+  styleUrls: ['../../onboarding.scss', './onboarding-bank-account-signing-verify-personal-details.component.scss']
 })
 export class OnboardingBankAccountSigningVerifyPersonalDetailsComponent implements OnInit, OnDestroy {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   public loading = false;
   private ngUnsubscribe = new Subject<void>();
   constructor(
@@ -24,7 +24,7 @@ export class OnboardingBankAccountSigningVerifyPersonalDetailsComponent implemen
     private translationService: TranslateService,
     public stateService: OnboardingBankAccountSigningStateService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: UntypedFormBuilder
   ) {}
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Subject } from "rxjs";
 import { finalize, map, switchMap, takeUntil } from "rxjs/operators";
@@ -25,12 +25,12 @@ export class OnboardingOrganisationDetailsWePayTermsAndConditionsComponent
   loading: boolean = false;
   environment = environment.production ? "production" : "stage";
   apiVersion = "3.0";
-  form: FormGroup;
+  form: UntypedFormGroup;
   currentLegalEntity: LegalEntity;
   private ngUnsubscribe = new Subject<void>();
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private ipAdressService: IPAdressService,
     private router: Router,
     private route: ActivatedRoute,

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { AccountService } from '../services/account.service';
 import { Observable, Subject } from 'rxjs';
@@ -15,7 +15,7 @@ import { takeUntil } from 'rxjs/operators';
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit,OnDestroy {
-    public form: FormGroup;
+    public form: UntypedFormGroup;
     public submitted = false;
     public loading = false;
     public isValidEmail = false;
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit,OnDestroy {
     public errorMessages = null;
 
     constructor(
-        private fb: FormBuilder,
+        private fb: UntypedFormBuilder,
         private translationService: TranslateService,
         private accountService: AccountService,
         private router: Router

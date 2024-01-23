@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { UntypedFormControl } from "@angular/forms";
 import { TranslateService } from "@ngx-translate/core";
 import mixpanel from "mixpanel-browser";
 import { DirectDebitType } from "src/app/shared/enums/direct-debit.type";
@@ -11,7 +11,7 @@ import { PreboardingStateService } from "../services/preboarding-state.service";
   templateUrl: "./preboarding-welcome-details.component.html",
   styleUrls: [
     "./preboarding-welcome-details.component.scss",
-    "../../preboarding/preboarding.module.scss",
+    "../../preboarding/preboarding.scss",
   ],
 })
 export class PreboardingWelcomeDetailsComponent implements OnInit {
@@ -23,7 +23,7 @@ export class PreboardingWelcomeDetailsComponent implements OnInit {
 
   public description: string;
   privacyLink: string;
-  accepted: FormControl = new FormControl("");
+  accepted: UntypedFormControl = new UntypedFormControl("");
 
   async ngOnInit(): Promise<void> {
     mixpanel.identify(

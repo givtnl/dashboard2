@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Observable, forkJoin, Subject } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { tap, switchMap, takeUntil } from 'rxjs/operators';
@@ -12,15 +12,15 @@ import { OnboardingOrganisationDetailsService } from '../services/onboarding-org
 @Component({
     selector: 'app-onboarding-organisation-details-charity-number',
     templateUrl: './onboarding-organisation-details-charity-number.component.html',
-    styleUrls: ['../../onboarding.module.scss', './onboarding-organisation-details-charity-number.component.scss']
+    styleUrls: ['../../onboarding.scss', './onboarding-organisation-details-charity-number.component.scss']
 })
 export class OnboardingOrganisationDetailsCharityNumberComponent implements OnInit, OnDestroy {
-    public form: FormGroup
+    public form: UntypedFormGroup
     public loading = false
     private ngUnsubscribe = new Subject<void>();
     constructor(
         private activatedRoute: ActivatedRoute,
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private toastr: ToastrService,
         private translationService: TranslateService,
         private onboardingService: OnboardingOrganisationDetailsService,

@@ -8,7 +8,7 @@ import mixpanel from 'mixpanel-browser';
 @Component({
     selector: 'app-onboarding-bank-account-intro',
     templateUrl: './onboarding-bank-account-intro.component.html',
-    styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-intro.component.scss']
+    styleUrls: ['../../onboarding.scss', './onboarding-bank-account-intro.component.scss']
 })
 export class OnboardingBankAccountIntroComponent implements OnInit {
 

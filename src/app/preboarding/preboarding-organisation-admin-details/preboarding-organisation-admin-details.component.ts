@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, FormArray } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -11,16 +11,16 @@ import { CreateCollectGroupUserCommand } from 'src/app/collect-groups/models/cre
 @Component({
     selector: 'app-preboarding-organisation-admin-details',
     templateUrl: './preboarding-organisation-admin-details.component.html',
-    styleUrls: ['./preboarding-organisation-admin-details.component.scss', '../../preboarding/preboarding.module.scss']
+    styleUrls: ['./preboarding-organisation-admin-details.component.scss', '../../preboarding/preboarding.scss']
 })
 export class PreboardingOrganisationAdminDetailsComponent implements OnInit, OnDestroy {
     private orgAdmins: CreateCollectGroupUserCommand[];
     public emails = ["Ah yeep", "Goedja?"]
     public loading = false;
     private ngUnsubscribe = new Subject<void>();
-    form: FormGroup
+    form: UntypedFormGroup
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private translationService: TranslateService,
         private toastr: ToastrService,
         private preboardingStateService: PreboardingStateService,

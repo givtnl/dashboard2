@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-state.service';
 import { PreparedGiftAidSettings } from '../models/prepared-giftaid-settings.model';
@@ -13,13 +13,13 @@ import { postCodeBACSValidator } from 'src/app/shared/validators/postcode-BACS.v
 @Component({
   selector: 'app-giftaid-organisation-address-details',
   templateUrl: './giftaid-organisation-address-details.component.html',
-  styleUrls: ['../../onboarding.module.scss','./giftaid-organisation-address-details.component.scss']
+  styleUrls: ['../../onboarding.scss','./giftaid-organisation-address-details.component.scss']
 })
 export class GiftaidOrganisationAddressDetailsComponent implements OnInit {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private translationService:TranslateService,
     private router: Router,
     private toastr: ToastrService,

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
 import { ContactRegistrationStateService } from "../services/contact-registration-state.service";
 import { CreateCollectGroupContactCommand } from "src/app/collect-group-contacts/commands/create-collect-group-contact.command";
 import { Router } from "@angular/router";
@@ -13,7 +13,7 @@ import { takeUntil } from "rxjs/operators";
 @Component({
     selector: 'app-contact-registration-role',
     templateUrl: './contact-registration-role.component.html',
-    styleUrls: ['./contact-registration-role.component.scss', '../contact-registration.module.scss']
+    styleUrls: ['./contact-registration-role.component.scss', '../contact-registration.scss']
 })
 export class ContactRegistrationRoleComponent implements OnInit, OnDestroy {
     public roles = [
@@ -28,13 +28,13 @@ export class ContactRegistrationRoleComponent implements OnInit, OnDestroy {
         { key: 3, value: "contactRegistrationRoleComponent.thirdOptionExplanation" }
     ]
 
-    public form: FormGroup;
+    public form: UntypedFormGroup;
     public showChoose = false;
     public optionExplanation: string;
     private ngUnsubscribe = new Subject<void>();
     private command: CreateCollectGroupContactCommand
 
-    constructor(private formBuilder: FormBuilder,
+    constructor(private formBuilder: UntypedFormBuilder,
         private stateService: ContactRegistrationStateService,
         private router: Router,
         private toastr: ToastrService,

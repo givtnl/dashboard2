@@ -13,7 +13,7 @@ import { map, takeUntil } from "rxjs/operators";
 @Component({
     selector: "app-dashboard-users",
     templateUrl: "./dashboard-users.component.html",
-    styleUrls: ["./dashboard-users.component.scss", "../dashboard.module.scss"]
+    styleUrls: ["./dashboard-users.component.scss", "../dashboard.scss"]
 })
 export class DashboardUsersComponent implements OnInit,OnDestroy {
 

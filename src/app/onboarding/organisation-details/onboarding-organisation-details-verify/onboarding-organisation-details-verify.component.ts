@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OnboardingOrganisationDetailsStateService } from '../services/onboarding-organisation-details-state.service';
 import { CharityCommisionOrganisationDetailModel } from '../models/charity-commision-organisation-detail.model';
@@ -9,14 +9,14 @@ import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-onboarding-organisation-details-verify',
   templateUrl: './onboarding-organisation-details-verify.component.html',
-  styleUrls: ['../../onboarding.module.scss', './onboarding-organisation-details-verify.component.scss']
+  styleUrls: ['../../onboarding.scss', './onboarding-organisation-details-verify.component.scss']
 })
 export class OnboardingOrganisationDetailsVerifyComponent implements OnInit, OnDestroy {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   public loading = false;
   public organisationDetails: CharityCommisionOrganisationDetailModel;
   private ngUnsubscribe = new Subject<void>();
-  constructor(private formBuilder: FormBuilder, private router: Router, public stateService: OnboardingOrganisationDetailsStateService) { }
+  constructor(private formBuilder: UntypedFormBuilder, private router: Router, public stateService: OnboardingOrganisationDetailsStateService) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({

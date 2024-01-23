@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, Output } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OnboardingBankAccountSigningStateService } from '../services/onboarding-bank-account-signing-state.service';
 import { BankAccountHolderDetailModel } from '../models/bank-account-holder-detail.model';
@@ -10,15 +10,15 @@ import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-onboarding-bank-account-signing-verify-details',
   templateUrl: './onboarding-bank-account-signing-verify-details.component.html',
-  styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-signing-verify-details.component.scss']
+  styleUrls: ['../../onboarding.scss', './onboarding-bank-account-signing-verify-details.component.scss']
 })
 export class OnboardingBankAccountSigningVerifyDetailsComponent implements OnInit, OnDestroy {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   public accountHolderDetails: BankAccountHolderDetailModel;
   public paymentProvider: PaymentProvider;
   public isLoading = false;
   private ngUnsubscribe = new Subject<void>();
-  constructor(private formBuilder: FormBuilder, private router: Router, public stateService: OnboardingBankAccountSigningStateService) { 
+  constructor(private formBuilder: UntypedFormBuilder, private router: Router, public stateService: OnboardingBankAccountSigningStateService) { 
     this.paymentProvider = stateService.currentBankAccountHolderDetailModel.PaymentProvider
 
   }

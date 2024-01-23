@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, forkJoin, Subject } from 'rxjs';
@@ -12,15 +12,15 @@ import { BankAccountListModel } from 'src/app/bank-accounts/models/bank-account-
 @Component({
     selector: 'app-onboarding-bank-account-add-sepa',
     templateUrl: './onboarding-bank-account-add-sepa.component.html',
-    styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-add-sepa.component.scss']
+    styleUrls: ['../../onboarding.scss', './onboarding-bank-account-add-sepa.component.scss']
 })
 export class OnboardingBankAccountAddSepaComponent implements OnInit, OnDestroy {
     public loading = false;
-    public form: FormGroup;
+    public form: UntypedFormGroup;
     private ngUnsubscribe = new Subject<void>();
     constructor(
         private translationService: TranslateService,
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private toastr: ToastrService,
         private router: Router,
         private route: ActivatedRoute,

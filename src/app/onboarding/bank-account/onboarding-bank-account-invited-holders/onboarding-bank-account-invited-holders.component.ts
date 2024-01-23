@@ -7,7 +7,7 @@ import { OnboardingBankAccountHolderStateService } from '../../bank-account-hold
 @Component({
     selector: 'app-onboarding-bank-account-invited-holders',
     templateUrl: './onboarding-bank-account-invited-holders.component.html',
-    styleUrls: ['../../onboarding.module.scss', './onboarding-bank-account-invited-holders.component.scss']
+    styleUrls: ['../../onboarding.scss', './onboarding-bank-account-invited-holders.component.scss']
 })
 export class OnboardingBankAccountInvitedHoldersComponent implements OnInit {
 

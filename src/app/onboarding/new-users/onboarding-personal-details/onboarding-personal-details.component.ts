@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, Validators, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, forkJoin, Subject } from 'rxjs';
@@ -11,15 +11,15 @@ import { OnboardingNewUsersStateService } from '../services/onboarding-new-users
 @Component({
   selector: 'app-onboarding-personal-details',
   templateUrl: './onboarding-personal-details.component.html',
-  styleUrls: ['../../onboarding.module.scss', './onboarding-personal-details.component.scss']
+  styleUrls: ['../../onboarding.scss', './onboarding-personal-details.component.scss']
 })
 export class OnboardingPersonalDetailsComponent implements OnInit, OnDestroy {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   public loading = false;
   private ngUnsubscribe = new Subject<void>();
   constructor(
     private translationService: TranslateService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public stateService: OnboardingNewUsersStateService,
     private router: Router,
     private toastr: ToastrService

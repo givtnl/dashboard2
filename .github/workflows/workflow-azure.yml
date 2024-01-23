@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Install the Angular CLI
-        run: npm install -g @angular/cli@11.1.4
+        run: npm install -g @angular/cli@15
 
       # todo, this should become a headless test like described here: https://purple.telstra.com/blog/run-angular-unit-tests-in-gitlab-ci
       - name: Run tests

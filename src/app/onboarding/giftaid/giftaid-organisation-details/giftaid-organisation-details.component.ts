@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-state.service';
 import { PreparedGiftAidSettings } from '../models/prepared-giftaid-settings.model';
@@ -12,13 +12,13 @@ import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempt
 @Component({
   selector: 'app-giftaid-organisation-details',
   templateUrl: './giftaid-organisation-details.component.html',
-  styleUrls: ['../../onboarding.module.scss', './giftaid-organisation-details.component.scss']
+  styleUrls: ['../../onboarding.scss', './giftaid-organisation-details.component.scss']
 })
 export class GiftaidOrganisationDetailsComponent implements OnInit, OnDestroy {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   private ngUnsubscribe = new Subject<void>();
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private router: Router,
     private toastr: ToastrService,
     private translationService: TranslateService,

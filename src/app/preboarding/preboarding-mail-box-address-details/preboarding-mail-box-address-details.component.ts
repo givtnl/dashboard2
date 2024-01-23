@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, UntypedFormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -13,16 +13,16 @@ import { notNullOrEmptyValidator } from 'src/app/shared/validators/notnullorempt
 @Component({
     selector: 'app-preboarding-mail-box-address-details',
     templateUrl: './preboarding-mail-box-address-details.component.html',
-    styleUrls: ['./preboarding-mail-box-address-details.component.scss', '../../preboarding/preboarding.module.scss']
+    styleUrls: ['./preboarding-mail-box-address-details.component.scss', '../../preboarding/preboarding.scss']
 })
 export class PreboardingMailBoxAddressDetailsComponent implements OnInit, OnDestroy {
-    public form: FormGroup
+    public form: UntypedFormGroup
     public contact: CreateOrganisationContactCommand;
     public country: String;
     private ngUnsubscribe = new Subject<void>();
     constructor(
         private route: ActivatedRoute,
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private translationService: TranslateService,
         private toastr: ToastrService,
         private preboardingStateService: PreboardingStateService,
@@ -46,7 +46,7 @@ export class PreboardingMailBoxAddressDetailsComponent implements OnInit, OnDest
         if(this.country === 'US'){
             this.form.addControl(
               "mailBoxState",
-              new FormControl(this.contact ? this.contact.state : null, [
+              new UntypedFormControl(this.contact ? this.contact.state : null, [
                 Validators.required,
                 notNullOrEmptyValidator(),
               ])

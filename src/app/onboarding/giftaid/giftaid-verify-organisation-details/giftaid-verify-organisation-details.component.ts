@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -9,15 +9,15 @@ import { OnboardingGiftAidStateService } from '../services/onboarding-giftaid-st
 @Component({
     selector: 'app-giftaid-verify-organisation-details',
     templateUrl: './giftaid-verify-organisation-details.component.html',
-    styleUrls: ['../../onboarding.module.scss', './giftaid-verify-organisation-details.component.scss']
+    styleUrls: ['../../onboarding.scss', './giftaid-verify-organisation-details.component.scss']
 })
 export class GiftaidVerifyOrganisationDetailsComponent implements OnInit,OnDestroy {
-    public form: FormGroup;
+    public form: UntypedFormGroup;
     public loading = false;
     public giftAidSettings: PreparedGiftAidSettings;
     private ngUnsubscribe = new Subject<void>();
     constructor(
-        private formBuilder: FormBuilder,
+        private formBuilder: UntypedFormBuilder,
         private router: Router,
         public stateService: OnboardingGiftAidStateService) { }
 

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Observable, forkJoin, Subject } from 'rxjs';
 import { tap, switchMap, takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
@@ -16,12 +16,12 @@ import { CollectGroupsService } from 'src/app/collect-groups/services/collect-gr
   templateUrl: "./preboarding-name-in-app.component.html",
   styleUrls: [
     "./preboarding-name-in-app.component.scss",
-    "../../preboarding/preboarding.module.scss",
+    "../../preboarding/preboarding.scss",
   ],
 })
 export class PreboardingNameInAppComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   public questionMarkPicturePath: string;
 
   private collectGroup: CreateCollectGroupCommand;
@@ -29,7 +29,7 @@ export class PreboardingNameInAppComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private collectGroupService: CollectGroupsService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private translationService: TranslateService,
     private toastr: ToastrService,
     private preboardingStateService: PreboardingStateService,
