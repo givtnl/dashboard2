@@ -4,13 +4,13 @@
         <div body>
 
             <p class="text-givt-purple text-light-font"
-                innerHTML="{{paymentProvider == 0 ? ('onboardingBankAccountSigningDirectDebitGuaranteeComponent.description.SEPA' | translate) : ('onboardingBankAccountSigningDirectDebitGuaranteeComponent.description.BACS' | translate ) }}">
+                innerHTML="{{paymentProvider == 0 || paymentProvider == 4 ? ('onboardingBankAccountSigningDirectDebitGuaranteeComponent.description.SEPA' | translate) : ('onboardingBankAccountSigningDirectDebitGuaranteeComponent.description.BACS' | translate ) }}">
             </p>
             <div class="custom-control custom-switch">
                 <input type="checkbox" formControlName="acceptedDirectDebitGuarantee" class="custom-control-input"
                     id="acceptedDirectDebitGuarantee" style="height:50px; width:50px">
                 <label class="custom-control-label text-givt-purple"
-                    for="acceptedDirectDebitGuarantee" innerHTML= "{{paymentProvider == 0 ? ('onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch.SEPA' | translate) : ('onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch.BACS' | translate)}}"></label>
+                    for="acceptedDirectDebitGuarantee" innerHTML= "{{paymentProvider == 0 || paymentProvider == 4 ? ('onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch.SEPA' | translate) : ('onboardingBankAccountSigningDirectDebitGuaranteeComponent.switch.BACS' | translate)}}"></label>
             </div>
         </div>
         <button bottom (click)="handleAcceptOrRefusal()"

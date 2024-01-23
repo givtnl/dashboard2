@@ -18,7 +18,7 @@
         {{ accountHolderDetails.AccountName }}</p>
       <p *ngIf="accountHolderDetails.SortCode && accountHolderDetails.SortCode.length > 0" class="text-primary text-light-font text-givt-purple mb-0">Sort code: {{ accountHolderDetails.SortCode }}
       </p>
-      <p *ngIf="paymentProvider == 0" class="text-primary text-light-font text-givt-purple mb-0">IBAN:
+      <p *ngIf="paymentProvider == 0 || paymentProvider == 4" class="text-primary text-light-font text-givt-purple mb-0">IBAN:
         {{ accountHolderDetails.DetailLineOne }}
       </p>
       <p *ngIf="paymentProvider == 1" class="text-primary text-light-font text-givt-purple mb-0">Account number:
