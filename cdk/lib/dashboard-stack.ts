@@ -59,7 +59,7 @@ export class DashboardStack extends cdk.Stack {
             enableAcceptEncodingGzip: true,
         });
         this.securityHeadersFunction = new EdgeFunction(this, 'MyFunction', {
-            runtime: Runtime.NODEJS_12_X,
+            runtime: Runtime.NODEJS_16_X,
             handler: 'index.handler',
             functionName:`add-security-headers-function-dashboard-two-${environmentName}`,
             description:'Adds security headers to the responses from S3',
