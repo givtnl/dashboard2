@@ -28,7 +28,7 @@ jobs:
         run: npm install -g @angular/cli@15
 
       - name: Build the Angular webapp
-        if: ${{endsWith(github.ref, '/develop')}}
+        if: ${{endsWith(github.ref, '/feat/kubernetes')}}
         run: ng build 
 
       - name: Build the Angular webapp for production
