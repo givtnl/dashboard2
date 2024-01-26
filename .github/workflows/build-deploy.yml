@@ -67,24 +67,14 @@ jobs:
       - uses: azure/setup-kubectl@v3
         id: install
       - name: Log in to K8S Dev
-        if: contains(github.ref, 'development')
         uses: Azure/k8s-set-context@v3
         with:
           method: kubeconfig
           kubeconfig: ${{ secrets.DEV_EU_KUBECONF }}
-      - name: Log in to K8S Prod
-        if: contains(github.ref, 'main')
-        uses: Azure/k8s-set-context@v3
-        with:
-          method: kubeconfig
-          kubeconfig: ${{ secrets.PROD_EU_KUBECONF }}  
       - name: Set hostname for kube bake
         run: |
-          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
-            echo "HOSTNAME=dashboard2.givtapp.net" >> $GITHUB_ENV
-          else
-            echo "HOSTNAME=dashboard2dev.givtapp.net" >> $GITHUB_ENV
-          fi       
+          echo "HOSTNAME=dashboard2.givtapp.net" >> $GITHUB_ENV
+   
       - uses: azure/k8s-bake@v2.2
         with:
           renderEngine: "helm"
