@@ -55,11 +55,11 @@ spec:
       priority: 10
       services:
         - kind: Service
-          name: "dashboard-two-eu"
+          name: "dashboard-two"
           namespace: default
           passHostHeader: true
           port: 80
-          serversTransport: default-hostname
+          serversTransport: "dashboard2-eu"
           responseForwarding:
             flushInterval: 1ms
           scheme: http
@@ -77,7 +77,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: "dashboard-two"
+  name: "dashboard-two-us"
   namespace: default
 
 spec:
@@ -89,11 +89,11 @@ spec:
       priority: 10
       services:
         - kind: Service
-          name: "dashboard-two-us"
+          name: "dashboard-two"
           namespace: default
           passHostHeader: true
           port: 80
-          serversTransport: default-hostname-us
+          serversTransport: "dashboard2-us"
           responseForwarding:
             flushInterval: 1ms
           scheme: http
@@ -107,13 +107,3 @@ spec:
           weight: 10
   tls:
     certResolver: letsencrypt
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: redirect-kids
-  namespace: default
-spec:
-  redirectRegex:
-    regex: (.*)givt4kids.app(.*)
-    replacement: http://givt.app/givt4kids/
