@@ -56,7 +56,6 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKER_HUB_USERNAME }}/dashboard-two:${{ endsWith(github.ref, '/main') && 'production' || 'development' }}
             ${{ secrets.DOCKER_HUB_USERNAME }}/dashboard-two:${{ github.sha }}
 
   deploy:
