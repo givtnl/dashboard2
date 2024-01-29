@@ -73,9 +73,9 @@ jobs:
       - name: Set hostname for kube bake
         run: |
           if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
-            echo "HNPREFIX=dashboard.givtapp.net" >> $GITHUB_ENV
+            echo "HNPREFIX=dashboard" >> $GITHUB_ENV
           else
-            echo "HNPREFIX=dashboarddebug.givtapp.net" >> $GITHUB_ENV
+            echo "HNPREFIX=dashboarddebug" >> $GITHUB_ENV
           fi
 
       - uses: azure/k8s-bake@v2.2
