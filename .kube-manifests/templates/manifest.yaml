@@ -51,7 +51,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: "Host(`dashboard2.givtapp.net`) && PathPrefix(`/`)"
+      match: "Host(`{{ $.Values.hostNamePrefix }}.givtapp.net`) && PathPrefix(`/`)"
       priority: 10
       services:
         - kind: Service
@@ -85,7 +85,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: "Host(`dashboard2.givt.app`) && PathPrefix(`/`)"
+      match: "Host(`{{ $.Values.hostNamePrefix }}.givt.app`) && PathPrefix(`/`)"
       priority: 10
       services:
         - kind: Service

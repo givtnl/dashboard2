@@ -72,15 +72,19 @@ jobs:
           kubeconfig: ${{ secrets.DEV_EU_KUBECONF }}
       - name: Set hostname for kube bake
         run: |
-          echo "HOSTNAME=dashboard2.givtapp.net" >> $GITHUB_ENV
-   
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            echo "HNPREFIX=dashboard.givtapp.net" >> $GITHUB_ENV
+          else
+            echo "HNPREFIX=dashboarddebug.givtapp.net" >> $GITHUB_ENV
+          fi
+
       - uses: azure/k8s-bake@v2.2
         with:
           renderEngine: "helm"
           helmChart: ".kube-manifests/"
           overrides: | 
             dockerTag:${{ github.sha }}
-            hostName:${{ env.HOSTNAME }}
+            hostNamePrefix:${{ env.HNPREFIX }}
           helm-version: "latest"
         id: bake              
       - name: Deploy to the Kubernetes cluster
