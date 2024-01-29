@@ -1,0 +1,109 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: "dashboard-two"
+  labels:
+    app: "dashboard-two"
+
+spec:
+  selector:
+    matchLabels:
+      app: "dashboard-two"
+  template:
+    metadata:
+      labels:
+        app: "dashboard-two"
+    spec:
+      containers:
+        - name: "dashboard-two"
+          image: "givt/dashboard-two:{{ $.Values.dockerTag }}"
+          ports:
+            - name: web
+              containerPort: 80
+          resources:
+            limits:
+              cpu: 1m
+            requests:
+              cpu: 1m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "dashboard-two"
+
+spec:
+  ports:
+    - name: web
+      port: 80
+      targetPort: web
+  selector:
+    app: "dashboard-two"
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: "dashboard-two"
+  namespace: default
+
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: "Host(`{{ $.Values.hostNamePrefix }}.givtapp.net`) && PathPrefix(`/`)"
+      priority: 10
+      services:
+        - kind: Service
+          name: "dashboard-two"
+          namespace: default
+          passHostHeader: true
+          port: 80
+          serversTransport: "dashboard2-eu"
+          responseForwarding:
+            flushInterval: 1ms
+          scheme: http
+          sticky:
+            cookie:
+              httpOnly: false
+              name: cookie
+              secure: false
+              sameSite: none
+          strategy: RoundRobin
+          weight: 10
+  tls:
+    certResolver: letsencrypt
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: "dashboard-two-us"
+  namespace: default
+
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: "Host(`{{ $.Values.hostNamePrefix }}.givt.app`) && PathPrefix(`/`)"
+      priority: 10
+      services:
+        - kind: Service
+          name: "dashboard-two"
+          namespace: default
+          passHostHeader: true
+          port: 80
+          serversTransport: "dashboard2-us"
+          responseForwarding:
+            flushInterval: 1ms
+          scheme: http
+          sticky:
+            cookie:
+              httpOnly: false
+              name: cookie
+              secure: false
+              sameSite: none
+          strategy: RoundRobin
+          weight: 10
+  tls:
+    certResolver: letsencrypt
