@@ -56,7 +56,7 @@ export class PreboardingAvailableStepsResolver
       // remove the functionality that emails QR codes to the
       // organisation admin for US organisations
       if (country && country.toLowerCase() == "us") {
-        stepList.splice(1, 3);
+        stepList.splice(2, 3);
       }
       return stepList;
     }
